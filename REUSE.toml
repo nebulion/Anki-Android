@@ -6,3 +6,11 @@ version = 1
 path = "**.kt"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Contributors to the AnkiDroid project"
+
+# Lato, copied from mudita/MMD (mmd-core/src/androidMain/res/font/) for the MMD fork's WebView CSS.
+# Native screens use the copy that ships inside the com.mudita:MMD AAR.
+[[annotations]]
+path = "AnkiDroid/src/main/assets/fonts/lato/lato_*.ttf"
+precedence = "override"
+SPDX-FileCopyrightText = "2010-2014 tyPoland Lukasz Dziedzic <team@latofonts.com>, with Reserved Font Name \"Lato\""
+SPDX-License-Identifier = "OFL-1.1"

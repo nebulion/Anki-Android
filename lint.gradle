@@ -18,5 +18,15 @@ android {
             disable += "WrongThread"
             disable += "ThreadConstraint"
         }
+
+        // MMD fork: `-PfastLint` for delete-and-prune loops. Only UnusedResources, main sources only.
+        // Resources referenced solely from tests can be reported; run full lint once per phase.
+        if (project.hasProperty("fastLint")) {
+            checkOnly += "UnusedResources"
+            checkTestSources = false
+            ignoreTestSources = true
+            ignoreTestFixturesSources = true
+            checkReleaseBuilds = false
+        }
     }
 }

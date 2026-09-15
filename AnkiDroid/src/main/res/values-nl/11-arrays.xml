@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">Gebruik huidige set</string>
     <string name="add_to_deck_decide_by_note_type">Beslissen per memotype</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">Volg systeem</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Dag</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Nacht</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">Licht</string>
-    <string name="day_theme_plain">Eenvoudig</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">Zwart</string>
-    <string name="night_theme_dark">Donker</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-klein</string>
-    <string name="html_size_code_x_small">x-klein</string>
-    <string name="html_size_code_small">klein</string>
-    <string name="html_size_code_medium">middelgroot</string>
-    <string name="html_size_code_large">groot</string>
-    <string name="html_size_code_x_large">x-groot</string>
-    <string name="html_size_code_xx_large">xx-groot</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Gemakkelijk antwoord</string>
     <string name="gesture_abort_learning" maxLength="41">Sluit studiescherm</string>

@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">ప్రస్తుత డెక్ ఉపయోగించండి</string>
     <string name="add_to_deck_decide_by_note_type">గమనిక రకం ద్వారా నిర్ణయిస్తారు</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">వ్యవస్థను అనుసరించండి</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Day</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Night</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">లైట్</string>
-    <string name="day_theme_plain">సాదా</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">నలుపు</string>
-    <string name="night_theme_dark">ముదురు రంగు</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-చిన్న</string>
-    <string name="html_size_code_x_small">x-చిన్న</string>
-    <string name="html_size_code_small">చిన్నది</string>
-    <string name="html_size_code_medium">మధ్యస్థ</string>
-    <string name="html_size_code_large">పెద్ద</string>
-    <string name="html_size_code_x_large">x-పెద్ద</string>
-    <string name="html_size_code_xx_large">xx-పెద్ద</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">సులభంగా సమాధానం ఇవ్వండి</string>
     <string name="gesture_abort_learning" maxLength="41">Close study screen</string>

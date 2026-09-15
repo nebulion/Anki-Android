@@ -41,7 +41,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">סנכרון</string>
     <string name="pref_cat_scheduling" maxLength="41">תיזמון</string>
     <string name="pref_cat_whiteboard" maxLength="41">לוח</string>
-    <string name="pref_cat_themes" maxLength="41">ערכות עיצוב</string>
     <string name="pref_cat_gestures" maxLength="41">מחוות</string>
     <string name="pref_cat_controls" maxLength="41">פקדים</string>
     <string name="pref_cat_advanced" maxLength="41">מתקדם</string>
@@ -58,7 +57,6 @@
     <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">עובי הקו</string>
     <string name="use_input_tag" maxLength="41">הקלד את התשובה אל הכרטיס</string>
     <string name="use_input_tag_summ">להשתמש בתיבת הטקסט שבתוך הקלף כדי להקליד בה את התשובה</string>
     <string name="reset_languages" maxLength="41">איפוס שפות</string>
@@ -69,24 +67,11 @@
     <string name="image_zoom" maxLength="41">זום תמונה</string>
     <string name="button_size" maxLength="41">גודל כפתורי התשובה</string>
     <string name="card_browser_font_size" maxLength="41">קנה מידה להגדלת גופן הקלפים</string>
-    <string name="card_browser_hide_media" maxLength="41">הצגת שמות הקבצים בדפדפן הכרטיסים</string>
-    <string name="card_browser_hide_media_summary">הצגת שמות קבצי שמע בשדות השאלות/תשובות של דפדפן הכרטיסים</string>
     <string name="col_path" maxLength="41">ספריית AnkiDroid</string>
-    <string name="fullscreen_review" maxLength="41">מצב מסך מלא</string>
-    <string name="full_screen_off">כבוי</string>
-    <string name="full_screen_system">הסתרת שורות המערכת</string>
-    <string name="full_screen_complete">הסתרת שורות המערכת וכפתורי התשובה</string>
-    <string name="answer_buttons_position" maxLength="41">מיקום כפתור המענה</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>למעלה</item>
-        <item>למטה</item>
-        <item>כלום</item>
-    </string-array>
     <string name="gestures" maxLength="41">הפעלת מחוות</string>
     <string name="gestures_summ">שיוך מחוות לפעולות כגון מענה ועריכת קלפים.</string>
     <string name="gestures_corner_touch" maxLength="41">מגע 9 נקודות</string>
     <string name="gestures_corner_touch_summary">אפשר מחוות מגע בפינות המסך</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">הצגת קיצורי-מקלדת</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">מגירת היישומים במסך מלא</string>
     <string name="gestures_fullscreen_nav_drawer_summary">פתח את מגירת הניווט בעת החלקה ימינה מכל מקום על המסך</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">ללא</string>
@@ -108,13 +93,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">הקשה בשלוש אצבעות</string>
     <string name="gestures_four_finger_tap" maxLength="41">הקשה בארבע אצבעות</string>
     <string name="gestures_shake" maxLength="41">נער את המכשיר</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">תפריט %s</string>
-    <string name="card_browser_enable_external_context_menu_summary">מאפשר את תפריט ההקשר \'%s\' גלובלית במערכת</string>
     <string name="double_scrolling_gap" maxLength="41">גלילה כפולה</string>
     <string name="double_scrolling_gap_summ">הכפל את פער הגלילה עם eReader</string>
     <string name="swipe_sensitivity" maxLength="41">רגישות להחלקת האצבע</string>
-    <string name="tts" maxLength="41">סינתוז דיבור</string>
-    <string name="tts_summ">מקריא את השאלה ואת התשובה אם אין קובץ קול</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">הורדת קבצי מדיה בסנכרון</string>
     <string name="sync_account_summ_logged_out">לא התחברת לחשבון</string>
@@ -130,9 +111,6 @@
     <string name="metered_sync_summary">אם מושבת, תקבל אזהרה אם תנסה לסנכרן בחיבור בנדידה</string>
     <string name="backup_limits_frequency">תדירות</string>
     <string name="backup_limits_lifetime">אורך חיים</string>
-    <string name="app_theme" maxLength="41">ערכת נושא</string>
-    <string name="day_theme" maxLength="41">ערכת יום</string>
-    <string name="night_theme" maxLength="41">ערכת לילה</string>
     <string name="language" maxLength="41">שפה</string>
     <string name="language_system">שפת מערכת</string>
     <string name="notification_pref" maxLength="41">התראות</string>
@@ -142,28 +120,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">תאריך היעד של יותר מ-%d כרטיסים עבר</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">רטט</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">אור מהבהב</string>
-    <string name="select_locale_title">בחר שפה</string>
     <string name="software_render" maxLength="41">השבת את עיבוד החומרה של הכרטיס</string>
     <string name="software_render_summ">עיבוד החומרה מהיר יותר אך עשוי ליצור בעיות, במיוחד באנדרואיד 8/8.1. אם אינך יכול לראות חלקים מממשק המשתמש של סקירת הכרטיסים, נסה את ההגדרה הזו.</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">מירכוז</string>
-    <string name="vertical_centering_summ">מרכז את תוכן הכרטיסים בצורה אנכית</string>
     <string name="pref_double_tap_time_interval" maxLength="41">מרווח זמן של לחיצה כפולה</string>
     <string name="pref_double_tap_time_interval_summary">לחיצה שנייה על כפתורי התשובה תתעלם אם הזמן הזה לא חלף. זה מונע הקשה כפולה בשוגג</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">הצג תשובה בלחיצה ארוכה</string>
     <string name="pref_show_answer_long_press_time_summary">משך לחיצה מינימלי לפני שכפתור הצג תשובה מגיב למגע</string>
-    <string name="show_estimates" maxLength="41">הצג כפתורי זמן</string>
-    <string name="show_estimates_summ">הצג את זמן הסקירה הבאה על כפתורי התשובה</string>
     <string name="show_large_answer_buttons" maxLength="41">לחצני תשובה גדולים</string>
     <string name="show_large_answer_buttons_summ">הצג כפתורי תשובה בשתי שורות</string>
-    <string name="show_top_bar" maxLength="41">הצג סרגל עליון</string>
-    <string name="show_top_bar_summary">הצג ספירת כרטיסים, טיימר תשובה, דגל וסימון בסרגל העליון</string>
-    <string name="show_progress" maxLength="41">הצג נותרים</string>
-    <string name="show_progress_summ">הצג את מספר הכרטיסים שנותרו</string>
-    <string name="show_eta" maxLength="41">הצג הערכת זמן לסיום</string>
-    <string name="show_eta_summ">הצג זמן שנותר</string>
     <string name="use_current" maxLength="41">חפיסה לכרטיסים חדשים</string>
     <string name="learn_cutoff" maxLength="41">לימוד מעבר למכסה</string>
     <string name="time_limit" maxLength="41">מגבלת זמן בתיבת-זמן</string>
@@ -177,13 +144,9 @@
     <string name="pref_keep_screen_on_summ">השבת כיבוי מסך</string>
     <string name="enable_api_title" maxLength="41">הפעלת ה־API של AnkiDroid</string>
     <string name="enable_api_summary">אפשר לאפליקציות אחרות להתחבר ל-AnkiDroid ולקרוא / לכתוב נתונים ללא התערבותך</string>
-    <string name="custom_buttons" maxLength="41">כפתורי סרגל האפליקציה</string>
-    <string name="custom_buttons_summary">התאם אישית אילו פעולות יופיעו בסרגל האפליקציות</string>
     <string name="custom_buttons_setting_always_show">תמיד להציג</string>
-    <string name="custom_buttons_setting_if_room">הצג אם יש מקום</string>
     <string name="custom_buttons_setting_menu_only">תפריט בלבד</string>
     <string name="reset_custom_buttons" maxLength="41">איפוס לבררת מחדל</string>
-    <string name="reset_settings_to_default">איפוס הגדרות לברירת המחדל</string>
     <string name="reset">איפוס</string>
     <string name="thirdparty_apps_title" maxLength="41">יישומי צד שלישי</string>
     <string name="thirdparty_apps_summary">ראה רשימת יישומים המשתמשים ב- API של AnkiDroid כגון מילונים, כלי עזר.</string>
@@ -191,8 +154,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">תצוגה מקדימה</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">החלף את הצד האחורי בלבד</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">מסך לימוד</string>
-    <string name="show_deck_title" maxLength="41">הצג את כותרת החפיסה</string>
     <string name="accessibility" maxLength="41">נגישות</string>
     <string name="exit_via_double_tap_back" maxLength="41">לחץ אחורה פעמיים כדי לחזור אחורה/יציאה</string>
     <string name="exit_via_double_tap_back_summ">כדי להימנע מעזיבת מסך הלימוד או האפליקציה בטעות</string>
@@ -225,7 +186,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">בחר תגיות</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">כללי</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">חיפוש</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">החלפת שורות חדשות ב־HTML</string>
@@ -233,7 +193,6 @@
     <string name="type_in_answer_focus" maxLength="41">התמקד ב\'הקלד תשובה\'</string>
     <string name="type_in_answer_focus_summ">מיקוד אוטומטי של שדה \'הקלד תשובה\' במסך הלימוד</string>
     <!-- About -->
-    <string name="open_changelog">פתח את יומן רישום השינויים</string>
     <string name="pref_cat_about_title" maxLength="41">אודות</string>
     <string name="contributors_title">תורמים</string>
     <string name="about_contributors_description"><![CDATA[אלו הם ה<a href=\"%1$s\">תורמים</a> המדהימים שלנו. אתה יכול לעזור גם ל-AnkiDroid על ידי תכנות, תרגום, תרומה ו<a href=\"%2$s\">עוד</a>!]]></string>
@@ -261,8 +220,6 @@
     <string name="toggle_auto_advance" maxLength="28">החלף מצב התקדמות אוטומטית</string>
     <string name="enable_auto_advance" maxLength="28">Enable auto advance</string>
     <string name="disable_auto_advance" maxLength="28">Disable auto advance</string>
-    <string name="enable_voice_recording" maxLength="28">Enable voice recording</string>
-    <string name="disable_voice_recording" maxLength="28">Disable voice recording</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">בחר צד כרטיס</string>
     <string name="card_side_question">שאלה</string>
@@ -275,17 +232,10 @@
     <string name="bindings_already_bound">כבר קשור ל\'%s\'</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">ניסיוני</string>
-    <string name="readtext_deprecation_warn">AnkiDroid הציגה מנגנון TTS טוב יותר התואם עם לקוחות אחרים של Anki וכולל יותר קולות ושיפורים להפעלת שפה!\n\nנא לשדרג בהקדם האפשרי, שכן הגדרה זו תוסר בקרוב</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">שדרג לפורמט החדש של טקסט לדיבור</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">Allow templates to record audio</string>
-    <string name="template_is_trying_to_record_audio">This template is trying to record audio</string>
     <string name="pref_fixed_port_title" maxLength="41">מסך אחסון מקומי בלימוד</string>
     <string name="pref_fixed_port_summary">מפעיל אחסון מקומי של JavaScript באמצעות יציאת שרת קבועה במסך הלימוד</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">אפשרויות מפתח</string>
-    <string name="dev_options_enabled_pref" maxLength="41">הפעלת מצב מפתח</string>
-    <string name="disable_dev_options">השבת את מצב המפתח</string>
-    <string name="dev_options_warning">אנא ודא לפני הפעלת מצב מפתח. אפשרויות אלה מסוכנות ועלולות להשבית את האפליקציה או להשחית את האוסף שלך.\n\nשים לב שהאפשרויות הללו אינן מתאימות לרוב המשתמשים ולכן אינן מתורגמות, ולכן הן באנגלית.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -306,39 +256,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">נהל שטח אחסון</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">שגיאה</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">מח\nשב&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="one">קובץ %1$d\n%2$s</item>
-        <item quantity="two">%1$d קבצים\n%2$s</item>
-        <item quantity="other">%1$d קבצים\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">מחק קבצי מדיה שאינם בשימוש</string>
-    <string name="pref__delete_unused_media_files__summary">מחק תמונות ומדיה אחרת שאין להן קידומת _ ואין להן התייחסות באמצעות רשומות</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">מחק קבצי מדיה שאינם בשימוש</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">מחק גיבויים</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">מחק גיבויים</string>
-    <string name="progress__deleting_backups">הגיבויים נמחקים&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">מחק אוסף</string>
-    <string name="pref__delete_collection__summary">מחק אוסף, מדיה וגיבויים. הגדרות האפליקציה לא נמחקות</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">מחק אוסף</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">האם אתה בטוח שברצונך למחוק את האוסף, המדיה והגיבויים שלך?\n\nהערה: פעולה זו תסגור את החלון.</string>
-    <string name="progress__deleting_collection">מוחק אוסף&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">מחק הכל</string>
-    <string name="pref__delete_everything__summary">מחק אוסף, מדיה, גיבויים והגדרות</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">מחק הכל</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">האם אתה בטוח שברצונך למחוק את כל הנתונים? זה כולל את האוסף, המדיה, הגיבויים וההעדפות שלך.\n\nהערה: פעולה זו תסגור את החלון.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">מחיקת נתוני אפליקציה</string>
-    <string name="pref__delete_app_data__summary">מחק הגדרות ונתוני אפליקציה אחרים</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">מחק נתוני אפליקציה</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">האם אתה בטוח שברצונך למחוק את נתוני האפליקציה? זה כולל הגדרות ונתוני אפליקציה אחרים.\n\nהערה: פעולה זו תסגור את החלון.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -346,7 +269,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">אין אוספים</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">שגיאה</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">מייבא&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">מחשב&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">האוסף אינו קיים.</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">הסתרת שורות המערכת</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">ללא</string>

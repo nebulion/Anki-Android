@@ -40,7 +40,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Sinxronizatsiya</string>
     <string name="pref_cat_scheduling" maxLength="41">Rejalashtirish</string>
     <string name="pref_cat_whiteboard" maxLength="41">Yozuv taxtasi</string>
-    <string name="pref_cat_themes" maxLength="41">Temalar</string>
     <string name="pref_cat_gestures" maxLength="41">Qoʻl ishoralari</string>
     <string name="pref_cat_controls" maxLength="41">Boshqaruvlar</string>
     <string name="pref_cat_advanced" maxLength="41">Kengaytirilgan</string>
@@ -57,7 +56,6 @@
     <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">Chiziq kengligi</string>
     <string name="use_input_tag" maxLength="41">Kartaga javobni kiritish</string>
     <string name="use_input_tag_summ">Javobni kiritish uchun karta ichidagi matn kiritish maydonidan foydalanish</string>
     <string name="reset_languages" maxLength="41">Tillarni qayta tiklash</string>
@@ -68,24 +66,11 @@
     <string name="image_zoom" maxLength="41">Rasm masshtabi</string>
     <string name="button_size" maxLength="41">Javob tugmasini oʻlchami</string>
     <string name="card_browser_font_size" maxLength="41">Karta brauzeri shrift masshtabi</string>
-    <string name="card_browser_hide_media" maxLength="41">Karta brauzerda fayl nomlarini koʻrsatish</string>
-    <string name="card_browser_hide_media_summary">Audio fayl nomlarini karta brauzeri savol/javob maydonlarida ko\'rsatish</string>
     <string name="col_path" maxLength="41">AnkiDroid katalogi</string>
-    <string name="fullscreen_review" maxLength="41">Butun ekran rejimi</string>
-    <string name="full_screen_off">Oʻchiq</string>
-    <string name="full_screen_system">Tizim panellarini yashirish</string>
-    <string name="full_screen_complete">Tizim panellarini va javob tugmalarini yashirish</string>
-    <string name="answer_buttons_position" maxLength="41">Javob tugmalari joylashuvi</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>Yuqorida</item>
-        <item>Pastda</item>
-        <item>Hech qaysi</item>
-    </string-array>
     <string name="gestures" maxLength="41">Qoʻl ishoralarini yoqish</string>
     <string name="gestures_summ">Javob berish va kartalarni tahrirlash kabi amallarga qoʻl ishoralarni belgilang.</string>
     <string name="gestures_corner_touch" maxLength="41">9 bosish nuqtalari</string>
     <string name="gestures_corner_touch_summary">Ekran burchaklarida bosish ishoralariga ruxsat berish</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">Klaviatura yorliqlarini koʻrsatish</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">Butun ekran navigatsiya tortmasi</string>
     <string name="gestures_fullscreen_nav_drawer_summary">Ekranning istalgan joyidan oʻngga surilganda navigatsiya tortmasini ochish</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Hech qaysi</string>
@@ -107,13 +92,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">Uch barmoq bilan bosish</string>
     <string name="gestures_four_finger_tap" maxLength="41">Toʻrt barmoq bilan bosish</string>
     <string name="gestures_shake" maxLength="41">Qurilmani silkitish</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">‘%s’ menyusi</string>
-    <string name="card_browser_enable_external_context_menu_summary">“%s” kontekst menyusini ilova miqyosda yoqadi</string>
     <string name="double_scrolling_gap" maxLength="41">Tez aylantirish</string>
     <string name="double_scrolling_gap_summ">Agar siz eReader bilan aylanma masofani ikki baravar oshirishni istasangiz, buni yoqing</string>
     <string name="swipe_sensitivity" maxLength="41">Surish sezgirligi</string>
-    <string name="tts" maxLength="41">Nutq sintezatori</string>
-    <string name="tts_summ">Agar ovoz fayli kiritilmagan boʻlsa, savol va javobni oʻqib beradi</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Media fayllarni sinxronlashda olib kelish</string>
     <string name="sync_account_summ_logged_out">Tizimga kirilmagan</string>
@@ -128,9 +109,6 @@
     <string name="metered_sync_summary">Agar oʻchirilgan boʻlsa, tarifli ulanishda sinxronlashga harakat qilsangiz, siz ogohlantirilasiz</string>
     <string name="backup_limits_frequency">Chastota</string>
     <string name="backup_limits_lifetime">Saqlash davri</string>
-    <string name="app_theme" maxLength="41">Tema</string>
-    <string name="day_theme" maxLength="41">Kunduzgi tema</string>
-    <string name="night_theme" maxLength="41">Tungi tema</string>
     <string name="language" maxLength="41">Til</string>
     <string name="language_system">Tizim tili</string>
     <string name="notification_pref" maxLength="41">Bildirishnomalar</string>
@@ -140,28 +118,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">%d tadan ortiq kartani muddati kelsa</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">Tebranish</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">Chiroqni miltillatish</string>
-    <string name="select_locale_title">Tilni tanlash</string>
     <string name="software_render" maxLength="41">Qurilma renderini oʻchirish</string>
     <string name="software_render_summ">Qurilma renderi tezroq, lekin muammolarga duch kelishi mumkin, xususan, Android 8/8.1ʼda. Agar siz kartani takrorlash foydalanuvchi interfeysi qismlarini koʻrmasangiz, ushbu sozlamani sinab koʻring.</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">Markazga tenglashtirish</string>
-    <string name="vertical_centering_summ">Kartalar tarkibini vertikal ravishda markazga tekislash</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Ikki marta bosish intervali</string>
     <string name="pref_double_tap_time_interval_summary">Agar bu vaqt oʻtmagan boʻlsa, javob tugmasini ikkinchi marta bosish eʼtiborga olinmaydi. Bu tasodifiy ikki marta bosishni oldini oladi</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">Javob koʻrsatish uchun uzoq bosish vaqti</string>
     <string name="pref_show_answer_long_press_time_summary">Javobni koʻrsatish tugmasi bosishni aniqlaguncha bosishning minimal vaqti</string>
-    <string name="show_estimates" maxLength="41">Tugmada vaqtni koʻrsatish</string>
-    <string name="show_estimates_summ">Javob tugmalarida keyingi takrorlash vaqtini koʻrsatish</string>
     <string name="show_large_answer_buttons" maxLength="41">Katta javob tugmalarini koʻrsatish</string>
     <string name="show_large_answer_buttons_summ">Javob tugmalarini 2 qatorda koʻrsatish</string>
-    <string name="show_top_bar" maxLength="41">Yuqorigi panelni koʻrsatish</string>
-    <string name="show_top_bar_summary">Kartalar soni, javob vaqti, bayroq va belgini yuqorigi panelda koʻrsatish</string>
-    <string name="show_progress" maxLength="41">Qancha qolganini koʻrsatish</string>
-    <string name="show_progress_summ">Qolgan kartalar sonini koʻrsatish</string>
-    <string name="show_eta" maxLength="41">Qolgan vaqtni koʻrsatish</string>
-    <string name="show_eta_summ">Qolgan vaqtni koʻrsatish</string>
     <string name="use_current" maxLength="41">Yangi kartalar uchun dasta</string>
     <string name="learn_cutoff" maxLength="41">Oldindan oʻrganish chegarasi</string>
     <string name="time_limit" maxLength="41">Vaqt chegarasi</string>
@@ -174,13 +141,9 @@
     <string name="pref_keep_screen_on_summ">Ekran taym-autini oʻchirish</string>
     <string name="enable_api_title" maxLength="41">AnkiDroid APIʼni yoqish</string>
     <string name="enable_api_summary">Boshqa ilovalarga AnkiDroidʼga ulanishib sizning aralashuvingizsiz maʼlumotlarni oʻqish/yozishga ruxsat berish</string>
-    <string name="custom_buttons" maxLength="41">Ilova paneli tugmalari</string>
-    <string name="custom_buttons_summary">Ilova panelida qaysi amallar koʻrsatilishini moslashtiring</string>
     <string name="custom_buttons_setting_always_show">Har doim koʻrsatiladi</string>
-    <string name="custom_buttons_setting_if_room">Joy boʻlsa koʻrsatiladi</string>
     <string name="custom_buttons_setting_menu_only">Faqat menyuda</string>
     <string name="reset_custom_buttons" maxLength="41">Birlamchiga qaytarish</string>
-    <string name="reset_settings_to_default">Sozlamalarni birlamchiga qaytarish</string>
     <string name="reset">Qayta tiklash</string>
     <string name="thirdparty_apps_title" maxLength="41">Uchinchi tomon API ilovalari</string>
     <string name="thirdparty_apps_summary">Lugʻatlar, yordamchi dasturlar kabi AnkiDroid APIʼdan foydalanadigan ilovalar roʻyxatini koʻrish.</string>
@@ -188,8 +151,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Oldindan koʻrish</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Faqat orqa tarafini koʻrsatish</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">Oʻrganish ekrani</string>
-    <string name="show_deck_title" maxLength="41">Dasta sarlavhasini koʻrsatish</string>
     <string name="accessibility" maxLength="41">Maxsus imkoniyatlar</string>
     <string name="exit_via_double_tap_back" maxLength="41">Orqaga qaytish/chiqish uchun \"Orqaga\" tugmasini ikki marta bosish</string>
     <string name="exit_via_double_tap_back_summ">Oʻrganish ekranini yoki ilovani tasodifan tark etmaslik uchun</string>
@@ -223,7 +184,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Teglarni tanlash</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">Umumiy</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Qidirish</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Yangi qatorlarni HTML bilan almashtirish</string>
@@ -231,7 +191,6 @@
     <string name="type_in_answer_focus" maxLength="41">‘Javobni kiritish’ maydoniga oʻtish</string>
     <string name="type_in_answer_focus_summ">Oʻrganish ekranida ‘javobni kiritish’ maydoniga avtomatik tarzda oʻtish</string>
     <!-- About -->
-    <string name="open_changelog">Oʻzgarishlar roʻyxatini ochish</string>
     <string name="pref_cat_about_title" maxLength="41">AnkiDroid haqida</string>
     <string name="contributors_title">Hissa qoʻshganlar</string>
     <string name="about_contributors_description"><![CDATA[Bular bizning ajoyib <a href=\"%1$s\">hissa qoʻshuvchilarimiz</a>. Siz ham dasturlash, tarjima qilish, xayriya qilish va <a href=\"%2$s\">boshqa yoʻllar</a> orqali AnkiDroidʼga yordam berishingiz mumkin!]]></string>
@@ -259,8 +218,6 @@
     <string name="toggle_auto_advance" maxLength="28">Avtomatik ilgarilashni yoqish/oʻchirish</string>
     <string name="enable_auto_advance" maxLength="28">Avto‑ilgarilashni yoqish</string>
     <string name="disable_auto_advance" maxLength="28">Avto‑ilgarilashni oʻchirish</string>
-    <string name="enable_voice_recording" maxLength="28">Enable voice recording</string>
-    <string name="disable_voice_recording" maxLength="28">Disable voice recording</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">Karta tarafini tanlash</string>
     <string name="card_side_question">Savol</string>
@@ -273,17 +230,10 @@
     <string name="bindings_already_bound">Allaqachon ‘%s’ga bogʻlangan</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Tajribaviy</string>
-    <string name="readtext_deprecation_warn">AnkiDroid boshqa Anki mijozlari bilan mos tushadigan va koʻproq ovozlar va tilni ijro etish uchun takomillashtirishlarni oʻz ichiga olgan yaxshiroq nutq sintezatori mexanizmini taqdim etdi!\n\nImkon qadar tezroq yangilang, chunki bu sozlama tez orada oʻchiriladi.</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Iltimos, yangi nutq sintezatori formatiga yangilang</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">Allow templates to record audio</string>
-    <string name="template_is_trying_to_record_audio">This template is trying to record audio</string>
     <string name="pref_fixed_port_title" maxLength="41">Oʻrganish ekranida localStorage</string>
     <string name="pref_fixed_port_summary">Oʻrganish ekranida belgilangan server portidan foydalangan JavaScript localStorage funksiyasini yoqadi</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">Dasturchi parametrlari</string>
-    <string name="dev_options_enabled_pref" maxLength="41">Dasturchi parametrlarini yoqish</string>
-    <string name="disable_dev_options">Dasturchi parametrlarini oʻchirish</string>
-    <string name="dev_options_warning">Iltimos, dasturchi parametrlarini yoqishdan oldin ishonch hosil qiling. Bu parametrlar xavfli boʻlib, ilovani yoki kolleksiyangizni buzishi mumkin.\n\nEsda tutingki, bu parametrlar koʻpchilik foydalanuvchilar uchun moʻljallanmagan va shuning uchun tarjima qilinmaydi, shuning uchun ular ingliz tilida.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -302,38 +252,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">Xotirani boshqarish</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">Xatolik</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">Hisob-\nlanmoqda&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="one">%1$d ta fayl\n%2$s</item>
-        <item quantity="other">%1$d ta fayl\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">Ishlatilmagan media fayllarni oʻchirish</string>
-    <string name="pref__delete_unused_media_files__summary">_ bilan boshlanmagan va hech qanday qaydga havola qilinmagan rasmlar va boshqa media fayllarni oʻchirish</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">Ishlatilmagan media fayllarni oʻchirish</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">Zaxiralarni oʻchirish</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">Zaxiralarni oʻchirish</string>
-    <string name="progress__deleting_backups">Zaxiralar oʻchirilmoqda&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">Kolleksiyani oʻchirish</string>
-    <string name="pref__delete_collection__summary">Kolleksiya, media fayllar va zaxiralarni oʻchirish. Ilova sozlamalari oʻchirilmaydi.</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">Kolleksiya oʻchirish</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Kolleksiyangiz, media fayllaringiz va zaxiralaringizni rostdan ham oʻchirmoqchimisiz?\n\nQayd: bu amal oynani yopadi.</string>
-    <string name="progress__deleting_collection">Kolleksiya oʻchirilmoqda</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">Barchasini oʻchirish</string>
-    <string name="pref__delete_everything__summary">Kolleksiya, media fayllar zaxiralar va sozlamalarni oʻchirish</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">Barchasini oʻchirish</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Rostdan ham barcha maʼlumotlarni oʻchirmoqchimisiz? Bunga kolleksiyangiz, media fayllaringiz, zaxiralaringiz va sozlamalaringiz ham kiradi.\n\nQayd: bu amal oynani yopadi.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">Ilova maʼlumotlarini oʻchirish</string>
-    <string name="pref__delete_app_data__summary">Sozlamalar va boshqa ilova maʼlumotlarini oʻchirish</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">Ilova maʼlumotlarini oʻchirish</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Rostdan ham ilova maʼlumotlarini oʻchirib tashlamoqchimisiz? Sozlamalar va boshqa ilova maʼlumotlari oʻchiriladi.\n\nEslatma: bu amal oynani yopadi.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -341,7 +265,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Kolleksiya mavjud emas</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Xatolik yuz berdi</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Maʼlumotlar olinmoqda&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">Hisoblanmoqda&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Kolleksiya mavjud emas</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">Tizim panellarini yashirish</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">Hech qaysi</string>

@@ -92,8 +92,6 @@ class DeckPickerContextMenuTest : JvmTest() {
     fun `Shows standard options`() {
         launch(withArguments()).onFragment { fragment ->
             with(fragment.requireContext()) {
-                fragment.assertOptionPresent(R.string.menu_add)
-                fragment.assertOptionPresent(R.string.browse_cards)
                 fragment.assertOptionPresent(TR.sentenceCase.renameDeck)
                 fragment.assertOptionPresent(TR.sentenceCase.deckOptions)
                 fragment.assertOptionPresent(R.string.export_deck)

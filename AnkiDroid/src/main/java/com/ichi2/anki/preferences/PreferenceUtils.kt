@@ -53,8 +53,8 @@ inline fun <reified T : Preference> PreferenceFragmentCompat.requirePreference(k
 /**
  * Obtains a non-null reference to the preference whose
  * key is defined with given [resId] or throws
- * e.g. `requirePreference(R.string.day_theme_key)` returns
- * the preference whose key is `@string/day_theme_key`
+ * e.g. `requirePreference(R.string.gestures_preference)` returns
+ * the preference whose key is `@string/gestures_preference`
  * The resource IDs with preferences keys can be found on `res/values/preferences.xml`
  */
 inline fun <reified T : Preference> PreferenceFragmentCompat.requirePreference(

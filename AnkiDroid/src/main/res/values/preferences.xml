@@ -36,72 +36,20 @@
     <!-- Editing -->
     <string name="paste_png_key">pastePNG</string>
     <!-- Switch Profile -->
-    <string name="pref_switch_profile_screen_key">switchProfileScreen</string>
-    <string name="pref_enable_switch_profile_key">enableSwitchProfile</string>
     <!-- Appearance -->
-    <string name="pref_appearance_screen_key">appearance_preference_group</string>
-    <string name="app_theme_key">appTheme</string>
-    <string name="day_theme_key">dayTheme</string>
-    <string name="night_theme_key">nightTheme</string>
     <string name="pref_deck_picker_background_key">deckPickerBackground</string>
-    <string name="pref_remove_wallpaper_key">removeWallPaper</string>
-    <string name="study_screen_category_key">studyScreenAppearance</string>
-    <string name="custom_buttons_link_preference">custom_buttons_link</string>
-    <string name="fullscreen_mode_preference">fullscreenMode</string>
-    <string name="center_vertically_preference">centerVertically</string>
     <string name="show_estimates_preference">showEstimates</string>
-    <string name="pref_display_filenames_in_browser_key">card_browser_show_media_filenames</string>
-    <string name="show_topbar_preference">showTopbar</string>
     <string name="show_progress_preference">showProgress</string>
-    <string name="show_eta_preference">showETA</string>
     <string name="show_audio_play_buttons_key">showAudioPlayButtons</string>
     <string name="pref_card_browser_font_scale_key">relativeCardBrowserFontSize</string>
-    <string name="show_deck_title_key">showDeckTitle</string>
     <string name="show_answer_feedback_key">showAnswerFeedback</string>
     <string name="pref_review_category_key">reviewCategory</string>
     <!-- App bar buttons -->
-    <string name="pref_app_bar_buttons_screen_key">appBarButtonsScreen</string>
-    <string name="reset_custom_buttons_key">reset_custom_buttons</string>
-    <string name="custom_button_undo_key">customButtonUndo</string>
-    <string name="custom_button_redo_key">customButtonRedo</string>
-    <string name="custom_button_schedule_card_key">customButtonScheduleCard</string>
-    <string name="custom_button_flag_key">customButtonFlag</string>
-    <string name="custom_button_edit_card_key">customButtonEditCard</string>
-    <string name="custom_button_tags_key">customButtonTags</string>
-    <string name="custom_button_add_card_key">customButtonAddCard</string>
-    <string name="custom_button_replay_key">customButtonReplay</string>
-    <string name="custom_button_card_info_key">customButtonCardInfo</string>
-    <string name="custom_button_previous_card_info_key">customButtonPreviousCardInfo</string>
-    <string name="custom_button_select_tts_key">customButtonSelectTts</string>
-    <string name="custom_button_deck_options_key">customButtonDeckOptions</string>
-    <string name="custom_button_mark_card_key">customButtonMarkCard</string>
-    <string name="custom_button_toggle_mic_toolbar_key">customButtonToggleMicToolBar</string>
-    <string name="custom_button_bury_key">customButtonBury</string>
-    <string name="custom_button_suspend_key">customButtonSuspend</string>
-    <string name="custom_button_delete_key">customButtonDelete</string>
-    <string name="custom_button_enable_whiteboard_key">customButtonEnableWhiteboard</string>
-    <string name="custom_button_toggle_eraser_key">customButtonToggleEraser</string>
-    <string name="custom_button_toggle_stylus_key">customButtonToggleStylus</string>
-    <string name="custom_button_save_whiteboard_key">customButtonSaveWhiteboard</string>
-    <string name="custom_button_whiteboard_pen_color_key">customButtonWhiteboardPenColor</string>
-    <string name="custom_button_show_hide_whiteboard_key">customButtonShowHideWhiteboard</string>
-    <string name="custom_button_clear_whiteboard_key">customButtonClearWhiteboard</string>
-    <string name="custom_button_toggle_auto_advance">customButtonToggleAutoAdvance</string>
-    <string name="custom_button_user_action_1_key">customButtonUserAction1</string>
-    <string name="custom_button_user_action_2_key">customButtonUserAction2</string>
-    <string name="custom_button_user_action_3_key">customButtonUserAction3</string>
-    <string name="custom_button_user_action_4_key">customButtonUserAction4</string>
-    <string name="custom_button_user_action_5_key">customButtonUserAction5</string>
-    <string name="custom_button_user_action_6_key">customButtonUserAction6</string>
-    <string name="custom_button_user_action_7_key">customButtonUserAction7</string>
-    <string name="custom_button_user_action_8_key">customButtonUserAction8</string>
-    <string name="custom_button_user_action_9_key">customButtonUserAction9</string>
     <!-- Controls -->
     <string name="pref_controls_screen_key">controlsScreen</string>
     <string name="gestures_preference">gestures</string>
     <string name="gestures_corner_touch_preference">gestureCornerTouch</string>
     <string name="nav_drawer_gesture_key">gestureFullScreenNavigationDrawer</string>
-    <string name="pref_keyboard_shortcuts_key">showKeyboardShortcuts</string>
     <string name="pref_swipe_sensitivity_key">swipeSensitivity</string>
     <string name="pref_controls_tab_layout_key">controlsTabLayout</string>
     <string name="show_answer_command_key">binding_SHOW_ANSWER</string>
@@ -208,8 +156,6 @@
     <string name="double_scrolling_gap_key">double_scrolling</string>
     <string name="pref_allow_dangerous_js_api">allow_dangerous_js_api</string>
     <string name="html_javascript_debugging_key">html_javascript_debugging</string>
-    <string name="card_browser_external_context_menu_key">card_browser_enable_external_context_menu</string>
-    <string name="anki_card_external_context_menu_key">anki_card_enable_external_context_menu</string>
     <string name="pref_reset_languages_key">resetLanguages</string>
     <!-- Notification preferences -->
     <string name="pref_notifications_screen_key">notificationsScreen</string>
@@ -226,32 +172,16 @@
     <string name="notifications_permission_requested_key">notificationsPermissionRequested</string>
     <string name="record_audio_permission_requested_key">recordAudioPermissionRequested</string>
     <!-- Developer options -->
-    <string name="pref_developer_options_screen_key">devOptionsKey</string>
-    <string name="pref_trigger_crash_key">trigger_crash_preference</string>
-    <string name="pref_set_database_path_debug_key">debug_set_database_path</string>
-    <string name="pref_lock_database_key">debug_lock_database</string>
-    <string name="pref_corrupt_fsrs_params">debug_corrupt_fsrs_params</string>
-    <string name="new_congrats_screen_pref_key">new_congrats_screen</string>
     <string name="new_reviewer_options_key">newReviewerOptions</string>
     <string name="pref_new_review_reminders">newReviewReminders</string>
-    <string name="developer_options_enabled_by_user_key">devOptionsEnabledByUser</string>
-    <string name="pref_cat_wip_key">workInProgressDevOptions</string>
     <string name="reviewer_port_pref_key">reviewerPort</string>
     <string name="use_fixed_port_pref_key">useFixedPort</string>
-    <string name="pref_allow_template_audio_recording">allowTemplateAudioRecording</string>
     <string name="dev_card_browser_fragmented">cardBrowserFragmented</string>
     <string name="dev_card_browser_search_view">cardBrowserSearchView</string>
     <string name="dev_bottom_nav_key">devBottomNav</string>
-    <string name="dev_open_tts_voices">openTtsVoices</string>
     <!-- Developer options > Create fake notes -->
-    <string name="pref_fill_default_deck_number_key">FillDefaultNumberDeck</string>
-    <string name="pref_fill_default_deck_key">FillDefaultDeck</string>
     <!-- Developer options > Create fake media -->
-    <string name="pref_fill_collection_key">fillCollection</string>
-    <string name="pref_fill_collection_number_file_key">fillCollectionNumberFile</string>
-    <string name="pref_fill_collection_size_file_key">fillCollectionSizeFile</string>
     <!-- Messages displayed after the user enabled developer options, and warned remaining messages will be in English -->
-    <string name="dev_options_enabled_msg">Enabled developer options</string>
     <!-- About -->
     <string name="about_screen_key">aboutScreen</string>
 

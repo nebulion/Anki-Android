@@ -27,7 +27,6 @@
     <string name="sync_error">Erreur de synchronisation</string>
     <string name="vague_error" comment="Network error dialog title">Erreur</string>
     <string name="retry">Réessayer</string>
-    <string name="menu_get_shared_decks">Télécharger des paquets partagés</string>
     <string name="connection_error_message">Une erreur réseau s\'est produite.</string>
     <string name="not_logged_in_title">Se connecter à AnkiWeb</string>
     <string name="login_create_account_message">Vous devez vous connecter à un service tiers pour utiliser le service de synchronisation. Vous pouvez créer un compte à l’étape suivante.</string>

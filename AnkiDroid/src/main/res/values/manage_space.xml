@@ -15,8 +15,4 @@
   ~  this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 <resources>
-    <string name="pref_delete_media_key">delete_media</string>
-    <string name="pref_delete_backups_key">delete_backups</string>
-    <string name="pref_delete_collection_key">delete_collection</string>
-    <string name="pref_delete_everything_key">delete_everything</string>
 </resources>

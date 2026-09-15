@@ -34,9 +34,6 @@
         <item quantity="other">إحذف كل البطاقات من %1$s؟ إنها تحتوي على %2$d بطاقة</item>
     </plurals>
     <string name="delete_cram_deck_message">إحذف الرزمة المستخلصة %s وأعد جميع البطاقات إلا رزمها الأصلية؟</string>
-    <string name="no_tts_available_message">لا يتوفر دعم تحويل النص إلى كلام لأي لغة</string>
-    <string name="tts_no_tts">لا تتكلم</string>
-    <string name="reposition_card_not_new_error">يمكن تغيير موضع البطاقات الجديدة فقط</string>
     <string name="reset_card_dialog_title">تصفير تقدم البطاقة</string>
     <plurals name="reset_cards_dialog_acknowledge">
         <item quantity="zero">تم تصفير %d بطاقة</item>
@@ -51,8 +48,6 @@
     <string name="answering_error_report">إبلاغ عن الخطأ</string>
     <string name="storage_full_message">لا توجد مساحة تخزين كافية لفتح آنكي درويد. أخلِ بعض المساحة لتستمر.</string>
     <string name="repair_deck_dialog">هل تريد حقًا إصلاح قاعدة البيانات؟\n\nقبل بدء هذه المحاولة، ستُنشَأ نسخة في المجلد الفرعي “%s”.</string>
-    <string name="intent_aedict_empty">الصنف «default» فارغ</string>
-    <string name="intent_aedict_category">لإضافة بطاقات إلى آنكي درويد، أزل كل تصنيفات المذكرة أو أضف تصنيفًا باسم «default»</string>
     <string name="custom_study_new_extend">إضافة/طرح (مثلًا «-٣») إلى حد البطاقات الجديدة لهذا اليوم</string>
     <string name="custom_study_rev_extend">إضافة/طرح (مثلًا «-٣») إلى حد المراجعات لهذا اليوم</string>
     <string name="custom_study_forgotten">راجع البطاقات المنسية في آخر س يوم:</string>
@@ -68,17 +63,10 @@
     <string name="restore_backup_choose_another">اختيار نسخة أخرى</string>
     <string name="dialog_cancel">إلغاء</string>
     <string name="dialog_ok">حسنًا</string>
-    <string name="dialog_add" comment="Positive dialog action button label to add \'something\'">إضافة</string>
-    <string name="restore">استعادة</string>
     <string name="dialog_confirm" tools:ignore="UnusedResources">تأكيد</string>
-    <string name="dialog_no">لا</string>
-    <string name="dialog_yes">نعم</string>
-    <string name="dialog_keep">إبقاء</string>
-    <string name="dialog_remove">إزالة</string>
     <string name="dialog_exit" comment="Label for a button which will exit/finish the current screen">خروج</string>
     <string name="dialog_continue">استمرار</string>
     <string name="dialog_processing">تجري المعالجة&#8230;</string>
-    <string name="dialog_allow">سماح</string>
     <string name="dialog_positive_create" comment="Create a new collection, probably erasing the previous one, may be necessary in case of error.">إنشاء</string>
     <string name="dialog_positive_delete" maxLength="28">حذف</string>
     <!-- Currently unsued, should be useful in the future -->
@@ -112,19 +100,13 @@
     <!-- Empty cards -->
     <string name="emtpy_cards_finding">يتم البحث عن البطاقات الفارغة&#8230;</string>
     <!-- Multimedia - Edit Field Activity -->
-    <string name="multimedia_editor_audio_permission_refused">تعذر الحصول على إذن الميكروفون.</string>
-    <string name="multimedia_editor_failed">تعذر فتح محرر الوسائط المتعددة</string>
     <!-- Multimedia - Audio View -->
-    <string name="multimedia_editor_audio_permission_denied">رُفِض إذن تسجيل الصوت</string>
-    <string name="permission_denied">رُفِضَ الإذن</string>
-    <string name="microphone_permission_denied_message">رُفض إذن الميكروفون. رجاءًا امنحه من إعدادات التطبيق.</string>
     <!-- Database Integrity Check -->
     <string name="integrity_check_continue_anyway">استمرار في كل حال</string>
     <string name="integrity_check_insufficient_space">تستخدم ميزة فحص قاعدة البيانات مساحة كبيرة من التخزين المؤقت.\n\nينصح بشدة أن يكون لديك مساحة %s خالية على الأقل في جهازك قبل الاستمرار.</string>
     <string name="integrity_check_insufficient_space_extra_content">\n\nلديك حاليًا مساحة %s خالية.</string>
     <!-- Card Browser -->
     <!-- AbstractFlashCardViewer -->
-    <string name="card_viewer_url_decode_error">تعذر فك ترميز البيانات من البطاقة</string>
     <!-- Deck Options -->
     <!-- Database Errors-->
     <string name="database_locked_title">تم قفل قاعدة البيانات</string>
@@ -132,15 +114,8 @@
     <string name="incompatible_database_version_title">إصدار قاعدة بيانات غير متوافق</string>
     <string name="incompatible_database_version_summary">إصدار قاعدة البيانات يفوق أعلى إصدار يعمل مع آنكي دوريد. حدِّث آنكي درويد أو خفِّض إصدار قاعدة البيانات لفتحها.\n\nالإصدار المدعوم: %1$d\nإصدار قاعدة البيانات: %2$d\n\nخيارات الاسترجاع التالية يحتمل أن تستبدل بمجموعتك الحالية نسخةً ذات إصدار قاعدة بيانات متوافق:</string>
     <!-- Deck Picker Background-->
-    <string name="background_image_applied">تم تطبيق صورة الخلفية</string>
-    <string name="background_image_removed">تمت إزالة صورة الخلفية</string>
-    <string name="no_image_selected">لم تختر أي صورة</string>
-    <string name="error_selecting_image">فشل اختيار الصورة. الرجاء الاطلاع على الدليل. %s</string>
-    <string name="error_deleting_image">فشل حذف الصورة</string>
     <string name="failed_to_apply_background_image">تعذر تطبيق صورة الخلفية %s</string>
     <string name="background_image_too_large">خلفية محدد الرزم كبيرة جدًا</string>
-    <string name="image_max_size_allowed" comment="Consider keeping the unbreakable space after the digit">الحجم الأقصى المسموح للصور هو %dMB</string>
-    <string name="image_dimensions_too_large">أبعاد الصورة كبيرة جدًا (%1$d × %2$d)</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">لم نجد إذن التخزين المطلوب. يرجى منح إذن التخزين ثم المحاولة مجددًا.</string>
@@ -151,32 +126,8 @@
     <string name="locale_selection_dialog_title_new">ضبط اللغة</string>
     <string name="locale_selection_dialog_summary">بعض لوحات المفاتيح متعددة اللغات مثل «GBoard» تدعم تغيير اللغة عند تحرير النص\n\nيرجى طلب ميزة «setImeHintLocales» من مُصنّع لوحة المفاتيح الخاصة بك إذا كانت لوحة المفاتيح لا تغيّر اللغة.</string>
     <!-- Help Dialog -->
-    <string name="help_title_using_ankidroid">استخدام آنكي درويد</string>
-    <string name="help_item_ankidroid_manual">دليل آنكي درويد</string>
-    <string name="help_item_anki_manual">دليل آنكي</string>
-    <string name="help_item_ankidroid_faq">أسئلة متكررة عن آنكي درويد</string>
     <string name="help_title_get_help">الحصول على مساعدة</string>
-    <string name="help_item_mailing_list">القائمة البريدية</string>
-    <string name="help_item_reddit">Reddit</string>
-    <string name="help_item_report_bug">الإبلاغ عن خلل</string>
-    <string name="help_title_support_ankidroid" maxLength="28">إدعم آنكي درويد</string>
     <string name="help_item_support_opencollective_donate">تبرع</string>
-    <string name="help_item_support_develop_ankidroid">تطوير</string>
-    <string name="help_item_support_rate_ankidroid">تقييم</string>
-    <string name="help_item_support_other_ankidroid">غير ذلك</string>
-    <string name="multimedia_editor_trans_translate">ترجمة</string>
-    <string name="help_title_community">المجتمع</string>
-    <string name="help_item_anki_forums">منتديات آنكي</string>
-    <string name="help_item_discord">Discord</string>
-    <string name="help_item_facebook">فيسبوك</string>
-    <string name="help_item_twitter">تويتر</string>
-    <string name="help_title_privacy">الخصوصية</string>
-    <string name="help_item_ankidroid_privacy_policy">سياسة خصوصية آنكي درويد</string>
-    <string name="help_item_ankiweb_privacy_policy">سياسة خصوصية آنكي ويب</string>
-    <string name="help_item_ankiweb_terms_and_conditions">أحكام وشروط آنكي ويب</string>
-    <string name="help_title_send_exception">إرسال تقرير استكشاف الأخطاء</string>
-    <string name="help_dialog_exception_report_debounce">تم إرسال التقرير مسبقًا</string>
-    <string name="help_dialog_exception_report_sent">تم إرسال التقرير!</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="zero">قد تبدأ المزامنة التلقائية خلال %d ثانية</item>
@@ -246,23 +197,9 @@
     <string name="set_due_date_range_start" comment="\'Set Due Date\' may change the due date of a card to a random number of days in the future. This labels the \'minimum\' value of this range (inclusive)">من</string>
     <string name="set_due_date_range_end" comment="\'Set Due Date\' may change the due date of a card to a random number of days in the future. This labels the \'maximum\' value of this range (inclusive)">إلى</string>
     <!-- Instant Note Editor -->
-    <string name="cloze_note_required">يلزمك نوع ملحوظات ملء الفراغات</string>
-    <string name="cloze_not_found_message">لم يعثر على نوع ملحوظات خاص بملء الفراغات، إفتح محرر الملحوظات أو حاول مجددًا بعد إضافة نوع ملحوظات خاص بملء الفراغات.</string>
-    <string name="open">فتح</string>
-    <string name="change_cloze_number">غير رقم الفراغ</string>
-    <string name="cloze_number">رقم الفراغ</string>
-    <string name="change_editor_mode">تغيير وضع المحرر</string>
-    <string name="open_note_editor">فتح محرر الملحوظات</string>
-    <string name="change_cloze_mode">تغيير وضع الفراغات</string>
     <!-- Outdated WebView dialog -->
     <string name="webview_update_message">إصدار ويب فيو لهذا النظام قديم. لن تعمل بعض الميزات بشكل صحيح. حدثه رجاءًا.\n\nالإصدار المنصب: %1$d\nالإصدار الأدنى المطلوب: %2$d</string>
-    <string name="compress">ضغط</string>
     <!-- Tts playback error dialog -->
-    <string name="tts_error_dialog_title">اللغة غير مدعومة</string>
-    <string name="tts_error_dialog_reason_text">لا يدعم محرك تحويل النص إلى كلام <b>%1$s</b> اللغة التالية:
-<b>%2$s</b></string>
-    <string name="tts_error_dialog_change_button_text">تغيير المحرك</string>
-    <string name="tts_error_dialog_supported_voices_button_text">خيارات الصوت</string>
     <!-- import_cache_error_resolutions -->
     <string name="import_error_resolution_try_again">إعادة استيراد الملف</string>
     <string name="import_error_resolution_free_up_space">تأكد من وجود مساحة تخزين كافية في جهازك</string>
@@ -273,29 +210,8 @@
     <string name="login_successful">تم تسجيل الدخول</string>
     <string name="sync_now">أتود المزامنة الآن؟</string>
     <!--Change Note Type Dialog Fragment-->
-    <string name="card_numbers_unchanged">ستبقى أعداد البطاقات كما هي</string>
     <!-- Subset of TR.changeNotetypeToFromCloze -->
-    <string name="extra_cloze_deletions_removed">عند التغيير إلى نوع ملحوظات عادي، إذا كان عدد الفراغات أكبر من عدد القوالب، فإن بطاقات ملء الفراغات الإضافية ستُحذف.</string>
-    <string name="different_note_types_selected">رجاءًا اختر ملحوظات ذات نوع واحد.</string>
-    <string name="error_no_changes_to_save">ما من تغييرات لتُحفظ</string>
-    <string name="choose_color">اختيار لون</string>
     <!-- Special Fields -->
-    <string name="standard_fields_tab_header" comment="Tab header for inserting non-special fields: {{Front}}">الحقول</string>
-    <string name="special_fields_tab_header" comment="Tab header for inserting special fields: {{Deck}}">خاص</string>
-    <string name="special_field_example_suffix"><![CDATA[: «<b>%1$s</b>»]]></string>
-    <string name="special_field_front_side_help">محتوى القالب الأمامي. لا يُشغل الصوت تلقائيا</string>
-    <string name="special_field_deck_help" comment="%s: either blank or \' %s\'">رِزمة البطاقة كاملةً، بما في ذلك الرِزم الحاوية لها%s</string>
-    <string name="special_field_subdeck_help" comment="%s: either blank or \' %s\'">رِزمة البطاقة، ما عدا الرِزم الحاوية لها%s</string>
-    <string name="special_field_flag_help">يُنتج «%1$s»، حيث إن %2$s هو رمز العلم (%3$s\–%4$s\)</string>
-    <string name="special_field_tags_help" comment="%s: either blank or \' %s\'">وسوم الملحوظة%s</string>
-    <string name="special_field_card_id_help" comment="%s: either blank or \' %s\'">معرف البطاقة%s</string>
-    <string name="special_field_card_help" comment="%s: either blank or \' %s\'">اسم قالب البطاقة%s</string>
-    <string name="special_field_type_help" comment="%s: either blank or \' %s\'">اسم نوع الملحوظة%s</string>
     <!-- Change Note Type Dialog -->
-    <string name="change_note_type_from" comment="Label indicating the original note type before changing it">مِن</string>
-    <string name="change_note_type_to" comment="Label indicating the new note type to change to">إلى</string>
     <!-- Add profile dialog -->
-    <string name="profile_name" comment="Label of the text field where the user types the name of a new profile">Profile name</string>
-    <string name="profile_name_empty_error" comment="Error shown when the user leaves the profile name empty">Profile name can’t be empty</string>
-    <string name="profile_name_too_long_error" comment="Error shown when a profile name exceeds the maximum length. %1$d is the maximum number of characters">Profile name must be %1$d characters or fewer</string>
 </resources>

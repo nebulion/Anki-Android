@@ -27,7 +27,6 @@
     <string name="sync_error">Greška pri sinkronizaciji</string>
     <string name="vague_error" comment="Network error dialog title">Greška</string>
     <string name="retry">Pokušaj ponovno</string>
-    <string name="menu_get_shared_decks">Skini dijeljene špilove</string>
     <string name="connection_error_message">Dogodila se greška u mreži</string>
     <string name="not_logged_in_title">Prijavite se u AnkiWeb</string>
     <string name="login_create_account_message">Morate se prijaviti u račun treće strane kako biste koristili uslugu sinkronizacije putem oblaka. Račun možete stvoriti u sljedećem koraku.</string>

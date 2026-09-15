@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">Utilizar el mazo actual</string>
     <string name="add_to_deck_decide_by_note_type">Decidir por tipo de nota</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">Seguir sistema</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Día</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Noche</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">Claro</string>
-    <string name="day_theme_plain">Plano</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">Negro</string>
-    <string name="night_theme_dark">Oscuro</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-pequeño</string>
-    <string name="html_size_code_x_small">x-pequeño</string>
-    <string name="html_size_code_small">pequeño</string>
-    <string name="html_size_code_medium">medio</string>
-    <string name="html_size_code_large">grande</string>
-    <string name="html_size_code_x_large">x-grande</string>
-    <string name="html_size_code_xx_large">xx-grande</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Respuesta fácil</string>
     <string name="gesture_abort_learning" maxLength="41">Cerrar pantalla de estudio</string>

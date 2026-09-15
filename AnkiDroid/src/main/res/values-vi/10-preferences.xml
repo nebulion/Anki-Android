@@ -39,7 +39,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Đồng bộ</string>
     <string name="pref_cat_scheduling" maxLength="41">Đang lên lịch</string>
     <string name="pref_cat_whiteboard" maxLength="41">Bảng viết</string>
-    <string name="pref_cat_themes" maxLength="41">Chủ đề</string>
     <string name="pref_cat_gestures" maxLength="41">Cử Chỉ/ Điều Hướng</string>
     <string name="pref_cat_controls" maxLength="41">Controls</string>
     <string name="pref_cat_advanced" maxLength="41">Tuỳ chọn nâng cao</string>
@@ -56,7 +55,6 @@
     <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">Chiều rộng không cố định</string>
     <string name="use_input_tag" maxLength="41">Nhập câu trả lời vào thẻ</string>
     <string name="use_input_tag_summ">Sử dụng hộp nhập văn bản bên trong thẻ để nhập câu trả lời</string>
     <string name="reset_languages" maxLength="41">Đặt lại ngôn ngữ</string>
@@ -67,24 +65,11 @@
     <string name="image_zoom" maxLength="41">Thu phóng hình ảnh</string>
     <string name="button_size" maxLength="41">Kích thước nút trả lời</string>
     <string name="card_browser_font_size" maxLength="41">Thẻ trình duyệt font rộng</string>
-    <string name="card_browser_hide_media" maxLength="41">Hiển thị tên tệp trong trình duyệt thẻ</string>
-    <string name="card_browser_hide_media_summary">Display audio filenames in the card browser question/answer fields</string>
     <string name="col_path" maxLength="41">Thư mục AnkiDroid</string>
-    <string name="fullscreen_review" maxLength="41">Chế độ toàn màn hình</string>
-    <string name="full_screen_off">Tắt</string>
-    <string name="full_screen_system">Ẩn các thanh hệ thống</string>
-    <string name="full_screen_complete">Ẩn các thanh hệ thống và các nút trả lời</string>
-    <string name="answer_buttons_position" maxLength="41">Vị trí các nút trả lời</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>Trên cùng</item>
-        <item>Dưới cùng</item>
-        <item>Không vị trí nào đúng</item>
-    </string-array>
     <string name="gestures" maxLength="41">Kích hoạt Cử chỉ</string>
     <string name="gestures_summ">Chỉ định các cử chỉ để hành động như trả lời và chỉnh sửa thẻ.</string>
     <string name="gestures_corner_touch" maxLength="41">Chạm 9 điểm</string>
     <string name="gestures_corner_touch_summary">Cho phép cử chỉ chạm ở các góc màn hình</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">Hiển thị phím tắt</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">Full screen navigation drawer</string>
     <string name="gestures_fullscreen_nav_drawer_summary">Open navigation drawer when swiped right from anywhere on the screen</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Không</string>
@@ -106,13 +91,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">Chạm bằng ba ngón tay</string>
     <string name="gestures_four_finger_tap" maxLength="41">Chạm bằng bốn ngón tay</string>
     <string name="gestures_shake" maxLength="41">Lắc thiết bị</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">Menu ‘%s’</string>
-    <string name="card_browser_enable_external_context_menu_summary">Bật menu ngữ cảnh ‘%s’ trên toàn cầu</string>
     <string name="double_scrolling_gap" maxLength="41">Bấm phím scrolling (chuột giữa) hai lần</string>
     <string name="double_scrolling_gap_summ">bấm hai lần chuột giữa với eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Độ nhạy của chạm vuốt</string>
-    <string name="tts" maxLength="41">Văn bản sang tiếng nói</string>
-    <string name="tts_summ">Đọc ra câu hỏi và câu trả lời nếu không có tập tin âm thanh nào được kèm theo</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Tìm nạp phương tiện truyền thông trên đồng bộ</string>
     <string name="sync_account_summ_logged_out">Chưa đăng nhập</string>
@@ -127,9 +108,6 @@
     <string name="metered_sync_summary">Nếu tắt, bạn sẽ được cảnh báo khi cố gắng đồng bộ hóa trên kết nối có tính cước</string>
     <string name="backup_limits_frequency">Tần suất</string>
     <string name="backup_limits_lifetime">Thời gian tồn tại</string>
-    <string name="app_theme" maxLength="41">Giao diện</string>
-    <string name="day_theme" maxLength="41">Chủ đề ban ngày</string>
-    <string name="night_theme" maxLength="41">Chủ đề ban đêm</string>
     <string name="language" maxLength="41">Ngôn ngữ</string>
     <string name="language_system">Ngôn ngữ hệ thống</string>
     <string name="notification_pref" maxLength="41">Các thông báo</string>
@@ -139,28 +117,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">Hơn %d thẻ đến hạn ôn tập</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">Báo rung</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">Nhấp nháy ánh sáng</string>
-    <string name="select_locale_title">Chọn ngôn ngữ</string>
     <string name="software_render" maxLength="41">Tắt kết xuất phần cứng thẻ</string>
     <string name="software_render_summ">Kết xuất phần cứng nhanh hơn nhưng có thể gặp sự cố, cụ thể là trên Android 8 / 8.1. Nếu bạn không thể thấy các phần của giao diện người dùng xem xét thẻ, hãy thử cài đặt này.</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">Chọn Center align</string>
-    <string name="vertical_centering_summ">Thiết lập nội dung chính của thẻ theo chiều dọc</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Double tap time interval</string>
     <string name="pref_double_tap_time_interval_summary">A second tap of the answer buttons will be ignored if this time has not elapsed. This prevents accidental double taps</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">Hiển thị thời gian nhấn và giữ câu trả lời</string>
     <string name="pref_show_answer_long_press_time_summary">Thời gian nhấn tối thiểu trước khi nút hiển thị câu trả lời đăng ký một thao tác chạm.</string>
-    <string name="show_estimates" maxLength="41">Hiển thị nút thời gian</string>
-    <string name="show_estimates_summ">Hiển thị thời gian đánh giá tiếp theo trên các nút trả lời</string>
     <string name="show_large_answer_buttons" maxLength="41">Show large answer buttons</string>
     <string name="show_large_answer_buttons_summ">Hiển thị nút trả lời thành 2 hàng</string>
-    <string name="show_top_bar" maxLength="41">Hiển thị thanh trên cùng</string>
-    <string name="show_top_bar_summary">Hiển thị số lượng thẻ, đồng hồ đếm thời gian trả lời, cờ đánh dấu và dấu ở thanh trên cùng</string>
-    <string name="show_progress" maxLength="41">Hiển thị còn lại</string>
-    <string name="show_progress_summ">Hiển thị số thẻ còn lại</string>
-    <string name="show_eta" maxLength="41">Hiển thị ETA</string>
-    <string name="show_eta_summ">Hiển thị thời gian còn lại</string>
     <string name="use_current" maxLength="41">Bộ thẻ cho thẻ mới</string>
     <string name="learn_cutoff" maxLength="41">Tìm hiểu trước giới hạn</string>
     <string name="time_limit" maxLength="41">Giới hạn thời gian của hộp thời gian</string>
@@ -172,13 +139,9 @@
     <string name="pref_keep_screen_on_summ">Tắt thời gian chờ của màn hình</string>
     <string name="enable_api_title" maxLength="41">Bật AnkiDroid API</string>
     <string name="enable_api_summary">Cho phép các ứng dụng khác kết nối với AnkiDroid và đọc / ghi dữ liệu mà không cần sự can thiệp của bạn</string>
-    <string name="custom_buttons" maxLength="41">Các nút trên thanh ứng dụng</string>
-    <string name="custom_buttons_summary">Tùy chỉnh những hành động nào xuất hiện trên thanh ứng dụng</string>
     <string name="custom_buttons_setting_always_show">Luôn luôn hiển thị</string>
-    <string name="custom_buttons_setting_if_room">Hiển thị nếu phòng</string>
     <string name="custom_buttons_setting_menu_only">Chỉ Menu</string>
     <string name="reset_custom_buttons" maxLength="41">Đặt lại về mặc định</string>
-    <string name="reset_settings_to_default">Thiết lập lại cài đặt gốc</string>
     <string name="reset">Thiết lập lại</string>
     <string name="thirdparty_apps_title" maxLength="41">Ứng dụng API của bên thứ ba</string>
     <string name="thirdparty_apps_summary">Xem danh sách các ứng dụng sử dụng AnkiDroid API như từ điển, tiện ích.</string>
@@ -186,8 +149,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Xem trước</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">Màn hình học tập</string>
-    <string name="show_deck_title" maxLength="41">Hiển thị tiêu đề bộ thẻ</string>
     <string name="accessibility" maxLength="41">Trợ năng</string>
     <string name="exit_via_double_tap_back" maxLength="41">Press back twice to go back/exit</string>
     <string name="exit_via_double_tap_back_summ">Để tránh thoát khỏi màn hình học hoặc ứng dụng một cách vô tình</string>
@@ -220,7 +181,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Chọn thẻ</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">Chung</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Tìm</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Thay thế dòng mới bằng HTML</string>
@@ -228,7 +188,6 @@
     <string name="type_in_answer_focus" maxLength="41">Tập trung \'Nhập câu trả lời\'</string>
     <string name="type_in_answer_focus_summ">Tự động đặt con trỏ vào trường ‘nhập câu trả lời’ trong màn hình học tập</string>
     <!-- About -->
-    <string name="open_changelog">Mở nhật ký thay đổi</string>
     <string name="pref_cat_about_title" maxLength="41">Giới thiệu</string>
     <string name="contributors_title">Những người đóng góp</string>
     <string name="about_contributors_description"><![CDATA[Đây là <a href=\"%1$s\">cộng tác viên tuyệt vời của chúng tôi</a>. Bạn có thể hỗ trợ AnkiDroid bằng cách lập trình, dịch thuật, quyên góp và <a href=\"%2$s\">hơn thế nữa</a>!]]></string>
@@ -256,8 +215,6 @@
     <string name="toggle_auto_advance" maxLength="28">Chuyển đổi chuyển tiếp tự động</string>
     <string name="enable_auto_advance" maxLength="28">Enable auto advance</string>
     <string name="disable_auto_advance" maxLength="28">Disable auto advance</string>
-    <string name="enable_voice_recording" maxLength="28">Enable voice recording</string>
-    <string name="disable_voice_recording" maxLength="28">Disable voice recording</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">Select card side</string>
     <string name="card_side_question">Question</string>
@@ -270,17 +227,10 @@
     <string name="bindings_already_bound">Already bound to %s</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Tính năng thử nghiệm</string>
-    <string name="readtext_deprecation_warn">AnkiDroid đã giới thiệu cơ chế TTS tốt hơn, tương thích với các ứng dụng khách Anki khác và bao gồm nhiều giọng nói hơn cũng như cải tiến về phát lại ngôn ngữ!\n\nVui lòng nâng cấp càng sớm càng tốt vì cài đặt này sẽ sớm bị xóa</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Vui lòng nâng cấp lên định dạng văn bản thành giọng nói mới</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">Allow templates to record audio</string>
-    <string name="template_is_trying_to_record_audio">This template is trying to record audio</string>
     <string name="pref_fixed_port_title" maxLength="41">localStorage in Study Screen</string>
     <string name="pref_fixed_port_summary">Enables JavaScript localStorage by using a fixed server port in the Study Screen</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">Tùy chọn nhà phát triển</string>
-    <string name="dev_options_enabled_pref" maxLength="41">Bật tùy chọn nhà phát triển</string>
-    <string name="disable_dev_options">Tắt tùy chọn nhà phát triển</string>
-    <string name="dev_options_warning">Vui lòng chắc chắn trước khi bật các tùy chọn dành cho nhà phát triển. Những tùy chọn này có thể nguy hiểm, làm hỏng ứng dụng hoặc làm hỏng bộ sưu tập của bạn.\n\nLưu ý rằng các tùy chọn này không phù hợp với hầu hết người dùng, vì vậy chúng không được dịch và sẽ hiển thị bằng tiếng Anh.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -300,37 +250,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">Quản lý dung lượng</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">Lỗi</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">Calcu-\nlating&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="other">%1$d tệp\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">Xóa các tệp tin phương tiện không sử dụng</string>
-    <string name="pref__delete_unused_media_files__summary">Xóa hình ảnh và phương tiện khác không có tiền tố _ và không được tham chiếu bởi bất kỳ ghi chú nào</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">Xóa các tệp tin phương tiện không sử dụng</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">Xóa bỏ các bản sao lưu</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">Xóa bỏ các bản sao lưu</string>
-    <string name="progress__deleting_backups">Đang xóa bỏ các bản sao lưu&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">Xoá bộ sưu tập</string>
-    <string name="pref__delete_collection__summary">Xóa bộ sưu tập, phương tiện và bản sao lưu. Cài đặt ứng dụng không bị xóa</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">Xoá bộ sưu tập</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Bạn có chắc chắn muốn xóa bộ sưu tập, phương tiện và các bản sao lưu của mình không?\n\nLưu ý: hành động này sẽ đóng cửa sổ.</string>
-    <string name="progress__deleting_collection">Đang xoá bộ sưu tập&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">Xoá mọi thứ</string>
-    <string name="pref__delete_everything__summary">Xóa bộ sưu tập, phương tiện, bản sao lưu và cài đặt</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">Xoá mọi thứ</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Bạn có chắc muốn xóa dữ liệu ứng dụng không? Điều này bao gồm bộ sưu tập, đa phương tiện, các bản sao lưu và sở thích.\n\nLưu ý: hành động này sẽ đóng cửa sổ.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">Xóa dữ liệu ứng dụng</string>
-    <string name="pref__delete_app_data__summary">Xóa cài đặt và dữ liệu ứng dụng khác</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">Xóa dữ liệu ứng dụng</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Bạn có chắc muốn xóa dữ liệu ứng dụng không? Điều này bao gồm cài đặt và các dữ liệu ứng dụng khác.\n\nLưu ý: hành động này sẽ đóng cửa sổ.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -338,7 +263,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Không có bộ sưu tập</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Lỗi</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Đang tìm nạp&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">Đang tính toán&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Bộ sưu tập không tồn tại</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">Ẩn thanh hệ thống</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">Không</string>

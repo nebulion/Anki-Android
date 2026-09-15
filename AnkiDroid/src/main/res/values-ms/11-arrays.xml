@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">Guna dek kini</string>
     <string name="add_to_deck_decide_by_note_type">Tentukan melalui jenis nota</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">Ikuti sistem</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Day</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Night</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">Terang</string>
-    <string name="day_theme_plain">Biasa</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">Hitam</string>
-    <string name="night_theme_dark">Gelap</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-kecil</string>
-    <string name="html_size_code_x_small">x-kecil</string>
-    <string name="html_size_code_small">kecil</string>
-    <string name="html_size_code_medium">sederhana</string>
-    <string name="html_size_code_large">besar</string>
-    <string name="html_size_code_x_large">x-besar</string>
-    <string name="html_size_code_xx_large">xx-besar</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Jawab Senang</string>
     <string name="gesture_abort_learning" maxLength="41">Close study screen</string>

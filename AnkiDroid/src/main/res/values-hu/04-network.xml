@@ -27,7 +27,6 @@
     <string name="sync_error">Szinkronizálási hiba</string>
     <string name="vague_error" comment="Network error dialog title">Hiba</string>
     <string name="retry">Újra</string>
-    <string name="menu_get_shared_decks">Megosztott paklik</string>
     <string name="connection_error_message">Hálózati hiba történt.</string>
     <string name="not_logged_in_title">Bejelentkezés az AnkiWebre</string>
     <string name="login_create_account_message">A cloud sync használatához be kell jelentkezned egy felhasználói fiókkal. A következő lépésben létrehozhatsz egyet.</string>

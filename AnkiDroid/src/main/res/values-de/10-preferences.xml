@@ -40,7 +40,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Synchronisieren</string>
     <string name="pref_cat_scheduling" maxLength="41">Planen</string>
     <string name="pref_cat_whiteboard" maxLength="41">Whiteboard</string>
-    <string name="pref_cat_themes" maxLength="41">Designs</string>
     <string name="pref_cat_gestures" maxLength="41">Gesten</string>
     <string name="pref_cat_controls" maxLength="41">Steuerung</string>
     <string name="pref_cat_advanced" maxLength="41">Erweitert</string>
@@ -57,7 +56,6 @@
     <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">Pinselbreite</string>
     <string name="use_input_tag" maxLength="41">Antwort in Karte eintippen</string>
     <string name="use_input_tag_summ">Innerhalb der Karte ein Texteingabefeld verwenden, um die Antwort einzutippen</string>
     <string name="reset_languages" maxLength="41">Sprachen zurücksetzen</string>
@@ -68,24 +66,11 @@
     <string name="image_zoom" maxLength="41">Bildzoom</string>
     <string name="button_size" maxLength="41">Größe der Antwortschaltflächen</string>
     <string name="card_browser_font_size" maxLength="41">Schriftskalierung in der Kartenübersicht</string>
-    <string name="card_browser_hide_media" maxLength="41">Dateinamen in der Kartenübersicht anzeigen</string>
-    <string name="card_browser_hide_media_summary">Audiodateinamen anzeigen in den Frage-/Antwortfeldern der Kartenübersicht</string>
     <string name="col_path" maxLength="41">AnkiDroid-Verzeichnis</string>
-    <string name="fullscreen_review" maxLength="41">Vollbildmodus</string>
-    <string name="full_screen_off">Aus</string>
-    <string name="full_screen_system">Systemleisten ausblenden</string>
-    <string name="full_screen_complete">Systemleisten und Antwortschaltflächen ausblenden</string>
-    <string name="answer_buttons_position" maxLength="41">Position der Antwortschaltflächen</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>Oben</item>
-        <item>Unten</item>
-        <item>Keine</item>
-    </string-array>
     <string name="gestures" maxLength="41">Gesten aktivieren</string>
     <string name="gestures_summ">Weise Aktionen, wie zum Beispiel Beantworten oder Bearbeiten der Karten, Gesten zu.</string>
     <string name="gestures_corner_touch" maxLength="41">9-Punkt-Berührung</string>
     <string name="gestures_corner_touch_summary">Berührungsgesten in Bildschirmecken erlauben</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">Tastenkürzel anzeigen</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">Vollbild-Navigationsleiste</string>
     <string name="gestures_fullscreen_nav_drawer_summary">Navigationsleiste öffnen, wenn rechts von überall auf dem Bildschirm gewischt wird</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Keine</string>
@@ -107,13 +92,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">Drei-Finger-Tippen</string>
     <string name="gestures_four_finger_tap" maxLength="41">Vier-Finger-Tippen</string>
     <string name="gestures_shake" maxLength="41">Gerät schütteln</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">»%s«-Menü</string>
-    <string name="card_browser_enable_external_context_menu_summary">Aktiviert global das Kontextmenü »%s«</string>
     <string name="double_scrolling_gap" maxLength="41">Doppeltes scrollen</string>
     <string name="double_scrolling_gap_summ">Auf eReadern mit doppelter Schrittgröße scrollen</string>
     <string name="swipe_sensitivity" maxLength="41">Wischempfindlichkeit</string>
-    <string name="tts" maxLength="41">Sprachausgabe</string>
-    <string name="tts_summ">Liest Frage und Antwort vor, wenn keine anderen Sounds enthalten sind</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Mediadaten synchronisieren</string>
     <string name="sync_account_summ_logged_out">Nicht eingeloggt</string>
@@ -128,9 +109,6 @@
     <string name="metered_sync_summary">Wenn deaktiviert werden Sie gewarnt, falls Sie versuchen, über eine getaktete Verbindung zu synchronisieren</string>
     <string name="backup_limits_frequency">Frequenz</string>
     <string name="backup_limits_lifetime">Lebensdauer</string>
-    <string name="app_theme" maxLength="41">Design</string>
-    <string name="day_theme" maxLength="41">Design Tag</string>
-    <string name="night_theme" maxLength="41">Design Nacht</string>
     <string name="language" maxLength="41">Sprache</string>
     <string name="language_system">Systemsprache</string>
     <string name="notification_pref" maxLength="41">Benachrichtigungen</string>
@@ -140,28 +118,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">Mehr als %d Karten fällig</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">Vibrieren</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">Blinken</string>
-    <string name="select_locale_title">Sprache wählen</string>
     <string name="software_render" maxLength="41">Karten-Hardware-Rendering deaktivieren</string>
     <string name="software_render_summ">Hardware-Rendering ist schneller, kann aber Probleme haben, insbesondere auf Android 8/8.1. Wenn Sie Teile der Benutzeroberfläche der Karte nicht sehen können, versuchen Sie diese Einstellung.</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">Zentriert</string>
-    <string name="vertical_centering_summ">Den Inhalt der Karten vertikal zentrieren</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Zeitintervall für Doppeltippen</string>
     <string name="pref_double_tap_time_interval_summary">Ein zweites Antippen der Antworttasten wird ignoriert, wenn diese Zeit nicht verstrichen ist. Dies verhindert versehentliches doppeltes Antippen</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">Dauer des Gedrückthaltens zum Antwort zeigen</string>
     <string name="pref_show_answer_long_press_time_summary">Die minimale Druckzeit, bevor die Schaltfläche \"Antwort anzeigen\" eine Berührung registriert.</string>
-    <string name="show_estimates" maxLength="41">Wiederholungszeiten anzeigen</string>
-    <string name="show_estimates_summ">Zeigt Zeiten bis zur nächsten Wiederholung auf den Antwortschaltflächen</string>
     <string name="show_large_answer_buttons" maxLength="41">Große Antwortschaltflächen anzeigen</string>
     <string name="show_large_answer_buttons_summ">Antwort-Fläche in 2 Zeilen anzeigen</string>
-    <string name="show_top_bar" maxLength="41">Obere Leiste anzeigen</string>
-    <string name="show_top_bar_summary">Kartenzähler, Antwort-Timer, Flagge und Markierung in der oberen Leiste anzeigen</string>
-    <string name="show_progress" maxLength="41">Fällige anzeigen</string>
-    <string name="show_progress_summ">Verbleibende Anzahl der Karten anzeigen</string>
-    <string name="show_eta" maxLength="41">Ankunftszeit anzeigen</string>
-    <string name="show_eta_summ">Verbleibende Zeit anzeigen</string>
     <string name="use_current" maxLength="41">Stapel für neue Karten</string>
     <string name="learn_cutoff" maxLength="41">Grenzwert für vorzeitiges Lernen</string>
     <string name="time_limit" maxLength="41">Zeitlimitwert</string>
@@ -174,13 +141,9 @@
     <string name="pref_keep_screen_on_summ">Bildschirm-Timeout deaktivieren</string>
     <string name="enable_api_title" maxLength="41">AnkiDroid-API aktivieren</string>
     <string name="enable_api_summary">Verbindungen anderer Apps mit AnkiDroid zulassen und sie ohne weitere Eingriffe Daten lesen und schreiben lassen</string>
-    <string name="custom_buttons" maxLength="41">Leistenschaltflächen</string>
-    <string name="custom_buttons_summary">In der App-Leiste anzuzeigende Aktionen anpassen</string>
     <string name="custom_buttons_setting_always_show">Immer anzeigen</string>
-    <string name="custom_buttons_setting_if_room">Anzeigen, falls genug Platz</string>
     <string name="custom_buttons_setting_menu_only">Nur Menü</string>
     <string name="reset_custom_buttons" maxLength="41">Auf Standard zurücksetzen</string>
-    <string name="reset_settings_to_default">Auf Standardeinstellungen zurücksetzen</string>
     <string name="reset">Zurücksetzen</string>
     <string name="thirdparty_apps_title" maxLength="41">API-Apps von Drittanbietern</string>
     <string name="thirdparty_apps_summary">Eine Liste von Anwendungen anzeigen, die die AnkiDroid-API verwenden (z. B. Wörterbücher, Werkzeuge etc.)</string>
@@ -188,8 +151,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Vorschau</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Nur Rückseite aktivieren</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">Lernbildschirm</string>
-    <string name="show_deck_title" maxLength="41">Stapeltitel anzeigen</string>
     <string name="accessibility" maxLength="41">Bedienungshilfen</string>
     <string name="exit_via_double_tap_back" maxLength="41">Zweimal Zurück drücken, um zurückzugehen</string>
     <string name="exit_via_double_tap_back_summ">Um zu vermeiden, dass Sie den Lernbildschirm oder die App versehentlich verlassen</string>
@@ -224,7 +185,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Schlagwörter auswählen</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">Allgemein</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Suchen</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Zeilenumbrüche durch HTML ersetzen</string>
@@ -232,7 +192,6 @@
     <string name="type_in_answer_focus" maxLength="41">Auf »Antwort eingeben« fokussieren</string>
     <string name="type_in_answer_focus_summ">Automatisch im Lernbildschirm auf »Antwort eingeben« fokussieren</string>
     <!-- About -->
-    <string name="open_changelog">Änderungsprotokoll öffnen</string>
     <string name="pref_cat_about_title" maxLength="41">Über</string>
     <string name="contributors_title">Mitwirkende</string>
     <string name="about_contributors_description"><![CDATA[Dies sind unsere tollen <a href=\"%1$s\">Mitwirkenden</a>. Sie können AnkiDroid auch durch programmieren, übersetzen, spenden und <a href=\"%2$s\">mehr</a> helfen!]]></string>
@@ -261,8 +220,6 @@
     <string name="toggle_auto_advance" maxLength="28">Automatisches Weiterblättern umschalten</string>
     <string name="enable_auto_advance" maxLength="28">Automatischen Seitenvorschub aktivieren</string>
     <string name="disable_auto_advance" maxLength="28">Automatischen Vorlauf deaktivieren</string>
-    <string name="enable_voice_recording" maxLength="28">Sprachaufzeichnung aktivieren</string>
-    <string name="disable_voice_recording" maxLength="28">Sprachaufzeichnung deaktivieren</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">Kartenseite auswählen</string>
     <string name="card_side_question">Frage</string>
@@ -275,17 +232,10 @@
     <string name="bindings_already_bound">Bereits an %s gebunden</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Experimentell</string>
-    <string name="readtext_deprecation_warn">AnkiDroid hat einen besseren TTS-Mechanismus eingeführt, der mit anderen Anki-Clients kompatibel ist und mehr Stimmen und Verbesserungen bei der Sprachwiedergabe enthält!\n\nBitte aktualisieren Sie so bald wie möglich, da diese Einstellung bald entfernt wird</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Bitte upgraden Sie auf das neue Text-zu-Sprache-Format</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">Allow templates to record audio</string>
-    <string name="template_is_trying_to_record_audio">This template is trying to record audio</string>
     <string name="pref_fixed_port_title" maxLength="41">localStorage im Lernbildschirm</string>
     <string name="pref_fixed_port_summary">Aktiviert JavaScript localStorage durch Verwendung eines festen Server-Ports im Lernbildschirm</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">Entwicklermodus</string>
-    <string name="dev_options_enabled_pref" maxLength="41">Entwicklermodus aktivieren</string>
-    <string name="disable_dev_options">Entwicklermodus deaktivieren</string>
-    <string name="dev_options_warning">Bevor Sie den Entwicklermodus aktivieren, beachten Sie bitte, dass Sie damit die App oder Ihre Sammlung beschädigen können.\n\nBeachten Sie außerdem, dass diese Einstellungen für die meisten Benutzer nicht geeignet sind und deshalb nicht übersetzt werden und daher nur auf Englisch verfügbar sind.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -305,38 +255,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">Speicherplatz verwalten</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">Fehler</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">Kalku-\nlieren &#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="one">%1$d Datei\n%2$s</item>
-        <item quantity="other">%1$d Dateien\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">Löschen von nicht verwendeten Mediendateien</string>
-    <string name="pref__delete_unused_media_files__summary">Löschen von Bildern und anderen Medien, die nicht mit _ vorangestellt sind und nicht bei Anmerkungen verwiesen sind</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">Löschen von nicht verwendeten Mediendateien</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">Sicherungen löschen</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">Sicherungen löschen</string>
-    <string name="progress__deleting_backups">Lösche Sicherungen&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">Sammlung löschen</string>
-    <string name="pref__delete_collection__summary">Sammlung, Medien und Sicherungen löschen. App-Einstellungen werden nicht gelöscht</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">Sammlung löschen</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Sind Sie sicher, dass Sie Ihre Sammlung, Medien und Sicherungen löschen möchten?\n\nHinweis: Diese Aktion schließt das Fenster.</string>
-    <string name="progress__deleting_collection">Sammlung wird gelöscht&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">Alles löschen</string>
-    <string name="pref__delete_everything__summary">Sammlung, Medien, Sicherungen und Einstellungen löschen</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">Alles löschen</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Sind Sie sicher, dass Sie alle Daten löschen möchten? Dies schließt auch Ihre Sammlung, Medien, Sicherungen und Einstellungen ein.\n\nHinweis: Diese Aktion schließt das Fenster.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">App-Daten löschen</string>
-    <string name="pref__delete_app_data__summary">Einstellungen und andere App-Daten löschen</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">App-Daten löschen</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Sind Sie sicher, dass Sie die App-Daten löschen möchten? Dazu gehören Einstellungen und andere App-Daten.\n\nHinweis: Diese Aktion schließt das Fenster.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -344,7 +268,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Keine Sammlung</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Fehler</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Rufe ab &#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">Berechnen &#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Sammlung ist nicht vorhanden</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">Systemleisten ausblenden</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">Keine</string>

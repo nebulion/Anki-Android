@@ -39,7 +39,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">同步</string>
     <string name="pref_cat_scheduling" maxLength="41">計畫任務</string>
     <string name="pref_cat_whiteboard" maxLength="41">白板</string>
-    <string name="pref_cat_themes" maxLength="41">佈景</string>
     <string name="pref_cat_gestures" maxLength="41">手勢</string>
     <string name="pref_cat_controls" maxLength="41">控制</string>
     <string name="pref_cat_advanced" maxLength="41">進階設定</string>
@@ -56,7 +55,6 @@
     <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">筆跡寬度</string>
     <string name="use_input_tag" maxLength="41">在卡片中輸入答案</string>
     <string name="use_input_tag_summ">在卡片中使用一個文本框裡輸入答案</string>
     <string name="reset_languages" maxLength="41">重設語言</string>
@@ -67,24 +65,11 @@
     <string name="image_zoom" maxLength="41">圖像縮放</string>
     <string name="button_size" maxLength="41">答案按鈕尺寸</string>
     <string name="card_browser_font_size" maxLength="41">卡片瀏覽器字型縮放</string>
-    <string name="card_browser_hide_media" maxLength="41">在卡片瀏覽器展示檔案名</string>
-    <string name="card_browser_hide_media_summary">Display audio filenames in the card browser question/answer fields</string>
     <string name="col_path" maxLength="41">AnkiDroid 路徑</string>
-    <string name="fullscreen_review" maxLength="41">全螢幕模式</string>
-    <string name="full_screen_off">關閉</string>
-    <string name="full_screen_system">隱藏系統狀態欄</string>
-    <string name="full_screen_complete">隱藏系統狀態欄和回答按鈕</string>
-    <string name="answer_buttons_position" maxLength="41">顯示答案按鈕位置</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>頂部</item>
-        <item>底部</item>
-        <item>無</item>
-    </string-array>
     <string name="gestures" maxLength="41">開啟手勢</string>
     <string name="gestures_summ">替動作設定手勢，像是回答問題和編輯卡片。</string>
     <string name="gestures_corner_touch" maxLength="41">九點邊角觸控</string>
     <string name="gestures_corner_touch_summary">允許在螢幕角落進行觸控</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">顯示鍵盤捷徑</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">全屏的導航抽屜</string>
     <string name="gestures_fullscreen_nav_drawer_summary">從屏幕上任何地方向右劃，可以打開導航的抽屜。</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">無</string>
@@ -106,13 +91,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">三指輕觸</string>
     <string name="gestures_four_finger_tap" maxLength="41">四指輕觸</string>
     <string name="gestures_shake" maxLength="41">搖晃裝置</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">‘%s’ 選單</string>
-    <string name="card_browser_enable_external_context_menu_summary">啟用全域性‘%s’內容選單</string>
     <string name="double_scrolling_gap" maxLength="41">加速捲動</string>
     <string name="double_scrolling_gap_summ">加倍 eReader 的滾動間距</string>
     <string name="swipe_sensitivity" maxLength="41">滑動靈敏度</string>
-    <string name="tts" maxLength="41">文字轉語音</string>
-    <string name="tts_summ">如果沒有內含音訊檔案，則讀出問題和答案</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">同步時取得媒體檔案</string>
     <string name="sync_account_summ_logged_out">未登入</string>
@@ -127,9 +108,6 @@
     <string name="metered_sync_summary">禁用後，如果嘗試在按流量計費的連接上同步，將收到警告</string>
     <string name="backup_limits_frequency">頻率</string>
     <string name="backup_limits_lifetime">若時</string>
-    <string name="app_theme" maxLength="41">主題</string>
-    <string name="day_theme" maxLength="41">白天主題</string>
-    <string name="night_theme" maxLength="41">夜間主題</string>
     <string name="language" maxLength="41">語言</string>
     <string name="language_system">系統語言</string>
     <string name="notification_pref" maxLength="41">通知</string>
@@ -139,28 +117,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">More than %d cards due</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">震動</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">提示燈</string>
-    <string name="select_locale_title">選擇語言</string>
     <string name="software_render" maxLength="41">禁用卡片硬體渲染</string>
     <string name="software_render_summ">硬體渲染速度較快，但可能存在問題，特別是位於 Android 8/8.1 中。如果您看不到部分卡片復習使用者頁面，請嘗試此設定。</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">置中</string>
-    <string name="vertical_centering_summ">垂直置中卡片內容</string>
     <string name="pref_double_tap_time_interval" maxLength="41">雙擊的時間間隔</string>
     <string name="pref_double_tap_time_interval_summary">如果時間不到，按二次答案按鍵是無效的，這樣可以避免不小心雙擊按鍵。</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">顯示答案長按時間</string>
     <string name="pref_show_answer_long_press_time_summary">顯示答案按鈕生效前的最短按壓時間</string>
-    <string name="show_estimates" maxLength="41">顯示按鈕的時間</string>
-    <string name="show_estimates_summ">在答案按鈕上顯示下一次複習的時間</string>
     <string name="show_large_answer_buttons" maxLength="41">顯示大的答案按鍵</string>
     <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="show_top_bar" maxLength="41">顯示頂部列</string>
-    <string name="show_top_bar_summary">在頂部列顯示卡片計數、回答計時器、旗標和標記</string>
-    <string name="show_progress" maxLength="41">顯示剩餘數量</string>
-    <string name="show_progress_summ">顯示剩餘卡片數量</string>
-    <string name="show_eta" maxLength="41">顯示預計完成時間</string>
-    <string name="show_eta_summ">顯示剩餘時間</string>
     <string name="use_current" maxLength="41">存放新卡片的牌組</string>
     <string name="learn_cutoff" maxLength="41">提早學習上限</string>
     <string name="time_limit" maxLength="41">時間盒的時間上限</string>
@@ -172,13 +139,9 @@
     <string name="pref_keep_screen_on_summ">關閉螢幕逾時</string>
     <string name="enable_api_title" maxLength="41">開啟 AnkiDroid API</string>
     <string name="enable_api_summary">讓其他應用程式不需經過你同意，即可連結到 AnkiDroid 且讀寫檔案</string>
-    <string name="custom_buttons" maxLength="41">頂欄按鈕</string>
-    <string name="custom_buttons_summary">自訂頂部列按鈕</string>
     <string name="custom_buttons_setting_always_show">總是顯示</string>
-    <string name="custom_buttons_setting_if_room">有空間時顯示</string>
     <string name="custom_buttons_setting_menu_only">僅限菜單</string>
     <string name="reset_custom_buttons" maxLength="41">重置為預設</string>
-    <string name="reset_settings_to_default">將設定重設為預設值</string>
     <string name="reset">重置</string>
     <string name="thirdparty_apps_title" maxLength="41">第三方 API 應用程式</string>
     <string name="thirdparty_apps_summary">查看一系列使用 AnkiDroid API 的應用程式，如字典，實用工具。</string>
@@ -186,8 +149,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">預覽</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">Study Screen</string>
-    <string name="show_deck_title" maxLength="41">顯示牌組標題</string>
     <string name="accessibility" maxLength="41">無障礙功能</string>
     <string name="exit_via_double_tap_back" maxLength="41">按二次返回鍵返回或者退出</string>
     <string name="exit_via_double_tap_back_summ">To avoid accidentally leaving the study screen or the app</string>
@@ -222,7 +183,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">選擇標籤</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">一般</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">搜尋</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">以HTML取代新列</string>
@@ -230,7 +190,6 @@
     <string name="type_in_answer_focus" maxLength="41">聚焦“輸入答案”</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="open_changelog">打開更新日誌</string>
     <string name="pref_cat_about_title" maxLength="41">關於</string>
     <string name="contributors_title">貢獻者</string>
     <string name="about_contributors_description"><![CDATA[這些是我們非常棒的<a href=\“%1$s\”>貢獻者</a>。 您也可以通過貢獻程式碼、翻譯、捐贈和<a href=\“%2$s\”>更多</a>來幫助AnkiDroid！]]></string>
@@ -258,8 +217,6 @@
     <string name="toggle_auto_advance" maxLength="28">切換自動提前</string>
     <string name="enable_auto_advance" maxLength="28">Enable auto advance</string>
     <string name="disable_auto_advance" maxLength="28">Disable auto advance</string>
-    <string name="enable_voice_recording" maxLength="28">Enable voice recording</string>
-    <string name="disable_voice_recording" maxLength="28">Disable voice recording</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">選取卡面</string>
     <string name="card_side_question">問題</string>
@@ -272,17 +229,10 @@
     <string name="bindings_already_bound">已經和%s關聯</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">實驗性功能</string>
-    <string name="readtext_deprecation_warn">AnkiDroid 引入了更好的 TTS 機制，與其他 Anki 客戶端相容，並包含更多的語音和語言播放的改進！\n\n請儘快升級，因為此設定將很快移除。</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">請升級至新的文字轉語音格式</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">Allow templates to record audio</string>
-    <string name="template_is_trying_to_record_audio">This template is trying to record audio</string>
     <string name="pref_fixed_port_title" maxLength="41">localStorage in Study Screen</string>
     <string name="pref_fixed_port_summary">Enables JavaScript localStorage by using a fixed server port in the Study Screen</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">開發人員選項</string>
-    <string name="dev_options_enabled_pref" maxLength="41">啟用開發人員選項</string>
-    <string name="disable_dev_options">禁用開發人員選項</string>
-    <string name="dev_options_warning">Please be sure before enabling developer options. These options are dangerous and could break the app or corrupt your collection.\n\nNote that these options are not suited for most users and therefore are not translated, so they are in English.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -303,37 +253,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">管理空間</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">錯誤</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">正在計算&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="other">%1$d 個檔案\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">刪除未使用的媒體檔案</string>
-    <string name="pref__delete_unused_media_files__summary">刪除前置不是 _ 以及不被任何筆記引用的圖像和其它媒體</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">刪除未使用的媒體檔案</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">刪除備份</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">刪除備份</string>
-    <string name="progress__deleting_backups">正在刪除備份&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">刪除集合</string>
-    <string name="pref__delete_collection__summary">刪除集合、媒體和備份。應用程式設定將不會被刪除</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">刪除集合</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">確定要刪除你的集合、媒體和備份嗎？\n\n注意：此操作將關閉視窗。</string>
-    <string name="progress__deleting_collection">刪除集合中&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">刪除所有內容</string>
-    <string name="pref__delete_everything__summary">刪除集合、媒體、備份和設定</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">刪除所有內容</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">確定要刪除所有資料嗎？這包括你的集合、媒體、備份和設定。\n\n注意：此操作將關閉視窗。</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">刪除應用程式資料</string>
-    <string name="pref__delete_app_data__summary">刪除設定和其它應用程式資料</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">刪除應用程式資料</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">確定要刪除應用程式資料嗎？這包括設定和其它應用程式資料。\n\n注意：此操作將關閉視窗。</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -341,7 +266,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">沒有集合</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">錯誤</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">正在擷取&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">正在計算&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">集合不存在</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">隱藏系統狀態欄</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">無</string>

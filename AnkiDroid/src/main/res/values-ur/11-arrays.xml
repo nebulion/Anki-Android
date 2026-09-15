@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">موجودہ ڈیک استعمال کریں</string>
     <string name="add_to_deck_decide_by_note_type">نوٹ کی قسم کے مطابق فیصلہ کریں</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">سسٹم پر عمل کریں۔</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Day</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Night</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">روشنی</string>
-    <string name="day_theme_plain">سادہ</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">سیاہ</string>
-    <string name="night_theme_dark">اندھیرا</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-چھوٹا</string>
-    <string name="html_size_code_x_small">x-چھوٹا</string>
-    <string name="html_size_code_small">چھوٹا</string>
-    <string name="html_size_code_medium">درمیانہ</string>
-    <string name="html_size_code_large">بڑا</string>
-    <string name="html_size_code_x_large">x-بڑا</string>
-    <string name="html_size_code_xx_large">xx-بڑا</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">آسان جواب دیں</string>
     <string name="gesture_abort_learning" maxLength="41">Close study screen</string>

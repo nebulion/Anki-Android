@@ -40,7 +40,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">𐌲𐌰𐌻𐌴𐌹𐌺</string>
     <string name="pref_cat_scheduling" maxLength="41">𐌲𐌰𐍂𐌴𐌷𐍃𐌽𐍃</string>
     <string name="pref_cat_whiteboard" maxLength="41">𐍈𐌴𐌹𐍄𐌰𐌱𐌰𐌿𐍂𐌳</string>
-    <string name="pref_cat_themes" maxLength="41">𐌸𐌰𐌹𐌼𐍉𐍃</string>
     <string name="pref_cat_gestures" maxLength="41">𐍄𐌰𐌹𐌺𐌽𐌴𐌹𐍃</string>
     <string name="pref_cat_controls" maxLength="41">𐍃𐍄𐌹𐌿𐍂𐌹</string>
     <string name="pref_cat_advanced" maxLength="41">𐍆𐍂𐌰𐌼𐌲𐌰𐌷𐍄</string>
@@ -57,7 +56,6 @@
     <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">𐍃𐍄𐍂𐌹𐌺𐌹𐍃 𐌱𐍂𐌰𐌹𐌳𐌴𐌹</string>
     <string name="use_input_tag" maxLength="41">𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄 𐌹𐌽 𐌺𐌰𐍂𐍄𐌰𐌹 𐌼𐌴𐌻𐌾𐌰𐌽</string>
     <string name="use_input_tag_summ">𐌱𐍉𐌺𐍉 𐌹𐌽𐌼𐌴𐌻𐌴𐌹𐌽𐌰𐌹𐍃 𐌰𐍂𐌺𐌹𐌽𐍃 𐌹𐌽 𐌺𐌰𐍂𐍄𐌰𐌹 𐌱𐍂𐌿𐌺𐌾𐌰𐌽 𐌳𐌿 𐌼𐌴𐌻𐌾𐌰𐌽 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄</string>
     <string name="reset_languages" maxLength="41">𐍂𐌰𐌶𐌳𐍉𐍃 𐌰𐍆𐍄𐍂𐌰𐌻𐌰𐌲𐌾𐌰𐌽</string>
@@ -68,24 +66,11 @@
     <string name="image_zoom" maxLength="41">Image zoom</string>
     <string name="button_size" maxLength="41">𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌰𐌹𐍃 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌼𐌹𐌺𐌹𐌻𐌴𐌹</string>
     <string name="card_browser_font_size" maxLength="41">Card browser font scaling</string>
-    <string name="card_browser_hide_media" maxLength="41">Display filenames in card browser</string>
-    <string name="card_browser_hide_media_summary">Display audio filenames in the card browser question/answer fields</string>
     <string name="col_path" maxLength="41">𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌳𐌹𐍂𐌰𐌹𐌺𐍄𐌰𐌿𐍂𐌹</string>
-    <string name="fullscreen_review" maxLength="41">𐍆𐌿𐌻𐌻𐌰𐍃𐌺𐌰𐌹𐍂𐌼𐌹𐍃 𐌼𐍉𐌳𐌿𐍃</string>
-    <string name="full_screen_off">𐌿𐍄</string>
-    <string name="full_screen_system">Hide the system bars</string>
-    <string name="full_screen_complete">Hide the system bars and answer buttons</string>
-    <string name="answer_buttons_position" maxLength="41">Answer buttons position</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>𐌸𐌰𐍄𐌰 𐌰𐌿𐌷𐌿𐌼𐌹𐍃𐍄𐍉</item>
-        <item>𐌸𐌰𐍄𐌰 𐌷𐌽𐌰𐌹𐍅𐌹𐍃𐍄𐍉</item>
-        <item>𐌽𐌹</item>
-    </string-array>
     <string name="gestures" maxLength="41">𐍄𐌰𐌹𐌺𐌽𐌹𐌽𐍃 𐌲𐌰𐌻𐌰𐌲𐌾𐌰𐌽</string>
     <string name="gestures_summ">Assign gestures to actions such as answering and editing cards.</string>
     <string name="gestures_corner_touch" maxLength="41">9-point touch</string>
     <string name="gestures_corner_touch_summary">𐍄𐌴𐌺𐌰𐍄𐌰𐌹𐌺𐌽𐌹𐌽𐍃 𐌹𐌽 𐍅𐌰𐌹𐌷𐍃𐍄𐌰𐌼 𐍃𐌺𐌰𐌹𐍂𐌼𐌹𐍃 𐌰𐌽𐌳𐌻𐌴𐍄𐌰𐌽</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">𐌱𐍉𐌺𐌰𐌱𐌰𐌿𐍂𐌳𐌹𐍃 𐌼𐌰𐌿𐍂𐌲𐌿𐍅𐌹𐌲𐌰𐌽𐍃 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">Full screen navigation drawer</string>
     <string name="gestures_fullscreen_nav_drawer_summary">Open navigation drawer when swiped right from anywhere on the screen</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">𐌽𐌹</string>
@@ -107,13 +92,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">𐍄𐌴𐌷𐍄𐍃 𐌸𐍂𐌹𐌼 𐍆𐌹𐌲𐌲𐍂𐌰𐌼</string>
     <string name="gestures_four_finger_tap" maxLength="41">𐍄𐌴𐌷𐍄𐍃 𐍆𐌹𐌳𐍅𐍉𐍂𐌹𐌼 𐍆𐌹𐌲𐌲𐍂𐌰𐌼</string>
     <string name="gestures_shake" maxLength="41">Shake device</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">\'%s\' 𐌼𐌰𐌹𐌽𐍅</string>
-    <string name="card_browser_enable_external_context_menu_summary">Enables the ‘%s’ context menu globally</string>
     <string name="double_scrolling_gap" maxLength="41">Double scrolling</string>
     <string name="double_scrolling_gap_summ">Double the scroll gap with eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Swipe sensitivity</string>
-    <string name="tts" maxLength="41">𐌱𐍉𐌺𐍉 𐌳𐌿 𐍃𐍄𐌹𐌱𐌽𐌰𐌹</string>
-    <string name="tts_summ">𐌿𐍃𐍃𐌹𐌲𐌲𐍅𐌹𐌸 𐌱𐌹𐌳𐌰 𐌾𐌰𐌷 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄 𐌾𐌰𐌱𐌰𐌹 𐌽𐌹 𐌷𐌰𐌱𐌰𐌹𐌸 𐌷𐌻𐌹𐌿𐌸𐌹𐍃 𐍆𐌰𐌾𐌻</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">𐌼𐌰𐌹𐌳𐌾𐌰 𐌽𐌹𐌼𐌰𐌽 𐌸𐌰𐌽𐌿𐌷 𐌲𐌰𐌲𐌰𐌻𐌴𐌹𐌺𐍉𐌸</string>
     <string name="sync_account_summ_logged_out">𐌽𐌹 𐌰𐍄𐌲𐌰𐌲𐌲𐌰𐌽</string>
@@ -129,9 +110,6 @@
     <string name="metered_sync_summary">If disabled, you will be warned if you try to sync on a metered connection</string>
     <string name="backup_limits_frequency">𐍈𐌰𐌽 𐍆𐌹𐌻𐌿</string>
     <string name="backup_limits_lifetime">𐌻𐌹𐌱𐌰𐌹𐌽𐌹𐌸𐌴𐌹𐌷𐍃</string>
-    <string name="app_theme" maxLength="41">𐌸𐌰𐌹𐌼𐌰</string>
-    <string name="day_theme" maxLength="41">𐌳𐌰𐌲𐌰𐌸𐌰𐌹𐌼𐌰</string>
-    <string name="night_theme" maxLength="41">𐌽𐌰𐌷𐍄𐌰𐌸𐌰𐌹𐌼𐌰</string>
     <string name="language" maxLength="41">𐍂𐌰𐌶𐌳𐌰</string>
     <string name="language_system">𐍂𐌰𐌶𐌳𐌰 𐍃𐍅𐍃𐍄𐌴𐌼𐍉𐍃</string>
     <string name="notification_pref" maxLength="41">Notifications</string>
@@ -141,28 +119,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">𐌽𐌰𐌿𐌷 𐌼𐌰𐌹𐍃 𐌸𐌰𐌿 %d 𐍄𐌰𐌿𐌾𐌰𐌽</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">𐌹𐌽𐍂𐌴𐌹𐍂𐌰𐌽</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">𐌲𐌻𐌹𐍄𐌼𐌿𐌽𐌾𐌰𐌽𐌳𐍉 𐌻𐌹𐌿𐌷𐌰𐌸</string>
-    <string name="select_locale_title">𐍂𐌰𐌶𐌳𐌰 𐍅𐌰𐌻𐌾𐌰𐌽</string>
     <string name="software_render" maxLength="41">Disable card hardware render</string>
     <string name="software_render_summ">𐌷𐌰𐍂𐌳𐌿𐍅𐌰𐍂𐍉𐍃 𐌰𐍄𐌰𐌿𐌲𐌾𐌰 𐍃𐍀𐍂𐌰𐌿𐍄𐌹𐌶𐌰 𐌹𐍃𐍄 𐌹𐌸 𐌼𐌰𐌲 𐌿𐌽𐍂𐌰𐌹𐌷𐍄𐌰𐌱𐌰 𐍅𐌰𐌿𐍂𐌺𐌾𐌰𐌽, 𐌸𐌹𐍃𐌷𐌿𐌽 𐌰𐌽𐌰 𐌰𐌽𐌳𐍂𐌰𐌿𐌳 8/8.1. 𐌾𐌰𐌱𐌰𐌹 𐌽𐌹 𐌼𐌰𐌲𐍄 𐌳𐌰𐌹𐌻𐌹𐌽𐍃 𐍃𐌰𐌹𐍈𐌰𐌽 𐌹𐌽𐍄𐌰𐌹𐍂𐍆𐌰𐌺𐌹𐍉𐍃 𐌱𐍂𐌿𐌺𐌾𐌰𐌽𐌴 𐌰𐍆𐍄𐍂𐌰𐍃𐌹𐌿𐌽𐌰𐌹𐍃 𐌺𐌰𐍂𐍄𐍉, 𐌺𐌹𐌿𐍃𐌰𐌹 𐌸𐍉 𐌻𐌰𐌲𐌴𐌹𐌽.</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">𐌻𐌰𐌲𐌾𐌰𐌽 𐌹𐌽 𐌼𐌹𐌳𐌿𐌼𐌰𐌹</string>
-    <string name="vertical_centering_summ">𐍅𐌰𐌹𐌷𐍄𐍃 𐍇𐌰𐍂𐍄𐍉 𐌹𐌽 𐌷𐌰𐌿𐌷𐌴𐌹𐌽 𐌻𐌰𐌲𐌾𐌰𐌽</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Double tap time interval</string>
     <string name="pref_double_tap_time_interval_summary">A second tap of the answer buttons will be ignored if this time has not elapsed. This prevents accidental double taps</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽 𐌸𐌴𐌹𐌷𐍃𐌹𐍃 𐌻𐌰𐌲𐌲𐌰𐌹 𐍄𐌴𐌷𐍄𐌰𐌹</string>
     <string name="pref_show_answer_long_press_time_summary">𐌸𐌰𐍄𐌰 𐌼𐌹𐌽𐌽𐌹𐍃𐍄𐍉 𐌸𐌴𐌹𐌷𐍃 𐌸𐍂𐌿𐌺𐌴𐌹𐌽𐌰𐌹𐍃 𐍆𐌰𐌿𐍂𐌸𐌹𐌶𐌴𐌹 𐌿𐍆𐌺𐌿𐌽𐌽𐌰𐌹 𐍄𐌴𐌷𐍄 𐌸𐌰𐍄𐌰 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉 𐌳𐌿 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄.</string>
-    <string name="show_estimates" maxLength="41">𐌸𐌴𐌹𐌷𐍃 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="show_estimates_summ">Show next review time on answer buttons</string>
     <string name="show_large_answer_buttons" maxLength="41">𐌼𐌹𐌺𐌹𐌻𐍉𐍃 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌴 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="show_large_answer_buttons_summ">𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌴 𐌹𐌽 𐍄𐍅𐌰𐌹𐌼 𐍅𐌹𐌺𐍉𐌼 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="show_top_bar" maxLength="41">𐌰𐌽𐍃 𐌰𐌿𐌷𐌿𐌼𐌹𐍃𐍄𐌰𐌽𐌰 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="show_top_bar_summary">𐌺𐌰𐍂𐍄𐍉 𐍂𐌰𐌸𐌾𐍉𐌽𐍃, 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌰𐌹𐍃 𐌸𐌴𐌹𐌷𐍃, 𐍆𐌰𐌽𐌰𐌽 𐌾𐌰𐌷 𐌱𐌰𐌽𐌳𐍅𐍉𐌽 𐌹𐌽 𐌰𐌽𐍃𐌰 𐌰𐌿𐌷𐌿𐌼𐌹𐍃𐍄𐌰𐌽𐌰 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="show_progress" maxLength="41">𐌱𐌹𐌻𐌴𐌹𐌱𐌰𐌽𐌳𐍉𐌽𐌰 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="show_progress_summ">𐌱𐌹𐌻𐌴𐌹𐌱𐌰𐌽𐌳𐌴𐌹 𐍂𐌰𐌸𐌾𐍉 𐌺𐌰𐍂𐍄𐍉 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="show_eta" maxLength="41">ETA 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="show_eta_summ">𐌱𐌹𐌻𐌴𐌹𐌱𐌰𐌽𐌳𐍉 𐌼𐌴𐌻 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="use_current" maxLength="41">𐌺𐌰𐍂𐍄𐌰𐌷𐌿𐌶𐌳 𐌺𐌰𐍂𐍄𐍉𐌼 𐌽𐌹𐌿𐌾𐌰𐌹𐌼</string>
     <string name="learn_cutoff" maxLength="41">𐌼𐌰𐍂𐌺𐌰 𐍆𐌰𐌿𐍂𐌰𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐌰𐌹𐍃</string>
     <string name="time_limit" maxLength="41">Timebox time limit</string>
@@ -175,13 +142,9 @@
     <string name="pref_keep_screen_on_summ">𐍃𐌺𐌰𐌹𐍂𐌼𐌹𐍃 𐌿𐍄𐌰𐌼𐌴𐌻 𐌿𐌽𐌲𐌰𐍄𐌰𐌿𐌾𐌰𐌽</string>
     <string name="enable_api_title" maxLength="41">𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌰𐍀𐌹 𐌲𐌰𐍅𐌰𐌿𐍂𐌺𐌾𐌰𐌽</string>
     <string name="enable_api_summary">Let other apps connect to AnkiDroid and read / write data without your intervention</string>
-    <string name="custom_buttons" maxLength="41">App bar buttons</string>
-    <string name="custom_buttons_summary">Customize which actions appear in the app bar</string>
     <string name="custom_buttons_setting_always_show">𐍃𐌹𐌽𐍄𐌴𐌹𐌽𐍉 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="custom_buttons_setting_if_room">𐌾𐌰𐌱𐌰𐌹 𐍂𐌿𐌼 𐌹𐍃𐍄 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="custom_buttons_setting_menu_only">𐌼𐌰𐌹𐌽𐍅 𐌸𐌰𐍄𐌰𐌹𐌽𐌴𐌹</string>
     <string name="reset_custom_buttons" maxLength="41">Reset to default</string>
-    <string name="reset_settings_to_default">Reset settings to default</string>
     <string name="reset">𐌰𐍆𐍄𐍂𐌰𐌻𐌰𐌲𐌾𐌰𐌽</string>
     <string name="thirdparty_apps_title" maxLength="41">Third-party API apps</string>
     <string name="thirdparty_apps_summary">𐍃𐌰𐌹 𐍅𐌹𐌺𐍉𐌽 𐌰𐍀𐍀𐌻𐌴𐌹𐌺𐌰𐍄𐍃𐌾𐍉𐌽𐍉 𐌱𐍂𐌿𐌺𐌾𐌰𐌽𐌳𐌴𐌹𐌽𐍉 𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳𐍃 𐌰𐍀𐌹 𐍃𐍅𐌴 𐍅𐌰𐌿𐍂𐌳𐌰𐌱𐍉𐌺𐍉𐌼, 𐌱𐍂𐌿𐌺𐌴𐌹𐌽𐌹𐌼.</string>
@@ -189,8 +152,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">𐍆𐌰𐌿𐍂𐌰𐍃𐌹𐌿𐌽𐌴𐌹𐍃</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">𐌸𐌰𐍄𐌰𐌹𐌽𐌴𐌹 𐌷𐌹𐌽𐌳𐌰𐍂𐍆𐌴𐍂𐌰 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">𐍃𐌺𐌰𐌹𐍂𐌼𐍃 𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐌰𐌹𐍃</string>
-    <string name="show_deck_title" maxLength="41">𐌺𐌰𐍂𐍄𐌰𐌷𐌿𐌶𐌳𐌹𐍃 𐌿𐍆𐌰𐍂𐌼𐌴𐌻𐌹 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="accessibility" maxLength="41">𐌼𐌰𐌷𐍄𐍃 𐌳𐌿 𐌰𐍄𐌲𐌰𐌲𐌲𐌰𐌽</string>
     <string name="exit_via_double_tap_back" maxLength="41">𐌸𐍂𐌿𐌺𐌴𐌹 𐌲𐌰𐍅𐌰𐌽𐌳𐌾𐌰𐌽 𐌸𐌿𐌺 𐍄𐍅𐌰𐌹𐌼 𐍃𐌹𐌽𐌸𐌰𐌼 𐌳𐌿 𐌲𐌰𐍅𐌰𐌽𐌳𐌾𐌰𐌽 𐌸𐌿𐌺/𐌰𐍆𐌻𐌴𐌹𐌸𐌰𐌽</string>
     <string name="exit_via_double_tap_back_summ">𐌴𐌹 𐌽𐌹 𐌰𐍆𐌻𐌴𐌹𐌸𐌰𐌹𐍃 𐌰𐍆 𐍃𐌺𐌰𐌹𐍂𐌼𐌰 𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐌰𐌹𐍃 𐌸𐌰𐌿 𐌰𐍀𐍀 𐌽𐌹 𐌸𐌰𐍄𐌰 𐍅𐌹𐌻𐌾𐌰𐌽𐌳𐍃/𐍅𐌹𐌻𐌾𐌰𐌽𐌳𐌴𐌹</string>
@@ -225,7 +186,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">𐍃𐍉𐌺𐌽𐌹𐍅𐌰𐌿𐍂𐌳𐌰 𐍅𐌰𐌻𐌾𐌰𐌽</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">𐌲𐌰𐌼𐌰𐌹𐌽</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">𐍃𐍉𐌺𐌽𐍃</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">𐌽𐌹𐌿𐌾𐌰𐍃𐍄𐍂𐌹𐌺𐌰𐌽𐍃 𐌼𐌹𐌸𐍃𐌰𐍄𐌾𐌰𐌽 𐌼𐌹𐌸 𐌷𐍄𐌼𐌻</string>
@@ -233,7 +193,6 @@
     <string name="type_in_answer_focus" maxLength="41">Focus ‘type in answer’</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="open_changelog">𐌻𐌰𐌿𐌲 𐌹𐌽𐌼𐌰𐌹𐌳𐌴𐌹𐌽𐍉 𐌿𐍃𐌻𐌿𐌺𐌰𐌽</string>
     <string name="pref_cat_about_title" maxLength="41">𐌱𐌹</string>
     <string name="contributors_title">𐌷𐌹𐌻𐍀𐌰𐌽𐌳𐌰𐌽𐍃</string>
     <string name="about_contributors_description"><![CDATA[𐌸𐌰𐌹 𐍃𐌹𐌽𐌳 <a href=\"%1$s\">𐌷𐌹𐌻𐍀𐌰𐌽𐌳𐌰𐌽𐍃</a> 𐌲𐍉𐌳𐌰𐌹 𐍆𐌹𐌻𐌿 𐌿𐌽𐍃𐌰𐍂𐌰𐌹. 𐌾𐌰𐌷 𐌸𐌿 𐌼𐌰𐌲𐍄 𐌷𐌹𐌻𐍀𐌰𐌽 𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳𐌹𐍃 𐍆𐌰𐌿𐍂𐌰𐌼𐌴𐌻𐌴𐌹𐌽𐌰𐌹, 𐍃𐌺𐌴𐌹𐍂𐌴𐌹𐌽𐌰𐌹, 𐌰𐌽𐌳𐍃𐍄𐌰𐌻𐌳𐌰𐌽 𐌾𐌰𐌷 <a href=\"%2$s\">𐌼𐌰𐌹𐍃</a>! ]]></string>
@@ -262,8 +221,6 @@
     <string name="toggle_auto_advance" maxLength="28">Toggle auto advance</string>
     <string name="enable_auto_advance" maxLength="28">Enable auto advance</string>
     <string name="disable_auto_advance" maxLength="28">Disable auto advance</string>
-    <string name="enable_voice_recording" maxLength="28">Enable voice recording</string>
-    <string name="disable_voice_recording" maxLength="28">Disable voice recording</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">𐍆𐌴𐍂𐌰 𐌺𐌰𐍂𐍄𐍉𐍃 𐍅𐌰𐌻𐌾𐌰𐌽</string>
     <string name="card_side_question">𐌱𐌹𐌳𐌰</string>
@@ -276,17 +233,10 @@
     <string name="bindings_already_bound">𐌳𐌿 ’%s’ 𐌾𐌿 𐌱𐌿𐌽𐌳𐌰𐌽 𐌹𐍃𐍄</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Experimental</string>
-    <string name="readtext_deprecation_warn">AnkiDroid has introduced a better TTS mechanism which is compatible with other Anki clients and includes more voices and improvements to language playback!\n\nPlease upgrade as soon as possible, as this setting will be removed soon</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Please upgrade to the new text to speech format</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">Allow templates to record audio</string>
-    <string name="template_is_trying_to_record_audio">This template is trying to record audio</string>
     <string name="pref_fixed_port_title" maxLength="41">localStorage 𐌹𐌽 𐍃𐌺𐌰𐌹𐍂𐌼𐌰 𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐌰𐌹𐍃</string>
     <string name="pref_fixed_port_summary">Enables JavaScript localStorage by using a fixed server port in the Study Screen</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">𐌼𐌰𐌷𐍄𐌴𐌹𐍃 𐌰𐌽𐌳𐍅𐌰𐌹𐌱𐌾𐌰𐌽𐌳𐌹𐍃</string>
-    <string name="dev_options_enabled_pref" maxLength="41">𐌰𐌽𐌳𐍅𐌰𐌹𐌱𐌾𐌰𐌽𐌳𐌹𐍃 𐌼𐌰𐌷𐍄𐌹𐌽𐍃 𐌲𐌰𐍄𐌰𐌿𐌾𐌰𐌽</string>
-    <string name="disable_dev_options">𐌰𐌽𐌳𐍅𐌰𐌹𐌱𐌾𐌰𐌽𐌳𐌹𐍃 𐌼𐌰𐌷𐍄𐌹𐌽𐍃 𐌿𐌽𐌲𐌰𐍄𐌰𐌿𐌾𐌰𐌽</string>
-    <string name="dev_options_warning">Please be sure before enabling developer options. These options are dangerous and could break the app or corrupt your collection.\n\nNote that these options are not suited for most users and therefore are not translated, so they are in English.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -307,38 +257,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">𐍂𐌿𐌼 𐌰𐍄𐌲𐌰𐍂𐌰𐌹𐌷𐍄𐌾𐌰𐌽</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">𐌰𐌹𐍂𐌶𐌴𐌹</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">𐍂𐌰𐌷𐌽-\n𐌾𐌰𐌳𐌰&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="one">%1$d 𐍆𐌰𐌾𐌻\n%2$s</item>
-        <item quantity="other">%1$d 𐍆𐌰𐌾𐌻𐌰\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">𐌿𐌽𐌱𐍂𐌿𐌷𐍄𐌰𐌹𐌼 𐌼𐌰𐌹𐌳𐌾𐌰𐍆𐌰𐌾𐌻𐌰𐌼 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽</string>
-    <string name="pref__delete_unused_media_files__summary">𐍆𐍂𐌹𐍃𐌰𐌷𐍄𐌹𐌼 𐌾𐌰𐌷 𐌰𐌽𐌸𐌰𐍂𐌰𐌹𐌼 𐌼𐌰𐌹𐌳𐌾𐌰𐌼 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽 𐌹𐌽𐌿𐌷 𐍆𐌰𐌿𐍂𐌰𐌻𐌰𐌲𐌴𐌹𐌽 𐌼𐌹𐌸 _ 𐌾𐌰𐌷 𐌽𐌹 𐍄𐌰𐌹𐌺𐌽𐌾𐌰𐌽𐌳𐌰 𐍆𐍂𐌰𐌼 𐌼𐌴𐌻𐌴𐌹𐌽𐌹𐌼</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">𐌿𐌽𐌱𐍂𐌿𐌷𐍄𐌰𐌹𐌼 𐌼𐌰𐌹𐌳𐌾𐌰𐍆𐌰𐌾𐌻𐌰𐌼 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">𐌱𐌰𐌹𐌺𐌰𐍀𐌰𐌼 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">𐌱𐌰𐌹𐌺𐌰𐍀𐌰𐌼 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽</string>
-    <string name="progress__deleting_backups">𐌱𐌰𐌹𐌺𐌰𐍀𐌰𐌼 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽𐌳𐌰&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">𐌷𐌿𐌶𐌳𐌰 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽</string>
-    <string name="pref__delete_collection__summary">𐌷𐌿𐌶𐌳𐌰, 𐌼𐌰𐌹𐌳𐌾𐌰𐌼 𐌾𐌰𐌷 𐌱𐌰𐌹𐌺𐌰𐍀𐌰𐌼 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽. 𐌰𐍀𐍀𐍃 𐌻𐌰𐌲𐌴𐌹𐌽𐌹𐌼 𐌽𐌹 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽𐌳𐌰</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">𐌷𐌿𐌶𐌳𐌰 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">𐌱𐌹 𐍃𐌿𐌽𐌾𐌰𐌹 𐍅𐌹𐌻𐌴𐌹𐌶𐌿 𐌷𐌿𐌶𐌳𐌰, 𐌼𐌰𐌹𐌳𐌾𐌰𐌼, 𐌾𐌰𐌷 𐌱𐌰𐌹𐌺𐌰𐍀𐌰𐌼 𐌸𐌴𐌹𐌽𐌰𐌹𐌼 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽?\n\n𐍃𐌰𐌹: 𐌸𐌰𐍄𐌰 𐍄𐌰𐌿𐌹 𐌻𐌿𐌺𐌹𐌸 𐌰𐌿𐌲𐌰𐌳𐌰𐌿𐍂𐍉.</string>
-    <string name="progress__deleting_collection">𐌷𐌿𐌶𐌳𐌰 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌳𐌰&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">𐌰𐌻𐌻𐌰𐌼𐌼𐌰 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽</string>
-    <string name="pref__delete_everything__summary">𐌷𐌿𐌶𐌳𐌰, 𐌼𐌰𐌹𐌳𐌾𐌰𐌼, 𐌱𐌰𐌹𐌺𐌰𐍀𐌰𐌼 𐌾𐌰𐌷 𐌻𐌰𐌲𐌴𐌹𐌽𐌹𐌼 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">𐌰𐌻𐌻𐌰𐌼𐌼𐌰 𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Bi sunjai wileizu allaim þaim datam usqistjan? Þata ist, huzdam, maidjam, baikaps jah liubostaim waihtim.\n\nMeleins: þata taui lukiþ augadauron.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">Appis datai usqistjan</string>
-    <string name="pref__delete_app_data__summary">Lageinim jah anþaraim datam appis usqistjan</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">Datam appis usqistjan</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Bi sunjai wileizu appis datam usqistjan? Þata ist lageinos jah anþara data appis.\n\nSai: þata taui lukiþ þata augadauron.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -346,7 +270,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">𐌽𐌹 𐌷𐌿𐌶𐌳</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">𐌰𐌹𐍂𐌶𐌴𐌹</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">𐌽𐌹𐌼𐌰𐌳𐌰&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">𐍂𐌰𐌷𐌽𐌾𐌰𐌳𐌰&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">𐌷𐌿𐌶𐌳 𐌽𐌹𐍃𐍄</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">𐌰𐌽𐍃𐌰𐌽𐍃 𐍃𐍅𐍃𐍄𐌴𐌼𐍃 𐌰𐍆𐍆𐌹𐌻𐌷𐌰𐌽</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">𐌽𐌹</string>

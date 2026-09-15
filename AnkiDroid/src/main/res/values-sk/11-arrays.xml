@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">Použiť aktuálny balíček</string>
     <string name="add_to_deck_decide_by_note_type">Rozhodnúť podľa typu poznámky</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">Follow system</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Denný</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Nočný</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">Svetlý</string>
-    <string name="day_theme_plain">Jednoduchý</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">Čierny</string>
-    <string name="night_theme_dark">Tmavý</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-malý</string>
-    <string name="html_size_code_x_small">x-malý</string>
-    <string name="html_size_code_small">malý</string>
-    <string name="html_size_code_medium">stredný</string>
-    <string name="html_size_code_large">veľký</string>
-    <string name="html_size_code_x_large">x-veľký</string>
-    <string name="html_size_code_xx_large">xx-veľký</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Odpovedať ľahké</string>
     <string name="gesture_abort_learning" maxLength="41">Zatvoriť obrazovku študovania</string>

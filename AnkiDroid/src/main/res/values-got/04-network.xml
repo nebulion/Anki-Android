@@ -27,7 +27,6 @@
     <string name="sync_error">𐌰𐌹𐍂𐌶𐌴𐌹 𐌲𐌰𐌲𐌰𐌻𐌴𐌹𐌺𐍉𐌽</string>
     <string name="vague_error" comment="Network error dialog title">𐌰𐌹𐍂𐌶𐌴𐌹</string>
     <string name="retry">𐌰𐍆𐍄𐍂𐌰 𐍃𐍉𐌺𐌾𐌰𐌽</string>
-    <string name="menu_get_shared_decks">𐌺𐌰𐍂𐍄𐌰𐌷𐌿𐌶𐌳𐌰 𐌲𐌰𐌳𐌰𐌹𐌻𐌹𐌳𐌰 𐌽𐌹𐌼𐌰𐌽</string>
     <string name="connection_error_message">𐌽𐌰𐍄𐌾𐌰𐍅𐌰𐌿𐍂𐌺𐌹𐍃 𐌰𐌹𐍂𐌶𐌴𐌹 𐍅𐌰𐍂𐌸</string>
     <string name="not_logged_in_title">𐌰𐍄𐌲𐌰𐌲𐌲 𐌳𐌿 𐌰𐌽𐌺𐌴𐌹𐍅𐌰𐌱𐌾𐌰</string>
     <string name="login_create_account_message">𐌰𐍄𐌲𐌰𐌲𐌲𐌰𐌹𐍃 𐌰𐌽𐌰 𐍂𐌰𐌷𐌽𐌴𐌹𐌽𐌰𐌹 𐌸𐍂𐌹𐌳𐌾𐌹𐍃 𐌷𐌹𐌿𐌷𐌼𐌹𐌽𐍃 𐌱𐍂𐌿𐌺𐌾𐌰𐌽 𐍃𐌺𐌰𐌻𐌺𐌹𐌽𐌰𐍃𐍃𐌰𐌿𐍃 𐌼𐌹𐌻𐌷𐌼𐌹𐌽𐍃 𐌳𐌿 𐌲𐌰𐌲𐌰𐌻𐌴𐌹𐌺𐍉𐌽. 𐌼𐌰𐌲𐍄 𐍃𐌺𐌰𐍀𐌾𐌰𐌽 𐍃𐌿𐌼 𐌹𐌽 𐌹𐍆𐍄𐌿𐌼𐍉𐌽 𐌲𐍂𐌹𐌳𐌰𐌹.</string>

@@ -32,9 +32,6 @@
         <item quantity="other">Delete all cards in %1$s? It contains %2$d cards</item>
     </plurals>
     <string name="delete_cram_deck_message">Ištrinti filtruotą kortelių rinkinį %s ir grąžinti visas kortas į jų pradinius kortelių rinkinius?</string>
-    <string name="no_tts_available_message">Teksto perskaityti nurodyta kalba negalime</string>
-    <string name="tts_no_tts">Nekalbėkite</string>
-    <string name="reposition_card_not_new_error">Gali būti keičiamas tik naujų kortelių išdėstymas</string>
     <string name="reset_card_dialog_title">Atkurti kortelių eigą</string>
     <plurals name="reset_cards_dialog_acknowledge">
         <item quantity="one">%d kortelės atkūrimas</item>
@@ -47,8 +44,6 @@
     <string name="answering_error_report">Pranešti apie klaidą</string>
     <string name="storage_full_message">Nėra pakankamai laisvos vietos, kad galėtumėte atidaryti \"AnkiDroid\". Atlaisvinkite šiek tiek vietos, kad galėtumėte tęsti.</string>
     <string name="repair_deck_dialog">Ar tikrai norite taisyti duomenų bazę?\n\nPrieš tai atliekant, poaplankyje „%s“ bus sukurta kopija.</string>
-    <string name="intent_aedict_empty">Kategorija „numatytieji“ yra tuščia</string>
-    <string name="intent_aedict_category">Norėdami „AnkiDroid“ programoje pridėti kortelių, pašalinkite visas „Notepad“ kategorijas arba pridėkite vieną, kuri vadintųsi „numatytoji“</string>
     <string name="custom_study_new_extend">Padidinti/sumažinti (\"-3\") šiandienos naują kortelės limitą</string>
     <string name="custom_study_rev_extend">Padidinti / sumažinti (\"-3\") šiandienos peržiūros ribą</string>
     <string name="custom_study_forgotten">Peržiūrėti korteles, kurios buvo pamirštos per paskutines x dienų:</string>
@@ -64,17 +59,10 @@
     <string name="restore_backup_choose_another">Pasirinkite kitą</string>
     <string name="dialog_cancel">Atšaukti</string>
     <string name="dialog_ok">Gerai</string>
-    <string name="dialog_add" comment="Positive dialog action button label to add \'something\'">Add</string>
-    <string name="restore">Restore</string>
     <string name="dialog_confirm" tools:ignore="UnusedResources">Patvirtinkite</string>
-    <string name="dialog_no">Ne</string>
-    <string name="dialog_yes">Taip</string>
-    <string name="dialog_keep">Išlaikyti</string>
-    <string name="dialog_remove">Pašalinti</string>
     <string name="dialog_exit" comment="Label for a button which will exit/finish the current screen">Exit</string>
     <string name="dialog_continue">Tęsti</string>
     <string name="dialog_processing">Apdorojimas&#8230;</string>
-    <string name="dialog_allow">Allow</string>
     <string name="dialog_positive_create" comment="Create a new collection, probably erasing the previous one, may be necessary in case of error.">Kurti</string>
     <string name="dialog_positive_delete" maxLength="28">Ištrinti</string>
     <!-- Currently unsued, should be useful in the future -->
@@ -106,19 +94,13 @@
     <!-- Empty cards -->
     <string name="emtpy_cards_finding">Ieškomos tuščios kortelės&#8230;</string>
     <!-- Multimedia - Edit Field Activity -->
-    <string name="multimedia_editor_audio_permission_refused">Nepavyko gauti mikrofono leidimo.</string>
-    <string name="multimedia_editor_failed">Nepavyko atidaryti multimedijos redaktoriaus</string>
     <!-- Multimedia - Audio View -->
-    <string name="multimedia_editor_audio_permission_denied">Atsisakyta išduoti leidimą įrašyti garsą</string>
-    <string name="permission_denied">Permission denied</string>
-    <string name="microphone_permission_denied_message">Microphone permission denied. Please grant it in the app settings.</string>
     <!-- Database Integrity Check -->
     <string name="integrity_check_continue_anyway">Vis tiek tęsti</string>
     <string name="integrity_check_insufficient_space">\"Check Database\" naudoja daug laikinosios atminties.\n\nVisiškai rekomenduojama, kad prieš tęsdami darbą savo įrenginyje turėtumėte bent %s laisvos vietos.</string>
     <string name="integrity_check_insufficient_space_extra_content">\n\nŠiuo metu turite %s laisvų vietų.</string>
     <!-- Card Browser -->
     <!-- AbstractFlashCardViewer -->
-    <string name="card_viewer_url_decode_error">Klaida dekoduojant duomenis iš kortelės</string>
     <!-- Deck Options -->
     <!-- Database Errors-->
     <string name="database_locked_title">Duomenų bazė užrakinta</string>
@@ -126,15 +108,8 @@
     <string name="incompatible_database_version_title">Nesuderinama duomenų bazės versija</string>
     <string name="incompatible_database_version_summary">Duomenų bazė yra pažangesnė versija, nei su kuria gali dirbti ši \"AnkiDroid\" versija. Atnaujinkite \"AnkiDroid\" arba sumažinkite duomenų bazės lygį, kad ją atidarytumėte\n\nPalaikoma versija: %1$d\nDomenų bazės versija: %2$d\n\nNurodytos atkūrimo parinktys perrašys jūsų dabartinę kolekciją, galbūt su suderinama duomenų bazės versija:</string>
     <!-- Deck Picker Background-->
-    <string name="background_image_applied">Pritaikytas fono paveikslėlis</string>
-    <string name="background_image_removed">Pašalintas fono paveikslėlis</string>
-    <string name="no_image_selected">Nepasirinktas joks vaizdas</string>
-    <string name="error_selecting_image">Klaida pasirenkant vaizdą. Žr. vadovą. %s</string>
-    <string name="error_deleting_image">Klaida trinant vaizdą</string>
     <string name="failed_to_apply_background_image">Nepavyko pritaikyti fono paveikslėlio %s</string>
     <string name="background_image_too_large">Per didelis \"Deck Picker\" fonas</string>
-    <string name="image_max_size_allowed" comment="Consider keeping the unbreakable space after the digit">Didžiausias leidžiamas vaizdo dydis %d MB</string>
-    <string name="image_dimensions_too_large">Vaizdų matmenys yra per dideli (%1$d × %2$d)</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Missing required storage permission. Please grant storage permission then retry your action.</string>
@@ -145,32 +120,8 @@
     <string name="locale_selection_dialog_title_new">Nustatyti kalbą</string>
     <string name="locale_selection_dialog_summary">Kai kurios daugiakalbės klaviatūros, pvz., GBoard, palaiko kalbos keitimą redaguojant tekstą\n\nJei jūsų klaviatūra nekeičia kalbos, prašykite klaviatūros gamintojo įdiegti funkciją \"setImeHintLocales\".</string>
     <!-- Help Dialog -->
-    <string name="help_title_using_ankidroid">Naudojimasis \"AnkiDroid</string>
-    <string name="help_item_ankidroid_manual">AnkiDroid vadovas</string>
-    <string name="help_item_anki_manual">Anki vadovas</string>
-    <string name="help_item_ankidroid_faq">\"AnkiDroid\" DUK</string>
     <string name="help_title_get_help">Gaukite pagalbą</string>
-    <string name="help_item_mailing_list">Pašto adresatų sąrašas</string>
-    <string name="help_item_reddit">Pagalbos elementų sąrašas</string>
-    <string name="help_item_report_bug">Pranešti apie klaidą</string>
-    <string name="help_title_support_ankidroid" maxLength="28">Parama AnkiDroid</string>
     <string name="help_item_support_opencollective_donate">Paaukoti</string>
-    <string name="help_item_support_develop_ankidroid">Kurti</string>
-    <string name="help_item_support_rate_ankidroid">Įvertinkite</string>
-    <string name="help_item_support_other_ankidroid">Kitas</string>
-    <string name="multimedia_editor_trans_translate">Vertimas</string>
-    <string name="help_title_community">Bendruomenė</string>
-    <string name="help_item_anki_forums">\"Anki\" forumas</string>
-    <string name="help_item_discord">Diskusija</string>
-    <string name="help_item_facebook">Facebook</string>
-    <string name="help_item_twitter">Twitter</string>
-    <string name="help_title_privacy">Privatumas</string>
-    <string name="help_item_ankidroid_privacy_policy">\"AnkiDroid\" privatumo politika</string>
-    <string name="help_item_ankiweb_privacy_policy">\"AnkiWeb\" privatumo politika</string>
-    <string name="help_item_ankiweb_terms_and_conditions">\"AnkiWeb\" terminai ir sąlygos</string>
-    <string name="help_title_send_exception">Siųsti trikčių šalinimo ataskaitą</string>
-    <string name="help_dialog_exception_report_debounce">Jau pateikta ataskaita</string>
-    <string name="help_dialog_exception_report_sent">Ataskaita išsiųsta!</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d second</item>
@@ -230,22 +181,9 @@
     <string name="set_due_date_range_start" comment="\'Set Due Date\' may change the due date of a card to a random number of days in the future. This labels the \'minimum\' value of this range (inclusive)">Nuo</string>
     <string name="set_due_date_range_end" comment="\'Set Due Date\' may change the due date of a card to a random number of days in the future. This labels the \'maximum\' value of this range (inclusive)">Į</string>
     <!-- Instant Note Editor -->
-    <string name="cloze_note_required">Cloze tipas reikalinga pastaba</string>
-    <string name="cloze_not_found_message">Cloze tipo pastabos nerasta, atidarykite pastabų redaktorių arba bandykite dar kartą pridėti Cloze tipo pastabą.</string>
-    <string name="open">Atidaryti</string>
-    <string name="change_cloze_number">Keisti cloze numerį</string>
-    <string name="cloze_number">Klozės numeris:</string>
-    <string name="change_editor_mode">Keisti redaktoriaus režimą</string>
-    <string name="open_note_editor">Atidarykite pastabų redaktorių</string>
-    <string name="change_cloze_mode">Keisti cloze režimą</string>
     <!-- Outdated WebView dialog -->
     <string name="webview_update_message">Sistemos \"WebView\" yra pasenusi. Kai kurios funkcijos neveikia tinkamai. Atnaujinkite ją.\n\nĮdiegta versija: %1$d\nMinimali reikalaujama versija: %2$d</string>
-    <string name="compress">Suspauskite</string>
     <!-- Tts playback error dialog -->
-    <string name="tts_error_dialog_title">Kalba nepalaikoma</string>
-    <string name="tts_error_dialog_reason_text">The text to speech engine <b>%1$s</b> does not support the following language: <b>%2$s</b></string>
-    <string name="tts_error_dialog_change_button_text">Keisti variklį</string>
-    <string name="tts_error_dialog_supported_voices_button_text">Balso parinktys</string>
     <!-- import_cache_error_resolutions -->
     <string name="import_error_resolution_try_again">Re-import the file</string>
     <string name="import_error_resolution_free_up_space">Ensure there is sufficient free space on your device</string>
@@ -256,29 +194,8 @@
     <string name="login_successful">Login successful</string>
     <string name="sync_now">Sync now?</string>
     <!--Change Note Type Dialog Fragment-->
-    <string name="card_numbers_unchanged">Card numbers will remain unchanged</string>
     <!-- Subset of TR.changeNotetypeToFromCloze -->
-    <string name="extra_cloze_deletions_removed">If changing to a regular note type, and there are more cloze deletions than available card templates, any extra cards will be removed.</string>
-    <string name="different_note_types_selected">Please select notes from only one notetype.</string>
-    <string name="error_no_changes_to_save">No changes to save</string>
-    <string name="choose_color">Choose color</string>
     <!-- Special Fields -->
-    <string name="standard_fields_tab_header" comment="Tab header for inserting non-special fields: {{Front}}">Fields</string>
-    <string name="special_fields_tab_header" comment="Tab header for inserting special fields: {{Deck}}">Special</string>
-    <string name="special_field_example_suffix"><![CDATA[: ‘<b>%1$s</b>’]]></string>
-    <string name="special_field_front_side_help">The front template content. Audio is not automatically played</string>
-    <string name="special_field_deck_help" comment="%s: either blank or \' %s\'">The full deck of the card, including parent decks%s</string>
-    <string name="special_field_subdeck_help" comment="%s: either blank or \' %s\'">The current deck of the card, excluding parent decks%s</string>
-    <string name="special_field_flag_help">Outputs ‘%1$s’, where %2$s is the flag code (%3$s\–%4$s\)</string>
-    <string name="special_field_tags_help" comment="%s: either blank or \' %s\'">The tags of the note%s</string>
-    <string name="special_field_card_id_help" comment="%s: either blank or \' %s\'">The ID of the card%s</string>
-    <string name="special_field_card_help" comment="%s: either blank or \' %s\'">The name of the card template%s</string>
-    <string name="special_field_type_help" comment="%s: either blank or \' %s\'">The name of the note type%s</string>
     <!-- Change Note Type Dialog -->
-    <string name="change_note_type_from" comment="Label indicating the original note type before changing it">From</string>
-    <string name="change_note_type_to" comment="Label indicating the new note type to change to">To</string>
     <!-- Add profile dialog -->
-    <string name="profile_name" comment="Label of the text field where the user types the name of a new profile">Profile name</string>
-    <string name="profile_name_empty_error" comment="Error shown when the user leaves the profile name empty">Profile name can’t be empty</string>
-    <string name="profile_name_too_long_error" comment="Error shown when a profile name exceeds the maximum length. %1$d is the maximum number of characters">Profile name must be %1$d characters or fewer</string>
 </resources>

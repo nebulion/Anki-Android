@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">현재 덱 사용하기</string>
     <string name="add_to_deck_decide_by_note_type">노트 형식에 따라 결정</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">시스템 설정</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">주간</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">야간</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">라이트</string>
-    <string name="day_theme_plain">단색</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">블랙</string>
-    <string name="night_theme_dark">다크</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">엄청나게 작게</string>
-    <string name="html_size_code_x_small">매우 작게</string>
-    <string name="html_size_code_small">작게</string>
-    <string name="html_size_code_medium">보통</string>
-    <string name="html_size_code_large">크게</string>
-    <string name="html_size_code_x_large">매우 크게</string>
-    <string name="html_size_code_xx_large">엄청나게 크게</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">난이도: 쉬움</string>
     <string name="gesture_abort_learning" maxLength="41">학습 화면 닫기</string>

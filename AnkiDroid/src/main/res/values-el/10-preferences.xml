@@ -40,7 +40,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Συγχρονισμός</string>
     <string name="pref_cat_scheduling" maxLength="41">Προγραμματισμός</string>
     <string name="pref_cat_whiteboard" maxLength="41">Πίνακας</string>
-    <string name="pref_cat_themes" maxLength="41">Θέματα</string>
     <string name="pref_cat_gestures" maxLength="41">Χειρονομίες</string>
     <string name="pref_cat_controls" maxLength="41">Στοιχεία ελέγχου</string>
     <string name="pref_cat_advanced" maxLength="41">Σύνθετα</string>
@@ -57,7 +56,6 @@
     <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">Stroke width</string>
     <string name="use_input_tag" maxLength="41">Πληκτρολογήστε την απάντηση στην κάρτα</string>
     <string name="use_input_tag_summ">Χρησιμοποιήστε ένα πλαίσιο εισαγωγής κειμένου μέσα στην κάρτα για να πληκτρολογήσετε την απάντηση</string>
     <string name="reset_languages" maxLength="41">Επαναφορά γλωσσών</string>
@@ -68,24 +66,11 @@
     <string name="image_zoom" maxLength="41">Μεγέθυνση εικόνας</string>
     <string name="button_size" maxLength="41">Μέγεθος κουμπιών απάντησης</string>
     <string name="card_browser_font_size" maxLength="41">Card browser font scaling</string>
-    <string name="card_browser_hide_media" maxLength="41">Display filenames in card browser</string>
-    <string name="card_browser_hide_media_summary">Display audio filenames in the card browser question/answer fields</string>
     <string name="col_path" maxLength="41">Κατάλογος AnkiDroid</string>
-    <string name="fullscreen_review" maxLength="41">Λειτουργία πλήρους οθόνης</string>
-    <string name="full_screen_off">Ανενεργό</string>
-    <string name="full_screen_system">Απόκρυψη γραμμών συστήματος</string>
-    <string name="full_screen_complete">Hide the system bars and answer buttons</string>
-    <string name="answer_buttons_position" maxLength="41">Θέση κουμπιών απάντησης</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>Πάνω</item>
-        <item>Κάτω</item>
-        <item>Καμία</item>
-    </string-array>
     <string name="gestures" maxLength="41">Ενεργοποίηση χειρονομιών</string>
     <string name="gestures_summ">Assign gestures to actions such as answering and editing cards.</string>
     <string name="gestures_corner_touch" maxLength="41">Αφή 9 σημείων</string>
     <string name="gestures_corner_touch_summary">Allow touch gestures in screen corners</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">Εμφάνιση συντομεύσεων πληκτρολογίου</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">Full screen navigation drawer</string>
     <string name="gestures_fullscreen_nav_drawer_summary">Open navigation drawer when swiped right from anywhere on the screen</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Καμία</string>
@@ -107,13 +92,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">Three-finger tap</string>
     <string name="gestures_four_finger_tap" maxLength="41">Four-finger tap</string>
     <string name="gestures_shake" maxLength="41">Ανακίνηση συσκευής</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">Μενού ‘%s’</string>
-    <string name="card_browser_enable_external_context_menu_summary">Enables the ‘%s’ context menu globally</string>
     <string name="double_scrolling_gap" maxLength="41">Διπλή κύλιση</string>
     <string name="double_scrolling_gap_summ">Double the scroll gap with eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Ευαισθησία ολίσθησης</string>
-    <string name="tts" maxLength="41">Κείμενο σε ομιλία</string>
-    <string name="tts_summ">Εκφόνηση των ερωτήσεως και απαντήσεων εάν δεν περιλαμβάνεται αρχείο ήχου</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Λήψη μέσων με συγχρονισμό</string>
     <string name="sync_account_summ_logged_out">Εκτός σύνδεσης</string>
@@ -129,9 +110,6 @@
     <string name="metered_sync_summary">If disabled, you will be warned if you try to sync on a metered connection</string>
     <string name="backup_limits_frequency">Συχνότητα</string>
     <string name="backup_limits_lifetime">Lifetime</string>
-    <string name="app_theme" maxLength="41">Θέμα</string>
-    <string name="day_theme" maxLength="41">Θέμα ημέρας</string>
-    <string name="night_theme" maxLength="41">Θέμα νύχτας</string>
     <string name="language" maxLength="41">Γλώσσα</string>
     <string name="language_system">Γλώσσα συστήματος</string>
     <string name="notification_pref" maxLength="41">Ειδοποιήσεις</string>
@@ -141,28 +119,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">More than %d cards due</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">Δόνηση</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">Blink light</string>
-    <string name="select_locale_title">Επιλογή Γλώσσας</string>
     <string name="software_render" maxLength="41">Disable card hardware render</string>
     <string name="software_render_summ">Hardware render is faster but may have problems, specifically on Android 8/8.1. If you cannot see parts of the card review user interface, try this setting.</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">Στοίχιση στο κέντρο</string>
-    <string name="vertical_centering_summ">Στοίχιση περιεχομένου καρτών κατακόρυφα</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Double tap time interval</string>
     <string name="pref_double_tap_time_interval_summary">A second tap of the answer buttons will be ignored if this time has not elapsed. This prevents accidental double taps</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">Show answer long-press time</string>
     <string name="pref_show_answer_long_press_time_summary">Minimum pressing time before the show answer button registers a touch.</string>
-    <string name="show_estimates" maxLength="41">Εμφάνιση κουμπιού χρόνου</string>
-    <string name="show_estimates_summ">Εμφάνιση διαστήματος επανάληψης στα κουμπιά απάντησης</string>
     <string name="show_large_answer_buttons" maxLength="41">Εμφάνιση μεγάλων κουμπιών απάντησης</string>
     <string name="show_large_answer_buttons_summ">Εμφάνιση κουμπιού απάντησης σε 2 γραμμές</string>
-    <string name="show_top_bar" maxLength="41">Εμφάνιση πάνω γραμμής</string>
-    <string name="show_top_bar_summary">Show card counts, answer timer, flag and mark in top bar</string>
-    <string name="show_progress" maxLength="41">Εμφάνιση υπολειπόμενων</string>
-    <string name="show_progress_summ">Εμφάνιση αριθμού καρτών που απομένουν</string>
-    <string name="show_eta" maxLength="41">Προβολή υπολειπόμενου χρόνου</string>
-    <string name="show_eta_summ">Εμφάνιση εναπομείναντα χρόνου</string>
     <string name="use_current" maxLength="41">Τράπουλα για νέες κάρτες</string>
     <string name="learn_cutoff" maxLength="41">Learn ahead limit</string>
     <string name="time_limit" maxLength="41">Χρονικό όριο</string>
@@ -175,13 +142,9 @@
     <string name="pref_keep_screen_on_summ">Απενεργοποίηση χρονικού ορίου οθόνης</string>
     <string name="enable_api_title" maxLength="41">Ενεργοποίηση AnkiDroid API</string>
     <string name="enable_api_summary">Επιτρέψτε σε άλλες εφαρμογές να συνδεθούν στο AnkiDroid και να κάνουν ανάγνωση/εγγραφή δεδομένων χωρίς την παρέμβασή σας</string>
-    <string name="custom_buttons" maxLength="41">Κουμπιά γραμμής εφαρμογών</string>
-    <string name="custom_buttons_summary">Customize which actions appear in the app bar</string>
     <string name="custom_buttons_setting_always_show">Εμφάνιση πάντα</string>
-    <string name="custom_buttons_setting_if_room">Εμφάνιση αν υπάρχει χώρος</string>
     <string name="custom_buttons_setting_menu_only">Μόνο μενού</string>
     <string name="reset_custom_buttons" maxLength="41">Επαναφορά στις προεπιλογές</string>
-    <string name="reset_settings_to_default">Επαναφορά προκαθορισμένων ρυθμίσεων</string>
     <string name="reset">Επαναφορά</string>
     <string name="thirdparty_apps_title" maxLength="41">Εφαρμογές API τρίτων</string>
     <string name="thirdparty_apps_summary">Δείτε μια λίστα με τις εφαρμογές που αξιοποιούν το AnkiDroid API, όπως λεξικά, βοηθητικά προγράμματα.</string>
@@ -189,8 +152,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Προεπισκοπήσεις</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">Οθόνη μελέτης</string>
-    <string name="show_deck_title" maxLength="41">Εμφάνιση τίτλου τράπουλας</string>
     <string name="accessibility" maxLength="41">Προσβασιμότητα</string>
     <string name="exit_via_double_tap_back" maxLength="41">Πατήστε πίσω δύο φορές για επιστροφή/έξοδο</string>
     <string name="exit_via_double_tap_back_summ">To avoid accidentally leaving the study screen or the app</string>
@@ -225,7 +186,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Επιλογή Ετικετών</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">Γενικά</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Αναζήτηση</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Αντικατάσταση νέων γραμμών με HTML</string>
@@ -233,7 +193,6 @@
     <string name="type_in_answer_focus" maxLength="41">Focus ‘type in answer’</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="open_changelog">Άνοιγμα Αρχείου Αλλαγών</string>
     <string name="pref_cat_about_title" maxLength="41">Σχετικά</string>
     <string name="contributors_title">Συνεισφέροντες</string>
     <string name="about_contributors_description"><![CDATA[Αυτοί είναι οι φοβεροί <a href=\"%1$s\">εθελοντές</a> μας. Μπορείτε να συνεισφέρετε κι εσείς στο AnkiDroid προγραμματίζοντας, μεταφράζοντας, δωρίζοντας και <a href=\"%2$s\">πολλά άλλα</a>!]]></string>
@@ -261,8 +220,6 @@
     <string name="toggle_auto_advance" maxLength="28">Toggle auto advance</string>
     <string name="enable_auto_advance" maxLength="28">Enable auto advance</string>
     <string name="disable_auto_advance" maxLength="28">Disable auto advance</string>
-    <string name="enable_voice_recording" maxLength="28">Enable voice recording</string>
-    <string name="disable_voice_recording" maxLength="28">Disable voice recording</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">Επιλογή πλευράς της κάρτας</string>
     <string name="card_side_question">Ερώτηση</string>
@@ -275,17 +232,10 @@
     <string name="bindings_already_bound">Already bound to ‘%s’</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Πειραματικό</string>
-    <string name="readtext_deprecation_warn">AnkiDroid has introduced a better TTS mechanism which is compatible with other Anki clients and includes more voices and improvements to language playback!\n\nPlease upgrade as soon as possible, as this setting will be removed soon</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Please upgrade to the new text to speech format</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">Allow templates to record audio</string>
-    <string name="template_is_trying_to_record_audio">This template is trying to record audio</string>
     <string name="pref_fixed_port_title" maxLength="41">localStorage in Study Screen</string>
     <string name="pref_fixed_port_summary">Enables JavaScript localStorage by using a fixed server port in the Study Screen</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">Επιλογές για προγραμματιστές</string>
-    <string name="dev_options_enabled_pref" maxLength="41">Ενεργοποίηση επιλογών προγραμματιστών</string>
-    <string name="disable_dev_options">Απενεργοποίηση επιλογών προγραμματιστών</string>
-    <string name="dev_options_warning">Σκεφτείτε το καλά πριν ενεργοποιήσετε τις επιλογές για προγραμματιστές. Αυτές οι επιλογές είναι επικίνδυνες και μπορούν να προκαλέσουν δυσλειτουργίες στην εφαρμογή ή να καταστρέψουν τη συλλογή σας.\n\nΣημειώστε ότι αυτές οι επιλογές δεν είναι κατάλληλες για τους περισσότερους χρήστες και ως εκ τούτου, δεν είναι μεταφρασμένες, άρα παραμένουν στα αγγλικά.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -305,38 +255,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">Διαχείριση χώρου</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">Σφάλμα</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">Υπολο-\nγισμός&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="one">%1$dαρχείο\n%2$s</item>
-        <item quantity="other">%1$dαρχεία\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">Διαγραφή αχρησιμοποίητων αρχείων πολυμέσων</string>
-    <string name="pref__delete_unused_media_files__summary">Διαγραφή εικόνων και άλλων πολυμέσων που δεν έχουν το πρόθεμα  _ και δεν αναφέρονται από καμία σημείωση</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">Διαγραφή αχρησιμοποίητων αρχείων πολυμέσων</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">Διαγραφή αντιγράφων ασφαλείας</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">Διαγραφή αντιγράφων ασφαλείας</string>
-    <string name="progress__deleting_backups">Διαγραφή αντιγράφων&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">Διαγραφή συλλογής</string>
-    <string name="pref__delete_collection__summary">Διαγραφή συλλογής, πολυμέσων και αντιγράφων ασφαλείας. Οι ρυθμίσεις εφαρμογής δεν διαγράφονται</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">Διαγραφή συλλογής</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Είστε βέβαιοι ότι θέλετε να διαγράψετε τη συλλογή, τα πολυμέσα και τα αντίγραφα ασφαλείας;\n\nΣημείωση: αυτή η ενέργεια θα κλείσει το παράθυρο.</string>
-    <string name="progress__deleting_collection">Διαγραφή συλλογής&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">Διαγραφή όλων</string>
-    <string name="pref__delete_everything__summary">Διαγραφή συλλογής, πολυμέσων, αντιγράφων ασφαλείας και ρυθμίσεων</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">Διαγραφή όλων</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Είστε βέβαιοι ότι θέλετε να διαγράψετε όλα τα δεδομένα; Αυτό περιλαμβάνει τη συλλογή, τα πολυμέσα, τα αντίγραφα και τις προτιμήσεις.\n\nΣημείωση: αυτή η ενέργεια θα κλείσει το παράθυρο.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">Διαγραφή δεδομένων εφαρμογής</string>
-    <string name="pref__delete_app_data__summary">Διαγραφή ρυθμίσεων και άλλων δεδομένων εφαρμογής</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">Διαγραφή δεδομένων εφαρμογής;</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Είστε βέβαιοι ότι θέλετε να διαγράψετε δεδομένα εφαρμογής; Αυτό περιλαμβάνει τις ρυθμίσεις και άλλα δεδομένα εφαρμογής.\n\nΣημείωση: αυτή η ενέργεια θα κλείσει το παράθυρο.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -344,7 +268,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Καμία συλλογή</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Σφάλμα</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Λήψη&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">Υπολογισμός&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Η συλλογή δεν υπάρχει</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">Απόκρυψη γραμμών συστήματος</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">Καμία</string>

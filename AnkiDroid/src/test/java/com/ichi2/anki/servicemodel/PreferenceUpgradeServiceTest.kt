@@ -5,7 +5,6 @@ package com.ichi2.anki.servicemodel
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.ichi2.anki.R
 import com.ichi2.anki.RobolectricTest
 import com.ichi2.anki.cardviewer.Gesture
 import com.ichi2.anki.common.android.getCurrentLocaleTag
@@ -229,14 +228,14 @@ class PreferenceUpgradeServiceTest : RobolectricTest() {
     fun upgradeThemes() {
         val upgrade = UpgradeThemes()
 
-        // Constants should have the correct values
-        assertEquals(UpgradeThemes.THEME_FOLLOW_SYSTEM, targetContext.getString(R.string.theme_follow_system_value))
-        assertEquals(UpgradeThemes.THEME_LIGHT, targetContext.getString(R.string.theme_light_value))
-        assertEquals(UpgradeThemes.THEME_PLAIN, targetContext.getString(R.string.theme_plain_value))
-        assertEquals(UpgradeThemes.THEME_BLACK, targetContext.getString(R.string.theme_black_value))
-        assertEquals(UpgradeThemes.THEME_DARK, targetContext.getString(R.string.theme_dark_value))
-        assertEquals(UpgradeThemes.THEME_DAY, targetContext.getString(R.string.theme_day_scheme_value))
-        assertEquals(UpgradeThemes.THEME_NIGHT, targetContext.getString(R.string.theme_night_scheme_value))
+        // Constants should keep the values stored by older versions (the theme resources are deleted)
+        assertEquals(UpgradeThemes.THEME_FOLLOW_SYSTEM, "0")
+        assertEquals(UpgradeThemes.THEME_LIGHT, "1")
+        assertEquals(UpgradeThemes.THEME_PLAIN, "2")
+        assertEquals(UpgradeThemes.THEME_BLACK, "3")
+        assertEquals(UpgradeThemes.THEME_DARK, "4")
+        assertEquals(UpgradeThemes.THEME_DAY, "1")
+        assertEquals(UpgradeThemes.THEME_NIGHT, "2")
 
         // Follow System -> Should remain Follow System, no sub-themes set
         prefs.edit { putString(UpgradeThemes.KEY_APP_THEME, UpgradeThemes.THEME_FOLLOW_SYSTEM) }

@@ -21,12 +21,6 @@
         NOT edit them, unless you change their corresponding values
     -->
     <!-- Used in deck preferences -->
-    <string-array name="custom_button_labels">
-        <item>@string/custom_buttons_setting_always_show</item>
-        <item>@string/custom_buttons_setting_if_room</item>
-        <item>@string/custom_buttons_setting_menu_only</item>
-        <item>@string/disabled</item>
-    </string-array>
 
     <string-array name="notification_minimum_cards_due_labels">
         <item>@string/never_notify</item>
@@ -53,38 +47,12 @@
         <item>200</item>
         <item>500</item>
     </string-array>
-    <string-array name="custom_button_values">
-        <item>2</item>
-        <item>1</item>
-        <item>0</item>
-        <item>3</item>
-    </string-array>
 
     <string-array name="add_to_cur_labels">
         <item>@string/add_to_deck_use_current_deck</item>
         <item>@string/add_to_deck_decide_by_note_type</item>
     </string-array>
-    <string-array name="day_theme_labels">
-        <item>@string/day_theme_light</item>
-        <item>@string/day_theme_plain</item>
-        <item>@string/day_theme_eink</item>
-    </string-array>
-    <string-array name="night_theme_labels">
-        <item>@string/night_theme_black</item>
-        <item>@string/night_theme_dark</item>
-    </string-array>
-    <string-array name="html_size_code_labels">
-        <item>@string/html_size_code_xx_small</item>
-        <item>@string/html_size_code_x_small</item>
-        <item>@string/html_size_code_small</item>
-        <item>@string/html_size_code_medium</item>
-        <item>@string/html_size_code_large</item>
-        <item>@string/html_size_code_x_large</item>
-        <item>@string/html_size_code_xx_large</item>
-    </string-array>
 
-    <string name="link_anki_manual">https://docs.ankiweb.net/#/</string>
-    <string name="link_anki_forum">https://forums.ankiweb.net/</string>
     <string name="link_anki_forum_ankidroid">https://forums.ankiweb.net/c/ankidroid/22</string>
     <string name="link_forum">http://groups.google.com/group/anki-android</string>
     <string name="licence_wiki">http://www.gnu.org/licenses/gpl.html</string>
@@ -93,11 +61,9 @@
     <string name="link_source">https://github.com/ankidroid/Anki-Android</string>
     <string name="link_market">market://details?id=com.ichi2.anki</string>
     <string name="link_market_kindle">http://www.amazon.com/gp/mas/dl/android?p=com.ichi2.anki</string>
-    <string name="link_translation">https://crowdin.net/project/ankidroid</string>
     <string name="link_contribution">https://github.com/ankidroid/Anki-Android/wiki/Contributing</string>
     <string name="link_contributors">https://github.com/ankidroid/Anki-Android#credits</string>
     <string name="link_help">https://docs.ankidroid.org/help.html</string>
-    <string name="link_tts">https://docs.ankiweb.net/templates/fields.html#text-to-speech-for-individual-fields</string>
     <string name="link_manual">https://docs.ankidroid.org/manual.html</string>
     <string name="link_help_ja">https://docs.ankidroid.org/help-ja.html</string>
     <string name="link_manual_ja">https://docs.ankidroid.org/manual-ja.html</string>
@@ -105,33 +71,16 @@
     <string name="link_manual_zh">https://docs.ankidroid.org/manual-zh.html</string>
     <string name="link_help_ar">https://docs.ankidroid.org/help-ar.html</string>
     <string name="link_manual_ar">https://docs.ankidroid.org/manual-ar.html</string>
-    <string name="link_manual_note_format_toolbar">https://docs.ankidroid.org/manual.html#noteFormattingToolbar</string>
-    <string name="link_manual_browser_find_replace">https://docs.ankiweb.net/browsing.html#find-and-replace</string>
     <string name="link_sync_conflict_help">https://docs.ankidroid.org/#AnkiWebConflicts</string>
     <string name="link_user_actions_help">https://docs.ankidroid.org/#userActions</string>
-    <string name="link_faq_tts">https://github.com/ankidroid/Anki-Android/wiki/FAQ#tts--text-to-speech-is-not-speaking</string>
     <string name="link_faq_missing_media" tools:ignore="Typos">https://github.com/ankidroid/Anki-Android/wiki/FAQ#why-doesnt-my-sound-or-image-work-on-ankidroid</string>
     <string name="link_third_party_api_apps">https://github.com/ankidroid/Anki-Android/wiki/Third-Party-Apps</string>
-    <string name="shared_decks_url">https://ankiweb.net/shared/decks/</string>
-    <string name="shared_deck_info">https://ankiweb.net/shared/info/</string>
-    <string name="shared_decks_login_url">https://ankiweb.net/account/login</string>
-    <string name="shared_decks_sign_up_url">https://ankiweb.net/account/signup</string>
     <string name="repair_deck">https://docs.ankiweb.net/#/files?id=corrupt-collections</string>
     <string name="resetpw_url">https://ankiweb.net/account/resetpw</string>
     <string name="register_url">https://ankiweb.net/account/register</string>
-    <string name="remove_account_url">https://ankiweb.net/account/remove-account</string>
-    <string name="link_reddit">https://www.reddit.com/r/Anki/</string>
-    <string name="link_ankidroid_privacy_policy">https://github.com/ankidroid/Anki-Android/wiki/Privacy-Policy</string>
-    <string name="link_ankiweb_privacy_policy">https://ankiweb.net/account/privacy</string>
-    <string name="link_ankiweb_terms_and_conditions">https://ankiweb.net/account/terms</string>
     <string name="link_webview_update">https://github.com/ankidroid/Anki-Android/wiki/WebView-Detection-and-Package-Updates#outdated-webview</string>
     <string name="link_legacy_webview_update">https://github.com/ankidroid/Anki-Android/wiki/WebView-Detection-and-Package-Updates#outdated-android-native-webview</string>
     <!-- Link is in the name of Glutanimate - server admin -->
-    <string name="link_discord">https://discord.gg/qjzcRTx</string>
-    <string name="link_facebook">https://www.facebook.com/AnkiDroid/</string>
-    <string name="link_twitter">https://twitter.com/ankidroid</string>
-    <string name="link_ankidroid_development_guide">https://github.com/ankidroid/Anki-Android/wiki/Development-Guide</string>
-    <string name="link_ankidroid_faq">https://github.com/ankidroid/Anki-Android/wiki/FAQ</string>
     <string name="link_opencollective_donate">https://opencollective.com/ankidroid/contribute</string>
     <string name="link_distributions">https://apps.ankiweb.net/#download</string>
     <string name="link_ankiweb_lost_email_instructions">https://github.com/ankidroid/Anki-Android/wiki/FAQ#forgotten-ankiweb-email-instructions</string>
@@ -141,55 +90,18 @@
     <string name="link_full_storage_access">https://github.com/ankidroid/Anki-Android/wiki/Full-Storage-Access</string>
     <string name="link_help_forget_cards">https://docs.ankiweb.net/studying.html#editing-and-more</string>
     <string name="link_scheduler_upgrade_faq">https://faqs.ankiweb.net/the-anki-2.1-scheduler.html#updating-to-v2-from-v1</string>
-    <string name="link_help_searching">https://docs.ankiweb.net/searching.html#simple-searches</string>
     <string name="link_filtered_decks_help">https://docs.ankiweb.net/filtered-decks.html</string>
 
     <string-array name="add_to_cur_values">
         <item>0</item>
         <item>1</item>
     </string-array>
-    <string-array name="full_screen_mode_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-    <string-array name="full_screen_mode_labels">
-        <item>@string/full_screen_off</item>
-        <item>@string/full_screen_system</item>
-        <item>@string/full_screen_complete</item>
-    </string-array>
 
     <!-- Themes -->
-    <string-array name="app_theme_labels">
-        <item>@string/theme_follow_system</item>
-        <item>@string/theme_day</item>
-        <item>@string/theme_night</item>
-    </string-array>
 
-    <string name="theme_follow_system_value">0</string>
-    <string name="theme_day_scheme_value">1</string>
-    <string name="theme_night_scheme_value">2</string>
     <string name="theme_eink_scheme_value">3</string>
 
-    <string name="theme_light_value">1</string>
-    <string name="theme_plain_value">2</string>
-    <string name="theme_black_value">3</string>
-    <string name="theme_dark_value">4</string>
 
-    <string-array name="app_theme_values">
-        <item>@string/theme_follow_system_value</item>
-        <item>@string/theme_day_scheme_value</item>
-        <item>@string/theme_night_scheme_value</item>
-    </string-array>
-    <string-array name="day_theme_values">
-        <item>@string/theme_light_value</item>
-        <item>@string/theme_plain_value</item>
-        <item>@string/theme_eink_scheme_value</item>
-    </string-array>
-    <string-array name="night_theme_values">
-        <item>@string/theme_black_value</item>
-        <item>@string/theme_dark_value</item>
-    </string-array>
 
     <string-array name="sync_media_entries">
         <item>@string/sync_media_always</item>
@@ -294,10 +206,6 @@
         <item>Deck-specific</item>
     </string-array>
 
-    <string-array name="appearance_summary_entries">
-        <item>@string/pref_cat_themes</item>
-        <item>@string/background_image_title</item>
-    </string-array>
 
     <string-array name="accessibility_summary_entries">
         <item>@string/card_zoom</item>
@@ -331,33 +239,11 @@
     <!-- Sample deck names and for Deck Picker Widget layout in widget picker screen
        These strings are marked as `translatable=false` because translating them would defeat the purpose of the example, which relies on specific language usage.-->
 
-    <string name="answer_buttons_position_preference" translatable="false">answerButtonPosition</string>
-    <string-array name="answer_buttons_position" translatable="false">
-        <item>top</item>
-        <item>bottom</item>
-        <item>none</item>
-    </string-array>
-    <string-array name="html_size_codes">
-        <item>xx-small</item>
-        <item>x-small</item>
-        <item>small</item>
-        <item>medium</item>
-        <item>large</item>
-        <item>x-large</item>
-        <item>xx-large</item>
-    </string-array>
 
-    <string name="manage_external_storage_permission">android.permission.MANAGE_EXTERNAL_STORAGE</string>
-    <string name="manage_internet_permission">android.permission.INTERNET</string>
-    <string-array name="legacy_storage_permissions">
-        <item>android.permission.READ_EXTERNAL_STORAGE</item>
-        <item>android.permission.WRITE_EXTERNAL_STORAGE</item>
-    </string-array>
     <string name="post_notification_permission">android.permission.POST_NOTIFICATIONS</string>
 
     <!-- See LEGACY_POST_NOTIFICATIONS. -->
     <string name="legacy_post_notification_permission">NOTIFICATIONS_BEFORE_API_33_DUMMY_SENTINEL</string>
-    <string name="record_audio_permission">android.permission.RECORD_AUDIO</string>
 
 
     <string-array name="import_cache_error_resolutions">

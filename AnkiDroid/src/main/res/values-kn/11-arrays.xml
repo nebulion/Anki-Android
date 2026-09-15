@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">ಪ್ರಸ್ತುತ ಡೆಕ್ ಬಳಸಿ</string>
     <string name="add_to_deck_decide_by_note_type">ಟಿಪ್ಪಣಿ ಪ್ರಕಾರವನ್ನು ನಿರ್ಧರಿಸಿ</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">ವ್ಯವಸ್ಥೆಯನ್ನು ಅನುಸರಿಸಿ</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Day</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Night</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">ಬೆಳಕು</string>
-    <string name="day_theme_plain">ಸರಳ</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">ಕಪ್ಪು</string>
-    <string name="night_theme_dark">ಕತ್ತಲೆ</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-ಚಿಕ್ಕ</string>
-    <string name="html_size_code_x_small">x-ಸಣ್ಣ</string>
-    <string name="html_size_code_small">ಸಣ್ಣ</string>
-    <string name="html_size_code_medium">ಮಾಧ್ಯಮ</string>
-    <string name="html_size_code_large">ದೊಡ್ಡದು</string>
-    <string name="html_size_code_x_large">x-ದೊಡ್ಡದು</string>
-    <string name="html_size_code_xx_large">xx-ದೊಡ್ಡದು</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">ಸುಲಭವಾಗಿ ಉತ್ತರಿಸಿ</string>
     <string name="gesture_abort_learning" maxLength="41">Close study screen</string>

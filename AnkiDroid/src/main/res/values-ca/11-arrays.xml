@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">Utilitza aquest paquet</string>
     <string name="add_to_deck_decide_by_note_type">Dedueix pel tipus de nota</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">Segueix el sistema</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Day</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Night</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">Clar</string>
-    <string name="day_theme_plain">Pla</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">Negre</string>
-    <string name="night_theme_dark">Fosc</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">petitíssim</string>
-    <string name="html_size_code_x_small">molt petit</string>
-    <string name="html_size_code_small">petit</string>
-    <string name="html_size_code_medium">mitjà</string>
-    <string name="html_size_code_large">gran</string>
-    <string name="html_size_code_x_large">molt gran</string>
-    <string name="html_size_code_xx_large">immens</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Resposta fàcil</string>
     <string name="gesture_abort_learning" maxLength="41">Close study screen</string>

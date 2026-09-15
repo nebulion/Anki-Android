@@ -27,7 +27,6 @@
     <string name="sync_error">Sinxronizasiya xətası</string>
     <string name="vague_error" comment="Network error dialog title">Xəta</string>
     <string name="retry">Yenidən</string>
-    <string name="menu_get_shared_decks">Paylaşılan katları alın</string>
     <string name="connection_error_message">Şəbəkə xətası baş verdi</string>
     <string name="not_logged_in_title">AnkiWeb-ə daxil olun</string>
     <string name="login_create_account_message">Bulud senkronizasyon xidmətindən istifadə etmək üçün üçüncü tərəf hesabına daxil olmalısınız.Bir sonrakı addımda bir yarada bilərsiniz.</string>

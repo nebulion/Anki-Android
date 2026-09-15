@@ -27,7 +27,6 @@
     <string name="sync_error">Gabim në sinkronizim</string>
     <string name="vague_error" comment="Network error dialog title">Gabim</string>
     <string name="retry">Riprovo</string>
-    <string name="menu_get_shared_decks">Get shared decks</string>
     <string name="connection_error_message">Ndodhi një gabim në rrjet</string>
     <string name="not_logged_in_title">Logohu në AnkiWeb</string>
     <string name="login_create_account_message">You must log in to a third party account to use the cloud sync service. You can create one in the next step.</string>

@@ -27,7 +27,6 @@
     <string name="sync_error">ஒத்திசைவு பிழை</string>
     <string name="vague_error" comment="Network error dialog title">பிழை</string>
     <string name="retry">மீண்டும் முயற்சிக்கவும்</string>
-    <string name="menu_get_shared_decks">பகிரப்பட்ட தளங்களைப் பெறுங்கள்</string>
     <string name="connection_error_message">நெட்வொர்க் பிழை ஏற்பட்டது</string>
     <string name="not_logged_in_title">AnkiWeb இல் உள்நுழைக</string>
     <string name="login_create_account_message">கிளவுட் ஒத்திசைவு சேவையைப் பயன்படுத்த, நீங்கள் மூன்றாம் தரப்பு கணக்கில் உள்நுழைய வேண்டும். அடுத்த கட்டத்தில் ஒன்றை உருவாக்கலாம்.</string>

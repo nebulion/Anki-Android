@@ -40,7 +40,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">ಸಿಂಕ್ ಮಾಡಿ</string>
     <string name="pref_cat_scheduling" maxLength="41">ವೇಳಾಪಟ್ಟಿ</string>
     <string name="pref_cat_whiteboard" maxLength="41">ವೈಟ್‌ಬೋರ್ಡ್</string>
-    <string name="pref_cat_themes" maxLength="41">ಥೀಮ್ಗಳು</string>
     <string name="pref_cat_gestures" maxLength="41">ಸನ್ನೆಗಳು</string>
     <string name="pref_cat_controls" maxLength="41">ನಿಯಂತ್ರಣಗಳು</string>
     <string name="pref_cat_advanced" maxLength="41">ಸುಧಾರಿತ</string>
@@ -57,7 +56,6 @@
     <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">ಸ್ಟ್ರೋಕ್ ಅಗಲ</string>
     <string name="use_input_tag" maxLength="41">ಕಾರ್ಡ್‌ನಲ್ಲಿ ಉತ್ತರವನ್ನು ಟೈಪ್ ಮಾಡಿ</string>
     <string name="use_input_tag_summ">ಉತ್ತರವನ್ನು ಟೈಪ್ ಮಾಡಲು ಕಾರ್ಡ್‌ನ ಒಳಗಿನ ಪಠ್ಯ ಇನ್‌ಪುಟ್ ಬಾಕ್ಸ್ ಅನ್ನು ಬಳಸಿ</string>
     <string name="reset_languages" maxLength="41">ಭಾಷೆಗಳನ್ನು ಮರುಹೊಂದಿಸಿ</string>
@@ -68,24 +66,11 @@
     <string name="image_zoom" maxLength="41">ಚಿತ್ರ ಜೂಮ್</string>
     <string name="button_size" maxLength="41">ಉತ್ತರ ಬಟನ್ ಗಾತ್ರ</string>
     <string name="card_browser_font_size" maxLength="41">ಕಾರ್ಡ್ ಬ್ರೌಸರ್ ಫಾಂಟ್ ಸ್ಕೇಲಿಂಗ್</string>
-    <string name="card_browser_hide_media" maxLength="41">ಕಾರ್ಡ್ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಫೈಲ್ ಹೆಸರುಗಳನ್ನು ಪ್ರದರ್ಶಿಸಿ</string>
-    <string name="card_browser_hide_media_summary">Display audio filenames in the card browser question/answer fields</string>
     <string name="col_path" maxLength="41">ಅಂಕಿಡ್ರಾಯ್ಡ್ ಡೈರೆಕ್ಟರಿ</string>
-    <string name="fullscreen_review" maxLength="41">ಪೂರ್ಣಪರದೆ ಮೋಡ್</string>
-    <string name="full_screen_off">ಆಫ್</string>
-    <string name="full_screen_system">ಸಿಸ್ಟಮ್ ಬಾರ್ಗಳನ್ನು ಮರೆಮಾಡಿ</string>
-    <string name="full_screen_complete">ಸಿಸ್ಟಮ್ ಬಾರ್‌ಗಳು ಮತ್ತು ಉತ್ತರ ಬಟನ್‌ಗಳನ್ನು ಮರೆಮಾಡಿ</string>
-    <string name="answer_buttons_position" maxLength="41">ಉತ್ತರ ಬಟನ್‌ಗಳ ಸ್ಥಾನ</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>ಟಾಪ್</item>
-        <item>ಕೆಳಗೆ</item>
-        <item>ಯಾವುದೂ</item>
-    </string-array>
     <string name="gestures" maxLength="41">ಸನ್ನೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="gestures_summ">ಪ್ರತ್ಯುತ್ತರ ಮತ್ತು ಕಾರ್ಡ್‌ಗಳನ್ನು ಸಂಪಾದಿಸುವಂತಹ ಕ್ರಿಯೆಗಳಿಗೆ ಗೆಸ್ಚರ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಿ.</string>
     <string name="gestures_corner_touch" maxLength="41">9-ಪಾಯಿಂಟ್ ಸ್ಪರ್ಶ</string>
     <string name="gestures_corner_touch_summary">ಪರದೆಯ ಮೂಲೆಗಳಲ್ಲಿ ಸ್ಪರ್ಶ ಗೆಸ್ಚರ್‌ಗಳನ್ನು ಅನುಮತಿಸಿ</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">Show keyboard shortcuts</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">ಪೂರ್ಣ ಪರದೆಯ ನ್ಯಾವಿಗೇಷನ್ ಡ್ರಾಯರ್</string>
     <string name="gestures_fullscreen_nav_drawer_summary">ಪರದೆಯ ಮೇಲೆ ಎಲ್ಲಿಂದಲಾದರೂ ಬಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡುವಾಗ ನ್ಯಾವಿಗೇಷನ್ ಡ್ರಾಯರ್ ತೆರೆಯಿರಿ</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">ಯಾವುದೂ</string>
@@ -107,13 +92,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">Three-finger tap</string>
     <string name="gestures_four_finger_tap" maxLength="41">Four-finger tap</string>
     <string name="gestures_shake" maxLength="41">ಸಾಧನವನ್ನು ಅಲ್ಲಾಡಿಸಿ</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">\'%s\' ಮೆನು</string>
-    <string name="card_browser_enable_external_context_menu_summary">ಜಾಗತಿಕವಾಗಿ \'%s\' ಸಂದರ್ಭ ಮೆನುವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತದೆ</string>
     <string name="double_scrolling_gap" maxLength="41">ಡಬಲ್ ಸ್ಕ್ರೋಲಿಂಗ್</string>
     <string name="double_scrolling_gap_summ">eReader ನೊಂದಿಗೆ ಸ್ಕ್ರಾಲ್ ದೂರವನ್ನು ದ್ವಿಗುಣಗೊಳಿಸಿ</string>
     <string name="swipe_sensitivity" maxLength="41">ಸ್ವೈಪ್ ಸೂಕ್ಷ್ಮತೆ</string>
-    <string name="tts" maxLength="41">ಪಠ್ಯದಿಂದ ಭಾಷಣಕ್ಕೆ</string>
-    <string name="tts_summ">ಯಾವುದೇ ಧ್ವನಿ ಫೈಲ್ ಅನ್ನು ಸೇರಿಸದಿದ್ದರೆ ಪ್ರಶ್ನೆ ಮತ್ತು ಉತ್ತರವನ್ನು ಓದುತ್ತದೆ</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">ಮಾಧ್ಯಮವನ್ನು ಸಿಂಕ್‌ನಲ್ಲಿ ಪಡೆಯಿರಿ</string>
     <string name="sync_account_summ_logged_out">ಲಾಗಿನ್ ಆಗಿಲ್ಲ</string>
@@ -128,9 +109,6 @@
     <string name="metered_sync_summary">ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿದ್ದರೆ, ನೀವು ಮೀಟರ್ ಸಂಪರ್ಕದಲ್ಲಿ ಸಿಂಕ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿದರೆ ನಿಮಗೆ ಎಚ್ಚರಿಕೆ ನೀಡಲಾಗುತ್ತದೆ</string>
     <string name="backup_limits_frequency">ಆವರ್ತನ</string>
     <string name="backup_limits_lifetime">ಜೀವಮಾನ</string>
-    <string name="app_theme" maxLength="41">ಥೀಮ್</string>
-    <string name="day_theme" maxLength="41">ದಿನದ ಥೀಮ್</string>
-    <string name="night_theme" maxLength="41">ರಾತ್ರಿ ಥೀಮ್</string>
     <string name="language" maxLength="41">ಭಾಷೆ</string>
     <string name="language_system">ಸಿಸ್ಟಮ್ ಭಾಷೆ</string>
     <string name="notification_pref" maxLength="41">ಅಧಿಸೂಚನೆಗಳು</string>
@@ -140,28 +118,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">More than %d cards due</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">ವೈಬ್ರೇಟ್</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">ಮಿಟುಕಿಸುವ ಬೆಳಕು</string>
-    <string name="select_locale_title">ಒಂದು ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="software_render" maxLength="41">ಕಾರ್ಡ್ ಹಾರ್ಡ್‌ವೇರ್ ರೆಂಡರ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="software_render_summ">ಹಾರ್ಡ್‌ವೇರ್ ರೆಂಡರ್ ವೇಗವಾಗಿದೆ ಆದರೆ ವಿಶೇಷವಾಗಿ Android 8/8.1 ನಲ್ಲಿ ಸಮಸ್ಯೆಗಳನ್ನು ಹೊಂದಿರಬಹುದು. ಕಾರ್ಡ್ ವಿಮರ್ಶೆ ಬಳಕೆದಾರ ಇಂಟರ್ಫೇಸ್‌ನ ಭಾಗಗಳನ್ನು ನೀವು ನೋಡಲು ಸಾಧ್ಯವಾಗದಿದ್ದರೆ, ಈ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">ಕೇಂದ್ರಕ್ಕೆ ಲಗತ್ತಿಸಿ</string>
-    <string name="vertical_centering_summ">ಕಾರ್ಡ್‌ಗಳ ವಿಷಯವನ್ನು ಲಂಬವಾಗಿ ಕೇಂದ್ರೀಕರಿಸಿ</string>
     <string name="pref_double_tap_time_interval" maxLength="41">ಡಬಲ್ ಟ್ಯಾಪ್ ಸಮಯದ ಮಧ್ಯಂತರ</string>
     <string name="pref_double_tap_time_interval_summary">ಈ ಸಮಯ ಮೀರದಿದ್ದರೆ ಉತ್ತರ ಬಟನ್‌ಗಳ ಎರಡನೇ ಟ್ಯಾಪ್ ಅನ್ನು ನಿರ್ಲಕ್ಷಿಸಲಾಗುತ್ತದೆ. ಇದು ಆಕಸ್ಮಿಕ ಡಬಲ್ ಟ್ಯಾಪ್‌ಗಳನ್ನು ತಡೆಯುತ್ತದೆ</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">ಉತ್ತರವನ್ನು ದೀರ್ಘ-ಒತ್ತುವ ಸಮಯವನ್ನು ತೋರಿಸಿ</string>
     <string name="pref_show_answer_long_press_time_summary">ಪ್ರದರ್ಶನ ಉತ್ತರ ಬಟನ್ ಸ್ಪರ್ಶವನ್ನು ನೋಂದಾಯಿಸುವ ಮೊದಲು ಕನಿಷ್ಠ ಪತ್ರಿಕಾ ಸಮಯ.</string>
-    <string name="show_estimates" maxLength="41">ಸಮಯ ಬಟನ್ ತೋರಿಸು</string>
-    <string name="show_estimates_summ">ಉತ್ತರ ಬಟನ್‌ಗಳಲ್ಲಿ ಮುಂದಿನ ವಿಮರ್ಶೆ ಸಮಯವನ್ನು ತೋರಿಸಿ</string>
     <string name="show_large_answer_buttons" maxLength="41">ದೊಡ್ಡ ಉತ್ತರ ಬಟನ್‌ಗಳನ್ನು ತೋರಿಸಿ</string>
     <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="show_top_bar" maxLength="41">ಮೇಲಿನ ಪಟ್ಟಿಯನ್ನು ತೋರಿಸಿ</string>
-    <string name="show_top_bar_summary">Show card counts, answer timer, flag and mark in top bar</string>
-    <string name="show_progress" maxLength="41">ಏನು ಉಳಿದಿದೆ ಎಂಬುದನ್ನು ತೋರಿಸಿ</string>
-    <string name="show_progress_summ">ಉಳಿದ ಕಾರ್ಡ್ ಎಣಿಕೆಯನ್ನು ತೋರಿಸಿ</string>
-    <string name="show_eta" maxLength="41">ETA ತೋರಿಸಿ</string>
-    <string name="show_eta_summ">ಉಳಿದ ಸಮಯವನ್ನು ತೋರಿಸಿ</string>
     <string name="use_current" maxLength="41">ಹೊಸ ಕಾರ್ಡ್‌ಗಳಿಗಾಗಿ ಡೆಕ್</string>
     <string name="learn_cutoff" maxLength="41">ಮಿತಿಗಳನ್ನು ಮುಂಚಿತವಾಗಿ ಕಲಿಯಿರಿ</string>
     <string name="time_limit" maxLength="41">ಟೈಮ್‌ಬಾಕ್ಸ್ ಸಮಯ ಮಿತಿಯಾಗಿದೆ</string>
@@ -174,13 +141,9 @@
     <string name="pref_keep_screen_on_summ">ಪರದೆಯ ಕಾಲಾವಧಿಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="enable_api_title" maxLength="41">AnkiDroid API ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="enable_api_summary">ಇತರ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು AnkiDroid ಗೆ ಸಂಪರ್ಕಿಸಲು ಮತ್ತು ನಿಮ್ಮ ಹಸ್ತಕ್ಷೇಪವಿಲ್ಲದೆ ಡೇಟಾವನ್ನು ಓದಲು/ಬರೆಯಲು ಅನುಮತಿಸಿ</string>
-    <string name="custom_buttons" maxLength="41">ಅಪ್ಲಿಕೇಶನ್ ಬಾರ್ ಬಟನ್‌ಗಳು</string>
-    <string name="custom_buttons_summary">ಅಪ್ಲಿಕೇಶನ್ ಬಾರ್‌ನಲ್ಲಿ ಯಾವ ಕ್ರಿಯೆಗಳು ಗೋಚರಿಸುತ್ತವೆ ಎಂಬುದನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ</string>
     <string name="custom_buttons_setting_always_show">ಯಾವಾಗಲೂ ಕಾಣಿಸಿಕೊಳ್ಳಿ</string>
-    <string name="custom_buttons_setting_if_room">ಕೊಠಡಿ ಇದ್ದರೆ ತೋರಿಸಿ</string>
     <string name="custom_buttons_setting_menu_only">ಮೆನು ಮಾತ್ರ</string>
     <string name="reset_custom_buttons" maxLength="41">ಡೀಫಾಲ್ಟ್‌ಗೆ ಮರುಹೊಂದಿಸಿ</string>
-    <string name="reset_settings_to_default">ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಡೀಫಾಲ್ಟ್‌ಗೆ ಮರುಹೊಂದಿಸಿ</string>
     <string name="reset">ಮರುಹೊಂದಿಸಿ</string>
     <string name="thirdparty_apps_title" maxLength="41">ಮೂರನೇ ವ್ಯಕ್ತಿಯ API ಅಪ್ಲಿಕೇಶನ್‌ಗಳು</string>
     <string name="thirdparty_apps_summary">ನಿಘಂಟುಗಳು, ಉಪಯುಕ್ತತೆಗಳಂತಹ AnkiDroid API ಅನ್ನು ಬಳಸುವ ಅಪ್ಲಿಕೇಶನ್‌ಗಳ ಪಟ್ಟಿಯನ್ನು ನೋಡಿ.</string>
@@ -188,8 +151,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Previews</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">Study Screen</string>
-    <string name="show_deck_title" maxLength="41">ಡೆಕ್ ಶೀರ್ಷಿಕೆಯನ್ನು ತೋರಿಸಿ</string>
     <string name="accessibility" maxLength="41">ಪ್ರವೇಶಿಸುವಿಕೆ</string>
     <string name="exit_via_double_tap_back" maxLength="41">ಹಿಂತಿರುಗಲು/ನಿರ್ಗಮಿಸಲು ಎರಡು ಬಾರಿ ಹಿಂದಕ್ಕೆ ಒತ್ತಿರಿ</string>
     <string name="exit_via_double_tap_back_summ">To avoid accidentally leaving the study screen or the app</string>
@@ -222,7 +183,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">ಟ್ಯಾಗ್‌ಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">ಸಾಮಾನ್ಯ</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">ಇದಕ್ಕಾಗಿ ಹುಡುಕು</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">ಹೊಸ ಸಾಲುಗಳನ್ನು HTML ನೊಂದಿಗೆ ಬದಲಾಯಿಸಿ</string>
@@ -230,7 +190,6 @@
     <string name="type_in_answer_focus" maxLength="41">\'ಉತ್ತರವನ್ನು ಟೈಪ್ ಮಾಡಿ\' ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸಿ</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="open_changelog">Open changelog</string>
     <string name="pref_cat_about_title" maxLength="41">ಸುಮಾರು</string>
     <string name="contributors_title">ಕೊಡುಗೆದಾರರು</string>
     <string name="about_contributors_description"><![CDATA[ಇವರು ನಮ್ಮ ಅದ್ಭುತ <a href=\"%1$s\">ಕೊಡುಗೆದಾರರು</a>. ಪ್ರೋಗ್ರಾಮಿಂಗ್, ಅನುವಾದ, ದೇಣಿಗೆ ಮತ್ತು <a href=\"%2$s\">ಇನ್ನಷ್ಟು</a> ಮೂಲಕ ನೀವು AnkiDroid ಗೆ ಸಹಾಯ ಮಾಡಬಹುದು!
@@ -261,8 +220,6 @@
     <string name="toggle_auto_advance" maxLength="28">Toggle auto advance</string>
     <string name="enable_auto_advance" maxLength="28">Enable auto advance</string>
     <string name="disable_auto_advance" maxLength="28">Disable auto advance</string>
-    <string name="enable_voice_recording" maxLength="28">Enable voice recording</string>
-    <string name="disable_voice_recording" maxLength="28">Disable voice recording</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">ಕಾರ್ಡ್ ಬದಿಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="card_side_question">ಪ್ರಶ್ನೆ</string>
@@ -275,17 +232,10 @@
     <string name="bindings_already_bound">ಈಗಾಗಲೇ \'%s\' ಗೆ ಬದ್ಧವಾಗಿದೆ</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Experimental</string>
-    <string name="readtext_deprecation_warn">AnkiDroid ಇತರ Anki ಕ್ಲೈಂಟ್‌ಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗುವ ಉತ್ತಮ TTS ಕಾರ್ಯವಿಧಾನವನ್ನು ಪರಿಚಯಿಸಿದೆ ಮತ್ತು ಭಾಷಾ ಪ್ಲೇಬ್ಯಾಕ್‌ಗೆ ಹೆಚ್ಚಿನ ಧ್ವನಿಗಳು ಮತ್ತು ಸುಧಾರಣೆಗಳನ್ನು ಒಳಗೊಂಡಿದೆ!\n\nದಯವಿಟ್ಟು ಸಾಧ್ಯವಾದಷ್ಟು ಬೇಗ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ, ಏಕೆಂದರೆ ಈ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಶೀಘ್ರದಲ್ಲೇ ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ.</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">ದಯವಿಟ್ಟು ಹೊಸ ಪಠ್ಯವನ್ನು ಸ್ಪೀಚ್ ಫಾರ್ಮ್ಯಾಟ್‌ಗೆ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">Allow templates to record audio</string>
-    <string name="template_is_trying_to_record_audio">This template is trying to record audio</string>
     <string name="pref_fixed_port_title" maxLength="41">localStorage in Study Screen</string>
     <string name="pref_fixed_port_summary">Enables JavaScript localStorage by using a fixed server port in the Study Screen</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">ಅಭಿವೃಧಿಕಾರರ ಸೂಚನೆಗಳು</string>
-    <string name="dev_options_enabled_pref" maxLength="41">ಡೆವಲಪರ್ ಆಯ್ಕೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
-    <string name="disable_dev_options">ಡೆವಲಪರ್ ಆಯ್ಕೆಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
-    <string name="dev_options_warning">Please be sure before enabling developer options. These options are dangerous and could break the app or corrupt your collection.\n\nNote that these options are not suited for most users and therefore are not translated, so they are in English.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -304,38 +254,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">ಜಾಗವನ್ನು ನಿರ್ವಹಿಸಿ</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">ದೋಷ</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">ಲೆಕ್ಕಾಚಾರ ಮಾಡಲಾಗುತ್ತಿದೆ&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="one">%1$d ಫೈಲ್\n%2$s</item>
-        <item quantity="other">%1$d ಫೈಲ್‌ಗಳು\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">ಬಳಕೆಯಾಗದ ಮಾಧ್ಯಮ ಫೈಲ್‌ಗಳನ್ನು ಅಳಿಸಿ</string>
-    <string name="pref__delete_unused_media_files__summary">_ ನೊಂದಿಗೆ ಪೂರ್ವಪ್ರತ್ಯಯವಿಲ್ಲದ ಮತ್ತು ಯಾವುದೇ ಟಿಪ್ಪಣಿಗಳಿಂದ ಉಲ್ಲೇಖಿಸದ ಚಿತ್ರಗಳು ಮತ್ತು ಇತರ ಮಾಧ್ಯಮವನ್ನು ಅಳಿಸಿ</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">ಬಳಕೆಯಾಗದ ಮಾಧ್ಯಮ ಫೈಲ್‌ಗಳನ್ನು ಅಳಿಸಿ</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">ಬ್ಯಾಕ್‌ಅಪ್‌ಗಳನ್ನು ಅಳಿಸಿ</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">ಬ್ಯಾಕ್‌ಅಪ್‌ಗಳನ್ನು ಅಳಿಸಿ</string>
-    <string name="progress__deleting_backups">ಬ್ಯಾಕಪ್‌ಗಳನ್ನು ಅಳಿಸಲಾಗುತ್ತಿದೆ&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">ಸಂಗ್ರಹವನ್ನು ಅಳಿಸಿ</string>
-    <string name="pref__delete_collection__summary">ಸಂಗ್ರಹಣೆ, ಮಾಧ್ಯಮ ಮತ್ತು ಬ್ಯಾಕಪ್‌ಗಳನ್ನು ಅಳಿಸಿ. ಅಪ್ಲಿಕೇಶನ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಅಳಿಸಲಾಗಿಲ್ಲ</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">ಸಂಗ್ರಹವನ್ನು ಅಳಿಸಿ</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">ನಿಮ್ಮ ಸಂಗ್ರಹಣೆ, ಮಾಧ್ಯಮ ಮತ್ತು ಬ್ಯಾಕಪ್‌ಗಳನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?\n\nಗಮನಿಸಿ: ಈ ಕ್ರಿಯೆಯು ವಿಂಡೋವನ್ನು ಮುಚ್ಚುತ್ತದೆ.</string>
-    <string name="progress__deleting_collection">ಸಂಗ್ರಹವನ್ನು ಅಳಿಸಲಾಗುತ್ತಿದೆ&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">ಎಲ್ಲಾ ಅಳಿಸಿ</string>
-    <string name="pref__delete_everything__summary">ಸಂಗ್ರಹಣೆ, ಮಾಧ್ಯಮ, ಬ್ಯಾಕಪ್‌ಗಳು ಮತ್ತು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಅಳಿಸಿ</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">ಎಲ್ಲಾ ಅಳಿಸಿ</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ? ಇದು ನಿಮ್ಮ ಸಂಗ್ರಹಣೆ, ಮಾಧ್ಯಮ, ಬ್ಯಾಕಪ್‌ಗಳು ಮತ್ತು ಆದ್ಯತೆಗಳನ್ನು ಒಳಗೊಂಡಿರುತ್ತದೆ.\n\nಗಮನಿಸಿ: ಈ ಕ್ರಿಯೆಯು ವಿಂಡೋವನ್ನು ಮುಚ್ಚುತ್ತದೆ.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">ಅಪ್ಲಿಕೇಶನ್ ಡೇಟಾವನ್ನು ಅಳಿಸಿ</string>
-    <string name="pref__delete_app_data__summary">ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಮತ್ತು ಇತರ ಅಪ್ಲಿಕೇಶನ್ ಡೇಟಾವನ್ನು ಅಳಿಸಿ</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">ಅಪ್ಲಿಕೇಶನ್ ಡೇಟಾ ಅಳಿಸುವುದೇ</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">ಅಪ್ಲಿಕೇಶನ್ ಡೇಟಾವನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ? ಇದು ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಮತ್ತು ಇತರ ಅಪ್ಲಿಕೇಶನ್ ಡೇಟಾವನ್ನು ಒಳಗೊಂಡಿರುತ್ತದೆ.\n\nಗಮನಿಸಿ: ಈ ಕ್ರಿಯೆಯು ವಿಂಡೋವನ್ನು ಮುಚ್ಚುತ್ತದೆ.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -343,7 +267,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">ಸಂಗ್ರಹವಿಲ್ಲ</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">ದೋಷ</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">ತರುವ&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">ಲೆಕ್ಕಾಚಾರ ಮಾಡಲಾಗುತ್ತಿದೆ&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Collection does not exist</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">Hide system bars</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">None</string>

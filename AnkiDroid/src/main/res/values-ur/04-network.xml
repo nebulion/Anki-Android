@@ -27,7 +27,6 @@
     <string name="sync_error">نقص ہم وقت سازی</string>
     <string name="vague_error" comment="Network error dialog title">غلطی</string>
     <string name="retry">دوبارہ کوشش کریں</string>
-    <string name="menu_get_shared_decks">مشترکہ ڈیک حاصل کریں۔</string>
     <string name="connection_error_message">نیٹ ورک کی خرابی پیش آگئی ہے۔</string>
     <string name="not_logged_in_title">AnkiWeb میں لاگ ان کریں۔</string>
     <string name="login_create_account_message">کلاؤڈ سنک سروس کو استعمال کرنے کے لیے آپ کو تھرڈ پارٹی اکاؤنٹ میں لاگ ان کرنا ہوگا۔ آپ اگلے مرحلے میں ایک بنا سکتے ہیں۔</string>

@@ -40,7 +40,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Sünkrooni</string>
     <string name="pref_cat_scheduling" maxLength="41">Ajastamine</string>
     <string name="pref_cat_whiteboard" maxLength="41">Tahvel</string>
-    <string name="pref_cat_themes" maxLength="41">Teemad</string>
     <string name="pref_cat_gestures" maxLength="41">Viiped</string>
     <string name="pref_cat_controls" maxLength="41">Juhtimine</string>
     <string name="pref_cat_advanced" maxLength="41">Lisavalikud</string>
@@ -57,7 +56,6 @@
     <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">Joone laius</string>
     <string name="use_input_tag" maxLength="41">Kirjuta vastus kaarti</string>
     <string name="use_input_tag_summ">Use a text input box inside the card to type in the answer</string>
     <string name="reset_languages" maxLength="41">Reset languages</string>
@@ -68,24 +66,11 @@
     <string name="image_zoom" maxLength="41">Kujutise suum</string>
     <string name="button_size" maxLength="41">Answer button size</string>
     <string name="card_browser_font_size" maxLength="41">Card browser font scaling</string>
-    <string name="card_browser_hide_media" maxLength="41">Display filenames in card browser</string>
-    <string name="card_browser_hide_media_summary">Display audio filenames in the card browser question/answer fields</string>
     <string name="col_path" maxLength="41">AnkiDroidi kaust</string>
-    <string name="fullscreen_review" maxLength="41">Täisekraani režiim</string>
-    <string name="full_screen_off">Väljas</string>
-    <string name="full_screen_system">Hide the system bars</string>
-    <string name="full_screen_complete">Hide the system bars and answer buttons</string>
-    <string name="answer_buttons_position" maxLength="41">Vastuse nuppude asukoht</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>Ülal</item>
-        <item>All</item>
-        <item>Puudub</item>
-    </string-array>
     <string name="gestures" maxLength="41">Luba žestid</string>
     <string name="gestures_summ">Assign gestures to actions such as answering and editing cards.</string>
     <string name="gestures_corner_touch" maxLength="41">9-point touch</string>
     <string name="gestures_corner_touch_summary">Allow touch gestures in screen corners</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">Show keyboard shortcuts</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">Full screen navigation drawer</string>
     <string name="gestures_fullscreen_nav_drawer_summary">Open navigation drawer when swiped right from anywhere on the screen</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Pole</string>
@@ -107,13 +92,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">Vajutus 3 sõrmega</string>
     <string name="gestures_four_finger_tap" maxLength="41">Vajutus 4 sõrmega</string>
     <string name="gestures_shake" maxLength="41">Raputa seadet</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">‘%s’ menüü</string>
-    <string name="card_browser_enable_external_context_menu_summary">Enables the ‘%s’ context menu globally</string>
     <string name="double_scrolling_gap" maxLength="41">Double scrolling</string>
     <string name="double_scrolling_gap_summ">Double the scroll gap with eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Swipe sensitivity</string>
-    <string name="tts" maxLength="41">Text to speech</string>
-    <string name="tts_summ">Reads out question and answer if no sound file is included</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Fetch media on sync</string>
     <string name="sync_account_summ_logged_out">Sisse logimata</string>
@@ -129,9 +110,6 @@
     <string name="metered_sync_summary">If disabled, you will be warned if you try to sync on a metered connection</string>
     <string name="backup_limits_frequency">Sagedus</string>
     <string name="backup_limits_lifetime">Eluaegne</string>
-    <string name="app_theme" maxLength="41">Teema</string>
-    <string name="day_theme" maxLength="41">Päeva teema</string>
-    <string name="night_theme" maxLength="41">Öine teema</string>
     <string name="language" maxLength="41">Keel</string>
     <string name="language_system">Süsteemi keel</string>
     <string name="notification_pref" maxLength="41">Teavitused</string>
@@ -141,28 +119,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">More than %d cards due</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">Vibreeri</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">Blink light</string>
-    <string name="select_locale_title">Vali keel</string>
     <string name="software_render" maxLength="41">Disable card hardware render</string>
     <string name="software_render_summ">Hardware render is faster but may have problems, specifically on Android 8/8.1. If you cannot see parts of the card review user interface, try this setting.</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">Joonda keskele</string>
-    <string name="vertical_centering_summ">Center the content of cards vertically</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Double tap time interval</string>
     <string name="pref_double_tap_time_interval_summary">A second tap of the answer buttons will be ignored if this time has not elapsed. This prevents accidental double taps</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">Show answer long-press time</string>
     <string name="pref_show_answer_long_press_time_summary">Minimum pressing time before the show answer button registers a touch.</string>
-    <string name="show_estimates" maxLength="41">Näita nupu aega</string>
-    <string name="show_estimates_summ">Show next review time on answer buttons</string>
     <string name="show_large_answer_buttons" maxLength="41">Näita suuri vastamise nuppe</string>
     <string name="show_large_answer_buttons_summ">Näita vastamise nuppe kahes reas</string>
-    <string name="show_top_bar" maxLength="41">Näita ülemist riba</string>
-    <string name="show_top_bar_summary">Show card counts, answer timer, flag and mark in top bar</string>
-    <string name="show_progress" maxLength="41">Näita kui palju on järgi</string>
-    <string name="show_progress_summ">Näita järgi olevate kaartide arvu</string>
-    <string name="show_eta" maxLength="41">Show ETA</string>
-    <string name="show_eta_summ">Näita kui palju aega on järgi</string>
     <string name="use_current" maxLength="41">Uute kaartide kaardipakk</string>
     <string name="learn_cutoff" maxLength="41">Learn ahead limit</string>
     <string name="time_limit" maxLength="41">Timebox time limit</string>
@@ -175,13 +142,9 @@
     <string name="pref_keep_screen_on_summ">Lülita ekraani aegumine välja</string>
     <string name="enable_api_title" maxLength="41">Enable AnkiDroid API</string>
     <string name="enable_api_summary">Let other apps connect to AnkiDroid and read / write data without your intervention</string>
-    <string name="custom_buttons" maxLength="41">Rakenduse nupurida</string>
-    <string name="custom_buttons_summary">Customize which actions appear in the app bar</string>
     <string name="custom_buttons_setting_always_show">Näita alati</string>
-    <string name="custom_buttons_setting_if_room">Näita, kui on ruumi</string>
     <string name="custom_buttons_setting_menu_only">Ainult menüü</string>
     <string name="reset_custom_buttons" maxLength="41">Taasta vaikesätted</string>
-    <string name="reset_settings_to_default">Lähtesta sätted vaikeväärtustele</string>
     <string name="reset">Lähtesta</string>
     <string name="thirdparty_apps_title" maxLength="41">Kolmanda osapoole API rakendused</string>
     <string name="thirdparty_apps_summary">See a list of applications which make use of the AnkiDroid API such as dictionaries, utilities.</string>
@@ -189,8 +152,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Kordamised</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">Study Screen</string>
-    <string name="show_deck_title" maxLength="41">Show deck title</string>
     <string name="accessibility" maxLength="41">Juurdepääsetavus</string>
     <string name="exit_via_double_tap_back" maxLength="41">Press back twice to go back/exit</string>
     <string name="exit_via_double_tap_back_summ">To avoid accidentally leaving the study screen or the app</string>
@@ -225,7 +186,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Vali sildid</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">Üldine</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Otsi</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Replace newlines with HTML</string>
@@ -233,7 +193,6 @@
     <string name="type_in_answer_focus" maxLength="41">Focus ‘type in answer’</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="open_changelog">Ava muudatuste logi</string>
     <string name="pref_cat_about_title" maxLength="41">Teave</string>
     <string name="contributors_title">Panustajad</string>
     <string name="about_contributors_description"><![CDATA[Need on meie suurepärased <a href=\"%1$s\">kaastöölised</a>. Ka sina võid AnkiDroid aidata programmeerimise, tõlkimise, annetamise ja <a href=\"%2$s\">palju muuga</a>!]]></string>
@@ -261,8 +220,6 @@
     <string name="toggle_auto_advance" maxLength="28">Toggle auto advance</string>
     <string name="enable_auto_advance" maxLength="28">Enable auto advance</string>
     <string name="disable_auto_advance" maxLength="28">Disable auto advance</string>
-    <string name="enable_voice_recording" maxLength="28">Enable voice recording</string>
-    <string name="disable_voice_recording" maxLength="28">Disable voice recording</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">Vali kaardi külg</string>
     <string name="card_side_question">Küsimus</string>
@@ -275,17 +232,10 @@
     <string name="bindings_already_bound">Already bound to ‘%s’</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Eksperimentaalne</string>
-    <string name="readtext_deprecation_warn">AnkiDroid has introduced a better TTS mechanism which is compatible with other Anki clients and includes more voices and improvements to language playback!\n\nPlease upgrade as soon as possible, as this setting will be removed soon</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Please upgrade to the new text to speech format</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">Allow templates to record audio</string>
-    <string name="template_is_trying_to_record_audio">This template is trying to record audio</string>
     <string name="pref_fixed_port_title" maxLength="41">localStorage in Study Screen</string>
     <string name="pref_fixed_port_summary">Enables JavaScript localStorage by using a fixed server port in the Study Screen</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">Arendaja valikud</string>
-    <string name="dev_options_enabled_pref" maxLength="41">Lülita arendaja valikud sisse</string>
-    <string name="disable_dev_options">Lülita arendaja valikud välja</string>
-    <string name="dev_options_warning">Please be sure before enabling developer options. These options are dangerous and could break the app or corrupt your collection.\n\nNote that these options are not suited for most users and therefore are not translated, so they are in English.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -306,38 +256,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">Halda ruumi</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">Viga</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">Arvutamine&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="one">%1$d file\n%2$s</item>
-        <item quantity="other">%1$d files\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">Kustuta kasutamata meediafailid</string>
-    <string name="pref__delete_unused_media_files__summary">Kustuta pildid ja muud meedia, mille eesliide pole _ ja millele ei viidata üheski märkmes</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">Kustuta kasutamata meediafailid</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">Kustuta varundused</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">Kustuta varundused</string>
-    <string name="progress__deleting_backups">Varunduste kustutamine&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">Kustuta kogu</string>
-    <string name="pref__delete_collection__summary">Kustuta kogu, meedia ja varukoopiad. Rakenduse seadeid ei kustutata</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">Kustuta kogu</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Oled sa kindel, et soovid kustutada oma kogu, meedia ja varukoopiad?\n\nMärkus: see toiming sulgeb akna.</string>
-    <string name="progress__deleting_collection">Kogu kustutamine&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">Kusuta kõik</string>
-    <string name="pref__delete_everything__summary">Kustuta kogu, meedia, varukoopiad ja seaded</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">Kustuta kõik</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Are you sure you want to delete all data? This includes your collection, media, backups and preferences.\n\nNote: this action will close the window.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">Kustuta rakenduse andmed</string>
-    <string name="pref__delete_app_data__summary">Kustuta seaded ja muud rakenduse andmed</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">Kustuta rakenduse andmed</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Are you sure you want to delete app data? This includes settings and other app data.\n\nNote: this action will close the window.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -345,7 +269,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Kogu pole</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Viga</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Tõmbamine&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">Arvutamine&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Kogu pole olemas</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">Peida süsteemiribad</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">Pole</string>

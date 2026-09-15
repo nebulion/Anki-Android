@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">Aktuellen Stapel verwenden</string>
     <string name="add_to_deck_decide_by_note_type">Nach Notiztyp entscheiden</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">Wie System</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Tag</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Nacht</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">Hell</string>
-    <string name="day_theme_plain">Schlicht</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">Schwarz</string>
-    <string name="night_theme_dark">Dunkel</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">am kleinsten</string>
-    <string name="html_size_code_x_small">kleiner</string>
-    <string name="html_size_code_small">klein</string>
-    <string name="html_size_code_medium">mittel</string>
-    <string name="html_size_code_large">groß</string>
-    <string name="html_size_code_x_large">größer</string>
-    <string name="html_size_code_xx_large">am größten</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Antwort: einfach</string>
     <string name="gesture_abort_learning" maxLength="41">Lernbildschirm schließen</string>

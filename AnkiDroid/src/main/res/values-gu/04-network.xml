@@ -27,7 +27,6 @@
     <string name="sync_error">સમન્વયન ભૂલ</string>
     <string name="vague_error" comment="Network error dialog title">ભૂલ</string>
     <string name="retry">ફરીથી પ્રયત્ન કરો</string>
-    <string name="menu_get_shared_decks">વહેંચાયેલ ડેક મેળવો</string>
     <string name="connection_error_message">નેટવર્ક ભૂલ આવી છે</string>
     <string name="not_logged_in_title">AnkiWeb માં લોગ ઇન કરો</string>
     <string name="login_create_account_message">ક્લાઉડ સિંક સેવાનો ઉપયોગ કરવા માટે તમારે તૃતીય પક્ષ એકાઉન્ટમાં લૉગ ઇન કરવું આવશ્યક છે. તમે આગલા પગલામાં એક બનાવી શકો છો.</string>

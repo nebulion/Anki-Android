@@ -27,7 +27,6 @@
     <string name="sync_error">Vienādošanas kļūda</string>
     <string name="vague_error" comment="Network error dialog title">Kļūda</string>
     <string name="retry">Mēģināt vēlreiz</string>
-    <string name="menu_get_shared_decks">Iegūt kopīgotās kavas</string>
     <string name="connection_error_message">Radās tīkla kļūda</string>
     <string name="not_logged_in_title">Pieteikties AnkiWeb</string>
     <string name="login_create_account_message">Jāpiesakās trešo pušu kontā, lai izmantotu mākoņvienādošanas pakalpojumu. Tādu var izveidot nākamajā solī.</string>

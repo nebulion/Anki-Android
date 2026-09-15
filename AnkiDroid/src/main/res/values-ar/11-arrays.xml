@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">استخدم المجموعة الحالية</string>
     <string name="add_to_deck_decide_by_note_type">قرر حسب نوع الملحوظة</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">حسب النظام</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">نهار</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">ليل</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">ساطع</string>
-    <string name="day_theme_plain">سادة</string>
-    <string name="day_theme_eink">حبر إلكتروني</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">أسود</string>
-    <string name="night_theme_dark">داكن</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-صغير</string>
-    <string name="html_size_code_x_small">x-صغير</string>
-    <string name="html_size_code_small">صغير</string>
-    <string name="html_size_code_medium">متوسط</string>
-    <string name="html_size_code_large">كبير</string>
-    <string name="html_size_code_x_large">x-كبير</string>
-    <string name="html_size_code_xx_large">xx-كبير</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">الإجابة بسهل</string>
     <string name="gesture_abort_learning" maxLength="41">إغلاق شاشة الدراسة</string>

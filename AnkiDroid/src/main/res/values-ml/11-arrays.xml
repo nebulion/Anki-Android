@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">നിലവിലെ ഡെക്ക് ഉപയോഗിക്കുക</string>
     <string name="add_to_deck_decide_by_note_type">നോട്ട് തരം അനുസരിച്ച് തീരുമാനിക്കുക</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">സിസ്റ്റം പിന്തുടരുക</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Day</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Night</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">വെളിച്ചം</string>
-    <string name="day_theme_plain">പ്ലെയിൻ</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">കറുപ്പ്</string>
-    <string name="night_theme_dark">ഇരുട്ട്</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-ചെറുത്</string>
-    <string name="html_size_code_x_small">x-ചെറുത്</string>
-    <string name="html_size_code_small">ചെറിയ</string>
-    <string name="html_size_code_medium">ഇടത്തരം</string>
-    <string name="html_size_code_large">വലിയ</string>
-    <string name="html_size_code_x_large">x-വലിയ</string>
-    <string name="html_size_code_xx_large">xx-വലുത്</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">ഉത്തരം എളുപ്പമാണ്</string>
     <string name="gesture_abort_learning" maxLength="41">Close study screen</string>

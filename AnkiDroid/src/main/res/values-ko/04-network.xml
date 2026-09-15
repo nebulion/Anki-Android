@@ -27,7 +27,6 @@
     <string name="sync_error">동기화 오류</string>
     <string name="vague_error" comment="Network error dialog title">오류</string>
     <string name="retry">재시도하기</string>
-    <string name="menu_get_shared_decks">공유된 덱 받기</string>
     <string name="connection_error_message">네트워크 오류가 발생했습니다.</string>
     <string name="not_logged_in_title">AnkiWeb에 로그인하기</string>
     <string name="login_create_account_message">클라우드 동기화 서비스를 사용하기 위해서는 제3자 계정에 로그인해야 합니다. 다음 단계에서 만들 수 있습니다.</string>

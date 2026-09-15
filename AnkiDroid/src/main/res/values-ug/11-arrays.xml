@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">نۆۋەتتىكى دەستىنى ئىشلەت</string>
     <string name="add_to_deck_decide_by_note_type">خاتىرە تۈرى بەلگىلەيدۇ</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">سىستېمىغا ئەگەش</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">كۈندۈز</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">كېچە</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">يورۇق</string>
-    <string name="day_theme_plain">ئادەتتىكى</string>
-    <string name="day_theme_eink">ئې-سىياھ</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">قارا</string>
-    <string name="night_theme_dark">قاراڭغۇ</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">زىيادە كىچىك</string>
-    <string name="html_size_code_x_small">كىچىكرەك</string>
-    <string name="html_size_code_small">كىچىك</string>
-    <string name="html_size_code_medium">ئوتتۇرا</string>
-    <string name="html_size_code_large">چوڭ</string>
-    <string name="html_size_code_x_large">چوڭراق</string>
-    <string name="html_size_code_xx_large">زىيادە چوڭ</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">جاۋابى ئاسان</string>
     <string name="gesture_abort_learning" maxLength="41">ئۆگىنىش ئېكرانىنى تقايدۇ</string>

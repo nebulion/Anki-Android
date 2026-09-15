@@ -40,7 +40,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Synchronisatie</string>
     <string name="pref_cat_scheduling" maxLength="41">Plannen</string>
     <string name="pref_cat_whiteboard" maxLength="41">Schrijfbord</string>
-    <string name="pref_cat_themes" maxLength="41">Thema\'s</string>
     <string name="pref_cat_gestures" maxLength="41">Gebaren</string>
     <string name="pref_cat_controls" maxLength="41">Besturing</string>
     <string name="pref_cat_advanced" maxLength="41">Geavanceerd</string>
@@ -57,7 +56,6 @@
     <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">Lijnbreedte</string>
     <string name="use_input_tag" maxLength="41">Typ het antwoord op de kaart</string>
     <string name="use_input_tag_summ">Een tekstinvoervak gebruiken op de kaart om het antwoord te typen</string>
     <string name="reset_languages" maxLength="41">Reset talen</string>
@@ -68,24 +66,11 @@
     <string name="image_zoom" maxLength="41">Afbeelding zoom</string>
     <string name="button_size" maxLength="41">Grootte antwoordknop</string>
     <string name="card_browser_font_size" maxLength="41">Lettertypegrootte van de kaartenbrowser</string>
-    <string name="card_browser_hide_media" maxLength="41">Bestandsnamen in kaartenbrowser weergeven</string>
-    <string name="card_browser_hide_media_summary">Namen van audiobestanden in de vraag/antwoord velden van de kaartenbrowser weergeven</string>
     <string name="col_path" maxLength="41">AnkiDroid directory</string>
-    <string name="fullscreen_review" maxLength="41">Volledig schermmodus</string>
-    <string name="full_screen_off">Uit</string>
-    <string name="full_screen_system">De systeembalken verbergen</string>
-    <string name="full_screen_complete">De systeembalken en antwoordknoppen verbergen</string>
-    <string name="answer_buttons_position" maxLength="41">Antwoord knoppen positie</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>Bovenaan</item>
-        <item>Onderaan</item>
-        <item>Geen</item>
-    </string-array>
     <string name="gestures" maxLength="41">Bewegingen inschakelen</string>
     <string name="gestures_summ">Bewegingen toewijzen aan acties zoals het beantwoorden en bewerken van kaarten.</string>
     <string name="gestures_corner_touch" maxLength="41">9-punts aanraakscherm</string>
     <string name="gestures_corner_touch_summary">Aanraakgebaren in schermhoeken toestaan</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">Toon sneltoetsen</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">Volledig scherm navigatiebalk</string>
     <string name="gestures_fullscreen_nav_drawer_summary">Open navigatiescherm wanneer je overal en op het scherm naar rechts veegt</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Geen</string>
@@ -107,13 +92,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">Tik met drie vingers</string>
     <string name="gestures_four_finger_tap" maxLength="41">Tik met vier vingers</string>
     <string name="gestures_shake" maxLength="41">Schud apparaat</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">‘%s’ menu</string>
-    <string name="card_browser_enable_external_context_menu_summary">Schakelt het contextmenu \' \'%s\' overal in</string>
     <string name="double_scrolling_gap" maxLength="41">Sneller scrollen</string>
     <string name="double_scrolling_gap_summ">Verdubbel de scroll-afstand voor eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Veeggevoeligheid</string>
-    <string name="tts" maxLength="41">Tekst-naar-spraak</string>
-    <string name="tts_summ">Vraag en antwoord voorlezen als er geen geluidsbestand is opgenomen</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Media downloaden</string>
     <string name="sync_account_summ_logged_out">Niet aangemeld</string>
@@ -128,9 +109,6 @@
     <string name="metered_sync_summary">Als deze optie is uitgeschakeld, wordt u gewaarschuwd als u probeert te synchroniseren via een verbinding met een datalimiet</string>
     <string name="backup_limits_frequency">Frequentie</string>
     <string name="backup_limits_lifetime">Levenslang</string>
-    <string name="app_theme" maxLength="41">Thema</string>
-    <string name="day_theme" maxLength="41">Dag thema</string>
-    <string name="night_theme" maxLength="41">Nacht thema</string>
     <string name="language" maxLength="41">Taal</string>
     <string name="language_system">Systeemtaal</string>
     <string name="notification_pref" maxLength="41">Meldingen</string>
@@ -140,28 +118,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">Meer dan %d kaarten te doen</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">Trillen</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">Licht knipperen</string>
-    <string name="select_locale_title">Taal selecteren</string>
     <string name="software_render" maxLength="41">Hardware render kaart uitschakelen</string>
     <string name="software_render_summ">Hardware render is sneller maar kan problemen hebben, met name op Android 8/8.1. Als u delen van de gebruikersinterface voor de beoordeling van de kaart niet kunt zien, probeer dan deze instelling.</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">Uitlijnen in het midden</string>
-    <string name="vertical_centering_summ">De inhoud van kaarten verticaal centreren</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Dubbele aanraking tijdsinterval</string>
     <string name="pref_double_tap_time_interval_summary">Een tweede aanraking op de antwoordknoppen wordt genegeerd als deze tijd nog niet voorbij is gegaan. Dit voorkomt dubbele aanrakingen.</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">Toon antwoord lange indruktijd</string>
     <string name="pref_show_answer_long_press_time_summary">Minimale druktijd voordat de knop voor het tonen van een antwoord een aanraking registreert.</string>
-    <string name="show_estimates" maxLength="41">Herhaaltijd in knoppen</string>
-    <string name="show_estimates_summ">In de antwoordknoppen weergeven wanneer de volgende overhoring is</string>
     <string name="show_large_answer_buttons" maxLength="41">Laat grote antwoordknoppen zien</string>
     <string name="show_large_answer_buttons_summ">Toon antwoordknop in 2 rijen</string>
-    <string name="show_top_bar" maxLength="41">Toon bovenste balk</string>
-    <string name="show_top_bar_summary">Toon aantal kaarten, vlag en markeer in de balk bovenaan</string>
-    <string name="show_progress" maxLength="41">Resterende weergeven</string>
-    <string name="show_progress_summ">Toon resterend aantal kaarten</string>
-    <string name="show_eta" maxLength="41">ETA weergeven</string>
-    <string name="show_eta_summ">Resterende tijd weergeven</string>
     <string name="use_current" maxLength="41">Set voor nieuwe kaarten</string>
     <string name="learn_cutoff" maxLength="41">Max vooruit leren</string>
     <string name="time_limit" maxLength="41">Stel een tijdslimiet in</string>
@@ -174,13 +141,9 @@
     <string name="pref_keep_screen_on_summ">Schermtimeout uitschakelen</string>
     <string name="enable_api_title" maxLength="41">AnkiDroid API inschakelen</string>
     <string name="enable_api_summary">Laat andere apps verbinding maken met AnkiDroid en gegevens zonder uw tussenkomst lezen/schrijven</string>
-    <string name="custom_buttons" maxLength="41">App bar knoppen</string>
-    <string name="custom_buttons_summary">Aanpassen welke acties worden weergegeven in de app-balk</string>
     <string name="custom_buttons_setting_always_show">Altijd tonen</string>
-    <string name="custom_buttons_setting_if_room">Toon als er ruimte is</string>
     <string name="custom_buttons_setting_menu_only">Alleen menu</string>
     <string name="reset_custom_buttons" maxLength="41">Standaardinstellingen herstellen</string>
-    <string name="reset_settings_to_default">Instellingen terugzetten op standaard</string>
     <string name="reset">Resetten</string>
     <string name="thirdparty_apps_title" maxLength="41">API-apps van derden</string>
     <string name="thirdparty_apps_summary">Raadpleeg de lijst van applicaties die gebruik maken van de AnkiDroid API zoals woordenboeken, hulpprogramma\'s.</string>
@@ -188,8 +151,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Voorbeelden</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Alleen achterzijde in-/uitschakelen</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">Studiescherm</string>
-    <string name="show_deck_title" maxLength="41">Settitel weergeven</string>
     <string name="accessibility" maxLength="41">Toegankelijkheid</string>
     <string name="exit_via_double_tap_back" maxLength="41">Druk twee keer op terug om terug te gaan</string>
     <string name="exit_via_double_tap_back_summ">Om te voorkomen dat je per ongeluk het studiescherm of de app verlaat</string>
@@ -223,7 +184,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Selecteer Tags</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">Algemeen</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Zoeken</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Nieuwe lijnen vervangen door HTML</string>
@@ -231,7 +191,6 @@
     <string name="type_in_answer_focus" maxLength="41">Focus op ‘type in antwoord’</string>
     <string name="type_in_answer_focus_summ">Automatisch focussen op het \'type in antwoord\'-veld in het studiescherm</string>
     <!-- About -->
-    <string name="open_changelog">Wijzigingslogboek openen</string>
     <string name="pref_cat_about_title" maxLength="41">Over</string>
     <string name="contributors_title">Bijdragers</string>
     <string name="about_contributors_description"><![CDATA[Dit zijn onze geweldige <a href=\"%1$s\">medewerkers</a>. U kunt AnkiDroid ook helpen door te programmeren, te vertalen, te doneren en <a href=\"%2$s\">meer</a>!]]></string>
@@ -259,8 +218,6 @@
     <string name="toggle_auto_advance" maxLength="28">Automatische vooruitgang in-/uitschakelen</string>
     <string name="enable_auto_advance" maxLength="28">Enable auto advance</string>
     <string name="disable_auto_advance" maxLength="28">Disable auto advance</string>
-    <string name="enable_voice_recording" maxLength="28">Enable voice recording</string>
-    <string name="disable_voice_recording" maxLength="28">Disable voice recording</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">Selecteer kaart zijde</string>
     <string name="card_side_question">Vraag</string>
@@ -273,17 +230,10 @@
     <string name="bindings_already_bound">Reeds gekoppeld aan %s</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Experimenteel</string>
-    <string name="readtext_deprecation_warn">AnkiDroid heeft een beter TTS-mechanisme geïntroduceerd dat compatibel is met andere Anki-clients en meer stemmen en verbeteringen in het afspelen van talen bevat!nnUpgrade zo snel mogelijk, want deze instelling wordt binnenkort verwijderd</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Upgrade naar de nieuwe tekst-naar-spraak-indeling</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">Allow templates to record audio</string>
-    <string name="template_is_trying_to_record_audio">This template is trying to record audio</string>
     <string name="pref_fixed_port_title" maxLength="41">localStorage in Study Screen</string>
     <string name="pref_fixed_port_summary">Enables JavaScript localStorage by using a fixed server port in the Study Screen</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">Opties voor ontwikkelaars</string>
-    <string name="dev_options_enabled_pref" maxLength="41">Opties voor ontwikkelaars inschakelen</string>
-    <string name="disable_dev_options">Ontwikkelaarsopties uitschakelen</string>
-    <string name="dev_options_warning">Wees zeker voordat u de opties voor ontwikkelaars inschakelt. Deze opties zijn gevaarlijk en kunnen de app kapot maken of je collectie beschadigen.\n\nMerk op dat deze opties niet geschikt zijn voor de meeste gebruikers en daarom niet vertaald zijn, dus ze zijn in het Engels.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -303,38 +253,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">Ruimte beheren</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">Foutmelding</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">berekenen\n&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="one">%1$d bestand\n%2$s</item>
-        <item quantity="other">%1$d bestanden\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">Ongebruikte mediabestanden verwijderen</string>
-    <string name="pref__delete_unused_media_files__summary">Verwijder afbeeldingen en andere media die niet zijn voorafgegaan door _ en niet worden genoemd door notities</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">Ongebruikte mediabestanden verwijderen</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">Back-ups verwijderen</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">Back-ups verwijderen</string>
-    <string name="progress__deleting_backups">Back-ups verwijderen&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">Verwijder collectie</string>
-    <string name="pref__delete_collection__summary">Verzameling, media en back-ups verwijderen. App-instellingen worden niet verwijderd</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">Verwijder collectie</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Weet je zeker dat je je verzameling, media en backups wilt verwijderen?\n\nOpmerking: deze actie zal het venster sluiten.</string>
-    <string name="progress__deleting_collection">Collectie verwijderen&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">Alles verwijderen</string>
-    <string name="pref__delete_everything__summary">Collectie, media, back-ups en instellingen verwijderen</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">Alles verwijderen?</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Weet je zeker dat je alle gegevens wilt verwijderen? Dit omvat je verzameling, media, back-ups en voorkeuren.\n\nOpmerking: deze actie sluit het venster.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">App-gegevens verwijderen</string>
-    <string name="pref__delete_app_data__summary">Instellingen en andere app-gegevens verwijderen</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">App-gegevens verwijderen</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Weet u zeker dat u de app data wilt verwijderen? Dit omvat instellingen en andere app gegevens.\n\nOpmerking: deze actie zal het venster sluiten.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -342,7 +266,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Geen collectie</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Foutmelding</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Ophalen&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">Berekenen&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Collectie bestaat niet</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">Systeembalken verbergen</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">Geen</string>

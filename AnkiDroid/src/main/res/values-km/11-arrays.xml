@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">ប្រើជាន់បច្ចុប្បន្ន</string>
     <string name="add_to_deck_decide_by_note_type">សម្រេចដោយប្រភេទរបស់កំណត់ត្រា</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">ធ្វើតាមប្រព័ន្ធ</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Day</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Night</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">ភ្លឺ</string>
-    <string name="day_theme_plain">Plain</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">ខ្មៅ</string>
-    <string name="night_theme_dark">ងងឹត</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-small</string>
-    <string name="html_size_code_x_small">x-small</string>
-    <string name="html_size_code_small">small</string>
-    <string name="html_size_code_medium">medium</string>
-    <string name="html_size_code_large">large</string>
-    <string name="html_size_code_x_large">x-large</string>
-    <string name="html_size_code_xx_large">xx-large</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Answer easy</string>
     <string name="gesture_abort_learning" maxLength="41">Close study screen</string>

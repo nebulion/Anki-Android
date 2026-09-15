@@ -40,7 +40,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">قەدەمداش</string>
     <string name="pref_cat_scheduling" maxLength="41">كۈنتەرتىپكە تىزىۋاتىدۇ</string>
     <string name="pref_cat_whiteboard" maxLength="41">ئاق دوسكا</string>
-    <string name="pref_cat_themes" maxLength="41">ئۆرنەك</string>
     <string name="pref_cat_gestures" maxLength="41">قول ئىشارەت</string>
     <string name="pref_cat_controls" maxLength="41">تىزگىنلەر</string>
     <string name="pref_cat_advanced" maxLength="41">ئالىي</string>
@@ -57,7 +56,6 @@
     <string name="allow_card_external_launch_summ">كارتا ئۈسكۈنىڭىزدىكى باشقا ئەپنى ئاچالايدۇ، يوشۇرۇن ئويلاشمىغان مەشغۇلاتنى قوزغىتىشى مۇمكىن.\nتوپلىمىڭىزدىكى بارلىق كارتا ۋە قېلىپقا ئىشەنسىڭىز ئوچۇق، بولمىسا تاقاق قالدۇرۇڭ.</string>
     <string name="card_external_launch_denied_snackbar">بىخەتەرلىك: كارتىنىڭ باشقا ئەپنى قوزغىتىشىنى توستى.\nئەگەر توپلىمىڭىزدىكى بارلىق كارتا ۋە قېلىپقا ئىشەنسىڭىز، ئالىي تەڭشەكتە بۇ توسۇشنى چىقىرىۋېتەلەيسىز</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">سىزىق توملۇقى</string>
     <string name="use_input_tag" maxLength="41">كارتىغا جاۋاب كىرگۈزۈلىدۇ</string>
     <string name="use_input_tag_summ">كارتىدا تېكىست كىرگۈزۈش قۇتىسىنى ئىشلىتىپ جاۋابىنى كىرگۈزىدۇ</string>
     <string name="reset_languages" maxLength="41">تىلنى ئەسلىگە قايتۇر</string>
@@ -68,24 +66,11 @@
     <string name="image_zoom" maxLength="41">سۈرەت يىراق-يېقىنلىقى</string>
     <string name="button_size" maxLength="41">جاۋاب توپچە چوڭلۇقى</string>
     <string name="card_browser_font_size" maxLength="41">كارتا كۆرگۈچ خەت ئۆلچىمى</string>
-    <string name="card_browser_hide_media" maxLength="41">كارتا كۆرگۈچتە ھۆججەت ئاتىنى كۆرسىتىدۇ</string>
-    <string name="card_browser_hide_media_summary">كارتا كۆرگۈچتىكى سوئال/جاۋاب بۆلىكىدە ئاۋاز ھۆججەت ئاتىنى كۆرسىتىدۇ</string>
     <string name="col_path" maxLength="41">AnkiDroid مۇندەرىجىسى</string>
-    <string name="fullscreen_review" maxLength="41">پۈتۈن ئېكران ھالىتى</string>
-    <string name="full_screen_off">تاقاق</string>
-    <string name="full_screen_system">سىستېما بالداقنى يوشۇر</string>
-    <string name="full_screen_complete">سىستېما بالداق ۋە جاۋاب توپچەنى يوشۇرىدۇ</string>
-    <string name="answer_buttons_position" maxLength="41">جاۋاب توپچەنىڭ ئورنى</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>چوققا</item>
-        <item>ئاستى</item>
-        <item>يوق</item>
-    </string-array>
     <string name="gestures" maxLength="41">قول ئىشارەتنى قوزغات</string>
     <string name="gestures_summ">جاۋاب ۋە كارتا تەھرىرلەشكە ئوخشاش مەشغۇلاتقا قول ئىشارىتى بەلگىلەيدۇ.</string>
     <string name="gestures_corner_touch" maxLength="41">9 نۇقتا سەزگۈچ</string>
     <string name="gestures_corner_touch_summary">ئېكران بۇلۇڭلىرى تېگىشىش قول ئىشارىتىگە يول قويىدۇ</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">ھەرپتاختا تېزلەتمىسىنى كۆرسەت</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">پۈتۈن ئېكران يولباشچى تارتمىسى</string>
     <string name="gestures_fullscreen_nav_drawer_summary">ئېكراننىڭ خالىغان يېرىدىن ئوڭغا سۈرۈلسە يولباشچى تارتمىسىنى ئاچىدۇ</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">يوق</string>
@@ -107,13 +92,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">ئۈچ بارماقتا چېكىش</string>
     <string name="gestures_four_finger_tap" maxLength="41">تۆت بارماقتا چېكىش</string>
     <string name="gestures_shake" maxLength="41">ئۈسكۈنىنى سىلكى</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">«%s» تىزىملىكى</string>
-    <string name="card_browser_enable_external_context_menu_summary">«%s» مەزمۇن تىزىملىكىنى پۈتكۈل دائىرىدە قوزغىتىدۇ</string>
     <string name="double_scrolling_gap" maxLength="41">قوش دومىلات</string>
     <string name="double_scrolling_gap_summ">ئېلېكتىرونلۇق ئوقۇغۇچتا قوش دومىلىتىدۇ</string>
     <string name="swipe_sensitivity" maxLength="41">سۈرۈش سەزگۈرلۈكى</string>
-    <string name="tts" maxLength="41">تېكىستتىن ئاۋازغا</string>
-    <string name="tts_summ">ئەگەر ئاۋاز ھۆججىتى بولمىسا سوئال ۋە جاۋابنى ئۈنلۈك ئوقۇيدۇ</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">قەدەمداشلىغاندا ۋاسىتىگە ئېرىشىدۇ</string>
     <string name="sync_account_summ_logged_out">تىزىملىنىپ كىرمىگەن</string>
@@ -129,9 +110,6 @@
     <string name="metered_sync_summary">ئەگەر چەكلەنسە، ناۋادا ھەق ھېسابلايدىغان باغلىنىشتا قەدەمداشلىغاندا سىزنى ئاگاھلاندۇرىدۇ</string>
     <string name="backup_limits_frequency">چاستوتا</string>
     <string name="backup_limits_lifetime">ئۆمرى</string>
-    <string name="app_theme" maxLength="41">ئۆرنەك</string>
-    <string name="day_theme" maxLength="41">كۈندۈز ئۆرنەك</string>
-    <string name="night_theme" maxLength="41">كېچە ئۆرنەك</string>
     <string name="language" maxLength="41">تىل</string>
     <string name="language_system">سىستېما تىلى</string>
     <string name="notification_pref" maxLength="41">ئۇقتۇرۇش</string>
@@ -141,28 +119,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">مۆھلىتى توشقان كارتا %d دىن  كۆپ</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">تىترەت</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">چىراغنى لىپىلدات</string>
-    <string name="select_locale_title">تىل تاللىنىدۇ</string>
     <string name="software_render" maxLength="41">كارتىنى قاتتىق دېتالدا رەڭلەشنى چەكلەيدۇ</string>
     <string name="software_render_summ">قاتتىق دېتالدا رەڭلەشنىڭ سۈرئىتى تېز ئەمما مەسىلە بولۇشى مۇمكىن، بولۇپمۇ ‪Android 8/8.1 ‬نەشرىدە. ئەگەر كارتا تەكرارلايدىغان ئىشلەتكۈچى ئارايۈزىنىڭ بىر قىسمىنى كۆرەلمىسىڭىز، بۇ تەڭشەكنى سىناپ بېقىڭ.</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">ئۇتتۇرىغا توغرىلا</string>
-    <string name="vertical_centering_summ">كارتا مەزمۇنىنى بويىغا ئوتتۇرىغا توغرىلايدۇ</string>
     <string name="pref_double_tap_time_interval" maxLength="41">ۋاقىت ئارىلىقى قوش چېكىلىدۇ</string>
     <string name="pref_double_tap_time_interval_summary">ئەگەر بۇ ۋاقىت ئۆتۈپ كەتمىگەن بولسا، جاۋاب توپچىنىڭ ئىككىنچى قېتىم چېكىلىشى نەزەردىن ساقىت قىلىنىدۇ. بۇ تاسادىپىي قوش چېكىشنىڭ ئالدىنى ئالىدۇ</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">«جاۋابنى كۆرسەت» نىڭ ئۇزۇن بېسىش ۋاقتى</string>
     <string name="pref_show_answer_long_press_time_summary">جاۋاب توپچىنى كۆرسىتىشتىن ئىلگىرى ئەڭ قىسقا بېسىپ تۇرۇش ۋاقتى.</string>
-    <string name="show_estimates" maxLength="41">جاۋاب توپچىنى كۆرسىتىش ۋاقتى</string>
-    <string name="show_estimates_summ">جاۋاب توپچىنىڭ ئۈستىدە كېيىنكى قېتىم تەكرارلايدىغان ۋاقىتنى كۆرسىتىدۇ</string>
     <string name="show_large_answer_buttons" maxLength="41">چوڭ جاۋاب توپچىنى كۆرسىتىدۇ</string>
     <string name="show_large_answer_buttons_summ">جاۋاب توپچىنى 2 قۇر كۆرسىتىدۇ</string>
-    <string name="show_top_bar" maxLength="41">چوققا بالداقنى كۆرسەت</string>
-    <string name="show_top_bar_summary">چوققا بالداقتا كارتا سانى، جاۋاب سانىغۇچ، بايراق ۋە بەلگىنى كۆرسىتىدۇ</string>
-    <string name="show_progress" maxLength="41">قالغانلىرىنى كۆرسەت</string>
-    <string name="show_progress_summ">قېپقالغان كارتا سانىنى كۆرسىتىدۇ</string>
-    <string name="show_eta" maxLength="41">قېپقالغان ۋاقىتنى كۆرسەت</string>
-    <string name="show_eta_summ">قېپقالغان ۋاقىتنى كۆرسىتىدۇ</string>
     <string name="use_current" maxLength="41">يېڭى كارتا دەستىسى</string>
     <string name="learn_cutoff" maxLength="41">ئالدىن ئۆگىنىش چېكى</string>
     <string name="time_limit" maxLength="41">ۋاقىت قۇتىسىنىڭ ۋاقىت چېكى</string>
@@ -175,13 +142,9 @@
     <string name="pref_keep_screen_on_summ">ئېكران مۆھلىتىنى چەكلە</string>
     <string name="enable_api_title" maxLength="41">AnkiDroid API نى قوزغات</string>
     <string name="enable_api_summary">سىزنى ئارىلاشتۇرمايلا باشقا ئەپنىڭ AnkiDroid قا باغلىنىپ سانلىق مەلۇماتنى ئوقۇپ/يېزىشىغا يول قويىدۇ</string>
-    <string name="custom_buttons" maxLength="41">ئەپ بالداق توپچىسى</string>
-    <string name="custom_buttons_summary">ئەپ بالداقتا قايسى مەشغۇلاتنىڭ كۆرۈنىدىغانلىقىنى خاسلاشتۇرىدۇ</string>
     <string name="custom_buttons_setting_always_show">ھەمىشە كۆرسەت</string>
-    <string name="custom_buttons_setting_if_room">ئورۇن بولسا كۆرسەت</string>
     <string name="custom_buttons_setting_menu_only">تىزىملىكلا</string>
     <string name="reset_custom_buttons" maxLength="41">كۆڭۈلدىكىگە قايتۇر</string>
-    <string name="reset_settings_to_default">تەڭشەكنى كۆڭۈلدىكىگە قايتۇرىدۇ</string>
     <string name="reset">ئەسلىگە قايتۇر</string>
     <string name="thirdparty_apps_title" maxLength="41">ئۈچىنچى تەرەپ API ئەپلىرى</string>
     <string name="thirdparty_apps_summary">لۇغەت، ئاممىۋى مۇلازىمەتكە ئوخشاش AnkiDroid API نى ئىشلىتىدىغان پىروگراممىلارنىڭ تىزىملىكىنى كۆرسىتىدۇ.</string>
@@ -189,8 +152,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">ئالدىن كۆزىتىش</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">ئارقا تەرىپىنىلا ئالماشتۇر</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">ئۆگىنىش ئېكرانى</string>
-    <string name="show_deck_title" maxLength="41">دەستە ماۋزۇسىنى كۆرسەت</string>
     <string name="accessibility" maxLength="41">قوشۇمچە ئىقتىدار</string>
     <string name="exit_via_double_tap_back" maxLength="41">قايت ئىككى قېتىم چېكىلسە قايتىدۇ/چېكىنىدۇ</string>
     <string name="exit_via_double_tap_back_summ">ئېھتىياتسىزلىقتىن ئۆگىنىش ئېكرانى ياكى ئەپتىن ئايرىلىشنىڭ ئالدىنى ئالىدۇ</string>
@@ -225,7 +186,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">بەلگە تاللىنىدۇ</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">ئادەتتىكى</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">ئىزدە</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">يېڭى قۇرنى HTML بىلەن ئالماشتۇرىدۇ</string>
@@ -233,7 +193,6 @@
     <string name="type_in_answer_focus" maxLength="41">(جاۋاب كىرگۈزۈش) كە مەركەزلىشىدۇ</string>
     <string name="type_in_answer_focus_summ">ئۆگىنىش ئېكرانىدا ئۆزلۈكىدىن (جاۋاب كىرگۈزۈش) بۆلىكىگە مەركەزلىشىدۇ</string>
     <!-- About -->
-    <string name="open_changelog">ئۆزگىرىش خاتىرىسىنى ئاچىدۇ</string>
     <string name="pref_cat_about_title" maxLength="41">ھەققىدە</string>
     <string name="contributors_title">تۆھپىكار</string>
     <string name="about_contributors_description"><![CDATA[بۇلار بىزنىڭ قالتىس <a href=\"%1$s\">تۆھپىكارلىرىمىز</a>. پىروگرامما تۈزۈش، تەرجىمە قىلىش، ئىئانە قىلىش ۋە  <a href=\"%2$s\">تېخىمۇ كۆپ</a> ئۇسۇللار ئارقىلىق AnkiDroid غا ياردەم قىلالايسىز!]]></string>
@@ -261,8 +220,6 @@
     <string name="toggle_auto_advance" maxLength="28">ئۆزلۈكىدىن ئىلگىرىلەشنى ئالماشتۇرىدۇ</string>
     <string name="enable_auto_advance" maxLength="28">ئۆزلۈكىدىن ئىلگىرىلەشنى قوزغات</string>
     <string name="disable_auto_advance" maxLength="28">ئۆزلۈكىدىن ئىلگىرىلەشنى چەكلە</string>
-    <string name="enable_voice_recording" maxLength="28">ئاۋاز خاتىرىلەشنى قوزغات</string>
-    <string name="disable_voice_recording" maxLength="28">ئاۋاز خاتىرىلەشنى چەكلە</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">كارتا يۈزى تاللىنىدۇ</string>
     <string name="card_side_question">سوئال</string>
@@ -275,17 +232,10 @@
     <string name="bindings_already_bound">«%s» غا باغلانغان</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">تەجرىبە</string>
-    <string name="readtext_deprecation_warn">AnkiDroid تېخىمۇ ياخشى تېكىستتىن ئاۋازغا مېخانىزمىنى كىرگۈزدى، ئۇ باشقا Anki خېرىدار پىروگراممىسى بىلەن ماسلىشىدۇ ھەمدە تېخىمۇ كۆپ ئاۋاز ۋە تىلدا قويۇشنى قوللايدۇ!\n\nئامالنىڭ بارىچە تېزراق يۈكسەلتىڭ، چۈنكى بۇ تەڭشەك پات ئارىدا چىقىرىۋېتىلىدۇ</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">يېڭى تېكىستتىن ئاۋازغا پىچىمىغا يۈكسەلتىڭ</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">قېلىپنىڭ ئۈن خاتىرىلىشىگە يول قويىدۇ</string>
-    <string name="template_is_trying_to_record_audio">بۇ قېلىپ ئۈن خاتىرىلەشنى سىناۋاتىدۇ</string>
     <string name="pref_fixed_port_title" maxLength="41">ئۆگىنىش ئېكرانىدىكى يەرلىك ساقلىغۇچ</string>
     <string name="pref_fixed_port_summary">ئۆگىنىش ئېكرانىدا مۇقىم مۇلازىمېتىر ئېغىزىنى ئىشلىتىپ JavaScript يەرلىك ساقلىغۇچنى قوزغىتىدۇ</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">ئىجادكارلار تاللانمىسى</string>
-    <string name="dev_options_enabled_pref" maxLength="41">ئىجادكارلار تاللانمىسىنى قوزغىتىدۇ</string>
-    <string name="disable_dev_options">ئىجادكارلار تاللانمىسىنى چەكلەيدۇ</string>
-    <string name="dev_options_warning">ئىجادكارلار تاللانمىسىنىڭ قوزغىتىلغانلىقىغا كاپالەتلىك قىلىڭ. بۇ تاللانما خەتەرلىك ئەپ ياكى توپلامنى بۇزۇشى مۇمكىن.\n\nئەسكەرتىش بۇ تاللانما كۆپىنچە ئىشلەتكۈچىگە ماس كەلمەيدۇ، ئۇنىڭ ئۈستىگە تەرجىمە ىلىنمىغان شۇڭا ئىنگلىزچە.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -306,38 +256,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">بوشلۇق باشقۇرۇش</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">خاتالىق</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">ھېسابلاۋاتىدۇ&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="one">%1$d  ھۆججەت\n%2$s</item>
-        <item quantity="other">%1$d  ھۆججەت\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">ئىشلىتىلمىگەن ۋاسىتە ھۆججىتىنى ئۆچۈرىدۇ</string>
-    <string name="pref__delete_unused_media_files__summary">ئاستى سىزىق _ بىلەن باشلانمىغان ھەمدە ھېچقانداق خاتىرە نەقىل ئالمىغان سۈرەت ۋە باشقا ۋاسىتىلەر ئۆچۈرۈلىدۇ</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">ئىشلىتىلمىگەن ۋاسىتە ھۆججىتىنى ئۆچۈرىدۇ</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">زاپاسنى ئۆچۈر</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">زاپاسنى ئۆچۈر</string>
-    <string name="progress__deleting_backups">زاپاسنى ئۆچۈرۈۋاتىدۇ&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">توپلام ئۆچۈر</string>
-    <string name="pref__delete_collection__summary">توپلام، ۋاسىتە ۋە زاپاسنى ئۆچۈرىدۇ. ئەپ تەڭشەك ئۆچۈرۈلمىدى</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">توپلام ئۆچۈر</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">سىز توپلام، ۋاسىتە ۋە زاپاسنى راستتىنلا ئۆچۈرەمسىز؟\n\nئەسكەرتىش: بۇ مەشغۇلات كۆزنەكنى تاقايدۇ.</string>
-    <string name="progress__deleting_collection">توپلامنى ئۆچۈرۈۋاتىدۇ&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">ھەممىنى ئۆچۈر</string>
-    <string name="pref__delete_everything__summary">توپلام، ۋاسىتە ۋە زاپاس ۋە تەڭشەكنى ئۆچۈرىدۇ</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">ھەممىنى ئۆچۈر</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">ھەممە سانلىق مەلۇماتنى راستتىنلا ئۆچۈرەمسىز؟ توپلام، ۋاسىتە، زاپاس ۋە مايىللىقىڭىزنى ئۆز ئىچىگە ئالىدۇ.\n\nئەسكەرتىش: بۇ مەشغۇلات كۆزنەكنى تاقايدۇ.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">ئەپ سانلىق مەلۇماتىنى ئۆچۈرىدۇ</string>
-    <string name="pref__delete_app_data__summary">تەڭشەك ۋە باشقا ئەپ سانلىق مەلۇماتىنى ئۆچۈرىدۇ</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">ئەپ سانلىق مەلۇماتىنى ئۆچۈرىدۇ</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">ئەپ سانلىق مەلۇماتىنى راستتىنلا ئۆچۈرەمسىز؟ تەڭشەك ۋە باشقا ئەپ سانلىق مەلۇماتىنى ئۆز ئىچىگە ئالىدۇ.\n\nئەسكەرتىش: بۇ مەشغۇلات كۆزنەكنى تاقايدۇ.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -345,7 +269,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">توپلام يوق</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">خاتالىق</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">ئېرىشىۋاتىدۇ&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">ھېسابلاۋاتىدۇ&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">توپلام مەۋجۇت ئەمەس</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">سىستېما بالداقنى يوشۇر</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">يوق</string>

@@ -27,7 +27,6 @@
     <string name="sync_error">সিঙ্ক ত্রুটি৷</string>
     <string name="vague_error" comment="Network error dialog title">ত্রুটি</string>
     <string name="retry">আবার চেষ্টা করুন</string>
-    <string name="menu_get_shared_decks">একটি শেয়ার্ড ডেক পান</string>
     <string name="connection_error_message">একটি নেটওয়ার্ক ত্রুটি ঘটেছে</string>
     <string name="not_logged_in_title">AnkiWeb লগ ইন করুন</string>
     <string name="login_create_account_message">ক্লাউড সিঙ্ক পরিষেবা ব্যবহার করার জন্য আপনাকে অবশ্যই একটি তৃতীয় পক্ষের অ্যাকাউন্টে লগ ইন করতে হবে আপনি পরবর্তী ধাপে একটি তৈরি করতে পারেন৷</string>

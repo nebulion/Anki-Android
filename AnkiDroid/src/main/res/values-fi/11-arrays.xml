@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">Käytä tätä pakkaa</string>
     <string name="add_to_deck_decide_by_note_type">Päätä muistiinpanotyypin perusteella</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">Järjestelmän teeman mukainen</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Päivä</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Yö</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">Vaalea</string>
-    <string name="day_theme_plain">Pelkistetty</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">Musta</string>
-    <string name="night_theme_dark">Tumma</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-small</string>
-    <string name="html_size_code_x_small">x-small</string>
-    <string name="html_size_code_small">small</string>
-    <string name="html_size_code_medium">medium</string>
-    <string name="html_size_code_large">large</string>
-    <string name="html_size_code_x_large">x-large</string>
-    <string name="html_size_code_xx_large">xx-large</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Vastaa \"helppo\"</string>
     <string name="gesture_abort_learning" maxLength="41">Sulke opiskeluruutu</string>

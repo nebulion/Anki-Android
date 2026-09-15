@@ -27,7 +27,6 @@
     <string name="sync_error">قەدەمداش خاتالىقى</string>
     <string name="vague_error" comment="Network error dialog title">خاتالىق</string>
     <string name="retry">قايتا سىنا</string>
-    <string name="menu_get_shared_decks">ھەمبەھىر دەستىگە ئېرىشىش</string>
     <string name="connection_error_message">تور خاتالىقى كۆرۈلدى</string>
     <string name="not_logged_in_title">AnkiWeb غا تىزىمغا كىرىڭ</string>
     <string name="login_create_account_message">بۇلۇت قەدەمداش مۇلازىمىتىنى ئىشلىتىش ئۈچۈن چوقۇم ئۈچىنچى تەرەپ ھېساباتىدا تىزىمغا كىرىشىڭىز كېرەك. كېيىنكى باسقۇچتا بىرنى قۇرالايسىز.</string>

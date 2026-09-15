@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">Izmantot pašreizējo kavu</string>
     <string name="add_to_deck_decide_by_note_type">Izlemt pēc piezīmes veida</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">Izmantot sistēmas</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Diena</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Nakts</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">Gaišs</string>
-    <string name="day_theme_plain">Vienkāršs</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">Melns</string>
-    <string name="night_theme_dark">Tumšs</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">ļoti, ļoti mazs</string>
-    <string name="html_size_code_x_small">ļoti mazs</string>
-    <string name="html_size_code_small">mazs</string>
-    <string name="html_size_code_medium">vidējs</string>
-    <string name="html_size_code_large">liels</string>
-    <string name="html_size_code_x_large">ļoti liels</string>
-    <string name="html_size_code_xx_large">ļoti, ļoti liels</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Atbildēt ar \"Viegli\"</string>
     <string name="gesture_abort_learning" maxLength="41">Aizvērt apgūšanas ekrānu</string>

@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">Utilisez le paquet courant</string>
     <string name="add_to_deck_decide_by_note_type">Décider par type de note</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">Suivre le système</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Jour</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Nuit</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">Lumineux</string>
-    <string name="day_theme_plain">Clair</string>
-    <string name="day_theme_eink">Encre électronique</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">Noir</string>
-    <string name="night_theme_dark">Sombre</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-petite</string>
-    <string name="html_size_code_x_small">x-petite</string>
-    <string name="html_size_code_small">petite</string>
-    <string name="html_size_code_medium">moyenne</string>
-    <string name="html_size_code_large">grande</string>
-    <string name="html_size_code_x_large">x-grande</string>
-    <string name="html_size_code_xx_large">xx-grande</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Réponse facile</string>
     <string name="gesture_abort_learning" maxLength="41">Fermer l\'écran de révision</string>

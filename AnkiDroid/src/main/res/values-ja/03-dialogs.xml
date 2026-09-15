@@ -29,9 +29,6 @@
         <item quantity="other">「%1$s」内のすべてのカードを削除しますか？　%2$d枚のカードが含まれています</item>
     </plurals>
     <string name="delete_cram_deck_message">フィルターデッキ「%s」を削除し、すべてのカードを元のデッキに戻しますか？</string>
-    <string name="no_tts_available_message">テキスト読み上げ可能な言語がありません</string>
-    <string name="tts_no_tts">発声なし</string>
-    <string name="reposition_card_not_new_error">位置（新規カード番号）の変更は、新規カード以外には行えません。</string>
     <string name="reset_card_dialog_title">カードの学習進度をリセット</string>
     <plurals name="reset_cards_dialog_acknowledge">
         <item quantity="other">%d枚のカードの学習履歴をリセットしました</item>
@@ -41,8 +38,6 @@
     <string name="answering_error_report">エラーを報告</string>
     <string name="storage_full_message">AnkiDroidアプリを開くための十分な空き容量がストレージにありません。続行するには空き容量を確保してください。</string>
     <string name="repair_deck_dialog">データベースの修復を試みて本当によろしいですか？\n\n試行の開始前に、サブフォルダ \"%s\" にコピーを作成します。</string>
-    <string name="intent_aedict_empty">カテゴリー \"default\" が空です</string>
-    <string name="intent_aedict_category">AnkiDroidにカードを登録するため、すべてのNotepadカテゴリを削除するか、\"default\" という名前のカテゴリを追加してください</string>
     <string name="custom_study_new_extend">上限枚数をいくつ増やしますか？（減らす場合は負の数）</string>
     <string name="custom_study_rev_extend">上限枚数をいくつ増やしますか？（減らす場合は負の数）</string>
     <string name="custom_study_forgotten">直近 x 日間で「やり直し」を選んだカードを再学習</string>
@@ -58,17 +53,10 @@
     <string name="restore_backup_choose_another">他を選択</string>
     <string name="dialog_cancel">キャンセル</string>
     <string name="dialog_ok">OK</string>
-    <string name="dialog_add" comment="Positive dialog action button label to add \'something\'">追加</string>
-    <string name="restore">Restore</string>
     <string name="dialog_confirm" tools:ignore="UnusedResources">確認</string>
-    <string name="dialog_no">いいえ</string>
-    <string name="dialog_yes">はい</string>
-    <string name="dialog_keep">維持</string>
-    <string name="dialog_remove">削除</string>
     <string name="dialog_exit" comment="Label for a button which will exit/finish the current screen">Exit</string>
     <string name="dialog_continue">続行</string>
     <string name="dialog_processing">処理中です&#8230;</string>
-    <string name="dialog_allow">Allow</string>
     <string name="dialog_positive_create" comment="Create a new collection, probably erasing the previous one, may be necessary in case of error.">作成</string>
     <string name="dialog_positive_delete" maxLength="28">削除</string>
     <!-- Currently unsued, should be useful in the future -->
@@ -97,19 +85,13 @@
     <!-- Empty cards -->
     <string name="emtpy_cards_finding">白紙カード（表側に何も表示されないカード）がないか確認しています&#8230;</string>
     <!-- Multimedia - Edit Field Activity -->
-    <string name="multimedia_editor_audio_permission_refused">マイクの権限を取得できませんでした。</string>
-    <string name="multimedia_editor_failed">マルチメディアエディタを開けませんでした</string>
     <!-- Multimedia - Audio View -->
-    <string name="multimedia_editor_audio_permission_denied">音声録音の権限が付与されませんでした</string>
-    <string name="permission_denied">権限が許可されていません</string>
-    <string name="microphone_permission_denied_message">Microphone permission denied. Please grant it in the app settings.</string>
     <!-- Database Integrity Check -->
     <string name="integrity_check_continue_anyway">続ける</string>
     <string name="integrity_check_insufficient_space">データベースのチェックには一時ファイル用のデータ領域が必要です。\n\n続行する前に、お使いのデバイスに少なくとも %s の空き領域を確保してください。</string>
     <string name="integrity_check_insufficient_space_extra_content">\n\n現在の空き容量は %s です。</string>
     <!-- Card Browser -->
     <!-- AbstractFlashCardViewer -->
-    <string name="card_viewer_url_decode_error">カードからのデータのデコードエラー</string>
     <!-- Deck Options -->
     <!-- Database Errors-->
     <string name="database_locked_title">データベースがロックされています</string>
@@ -117,15 +99,8 @@
     <string name="incompatible_database_version_title">互換性のないバージョンのデータベース</string>
     <string name="incompatible_database_version_summary">このデータベースは、このAnkiDroidでは使用できません。 これを使用するには、AnkiDroidをアップグレードするか、データベースをダウングレードしてください。\n\nこのAnkiDroidで開ける最大バージョン: %1$d\nこのデータベースのバージョン: %2$d\n\n次の復元オプションは、現在のコレクションを、このAnkiDroidで使用できる可能性が高いデータベースで上書きします。</string>
     <!-- Deck Picker Background-->
-    <string name="background_image_applied">背景画像に適用しました</string>
-    <string name="background_image_removed">背景画像を削除しました</string>
-    <string name="no_image_selected">画像が選択されていません</string>
-    <string name="error_selecting_image">画像の選択中にエラーが発生しました。マニュアルを参照してください。 %s</string>
-    <string name="error_deleting_image">画像削除エラー</string>
     <string name="failed_to_apply_background_image">背景画像 %s の適用に失敗しました</string>
     <string name="background_image_too_large">デッキリストの背景画像が大きすぎます</string>
-    <string name="image_max_size_allowed" comment="Consider keeping the unbreakable space after the digit">最大画像サイズは%dMBです</string>
-    <string name="image_dimensions_too_large">画像のサイズが大きすぎます (%1$d × %2$d)</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">必要なストレージ権限がありません。ストレージ権限を付与してから、アクションを再試行してください。</string>
@@ -136,32 +111,8 @@
     <string name="locale_selection_dialog_title_new">言語を設定</string>
     <string name="locale_selection_dialog_summary">Gboardなどの多言語入力対応キーボードでは、文字編集のために各フィールドを選択した際にキーボードの言語を自動的に切り替えることができます\n\n使用しているキーボードで言語の変更ができない場合は、キーボードアプリの開発者に「setImeHintLocales」機能をリクエストしてください</string>
     <!-- Help Dialog -->
-    <string name="help_title_using_ankidroid">使い方</string>
-    <string name="help_item_ankidroid_manual">AnkiDroidマニュアル</string>
-    <string name="help_item_anki_manual">Ankiマニュアル</string>
-    <string name="help_item_ankidroid_faq">AnkiDroid FAQ</string>
     <string name="help_title_get_help">問い合わせ</string>
-    <string name="help_item_mailing_list">メーリングリスト</string>
-    <string name="help_item_reddit">Reddit</string>
-    <string name="help_item_report_bug">バグを報告</string>
-    <string name="help_title_support_ankidroid" maxLength="28">AnkiDroidを支援</string>
     <string name="help_item_support_opencollective_donate">寄付</string>
-    <string name="help_item_support_develop_ankidroid">開発</string>
-    <string name="help_item_support_rate_ankidroid">評価</string>
-    <string name="help_item_support_other_ankidroid">その他</string>
-    <string name="multimedia_editor_trans_translate">翻訳</string>
-    <string name="help_title_community">コミュニティー</string>
-    <string name="help_item_anki_forums">Ankiフォーラム</string>
-    <string name="help_item_discord">Discord</string>
-    <string name="help_item_facebook">Facebook</string>
-    <string name="help_item_twitter">Twitter</string>
-    <string name="help_title_privacy">プライバシー</string>
-    <string name="help_item_ankidroid_privacy_policy">AnkiDroidプライバシーポリシー</string>
-    <string name="help_item_ankiweb_privacy_policy">AnkiWebプライバシーポリシー</string>
-    <string name="help_item_ankiweb_terms_and_conditions">AnkiWeb利用規約</string>
-    <string name="help_title_send_exception">トラブルシューティング用レポートを送信</string>
-    <string name="help_dialog_exception_report_debounce">レポートはすでに送信されました</string>
-    <string name="help_dialog_exception_report_sent">レポートは送信済みです</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d秒後に自動同期が開始される可能性があります</item>
@@ -206,22 +157,9 @@
     <string name="set_due_date_range_start" comment="\'Set Due Date\' may change the due date of a card to a random number of days in the future. This labels the \'minimum\' value of this range (inclusive)">最短</string>
     <string name="set_due_date_range_end" comment="\'Set Due Date\' may change the due date of a card to a random number of days in the future. This labels the \'maximum\' value of this range (inclusive)">最長</string>
     <!-- Instant Note Editor -->
-    <string name="cloze_note_required">「穴埋め問題」用のノートタイプが必要です</string>
-    <string name="cloze_not_found_message">「穴埋め問題」に対応したノートタイプが見つかりませんでした。アプリで「穴埋め問題」に対応したノートタイプを追加してからもう一度試すか、それ以外のノートタイプのノートを編集するため、「開く」ボタンを押してください。</string>
-    <string name="open">開く</string>
-    <string name="change_cloze_number">穴埋め問題の番号を変更</string>
-    <string name="cloze_number">穴埋め問題番号</string>
-    <string name="change_editor_mode">編集モードの切り替え</string>
-    <string name="open_note_editor">アプリのノート追加画面で編集</string>
-    <string name="change_cloze_mode">穴埋め問題モードの切り替え</string>
     <!-- Outdated WebView dialog -->
     <string name="webview_update_message">「AndroidシステムのWebView 」（または「Android System WebView」）が古くなっています。いくつかの機能が正しく動作しません。更新してください。\n\nインストールされているバージョン: %1$d\n最低限必要なバージョン: %2$d</string>
-    <string name="compress">圧縮</string>
     <!-- Tts playback error dialog -->
-    <string name="tts_error_dialog_title">サポートされていない言語</string>
-    <string name="tts_error_dialog_reason_text">テキスト読み上げエンジン <b>%1$s</b> は次の言語をサポートしていません: <b>%2$s</b></string>
-    <string name="tts_error_dialog_change_button_text">エンジンを変更</string>
-    <string name="tts_error_dialog_supported_voices_button_text">読み上げオプション</string>
     <!-- import_cache_error_resolutions -->
     <string name="import_error_resolution_try_again">もう一度ファイルをインポートしてください</string>
     <string name="import_error_resolution_free_up_space">デバイスに十分な空き容量があることを確認してください</string>
@@ -232,29 +170,8 @@
     <string name="login_successful">ログインに成功しました</string>
     <string name="sync_now">今すぐ同期しますか？</string>
     <!--Change Note Type Dialog Fragment-->
-    <string name="card_numbers_unchanged">Card numbers will remain unchanged</string>
     <!-- Subset of TR.changeNotetypeToFromCloze -->
-    <string name="extra_cloze_deletions_removed">If changing to a regular note type, and there are more cloze deletions than available card templates, any extra cards will be removed.</string>
-    <string name="different_note_types_selected">Please select notes from only one notetype.</string>
-    <string name="error_no_changes_to_save">保存する変更がありません</string>
-    <string name="choose_color">色を選択</string>
     <!-- Special Fields -->
-    <string name="standard_fields_tab_header" comment="Tab header for inserting non-special fields: {{Front}}">フィールド</string>
-    <string name="special_fields_tab_header" comment="Tab header for inserting special fields: {{Deck}}">特別ﾌｨｰﾙﾄﾞ</string>
-    <string name="special_field_example_suffix"><![CDATA[: ‘<b>%1$s</b>’]]></string>
-    <string name="special_field_front_side_help">表面テンプレートの内容。この中の音声は自動的に再生されません。</string>
-    <string name="special_field_deck_help" comment="%s: either blank or \' %s\'">このカードが所属するデッキ（親デッキも含む全体）%s</string>
-    <string name="special_field_subdeck_help" comment="%s: either blank or \' %s\'">このカードが直に所属するデッキ（親デッキは含めない）%s</string>
-    <string name="special_field_flag_help">このカードのフラグの状態: %1$s（%2$s はフラグの状態を表す番号 %3$s\～%4$s\ の一つ）</string>
-    <string name="special_field_tags_help" comment="%s: either blank or \' %s\'">ノートのタグ%s</string>
-    <string name="special_field_card_id_help" comment="%s: either blank or \' %s\'">カードのID%s</string>
-    <string name="special_field_card_help" comment="%s: either blank or \' %s\'">カードタイプの名前%s</string>
-    <string name="special_field_type_help" comment="%s: either blank or \' %s\'">ノートタイプの名前%s</string>
     <!-- Change Note Type Dialog -->
-    <string name="change_note_type_from" comment="Label indicating the original note type before changing it">From</string>
-    <string name="change_note_type_to" comment="Label indicating the new note type to change to">To</string>
     <!-- Add profile dialog -->
-    <string name="profile_name" comment="Label of the text field where the user types the name of a new profile">Profile name</string>
-    <string name="profile_name_empty_error" comment="Error shown when the user leaves the profile name empty">Profile name can’t be empty</string>
-    <string name="profile_name_too_long_error" comment="Error shown when a profile name exceeds the maximum length. %1$d is the maximum number of characters">Profile name must be %1$d characters or fewer</string>
 </resources>

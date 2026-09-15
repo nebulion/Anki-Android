@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">Bruk nåværende kortstokk</string>
     <string name="add_to_deck_decide_by_note_type">Velg basert på notattype</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">Følg system</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Day</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Night</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">Lys</string>
-    <string name="day_theme_plain">Vanlig</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">Svart</string>
-    <string name="night_theme_dark">Mørk</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-små</string>
-    <string name="html_size_code_x_small">x-små</string>
-    <string name="html_size_code_small">små</string>
-    <string name="html_size_code_medium">medium</string>
-    <string name="html_size_code_large">stor</string>
-    <string name="html_size_code_x_large">x-stor</string>
-    <string name="html_size_code_xx_large">xx-stort</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Svar lett</string>
     <string name="gesture_abort_learning" maxLength="41">Lukk studievisning</string>

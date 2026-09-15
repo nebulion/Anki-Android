@@ -40,7 +40,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Sincronización</string>
     <string name="pref_cat_scheduling" maxLength="41">Programación</string>
     <string name="pref_cat_whiteboard" maxLength="41">Encerado</string>
-    <string name="pref_cat_themes" maxLength="41">Temas</string>
     <string name="pref_cat_gestures" maxLength="41">Xestos</string>
     <string name="pref_cat_controls" maxLength="41">Controis</string>
     <string name="pref_cat_advanced" maxLength="41">Avanzado</string>
@@ -57,7 +56,6 @@
     <string name="allow_card_external_launch_summ">As tarxetas poden abrir outras aplicacións no teu dispositivo, o que pode desencadear accións potencialmente non desexadas.\nDeixa esta opción desactivada a menos que confíes en todas as tarxetas e modelos da túa colección.</string>
     <string name="card_external_launch_denied_snackbar">Seguranza: Tarxeta bloqueada ao tentar iniciar outra aplicación.\nSe confías en todas as tarxetas e modelos da túa colección, isto pode desbloquearse na configuración avanzada.</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">Grosor do trazo</string>
     <string name="use_input_tag" maxLength="41">Escribir resposta na tarxeta</string>
     <string name="use_input_tag_summ">Emprega unha caixa de texto dentro da tarxeta para escribir a resposta</string>
     <string name="reset_languages" maxLength="41">Restabelecer idiomas</string>
@@ -68,24 +66,11 @@
     <string name="image_zoom" maxLength="41">Ampliar imaxe</string>
     <string name="button_size" maxLength="41">Tamaño dos botóns de resposta</string>
     <string name="card_browser_font_size" maxLength="41">Escalado do texto do explorador de tarxetas</string>
-    <string name="card_browser_hide_media" maxLength="41">Amosar nomes dos ficheiros no explorador</string>
-    <string name="card_browser_hide_media_summary">Amosar os nomes dos ficheiros de son nos campos de pregunta/resposta no explorador de tarxetas</string>
     <string name="col_path" maxLength="41">Directorio do AnkiDroid</string>
-    <string name="fullscreen_review" maxLength="41">Modo pantalla completa</string>
-    <string name="full_screen_off">Desactivado</string>
-    <string name="full_screen_system">Ocultar as barras do sistema</string>
-    <string name="full_screen_complete">Ocultar as barras do sistema e os botóns de resposta</string>
-    <string name="answer_buttons_position" maxLength="41">Posición dos botóns de resposta</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>Enriba</item>
-        <item>Embaixo</item>
-        <item>Ningún</item>
-    </string-array>
     <string name="gestures" maxLength="41">Activar xestos</string>
     <string name="gestures_summ">Asignar xestos a accións como responder ou editar tarxetas</string>
     <string name="gestures_corner_touch" maxLength="41">Toque de 9 puntos</string>
     <string name="gestures_corner_touch_summary">Permitir xestos nas esquinas da pantalla</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">Amosar atallos de teclado</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">Panel de navegación a pantalla completa</string>
     <string name="gestures_fullscreen_nav_drawer_summary">Abrir o panel de navegación ao esvarar cara á dereita dende calquera lugar da pantalla</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Ningún</string>
@@ -107,13 +92,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">Toque con tres dedos</string>
     <string name="gestures_four_finger_tap" maxLength="41">Toque con catro dedos</string>
     <string name="gestures_shake" maxLength="41">Axitar o dispositivo</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">Menú ‘%s’</string>
-    <string name="card_browser_enable_external_context_menu_summary">Activar globalmente o menú contextual ‘%s’</string>
     <string name="double_scrolling_gap" maxLength="41">Desprazamento dobre</string>
     <string name="double_scrolling_gap_summ">Duplicar a distancia de desprazamento co eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Sensibilidade do esvarado</string>
-    <string name="tts" maxLength="41">Texto a voz</string>
-    <string name="tts_summ">Ler en voz alta as preguntas e respostas se non existe ficheiro de son</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Obter multimedia ao sincronizar</string>
     <string name="sync_account_summ_logged_out">Sen sesión iniciada</string>
@@ -129,9 +110,6 @@
     <string name="metered_sync_summary">Se está desactivado, recibirás un aviso se tentas sincronizar nunha conexión limitada</string>
     <string name="backup_limits_frequency">Frecuencia</string>
     <string name="backup_limits_lifetime">Tempo de vida</string>
-    <string name="app_theme" maxLength="41">Esquema de cores</string>
-    <string name="day_theme" maxLength="41">Modo claro</string>
-    <string name="night_theme" maxLength="41">Modo escuro</string>
     <string name="language" maxLength="41">Idioma</string>
     <string name="language_system">Idioma do sistema</string>
     <string name="notification_pref" maxLength="41">Notificacións</string>
@@ -141,28 +119,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">Máis de %d tarxetas pendentes</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">Vibración</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">Luz intermitente</string>
-    <string name="select_locale_title">Seleccionar idioma</string>
     <string name="software_render" maxLength="41">Desactivar a representación por hardware das tarxetas</string>
     <string name="software_render_summ">A representación por hardware é máis rápida pero pode dar problemas, especialmente en Android 8/8.1. Proba esta opción se non podes ver algunhas partes da interface de repaso das tarxetas.</string>
     <string name="disable_extended_text_ui" maxLength="41">Desactivar o modo de edición de campo único</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Permite o menú contextual «Preguntas aniñadas» cando se está en modo horizontal.</string>
-    <string name="vertical_centering" maxLength="41">Aliñar ao centro</string>
-    <string name="vertical_centering_summ">Centrar o contido das tarxetas verticalmente</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Intervalo de tempo do dobre toque</string>
     <string name="pref_double_tap_time_interval_summary">Un segundo toque nos botóns de resposta será ignorado se non pasou este intervalo de tempo. Isto evita dobres toques accidentais</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">Duración da pulsación para amosar a resposta</string>
     <string name="pref_show_answer_long_press_time_summary">Tempo mínimo de pulsación para que o botón \"Amosar resposta\" rexistre o toque</string>
-    <string name="show_estimates" maxLength="41">Amosar o tempo nos botóns</string>
-    <string name="show_estimates_summ">Amosar o próximo repaso nos botóns de resposta</string>
     <string name="show_large_answer_buttons" maxLength="41">Amosar botóns de resposta grandes</string>
     <string name="show_large_answer_buttons_summ">Amosar botóns de resposta en dúas filas</string>
-    <string name="show_top_bar" maxLength="41">Amosar barra superior</string>
-    <string name="show_top_bar_summary">Amosar contador de tarxetas, temporizador, bandeira e marca na barra superior</string>
-    <string name="show_progress" maxLength="41">Amosar restantes</string>
-    <string name="show_progress_summ">Amosar o contador de tarxetas restantes</string>
-    <string name="show_eta" maxLength="41">Amosar tempo estimado da sesión</string>
-    <string name="show_eta_summ">Amosar o tempo restante</string>
     <string name="use_current" maxLength="41">Baralla para as tarxetas novas</string>
     <string name="learn_cutoff" maxLength="41">Aprender por diante do límite</string>
     <string name="time_limit" maxLength="41">Límite de tempo do Timebox</string>
@@ -175,13 +142,9 @@
     <string name="pref_keep_screen_on_summ">Desactivar o tempo de espera da pantalla</string>
     <string name="enable_api_title" maxLength="41">Activar a API do AnkiDroid</string>
     <string name="enable_api_summary">Permite que outras aplicacións se conecten ao AnkiDroid e lean ou escriban datos sen a túa intervención</string>
-    <string name="custom_buttons" maxLength="41">Botóns da barra da aplicación</string>
-    <string name="custom_buttons_summary">Personalizar que accións aparecen na barra da aplicación</string>
     <string name="custom_buttons_setting_always_show">Amosar sempre</string>
-    <string name="custom_buttons_setting_if_room">Amosar se hai espazo</string>
     <string name="custom_buttons_setting_menu_only">Só no menú</string>
     <string name="reset_custom_buttons" maxLength="41">Restaurar a predeterminado</string>
-    <string name="reset_settings_to_default">Restabelecer a configuración por defecto</string>
     <string name="reset">Restabelecer</string>
     <string name="thirdparty_apps_title" maxLength="41">Aplicacións API de terceiros</string>
     <string name="thirdparty_apps_summary">Consulta unha lista de aplicacións que usan a API do AnkiDroid, como dicionarios ou ferramentas.</string>
@@ -189,8 +152,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Previsualizacións</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Alternar só reverso</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">Pantalla de estudo</string>
-    <string name="show_deck_title" maxLength="41">Amosar o nome da baralla</string>
     <string name="accessibility" maxLength="41">Accesibilidade</string>
     <string name="exit_via_double_tap_back" maxLength="41">Preme dúas veces atrás para volver/saír</string>
     <string name="exit_via_double_tap_back_summ">Para evitar saír accidentalmente da pantalla de estudo ou da aplicación</string>
@@ -225,7 +186,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Seleccionar etiquetas</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">Xeral</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Buscar</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Substituír os saltos de liña por HTML</string>
@@ -233,7 +193,6 @@
     <string name="type_in_answer_focus" maxLength="41">Resaltar \"escribe a resposta\"</string>
     <string name="type_in_answer_focus_summ">Resaltar automaticamente o campo «escribe a resposta» na pantalla de estudo.</string>
     <!-- About -->
-    <string name="open_changelog">Abrir historial de cambios</string>
     <string name="pref_cat_about_title" maxLength="41">Sobre</string>
     <string name="contributors_title">Contribuíntes</string>
     <string name="about_contributors_description"><![CDATA[Estes son os nosos incríbeis <a href=\"%1$s\">contribuíntes</a>. Ti tamén podes colaborar co AnkiDroid programando, traducindo, doando e <a href=\"%2$s\">máis</a>!]]></string>
@@ -261,8 +220,6 @@
     <string name="toggle_auto_advance" maxLength="28">Alternar avance automático</string>
     <string name="enable_auto_advance" maxLength="28">Activar avance automático</string>
     <string name="disable_auto_advance" maxLength="28">Desactivar avance automático</string>
-    <string name="enable_voice_recording" maxLength="28">Activar gravación de son</string>
-    <string name="disable_voice_recording" maxLength="28">Desactivar gravación de son</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">Seleccionar o lado da tarxeta</string>
     <string name="card_side_question">Pregunta</string>
@@ -275,17 +232,10 @@
     <string name="bindings_already_bound">Xa asignado a \"%s\"</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Experimental</string>
-    <string name="readtext_deprecation_warn">AnkiDroid introduciu un sistema de texto a voz (TTS) mellorado, compatíbel con outros clientes de Anki e que inclúe máis voces e melloras na reprodución de idiomas!\n\nActualiza canto antes, xa que esta opción antiga será eliminada en breve</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Actualiza ao novo formato de texto a voz</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">Permitir que os modelos graven son</string>
-    <string name="template_is_trying_to_record_audio">Este modelo está tentando gravar son</string>
     <string name="pref_fixed_port_title" maxLength="41">localStorage na pantalla de estudo</string>
     <string name="pref_fixed_port_summary">Permite o uso de JavaScript localStorage empregando un porto de servidor fixo na pantalla de estudo</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">Opcións de desenvolvedor</string>
-    <string name="dev_options_enabled_pref" maxLength="41">Activar opcións de desenvolvedor</string>
-    <string name="disable_dev_options">Desactivar opcións de desenvolvedor</string>
-    <string name="dev_options_warning">Asegúrate antes de activar as opcións de desenvolvemento. Estas opcións son perigosas e poderían danar a aplicación ou corromper a túa colección.\n\nTen en conta que non están pensadas para a maioría das persoas usuarias e, por iso, non están traducidas: aparecerán en inglés</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -305,38 +255,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">Xestionar espazo</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">Erro</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">Calcu-\nlando&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="one">%1$d ficheiro\n%2$s</item>
-        <item quantity="other">%1$d ficheiros\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">Eliminar ficheiros multimedia en desuso</string>
-    <string name="pref__delete_unused_media_files__summary">Eliminar as imaxes e outros contidos multimedia que non teñan o prefixo _ e non estean referenciados por ningunha nota</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">Eliminar ficheiros multimedia en desuso</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">Eliminar copias de seguranza</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">Eliminar copias de seguranza</string>
-    <string name="progress__deleting_backups">Eliminando copias de seguranza&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">Eliminar colección</string>
-    <string name="pref__delete_collection__summary">Eliminar colección, multimedia e copias de seguranza. Non se eliminará a configuración da aplicación</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">Eliminar colección</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Tes a certeza de querer eliminar a túa colección, os contidos multimedia e as copias de seguranza?\n\nNota: esta acción pechará a xanela</string>
-    <string name="progress__deleting_collection">Eliminando colección&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">Eliminar todo</string>
-    <string name="pref__delete_everything__summary">Eliminar colección, multimedia, copias de seguranza e configuracións</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">Eliminar todo</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Tes a certeza de querer eliminar todos os teus datos? Isto inclúe a túa colección, contidos multimedia, copias de seguranza e configuracións.\n\nNota: esta acción pechará a xanela.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">Eliminar datos da aplicación</string>
-    <string name="pref__delete_app_data__summary">Eliminar configuracións e outros datos</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">Eliminar datos da aplicación</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">Tes a certeza de querer eliminar os datos da aplicación? Isto inclúe as túas preferencias e outros datos.\n\nNota: esta acción pechará á pantalla.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -344,7 +268,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Non hai colección</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Erro</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Obtendo&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">Calculando&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">A colección non existe</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">Ocultar barras do sistema</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">Ningunha</string>

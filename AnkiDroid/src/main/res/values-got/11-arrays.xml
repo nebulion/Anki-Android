@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">𐌰𐌽𐌳𐍅𐌰𐌹𐍂𐌸𐌹𐍃 𐌷𐌰𐍂𐍄𐌰𐌷𐌿𐌶𐌳𐌹𐍃 𐌱𐍂𐌿𐌺𐌾𐌰𐌽</string>
     <string name="add_to_deck_decide_by_note_type">Decide by note type</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">𐍃𐍅𐍃𐍄𐌴𐌼𐌰𐌹 𐌻𐌰𐌹𐍃𐍄𐌾𐌰𐌽</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">𐌳𐌰𐌲𐍃</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">𐌽𐌰𐌷𐍄𐍃</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">𐌻𐌹𐌿𐌷𐍄</string>
-    <string name="day_theme_plain">𐌰𐍆𐌰𐍂 𐌱𐌹𐌿𐌷𐍄𐌾𐌰</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">𐍃𐍅𐌰𐍂𐍄</string>
-    <string name="night_theme_dark">𐍂𐌹𐌵𐌹𐌶𐌴𐌹𐌽</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">𐍇𐍇-𐌻𐌴𐌹𐍄𐌹𐌻</string>
-    <string name="html_size_code_x_small">𐍇-𐌻𐌴𐌹𐍄𐌹𐌻</string>
-    <string name="html_size_code_small">𐌻𐌴𐌹𐍄𐌹𐌻</string>
-    <string name="html_size_code_medium">𐌼𐌹𐌳𐌾𐌹𐍃</string>
-    <string name="html_size_code_large">𐌼𐌹𐌺𐌹𐌻</string>
-    <string name="html_size_code_x_large">𐍇-𐌼𐌹𐌺𐌹𐌻</string>
-    <string name="html_size_code_xx_large">𐍇𐍇-𐌼𐌹𐌺𐌹𐌻</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">𐌰𐌶𐌴𐍄𐌰𐌱𐌰 𐌰𐌽𐌳𐌷𐌰𐍆𐌾𐌰𐌽</string>
     <string name="gesture_abort_learning" maxLength="41">𐍃𐌺𐌰𐌹𐍂𐌼 𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐌰𐌹𐍃 𐌻𐌿𐌺𐌰𐌽</string>

@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">使用當前牌組</string>
     <string name="add_to_deck_decide_by_note_type">由筆記種類決定</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">依據系統設置</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Day</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Night</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">亮色</string>
-    <string name="day_theme_plain">簡潔</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">黑色</string>
-    <string name="night_theme_dark">暗色</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">極小</string>
-    <string name="html_size_code_x_small">很小</string>
-    <string name="html_size_code_small">小</string>
-    <string name="html_size_code_medium">中</string>
-    <string name="html_size_code_large">大</string>
-    <string name="html_size_code_x_large">很大</string>
-    <string name="html_size_code_xx_large">極大</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">太簡單了</string>
     <string name="gesture_abort_learning" maxLength="41">Close study screen</string>

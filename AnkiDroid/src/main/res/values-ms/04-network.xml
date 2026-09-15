@@ -27,7 +27,6 @@
     <string name="sync_error">Ralat penyegerakan</string>
     <string name="vague_error" comment="Network error dialog title">Ralat</string>
     <string name="retry">Cuba semula</string>
-    <string name="menu_get_shared_decks">Dapatkan dek kongsian</string>
     <string name="connection_error_message">Ralat rangkaian telah berlaku</string>
     <string name="not_logged_in_title">Log masuk ke AnkiWeb</string>
     <string name="login_create_account_message">Anda hendaklah log masuk ke akaun pihak ketiga untuk menggunakan perkhidmatan penyegerakan awan. Anda boleh membuatnya dalam langkah seterusnya.</string>

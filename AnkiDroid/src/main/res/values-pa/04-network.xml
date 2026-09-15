@@ -27,7 +27,6 @@
     <string name="sync_error">ਸਮਕਾਲੀਕਰਨ ਗੜਬੜ</string>
     <string name="vague_error" comment="Network error dialog title">ਗਲਤੀ</string>
     <string name="retry">ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
-    <string name="menu_get_shared_decks">ਇੱਕ ਸਾਂਝਾ ਡੈੱਕ ਪ੍ਰਾਪਤ ਕਰੋ</string>
     <string name="connection_error_message">ਇੱਕ ਨੈੱਟਵਰਕ ਗਲਤੀ ਆਈ ਹੈ</string>
     <string name="not_logged_in_title">AnkiWeb ਵਿੱਚ ਲੌਗ ਇਨ ਕਰੋ</string>
     <string name="login_create_account_message">ਤੁਹਾਨੂੰ ਕਲਾਉਡ ਸਿੰਕ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਕਿਸੇ ਤੀਜੀ ਧਿਰ ਦੇ ਖਾਤੇ ਵਿੱਚ ਲੌਗ ਇਨ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ। ਤੁਸੀਂ ਅਗਲੇ ਪੜਾਅ ਵਿੱਚ ਇੱਕ ਬਣਾ ਸਕਦੇ ਹੋ।</string>

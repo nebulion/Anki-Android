@@ -44,7 +44,6 @@
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">المزامنة</string>
     <string name="pref_cat_scheduling" maxLength="41">جدولة</string>
     <string name="pref_cat_whiteboard" maxLength="41">السبورة</string>
-    <string name="pref_cat_themes" maxLength="41">السِمات</string>
     <string name="pref_cat_gestures" maxLength="41">الإيماءات</string>
     <string name="pref_cat_controls" maxLength="41">عناصر التحكم</string>
     <string name="pref_cat_advanced" maxLength="41">خيارات متقدمة</string>
@@ -61,7 +60,6 @@
     <string name="allow_card_external_launch_summ">تستطيع البطاقات فتح تطبيقات أخرى على جهازك مما قد يسبب نتائج غير مرغوبة.\nدع هذا الخيار إلا إن كنت تثق بجميع البطاقات والقوالب في مجموعتك.</string>
     <string name="card_external_launch_denied_snackbar">الأمان: تم منع البطاقة من فتح تطبيق آخر.\nإن كنت تثق بجميع البطاقات والقوالب في مجموعتك فيمكنك أن تسمح لهذا في الخيارات المتقدمة.</string>
     <!-- preferences.xml entries-->
-    <string name="whiteboard_stroke_width" maxLength="41">عرض الخط</string>
     <string name="use_input_tag" maxLength="41">إدخال الجواب في البطاقة</string>
     <string name="use_input_tag_summ">استخدام مربع إدخال نصي داخل البطاقة لكتابة الجواب</string>
     <string name="reset_languages" maxLength="41">إعادة تعيين اللغات</string>
@@ -72,24 +70,11 @@
     <string name="image_zoom" maxLength="41">تكبير الصور</string>
     <string name="button_size" maxLength="41">حجم زر الإجابة</string>
     <string name="card_browser_font_size" maxLength="41">نسبة تضخيم حجم خط متصفح البطاقات</string>
-    <string name="card_browser_hide_media" maxLength="41">عرض أسماء الملفات في متصفح البطاقات</string>
-    <string name="card_browser_hide_media_summary">عرض أسماء الملفات الصوتية في حقول السؤال والجواب في متصفح البطاقات</string>
     <string name="col_path" maxLength="41">مجلد آنكي درويد</string>
-    <string name="fullscreen_review" maxLength="41">وضع ملء الشاشة</string>
-    <string name="full_screen_off">غير مفعل</string>
-    <string name="full_screen_system">إخفاء أشرطة النظام</string>
-    <string name="full_screen_complete">إخفاء أشرطة النظام وأزرار الإجابة</string>
-    <string name="answer_buttons_position" maxLength="41">موضع أزرار الإجابة</string>
-    <string-array name="answer_buttons_position_labels">
-        <item>في الأعلى</item>
-        <item>في الأسفل</item>
-        <item>مخفية</item>
-    </string-array>
     <string name="gestures" maxLength="41">تفعيل الإيماءات</string>
     <string name="gestures_summ">تعيين إيماءات إلى إجراءات مثل إجابة البطاقات وتحريرها.</string>
     <string name="gestures_corner_touch" maxLength="41">٩ مواضع للنقر</string>
     <string name="gestures_corner_touch_summary">السماح بإيماءات النقر في زوايا الشاشة</string>
-    <string name="show_keyboard_shortcuts" maxLength="41">إظهار اختصارات لوحة المفاتيح</string>
     <string name="gestures_full_screen_nav_drawer" maxLength="41">قائمة التجول في كامل الشاشة</string>
     <string name="gestures_fullscreen_nav_drawer_summary">فتح قائمة التجول عند السحب لليسار من أي مكان في الشاشة</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">لا شَيْء</string>
@@ -111,13 +96,9 @@
     <string name="gestures_three_finger_tap" maxLength="41">النقر بثلاث أصابع</string>
     <string name="gestures_four_finger_tap" maxLength="41">النقر بأربع أصابع</string>
     <string name="gestures_shake" maxLength="41">رج الجهاز</string>
-    <string name="card_browser_enable_external_context_menu" maxLength="41">قائمة «%s»</string>
-    <string name="card_browser_enable_external_context_menu_summary">يفعل قائمة سياق «%s» في عموم الجهاز</string>
     <string name="double_scrolling_gap" maxLength="41">مضاعفة فجوة التمرير</string>
     <string name="double_scrolling_gap_summ">مضاعفة فجوة التمرير مع القارئ الإلكتروني</string>
     <string name="swipe_sensitivity" maxLength="41">حساسية السحب</string>
-    <string name="tts" maxLength="41">تحويل النص إلى كلام</string>
-    <string name="tts_summ">يقرأ السؤال والجواب إذا لم يكن هناك ملف صوتي</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">اجلب الوسائط عند المزامنة</string>
     <string name="sync_account_summ_logged_out">لست مسجلًا الدخول</string>
@@ -133,9 +114,6 @@
     <string name="metered_sync_summary">إذا كان معطلًا، سيتم إنذارك إذا حاولت المزامنة باتصال محدود</string>
     <string name="backup_limits_frequency">الوتيرة</string>
     <string name="backup_limits_lifetime">مدة الحفظ</string>
-    <string name="app_theme" maxLength="41">السمة</string>
-    <string name="day_theme" maxLength="41">سمة النهار</string>
-    <string name="night_theme" maxLength="41">سمة الليل</string>
     <string name="language" maxLength="41">اللغة</string>
     <string name="language_system">لغة النظام</string>
     <string name="notification_pref" maxLength="41">التنبيهات</string>
@@ -145,28 +123,17 @@
     <string name="notification_minimum_cards_due" comment="Consider keeping the unbreakable space after the digit">أكثر من %d بطاقة مستحقة</string>
     <string name="notification_minimum_cards_due_vibrate" maxLength="41">اهتزاز</string>
     <string name="notification_minimum_cards_due_blink" maxLength="41">وميض الضوء</string>
-    <string name="select_locale_title">حدد اللغة</string>
     <string name="software_render" maxLength="41">عطِّل عارض البطاقات العَتادي</string>
     <string name="software_render_summ">عرض العتاد أسرع لكنه قد يسبب مشاكل، خصوصًا على أندرويد ٨ أو ٨٫١. إذا لم تكن ترى جزءًا من واجهة مراجعة البطاقة، جرب هذا الخيار.</string>
     <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
     <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
-    <string name="vertical_centering" maxLength="41">محاذاة للوسط</string>
-    <string name="vertical_centering_summ">محاذاة محتوى البطاقات إلى الوسط عموديًا</string>
     <string name="pref_double_tap_time_interval" maxLength="41">الفاصل الزمني للنقر المزدوج</string>
     <string name="pref_double_tap_time_interval_summary">سيتم تجاهل نقرة ثانية على أزرار الإجابة إذا لم يمر الوقت. يمنع هذا النقر المزدوج غير المقصود</string>
     <string name="pref_show_answer_long_press_time" maxLength="41">مدة الضغط المطول لإظهار الجواب</string>
     <string name="pref_show_answer_long_press_time_summary">أدنى مدة تكفي ليسجل زر «أظهر الإجابة» النقر.</string>
-    <string name="show_estimates" maxLength="41">إظهار وقت الأزرار</string>
-    <string name="show_estimates_summ">إظهار وقت المراجعة التالية على أزرار الإجابة</string>
     <string name="show_large_answer_buttons" maxLength="41">إظهار أزرار إجابة كبيرة</string>
     <string name="show_large_answer_buttons_summ">أظهر أزرار الإجابة في صفين</string>
-    <string name="show_top_bar" maxLength="41">إظهار الشريط العلوي</string>
-    <string name="show_top_bar_summary">أظهر عدد البطاقات ومؤقت الإجابة والعَلم والعلامة في الشريط العلوي</string>
-    <string name="show_progress" maxLength="41">إظهار المتبقي</string>
-    <string name="show_progress_summ">إظهار عدد البطاقات المتبقية</string>
-    <string name="show_eta" maxLength="41">إظهار الوقت التقديري المتبقي</string>
-    <string name="show_eta_summ">إظهار الوقت المتبقي</string>
     <string name="use_current" maxLength="41">رزمة البطاقات الجديدة</string>
     <string name="learn_cutoff" maxLength="41">حد التعلم المبكر</string>
     <string name="time_limit" maxLength="41">مهلة مربع الوقت</string>
@@ -183,13 +150,9 @@
     <string name="pref_keep_screen_on_summ">تعطيل مهلة الشاشة</string>
     <string name="enable_api_title" maxLength="41">تفعيل واجهة برمجة آنكي درويد</string>
     <string name="enable_api_summary">يسمح للتطبيقات الأخرى بالاتصال بآنكي درويد وقراءة أو كتابة البيانات دون تدخلك</string>
-    <string name="custom_buttons" maxLength="41">أزرار شريط التطبيق</string>
-    <string name="custom_buttons_summary">تخصيص الإجراءات التي تظهر في شريط التطبيق</string>
     <string name="custom_buttons_setting_always_show">إظهار دائمًا</string>
-    <string name="custom_buttons_setting_if_room">إظهار إذا كانت هناك مساحة</string>
     <string name="custom_buttons_setting_menu_only">القائمة فقط</string>
     <string name="reset_custom_buttons" maxLength="41">استعادة الافتراضيات</string>
-    <string name="reset_settings_to_default">إعادة تعيين الإعدادات إلى الافتراضي</string>
     <string name="reset">إعادة ضبط</string>
     <string name="thirdparty_apps_title" maxLength="41">تطبيقات الطرف الثالث التي تستخدم واجهة البرمجة</string>
     <string name="thirdparty_apps_summary">اطلع على قائمة لتطبيقات تستخدم واجهة برمجة آنكي درويد مثل القواميس والأدوات.</string>
@@ -197,8 +160,6 @@
     <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">المعاينات</string>
     <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">تفعيل أو تعطيل وضع الإجابة</string>
     <!-- Appearance settings -->
-    <string name="pref_cat_reviewer" maxLength="41">شاشة الدراسة</string>
-    <string name="show_deck_title" maxLength="41">إظهار عنوان المجموعة</string>
     <string name="accessibility" maxLength="41">إمكانية الوصول</string>
     <string name="exit_via_double_tap_back" maxLength="41">اضغط رجوع مرتين للعودة أو الخروج</string>
     <string name="exit_via_double_tap_back_summ">لتجنب الخروج من شاشة الدراسة أو التطبيق بالخطأ</string>
@@ -232,7 +193,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">اختيار وسوم</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">عام</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">البحث</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">استبدال السطور الجديدة بـ HTML</string>
@@ -240,7 +200,6 @@
     <string name="type_in_answer_focus" maxLength="41">التركيز على «أدخل الإجابة»</string>
     <string name="type_in_answer_focus_summ">ركز على حقل «أدخل الإجابة» في شاشة الدراسة تلقائيًا</string>
     <!-- About -->
-    <string name="open_changelog">فتح سجل التغييرات</string>
     <string name="pref_cat_about_title" maxLength="41">حول</string>
     <string name="contributors_title">مساهمون</string>
     <string name="about_contributors_description"><![CDATA[هؤلاء هم <a href=\"%1$s\">متطوعونا</a> الرائعون. تستطيع مساعدة آنكي درويد أيضًا بالبرمجة والترجمة والتبرع و<a href=\"%2$s\">المزيد</a>!]]></string>
@@ -268,8 +227,6 @@
     <string name="toggle_auto_advance" maxLength="28">بدأ أو إيقاف التقدم التلقائي</string>
     <string name="enable_auto_advance" maxLength="28">بدأ التقدم التلقائي</string>
     <string name="disable_auto_advance" maxLength="28">إيقاف التقدم التلقائي</string>
-    <string name="enable_voice_recording" maxLength="28">تفعيل تسجيل الصوت</string>
-    <string name="disable_voice_recording" maxLength="28">تعطيل تسجيل الصوت</string>
     <!-- Select card side -->
     <string name="card_side_selection_title">حدد جانب بطاقة</string>
     <string name="card_side_question">سؤال</string>
@@ -282,17 +239,10 @@
     <string name="bindings_already_bound">مربوط بالفعل بـ %s</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">تجريبي</string>
-    <string name="readtext_deprecation_warn">يوفر آنكي درويد الآن طريقة جديدة لتحويل النص إلى كلام متوافقة مع برامج آنكي الأخرى وتتضمن أصوات أكثر وتحسينات للتشغيل!\n\nيرجى التحديث بأسرع وقت ممكن لأن هذا الخيار سَيُزال قريبًا</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">يرجى التحديث إلى الصيغة الجديدة لتحويل النص إلى كلام</string>
-    <string name="allow_templates_to_record_audio" maxLength="41">السماح للقوالب بتسجيل الصوت</string>
-    <string name="template_is_trying_to_record_audio">يحاول هذا القالب تسجيل الصوت</string>
     <string name="pref_fixed_port_title" maxLength="41">الذاكرة المحلية في شاشة الدراسة</string>
     <string name="pref_fixed_port_summary">يفعل JavaScript localStorage باستخدام  مرفأ خادم ثابت في شاشة الدراسة</string>
     <!-- Developer options -->
-    <string name="pref_cat_dev_options" maxLength="41">خيارات المطور</string>
-    <string name="dev_options_enabled_pref" maxLength="41">تفعيل خيارات المطور</string>
-    <string name="disable_dev_options">إلغاء تفعيل خيارات المطور</string>
-    <string name="dev_options_warning">رجاءًا تأكد من هذا قبل تفعيل خيارات المطورين. هذه الخيارات خطيرة ويمكن لها أن تدمر التطبيق أو تفسد مجموعتك.\n\nلاحظ أن هذه الخيارات غير ملائمة لمعظم المستخدمين ولذلك فهي غير مترجمة، أي أنها بالإنجليزية.</string>
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
@@ -312,42 +262,12 @@
     <!-- #######################################################################################
          ################################# Manage space activity ###############################
          ####################################################################################### -->
-    <string name="pref__manage_space__screen_title">إدارة التخزين</string>
     <!-- TextWidgetPreference widget text -->
-    <string name="pref__widget_text__error" comment="Text in a small box on the end of a preference, indicating a generic error.         Must be VERY short. Can be one or two lines.">خطأ</string>
-    <string name="pref__widget_text__calculating" comment="Text in a small box on the end of a preference,         indicating that the value, such as folder size on disk, is being calculated.         Must be VERY short. Can be one or two lines.">حساب&#8230;</string>
-    <plurals name="pref__widget_text__n_files_n_bytes" comment="Text in a small box on the end of a preference,         showing some statistics about a folder on disk if a form of “12 files\n26 MB”.         Must be VERY short. Can be one or two lines.">
-        <item quantity="zero">%1$d ملف\n%2$s</item>
-        <item quantity="one">%1$d ملف\n%2$s</item>
-        <item quantity="two">%1$d ملف\n%2$s</item>
-        <item quantity="few">%1$d ملفات\n%2$s</item>
-        <item quantity="many">%1$d ملف\n%2$s</item>
-        <item quantity="other">%1$d ملف\n%2$s</item>
-    </plurals>
     <!-- Delete unused media -->
-    <string name="pref__delete_unused_media_files__title" maxLength="41" comment="Preference title">حذف الوسائط غير المستخدمة</string>
-    <string name="pref__delete_unused_media_files__summary">حذف الصور والوسائط الأخرى غير البدائة بـ _ وغير المستخدمة في أي ملحوظة</string>
-    <string name="dialog__delete_unused_media_files__title" comment="Title for a dialog where you can select unused media files to delete">حذف الوسائط غير المستخدمة</string>
     <!-- Delete backups -->
-    <string name="pref__delete_backups__title" maxLength="41" comment="Preference title">حذف النسخ الاحتياطية</string>
-    <string name="dialog__delete_backups__title" comment="Title for a dialog where you can choose backups to delete">حذف النسخ الاحتياطية</string>
-    <string name="progress__deleting_backups">يجري حذف النسخ الاحتياطية&#8230;</string>
     <!-- Delete collection -->
-    <string name="pref__delete_collection__title" maxLength="41" comment="Preference title">حذف المجموعة</string>
-    <string name="pref__delete_collection__summary">حذف المجموعة والوسائط والنسخ الاحتياطية. لن تحذف إعدادات التطبيق</string>
-    <string name="dialog__delete_collection__title" comment="Confirmation dialog title">حذف المجموعة</string>
-    <string name="dialog__delete_collection__message" comment="“Close the window” here refers to the activity that the user is currently seeing.        When the collection is deleted, we exit the process, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">هل أنت واثق من أنك تريد حذف المجموعة والوسائط والنسخ الاحتياطية؟\n\nملاحظة: سيغلق هذا الإجراء النافذة.</string>
-    <string name="progress__deleting_collection">يجري حذف المجموعة&#8230;</string>
     <!-- Delete everything -->
-    <string name="pref__delete_everything__title" maxLength="41" comment="Preference title">حذف كل شيء</string>
-    <string name="pref__delete_everything__summary">حذف المجموعة والوسائط والإعدادات</string>
-    <string name="dialog__delete_everything__title" comment="Confirmation dialog title">حذف كل شيء</string>
-    <string name="dialog__delete_everything__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">هل أنت واثق من أنك تريد حذف كل البيانات؟ يتضمن هذا مجموعتك ووسائطك والنسخ الاحتياطية والتفضيلات.\n\nملاحظة: سيغلق هذا الإجراء النافذة.</string>
     <!-- Delete app data -->
-    <string name="pref__delete_app_data__title" maxLength="41" comment="Preference title">حذف بيانات التطبيق</string>
-    <string name="pref__delete_app_data__summary">حذف الإعدادات وبيانات التطبيق الأخرى</string>
-    <string name="dialog__delete_app_data__title" comment="Confirmation dialog title">حذف بيانات التطبيق</string>
-    <string name="dialog__delete_app_data__message" comment="“Close the window” here refers to the activity that the user is currently seeing.         Deleting app data forcibly closes AnkiDroid, which closes the activity without animation.         On some devices the entire settings app may be closed.         User might not realize that this activity comes directly from AnkiDroid,         so it might be wise to avoid words such as “AnkiDroid or “app”.">هل أنت واثق من أنك تريد حذف بيانات التطبيق؟ يتضمن هذا الإعدادات وبيانات التطبيق الأخرى.\n\nملاحظة: سيغلق هذا الإجراء النافذة.</string>
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
@@ -355,7 +275,6 @@
     <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">لا مجموعة</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">خطأ</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">تحميل&#8230;</string>
-    <string name="pref__etc__snackbar__calculating" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which, such as folder size on disk, is being calculated">معالجة&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">لا توجد مجموعة</string>
     <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">إخفاء شرائط النظام</string>
     <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">لا خِيار</string>

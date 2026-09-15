@@ -25,24 +25,9 @@
     <string name="add_to_deck_use_current_deck">ᱱᱤᱛᱚᱜᱟᱜ ᱰᱮᱠ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
     <string name="add_to_deck_decide_by_note_type">ᱠᱷᱟᱴᱚ ᱵᱤᱪᱟᱹᱨ ᱯᱨᱚᱠᱟᱨ ᱧᱮᱞᱠᱟᱛᱮ ᱪᱤᱱᱛᱟᱭ ᱢᱮ</string>
     <!-- theme labels -->
-    <string name="theme_follow_system">ᱯᱷᱳᱞᱳ ᱥᱤᱥᱴᱮᱢ</string>
-    <string name="theme_day" comment="Day/Light theme color scheme">Day</string>
-    <string name="theme_night" comment="Night/Dark theme color scheme">Night</string>
     <!-- day_theme_labels -->
-    <string name="day_theme_light">ᱟᱨᱥᱟᱞ</string>
-    <string name="day_theme_plain">ᱥᱟᱯᱷᱟ</string>
-    <string name="day_theme_eink">E-Ink</string>
     <!-- night_theme_labels -->
-    <string name="night_theme_black">ᱦᱮᱸᱫᱮ</string>
-    <string name="night_theme_dark">ᱧᱩᱛ</string>
     <!-- html_size_code_labels -->
-    <string name="html_size_code_xx_small">xx-ᱦᱚᱯᱚᱱ</string>
-    <string name="html_size_code_x_small">x-ᱦᱚᱯᱚᱱ</string>
-    <string name="html_size_code_small">ᱦᱚᱯᱚᱱ</string>
-    <string name="html_size_code_medium">ᱢᱮᱰᱤᱭᱚᱢ</string>
-    <string name="html_size_code_large">ᱢᱟᱨᱟᱝ</string>
-    <string name="html_size_code_x_large">x-ᱢᱟᱨᱟᱝ</string>
-    <string name="html_size_code_xx_large">xx-ᱢᱟᱨᱟᱝ</string>
     <!-- gestures_labels -->
     <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">ᱞᱟᱹᱱᱟᱹᱭ ᱜᱮᱭᱟ</string>
     <string name="gesture_abort_learning" maxLength="41">Close study screen</string>

@@ -13,7 +13,19 @@ Target device: **Mudita Kompakt `MK20250408317`** (MuditaOS K 1.6.0, Android 12,
   real collection** at `/sdcard/AnkiDroid/collection.anki2`.
 - A copy of that folder was pulled on 2026-09-14 to
   `C:\Users\Antonio\Backups\ankidroid-2.24.1-2026-09-14\` (174 MB).
-- The fork must never open `/sdcard/AnkiDroid`. See Phase 0 storage below.
+- The fork is now `com.ichi2.anki.mmd` (debug: `com.ichi2.anki.mmd.debug`) and always
+  uses app-private storage, so it installs beside 2.24.1 and cannot open its collection.
+
+## Commits on `mmd-eink`
+
+| Commit | What |
+| --- | --- |
+| `a99d419` | Remove ACRA crash reporting and Google Analytics |
+| `5fd0506` | Add MMD fork plan, E Ink design rules and status log |
+| `58576f7` | Always use app-private storage and drop `MANAGE_EXTERNAL_STORAGE` |
+| `46d2cc5` | Give the fork its own identity: `com.ichi2.anki.mmd` |
+| `660de76` | Remove resources orphaned by the ACRA and analytics removal |
+| `9251b37` | Add `com.mudita:MMD` 1.0.2 and the MMD design kit |
 
 ## Phase 0 — Safety and foundation
 
@@ -21,16 +33,26 @@ Target device: **Mudita Kompakt `MK20250408317`** (MuditaOS K 1.6.0, Android 12,
 | --- | --- |
 | 1. Branch, `PLAN.md`, `eink-design.md`, `STATUS.md` | Done |
 | 2. Back up real data | Done (folder copy). `.colpkg` export skipped by the owner |
-| 3. Identity (`com.ichi2.anki.mmd`, "AnkiDroid MMD", `-mmd`) | Next |
-| 4. Storage forced to app-private, `MANAGE_EXTERNAL_STORAGE` removed | Next (tests first) |
-| 5. Remove upstream reporting (ACRA + Google Analytics) | Code done, **build verification running** |
-| 6. MMD 1.0.2 compatibility spike | Not started |
-| 7. Calibrate against Kompakt system apps | Not started — needs the owner to open screens |
-| 8. Lato + OFL licence | Not started |
+| 3. Identity (`com.ichi2.anki.mmd`, "AnkiDroid MMD", `-mmd`) | Done (`46d2cc5`) |
+| 4. Storage forced to app-private, `MANAGE_EXTERNAL_STORAGE` removed | Done (`58576f7`), tests written first and seen failing |
+| 5. Remove upstream reporting (ACRA + Google Analytics) | Done (`a99d419`, `660de76`); lint reports no unused resources |
+| 6. MMD 1.0.2 compatibility spike | **Passed at build level** (`9251b37`): material3 resolves 1.3.1 → 1.4.0, APK installs as `com.ichi2.anki.mmd.debug`. Runtime check (open the gallery on the panel) next |
+| 7. Calibrate against Kompakt system apps | Settings, Notes list, Notes selection mode and delete confirmation done (see `eink-design.md`); Contacts optional |
+| 8. Lato + OFL licence | Native screens use the Lato fonts inside the MMD AAR (no copy). `LICENSES/OFL-1.1.txt` + `REUSE.toml` entry staged for the WebView font copy (Phase 2/4) |
 | 9. One XML theme | Not started |
 | 10. Motion off globally | Not started |
-| 11. Design kit `com.ichi2.compose.mmd` | Not started |
-| 12. Test harness (Compose UI test deps, KOMPAKT device config) | Not started |
+| 11. Design kit `com.ichi2.compose.mmd` | In the repo (`9251b37`); `ConfirmPanel` reworked to the measured bottom confirmation (building) |
+| 12. Test harness (Compose UI test deps, KOMPAKT device config) | `KOMPAKT` screenshot device (`-Pdevice=kompakt`, 360×601dp tvdpi) added; Compose UI test deps not yet |
+
+### Step 4 — app-private storage
+
+`selectStoragePermissions(context)` (`InitialActivity.kt`) returns `APP_PRIVATE`
+unconditionally; the pure `selectStoragePermissions(canManage, legacy)` overload is
+unchanged and still tested. `SelectStoragePermissionsTest` has four fork tests (no path,
+public path plus `MANAGE_EXTERNAL_STORAGE`, legacy device, default directory never
+`~/AnkiDroid`). They failed before the change (`EXTERNAL_MANAGER`, `LEGACY_ACCESS`, public
+folder) and pass after it, alongside `StoragePolicyTest`, `ActivityStartupMetaTest`,
+`ManifestThemeTest`, `DeckPickerTest` and the `InitialActivity` tests.
 
 ### Step 5 — ACRA and analytics removed
 
@@ -40,38 +62,68 @@ Both were deleted rather than disabled, at the owner's request.
   `AcraAnalyticsInteraction`, `AnalyticsExceptionHandler`, `AnalyticsSamplePercentage`,
   `AnalyticsConstants`, `DeckPickerAnalyticsOptInDialog`, `analytic_constants.xml`,
   `docs/analytics/README.md`, and their tests (incl. androidTest `ACRATest`).
-- Removed: the ACRA crash-dialog activity (`:acra` process) from the manifest; the
-  error-reporting and analytics settings; the analytics developer option;
-  `ACRA_URL` / `ANALYTICS_API_KEY` build config; the `acra-*`, `google-analytics-kt`
-  and `auto-service` dependencies.
+- Removed: the ACRA crash-dialog activity (`:acra` process); the error-reporting and
+  analytics settings; the analytics developer option; `ACRA_URL` / `ANALYTICS_API_KEY`;
+  the `acra-*`, `google-analytics-kt` and `auto-service` dependencies.
 - **Kept:** the `CrashReportService` (`:common:android`) and `Analytics` (`:common`)
-  facades. With no implementation registered they log and drop, so the ~60 call
-  sites are unchanged.
-- ACRA utilities that unrelated code borrowed were replaced:
-  `MultimediaEditableNote.cloneField` now deep-copies with Java serialization;
-  `FileUtilTest` uses `File.writeText`; `DebugInfoService` no longer prints an ACRA UUID.
-- **Still to do:** unused strings/arrays (`error_reporting_*`, `analytics_*`,
-  `pref_analytics_debug_key`, feedback strings). `UnusedResources` is **fatal** in
-  `lint-release.xml`, so run lint and delete exactly what it reports.
+  facades. With no implementation registered they log and drop, so the ~60 call sites are
+  unchanged.
+- ACRA utilities that unrelated code borrowed were replaced: `MultimediaEditableNote.cloneField`
+  deep-copies with Java serialization; `FileUtilTest` uses `File.writeText`;
+  `DebugInfoService` no longer prints an ACRA UUID.
+- Orphaned resources: lint (`UnusedResources` is **fatal**) reported exactly 20 — the
+  `error_reporting_*`, `analytics_*` and `feedback_*` strings, two arrays, three preference
+  keys and `layout/dialog_feedback.xml`. Deleted from `values/` and all 82 translated
+  `values-*/` (`660de76`); lint now reports none.
+
+## Pre-existing issues (not caused by the fork)
+
+- **Lint** also reports `ThreadConstraint` (23), `WrongThread` (14) and
+  `ReportShortcutUsage` (1), all in upstream code: `Reviewer`, `AbstractFlashcardViewer`,
+  `AnkiDroidJsAPI`, `NoteTypeFieldEditor`, `NavigationDrawerActivity`, `AutomaticAnswer`,
+  `OnRenderProcessGoneDelegate`, and `DeckPicker.kt:1484` (blamed to upstream `b34112c`).
+  Most sit in the legacy reviewer, which Phase 1 deletes.
+- **`:lint-rules:test`**: 3 failures in `OpenInputStreamSafeDetectorTest` — lint cannot
+  resolve `ContentResolver.openInputStream` in this environment. The detector is untouched.
 
 ## Known issues found on the way
 
-- **Content provider authority mismatch after the id change.** `CardContentProvider`
-  matches the hardcoded `com.ichi2.anki.flashcards` (`api/build.gradle.kts:29`),
-  while the manifest declares `${applicationId}.flashcards`. Upstream `.debug`
-  builds already have this mismatch. The provider only serves third-party apps adding
-  notes (authoring), which Phase 1 removes.
-- **Developer option "Set Database to pre-Scoped Storage default"** points the
-  collection at `/storage/emulated/0/AnkiDroid` — the real collection's folder.
-  Without storage permission on Android 12 the fork cannot read it, but delete the
-  option in Phase 1 regardless.
-- `HelpItemActionsDispatcher` still calls `CrashReportService.sendReport`; it now
-  returns `false`. Help is deleted in Phase 1.
+- **Content provider authority mismatch.** `CardContentProvider` matches the hardcoded
+  `com.ichi2.anki.flashcards` (`api/build.gradle.kts:29`) while the manifest declares
+  `${applicationId}.flashcards`. Upstream `.debug` builds already have this mismatch. The
+  provider only serves third-party apps adding notes (authoring), which Phase 1 removes.
+- **Developer option "Set Database to pre-Scoped Storage default"** points the collection at
+  `/storage/emulated/0/AnkiDroid`, the real collection's folder. The fork cannot read it
+  without storage permission on Android 12, but delete the option in Phase 1 regardless.
+- `HelpItemActionsDispatcher` still calls `CrashReportService.sendReport`; it now returns
+  `false`. Help is deleted in Phase 1.
+
+## Design kit (in the repo, `AnkiDroid/src/main/java/com/ichi2/compose/mmd/`)
+
+`com.ichi2.compose.mmd`: `MmdTheme` (fills MMD's six unspecified colour roles),
+`DashedDividerMMD`, `ScreenHeader`/`HeaderAction`, `Panel`/`PanelDialog`/`ConfirmPanel`
+(no dim, no window animation), `MmdSheet`/`MenuPanel`/`ChoiceSheet`/`MultiChoiceSheet`,
+`NavRow`/`SwitchRow`/`ValueRow`/`ActionRow`/`SectionTitle`, `PagedList`, `ProgressPanel`,
+`MessageHost` (explicit snackbar colours, real 3dp rule), `WebContent`, `ComposeHostFragment`.
+`com.ichi2.anki.ui.eink`: `EinkRefresh` (needs `Prefs.isEinkRefreshEnabled` and
+`Prefs.einkRefreshInterval`) and the debug `MmdKitGalleryFragment`.
+
+Every MMD signature used was checked against `mudita/MMD@0b8940c` source.
+
+**Token profiles.** Sizes where the MMD library and Mudita's apps disagree live in
+`MmdTokens`: `Library` (default — 56dp rows, 8dp corners) and `KompaktSystem` (64dp rows,
+16dp corners, as measured). Swap with `MmdTheme(tokens = MmdTokens.KompaktSystem)`.
+
+**Developer options → MMD kit gallery** opens `MmdKitGalleryFragment` (debug builds) with
+every component, for checking on the panel. New preference keys: `einkRefreshEnabled`,
+`einkRefreshInterval`, `mmdKitGallery`.
 
 ## Working notes
 
 - JDK on PATH is Temurin 21; `JAVA_HOME` is unset; Gradle wrapper 9.7.1.
 - Android SDK at `C:/Users/Antonio/AppData/Local/Android/Sdk`; adb at
   `C:\Users\Antonio\android-sdk\platform-tools\adb.exe`.
-- Warnings are errors (`build.gradle.kts`); unused imports fail the build.
-- A first full build of this project takes a long time; run Gradle in the background.
+- Warnings are errors; unused imports fail the build. The pre-commit hook runs ktlint on
+  staged Kotlin files and fixes what it can.
+- First full build ~8 min; a targeted test run ~3–5 min; lint ~10 min. Run Gradle in the
+  background and never edit sources while a build or lint is running.

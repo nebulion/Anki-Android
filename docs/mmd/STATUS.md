@@ -143,8 +143,30 @@ State (2026-09-15): steps 2, 3, 4 and 6 are written and the old files deleted; a
 compile locally; committed as `258172e` on `fork/mmd-phase3`. CI run `35022472431`: compile and
 Kompakt screenshots passed; lint found 46 resources left unused by the rewrite (pruned), and two tests
 that had failed since before Phase 3 (`ControlsSettingsFragmentTest`, `TranslationTest`) are fixed.
-**CI green on `d9e00bb`** (run `35024419219`: compile, lint, 4 test shards, Kompakt screenshots). Device
-check pending.
+**CI green on `d9e00bb`** (run `35024419219`: compile, lint, 4 test shards, Kompakt screenshots).
+
+### Device check (2026-09-15, CI build of `d9e00bb`, owner-run) and the changes it asked for
+
+"Pretty ugly right now." Changed in response:
+
+- **No bottom bar.** The Decks header holds Undo, Sync, Statistics (bar chart, its own page) and
+  More (⋮, not a hamburger; a page with a back arrow). `HomeTab` is deleted.
+- **Deck page header sat a status bar too low:** `TopAppBarMMD` applied the status-bar inset again
+  inside hosts that already pad for it. `ScreenHeader` now passes zero window insets.
+- **Sync only when signed in;** a new collection shows **Log in to AnkiWeb** and **Import**.
+- **Syncing shows on the Decks page**, not in a dialog: title, a bar (determinate when the backend
+  reports an amount, otherwise moving), the latest report, Cancel (`withSyncProgress`, ≤1 update/s).
+- **Counts over 999 are shortened** (`1.2k`, `12k`, `1.2m`; rounded down).
+- **"Studied N cards today" removed** from the home screen.
+- **Decks vs subdecks:** a solid 2dp line after each top-level deck group, dashed lines inside one.
+- **Long press on a deck starts studying it** (a deck with nothing due opens its page).
+- **More room under Show answer** (12dp above the answer row, 24dp below).
+- **System font everywhere:** Compose uses MMD's type scale in `FontFamily.Default`; card CSS uses
+  `sans-serif`. The Lato copies in `assets/fonts/lato`, their REUSE entry and `LICENSES/OFL-1.1.txt`
+  are removed (the MMD AAR still carries its own Lato, unused).
+
+Open: the owner could not add cards; the fork is review-only by design (`eink-design.md`), so cards
+come from `.apkg` import or AnkiWeb. Asked whether an editor should come back.
 Step 5 (splash hold) is not started. `DeckPicker` is now ~1,000 lines: tabs via
 `HomeTab` (`deckpicker/HomeTab.kt`), `DeckListFragment`, `MoreTabFragment`; collection-wide actions
 are public methods the More tab calls. Messages from the home screen show above the bottom bar on

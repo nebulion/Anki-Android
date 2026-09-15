@@ -128,6 +128,55 @@ fun cancelSync(backend: Backend) {
     backend.abortSync()
 }
 
+/**
+ * Runs a sync step with its progress on the home screen, in place of the deck list
+ * ([DeckPickerViewModel.flowOfSyncProgress][com.ichi2.anki.deckpicker.DeckPickerViewModel.flowOfSyncProgress]),
+ * instead of in a dialog. Takes the same arguments as [withProgress].
+ *
+ * The backend is polled every 100ms; the screen is updated at most once a second, since every
+ * change repaints the E Ink display.
+ */
+suspend fun <T> DeckPicker.withSyncProgress(
+    progressContext: ProgressContext = ProgressContext(),
+    extractProgress: ProgressContext.() -> Unit,
+    onCancel: ((Backend) -> Unit)? = { it.setWantsAbort() },
+    @StringRes manualCancelButton: Int? = null,
+    op: suspend () -> T,
+): T {
+    val backend = CollectionManager.getBackend()
+    val cancel = onCancel?.let { { it(backend) } }
+    val cancelLabel = manualCancelButton ?: R.string.dialog_cancel
+    viewModel.flowOfSyncProgress.value =
+        com.ichi2.anki.deckpicker
+            .SyncProgress(cancelLabel = cancelLabel, cancel = cancel)
+    var lastShownAt = 0L
+    return try {
+        backend.withProgress(
+            progressContext = progressContext,
+            extractProgress = extractProgress,
+            updateUi = {
+                val now = android.os.SystemClock.elapsedRealtime()
+                if (now - lastShownAt >= SYNC_PROGRESS_MIN_INTERVAL_MS) {
+                    lastShownAt = now
+                    viewModel.flowOfSyncProgress.value =
+                        com.ichi2.anki.deckpicker.SyncProgress(
+                            detail = listOfNotNull(text, amount?.let(formatAmount)).joinToString(separator).ifBlank { null },
+                            fraction = amount?.takeIf { it.max > 0 }?.let { it.current.toFloat() / it.max },
+                            cancelLabel = cancelLabel,
+                            cancel = cancel,
+                        )
+                }
+            },
+        ) {
+            op()
+        }
+    } finally {
+        viewModel.flowOfSyncProgress.value = null
+    }
+}
+
+private const val SYNC_PROGRESS_MIN_INTERVAL_MS = 1_000L
+
 private suspend fun handleNormalSync(
     deckPicker: DeckPicker,
     auth: SyncAuth,
@@ -136,7 +185,7 @@ private suspend fun handleNormalSync(
     Timber.i("Sync: Normal collection sync")
     var auth2 = auth
     val output =
-        deckPicker.withProgress(
+        deckPicker.withSyncProgress(
             extractProgress = {
                 if (progress.hasNormalSync()) {
                     text = progress.normalSync.run { "$added\n$removed" }
@@ -218,7 +267,7 @@ private suspend fun handleDownload(
     mediaUsn: Int?,
 ) {
     Timber.i("Sync: Full collection download requested")
-    deckPicker.withProgress(
+    deckPicker.withSyncProgress(
         progressContext = ProgressContext.ofBytes(context = deckPicker).copy(separator = "\n"),
         extractProgress = fullDownloadProgress(TR.syncDownloadingFromAnkiweb()),
         onCancel = ::cancelSync,
@@ -253,7 +302,7 @@ private suspend fun handleUpload(
     mediaUsn: Int?,
 ) {
     Timber.i("Sync: Full collection upload requested")
-    deckPicker.withProgress(
+    deckPicker.withSyncProgress(
         progressContext = ProgressContext.ofBytes(context = deckPicker).copy(separator = "\n"),
         extractProgress = fullDownloadProgress(TR.syncUploadingToAnkiweb()),
         onCancel = ::cancelSync,

@@ -64,6 +64,11 @@ fun ScreenHeader(
             title = title,
             navigationIcon = navigationIcon,
             actions = actions,
+            // every host already keeps its content clear of the status bar; the bar's own default
+            // inset added a second status-bar-high gap above the header
+            windowInsets =
+                androidx.compose.foundation.layout
+                    .WindowInsets(0, 0, 0, 0),
             showDivider = false,
         )
         HorizontalDividerMMD()

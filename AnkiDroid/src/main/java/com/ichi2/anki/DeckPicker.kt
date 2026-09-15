@@ -32,10 +32,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AlertDialog
-import androidx.compose.foundation.layout.Column
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.ui.Modifier
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
 import androidx.core.content.edit
@@ -70,6 +69,7 @@ import com.ichi2.anki.common.android.appContext
 import com.ichi2.anki.common.crashreporting.CrashReportService
 import com.ichi2.anki.common.destinations.PreferencesDestination
 import com.ichi2.anki.common.destinations.ReviewDeckDestination
+import com.ichi2.anki.common.destinations.StatisticsDestination
 import com.ichi2.anki.common.destinations.StudyOptionsDestination
 import com.ichi2.anki.common.destinations.navigate
 import com.ichi2.anki.common.preferences.sharedPrefs
@@ -79,12 +79,12 @@ import com.ichi2.anki.common.utils.android.showThemedToast
 import com.ichi2.anki.compat.CompatHelper.Companion.getSerializableCompat
 import com.ichi2.anki.databinding.ActivityHomescreenBinding
 import com.ichi2.anki.deckpicker.DeckDeletionResult
+import com.ichi2.anki.deckpicker.DeckListFragment
 import com.ichi2.anki.deckpicker.DeckPickerViewModel
 import com.ichi2.anki.deckpicker.DeckPickerViewModel.AnkiDroidEnvironment
 import com.ichi2.anki.deckpicker.DeckPickerViewModel.StartupResponse
 import com.ichi2.anki.deckpicker.EmptyCardsResult
-import com.ichi2.anki.deckpicker.HomeBottomBar
-import com.ichi2.anki.deckpicker.HomeTab
+import com.ichi2.anki.deckpicker.MoreTabFragment
 import com.ichi2.anki.dialogs.AsyncDialogFragment
 import com.ichi2.anki.dialogs.BackupPromptDialog
 import com.ichi2.anki.dialogs.CreateDeckDialog
@@ -152,8 +152,8 @@ import kotlin.time.Duration.Companion.minutes
 /**
  * The entry point for AnkiDroid: the home screen.
  *
- * The selected [HomeTab] fills the screen above an MMD bottom bar (Decks / Statistics / More).
- * The Decks tab lists decks; tapping one opens its deck page, where it is studied and managed.
+ * The deck list fills the screen; its header opens Statistics and the More page. Tapping a deck
+ * opens its deck page, where it is studied and managed.
  *
  * Responsibilities:
  * * Setup/upgrades of the application: [handleStartup]
@@ -178,15 +178,11 @@ open class DeckPicker :
 
     private lateinit var binding: ActivityHomescreenBinding
 
-    /** Short messages ("3 cards deleted", "Updated to…") shown above the bottom bar, on every tab. */
+    /** Short messages ("3 cards deleted", "Updated to…") shown at the bottom of the home screen. */
     val messages = MessageHostState()
 
-    /** The tab shown above the bottom bar. */
-    var selectedTab by mutableStateOf(HomeTab.DECKS)
-        private set
-
     override val baseSnackbarBuilder: SnackbarBuilder = {
-        anchorView = binding.bottomBar
+        anchorView = binding.messageBar
     }
 
     /** Whether media is syncing in the background: Sync then shows its progress instead of syncing again. */
@@ -281,11 +277,14 @@ open class DeckPicker :
             }
         }
 
-    /** Back from Statistics or More returns to Decks before it can exit the app. */
-    private val returnToDecksBackCallback =
+    /**
+     * Back from the More page returns to the deck list before it can exit the app. The exit callbacks
+     * are added after the fragment manager's own, so they would otherwise run first.
+     */
+    private val closeMoreBackCallback =
         object : OnBackPressedCallback(enabled = false) {
             override fun handleOnBackPressed() {
-                selectTab(HomeTab.DECKS)
+                supportFragmentManager.popBackStack()
             }
         }
 
@@ -344,9 +343,9 @@ open class DeckPicker :
 
         onBackPressedDispatcher.addCallback(this, exitAndSyncBackCallback)
         onBackPressedDispatcher.addCallback(this, exitViaDoubleTapBackCallback())
-        onBackPressedDispatcher.addCallback(this, returnToDecksBackCallback)
+        onBackPressedDispatcher.addCallback(this, closeMoreBackCallback)
 
-        setupTabs(savedInstanceState)
+        setupContent(savedInstanceState)
 
         with(this) { showDialogIfWebViewOutdated() }
 
@@ -358,10 +357,10 @@ open class DeckPicker :
         isUiCreated = true
     }
 
-    private fun setupTabs(savedInstanceState: Bundle?) {
-        // The tab area starts below the status bar and ends above the bottom bar, which clears the
-        // navigation bar itself: the tabs' own screens must not pad for either again.
-        ViewCompat.setOnApplyWindowInsetsListener(binding.homeTabContainer) { view, insets ->
+    private fun setupContent(savedInstanceState: Bundle?) {
+        // The content starts below the status bar; the message strip below it clears the navigation
+        // bar. The screens hosted here must not pad for the system bars again.
+        ViewCompat.setOnApplyWindowInsetsListener(binding.homeContainer) { view, insets ->
             val bars = insets.getInsets(systemBars() or displayCutout())
             view.updatePadding(left = bars.left, top = bars.top, right = bars.right)
             WindowInsetsCompat
@@ -369,28 +368,36 @@ open class DeckPicker :
                 .setInsets(systemBars() or displayCutout(), Insets.NONE)
                 .build()
         }
-        binding.bottomBar.setContent {
+        binding.messageBar.setContent {
             MmdTheme {
-                Column {
+                Box(Modifier.navigationBarsPadding()) {
                     MessageHost(messages)
-                    HomeBottomBar(selected = selectedTab, onSelect = ::selectTab)
                 }
             }
         }
-        val restoredTab = savedInstanceState?.getString(KEY_SELECTED_TAB)?.let { HomeTab.valueOf(it) }
-        selectTab(restoredTab ?: HomeTab.DECKS)
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit { replace(R.id.home_container, DeckListFragment()) }
+        }
+        supportFragmentManager.addOnBackStackChangedListener {
+            closeMoreBackCallback.isEnabled = supportFragmentManager.backStackEntryCount > 0
+        }
+        closeMoreBackCallback.isEnabled = supportFragmentManager.backStackEntryCount > 0
     }
 
-    /** Shows [tab] above the bottom bar. The fragment manager keeps a restored tab's fragment. */
-    fun selectTab(tab: HomeTab) {
-        Timber.i("DeckPicker:: Selected tab %s", tab)
-        selectedTab = tab
-        returnToDecksBackCallback.isEnabled = tab != HomeTab.DECKS
-        if (supportFragmentManager.findFragmentById(R.id.home_tab_container)?.tag == tab.tag) return
+    /** Opens the More page over the deck list; back returns to the decks. */
+    fun openMore() {
+        Timber.i("DeckPicker:: More selected")
+        if (supportFragmentManager.findFragmentByTag(MORE_FRAGMENT_TAG) != null) return
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            replace(R.id.home_tab_container, tab.createFragment(), tab.tag)
+            replace(R.id.home_container, MoreTabFragment(), MORE_FRAGMENT_TAG)
+            addToBackStack(MORE_FRAGMENT_TAG)
         }
+    }
+
+    fun openStatistics() {
+        Timber.i("DeckPicker:: Statistics selected")
+        navigate(StatisticsDestination)
     }
 
     @Suppress("UNUSED_PARAMETER")
@@ -584,6 +591,23 @@ open class DeckPicker :
         }
     }
 
+    /**
+     * Selects [deckId] and starts studying it straight away (a long press in the deck list).
+     * A deck with nothing to study opens its deck page instead, which says why.
+     */
+    fun studyDeck(deckId: DeckId) {
+        Timber.i("DeckPicker:: Study deck %d from the deck list", deckId)
+        launchCatchingTask {
+            viewModel.selectDeck(deckId).join()
+            val hasCardsToStudy = withCol { sched.deckDueTree().find(deckId)?.hasCardsReadyToStudy() == true }
+            if (hasCardsToStudy) {
+                navigate(ReviewDeckDestination.CurrentDeck)
+            } else {
+                navigate(StudyOptionsDestination)
+            }
+        }
+    }
+
     /** Sync, or show the progress of a media sync which is already running. */
     fun onSyncPressed() {
         Timber.i("DeckPicker:: Sync button pressed")
@@ -727,7 +751,6 @@ open class DeckPicker :
 
     public override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString(KEY_SELECTED_TAB, selectedTab.name)
         importColpkgListener?.let {
             if (it is DatabaseRestorationListener) {
                 outState.getString("dbRestorationPath", it.newAnkiDroidDirectory.absolutePath)
@@ -815,21 +838,6 @@ open class DeckPicker :
         return false
     }
 
-    override fun dispatchKeyEvent(event: KeyEvent): Boolean {
-        if (event.action != KeyEvent.ACTION_DOWN || !event.isAltPressed) {
-            return super.dispatchKeyEvent(event)
-        }
-        val tab =
-            when (event.keyCode) {
-                KeyEvent.KEYCODE_1 -> HomeTab.DECKS
-                KeyEvent.KEYCODE_2 -> HomeTab.STATISTICS
-                KeyEvent.KEYCODE_3 -> HomeTab.MORE
-                else -> return super.dispatchKeyEvent(event)
-            }
-        selectTab(tab)
-        return true
-    }
-
     override fun onKeyUp(
         keyCode: Int,
         event: KeyEvent,
@@ -859,7 +867,7 @@ open class DeckPicker :
             }
             KeyEvent.KEYCODE_T -> {
                 Timber.i("Open Statistics from keypress")
-                selectTab(HomeTab.STATISTICS)
+                openStatistics()
                 return true
             }
             KeyEvent.KEYCODE_C -> {
@@ -1152,9 +1160,6 @@ open class DeckPicker :
         get(): ShortcutGroup =
             ShortcutGroup(
                 listOf(
-                    shortcut("Alt+1", Translations::actionsDecks),
-                    shortcut("Alt+2", Translations::statisticsTitle),
-                    shortcut("Alt+3", R.string.bottom_nav_more),
                     shortcut("Y", R.string.pref_cat_sync),
                     shortcut("S", Translations::decksStudyDeck),
                     shortcut("T", R.string.open_statistics),
@@ -1196,7 +1201,7 @@ open class DeckPicker :
          */
         private val AUTOMATIC_SYNC_MINIMAL_INTERVAL: Duration = 10.minutes
 
-        private const val KEY_SELECTED_TAB = "selectedHomeTab"
+        private const val MORE_FRAGMENT_TAG = "more"
 
         /**
          * Builds an intent for [DeckPicker]

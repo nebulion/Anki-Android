@@ -179,6 +179,9 @@ class DeckPickerViewModel :
     // TODO: Use a sensible default rather than null
     val flowOfOptionsMenuState = MutableStateFlow<OptionsMenuState?>(null)
 
+    /** The sync in progress, shown in place of the deck list; `null` when not syncing. */
+    val flowOfSyncProgress = MutableStateFlow<SyncProgress?>(null)
+
     /**
      * Deletes the provided deck, child decks. and all cards inside.
      *

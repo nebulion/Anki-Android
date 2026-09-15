@@ -33,13 +33,13 @@ AnkiDroid 2.24.1 is on the device today with the real collection. The fork **rep
 | Card Browser | **Deleted.** |
 | New cards arrive by | **Both** AnkiWeb sync and `.apkg`/`.colpkg` file import. |
 | Card audio (`[sound:]`) | **Playback kept**, with one replay action. |
-| Navigation | **MMD bottom bar** (changed 2026-09-15, Phase 3): `NavigationBottomBarMMD` with Decks / Statistics / More; each tab's actions sit in its header; everything else is drill-down pages. No drawer, no FAB (MMD ships no drawer; create deck lives on More). Originally "MuditaOS style, no bottom bar". |
+| Navigation | **Header only, no bottom bar** (owner's call after the Phase 3 device check, 2026-09-15): the Decks header holds Undo, Sync (signed in only), Statistics (bar chart → its own page) and More (⋮ → a page with back); everything else is drill-down pages. No drawer, no FAB (create deck lives on More). Briefly an `NavigationBarMMD` bottom bar during Phase 3. |
 
 ## Design rules (eink-design.md, applied to AnkiDroid)
 
 1. **Black and white only.** Emphasis is inversion, never grey or tint. Override Material's grey
    *roles* (secondary text, hint, highlight), not just layout colours.
-2. **Lato everywhere, nothing below 14sp.** The MMD scale is 28/24/20/18/16/15/14.
+2. **The system font everywhere, nothing below 14sp** (owner's call, 2026-09-15; supersedes Lato). The MMD scale is 28/24/20/18/16/15/14.
 3. **Structure:** bold title, then a 3dp rule, then body. Actions are always visible in the header.
    Lists page, they don't scroll.
 4. **Nothing animates:**

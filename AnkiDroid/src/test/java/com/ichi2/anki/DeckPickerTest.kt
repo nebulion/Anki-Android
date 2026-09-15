@@ -7,7 +7,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.database.sqlite.SQLiteDatabaseCorruptException
-import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.test.core.app.ActivityScenario
@@ -15,7 +14,7 @@ import anki.collection.opChanges
 import com.ichi2.anki.common.utils.annotation.KotlinCleanup
 import com.ichi2.anki.deckpicker.DeckListFragment
 import com.ichi2.anki.deckpicker.DeckPickerViewModel
-import com.ichi2.anki.deckpicker.HomeTab
+import com.ichi2.anki.deckpicker.MoreTabFragment
 import com.ichi2.anki.dialogs.DatabaseErrorDialog
 import com.ichi2.anki.dialogs.DatabaseErrorDialog.DatabaseErrorDialogType
 import com.ichi2.anki.dialogs.utils.input
@@ -333,56 +332,45 @@ class DeckPickerTest : RobolectricTest() {
         }
 
     @Test
-    fun `home starts on the Decks tab`() =
+    fun `home starts on the deck list`() =
         deckPicker {
             advanceRobolectricLooper()
-            assertThat(selectedTab, equalTo(HomeTab.DECKS))
             assertThat(
-                supportFragmentManager.findFragmentById(R.id.home_tab_container),
+                supportFragmentManager.findFragmentById(R.id.home_container),
                 instanceOf(DeckListFragment::class.java),
             )
         }
 
     @Test
-    fun `back from the More tab returns to Decks`() =
+    fun `back from the More page returns to the deck list`() =
         deckPicker {
-            selectTab(HomeTab.MORE)
+            openMore()
             advanceRobolectricLooper()
+            assertThat(
+                supportFragmentManager.findFragmentById(R.id.home_container),
+                instanceOf(MoreTabFragment::class.java),
+            )
 
             onBackPressedDispatcher.onBackPressed()
+            advanceRobolectricLooper()
 
-            assertThat("back selects Decks rather than exiting", selectedTab, equalTo(HomeTab.DECKS))
+            assertThat(
+                "back shows the decks rather than exiting",
+                supportFragmentManager.findFragmentById(R.id.home_container),
+                instanceOf(DeckListFragment::class.java),
+            )
             assertThat("the app is still open", isFinishing, equalTo(false))
         }
 
     @Test
-    fun `Alt number shortcuts select tabs`() =
+    fun `Statistics opens its own page`() =
         deckPicker {
-            listOf(
-                KeyEvent.KEYCODE_3 to HomeTab.MORE,
-                KeyEvent.KEYCODE_1 to HomeTab.DECKS,
-            ).forEach { (keyCode, tab) ->
-                val handled = dispatchKeyEvent(KeyEvent(0, 0, KeyEvent.ACTION_DOWN, keyCode, 0, KeyEvent.META_ALT_ON))
-
-                assertThat("Alt shortcut is handled", handled, equalTo(true))
-                assertThat(selectedTab, equalTo(tab))
-            }
-        }
-
-    @Test
-    fun `tab shortcuts are registered in keyboard shortcut help`() =
-        deckPicker {
-            val tabShortcuts = shortcuts.shortcuts.filter { it.shortcut.startsWith("Alt+") }
+            openStatistics()
+            ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
 
             assertThat(
-                tabShortcuts.associate { it.shortcut to it.label },
-                equalTo(
-                    mapOf(
-                        "Alt+1" to "Decks",
-                        "Alt+2" to "Statistics",
-                        "Alt+3" to "More",
-                    ),
-                ),
+                shadowOf(this).nextStartedActivity.component!!.className,
+                equalTo(SingleFragmentActivity::class.java.name),
             )
         }
 
@@ -421,11 +409,11 @@ class DeckPickerTest : RobolectricTest() {
         }
 
     @Test
-    fun `snackbars rest above the bottom bar`() =
+    fun `snackbars rest above the message strip`() =
         deckPicker {
             val snackbar = showSnackbar("test")
 
-            assertThat(snackbar?.anchorView, equalTo(findViewById<View>(R.id.bottom_bar)))
+            assertThat(snackbar?.anchorView, equalTo(findViewById<View>(R.id.message_bar)))
         }
 
     @Test

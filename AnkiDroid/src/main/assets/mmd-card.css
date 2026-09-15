@@ -6,34 +6,6 @@
  * Emphasis that templates express with colour becomes weight, underline or strike-through.
  */
 
-@font-face {
-    font-family: Lato;
-    src: url("fonts/lato/lato_regular.ttf");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: Lato;
-    src: url("fonts/lato/lato_bold.ttf");
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: Lato;
-    src: url("fonts/lato/lato_italic.ttf");
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: Lato;
-    src: url("fonts/lato/lato_bold_italic.ttf");
-    font-weight: bold;
-    font-style: italic;
-}
-
 *,
 *::before,
 *::after {
@@ -54,11 +26,11 @@ body {
     color: #000 !important;
 }
 
-/* Inner elements inherit Lato unless the note type names a font; scripts Lato lacks use system sans */
+/* The phone's system font; inner elements inherit it unless the note type names a font */
 html,
 body,
 .card {
-    font-family: Lato, sans-serif !important;
+    font-family: sans-serif !important;
 }
 
 a {

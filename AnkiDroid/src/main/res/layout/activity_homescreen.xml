@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
-<!-- The home screen: the selected tab above the MMD bottom bar. See DeckPicker and HomeTab. -->
+<!-- The home screen: the deck list (or the More page) above a strip for short messages. See DeckPicker. -->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
@@ -13,13 +13,13 @@
         android:orientation="vertical">
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/home_tab_container"
+            android:id="@+id/home_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
         <androidx.compose.ui.platform.ComposeView
-            android:id="@+id/bottom_bar"
+            android:id="@+id/message_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

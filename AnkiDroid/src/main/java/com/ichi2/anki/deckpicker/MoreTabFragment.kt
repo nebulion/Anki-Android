@@ -10,14 +10,18 @@ import com.ichi2.anki.showImportDialog
 import com.ichi2.anki.ui.internationalization.sentenceCase
 import com.ichi2.compose.mmd.ComposeHostFragment
 
-/** The More tab of [DeckPicker]: [MoreScreenMMD] with the home screen's collection-wide actions. */
+/** The More page of [DeckPicker], opened from its header: the home screen's collection-wide actions. */
 class MoreTabFragment : ComposeHostFragment() {
     private val home: DeckPicker
         get() = requireActivity() as DeckPicker
 
     @Composable
     override fun ScreenContent() {
-        MoreScreenMMD(title = getString(R.string.bottom_nav_more), entries = entries())
+        MoreScreenMMD(
+            title = getString(R.string.bottom_nav_more),
+            entries = entries(),
+            onBack = { requireActivity().onBackPressedDispatcher.onBackPressed() },
+        )
     }
 
     private fun entries(): List<MoreEntry> {

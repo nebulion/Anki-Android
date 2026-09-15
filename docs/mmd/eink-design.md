@@ -25,7 +25,7 @@ progress is logged in [STATUS.md](STATUS.md).
 1. **Black and white only.** Emphasis is inversion, never grey or tint.
    Override Material's grey *roles* (secondary text, hint, highlight) — most
    greys never appear in a layout file.
-2. **Lato everywhere, nothing below 14sp.** Scale from `TypographyMMD.kt`:
+2. **The system font everywhere, nothing below 14sp** (owner's call, 2026-09-15: always the phone's font, never a bundled one). Scale from `TypographyMMD.kt`:
 
    | Role | Size |
    | --- | --- |

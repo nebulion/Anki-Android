@@ -240,7 +240,11 @@ private fun AnswerRow(
     onRate: (Rating) -> Unit,
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp).height(AnswerRowHeight),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp, top = AnswerRowTopGap, bottom = AnswerRowBottomGap)
+                .height(AnswerRowHeight),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         if (!state.isAnswerShown) {
@@ -301,3 +305,9 @@ private fun RowScope.AnswerButton(
 }
 
 private val AnswerRowHeight = 56.dp
+
+/** Space between the card and the answer row. */
+private val AnswerRowTopGap = 12.dp
+
+/** Space below the answer row, so the buttons do not sit on the screen's bottom edge. */
+private val AnswerRowBottomGap = 24.dp

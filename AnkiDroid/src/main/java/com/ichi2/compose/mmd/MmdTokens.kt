@@ -22,7 +22,7 @@ enum class ConfirmStyle {
  * Kit components never hard-code these; they read [LocalMmdTokens]. Swapping the whole app between
  * profiles is one argument: `MmdTheme(tokens = MmdTokens.KompaktSystem) { … }`.
  *
- * Values that both sources agree on (black/white, Lato, 3dp header rule, no dim) are not tokens.
+ * Values that both sources agree on (black/white, 3dp header rule, no dim) are not tokens.
  */
 @Immutable
 data class MmdTokens(

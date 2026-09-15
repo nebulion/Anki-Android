@@ -20,13 +20,11 @@ import android.annotation.SuppressLint
 import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.ichi2.anki.deckpicker.DeckListFragment
-import com.ichi2.anki.deckpicker.HomeTab
 import com.ichi2.anki.tests.InstrumentedTest
 import com.ichi2.anki.testutil.GrantStoragePermission.storagePermission
 import com.ichi2.anki.testutil.discardPreliminaryViews
 import com.ichi2.anki.testutil.grantPermissions
 import com.ichi2.anki.testutil.notificationPermission
-import org.hamcrest.Matchers.equalTo
 import org.hamcrest.Matchers.instanceOf
 import org.junit.Before
 import org.junit.Rule
@@ -47,11 +45,10 @@ class DeckPickerTest : InstrumentedTest() {
     }
 
     @Test
-    fun homeOpensOnTheDecksTab() {
+    fun homeOpensOnTheDeckList() {
         activityRule.scenario.onActivity { deckPicker ->
-            assertThat(deckPicker.selectedTab, equalTo(HomeTab.DECKS))
             assertThat(
-                deckPicker.supportFragmentManager.findFragmentById(R.id.home_tab_container),
+                deckPicker.supportFragmentManager.findFragmentById(R.id.home_container),
                 instanceOf(DeckListFragment::class.java),
             )
         }

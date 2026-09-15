@@ -41,7 +41,7 @@ import com.mudita.mmd.components.text.TextMMD
 
 /**
  * Debug-only screen showing every kit component, for checking the kit on the Kompakt panel
- * next to the calibration captures of Mudita's own apps. Opened from Developer options.
+ * next to the calibration captures of Mudita's own apps. Opened from Settings > Advanced.
  */
 class MmdKitGalleryFragment : ComposeHostFragment() {
     @Composable

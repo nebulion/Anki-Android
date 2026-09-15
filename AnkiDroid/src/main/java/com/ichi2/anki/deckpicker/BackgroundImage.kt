@@ -4,24 +4,17 @@ package com.ichi2.anki.deckpicker
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.net.Uri
-import android.provider.MediaStore
 import androidx.annotation.CheckResult
 import com.ichi2.anki.DeckPicker
 import com.ichi2.anki.R
 import com.ichi2.anki.common.storage.CollectionHelper
-import com.ichi2.anki.preferences.AppearanceSettingsFragment
 import com.ichi2.anki.settings.Prefs
-import com.ichi2.anki.snackbar.showSnackbar
 import com.ichi2.anki.utils.ext.getSizeOfBitmapFromCollection
-import com.ichi2.utils.openInputStreamSafe
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
 
 const val BITMAP_BYTES_PER_PIXEL = 4
 
@@ -118,73 +111,6 @@ object BackgroundImage {
             Timber.w(e, "Failed to load background")
             ResolveResult.Failed(cause = e.localizedMessage)
         }
-    }
-
-    sealed interface FileSizeResult {
-        data object OK : FileSizeResult
-
-        /** Large files can cause OutOfMemoryError */
-        data class FileTooLarge(
-            val currentMB: Long,
-            val maxMB: Long,
-        ) : FileSizeResult
-
-        /** Large bitmaps cause uncatchable: RuntimeException("Canvas: trying to draw too large(Xbytes) bitmap.") */
-        data class UncompressedBitmapTooLarge(
-            val width: Long,
-            val height: Long,
-        ) : FileSizeResult
-    }
-
-    fun validateBackgroundImageFileSize(
-        target: AppearanceSettingsFragment,
-        selectedImage: Uri,
-    ): FileSizeResult {
-        val filePathColumn = arrayOf(MediaStore.MediaColumns.SIZE, MediaStore.MediaColumns.WIDTH, MediaStore.MediaColumns.HEIGHT)
-        target.requireContext().contentResolver.query(selectedImage, filePathColumn, null, null, null).use { cursor ->
-            cursor!!.moveToFirst()
-            val fileSizeInMB = cursor.getLong(0) / (1024 * 1024)
-            if (fileSizeInMB >= 10) {
-                return FileSizeResult.FileTooLarge(currentMB = fileSizeInMB, maxMB = 10)
-            }
-
-            val width = cursor.getLong(1)
-            val height = cursor.getLong(2)
-
-            // Default MAX_IMAGE_SIZE on Android
-            if (width * height * BITMAP_BYTES_PER_PIXEL > MAX_BITMAP_SIZE) {
-                return FileSizeResult.UncompressedBitmapTooLarge(width = width, height = height)
-            }
-
-            return FileSizeResult.OK
-        }
-    }
-
-    fun import(
-        target: AppearanceSettingsFragment,
-        selectedImage: Uri,
-    ) {
-        val currentAnkiDroidDirectory = CollectionHelper.getCurrentAnkiDroidDirectory(target.requireContext())
-        val destFile = File(currentAnkiDroidDirectory, FILENAME)
-        (target.requireContext().contentResolver.openInputStreamSafe(selectedImage) as FileInputStream).channel.use { sourceChannel ->
-            FileOutputStream(destFile).channel.use { destChannel ->
-                destChannel.transferFrom(sourceChannel, 0, sourceChannel.size())
-                target.showSnackbar(R.string.background_image_applied)
-            }
-        }
-        Prefs.isBackgroundEnabled = true
-    }
-
-    /**
-     * @return `true` if the image no longer exists. `false` if an error occurred
-     */
-    fun remove(context: Context): Boolean {
-        val imgFile = getImageFile(context)
-        Prefs.isBackgroundEnabled = false
-        if (imgFile == null) {
-            return true
-        }
-        return imgFile.delete()
     }
 
     /** @return a [File] referencing the image, or `null` if the file does not exist */

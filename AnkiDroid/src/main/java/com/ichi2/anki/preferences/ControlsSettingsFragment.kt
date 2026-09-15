@@ -3,7 +3,6 @@
 
 package com.ichi2.anki.preferences
 
-import android.content.res.Configuration
 import androidx.annotation.XmlRes
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
@@ -43,15 +42,6 @@ class ControlsSettingsFragment :
         requirePreference<ControlsTabPreference>(R.string.pref_controls_tab_layout_key).setOnTabSelectedListener(this)
         val initialScreen = ControlPreferenceScreen.entries.first()
         addPreferencesFromResource(initialScreen.xmlRes)
-        // TODO replace the preference with something dismissible. This is meant only to improve
-        //  the discoverability of the system shortcut for the shortcuts dialog.
-        requirePreference<Preference>(R.string.pref_keyboard_shortcuts_key).apply {
-            isVisible = resources.configuration.keyboard == Configuration.KEYBOARD_QWERTY
-            setOnPreferenceClickListener {
-                requireActivity().requestShowKeyboardShortcuts()
-                true
-            }
-        }
         setControlPreferencesDefaultValues(initialScreen)
         setDynamicTitle()
         setupNewStudyScreenSettings()

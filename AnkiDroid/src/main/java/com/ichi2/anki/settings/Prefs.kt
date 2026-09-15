@@ -396,18 +396,8 @@ open class PrefsRepository(
 
     // ************************************* Developer options ********************************** //
 
-    /**
-     * Whether developer options should be shown to the user.
-     * True in case [BuildConfig.DEBUG] is true
-     * or if the user has enabled it with the secret on [com.ichi2.anki.preferences.AboutFragment]
-     *
-     * @see com.ichi2.anki.preferences.DeveloperOptionsFragment
-     */
-    var isDeveloperOptionsEnabled: Boolean
-        get() = getBoolean(R.string.developer_options_enabled_by_user_key, false) || BuildConfig.DEBUG
-        set(value) = putBoolean(R.string.developer_options_enabled_by_user_key, value)
-
-    var isNewStudyScreenEnabled by booleanPref(R.string.new_reviewer_options_key, false)
+    /** On by default: the legacy study screen is deleted and nothing in the UI turns this off. */
+    var isNewStudyScreenEnabled by booleanPref(R.string.new_reviewer_options_key, true)
 
     val devIsCardBrowserFragmented: Boolean
         get() = getBoolean(R.string.dev_card_browser_fragmented, false)
@@ -420,13 +410,6 @@ open class PrefsRepository(
 
     val isWebDebugEnabled: Boolean
         get() = (getBoolean(R.string.html_javascript_debugging_key, false) || BuildConfig.DEBUG) && !isRunningAsUnitTest
-
-    // ************************************* Switch Profile option ********************************** //
-
-    /**
-     * Whether the switch profile feature is enabled.
-     */
-    val switchProfileEnabled by booleanPref(R.string.pref_enable_switch_profile_key, false)
 
     // **************************************** UI Config *************************************** //
 

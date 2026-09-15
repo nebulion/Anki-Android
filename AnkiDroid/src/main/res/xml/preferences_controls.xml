@@ -41,12 +41,6 @@
         app:displayFormat="@string/percentage"
         />
 
-    <Preference
-        android:key="@string/pref_keyboard_shortcuts_key"
-        android:title="@string/show_keyboard_shortcuts"
-        android:icon="@drawable/ic_keyboard"
-        />
-
     <com.ichi2.anki.preferences.ControlsTabPreference
         android:key="@string/pref_controls_tab_layout_key"
         />

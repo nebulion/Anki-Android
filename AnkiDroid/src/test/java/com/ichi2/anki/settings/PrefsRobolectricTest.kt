@@ -73,7 +73,6 @@ class PrefsRobolectricTest : RobolectricTest() {
     @Test
     fun `all default values match the preference XMLs`() {
         val keysAndDefaultValues = getKeysAndDefaultValues()
-        val developerOptionsKeys = PreferenceTestUtils.getDeveloperOptionsKeys(targetContext)
         val prefs =
             PreferenceTestUtils
                 .getAllPreferencesFragments(targetContext)
@@ -86,7 +85,7 @@ class PrefsRobolectricTest : RobolectricTest() {
                 .associate { it["key"]!!.resValue() to it["defaultValue"]?.resValue().toString() }
 
         for ((key, defaultValue) in keysAndDefaultValues.entries) {
-            if (key !in prefs || key in developerOptionsKeys) continue
+            if (key !in prefs) continue
             val prefsDefaultValue = prefs.getValue(key)
             assertThat("The default value of '$key' matches the preference XML", defaultValue.toString(), equalTo(prefsDefaultValue))
         }

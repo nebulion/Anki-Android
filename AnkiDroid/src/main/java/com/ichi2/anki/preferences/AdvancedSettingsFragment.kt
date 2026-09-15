@@ -10,10 +10,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
 import androidx.preference.SwitchPreferenceCompat
+import com.ichi2.anki.BuildConfig
 import com.ichi2.anki.CollectionManager
 import com.ichi2.anki.DeckPicker
 import com.ichi2.anki.MetaDB
 import com.ichi2.anki.R
+import com.ichi2.anki.SingleFragmentActivity
 import com.ichi2.anki.common.storage.CollectionHelper
 import com.ichi2.anki.compat.CompatHelper
 import com.ichi2.anki.exception.StorageAccessException
@@ -22,6 +24,7 @@ import com.ichi2.anki.provider.CardContentProvider
 import com.ichi2.anki.settings.Prefs
 import com.ichi2.anki.snackbar.showSnackbar
 import com.ichi2.anki.startup.getDefaultAnkiDroidDirectory
+import com.ichi2.anki.ui.eink.MmdKitGalleryFragment
 import com.ichi2.anki.utils.openUrl
 import com.ichi2.utils.show
 import timber.log.Timber
@@ -35,6 +38,15 @@ class AdvancedSettingsFragment : SettingsFragment() {
 
     override fun initSubscreen() {
         removeUnnecessaryAdvancedPrefs()
+
+        // Debug builds: every MMD component, for checking on the E Ink panel
+        requirePreference<Preference>(R.string.pref_mmd_kit_gallery_key).apply {
+            isVisible = BuildConfig.DEBUG
+            setOnPreferenceClickListener {
+                startActivity(SingleFragmentActivity.getIntent(requireContext(), MmdKitGalleryFragment::class))
+                true
+            }
+        }
 
         // Check that input is valid before committing change in the collection path
         requirePreference<EditTextPreference>(CollectionHelper.PREF_COLLECTION_PATH).apply {

@@ -12,6 +12,7 @@
 <!-- Advanced Preferences -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:search="http://schemas.android.com/apk/com.bytehamster.lib.preferencesearch"
     android:title="@string/pref_cat_advanced"
     android:key="@string/pref_advanced_screen_key">
         <EditTextPreference
@@ -107,4 +108,10 @@
                 android:summary="@string/allow_card_external_launch_summ"
                 android:title="@string/allow_card_external_launch_title" />
         </PreferenceCategory>
+        <!-- Debug builds only: see AdvancedSettingsFragment -->
+        <Preference
+            android:key="@string/pref_mmd_kit_gallery_key"
+            android:title="MMD kit gallery"
+            app:isPreferenceVisible="false"
+            search:ignore="true" />
 </PreferenceScreen>

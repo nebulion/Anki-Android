@@ -11,12 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.preference.Preference
 import com.bytehamster.lib.preferencesearch.SearchConfiguration
 import com.bytehamster.lib.preferencesearch.SearchPreference
-import com.ichi2.anki.BuildConfig
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.R
 import com.ichi2.anki.common.android.AdaptionUtil
 import com.ichi2.anki.compat.CompatHelper
-import com.ichi2.anki.preferences.profiles.SwitchProfilesFragment
 import com.ichi2.anki.preferences.reviewer.ReviewerMenuSettingsFragment
 import com.ichi2.anki.reviewreminders.ScheduleRemindersFragment
 import com.ichi2.anki.settings.Prefs
@@ -35,9 +33,6 @@ class HeaderFragment : SettingsFragment() {
         requirePreference<HeaderPreference>(R.string.pref_backup_limits_screen_key)
             .title = TR.preferencesBackups()
 
-        requirePreference<HeaderPreference>(R.string.pref_appearance_screen_key)
-            .title = TR.preferencesAppearance()
-
         requirePreference<HeaderPreference>(R.string.pref_sync_screen_key).summary =
             HeaderPreference.buildHeaderSummary(
                 TR.sentenceCase.ankiWebAccount,
@@ -50,12 +45,8 @@ class HeaderFragment : SettingsFragment() {
             }
         }
 
-        requirePreference<Preference>(R.string.pref_developer_options_screen_key)
-            .isVisible = Prefs.isDeveloperOptionsEnabled
-
         requirePreference<HeaderPreference>(R.string.pref_review_reminders_screen_key).isVisible = Prefs.newReviewRemindersEnabled
         requirePreference<HeaderPreference>(R.string.pref_notifications_screen_key).isVisible = !Prefs.newReviewRemindersEnabled
-        requirePreference<HeaderPreference>(R.string.pref_switch_profile_screen_key).isVisible = Prefs.switchProfileEnabled
 
         configureSearchBar(
             requireActivity() as AppCompatActivity,
@@ -111,11 +102,6 @@ class HeaderFragment : SettingsFragment() {
                     index(R.xml.preferences_notifications)
                 }
 
-                index(R.xml.preferences_appearance)
-                if (!Prefs.isNewStudyScreenEnabled) {
-                    index(R.xml.preferences_custom_buttons)
-                        .addBreadcrumb(TR.preferencesAppearance())
-                }
                 index(R.xml.preferences_controls)
                 index(R.xml.preferences_reviewer_controls)
                     .addBreadcrumb(activity.getString(R.string.pref_cat_controls))
@@ -132,16 +118,6 @@ class HeaderFragment : SettingsFragment() {
                     .withResId(R.xml.preferences_controls)
                     .addBreadcrumb(activity.getString(R.string.pref_cat_controls))
                     .addBreadcrumb(setDuePreferenceTitle)
-                if (!Prefs.isNewStudyScreenEnabled) {
-                    indexItem()
-                        .withKey(activity.getString(R.string.show_audio_play_buttons_key))
-                        .withTitle(
-                            TR.preferencesShowPlayButtonsOnCardsWith(),
-                        ).withResId(R.xml.preferences_appearance)
-                        .addBreadcrumb(TR.preferencesAppearance())
-                        .addBreadcrumb(activity.getString(R.string.pref_cat_reviewer))
-                }
-
                 indexItem()
                     .withKey(activity.getString(R.string.one_way_sync_key))
                     .withTitle(
@@ -154,15 +130,6 @@ class HeaderFragment : SettingsFragment() {
 
             // Some preferences and categories are only shown conditionally,
             // so they should be searchable based on the same conditions
-
-            // From [HeaderFragment.onCreatePreferences]
-            if (Prefs.isDeveloperOptionsEnabled) {
-                searchConfiguration.index(R.xml.preferences_developer_options)
-                // From [DeveloperOptionsFragment.initSubscreen]
-                if (BuildConfig.DEBUG) {
-                    searchConfiguration.ignorePreference(activity.getString(R.string.developer_options_enabled_by_user_key))
-                }
-            }
 
             // From [HeaderFragment.onCreatePreferences]
             if (!AdaptionUtil.isXiaomiRestrictedLearningDevice) {
@@ -186,7 +153,7 @@ class HeaderFragment : SettingsFragment() {
                 searchConfiguration.index(R.xml.preferences_reviewer)
                 val legacySettings =
                     AdvancedSettingsFragment.legacyStudyScreenSettings + AccessibilitySettingsFragment.legacyStudyScreenSettings +
-                        AppearanceSettingsFragment.legacyStudyScreenSettings + ControlsSettingsFragment.legacyStudyScreenSettings
+                        ControlsSettingsFragment.legacyStudyScreenSettings
                 for (key in legacySettings) {
                     val keyString = activity.getString(key)
                     searchConfiguration.ignorePreference(keyString)
@@ -208,15 +175,12 @@ class HeaderFragment : SettingsFragment() {
                 is SyncSettingsFragment, is CustomSyncServerSettingsFragment -> R.string.pref_sync_screen_key
                 is NotificationsSettingsFragment -> R.string.pref_notifications_screen_key
                 is ScheduleRemindersFragment -> R.string.pref_review_reminders_screen_key
-                is AppearanceSettingsFragment, is CustomButtonsSettingsFragment -> R.string.pref_appearance_screen_key
                 is ControlsSettingsFragment -> R.string.pref_controls_screen_key
                 is AccessibilitySettingsFragment -> R.string.pref_accessibility_screen_key
                 is BackupLimitsSettingsFragment -> R.string.pref_backup_limits_screen_key
                 is AdvancedSettingsFragment -> R.string.pref_advanced_screen_key
                 is ReviewerOptionsFragment, is ReviewerMenuSettingsFragment -> R.string.new_reviewer_options_key
-                is DeveloperOptionsFragment -> R.string.pref_developer_options_screen_key
                 is AboutFragment -> R.string.about_screen_key
-                is SwitchProfilesFragment -> R.string.pref_switch_profile_screen_key
                 else -> null
             }
     }

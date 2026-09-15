@@ -141,13 +141,4 @@ object PreferenceTestUtils {
             .flatMapTo(hashSetOf()) {
                 getKeysFromXml(context, it, excludeCategories = false)
             } + ViewerCommand.entries.map { it.preferenceKey }
-
-    fun getAllCustomButtonKeys(context: Context): Set<String> {
-        val keys = getKeysFromXml(context, R.xml.preferences_custom_buttons).toMutableSet()
-        keys.remove("reset_custom_buttons")
-        keys.remove("appBarButtonsScreen")
-        return keys
-    }
-
-    fun getDeveloperOptionsKeys(context: Context): Set<String> = getKeysFromXml(context, R.xml.preferences_developer_options).toSet()
 }

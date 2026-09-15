@@ -34,11 +34,6 @@ class ExternalEntryPointsTest : RobolectricTest() {
             listOf(
                 // Activities reached via the launcher, deep links, share/import, PROCESS_TEXT or shortcuts
                 EntryPoint.Activity("com.ichi2.anki.IntentHandler"),
-                EntryPoint.Activity("com.ichi2.anki.IntentHandler2"),
-                EntryPoint.Activity("com.ichi2.anki.Reviewer"),
-                EntryPoint.ActivityAlias("com.ichi2.anki.AnkiCardContextMenuAction", "com.ichi2.anki.IntentHandler2"),
-                EntryPoint.ActivityAlias("com.ichi2.anki.CardBrowserDeepLink", "com.ichi2.anki.IntentHandler"),
-                EntryPoint.Activity("com.ichi2.anki.instantnoteeditor.InstantNoteEditorActivity"),
                 // Headless: reachable with no UI (third-party API, system broadcasts)
                 EntryPoint.Provider("com.ichi2.anki.provider.CardContentProvider"),
                 EntryPoint.Receiver("com.ichi2.anki.receiver.SdCardReceiver"),

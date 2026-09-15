@@ -19,7 +19,6 @@ package com.ichi2.anki.browser
 import android.content.SharedPreferences
 import androidx.annotation.CheckResult
 import androidx.core.content.edit
-import com.ichi2.anki.CardBrowser
 import com.ichi2.anki.libanki.BrowserConfig
 import com.ichi2.anki.libanki.BrowserConfig.ACTIVE_CARD_COLUMNS_KEY
 import com.ichi2.anki.libanki.BrowserConfig.ACTIVE_NOTE_COLUMNS_KEY

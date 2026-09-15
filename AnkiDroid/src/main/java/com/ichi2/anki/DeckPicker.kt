@@ -94,6 +94,7 @@ import com.ichi2.anki.android.back.exitViaDoubleTapBackCallback
 import com.ichi2.anki.android.input.ShortcutGroup
 import com.ichi2.anki.android.input.shortcut
 import com.ichi2.anki.android.view.locationInWindow
+import com.ichi2.anki.cardviewer.ViewerResult
 import com.ichi2.anki.common.android.AdaptionUtil
 import com.ichi2.anki.common.android.animationDisabled
 import com.ichi2.anki.common.android.appContext
@@ -377,7 +378,7 @@ open class DeckPicker :
             ActivityResultContracts.StartActivityForResult(),
             DeckPickerActivityResultCallback {
                 if (it.resultCode == RESULT_OK) {
-                    onSelectedCsvForImport(it.data!!)
+                    Timber.w("CSV import is not available in the MMD fork")
                 }
             },
         )
@@ -445,7 +446,6 @@ open class DeckPicker :
 
     private suspend fun showDeckPickerContextMenu(deckId: DeckId) {
         val menu = DeckPickerContextMenu.newInstance(deckId)
-        CardBrowser.clearLastDeckId()
         showDialogFragment(menu)
     }
 
@@ -995,16 +995,6 @@ open class DeckPicker :
                 createSubDeckDialog(deckId)
                 dismissAllDialogFragments()
             }
-            DeckPickerContextMenuOption.BROWSE_CARDS -> {
-                Timber.i("ContextMenu: Browse cards")
-                viewModel.browseCards(deckId)
-                dismissAllDialogFragments()
-            }
-            DeckPickerContextMenuOption.ADD_CARD -> {
-                Timber.i("ContextMenu: Add selected")
-                viewModel.addNote(deckId, setAsCurrent = true)
-                dismissAllDialogFragments()
-            }
             DeckPickerContextMenuOption.EDIT_DESCRIPTION -> {
                 Timber.i("Editing deck description for deck '%d'", deckId)
                 showDialogFragment(EditDeckDescriptionDialog.newInstance(deckId))
@@ -1368,11 +1358,6 @@ open class DeckPicker :
                 )
                 return true
             }
-            R.id.action_model_browser_open -> {
-                Timber.i("DeckPicker:: Model browser button pressed")
-                viewModel.openManageNoteTypes()
-                return true
-            }
             R.id.action_restore_backup -> {
                 Timber.i("DeckPicker:: Restore from backup button pressed")
                 showDatabaseErrorDialog(DatabaseErrorDialogType.DIALOG_CONFIRM_RESTORE_BACKUP)
@@ -1438,7 +1423,7 @@ open class DeckPicker :
     }
 
     private fun processReviewResults(resultCode: Int) {
-        if (resultCode == AbstractFlashcardViewer.RESULT_NO_MORE_CARDS) {
+        if (resultCode == ViewerResult.RESULT_NO_MORE_CARDS) {
             CongratsPage.onReviewsCompleted(this, getColUnsafe.sched.totalCount() == 0)
             fragment?.refreshInterface()
         }
@@ -1591,11 +1576,6 @@ open class DeckPicker :
             return true
         }
         when (keyCode) {
-            KeyEvent.KEYCODE_A -> {
-                Timber.i("Adding Note from keypress")
-                viewModel.addNote(deckId = null, setAsCurrent = true)
-                return true
-            }
             KeyEvent.KEYCODE_B -> {
                 if (event.isShiftPressed && event.isCtrlPressed) {
                     // shortcut SHIFT + CTRL + B
@@ -1605,10 +1585,6 @@ open class DeckPicker :
                     // Shortcut: CTRL + B
                     Timber.i("show restore backup dialog from keypress")
                     showDatabaseErrorDialog(DatabaseErrorDialogType.DIALOG_CONFIRM_RESTORE_BACKUP)
-                } else {
-                    // Shortcut: B
-                    Timber.i("Open Browser from keypress")
-                    openCardBrowser()
                 }
                 return true
             }
@@ -1705,14 +1681,6 @@ open class DeckPicker :
                     return true
                 }
             }
-            KeyEvent.KEYCODE_N -> {
-                if (event.isCtrlPressed && event.isShiftPressed) {
-                    // Shortcut: CTRL + Shift + N
-                    Timber.i("Open ManageNoteTypes from keypress")
-                    viewModel.openManageNoteTypes()
-                    return true
-                }
-            }
             else -> {}
         }
         return super.onKeyUp(keyCode, event)
@@ -1763,12 +1731,6 @@ open class DeckPicker :
 
     private fun showCollectionErrorDialog() {
         dialogHandler.sendMessage(CollectionLoadingErrorDialog().toMessage())
-    }
-
-    // VisibleForTesting: method is mocked, should be replaced
-    @VisibleForTesting(otherwise = VisibleForTesting.NONE)
-    fun addNote(did: DeckId? = null) {
-        viewModel.addNote(did, true)
     }
 
     private fun showStartupScreensAndDialogs(
@@ -2063,10 +2025,7 @@ open class DeckPicker :
             return
         }
 
-        fun showEmptyDeckSnackbar() =
-            showSnackbar(R.string.empty_deck) {
-                setAction(R.string.menu_add) { viewModel.addNote(did, true) }
-            }
+        fun showEmptyDeckSnackbar() = showSnackbar(R.string.empty_deck)
 
         /** Check if we need to update the fragment or update the deck list */
         fun updateUi() {
@@ -2081,8 +2040,6 @@ open class DeckPicker :
 
         withCol { decks.select(did) }
         deckListAdapter.updateSelectedDeck(did)
-        // Also forget the last deck used by the Browser
-        CardBrowser.clearLastDeckId()
         viewModel.focusedDeck = did
 
         // TODO: Reuse dueTree from ViewModel instead of recalculating for better performance.

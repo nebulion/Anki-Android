@@ -20,9 +20,7 @@ import com.ichi2.anki.CollectionManager.withOpenColOrNull
 import com.ichi2.anki.DeckPicker
 import com.ichi2.anki.InitialActivity
 import com.ichi2.anki.OnErrorListener
-import com.ichi2.anki.common.destinations.BrowserDestination
 import com.ichi2.anki.common.destinations.DeckOptionsDestination
-import com.ichi2.anki.common.destinations.NoteEditorDestination
 import com.ichi2.anki.configureRenderingMode
 import com.ichi2.anki.launchCatchingIO
 import com.ichi2.anki.libanki.CardId
@@ -34,7 +32,6 @@ import com.ichi2.anki.libanki.sched.DeckNode
 import com.ichi2.anki.libanki.undoAvailable
 import com.ichi2.anki.libanki.undoLabel
 import com.ichi2.anki.libanki.utils.extend
-import com.ichi2.anki.notetype.ManageNoteTypesDestination
 import com.ichi2.anki.observability.undoableOp
 import com.ichi2.anki.performBackupInBackground
 import com.ichi2.anki.reviewreminders.ScheduleRemindersDestination
@@ -275,22 +272,6 @@ class DeckPickerViewModel :
             flowOfRefreshDeckList.emit(Unit)
         }
 
-    fun browseCards(deckId: DeckId) =
-        launchCatchingIO {
-            withCol { decks.select(deckId) }
-            flowOfNavigate.emit(BrowserDestination.ToDeck(deckId))
-        }
-
-    fun addNote(
-        deckId: DeckId?,
-        setAsCurrent: Boolean,
-    ) = launchCatchingIO {
-        if (deckId != null && setAsCurrent) {
-            withCol { decks.select(deckId) }
-        }
-        flowOfNavigate.emit(NoteEditorDestination.AddNote(deckId))
-    }
-
     val flowOfShowContextMenu = MutableSharedFlow<DeckId>(extraBufferCapacity = 1)
 
     data class RightClickMenuRequest(
@@ -315,11 +296,6 @@ class DeckPickerViewModel :
         selectDeck(deckId).join()
         flowOfShowRightClickContextMenu.emit(RightClickMenuRequest(deckId, x, y))
     }
-
-    /**
-     * Opens the Manage Note Types screen.
-     */
-    fun openManageNoteTypes() = launchCatchingIO { flowOfDestination.emit(ManageNoteTypesDestination()) }
 
     /**
      * Opens study options for the provided deck

@@ -17,7 +17,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.Robolectric
-import org.robolectric.shadows.ShadowMediaPlayer
 import kotlin.test.assertFailsWith
 import kotlin.test.fail
 
@@ -68,24 +67,12 @@ class ExternalEntryPointsUndecidedStorageTest : RobolectricTest() {
         when (className) {
             // launcher icon tap
             "com.ichi2.anki.IntentHandler" -> Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER)
-            // share text with AnkiDroid
-            "com.ichi2.anki.IntentHandler2", "com.ichi2.anki.instantnoteeditor.InstantNoteEditorActivity" ->
-                Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, "dog")
-            "com.ichi2.anki.Reviewer" -> Intent(Intent.ACTION_VIEW)
-            // 'Anki Card' text selection menu entry
-            "com.ichi2.anki.AnkiCardContextMenuAction" ->
-                Intent(Intent.ACTION_PROCESS_TEXT).setType("text/plain").putExtra(Intent.EXTRA_PROCESS_TEXT, "dog")
-            "com.ichi2.anki.CardBrowserDeepLink" -> Intent(Intent.ACTION_VIEW, "anki://x-callback-url/browser?search=dog".toUri())
             "com.ichi2.anki.receiver.SdCardReceiver" -> Intent(Intent.ACTION_MEDIA_EJECT, "file:///storage/emulated/0".toUri())
             else -> fail("define the externally-sent intent for new entry point: $this")
         }
 
     private fun launchActivity(targetClassName: String) {
         val activityClass = Class.forName(targetClassName).asSubclass(Activity::class.java)
-        if (AbstractFlashcardViewer::class.java.isAssignableFrom(activityClass)) {
-            // fixes 'Don't know what to do with dataSource...' inside Sounds.kt
-            ShadowMediaPlayer.setMediaInfoProvider { ShadowMediaPlayer.MediaInfo(1, 0) }
-        }
         val controller = Robolectric.buildActivity(activityClass, entryPoint!!.externalIntent())
         saveControllerForCleanup(controller)
         // mirrors Android: an activity which finishes during onCreate (e.g. redirectToMainEntryPoint)

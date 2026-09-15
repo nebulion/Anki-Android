@@ -368,12 +368,9 @@ class DeckPickerFloatingActionMenu(
         binding.fabMain.setOnClickListener(fabMainClickListener)
     }
 
-    /**
-     * Closes the FAB menu and opens the [NoteEditorFragment]
-     * @see DeckPicker.addNote
-     */
+    /** The MMD fork has no note editor: the main button only opens and closes the menu. */
     private fun addNote() {
-        deckPicker.addNote()
+        Timber.d("FAB: adding notes is not available in the MMD fork")
     }
 
     /**

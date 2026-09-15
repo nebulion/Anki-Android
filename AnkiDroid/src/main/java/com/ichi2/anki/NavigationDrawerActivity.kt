@@ -39,16 +39,13 @@ import com.google.android.material.color.MaterialColors
 import com.google.android.material.navigation.NavigationView
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.IntentHandler.Companion.grantedStoragePermissions
-import com.ichi2.anki.NoteEditorFragment.Companion.NoteEditorCaller
 import com.ichi2.anki.common.android.animationEnabled
-import com.ichi2.anki.common.destinations.BrowserDestination
-import com.ichi2.anki.common.destinations.DeferredNavigation
 import com.ichi2.anki.common.destinations.PreferencesDestination
 import com.ichi2.anki.common.destinations.StatisticsDestination
 import com.ichi2.anki.common.destinations.navigate
-import com.ichi2.anki.common.destinations.toIntent
 import com.ichi2.anki.common.preferences.sharedPrefs
 import com.ichi2.anki.common.utils.android.HandlerUtils
+import com.ichi2.anki.ui.windows.reviewer.ReviewerFragment
 import com.ichi2.anki.workarounds.FullDraggableContainerFix
 import timber.log.Timber
 import com.ichi2.anki.common.android.R as CommonR
@@ -324,7 +321,6 @@ abstract class NavigationDrawerActivity(
 
     private val preferencesLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            val preferences = preferences
             Timber.i(
                 "Handling Activity Result: %d. Result: %d",
                 REQUEST_PREFERENCES_UPDATE,
@@ -337,13 +333,7 @@ abstract class NavigationDrawerActivity(
             setupNotificationChannels(applicationContext)
             // Restart the activity on preference change
             // collection path hasn't been changed so just restart the current activity
-            if (this is Reviewer && preferences.getBoolean("tts", false)) {
-                // Workaround to kick user back to StudyOptions after opening settings from Reviewer
-                // because onDestroy() of old Activity interferes with TTS in new Activity
-                finish()
-            } else {
-                ActivityCompat.recreate(this)
-            }
+            ActivityCompat.recreate(this)
         }
 
     /**
@@ -381,11 +371,6 @@ abstract class NavigationDrawerActivity(
                         startActivity(deckPicker)
                     }
 
-                    R.id.nav_browser -> {
-                        Timber.i("Navigating to card browser")
-                        openCardBrowser()
-                    }
-
                     R.id.nav_stats -> {
                         Timber.i("Navigating to stats")
                         openStatistics()
@@ -399,10 +384,6 @@ abstract class NavigationDrawerActivity(
             }
         closeDrawer()
         return true
-    }
-
-    protected fun openCardBrowser() {
-        navigate(BrowserDestination.Open)
     }
 
     /**
@@ -500,7 +481,7 @@ abstract class NavigationDrawerActivity(
             }
             // Review Cards Shortcut
             val intentReviewCards =
-                Reviewer.getIntent(context).apply {
+                ReviewerFragment.getIntent(context).apply {
                     action = Intent.ACTION_VIEW
                     flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     putExtra(EXTRA_STARTED_WITH_SHORTCUT, true)
@@ -518,38 +499,10 @@ abstract class NavigationDrawerActivity(
                     .setIntents(arrayOf(deckPickerIntent, intentReviewCards))
                     .build()
 
-            // Add Shortcut
-            val intentAddNote = Intent(context, IntentHandler2::class.java)
-            intentAddNote.action = Intent.ACTION_VIEW
-            intentAddNote.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
-            intentAddNote.putExtra(NoteEditorFragment.EXTRA_CALLER, NoteEditorCaller.DECKPICKER.value)
-            val noteEditorShortcut =
-                ShortcutInfoCompat
-                    .Builder(context, "noteEditorShortcutId")
-                    .setShortLabel(context.getString(R.string.menu_add))
-                    .setLongLabel(context.getString(R.string.menu_add))
-                    .setIcon(IconCompat.createWithResource(context, R.drawable.add_shortcut))
-                    .setIntent(intentAddNote)
-                    .build()
-
-            // CardBrowser Shortcut
-            val intentCardBrowser = with(DeferredNavigation) { BrowserDestination.Open.toIntent() }
-            intentCardBrowser.action = Intent.ACTION_VIEW
-            intentCardBrowser.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
-            val cardBrowserShortcut =
-                ShortcutInfoCompat
-                    .Builder(context, "cardBrowserShortcutId")
-                    .setShortLabel(context.getString(R.string.card_browser))
-                    .setLongLabel(context.getString(R.string.card_browser))
-                    .setIcon(IconCompat.createWithResource(context, R.drawable.browse_shortcut))
-                    .setIntent(intentCardBrowser)
-                    .build()
             ShortcutManagerCompat.addDynamicShortcuts(
                 context,
                 listOf(
                     reviewCardsShortcut,
-                    noteEditorShortcut,
-                    cardBrowserShortcut,
                 ),
             )
         }

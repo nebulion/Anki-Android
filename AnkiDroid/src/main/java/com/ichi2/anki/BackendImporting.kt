@@ -7,10 +7,7 @@ import android.net.Uri
 import androidx.fragment.app.FragmentActivity
 import anki.collection.OpChangesOnly
 import anki.import_export.ImportAnkiPackageRequest
-import anki.search.SearchNode
 import com.ichi2.anki.CollectionManager.withCol
-import com.ichi2.anki.common.destinations.BrowserDestination
-import com.ichi2.anki.common.destinations.navigate
 import com.ichi2.anki.libanki.importCsvRaw
 import com.ichi2.anki.observability.undoableOp
 import kotlinx.coroutines.Dispatchers
@@ -55,11 +52,8 @@ val hideShowButtonCss =
     """.trimIndent()
 
 /**
- * Calls the native [CardBrowser] to display the results of the search query constructed from the
- * input. This method will always return the received input.
+ * The MMD fork has no card browser: a page's request to show search results is acknowledged and
+ * ignored. This method will always return the received input.
  */
-suspend fun FragmentActivity.searchInBrowser(input: ByteArray): ByteArray {
-    val searchString = withCol { buildSearchString(listOf(SearchNode.parseFrom(input))) }
-    navigate(BrowserDestination.Search(query = searchString, allDecks = true))
-    return input
-}
+@Suppress("UnusedReceiverParameter")
+fun FragmentActivity.searchInBrowser(input: ByteArray): ByteArray = input

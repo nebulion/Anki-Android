@@ -132,39 +132,6 @@ class HeaderFragment : SettingsFragment() {
                     .withResId(R.xml.preferences_controls)
                     .addBreadcrumb(activity.getString(R.string.pref_cat_controls))
                     .addBreadcrumb(setDuePreferenceTitle)
-                // Some strings can't be indexed from the XML document as they are loaded from the back-end. We add them manually.
-                indexItem()
-                    .withKey(activity.getString(R.string.anki_card_external_context_menu_key))
-                    .withTitle(
-                        activity.getString(
-                            R.string.card_browser_enable_external_context_menu,
-                            activity.getString(R.string.context_menu_anki_card_label),
-                        ),
-                    ).withSummary(
-                        activity.getString(
-                            R.string.card_browser_enable_external_context_menu_summary,
-                            activity.getString(R.string.context_menu_anki_card_label),
-                        ),
-                    ).withResId(R.xml.preferences_general)
-                    .addBreadcrumb(activity.getString(R.string.pref_cat_general))
-                    .addBreadcrumb(activity.getString(R.string.pref_cat_system_wide))
-
-                indexItem()
-                    .withKey(activity.getString(R.string.card_browser_external_context_menu_key))
-                    .withTitle(
-                        activity.getString(
-                            R.string.card_browser_enable_external_context_menu,
-                            activity.getString(R.string.card_browser_context_menu),
-                        ),
-                    ).withSummary(
-                        activity.getString(
-                            R.string.card_browser_enable_external_context_menu_summary,
-                            activity.getString(R.string.card_browser_context_menu),
-                        ),
-                    ).withResId(R.xml.preferences_general)
-                    .addBreadcrumb(activity.getString(R.string.pref_cat_general))
-                    .addBreadcrumb(activity.getString(R.string.pref_cat_system_wide))
-
                 if (!Prefs.isNewStudyScreenEnabled) {
                     indexItem()
                         .withKey(activity.getString(R.string.show_audio_play_buttons_key))

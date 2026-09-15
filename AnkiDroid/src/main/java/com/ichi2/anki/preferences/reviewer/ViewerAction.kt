@@ -45,24 +45,19 @@ enum class ViewerAction(
     REDO(R.id.action_redo, R.drawable.ic_redo, MENU_ONLY),
     FLAG_MENU(R.id.action_flag, R.drawable.ic_flag_transparent, MENU_ONLY),
     MARK(R.id.action_mark, R.drawable.ic_star, MENU_ONLY),
-    EDIT(R.id.action_edit_note, R.drawable.ic_mode_edit_white, MENU_ONLY),
     BURY_MENU(R.id.action_bury, R.drawable.ic_flip_to_back_white, MENU_ONLY),
     SUSPEND_MENU(R.id.action_suspend, R.drawable.ic_suspend, MENU_ONLY),
     DELETE(R.id.action_delete, CommonR.drawable.ic_delete_white, MENU_ONLY),
-    TOGGLE_WHITEBOARD(R.id.action_toggle_whiteboard, R.drawable.ic_enable_whiteboard, MENU_ONLY),
 
     // Disabled
-    BROWSE(R.id.action_browse, R.drawable.ic_flashcard_black, DISABLED),
     STATISTICS(R.id.action_statistics, R.drawable.ic_bar_chart_black, DISABLED),
     DECK_OPTIONS(R.id.action_deck_options, R.drawable.ic_tune_white, DISABLED),
     CARD_INFO(R.id.action_card_info, R.drawable.ic_dialog_info, DISABLED),
     PREVIOUS_CARD_INFO(R.id.action_previous_card_info, R.drawable.ic_outline_info_24, DISABLED),
-    ADD_NOTE(R.id.action_add_note, R.drawable.ic_add, DISABLED),
     TAG(R.id.action_edit_tags, R.drawable.ic_tag, DISABLED),
     RESCHEDULE_NOTE(R.id.action_set_due_date, R.drawable.ic_reschedule, DISABLED),
     RESET_PROGRESS(R.id.action_reset_progress, R.drawable.ic_backup_restore, DISABLED),
     TOGGLE_AUTO_ADVANCE(R.id.action_toggle_auto_advance, R.drawable.ic_fast_forward_outlined, DISABLED),
-    RECORD_VOICE(R.id.action_record_voice, R.drawable.ic_mic_outlined, DISABLED),
     PLAY_MEDIA(R.id.action_replay_media, R.drawable.ic_play_circle_white, DISABLED),
     USER_ACTION_1(R.id.user_action_1, R.drawable.user_action_1, DISABLED),
     USER_ACTION_2(R.id.user_action_2, R.drawable.user_action_2, DISABLED),
@@ -103,7 +98,6 @@ enum class ViewerAction(
     TOGGLE_FLAG_PURPLE,
     SHOW_HINT,
     SHOW_ALL_HINTS,
-    REPLAY_VOICE,
     PAGE_UP,
     PAGE_DOWN,
     EXIT,
@@ -121,8 +115,6 @@ enum class ViewerAction(
             UNDO -> listOf(keycode(KeyEvent.KEYCODE_Z, ctrl()))
             REDO -> listOf(keycode(KeyEvent.KEYCODE_Z, ModifierKeys(shift = true, ctrl = true, alt = false)))
             MARK -> listOf(unicode('*'))
-            EDIT -> listOf(keycode(KeyEvent.KEYCODE_E))
-            ADD_NOTE -> listOf(keycode(KeyEvent.KEYCODE_A))
             BURY_NOTE -> listOf(unicode('='))
             BURY_CARD -> listOf(unicode('-'))
             SUSPEND_NOTE -> listOf(unicode('!'))
@@ -130,9 +122,6 @@ enum class ViewerAction(
             TOGGLE_AUTO_ADVANCE -> listOf(keycode(KeyEvent.KEYCODE_A, shift()))
             SHOW_HINT -> listOf(keycode(KeyEvent.KEYCODE_H))
             SHOW_ALL_HINTS -> listOf(keycode(KeyEvent.KEYCODE_G))
-            RECORD_VOICE -> listOf(keycode(KeyEvent.KEYCODE_V, shift()))
-            REPLAY_VOICE -> listOf(keycode(KeyEvent.KEYCODE_V))
-            BROWSE -> listOf(keycode(KeyEvent.KEYCODE_B))
             STATISTICS -> listOf(keycode(KeyEvent.KEYCODE_T))
             PLAY_MEDIA -> listOf(keycode(KeyEvent.KEYCODE_R))
             PREVIOUS_CARD_INFO -> listOf(keycode(KeyEvent.KEYCODE_I, ModifierKeys(shift = false, ctrl = true, alt = true)))
@@ -213,7 +202,6 @@ enum class ViewerAction(
             TAG,
             EXIT,
             RESCHEDULE_NOTE,
-            TOGGLE_WHITEBOARD,
             PAGE_UP,
             PAGE_DOWN,
             USER_ACTION_1,
@@ -247,7 +235,6 @@ enum class ViewerAction(
     fun title(context: Context): String =
         with(context) {
             when (this@ViewerAction) {
-                BROWSE -> TR.qtMiscBrowse()
                 STATISTICS -> TR.statisticsTitle()
                 RESCHEDULE_NOTE -> TR.sentenceCase.setDueDate
                 PREVIOUS_CARD_INFO -> TR.sentenceCase.previousCardInfo
@@ -255,18 +242,14 @@ enum class ViewerAction(
                 REDO -> getString(R.string.redo)
                 FLAG_MENU -> TR.browsingFlag()
                 MARK -> TR.sentenceCase.markNote
-                EDIT -> getString(R.string.cardeditor_title_edit_card)
                 BURY_MENU -> TR.studyingBury()
                 SUSPEND_MENU -> TR.studyingSuspend()
                 DELETE -> TR.sentenceCase.deleteNote
-                TOGGLE_WHITEBOARD -> getString(R.string.gesture_toggle_whiteboard)
                 DECK_OPTIONS -> TR.sentenceCase.deckOptions
                 CARD_INFO -> TR.sentenceCase.cardInfo
-                ADD_NOTE -> getString(R.string.menu_add_note)
                 TAG -> getString(R.string.menu_edit_tags)
                 RESET_PROGRESS -> getString(R.string.card_editor_reset_card)
                 TOGGLE_AUTO_ADVANCE -> getString(R.string.toggle_auto_advance)
-                RECORD_VOICE -> getString(R.string.record_voice)
                 PLAY_MEDIA -> getString(R.string.replay_media)
                 USER_ACTION_1 -> getString(R.string.user_action_1)
                 USER_ACTION_2 -> getString(R.string.user_action_2)
@@ -303,7 +286,6 @@ enum class ViewerAction(
                 TOGGLE_FLAG_PURPLE,
                 SHOW_HINT,
                 SHOW_ALL_HINTS,
-                REPLAY_VOICE,
                 PAGE_UP,
                 PAGE_DOWN,
                 EXIT,

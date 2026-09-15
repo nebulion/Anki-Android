@@ -40,7 +40,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import anki.decks.deckTreeNode
 import com.ichi2.anki.AnkiActivity
-import com.ichi2.anki.CardTemplateEditor
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.OnContextAndLongClickListener.Companion.setOnContextAndLongClickListener

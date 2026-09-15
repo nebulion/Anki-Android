@@ -9,10 +9,6 @@
             android:id="@+id/nav_decks"
             android:icon="@drawable/ic_list_black" />
         <item
-            android:id="@+id/nav_browser"
-            android:icon="@drawable/ic_flashcard_black"
-            android:title="@string/card_browser"/>
-        <item
             android:id="@+id/nav_stats"
             android:icon="@drawable/ic_bar_chart_black"/>
     </group>

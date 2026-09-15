@@ -6,24 +6,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.annotation.CheckResult
-import com.ichi2.anki.CardBrowser
-import com.ichi2.anki.CardTemplateBrowserAppearanceEditor
-import com.ichi2.anki.CardTemplateBrowserAppearanceEditor.Companion.INTENT_ANSWER_FORMAT
-import com.ichi2.anki.CardTemplateBrowserAppearanceEditor.Companion.INTENT_QUESTION_FORMAT
-import com.ichi2.anki.CardTemplateEditor
 import com.ichi2.anki.DeckPicker
 import com.ichi2.anki.IntentHandler
 import com.ichi2.anki.IntentHandler.Companion.getReviewDeckIntent
-import com.ichi2.anki.IntentHandler2
-import com.ichi2.anki.NoteEditorActivity
-import com.ichi2.anki.NoteTypeFieldEditor
-import com.ichi2.anki.Reviewer
 import com.ichi2.anki.SingleFragmentActivity
 import com.ichi2.anki.StudyOptionsActivity
 import com.ichi2.anki.account.AccountActivity
-import com.ichi2.anki.instantnoteeditor.InstantNoteEditorActivity
-import com.ichi2.anki.multimedia.MultimediaActivity
-import com.ichi2.anki.notetype.ManageNotetypes
 import com.ichi2.anki.preferences.PreferencesActivity
 import com.ichi2.anki.previewer.CardViewerActivity
 import com.ichi2.anki.utils.ConfigAwareSingleFragmentActivity
@@ -46,34 +34,13 @@ object ActivityList {
                     1L,
                 )
             },
-            get(IntentHandler2::class.java),
             get(StudyOptionsActivity::class.java),
-            get(CardBrowser::class.java),
-            get(NoteTypeFieldEditor::class.java),
-            get(NoteEditorActivity::class.java),
-            // Likely has unhandled intents
-            get(Reviewer::class.java),
             get(PreferencesActivity::class.java),
-            get(CardTemplateEditor::class.java) { intentForCardTemplateEditor() },
-            get(CardTemplateBrowserAppearanceEditor::class.java) { intentForCardTemplateBrowserAppearanceEditor() },
-            get(ManageNotetypes::class.java),
             get(SingleFragmentActivity::class.java),
             get(ConfigAwareSingleFragmentActivity::class.java),
             get(CardViewerActivity::class.java),
-            get(InstantNoteEditorActivity::class.java),
-            get(MultimediaActivity::class.java),
             get(AccountActivity::class.java),
         )
-
-    private fun intentForCardTemplateBrowserAppearanceEditor(): Intent {
-        // bundle != null
-        return Intent().apply {
-            putExtra(INTENT_QUESTION_FORMAT, "{{Front}}")
-            putExtra(INTENT_ANSWER_FORMAT, "{{FrontSide}}\n{{Back}}")
-        }
-    }
-
-    private fun intentForCardTemplateEditor(): Intent = Intent().apply { putExtra("noteTypeId", 1L) }
 
     class ActivityLaunchParam(
         var activity: Class<out Activity>,

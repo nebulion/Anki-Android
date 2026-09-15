@@ -5,7 +5,6 @@ package com.ichi2.anki.model
 import android.os.Parcelable
 import androidx.annotation.VisibleForTesting
 import anki.search.BrowserColumns.Column
-import com.ichi2.anki.CardBrowser
 import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.R
 import com.ichi2.anki.browser.BrowserColumnKey

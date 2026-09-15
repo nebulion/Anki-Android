@@ -34,8 +34,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.R
-import com.ichi2.anki.common.destinations.BrowserDestination
-import com.ichi2.anki.common.destinations.navigate
 import com.ichi2.anki.databinding.FragmentFilteredDeckOptionsBinding
 import com.ichi2.anki.dialogs.DiscardChangesDialog
 import com.ichi2.anki.libanki.DeckId
@@ -159,7 +157,7 @@ class FilteredDeckOptionsFragment : Fragment(R.layout.fragment_filtered_deck_opt
                                 return@collect
                             }
                             if (state.browserQuery != null) {
-                                navigate(BrowserDestination.Search(query = state.browserQuery, allDecks = false))
+                                // the fork has no card browser to show the filtered deck's search in
                                 viewModel.clearSearchInBrowser()
                             }
                         }

@@ -8,21 +8,18 @@ import androidx.lifecycle.viewModelScope
 import anki.collection.OpChanges
 import anki.frontend.SetSchedulingStatesRequest
 import anki.scheduler.CardAnswer.Rating
-import com.ichi2.anki.AbstractFlashcardViewer
-import com.ichi2.anki.AbstractFlashcardViewer.Companion.RESULT_NO_MORE_CARDS
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.Flag
-import com.ichi2.anki.Reviewer
 import com.ichi2.anki.asyncIO
 import com.ichi2.anki.cardviewer.SingleCardSide
+import com.ichi2.anki.cardviewer.ViewerResult
+import com.ichi2.anki.cardviewer.ViewerResult.RESULT_NO_MORE_CARDS
 import com.ichi2.anki.common.annotations.NeedsTest
-import com.ichi2.anki.common.destinations.BrowserDestination
 import com.ichi2.anki.common.destinations.CardInfoDestination
 import com.ichi2.anki.common.destinations.CardInfoDestination.EntryPoint
 import com.ichi2.anki.common.destinations.DeckOptionsDestination
 import com.ichi2.anki.common.destinations.DeckOptionsEntry
-import com.ichi2.anki.common.destinations.NoteEditorDestination
 import com.ichi2.anki.common.destinations.StatisticsDestination
 import com.ichi2.anki.launchCatchingIO
 import com.ichi2.anki.libanki.Card
@@ -257,17 +254,6 @@ class ReviewerViewModel(
         mutationSignal.complete(Unit)
     }
 
-    private suspend fun emitEditNoteDestination() {
-        val cardId = currentCard.await().id
-        Timber.i("Opening 'edit note' for card %d", cardId)
-        navigateFlow.emit(NoteEditorDestination.EditNoteFromPreviewer(cardId))
-    }
-
-    private suspend fun emitAddNoteDestination() {
-        Timber.i("Launching 'add note'")
-        navigateFlow.emit(NoteEditorDestination.AddNoteFromReviewer())
-    }
-
     private suspend fun emitCardInfoDestination() {
         val cardId = currentCard.await().id
         val destination = CardInfoDestination(cardId, EntryPoint.CURRENT_CARD_STUDY)
@@ -330,14 +316,6 @@ class ReviewerViewModel(
         }
     }
 
-    private suspend fun emitBrowseDestination() {
-        val deckId = withCol { decks.getCurrentId() }
-        val cardId = currentCard.await().id
-        val destination = BrowserDestination.ScrollToCard(deckId, cardId)
-        Timber.i("Launching 'browse options' for deck %d", deckId)
-        navigateFlow.emit(destination)
-    }
-
     private suspend fun deleteNote() {
         val cardId = currentCard.await().id
         val noteCount =
@@ -396,9 +374,7 @@ class ReviewerViewModel(
         actionFeedbackFlow.emit(tryRedo())
     }
 
-    private suspend fun userAction(
-        @Reviewer.UserAction number: Int,
-    ) {
+    private suspend fun userAction(number: Int) {
         eval.emit("ankidroid.userAction($number);")
     }
 
@@ -688,28 +664,14 @@ class ReviewerViewModel(
         cardMediaPlayer.replayAll(side)
     }
 
-    private fun toggleWhiteboard() {
-        val newValue = !whiteboardEnabledFlow.value
-        whiteboardEnabledFlow.value = newValue
-        repository.isWhiteboardEnabled = newValue
-    }
-
-    private fun toggleRecordVoice() {
-        val newValue = !voiceRecorderEnabledFlow.value
-        voiceRecorderEnabledFlow.value = newValue
-        repository.isRecordVoiceEnabled = newValue
-    }
-
     fun executeAction(action: ViewerAction) {
         Timber.v("ReviewerViewModel::executeAction %s", action.name)
         launchCatchingIO {
             actionsMutex.withLock {
                 when (action) {
-                    ViewerAction.ADD_NOTE -> emitAddNoteDestination()
                     ViewerAction.CARD_INFO -> emitCardInfoDestination()
                     ViewerAction.PREVIOUS_CARD_INFO -> emitPreviousCardInfoDestination()
                     ViewerAction.DECK_OPTIONS -> emitDeckOptionsDestination()
-                    ViewerAction.EDIT -> emitEditNoteDestination()
                     ViewerAction.TAG -> editNoteTags()
                     ViewerAction.DELETE -> deleteNote()
                     ViewerAction.MARK -> toggleMark()
@@ -744,12 +706,9 @@ class ReviewerViewModel(
                     ViewerAction.ANSWER_EASY -> answerCardInternal(Rating.EASY)
                     ViewerAction.SHOW_HINT -> eval.emit("ankidroid.showHint()")
                     ViewerAction.SHOW_ALL_HINTS -> eval.emit("ankidroid.showAllHints()")
-                    ViewerAction.TOGGLE_WHITEBOARD -> toggleWhiteboard()
-                    ViewerAction.RECORD_VOICE -> toggleRecordVoice()
-                    ViewerAction.REPLAY_VOICE -> replayVoiceFlow.emit(Unit)
                     ViewerAction.PAGE_UP -> pageUpFlow.emit(Unit)
                     ViewerAction.PAGE_DOWN -> pageDownFlow.emit(Unit)
-                    ViewerAction.EXIT -> finishResultFlow.emit(AbstractFlashcardViewer.RESULT_DEFAULT)
+                    ViewerAction.EXIT -> finishResultFlow.emit(ViewerResult.RESULT_DEFAULT)
                     ViewerAction.USER_ACTION_1 -> userAction(1)
                     ViewerAction.USER_ACTION_2 -> userAction(2)
                     ViewerAction.USER_ACTION_3 -> userAction(3)
@@ -762,7 +721,6 @@ class ReviewerViewModel(
                     ViewerAction.SUSPEND_MENU -> suspendCard()
                     ViewerAction.BURY_MENU -> buryCard()
                     ViewerAction.STATISTICS -> navigateFlow.emit(StatisticsDestination)
-                    ViewerAction.BROWSE -> emitBrowseDestination()
                     ViewerAction.PLAY_MEDIA -> replayMedia()
                     ViewerAction.FLAG_MENU -> {}
                 }

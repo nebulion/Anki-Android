@@ -28,9 +28,6 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -43,7 +40,6 @@ import com.ichi2.anki.Flag
 import com.ichi2.anki.R
 import com.ichi2.anki.android.AnkiShakeDetector
 import com.ichi2.anki.cardviewer.Gesture
-import com.ichi2.anki.common.annotations.NeedsTest
 import com.ichi2.anki.common.destinations.DeckOptionsDestination
 import com.ichi2.anki.common.destinations.navigate
 import com.ichi2.anki.common.utils.android.isRobolectric
@@ -71,8 +67,6 @@ import com.ichi2.anki.settings.enums.ToolbarPosition
 import com.ichi2.anki.snackbar.BaseSnackbarBuilderProvider
 import com.ichi2.anki.snackbar.SnackbarBuilder
 import com.ichi2.anki.snackbar.showSnackbar
-import com.ichi2.anki.ui.windows.reviewer.audiorecord.CheckPronunciationFragment
-import com.ichi2.anki.ui.windows.reviewer.whiteboard.WhiteboardFragment
 import com.ichi2.anki.utils.CollectionPreferences
 import com.ichi2.anki.utils.ext.collectIn
 import com.ichi2.anki.utils.ext.collectLatestIn
@@ -93,7 +87,6 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import kotlin.math.max
 import kotlin.math.roundToInt
-import kotlin.reflect.jvm.jvmName
 
 class ReviewerFragment :
     CardViewerFragment(R.layout.fragment_reviewer),
@@ -108,7 +101,6 @@ class ReviewerFragment :
     override val webViewLayout: SafeWebViewLayout get() = binding.webViewLayout
     private lateinit var bindingMap: BindingMap<ReviewerBinding, ViewerAction>
     private var shakeDetector: AnkiShakeDetector? = null
-    private val whiteboardFragment get() = childFragmentManager.findFragmentByTag(WhiteboardFragment::class.jvmName) as? WhiteboardFragment
     private val isBigScreen: Boolean get() = resources.configuration.smallestScreenWidthDp >= 720
 
     override val baseSnackbarBuilder: SnackbarBuilder = {
@@ -170,9 +162,7 @@ class ReviewerFragment :
         setupAnswerTimer()
         setupMargins()
         setupResetProgress()
-        setupCheckPronunciation()
         setupActions()
-        setupWhiteboard()
         setupTimebox()
 
         viewModel.finishResultFlow.collectIn(lifecycleScope) { result ->
@@ -327,7 +317,6 @@ class ReviewerFragment :
         webViewLayout.settings.loadWithOverviewMode = true
     }
 
-    @NeedsTest("Whiteboard takes priority on key events")
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
         if (
             event.action != KeyEvent.ACTION_DOWN ||
@@ -335,7 +324,7 @@ class ReviewerFragment :
         ) {
             return false
         }
-        return whiteboardFragment?.dispatchKeyEvent(event) == true || bindingMap.onKeyDown(event)
+        return bindingMap.onKeyDown(event)
     }
 
     override fun onMenuItemClick(item: MenuItem): Boolean {
@@ -346,11 +335,8 @@ class ReviewerFragment :
         return true
     }
 
-    @NeedsTest("Whiteboard takes priority on shake events")
     override fun hearShake() {
-        if (whiteboardFragment?.onScreenShake() != true) {
-            bindingMap.onGesture(Gesture.SHAKE)
-        }
+        bindingMap.onGesture(Gesture.SHAKE)
     }
 
     private fun setupBindings() {
@@ -517,56 +503,6 @@ class ReviewerFragment :
         // TODO handle 'Reset progress' in the ViewModel instead of the activity, once
         //  a mechanism of showing a progress bar if the operation takes too long is implemented
         registerOnForgetHandler { listOf(viewModel.getCardId()) }
-    }
-
-    private fun setupCheckPronunciation() {
-        viewModel.voiceRecorderEnabledFlow.flowWithLifecycle(lifecycle).collectIn(lifecycleScope) { isEnabled ->
-            if (isEnabled && binding.checkPronunciationContainer.getFragment<CheckPronunciationFragment?>() == null) {
-                childFragmentManager.commit {
-                    add(binding.checkPronunciationContainer.id, CheckPronunciationFragment())
-                }
-            }
-            binding.checkPronunciationContainer.isVisible = isEnabled
-        }
-    }
-
-    private fun setupWhiteboard() {
-        childFragmentManager.registerFragmentLifecycleCallbacks(
-            object : FragmentManager.FragmentLifecycleCallbacks() {
-                override fun onFragmentViewCreated(
-                    fm: FragmentManager,
-                    f: Fragment,
-                    v: View,
-                    savedInstanceState: Bundle?,
-                ) {
-                    if (f !is WhiteboardFragment) return
-                    f.setOnScrollByListener { y ->
-                        webViewLayout.scrollVerticallyBy(y)
-                    }
-                }
-            },
-            false,
-        )
-
-        viewModel.whiteboardEnabledFlow.flowWithLifecycle(lifecycle).collectIn(lifecycleScope) { isEnabled ->
-            val existingFragment = whiteboardFragment
-            childFragmentManager.commit {
-                if (isEnabled) {
-                    if (existingFragment != null) {
-                        show(existingFragment)
-                    } else {
-                        val newFragment = WhiteboardFragment()
-                        newFragment.gestureFallbackListener = { gesture -> bindingMap.onGesture(gesture) }
-                        add(R.id.web_view_container, newFragment, WhiteboardFragment::class.jvmName)
-                    }
-                } else {
-                    existingFragment?.let { hide(it) }
-                }
-            }
-        }
-        viewModel.onCardUpdatedFlow.collectIn(lifecycleScope) {
-            whiteboardFragment?.resetCanvas()
-        }
     }
 
     private fun setupTimebox() {

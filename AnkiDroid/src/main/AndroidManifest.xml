@@ -163,81 +163,6 @@
                     android:pathPattern=".*\\.colpkg"
                     android:scheme="file"
                     />
-                <!-- tsv files -->
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.tsv"
-                    android:scheme="http"
-                    />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.tsv"
-                    android:scheme="https"
-                    />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.tsv"
-                    android:scheme="content"
-                    />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.tsv"
-                    android:scheme="file"
-                    />
-                <!-- csv files -->
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.csv"
-                    android:scheme="http"
-                    />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.csv"
-                    android:scheme="https"
-                    />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.csv"
-                    android:scheme="content"
-                    />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.csv"
-                    android:scheme="file"
-                    />
-                <!-- text files -->
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.txt"
-                    android:scheme="http"
-                    />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.txt"
-                    android:scheme="https"
-                    />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.txt"
-                    android:scheme="content"
-                    />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.txt"
-                    android:scheme="file"
-                    />
             </intent-filter>
             <!-- MIME type matcher for .apkg files coming from providers like gmail which hide the file extension -->
             <intent-filter>
@@ -250,27 +175,8 @@
                 <data android:mimeType="application/x-apkg"/>
                 <data android:mimeType="application/x-colpkg"/>
                 <data android:mimeType="application/octet-stream"/>
-                <data android:mimeType="text/tab-separated-values"/>
-                <data android:mimeType="text/comma-separated-values"/>
-                <data android:mimeType="text/csv"/>
-                <data android:mimeType="text/tsv"/>
-                <data android:mimeType="text/plain"/>
             </intent-filter>
 
-            <!-- Keep it separate as when sharing image AnkiDroid would be shown with Image Occlusion label -->
-            <intent-filter android:label="@string/image_occlusion">
-                <action android:name="android.intent.action.VIEW" />
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="image/jpg" />
-                <data android:mimeType="image/jpeg" />
-                <data android:mimeType="image/png" />
-                <data android:mimeType="image/ico" />
-                <data android:mimeType="image/webp" />
-                <data android:mimeType="image/tiff" />
-                <data android:mimeType="image/gif" />
-                <data android:mimeType="image/svg" />
-            </intent-filter>
 
             <!-- Tasker DO_SYNC intent -->
             <intent-filter>
@@ -292,74 +198,12 @@
             >
         </activity>
 
-        <!-- Context menu item name is the label, context is the system language -->
-        <!-- Note: This appears to require that the target label is variable -->
-        <activity-alias
-            android:name="com.ichi2.anki.CardBrowserContextMenuAction"
-            android:label="@string/card_browser_context_menu"
-            android:enabled="false"
-            android:targetActivity="com.ichi2.anki.CardBrowser"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.PROCESS_TEXT" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-        </activity-alias>
-        <activity
-            android:name="com.ichi2.anki.CardBrowser"
-            android:label="@string/card_browser"
-            android:theme="@style/Theme_Dark.Launcher"
-            android:exported="false"
-            android:parentActivityName=".DeckPicker"
-            />
-        <!-- `anki://x-callback-url/browser` deep link. -->
-        <activity-alias
-            android:name="com.ichi2.anki.CardBrowserDeepLink"
-            android:label="@string/card_browser"
-            android:targetActivity="com.ichi2.anki.IntentHandler"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="anki" android:host="x-callback-url" android:path="/browser"/>
-            </intent-filter>
-        </activity-alias>
-        <activity
-            android:name=".notetype.ManageNotetypes"
-            android:label="@string/model_browser_label"
-            android:exported="false"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            />
-
-        <activity
-            android:name=".NoteTypeFieldEditor"
-            android:label="@string/model_editor_label"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            />
-        <activity
-            android:name="com.ichi2.anki.Reviewer"
-            android:exported="true"
-            android:theme="@style/Theme_Dark.Launcher"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="adjustResize"
-            android:parentActivityName=".DeckPicker">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity
             android:name="com.ichi2.anki.account.AccountActivity"
             android:label="@string/menu_my_account"
             android:exported="false"
             android:configChanges="keyboardHidden|orientation|screenSize"
             />
-        <activity
-            android:name=".multimedia.MultimediaActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false" />
         <activity
             android:name="com.ichi2.anki.preferences.PreferencesActivity"
             android:exported="false"
@@ -370,49 +214,6 @@
             </intent-filter>
         </activity>
 
-        <activity-alias
-            android:name="com.ichi2.anki.AnkiCardContextMenuAction"
-            android:label="@string/context_menu_anki_card_label"
-            android:enabled="true"
-            android:targetActivity=".IntentHandler2"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.PROCESS_TEXT" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-        </activity-alias>
-        <activity
-            android:name="com.ichi2.anki.IntentHandler2"
-            android:label="@string/fact_adder_intent_title"
-            android:theme="@style/Theme_Dark.Launcher"
-            android:exported="true"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            >
-            <intent-filter>
-                <action android:name="org.openintents.action.CREATE_FLASHCARD" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-            <!-- Keep it separate as when sharing image AnkiDroid would be shown with Add Image label -->
-            <intent-filter android:label="@string/multimedia_editor_popup_image">
-                <action android:name="android.intent.action.SEND" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="image/jpg" />
-                <data android:mimeType="image/jpeg" />
-                <data android:mimeType="image/png" />
-                <data android:mimeType="image/ico" />
-                <data android:mimeType="image/webp" />
-                <data android:mimeType="image/tiff" />
-                <data android:mimeType="image/gif" />
-                <data android:mimeType="image/svg" />
-            </intent-filter>
-        </activity>
         <activity
             android:name="com.ichi2.anki.SingleFragmentActivity"
             android:exported="false"
@@ -423,28 +224,9 @@
             android:exported="false"
             />
         <activity
-            android:name="com.ichi2.anki.NoteEditorActivity"
-            android:exported="false"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="adjustResize"
-            />
-        <activity
             android:name="com.ichi2.anki.previewer.CardViewerActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize"
-            />
-        <activity
-            android:name="com.ichi2.anki.CardTemplateEditor"
-            android:label="@string/title_activity_template_editor"
-            android:exported="false"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-            >
-        </activity>
-        <activity
-            android:name=".CardTemplateBrowserAppearanceEditor"
-            android:exported="false"
-            android:configChanges="keyboardHidden|orientation|screenSize"
             />
         <service
             android:name="androidx.work.impl.foreground.SystemForegroundService"
@@ -534,26 +316,6 @@
          -->
         <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true" />
 
-        <!--
-        Transparent Single instance activity, and is cleared from recent tasks as we want to mimic
-        the behaviour of not opening the application and still be able to access the dialog.
-        Task affinity allows us to separate the activity allowing us to define that an activity belongs to a
-        different task, it ensures that the activity does not interfere with other tasks in our application.
-         -->
-        <activity
-            android:name="com.ichi2.anki.instantnoteeditor.InstantNoteEditorActivity"
-            android:exported="true"
-            android:label="@string/instant_card"
-            android:launchMode="singleInstance"
-            android:excludeFromRecents="true"
-            android:taskAffinity=""
-            android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-        </activity>
 
 
 

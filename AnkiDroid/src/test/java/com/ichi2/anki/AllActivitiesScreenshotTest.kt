@@ -13,9 +13,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.testing.junit.testparameterinjector.TestParameter
 import com.google.testing.junit.testparameterinjector.TestParameterValuesProvider
 import com.ichi2.anki.account.AccountActivity
-import com.ichi2.anki.instantnoteeditor.InstantNoteEditorActivity
-import com.ichi2.anki.multimedia.MultimediaActivity
-import com.ichi2.anki.notetype.ManageNotetypes
 import com.ichi2.anki.preferences.PreferencesActivity
 import com.ichi2.anki.previewer.CardViewerActivity
 import com.ichi2.anki.utils.ConfigAwareSingleFragmentActivity
@@ -48,12 +45,10 @@ class AllActivitiesScreenshotTest : ScreenshotTest() {
     override fun setUp() {
         // Same exclusions as ActivityStartupUnderBackupTest — onCreate fails standalone for these.
         notYetHandled(IntentHandler::class.java.simpleName, "Not working (or implemented) - inherits from Activity")
-        notYetHandled(IntentHandler2::class.java.simpleName, "Not working (or implemented) - inherits from Activity")
         notYetHandled(
             SingleFragmentActivity::class.java.simpleName,
             "Implemented, but the test fails because the activity throws if a specific intent extra isn't set",
         )
-        notYetHandled(InstantNoteEditorActivity::class.java.simpleName, "Single instance activity so should be used")
 
         // Fragment-host activities: need a 'fragmentName' intent extra to render anything.
         // TODO: split these into per-class screenshot tests that pass a real fragment.
@@ -106,24 +101,14 @@ class AllActivitiesScreenshotTest : ScreenshotTest() {
                 setOf(
                     // AccountActivityScreenshotTest
                     AccountActivity::class.java,
-                    // CardTemplateEditorScreenshotTest
-                    CardTemplateEditor::class.java,
                     // DeckPickerScreenshotTest
                     DeckPicker::class.java,
                     // StudyScreenScreenshotTest, PreviewerScreenshotTest and TemplatePreviewerScreenshotTest
                     CardViewerActivity::class.java,
-                    // ManageNotetypesScreenshotTest,
-                    ManageNotetypes::class.java,
-                    // MultimediaScreenshotTest
-                    MultimediaActivity::class.java,
                     // PreferencesScreenshotTest
                     PreferencesActivity::class.java,
-                    // ReviewerScreenshotTest
-                    Reviewer::class.java,
                     // StudyOptionsScreenshotTest
                     StudyOptionsActivity::class.java,
-                    // NoteEditorScreenshotTest
-                    NoteEditorActivity::class.java,
                 )
             return ActivityList
                 .allActivitiesAndIntents()

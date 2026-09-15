@@ -37,7 +37,7 @@ class IntentHandlerTest {
 
         assertThat(expected, equalTo(LaunchType.FILE_IMPORT))
 
-        intent = Intent(Intent.ACTION_SEND, "content://invalid".toUri())
+        intent = Intent(Intent.ACTION_SEND).putExtra(Intent.EXTRA_STREAM, "content://invalid".toUri())
         expected = getLaunchType(intent)
 
         assertThat(expected, equalTo(LaunchType.FILE_IMPORT))
@@ -62,17 +62,6 @@ class IntentHandlerTest {
     }
 
     @Test
-    fun browserDeepLinkReturnsOpenBrowser() {
-        // `anki://x-callback-url/browser` is routed through IntentHandler (via a manifest alias) so it
-        // passes the storage-decision gate before CardBrowser is opened.
-        val intent = Intent(Intent.ACTION_VIEW, "anki://x-callback-url/browser?search=dog".toUri())
-
-        val expected = getLaunchType(intent)
-
-        assertThat(expected, equalTo(LaunchType.OPEN_BROWSER))
-    }
-
-    @Test
     fun mainIntentStartsApp() {
         val intent = Intent(Intent.ACTION_MAIN)
 
@@ -82,80 +71,15 @@ class IntentHandlerTest {
     }
 
     @Test
-    fun imageOcclusionIntent() {
-        val mimeTypes = listOf("image/jpeg", "image/png")
-
-        for (mimeType in mimeTypes) {
-            var intent = Intent(Intent.ACTION_VIEW)
-            intent.setDataAndType("content://valid".toUri(), mimeType)
-            var expected = getLaunchType(intent)
-
-            assertThat(expected, equalTo(LaunchType.IMAGE_IMPORT))
-
-            intent = Intent(Intent.ACTION_SEND)
-            intent.putExtra(Intent.EXTRA_STREAM, "content://valid".toUri())
-            intent.type = mimeType
-            expected = getLaunchType(intent)
-
-            assertThat(expected, equalTo(LaunchType.IMAGE_IMPORT))
-        }
-    }
-
-    @Test
-    fun textImportIntentReturnsTextImport() {
-        testIntentType("content://valid", "text/tab-separated-values", LaunchType.TEXT_IMPORT)
-        testIntentType("content://valid", "text/comma-separated-values", LaunchType.TEXT_IMPORT)
-        testIntentType("content://valid", "text/csv", LaunchType.TEXT_IMPORT)
-        testIntentType("content://valid", "text/tsv", LaunchType.TEXT_IMPORT)
-
-        // Test for ACTION_SEND with file streams (should still be TEXT_IMPORT)
-        testIntentTypeWithStream("content://valid", "text/tab-separated-values", LaunchType.TEXT_IMPORT)
-        testIntentTypeWithStream("content://valid", "text/comma-separated-values", LaunchType.TEXT_IMPORT)
-        testIntentTypeWithStream("content://valid", "text/csv", LaunchType.TEXT_IMPORT)
-        testIntentTypeWithStream("content://valid", "text/tsv", LaunchType.TEXT_IMPORT)
-    }
-
-    @Test
-    fun sharedTextIntentStartsApp() {
-        // Test that sharing plain text content (not files) opens the note editor
-        // instead of attempting CSV import
+    fun `shared plain text starts the app`() {
+        // the MMD fork has no note editor: shared text without a file does not import or add a note
         val intent =
             Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, "Some shared text content")
             }
 
-        val expected = getLaunchType(intent)
-
-        assertThat(expected, equalTo(LaunchType.SHARED_TEXT))
-    }
-
-    @Test
-    fun sharePlainTextDoesNotTriggerCsvImport() {
-        val intent =
-            Intent(Intent.ACTION_SEND).apply {
-                type = "text/plain"
-                putExtra(Intent.EXTRA_TEXT, "This is some shared text that should create a note")
-                // No EXTRA_STREAM means this is shared text content, not a file
-            }
-
-        val launchType = getLaunchType(intent)
-
-        // Should NOT be TEXT_IMPORT (which would trigger CSV import and fail)
-        // Should be SHARED_TEXT (which launches note editor directly)
-        assertThat(launchType, equalTo(LaunchType.SHARED_TEXT))
-    }
-
-    private fun testIntentType(
-        data: String,
-        type: String,
-        expected: LaunchType,
-        action: String = Intent.ACTION_VIEW,
-    ) {
-        val intent = Intent(action)
-        intent.setDataAndType(data.toUri(), type)
-        val actual = getLaunchType(intent)
-        assertThat(actual, equalTo(expected))
+        assertThat(getLaunchType(intent), equalTo(LaunchType.DEFAULT_START_APP_IF_NEW))
     }
 
     @Test
@@ -167,19 +91,5 @@ class IntentHandlerTest {
         val expected = getLaunchType(intent)
 
         assertThat(expected, equalTo(LaunchType.DEFAULT_START_APP_IF_NEW))
-    }
-
-    private fun testIntentTypeWithStream(
-        data: String,
-        type: String,
-        expected: LaunchType,
-    ) {
-        val intent =
-            Intent(Intent.ACTION_SEND).apply {
-                putExtra(Intent.EXTRA_STREAM, data.toUri())
-                this.type = type
-            }
-        val actual = getLaunchType(intent)
-        assertThat(actual, equalTo(expected))
     }
 }

@@ -28,7 +28,6 @@ import com.ichi2.anki.compat.CompatHelper
 import com.ichi2.anki.dialogs.DialogHandler
 import com.ichi2.anki.dialogs.DialogHandlerMessage
 import com.ichi2.anki.dialogs.ImportDialog
-import com.ichi2.anki.onSelectedCsvForImport
 import com.ichi2.anki.servicelayer.DebugInfoService
 import com.ichi2.anki.showImportDialog
 import com.ichi2.anki.ui.internationalization.sentenceCase
@@ -222,8 +221,8 @@ object ImportUtils {
                 }
             }
             if (isValidTextOrDataFile(context, importPathUri)) {
-                (context as Activity).onSelectedCsvForImport(intent!!)
-                return ImportResult.Success
+                // CSV/TSV import is not available in the MMD fork
+                return ImportResult.Failure(context.resources.getString(R.string.import_error_not_apkg_extension, filename))
             } else if (!isValidPackageName(filename)) {
                 return if (isAnkiDatabase(filename)) {
                     // .anki2 files aren't supported by Anki Desktop, we should eventually support them, because we can

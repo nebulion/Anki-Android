@@ -299,7 +299,6 @@ object ReadText {
                     if (availableLocales().isNotEmpty()) {
                         // notify the reviewer that TTS has been initialized
                         Timber.d("TTS initialized and available languages found")
-                        (context as AbstractFlashcardViewer).ttsInitialized()
                     } else {
                         ankiActivityContext?.showSnackbar(R.string.no_tts_available_message)
                         Timber.w("TTS initialized but no available languages found")

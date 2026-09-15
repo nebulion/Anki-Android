@@ -11,7 +11,6 @@ import android.graphics.Insets
 import android.os.Build
 import android.os.Bundle
 import android.text.SpannableStringBuilder
-import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.util.DisplayMetrics
@@ -29,13 +28,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import anki.card_rendering.EmptyCardsReport
-import com.ichi2.anki.CardBrowser
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.DeckPicker
 import com.ichi2.anki.R
 import com.ichi2.anki.analytics.AnalyticsDialogFragment
-import com.ichi2.anki.common.destinations.BrowserDestination
-import com.ichi2.anki.common.destinations.navigate
 import com.ichi2.anki.databinding.DialogEmptyCardsBinding
 import com.ichi2.anki.dialogs.EmptyCardsUiState.EmptyCardsSearchFailure
 import com.ichi2.anki.dialogs.EmptyCardsUiState.EmptyCardsSearchResult
@@ -162,13 +158,6 @@ class EmptyCardsDialogFragment : AnalyticsDialogFragment() {
         val spannableReport =
             SpannableStringBuilder(HtmlCompat.fromHtml(report, HtmlCompat.FROM_HTML_MODE_LEGACY))
         AnkiNidTag.parseFromReport(spannableReport).forEach { tag ->
-            // make nid clickable
-            spannableReport.setSpan(
-                BrowserSearchByNidSpan(requireActivity(), tag.nid),
-                tag.matchedNid.range.first,
-                tag.matchedNid.range.last + 1,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-            )
             // remove suffix
             spannableReport.delete(tag.matchedSuffix)
             // remove prefix
@@ -225,21 +214,6 @@ class EmptyCardsDialogFragment : AnalyticsDialogFragment() {
                     AnkiNidTag(matchedPrefix, matchedNid, nid, matchedSuffix)
                 }
             }
-        }
-    }
-
-    /**
-     * A specialized [ClickableSpan] that on click will open the [CardBrowser] and initiate a
-     * search with the passed [nid].
-     *
-     * @see CardBrowser
-     */
-    private class BrowserSearchByNidSpan(
-        val activity: Activity,
-        val nid: NoteId,
-    ) : ClickableSpan() {
-        override fun onClick(widget: View) {
-            with(activity) { navigate(BrowserDestination.Search(query = "nid:$nid", allDecks = true)) }
         }
     }
 

@@ -4,7 +4,6 @@ package com.ichi2.anki.browser
 
 import androidx.annotation.StringRes
 import anki.search.BrowserColumns
-import com.ichi2.anki.CardBrowser
 import com.ichi2.anki.R
 import com.ichi2.anki.model.CardsOrNotes
 import com.ichi2.anki.model.CardsOrNotes.CARDS

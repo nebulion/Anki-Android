@@ -38,8 +38,6 @@ import com.ichi2.anki.common.utils.android.SdCard
 import com.ichi2.anki.common.utils.android.showThemedToast
 import com.ichi2.anki.common.utils.annotation.KotlinCleanup
 import com.ichi2.anki.compat.CompatHelper
-import com.ichi2.anki.contextmenu.AnkiCardContextMenu
-import com.ichi2.anki.contextmenu.CardBrowserContextMenu
 import com.ichi2.anki.exception.StorageAccessException
 import com.ichi2.anki.exception.SystemStorageException
 import com.ichi2.anki.logging.FragmentLifecycleLogger
@@ -153,8 +151,6 @@ open class AnkiDroidApp : Application() {
 
         setWebContentsDebuggingEnabled(Prefs.isWebDebugEnabled)
 
-        setupContextMenus()
-
         setup("makeBackendUsable") { makeBackendUsable(this) }
         setupNotifications()
         setupAppLifecycleObserver()
@@ -164,8 +160,6 @@ open class AnkiDroidApp : Application() {
             return
         }
 
-        // Forget the last deck that was used in the CardBrowser
-        CardBrowser.clearLastDeckId()
         val anki = AnkiContext.apply { setupAnkiBackend() }
         with(anki) { initializeAnkiDroidDirectory() }
         with(anki) { setupDayRollover() }
@@ -276,26 +270,6 @@ open class AnkiDroidApp : Application() {
      *
      * @see Intent.ACTION_PROCESS_TEXT
      */
-    private fun setupContextMenus() =
-        setup("setupContextMenus") {
-            val preferences = this.sharedPrefs()
-
-            // setup 'Card Browser'
-            CardBrowserContextMenu.ensureConsistentStateWithPreferenceStatus(
-                this,
-                preferences.getBoolean(
-                    getString(R.string.card_browser_external_context_menu_key),
-                    false,
-                ),
-            )
-
-            // Setup 'Anki Card'
-            AnkiCardContextMenu.ensureConsistentStateWithPreferenceStatus(
-                this,
-                preferences.getBoolean(getString(R.string.anki_card_external_context_menu_key), true),
-            )
-        }
-
     private fun setupNotifications() =
         setup("setupNotifications") {
             setupNotificationChannels(applicationContext)

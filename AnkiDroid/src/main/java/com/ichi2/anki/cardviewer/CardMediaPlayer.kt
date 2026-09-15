@@ -6,7 +6,6 @@ import android.media.MediaPlayer
 import android.net.Uri
 import androidx.annotation.CheckResult
 import androidx.annotation.VisibleForTesting
-import com.ichi2.anki.AbstractFlashcardViewer.Companion.getMediaBaseUrl
 import com.ichi2.anki.AndroidTtsError
 import com.ichi2.anki.AndroidTtsPlayer
 import com.ichi2.anki.CollectionManager.withCol

@@ -30,13 +30,9 @@ class ManifestThemeTest : RobolectricTest() {
         mapOf(
             // launcher splash background; replaced by Themes.setTheme (`hadLauncherSplash`)
             "com.ichi2.anki.DeckPicker" to R.style.Theme_Dark_Launcher,
-            "com.ichi2.anki.CardBrowser" to R.style.Theme_Dark_Launcher,
-            "com.ichi2.anki.Reviewer" to R.style.Theme_Dark_Launcher,
-            "com.ichi2.anki.IntentHandler2" to R.style.Theme_Dark_Launcher,
             // invisible trampoline: forwards intents without showing UI
             "com.ichi2.anki.IntentHandler" to android.R.style.Theme_Translucent_NoTitleBar,
             // transparent window: the editor is displayed as a dialog over the caller
-            "com.ichi2.anki.instantnoteeditor.InstantNoteEditorActivity" to R.style.Theme_AppCompat_Transparent_NoActionBar,
         )
 
     @Test

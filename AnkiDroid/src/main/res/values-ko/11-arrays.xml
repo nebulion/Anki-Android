@@ -42,10 +42,6 @@
     <string name="gesture_page_up" maxLength="41">페이지 위로</string>
     <string name="gesture_page_down" maxLength="41">페이지 아래로</string>
     <string name="gesture_toggle_whiteboard" maxLength="41">화이트보드 켜기 / 끄기</string>
-    <string name="gesture_toggle_eraser" maxLength="41">지우개 토글</string>
     <string name="gesture_show_hint" maxLength="41">힌트 보기</string>
     <string name="gesture_show_all_hints" maxLength="41">모든 힌트 보기</string>
-    <string name="record_voice" maxLength="41">녹음하기</string>
-    <string name="replay_voice" maxLength="41">녹음 다시 듣기</string>
-    <string name="save_voice" maxLength="41">녹음 저장하기</string>
 </resources>

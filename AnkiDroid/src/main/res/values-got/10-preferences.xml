@@ -39,7 +39,6 @@
     <string name="pref_cat_reviewing" maxLength="41">𐌰𐍆𐍄𐍂𐌰𐍃𐌹𐌿𐌽𐍃</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">𐌲𐌰𐌻𐌴𐌹𐌺</string>
     <string name="pref_cat_scheduling" maxLength="41">𐌲𐌰𐍂𐌴𐌷𐍃𐌽𐍃</string>
-    <string name="pref_cat_whiteboard" maxLength="41">𐍈𐌴𐌹𐍄𐌰𐌱𐌰𐌿𐍂𐌳</string>
     <string name="pref_cat_gestures" maxLength="41">𐍄𐌰𐌹𐌺𐌽𐌴𐌹𐍃</string>
     <string name="pref_cat_controls" maxLength="41">𐍃𐍄𐌹𐌿𐍂𐌹</string>
     <string name="pref_cat_advanced" maxLength="41">𐍆𐍂𐌰𐌼𐌲𐌰𐌷𐍄</string>
@@ -271,26 +270,10 @@
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">𐌰𐌹𐍂𐌶𐌴𐌹</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">𐌽𐌹𐌼𐌰𐌳𐌰&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">𐌷𐌿𐌶𐌳 𐌽𐌹𐍃𐍄</string>
-    <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">𐌰𐌽𐍃𐌰𐌽𐍃 𐍃𐍅𐍃𐍄𐌴𐌼𐍃 𐌰𐍆𐍆𐌹𐌻𐌷𐌰𐌽</string>
-    <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">𐌽𐌹</string>
-    <string name="hide_system_bars_status_bar" comment="Setting option to hide the system status bar (the top one with clock, battery status, etc)">𐌰𐌽𐍃 𐍃𐍄𐌰𐍃𐍃𐌰𐌹𐍃</string>
-    <string name="hide_system_bars_navigation_bar" comment="Setting option to hide the system navigation bar (the bottom one that can go back, to home, etc)">𐌰𐌽𐍃 𐌽𐌰𐌱𐌹𐌲𐌰𐍄𐍃𐌾𐍉𐌽𐍃</string>
-    <string name="hide_system_bars_all_bars" comment="Setting option to hide all the system bars">𐌰𐌻𐌻</string>
-    <string name="ignore_display_cutout" maxLength="41">Ignore display cutout</string>
     <string name="show_answer_buttons" maxLength="41">𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌰𐌹𐍃 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="hide_hard_and_easy" maxLength="41">\'𐌿𐌽𐌰𐌶𐌴𐍄\' 𐌾𐌰𐌷 \'𐌰𐌶𐌴𐍄\' 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌰𐍆𐍆𐌹𐌻𐌷𐌰𐌽</string>
-    <string name="reviewer_frame_style" maxLength="41">𐌷𐌹𐍅𐌹 𐌷𐍂𐌰𐌼𐍉𐍃</string>
-    <string name="reviewer_frame_style_card" maxLength="41" comment="Style name of the \'Card\' card frame of the Study Screen">𐌺𐌰𐍂𐍄𐌰</string>
-    <string name="reviewer_frame_style_box" maxLength="41" comment="Style name of the \'Box\' card frame of the Study Screen">𐌰𐍂𐌺𐌰</string>
-    <string name="reviewer_toolbar_top" maxLength="41" comment="Setting to put the toolbar on the top of the study screen">𐌸𐌰𐍄𐌰 𐌰𐌿𐌷𐌿𐌼𐌹𐍃𐍄𐍉</string>
-    <string name="reviewer_toolbar_bottom" maxLength="41" comment="Setting to put the toolbar on the bottom of the study screen">𐌸𐌰𐍄𐌰 𐌷𐌽𐌰𐌹𐍅𐌹𐍃𐍄𐍉</string>
-    <string name="reviewer_toolbar_none" maxLength="41" comment="Setting to remove the toolbar from the study screen">𐌽𐌹</string>
     <string name="toolbar" maxLength="41">𐍄𐍉𐌻𐌰-𐌰𐌽𐍃</string>
-    <string name="toolbar_actions" maxLength="41">𐍄𐍉𐌾𐌰 𐍄𐍉𐌻𐌰-𐌰𐌽𐍃𐌹𐍃</string>
-    <string name="toolbar_position" maxLength="28">𐌻𐍉𐌲 𐍄𐍉𐌻𐌰-𐌰𐌽𐍃𐌹𐍃</string>
     <string name="new_study_screen" maxLength="41">𐍃𐌺𐌰𐌹𐍂𐌼𐍃 𐌽𐌹𐌿𐌾𐌹𐍃 𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐌰𐌹𐍃</string>
-    <string name="new_study_screen_summ"><![CDATA[Improved study screen that will succeed the current one. Some features of the old screen have been changed or removed. Please report any <a href="%1$s">feedback</a> or <a href="%2$s">bugs</a>.]]></string>
-    <string name="show_answer_feedback" maxLength="41">𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌰𐌹𐍃 𐌷𐌹𐌻𐍀𐌰 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="screen" maxLength="41">𐍃𐌺𐌰𐌹𐍂𐌼𐍃</string>
     <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Only answer</string>
     <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Flip and answer</string>

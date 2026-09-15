@@ -34,7 +34,6 @@
     <string name="no_tags">아직 추가된 태그가 없습니다.</string>
     <string name="updated_version">버전 %s로 업데이트됨</string>
     <!-- Reviewer.kt (Study Screen) -->
-    <string name="clear_whiteboard" maxLength="28">화이트 보드 지우기</string>
     <string name="replay_media" maxLength="28">미디어 다시 재생</string>
     <string name="webview_crash_unknown">알 수 없는 오류</string>
     <string name="filter_by_flags" maxLength="41">플래그</string>
@@ -117,7 +116,6 @@
     <!-- Whiteboard eraser mode toggle message in Reviewer -->
     <string comment="Progress amount e.g. \'28 MB/141 MB\'. %1$s is the current amount, %2$s is the max." name="progress_amount_bytes">%1$s/%2$s</string>
     <!-- Whiteboard save image message in the Study Screen -->
-    <string name="title_whiteboard_editor" maxLength="28">화이트보드 편집기</string>
     <string name="user_is_a_robot">자동 테스트를 감지했습니다. 만약 당신이 로봇이 아니라면 AnkiDroid 지원부에 연락하세요.</string>
     <!-- JS api -->
     <!-- About AnkiDroid screen -->

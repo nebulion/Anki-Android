@@ -42,10 +42,6 @@
     <string name="gesture_page_up" maxLength="41">مر صفحة إلى الأعلى</string>
     <string name="gesture_page_down" maxLength="41">مر صفحة إلى الأسفل</string>
     <string name="gesture_toggle_whiteboard" maxLength="41">تفعيل أو تعطيل السَّبُّورَة</string>
-    <string name="gesture_toggle_eraser" maxLength="41">تفعيل أو تعطيل الممحاة</string>
     <string name="gesture_show_hint" maxLength="41">أظهر التلميح</string>
     <string name="gesture_show_all_hints" maxLength="41">أظهر كل التلميحات</string>
-    <string name="record_voice" maxLength="41">سَجل الصوت</string>
-    <string name="replay_voice" maxLength="41">أعد تشغيل الصوت</string>
-    <string name="save_voice" maxLength="41">إحفظ التسجيل</string>
 </resources>

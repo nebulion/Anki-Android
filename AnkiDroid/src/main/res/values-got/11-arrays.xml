@@ -42,10 +42,6 @@
     <string name="gesture_page_up" maxLength="41">𐌻𐌰𐌿𐍆𐍃 𐌹𐌿𐍀</string>
     <string name="gesture_page_down" maxLength="41">𐌻𐌰𐌿𐍆𐍃 𐌳𐌰𐌻𐌰𐌸</string>
     <string name="gesture_toggle_whiteboard" maxLength="41">𐍈𐌴𐌹𐍄𐌰𐌱𐌰𐌿𐍂𐌳 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
-    <string name="gesture_toggle_eraser" maxLength="41">𐌹𐌽𐌼𐌰𐌹𐌳𐌴𐌹𐌽 𐌰𐍆𐌷𐍂𐌰𐌹𐌽𐌾𐌰𐌽</string>
     <string name="gesture_show_hint" maxLength="41">𐌷𐌹𐌻𐍀𐌰𐍅𐌰𐌿𐍂𐌳 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="gesture_show_all_hints" maxLength="41">𐌰𐌻𐌻𐌰 𐌷𐌹𐌻𐍀𐌰𐍅𐌰𐌿𐍂𐌳𐌰 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="record_voice" maxLength="41">𐍃𐍄𐌹𐌱𐌽𐌰 𐌲𐌰𐌼𐌰𐌿𐌳𐌾𐌰𐌽</string>
-    <string name="replay_voice" maxLength="41">𐍃𐍄𐌹𐌱𐌽𐌰 𐌰𐍆𐍄𐍂𐌰𐍃𐍀𐌹𐌻𐍉𐌽</string>
-    <string name="save_voice" maxLength="41">𐌲𐌰𐌼𐌰𐌿𐌳𐌴𐌹𐌽 𐌲𐌰𐍆𐌰𐍃𐍄𐌰𐌽</string>
 </resources>

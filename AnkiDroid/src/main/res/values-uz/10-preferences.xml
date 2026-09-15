@@ -39,7 +39,6 @@
     <string name="pref_cat_reviewing" maxLength="41">Takrorlash</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Sinxronizatsiya</string>
     <string name="pref_cat_scheduling" maxLength="41">Rejalashtirish</string>
-    <string name="pref_cat_whiteboard" maxLength="41">Yozuv taxtasi</string>
     <string name="pref_cat_gestures" maxLength="41">Qoʻl ishoralari</string>
     <string name="pref_cat_controls" maxLength="41">Boshqaruvlar</string>
     <string name="pref_cat_advanced" maxLength="41">Kengaytirilgan</string>
@@ -266,26 +265,10 @@
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Xatolik yuz berdi</string>
     <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Maʼlumotlar olinmoqda&#8230;</string>
     <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Kolleksiya mavjud emas</string>
-    <string name="hide_system_bars" maxLength="41" comment="Title of a setting that allows to hide the system bars">Tizim panellarini yashirish</string>
-    <string name="hide_system_bars_none" comment="Setting option to not hide any of the system bars">Hech qaysi</string>
-    <string name="hide_system_bars_status_bar" comment="Setting option to hide the system status bar (the top one with clock, battery status, etc)">Holat qatori</string>
-    <string name="hide_system_bars_navigation_bar" comment="Setting option to hide the system navigation bar (the bottom one that can go back, to home, etc)">Navigatsiya paneli</string>
-    <string name="hide_system_bars_all_bars" comment="Setting option to hide all the system bars">Barchasi</string>
-    <string name="ignore_display_cutout" maxLength="41">Displey qirqimiga eʼtibor berilmasin</string>
     <string name="show_answer_buttons" maxLength="41">Javob tugmalarini koʻrsatish</string>
     <string name="hide_hard_and_easy" maxLength="41">‘Qiyin’ va ‘Oson’ tugmalarini yashirish</string>
-    <string name="reviewer_frame_style" maxLength="41">Freym stili</string>
-    <string name="reviewer_frame_style_card" maxLength="41" comment="Style name of the \'Card\' card frame of the Study Screen">Karta</string>
-    <string name="reviewer_frame_style_box" maxLength="41" comment="Style name of the \'Box\' card frame of the Study Screen">Quti</string>
-    <string name="reviewer_toolbar_top" maxLength="41" comment="Setting to put the toolbar on the top of the study screen">Yuqorida</string>
-    <string name="reviewer_toolbar_bottom" maxLength="41" comment="Setting to put the toolbar on the bottom of the study screen">Pastda</string>
-    <string name="reviewer_toolbar_none" maxLength="41" comment="Setting to remove the toolbar from the study screen">Hech qaysi</string>
     <string name="toolbar" maxLength="41">Asboblar paneli</string>
-    <string name="toolbar_actions" maxLength="41">Asboblar paneli amallari</string>
-    <string name="toolbar_position" maxLength="28">Asboblar paneli joylashuvi</string>
     <string name="new_study_screen" maxLength="41">Yangi oʻrganish ekrani</string>
-    <string name="new_study_screen_summ"><![CDATA[Oʻrganish ekrani takomillashtirildi va joriy ekranni almashtiradi. Eski ekranning baʼzi xususiyatlari oʻzgartirildi yoki oʻchirildi. Iltimos, <a href="%1$s">fikr-mulohazalaringiz</a> yoki <a href="%2$s">baglar</a> haqida xabar bering.]]></string>
-    <string name="show_answer_feedback" maxLength="41">Javob firk-mulohazalarini koʻrsatish</string>
     <string name="screen" maxLength="41">Ekran</string>
     <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Faqat javob</string>
     <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Oʻgirish va javob berish</string>

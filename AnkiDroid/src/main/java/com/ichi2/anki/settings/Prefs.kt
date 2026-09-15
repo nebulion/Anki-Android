@@ -226,7 +226,7 @@ open class PrefsRepository(
     // ****************************************** E Ink ****************************************** //
 
     /** Flash the window black every [einkRefreshInterval] answers to clear ghosting. See `EinkRefresh`. */
-    val isEinkRefreshEnabled by booleanPref(R.string.eink_refresh_enabled_key, defaultValue = false)
+    val isEinkRefreshEnabled by booleanPref(R.string.eink_refresh_enabled_key, defaultValue = true)
     val einkRefreshInterval by intPref(R.string.eink_refresh_interval_key, defaultValue = 12)
 
     // ****************************************** Sync ****************************************** //

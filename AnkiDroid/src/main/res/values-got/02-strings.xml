@@ -34,7 +34,6 @@
     <string name="no_tags">𐌽𐌹 𐌽𐌰𐌿𐌷 𐌱𐌹𐌰𐌹𐌰𐌿𐌺𐍄 𐍃𐍉𐌺𐌽𐌹𐍅𐌰𐌿𐍂𐌳</string>
     <string name="updated_version">𐌰𐌽𐌰𐌽𐌹𐌿𐌾𐌹𐌸 𐌳𐌿 𐌿𐍃𐌼𐌴𐍂𐌴𐌹𐌽𐌰𐌹 %s</string>
     <!-- Reviewer.kt (Study Screen) -->
-    <string name="clear_whiteboard" maxLength="28">𐍈𐌴𐌹𐍄𐌰𐌱𐌰𐌿𐍂𐌳 𐌰𐍆𐌷𐍂𐌰𐌹𐌽𐌾𐌰𐌽</string>
     <string name="replay_media" maxLength="28">𐌰𐍆𐍄𐍂𐌰𐍃𐍀𐌹𐌻𐍉𐌽𐍃 𐌼𐌰𐌹𐌳𐌾𐌰</string>
     <string name="webview_crash_unknown">𐌿𐌽𐌺𐌿𐌽𐌸𐌰 𐌰𐌹𐍂𐌶𐌴𐌹</string>
     <string name="filter_by_flags" maxLength="41">𐍆𐌰𐌽𐌰𐌽𐍃</string>
@@ -118,7 +117,6 @@
     <!-- Whiteboard eraser mode toggle message in Reviewer -->
     <string comment="Progress amount e.g. \'28 MB/141 MB\'. %1$s is the current amount, %2$s is the max." name="progress_amount_bytes">%1$s/%2$s</string>
     <!-- Whiteboard save image message in the Study Screen -->
-    <string name="title_whiteboard_editor" maxLength="28">𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐍉 𐍈𐌴𐌹𐍄𐌰𐌱𐌰𐌿𐍂𐌳𐌹𐍃</string>
     <string name="user_is_a_robot">Detected automated test. If you are a human, contact AnkiDroid support</string>
     <!-- JS api -->
     <!-- About AnkiDroid screen -->

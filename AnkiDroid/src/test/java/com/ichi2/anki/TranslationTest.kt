@@ -182,7 +182,6 @@ class TranslationTest : RobolectricTest() {
                 "Again", // R.string.ease_button_again
                 // TR.browsingAgainToday()
                 // TR.studyingAgain()
-                "All", // R.string.hide_system_bars_all_bars | TR.statisticsTrueRetentionAll()
                 "Always", // R.string.sync_media_always
                 // TR.preferencesAlways()
                 // TR.importingUpdateAlways()
@@ -311,8 +310,6 @@ class TranslationTest : RobolectricTest() {
                 //                       // TR.mediaCheckCheckMediaAction()
                 //                       // TR.mediaCheckWindowTitle()
                 "Answer buttons", // R.string.answer_buttons | TR.statisticsAnswerButtonsTitle()
-                "Follow system", // R.string.theme_follow_system | TR.preferencesThemeFollowSystem()
-                "Select all", // R.string.card_browser_select_all | TR.editingImageOcclusionSelectAll()
                 "Show answer", // R.string.show_answer
                 // TR.studyingShowAnswer()
                 // TR.deckConfigQuestionActionShowAnswer()
@@ -331,7 +328,6 @@ class TranslationTest : RobolectricTest() {
         private val ANDROID_MANIFEST_STRINGS =
             setOf(
                 "Add note", // R.string.menu_add_note | TR.actionsAddNote()
-                "Image Occlusion", // R.string.image_occlusion | TR.notetypesImageOcclusionName()
                 "Manage note types", // R.string.model_browser_label
                 // TR.browsingManageNoteTypes()
                 // TR.qtMiscManageNoteTypes()

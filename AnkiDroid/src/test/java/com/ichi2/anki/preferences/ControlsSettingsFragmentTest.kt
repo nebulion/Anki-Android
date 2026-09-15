@@ -18,6 +18,7 @@ package com.ichi2.anki.preferences
 import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.ichi2.anki.RobolectricTest
+import com.ichi2.anki.preferences.reviewer.ViewerAction
 import com.ichi2.testutils.HamcrestUtils
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -31,9 +32,31 @@ class ControlsSettingsFragmentTest : RobolectricTest() {
                 PreferenceTestUtils.getKeysFromXml(targetContext, screen.xmlRes, excludeCategories = true).toMutableList().apply {
                     remove("binding_STATISTICS")
                 }
-            val enumKeys = screen.getActions().map { it.preferenceKey }
+            val enumKeys = screen.getActions().map { it.preferenceKey } - menuOnlyActionKeys
 
             assertThat(xmlKeys, HamcrestUtils.containsInAnyOrder(enumKeys))
         }
+    }
+
+    companion object {
+        /**
+         * Study-screen menu entries that have no key binding in the controls screen: the submenu
+         * parents, the flag setters (bindings toggle flags instead), deck options and reset progress.
+         */
+        private val menuOnlyActionKeys =
+            listOf(
+                ViewerAction.FLAG_MENU,
+                ViewerAction.BURY_MENU,
+                ViewerAction.SUSPEND_MENU,
+                ViewerAction.FLAG_RED,
+                ViewerAction.FLAG_ORANGE,
+                ViewerAction.FLAG_GREEN,
+                ViewerAction.FLAG_BLUE,
+                ViewerAction.FLAG_PINK,
+                ViewerAction.FLAG_TURQUOISE,
+                ViewerAction.FLAG_PURPLE,
+                ViewerAction.DECK_OPTIONS,
+                ViewerAction.RESET_PROGRESS,
+            ).map { it.preferenceKey }
     }
 }

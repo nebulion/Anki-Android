@@ -42,7 +42,6 @@
     <string name="show_progress_preference">showProgress</string>
     <string name="show_audio_play_buttons_key">showAudioPlayButtons</string>
     <string name="pref_card_browser_font_scale_key">relativeCardBrowserFontSize</string>
-    <string name="show_answer_feedback_key">showAnswerFeedback</string>
     <string name="pref_review_category_key">reviewCategory</string>
     <!-- App bar buttons -->
     <!-- Controls -->
@@ -59,7 +58,6 @@
     <string name="answer_easy_command_key">binding_ANSWER_EASY</string>
     <string name="undo_command_key">binding_UNDO</string>
     <string name="redo_command_key">binding_REDO</string>
-    <string name="edit_command_key">binding_EDIT</string>
     <string name="mark_command_key">binding_MARK</string>
     <string name="bury_card_command_key">binding_BURY_CARD</string>
     <string name="suspend_card_command_key">binding_SUSPEND_CARD</string>
@@ -78,13 +76,10 @@
     <string name="remove_flag_command_key">binding_UNSET_FLAG</string>
     <string name="page_up_command_key">binding_PAGE_UP</string>
     <string name="page_down_command_key">binding_PAGE_DOWN</string>
-    <string name="browse_command_key">binding_BROWSE</string>
     <string name="statistics_command_key">binding_STATISTICS</string>
     <string name="tag_command_key">binding_TAG</string>
     <string name="card_info_command_key">binding_CARD_INFO</string>
     <string name="previous_card_info_command_key">binding_PREVIOUS_CARD_INFO</string>
-    <string name="record_voice_command_key">binding_RECORD_VOICE</string>
-    <string name="replay_voice_command_key">binding_REPLAY_VOICE</string>
     <string name="save_voice_command_key">binding_SAVE_VOICE</string>
     <string name="toggle_whiteboard_command_key">binding_TOGGLE_WHITEBOARD</string>
     <string name="pref_key_whiteboard_toggle_eraser">binding_whiteboard_TOGGLE_ERASER</string>
@@ -96,7 +91,6 @@
     <string name="change_whiteboard_pen_color_command_key">binding_CHANGE_WHITEBOARD_PEN_COLOR</string>
     <string name="show_hint_command_key">binding_SHOW_HINT</string>
     <string name="show_all_hints_command_key">binding_SHOW_ALL_HINTS</string>
-    <string name="add_note_command_key">binding_ADD_NOTE</string>
     <string name="reschedule_command_key">binding_RESCHEDULE_NOTE</string>
     <string name="user_actions_controls_category_key">userActionsControls</string>
     <string name="user_action_1_key">binding_USER_ACTION_1</string>
@@ -194,13 +188,8 @@
     <string name="pref_monthly_backups_to_keep_key">monthly_backups_to_keep</string>
 
     <!-- Study Screen options -->
-    <string name="hide_system_bars_key">hideSystemBars</string>
-    <string name="ignore_display_cutout_key">ignoreDisplayCutout</string>
     <string name="show_answer_buttons_key">showAnswerButtons</string>
     <string name="hide_hard_and_easy_key">hideHardAndEasy</string>
-    <string name="reviewer_menu_settings_key">reviewerMenuSettings</string>
-    <string name="reviewer_frame_style_key">reviewerFrameStyle</string>
-    <string name="reviewer_toolbar_position_key">reviewerToolbarPosition</string>
 
     <!-- Onboarding -->
     <string name="internet_permission_requested_key">internetPermissionRequested</string>

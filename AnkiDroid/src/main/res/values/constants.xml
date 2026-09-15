@@ -53,7 +53,6 @@
         <item>@string/add_to_deck_decide_by_note_type</item>
     </string-array>
 
-    <string name="link_anki_forum_ankidroid">https://forums.ankiweb.net/c/ankidroid/22</string>
     <string name="link_forum">http://groups.google.com/group/anki-android</string>
     <string name="licence_wiki">http://www.gnu.org/licenses/gpl.html</string>
     <string name="dependency_license_wiki">https://github.com/ankidroid/Anki-Android/wiki/Licences</string>
@@ -119,53 +118,14 @@
         <item>@string/sync_media_never_value</item>
     </string-array>
 
-    <string-array name="hide_system_bars_entries">
-        <item>@string/hide_system_bars_none</item>
-        <item>@string/hide_system_bars_status_bar</item>
-        <item>@string/hide_system_bars_navigation_bar</item>
-        <item>@string/hide_system_bars_all_bars</item>
-    </string-array>
 
-    <string name="hide_system_bars_none_value">0</string>
-    <string name="hide_system_bars_status_bar_value">1</string>
-    <string name="hide_system_bars_navigation_bar_value">2</string>
-    <string name="hide_system_bars_all_value">3</string>
 
-    <string-array name="hide_system_bars_values">
-        <item>@string/hide_system_bars_none_value</item>
-        <item>@string/hide_system_bars_status_bar_value</item>
-        <item>@string/hide_system_bars_navigation_bar_value</item>
-        <item>@string/hide_system_bars_all_value</item>
-    </string-array>
 
-    <string-array name="reviewer_frame_style_entries">
-        <item>@string/reviewer_frame_style_card</item>
-        <item>@string/reviewer_frame_style_box</item>
-    </string-array>
 
-    <string name="reviewer_frame_style_card_value">0</string>
-    <string name="reviewer_frame_style_box_value">1</string>
 
-    <string-array name="reviewer_frame_style_values">
-        <item>@string/reviewer_frame_style_card_value</item>
-        <item>@string/reviewer_frame_style_box_value</item>
-    </string-array>
 
-    <string-array name="reviewer_toolbar_position_entries">
-        <item>@string/reviewer_toolbar_top</item>
-        <item>@string/reviewer_toolbar_bottom</item>
-        <item>@string/reviewer_toolbar_none</item>
-    </string-array>
 
-    <string name="reviewer_toolbar_value_top">0</string>
-    <string name="reviewer_toolbar_value_bottom">1</string>
-    <string name="reviewer_toolbar_value_none">2</string>
 
-    <string-array name="reviewer_toolbar_position_values">
-        <item>@string/reviewer_toolbar_value_top</item>
-        <item>@string/reviewer_toolbar_value_bottom</item>
-        <item>@string/reviewer_toolbar_value_none</item>
-    </string-array>
 
 
     <!-- Preferences headers summaries -->

@@ -42,10 +42,6 @@
     <string name="gesture_page_up" maxLength="41">Subir página</string>
     <string name="gesture_page_down" maxLength="41">Descer página</string>
     <string name="gesture_toggle_whiteboard" maxLength="41">Alternar quadro branco</string>
-    <string name="gesture_toggle_eraser" maxLength="41">Alterar borracha</string>
     <string name="gesture_show_hint" maxLength="41">Exibir dica</string>
     <string name="gesture_show_all_hints" maxLength="41">Exibir todas as dicas</string>
-    <string name="record_voice" maxLength="41">Gravar voz</string>
-    <string name="replay_voice" maxLength="41">Reproduzir voz</string>
-    <string name="save_voice" maxLength="41">Salvar gravação</string>
 </resources>

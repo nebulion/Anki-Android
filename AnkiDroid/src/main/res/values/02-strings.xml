@@ -24,7 +24,6 @@
     <string name="updated_version">Updated to version %s</string>
 
     <!-- Reviewer.kt (Study Screen) -->
-    <string name="clear_whiteboard" maxLength="28">Clear whiteboard</string>
     <string name="replay_media" maxLength="28">Replay media</string>
     <string name="webview_crash_unknown">Unknown error</string>
 
@@ -125,7 +124,6 @@
 
     <!-- Whiteboard save image message in the Study Screen -->
 
-    <string name="title_whiteboard_editor" maxLength="28">Whiteboard editor</string>
 
     <string name="user_is_a_robot">Detected automated test. If you are a human, contact AnkiDroid support</string>
 

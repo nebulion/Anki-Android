@@ -34,7 +34,6 @@
     <string name="no_tags">Anda belum menambahkan tag apa pun</string>
     <string name="updated_version">Diperbarui ke versi %s</string>
     <!-- Reviewer.kt (Study Screen) -->
-    <string name="clear_whiteboard" maxLength="28">Bersihkan whiteboard</string>
     <string name="replay_media" maxLength="28">Putar ulang media</string>
     <string name="webview_crash_unknown">Galat Tidak Diketahui</string>
     <string name="filter_by_flags" maxLength="41">Bendera</string>
@@ -117,7 +116,6 @@
     <!-- Whiteboard eraser mode toggle message in Reviewer -->
     <string comment="Progress amount e.g. \'28 MB/141 MB\'. %1$s is the current amount, %2$s is the max." name="progress_amount_bytes">%1$s/%2$s</string>
     <!-- Whiteboard save image message in the Study Screen -->
-    <string name="title_whiteboard_editor" maxLength="28">Editor papan tulis</string>
     <string name="user_is_a_robot">Tes otomatis terdeteksi. Jika kamu manusia, kontak dukungan AnkiDroid</string>
     <!-- JS api -->
     <!-- About AnkiDroid screen -->

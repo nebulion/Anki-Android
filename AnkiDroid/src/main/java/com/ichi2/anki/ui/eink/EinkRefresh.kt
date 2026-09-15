@@ -21,7 +21,8 @@ import com.ichi2.anki.settings.Prefs
  * repaint pushes most EPD drivers into a fuller waveform on their own, which is what InkOS and
  * other E Ink launchers do. It needs no permission or hidden API, so it survives OS updates.
  *
- * Off by default (Settings → E Ink).
+ * On by default: the study screen flashes every [Prefs.einkRefreshInterval] (12) answers. The
+ * setting to change or disable it arrives with the Compose settings (Phase 5: Settings → E Ink).
  */
 @MainThread
 object EinkRefresh {

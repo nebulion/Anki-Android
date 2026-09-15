@@ -34,7 +34,6 @@
     <string name="no_tags">Du har inte lagt till några etiketter än.</string>
     <string name="updated_version">Uppdaterad till version %s</string>
     <!-- Reviewer.kt (Study Screen) -->
-    <string name="clear_whiteboard" maxLength="28">Rensa whiteboard</string>
     <string name="replay_media" maxLength="28">Spela upp media igen</string>
     <string name="webview_crash_unknown">Okänt fel</string>
     <string name="filter_by_flags" maxLength="41">Flaggor</string>
@@ -118,7 +117,6 @@
     <!-- Whiteboard eraser mode toggle message in Reviewer -->
     <string comment="Progress amount e.g. \'28 MB/141 MB\'. %1$s is the current amount, %2$s is the max." name="progress_amount_bytes">%1$s/%2$s</string>
     <!-- Whiteboard save image message in the Study Screen -->
-    <string name="title_whiteboard_editor" maxLength="28">Redigerare för whiteboard</string>
     <string name="user_is_a_robot">Upptäckte automatiskt test. Om du är en människa, kontakta AnkiDroid support</string>
     <!-- JS api -->
     <!-- About AnkiDroid screen -->

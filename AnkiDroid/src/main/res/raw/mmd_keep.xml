@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ SPDX-License-Identifier: GPL-3.0-or-later
+  ~
+  ~ Resources lint reports as unused but which are referenced where lint does not look:
+  ~ faded_primary is used by the v29 light theme, which the E Ink theme's resources still pull in.
+  ~ Keeps them out of the unused-resource prune (tools/mmd prune scripts use lint's report).
+  -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@color/faded_primary" />

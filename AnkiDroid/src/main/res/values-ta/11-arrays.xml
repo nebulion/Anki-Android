@@ -42,10 +42,6 @@
     <string name="gesture_page_up" maxLength="41">பக்கம் மேலே</string>
     <string name="gesture_page_down" maxLength="41">பக்கம் கீழே</string>
     <string name="gesture_toggle_whiteboard" maxLength="41">ஒயிட்போர்டை நிலைமாற்று</string>
-    <string name="gesture_toggle_eraser" maxLength="41">Toggle eraser</string>
     <string name="gesture_show_hint" maxLength="41">குறிப்பைக் காட்டு</string>
     <string name="gesture_show_all_hints" maxLength="41">அனைத்து குறிப்புகளையும் காட்டு</string>
-    <string name="record_voice" maxLength="41">குரல் பதிவு</string>
-    <string name="replay_voice" maxLength="41">மீண்டும் ஒலி</string>
-    <string name="save_voice" maxLength="41">பதிவை சேமிக்கவும்</string>
 </resources>

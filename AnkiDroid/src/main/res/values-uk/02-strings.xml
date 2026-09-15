@@ -34,7 +34,6 @@
     <string name="no_tags">Ви ще не додали жодного тегу</string>
     <string name="updated_version">Оновлено до версії %s</string>
     <!-- Reviewer.kt (Study Screen) -->
-    <string name="clear_whiteboard" maxLength="28">Очистити дошку</string>
     <string name="replay_media" maxLength="28">Відтворити медіафайл</string>
     <string name="webview_crash_unknown">Невідома помилка</string>
     <string name="filter_by_flags" maxLength="41">Прапорці</string>
@@ -120,7 +119,6 @@
     <!-- Whiteboard eraser mode toggle message in Reviewer -->
     <string comment="Progress amount e.g. \'28 MB/141 MB\'. %1$s is the current amount, %2$s is the max." name="progress_amount_bytes">%1$s/%2$s</string>
     <!-- Whiteboard save image message in the Study Screen -->
-    <string name="title_whiteboard_editor" maxLength="28">Редактор дошки</string>
     <string name="user_is_a_robot">Виявлено автоматичний тест. Якщо Ви — людина, зверніться до підтримки AnkiDroid</string>
     <!-- JS api -->
     <!-- About AnkiDroid screen -->

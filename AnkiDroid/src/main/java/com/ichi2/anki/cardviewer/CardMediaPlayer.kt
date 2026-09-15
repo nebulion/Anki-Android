@@ -6,8 +6,6 @@ import android.media.MediaPlayer
 import android.net.Uri
 import androidx.annotation.CheckResult
 import androidx.annotation.VisibleForTesting
-import com.ichi2.anki.AndroidTtsError
-import com.ichi2.anki.AndroidTtsPlayer
 import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.cardviewer.MediaErrorBehavior.CONTINUE_MEDIA
 import com.ichi2.anki.cardviewer.MediaErrorBehavior.RETRY_MEDIA
@@ -23,11 +21,9 @@ import com.ichi2.anki.libanki.TtsPlayer
 import com.ichi2.anki.reviewer.CardSide
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.ensureActive
@@ -35,7 +31,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import kotlinx.coroutines.withTimeoutOrNull
 import timber.log.Timber
 import java.io.Closeable
 
@@ -46,9 +41,7 @@ import java.io.Closeable
  *   * `[sound:audio.mp3]` in a field
  *   * `[sound:video.mp4]` in a field
  *  * in the media directory.
- * * Text to Speech [TTSTag]
- *   * [docs][https://docs.ankiweb.net/templates/fields.html?highlight=tts#text-to-speech]
- *   * `{{tts en_GB:Front}}` on the card template
+ * * Text to Speech [TTSTag] is skipped: the MMD fork has no text-to-speech
  *
  * This class combines the above concerns behind an "adapter" interface in order to simplify complexity.
  *
@@ -69,13 +62,11 @@ import java.io.Closeable
 @NeedsTest("Pausing a video calls onMediaGroupCompleted")
 class CardMediaPlayer : Closeable {
     private val soundTagPlayer: SoundTagPlayer
-    private val ttsPlayer: Deferred<TtsPlayer>
     private val mediaErrorListener: MediaErrorListener
 
     @VisibleForTesting
-    constructor(soundTagPlayer: SoundTagPlayer, ttsPlayer: Deferred<TtsPlayer>, mediaErrorListener: MediaErrorListener) {
+    constructor(soundTagPlayer: SoundTagPlayer, mediaErrorListener: MediaErrorListener) {
         this.soundTagPlayer = soundTagPlayer
-        this.ttsPlayer = ttsPlayer
         this.mediaErrorListener = mediaErrorListener
     }
 
@@ -86,7 +77,6 @@ class CardMediaPlayer : Closeable {
                 soundUriBase = getMediaBaseUrl(getMediaDirectory(appContext)),
                 videoPlayer = VideoPlayer(javascriptEvaluator),
             )
-        this.ttsPlayer = scope.async { AndroidTtsPlayer.createInstance(scope) }
     }
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -221,7 +211,6 @@ class CardMediaPlayer : Closeable {
 
     override fun close() {
         soundTagPlayer.release()
-        ttsPlayer.close(logPrefix = "ttsPlayer")
         scope.cancel()
     }
 
@@ -267,11 +256,7 @@ class CardMediaPlayer : Closeable {
                 ensureActive()
                 when (tag) {
                     is SoundOrVideoTag -> soundTagPlayer.play(tag, mediaErrorListener)
-                    is TTSTag -> {
-                        awaitTtsPlayer(isAutomaticPlayback)?.play(tag)?.error?.let {
-                            mediaErrorListener.onTtsError(it, isAutomaticPlayback)
-                        }
-                    }
+                    is TTSTag -> Timber.i("skipping a TTS tag (automatic: %b): the MMD fork has no text-to-speech", isAutomaticPlayback)
                 }
                 ensureActive()
             }
@@ -314,19 +299,6 @@ class CardMediaPlayer : Closeable {
             SingleCardSide.FRONT -> playAllForSide(CardSide.QUESTION)
         }
 
-    private suspend fun awaitTtsPlayer(isAutomaticPlayback: Boolean): TtsPlayer? {
-        val player =
-            withTimeoutOrNull(TTS_PLAYER_TIMEOUT_MS) {
-                ttsPlayer.await()
-            }
-        if (player == null) {
-            Timber.v("timeout waiting for TTS Player")
-            val error = AndroidTtsError.InitTimeout
-            mediaErrorListener.onTtsError(error, isAutomaticPlayback)
-        }
-        return player
-    }
-
     @NeedsTest("finish moves to next sound")
     fun onVideoFinished() {
         soundTagPlayer.videoPlayer.onVideoFinished()
@@ -336,32 +308,6 @@ class CardMediaPlayer : Closeable {
     fun onVideoPaused() {
         Timber.i("video paused")
         soundTagPlayer.videoPlayer.onVideoPaused()
-    }
-
-    companion object {
-        private const val TTS_PLAYER_TIMEOUT_MS = 2_500L
-    }
-}
-
-/**
- * Cancels the [Deferred] and safely closes its resulting [Closeable] upon completion.
- *
- * The deferred is cancelled immediately.
- * When it completes, the underlying [Closeable] is closed.
- *
- * @param logPrefix Prefix used when logging
- */
-private fun Deferred<Closeable>.close(logPrefix: String) {
-    this.cancel()
-    this.invokeOnCompletion {
-        try {
-            this.getCompleted().close()
-            Timber.d("$logPrefix closed")
-        } catch (_: CancellationException) {
-            // Ignore: no value was produced, nothing to close
-        } catch (e: Exception) {
-            Timber.w(e, "$logPrefix close()")
-        }
     }
 }
 

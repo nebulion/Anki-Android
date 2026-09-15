@@ -15,11 +15,9 @@ import com.ichi2.anki.R
 import com.ichi2.anki.common.preferences.sharedPrefs
 import com.ichi2.anki.common.storage.CollectionHelper
 import com.ichi2.anki.common.utils.android.showThemedToast
-import com.ichi2.anki.dialogs.TtsVoicesDialogFragment
 import com.ichi2.anki.launchCatchingTask
 import com.ichi2.anki.settings.Prefs
 import com.ichi2.anki.utils.ext.defaultConfig
-import com.ichi2.anki.utils.ext.showDialogFragment
 import com.ichi2.anki.withProgress
 import com.ichi2.preferences.IncrementerNumberRangePreferenceCompat
 import com.ichi2.utils.setWebContentsDebuggingEnabled
@@ -102,12 +100,6 @@ class DeveloperOptionsFragment : SettingsFragment() {
                 }
                 setNegativeButton(R.string.dialog_cancel) { _, _ -> }
             }
-            false
-        }
-
-        // Open TTS voice selection ({{tts-voices:}})
-        requirePreference<Preference>(R.string.dev_open_tts_voices).setOnPreferenceClickListener {
-            showDialogFragment(TtsVoicesDialogFragment())
             false
         }
 

@@ -166,8 +166,6 @@ open class AnkiDroidApp : Application() {
 
         setupLifecycleLogging()
         activityAgnosticDialogs = ActivityAgnosticDialogs.register(this)
-        setupTextToSpeech()
-        setupCustomFieldFilters()
     }
 
     /**
@@ -362,25 +360,6 @@ open class AnkiDroidApp : Application() {
                 },
             )
         }
-
-    private fun setupTextToSpeech() {
-        setup("setupTextToSpeech") {
-            TtsVoices.launchBuildLocalesJob()
-        }
-    }
-
-    /**
-     * Applies AnkiDroid-specific implementations of field filters
-     *
-     * @see com.ichi2.anki.model.FieldFilter
-     * @see com.ichi2.anki.model.FieldFilters
-     */
-    private fun setupCustomFieldFilters() {
-        setup("setupCustomFieldFilters") {
-            // enable {{tts-voices:}} field filter
-            TtsVoicesFieldFilter.ensureApplied()
-        }
-    }
 
     /**
      * @return the app version, OS version and device model, provided when syncing.

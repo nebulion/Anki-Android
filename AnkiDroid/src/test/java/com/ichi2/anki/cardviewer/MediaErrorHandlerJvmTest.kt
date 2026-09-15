@@ -18,7 +18,6 @@ package com.ichi2.anki.cardviewer
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.core.net.toFile
-import com.ichi2.anki.AndroidTtsError
 import com.ichi2.anki.libanki.TtsPlayer
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -122,7 +121,7 @@ class MediaErrorHandlerJvmTest {
 
     @Test
     fun `onTtsError triggers callback`() {
-        val error = AndroidTtsError.InvalidVoiceError
+        val error = object : TtsPlayer.TtsError() {}
         val isAutomatic = true
 
         every { onTtsError(any()) } just runs

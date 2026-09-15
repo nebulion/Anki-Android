@@ -23,7 +23,6 @@ import com.ichi2.anki.R
 import com.ichi2.anki.common.permissions.LEGACY_POST_NOTIFICATIONS
 import com.ichi2.anki.common.permissions.MANAGE_EXTERNAL_STORAGE
 import com.ichi2.anki.common.permissions.canPostNotifications
-import com.ichi2.anki.common.permissions.hasPermission
 import com.ichi2.anki.common.utils.android.isRobolectric
 import com.ichi2.anki.common.utils.android.showThemedToast
 import com.ichi2.anki.compat.CompatHelper.Companion.getPackageInfoCompat
@@ -191,10 +190,6 @@ object Permissions {
         listOf(
             Manifest.permission.INTERNET,
         )
-
-    const val RECORD_AUDIO_PERMISSION = Manifest.permission.RECORD_AUDIO
-
-    fun canRecordAudio(context: Context): Boolean = hasPermission(context, RECORD_AUDIO_PERMISSION)
 
     /**
      * Detects if permissions are defined via <uses-permission> in the Manifest.

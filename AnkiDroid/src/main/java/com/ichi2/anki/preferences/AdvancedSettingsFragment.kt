@@ -3,13 +3,10 @@
 
 package com.ichi2.anki.preferences
 
-import android.Manifest
 import android.content.ComponentName
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
 import androidx.preference.SwitchPreferenceCompat
@@ -26,8 +23,6 @@ import com.ichi2.anki.settings.Prefs
 import com.ichi2.anki.snackbar.showSnackbar
 import com.ichi2.anki.startup.getDefaultAnkiDroidDirectory
 import com.ichi2.anki.utils.openUrl
-import com.ichi2.utils.Permissions
-import com.ichi2.utils.Permissions.openAppSettingsScreen
 import com.ichi2.utils.show
 import timber.log.Timber
 import java.io.File
@@ -37,27 +32,6 @@ class AdvancedSettingsFragment : SettingsFragment() {
         get() = R.xml.preferences_advanced
     override val analyticsScreenNameConstant: String
         get() = "prefs.advanced"
-
-    private val microphonePermissionLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
-            if (isGranted) {
-                requirePreference<SwitchPreferenceCompat>(R.string.pref_allow_template_audio_recording).isChecked = true
-                return@registerForActivityResult
-            }
-
-            if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.RECORD_AUDIO)) {
-                return@registerForActivityResult
-            }
-
-            AlertDialog.Builder(requireContext()).show {
-                setTitle(R.string.permission_denied)
-                setMessage(R.string.microphone_permission_denied_message)
-                setPositiveButton(R.string.dialog_ok) { _, _ ->
-                    openAppSettingsScreen()
-                }
-                setNegativeButton(R.string.dialog_cancel, null)
-            }
-        }
 
     override fun initSubscreen() {
         removeUnnecessaryAdvancedPrefs()
@@ -90,23 +64,6 @@ class AdvancedSettingsFragment : SettingsFragment() {
             }
         }
 
-        val ttsPref = requirePreference<SwitchPreferenceCompat>(R.string.tts_key)
-        ttsPref.setOnPreferenceChangeListener { _, isChecked ->
-            if (!(isChecked as Boolean)) return@setOnPreferenceChangeListener true
-            AlertDialog.Builder(requireContext()).show {
-                setIcon(R.drawable.ic_warning)
-                setMessage(R.string.readtext_deprecation_warn)
-                setNegativeButton(R.string.dialog_cancel) { _, _ -> ttsPref.isChecked = false }
-                setNeutralButton(R.string.scoped_storage_learn_more) { _, _ ->
-                    ttsPref.isChecked = false
-                    requireContext().openUrl(R.string.link_tts)
-                }
-                setPositiveButton(R.string.dialog_ok) { _, _ -> }
-                setOnCancelListener { ttsPref.isChecked = false }
-            }
-            return@setOnPreferenceChangeListener true
-        }
-
         // Configure "Reset languages" preference
         requirePreference<Preference>(R.string.pref_reset_languages_key).setOnPreferenceClickListener {
             AlertDialog.Builder(requireContext()).show {
@@ -121,19 +78,6 @@ class AdvancedSettingsFragment : SettingsFragment() {
                 setNegativeButton(R.string.dialog_cancel) { _, _ -> }
             }
             false
-        }
-
-        requirePreference<SwitchPreferenceCompat>(R.string.pref_allow_template_audio_recording).apply {
-            isChecked = isChecked && Permissions.canRecordAudio(requireContext())
-            setOnPreferenceChangeListener { _, newValue ->
-                if (newValue !is Boolean) return@setOnPreferenceChangeListener false
-                if (!newValue || Permissions.canRecordAudio(requireContext())) {
-                    return@setOnPreferenceChangeListener true
-                }
-                // veto the opt-in until the permission is granted
-                microphonePermissionLauncher.launch(Manifest.permission.RECORD_AUDIO)
-                false
-            }
         }
 
         /*

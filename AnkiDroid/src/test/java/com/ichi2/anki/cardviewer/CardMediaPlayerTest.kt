@@ -25,7 +25,6 @@ import com.ichi2.anki.cardviewer.SingleCardSide.BACK
 import com.ichi2.anki.libanki.AvTag
 import com.ichi2.anki.libanki.SoundOrVideoTag
 import com.ichi2.anki.libanki.TemplateManager
-import com.ichi2.anki.libanki.TtsPlayer
 import com.ichi2.testutils.JvmTest
 import com.ichi2.testutils.TestException
 import io.mockk.coEvery
@@ -36,7 +35,6 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.verify
-import kotlinx.coroutines.CompletableDeferred
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -44,7 +42,6 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class CardMediaPlayerTest : JvmTest() {
     internal val tagPlayer: SoundTagPlayer = mockk<SoundTagPlayer>()
-    internal val ttsPlayer: TtsPlayer = mockk<TtsPlayer>()
     internal val onMediaGroupCompleted: () -> Unit =
         mockk<() -> Unit>().also {
             every { it.invoke() } answers { }
@@ -69,7 +66,6 @@ class CardMediaPlayerTest : JvmTest() {
             playAllAndWait()
 
             coVerify(exactly = 1) { tagPlayer.play(SoundOrVideoTag("abc.mp3"), any()) }
-            coVerify(exactly = 0) { ttsPlayer.play(any()) }
             ensureOnMediaGroupCompletedCalled()
         }
 
@@ -202,7 +198,6 @@ class CardMediaPlayerTest : JvmTest() {
 
     private fun verifyNoSoundsPlayed() {
         coVerify(exactly = 0) { tagPlayer.play(any(), any()) }
-        coVerify(exactly = 0) { ttsPlayer.play(any()) }
         ensureOnMediaGroupCompletedCalled()
     }
 
@@ -274,7 +269,6 @@ fun CardMediaPlayerTest.runSoundPlayerTest(
     val cardMediaPlayer =
         CardMediaPlayer(
             soundTagPlayer = tagPlayer,
-            ttsPlayer = CompletableDeferred(ttsPlayer),
             mediaErrorListener = mockk(),
         )
     cardMediaPlayer.setOnMediaGroupCompletedListener(onMediaGroupCompleted)

@@ -15,11 +15,8 @@ import com.ichi2.anki.R
 import com.ichi2.anki.cardviewer.TapGestureMode
 import com.ichi2.anki.common.preferences.sharedPrefs
 import com.ichi2.anki.common.utils.isRunningAsUnitTest
-import com.ichi2.anki.settings.enums.AppTheme
-import com.ichi2.anki.settings.enums.DayTheme
 import com.ichi2.anki.settings.enums.FrameStyle
 import com.ichi2.anki.settings.enums.HideSystemBars
-import com.ichi2.anki.settings.enums.NightTheme
 import com.ichi2.anki.settings.enums.PrefEnum
 import com.ichi2.anki.settings.enums.ShouldFetchMedia
 import com.ichi2.anki.settings.enums.ToolbarPosition
@@ -371,10 +368,6 @@ open class PrefsRepository(
     var toolbarPosition: ToolbarPosition by enumPref(R.string.reviewer_toolbar_position_key, ToolbarPosition.TOP)
 
     //region Appearance
-
-    var appTheme: AppTheme by enumPref(R.string.app_theme_key, AppTheme.FOLLOW_SYSTEM)
-    var dayTheme: DayTheme by enumPref(R.string.day_theme_key, DayTheme.LIGHT)
-    var nightTheme: NightTheme by enumPref(R.string.night_theme_key, NightTheme.BLACK)
 
     //endregion
 

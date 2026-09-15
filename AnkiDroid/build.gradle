@@ -297,8 +297,8 @@ android {
                     if (project.hasProperty("screenshot")) {
                         includeTags "com.ichi2.anki.ScreenshotTestCategory"
 
-                        // ./gradlew :AnkiDroid:recordRoborazziPlayDebug -Pscreenshot -Ptheme=black -Pdevice=tablet,foldable
-                        def theme = project.findProperty("theme") ?: "light"
+                        // ./gradlew :AnkiDroid:recordRoborazziPlayDebug -Pscreenshot -Ptheme=eink -Pdevice=tablet,foldable
+                        def theme = project.findProperty("theme") ?: "eink"
                         def device = project.findProperty("device") ?: "phone"
                         def validateInput = { Object input, List<String> validOptions ->
                             def requested = input.toString().split(',').collect { it.trim().toLowerCase() }
@@ -307,7 +307,7 @@ android {
                                 throw new GradleException("Invalid param: '${invalid.join(', ')}'. Valid options: ${validOptions.join(', ')}.")
                             }
                         }
-                        validateInput(theme, ["light", "plain", "dark", "black", "eink", "all"])
+                        validateInput(theme, ["eink", "all"])
                         validateInput(device, ["phone", "tablet", "foldable", "desktop", "kompakt", "all"])
 
                         systemProperty "screenshot.theme", theme

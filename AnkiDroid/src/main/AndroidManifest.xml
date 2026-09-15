@@ -91,7 +91,7 @@
         android:preserveLegacyExternalStorage="true"
         android:resizeableActivity="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme_Light"
+        android:theme="@style/Theme_Light_Eink"
         android:enableOnBackInvokedCallback="true"
         >
         <activity

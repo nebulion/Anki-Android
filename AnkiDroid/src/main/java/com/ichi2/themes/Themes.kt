@@ -17,24 +17,23 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentActivity
 import com.ichi2.anki.BuildConfig
 import com.ichi2.anki.R
-import com.ichi2.anki.common.utils.android.systemIsInNightMode
-import com.ichi2.anki.settings.PrefsRepository
-import com.ichi2.anki.settings.enums.AppTheme
 import com.ichi2.anki.settings.enums.DayTheme
-import com.ichi2.anki.settings.enums.NightTheme
 import com.ichi2.anki.settings.enums.Theme
-import com.ichi2.themes.Themes.currentTheme
 import timber.log.Timber
 
 /**
  * Helper methods to configure things related to AnkiDroid's themes
+ *
+ * The MMD fork has exactly one theme: [DayTheme.EINK], black on white, never night mode.
  */
 object Themes {
     const val ALPHA_ICON_ENABLED_LIGHT = 255 // 100%
     const val ALPHA_ICON_DISABLED_LIGHT = 76 // 31%
 
-    var currentTheme: Theme = DayTheme.LIGHT
-    val isNightTheme: Boolean get() = currentTheme is NightTheme
+    val currentTheme: Theme = DayTheme.EINK
+
+    /** Always `false`: the E Ink theme is the only theme. */
+    val isNightTheme: Boolean get() = false
 
     fun setTheme(context: Context) {
         updateCurrentTheme(context)
@@ -78,37 +77,16 @@ object Themes {
         }
     }
 
-    /**
-     * Updates [currentTheme] value based on preferences.
-     * If `Follow system` is selected, it's updated to the theme set
-     * on `Day` or `Night` theme according to system's current mode
-     * Otherwise, updates to the selected theme.
-     */
+    /** Keeps AppCompat out of night mode, whatever the system setting. */
+    @Suppress("UNUSED_PARAMETER")
     fun updateCurrentTheme(context: Context) {
-        val prefs = PrefsRepository(context)
-        val appTheme = prefs.appTheme
-
-        val themeIsDark = (appTheme == AppTheme.FOLLOW_SYSTEM && systemIsInNightMode(context)) || appTheme == AppTheme.NIGHT
-        currentTheme =
-            if (themeIsDark) {
-                prefs.nightTheme
-            } else {
-                prefs.dayTheme
-            }
-        val defaultNightMode =
-            when (appTheme) {
-                AppTheme.FOLLOW_SYSTEM -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-                AppTheme.DAY -> AppCompatDelegate.MODE_NIGHT_NO
-                AppTheme.NIGHT -> AppCompatDelegate.MODE_NIGHT_YES
-            }
-        AppCompatDelegate.setDefaultNightMode(defaultNightMode)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }
 
 @Suppress("deprecation", "API35 properly handle edge-to-edge")
 fun FragmentActivity.setTransparentStatusBar() {
-    WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars =
-        Themes.currentTheme !is NightTheme
+    WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
     window.statusBarColor = Color.TRANSPARENT
 }
 

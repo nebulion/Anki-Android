@@ -11,7 +11,6 @@ import androidx.appcompat.widget.ThemeUtils
 import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
 import com.ichi2.anki.R
-import com.ichi2.anki.common.utils.android.systemIsInNightMode
 import com.ichi2.utils.dp
 
 @JvmInline
@@ -48,7 +47,7 @@ class DeckHierarchyLinesDecoration(
             color = ThemeUtils.getThemeAttrColor(context, com.google.android.material.R.attr.colorOnSurface)
         }
 
-    private val targetAlpha = if (systemIsInNightMode(context)) ALPHA_DARK else ALPHA_LIGHT
+    private val targetAlpha = ALPHA_LIGHT
     private val layerPaint = Paint().apply { alpha = targetAlpha }
 
     // The horizontal indent spacing between each depth level

@@ -33,7 +33,7 @@ import org.junit.runner.RunWith
 class KeyPickerTest : RobolectricTest() {
     private var keyPicker: KeyPicker =
         run {
-            targetContext.setTheme(DayTheme.LIGHT.styleResId)
+            targetContext.setTheme(DayTheme.EINK.styleResId)
             KeyPicker.inflate(targetContext)
         }
 

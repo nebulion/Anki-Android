@@ -11,12 +11,10 @@ sealed interface Theme : PrefEnum {
     val styleResId: Int
 }
 
-/** [R.array.day_theme_values] */
+/** The MMD fork's only theme. */
 enum class DayTheme(
     override val entryResId: Int,
     override val styleResId: Int,
 ) : Theme {
-    LIGHT(R.string.theme_light_value, R.style.Theme_Light),
-    PLAIN(R.string.theme_plain_value, R.style.Theme_Light_Plain),
     EINK(R.string.theme_eink_scheme_value, R.style.Theme_Light_Eink),
 }

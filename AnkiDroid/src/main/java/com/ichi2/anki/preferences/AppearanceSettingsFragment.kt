@@ -4,28 +4,21 @@
 package com.ichi2.anki.preferences
 
 import android.content.ActivityNotFoundException
-import android.os.Build
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
-import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.SwitchPreferenceCompat
 import com.ichi2.anki.CollectionManager
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.R
 import com.ichi2.anki.common.utils.android.showThemedToast
-import com.ichi2.anki.common.utils.android.systemIsInNightMode
 import com.ichi2.anki.deckpicker.BackgroundImage
 import com.ichi2.anki.deckpicker.BackgroundImage.FileSizeResult
 import com.ichi2.anki.launchCatchingTask
 import com.ichi2.anki.settings.Prefs
-import com.ichi2.anki.settings.enums.AppTheme
 import com.ichi2.anki.snackbar.showSnackbar
 import com.ichi2.anki.ui.internationalization.sentenceCase
 import com.ichi2.anki.utils.CollectionPreferences
-import com.ichi2.themes.Themes
-import com.ichi2.themes.Themes.updateCurrentTheme
 import com.ichi2.utils.negativeButton
 import com.ichi2.utils.positiveButton
 import com.ichi2.utils.show
@@ -94,7 +87,6 @@ class AppearanceSettingsFragment : SettingsFragment() {
             }
         }
 
-        setupThemePreferences()
         setupNewStudyScreenSettings()
     }
 
@@ -114,60 +106,6 @@ class AppearanceSettingsFragment : SettingsFragment() {
                 }
             }
             negativeButton(R.string.dialog_keep)
-        }
-    }
-
-    private fun setupThemePreferences() {
-        val appTheme = Prefs.appTheme
-        val appThemePref = requirePreference<ListPreference>(R.string.app_theme_key)
-        val dayThemePref = requirePreference<ListPreference>(R.string.day_theme_key)
-        val nightThemePref = requirePreference<ListPreference>(R.string.night_theme_key)
-
-        dayThemePref.isEnabled = appTheme != AppTheme.NIGHT
-        nightThemePref.isEnabled = appTheme != AppTheme.DAY
-
-        // Remove follow system options in android versions which do not have system dark mode
-        // When minSdk reaches 29, the only necessary change is to remove this if-block
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-            // Drop "Follow system" option (the first one)
-            appThemePref.entries = resources.getStringArray(R.array.app_theme_labels).drop(1).toTypedArray()
-            appThemePref.entryValues = resources.getStringArray(R.array.app_theme_values).drop(1).toTypedArray()
-            if (appTheme == AppTheme.FOLLOW_SYSTEM) {
-                appThemePref.value = getString(Themes.currentTheme.entryResId)
-            }
-        }
-
-        appThemePref.setOnPreferenceChangeListener { newValue ->
-            if (newValue != appThemePref.value) {
-                val previousThemeId = Themes.currentTheme.styleResId
-                appThemePref.value = newValue
-                updateCurrentTheme(requireContext())
-
-                if (previousThemeId != Themes.currentTheme.styleResId) {
-                    ActivityCompat.recreate(requireActivity())
-                } else {
-                    dayThemePref.isEnabled = newValue != getString(AppTheme.NIGHT.entryResId)
-                    nightThemePref.isEnabled = newValue != getString(AppTheme.DAY.entryResId)
-                }
-            }
-        }
-
-        dayThemePref.setOnPreferenceChangeListener { newValue ->
-            if (
-                newValue != dayThemePref.value &&
-                (appTheme == AppTheme.DAY || (appTheme == AppTheme.FOLLOW_SYSTEM && !systemIsInNightMode(requireContext())))
-            ) {
-                ActivityCompat.recreate(requireActivity())
-            }
-        }
-
-        nightThemePref.setOnPreferenceChangeListener { newValue ->
-            if (
-                newValue != nightThemePref.value &&
-                (appTheme == AppTheme.NIGHT || (appTheme == AppTheme.FOLLOW_SYSTEM && systemIsInNightMode(requireContext())))
-            ) {
-                ActivityCompat.recreate(requireActivity())
-            }
         }
     }
 

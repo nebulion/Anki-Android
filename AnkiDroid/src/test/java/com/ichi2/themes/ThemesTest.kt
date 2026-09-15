@@ -10,9 +10,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.ichi2.anki.AnkiActivity
 import com.ichi2.anki.RobolectricTest
 import com.ichi2.anki.StudyOptionsActivity
-import com.ichi2.anki.settings.PrefsRepository
-import com.ichi2.anki.settings.enums.AppTheme
-import com.ichi2.anki.settings.enums.NightTheme
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsString
 import org.hamcrest.Matchers.equalTo
@@ -39,12 +36,8 @@ class ThemesTest : RobolectricTest() {
     }
 
     @Test
-    fun `window background follows the night theme - issue 21520`() {
+    fun `window background follows the E Ink theme - issue 21520`() {
         RuntimeEnvironment.setQualifiers("+night")
-        PrefsRepository(targetContext).apply {
-            appTheme = AppTheme.NIGHT
-            nightTheme = NightTheme.DARK
-        }
         val activity =
             startActivityNormallyOpenCollectionWithIntent(
                 StudyOptionsActivity::class.java,

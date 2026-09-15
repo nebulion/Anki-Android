@@ -14,10 +14,6 @@ import com.github.takahirom.roborazzi.captureScreenRoboImage
 import com.github.takahirom.roborazzi.provideRoborazziContext
 import com.google.testing.junit.testparameterinjector.TestParameter
 import com.google.testing.junit.testparameterinjector.TestParameterValuesProvider
-import com.ichi2.anki.settings.PrefsRepository
-import com.ichi2.anki.settings.enums.AppTheme
-import com.ichi2.anki.settings.enums.DayTheme
-import com.ichi2.anki.settings.enums.NightTheme
 import org.junit.Before
 import org.junit.experimental.categories.Category
 import org.junit.runner.RunWith
@@ -48,7 +44,8 @@ abstract class ScreenshotTest : RobolectricTest() {
 
     var fileNamePrefix = ""
 
-    enum class ThemeConfig { LIGHT, PLAIN, DARK, BLACK, EINK }
+    /** The MMD fork has one theme */
+    enum class ThemeConfig { EINK, }
 
     enum class DeviceConfig { PHONE, TABLET, FOLDABLE, DESKTOP, KOMPAKT }
 
@@ -94,24 +91,9 @@ abstract class ScreenshotTest : RobolectricTest() {
         }
     }
 
-    // ./gradlew :AnkiDroid:recordRoborazziPlayDebug -Pscreenshot -Ptheme=black,plain
+    /** The E Ink theme is always applied; file names keep the `eink_` prefix */
     protected open fun applyThemeConfig() {
-        val isNightMode = theme == ThemeConfig.DARK || theme == ThemeConfig.BLACK
-        if (isNightMode) {
-            RuntimeEnvironment.setQualifiers("+night")
-        }
-        if (theme != ThemeConfig.LIGHT) {
-            fileNamePrefix += "${theme.name.lowercase()}_"
-        }
-        val prefs = PrefsRepository(targetContext)
-        prefs.appTheme = if (isNightMode) AppTheme.NIGHT else AppTheme.DAY
-        when (theme) {
-            ThemeConfig.LIGHT -> prefs.dayTheme = DayTheme.LIGHT
-            ThemeConfig.PLAIN -> prefs.dayTheme = DayTheme.PLAIN
-            ThemeConfig.EINK -> prefs.dayTheme = DayTheme.EINK
-            ThemeConfig.DARK -> prefs.nightTheme = NightTheme.DARK
-            ThemeConfig.BLACK -> prefs.nightTheme = NightTheme.BLACK
-        }
+        fileNamePrefix += "${theme.name.lowercase()}_"
     }
 
     /** Pixel-class phone in portrait */
@@ -164,12 +146,8 @@ abstract class ScreenshotTest : RobolectricTest() {
 
     class ThemeProvider : TestParameterValuesProvider() {
         override fun provideValues(context: Context?): List<ThemeConfig> {
-            val requestedTheme = System.getProperty("screenshot.theme") ?: "light"
-            val requestedThemes = requestedTheme.split(",").map { it.trim().lowercase() }
-            if ("all" in requestedThemes) {
-                return ThemeConfig.entries
-            }
-            return ThemeConfig.entries.filter { requestedThemes.contains(it.name.lowercase()) }
+            // -Ptheme is ignored: there is only one theme
+            return ThemeConfig.entries
         }
     }
 

@@ -26,36 +26,6 @@
     xmlns:search="http://schemas.android.com/apk/com.bytehamster.lib.preferencesearch"
     xmlns:tools="http://schemas.android.com/tools"
         android:key="@string/pref_appearance_screen_key">
-    <PreferenceCategory android:title="@string/pref_cat_themes" >
-        <ListPreference
-            android:defaultValue="@string/theme_follow_system_value"
-            android:entries="@array/app_theme_labels"
-            android:entryValues="@array/app_theme_values"
-            android:key="@string/app_theme_key"
-            android:title="@string/app_theme"
-            android:icon="@drawable/ic_color_lens_white_24dp"
-            app:useSimpleSummaryProvider="true"/>
-        <ListPreference
-            android:defaultValue="@string/theme_light_value"
-            android:entries="@array/day_theme_labels"
-            android:entryValues="@array/day_theme_values"
-            android:key="@string/day_theme_key"
-            android:shouldDisableView="true"
-            android:title="@string/day_theme"
-            android:icon="@drawable/ic_light_mode_24"
-            app:useSimpleSummaryProvider="true"
-            />
-        <ListPreference
-            android:defaultValue="@string/theme_black_value"
-            android:entries="@array/night_theme_labels"
-            android:entryValues="@array/night_theme_values"
-            android:key="@string/night_theme_key"
-            android:shouldDisableView="true"
-            android:title="@string/night_theme"
-            android:icon="@drawable/ic_dark_mode_24"
-            app:useSimpleSummaryProvider="true"
-            />
-    </PreferenceCategory>
     <PreferenceCategory android:title="@string/background_image_title" >
         <Preference
             android:defaultValue="false"

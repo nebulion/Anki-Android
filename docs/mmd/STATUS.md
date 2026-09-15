@@ -5,7 +5,10 @@ Handoff notes. Read [eink-design.md](eink-design.md) for the rules and
 half-done, and what is next.
 
 Target device: **Mudita Kompakt `MK20250408317`** (MuditaOS K 1.6.0, Android 12,
-480×800 @ 213dpi). Branch: **`mmd-eink`** (from upstream `b34112c`, nothing pushed).
+480×800 @ 213dpi). Branch: **`mmd-eink`** (from upstream `b34112c`). Pushed only to the owner's
+fork, remote `fork` = `github.com/nebulion/Anki-Android`; never to `origin` (upstream ankidroid).
+The fork's `.github/workflows/mmd_ci.yml` runs build + full lint + unit tests on each push and
+reports failures as public job annotations (`tools/mmd/ci_report.py`).
 
 ## Real data — read before installing anything
 
@@ -92,7 +95,20 @@ Both were deleted rather than disabled, at the owner's request.
 | 7. Drawer, bottom nav, FAB, deck long-press menu, tablet layouts | **Folded into Phase 3**: nearly all of it lives in the 2,400-line legacy `DeckPicker`, which Phase 3 replaces with `DeckListScreenMMD` and deletes (`activity_homescreen`, `DeckAdapter`, `DeckPickerContextMenu`); editing it now would be throwaway |
 | 8. Themes | Done: E Ink is the only theme and night mode is forced off. `NightTheme`, `AppTheme`, the theme prefs and settings, the dark/black/plain XML and their orphan selectors are deleted. `Themes.isNightTheme` stays as a constant `false`, so its ~8 callers still compile; they go with their screens in Phases 3–5 |
 | 9. Settings screens | Done (app and unit tests compile): Appearance (and with it the deck list background picker), Custom buttons, Developer options (and the About logo tap that enabled them), Switch profiles plus the whole unused `multiprofile` package and its docs, and the Controls keyboard-shortcuts row. The new study screen is now on by default (`Prefs.isNewStudyScreenEnabled` defaults to `true`). The MMD kit gallery moved to a debug-only row at the bottom of Advanced. **Deferred to Phase 5** (settings rebuilt in Compose): limiting the Controls bindings to touch gestures, since keys, gestures and gamepad share `ControlPreference` |
-| 10. Tests and orphaned resources | Next: the Phase 1 build, `-PfastLint` prune, full lint, unit tests |
+| 10. Tests and orphaned resources | Pruned (`045bbce`): the 845 resources lint reported unused (245 files, their strings in every locale); styles kept because lint cannot see dotted parents. Resources still referenced were restored (`faded_primary`, reviewer menu ids, `bottom_area_layout`). **Verification runs in the fork CI** (upstream Unit Tests is disabled on forks; job logs need auth): waiting on the first `MMD fork CI` run |
+
+## Phase 2 — Reviewer (written, uncommitted until the Phase 1 CI is green)
+
+| Step | State |
+| --- | --- |
+| 1. Roborazzi baseline | Not recorded: needs a Gradle run. Record `StudyScreenScreenshotTest` with `-Pscreenshot -Pdevice=kompakt` on `045bbce` (the old layout) in CI |
+| 2. `ReviewerScreenMMD` | Written. `ReviewerFragment` is now a Compose host (`CardViewerFragment` gained a no-layout constructor) and the WebView sits in `WebContent`, so gestures, bindings, JS and the tag/due-date/forget dialogs are unchanged. Header: back, counts `12 · 3 · 40` with the current queue bold, Undo, Replay (only when the side has media: new `ReviewerViewModel.hasMediaFlow`), Menu. Menu `MenuPanel`: Flag (`ChoiceSheet` of named flags), Mark, Bury card/note, Suspend card/note, Card info, Deck options, Auto-advance. Flag name + mark glyph over the card. Show answer is a full-width `ButtonMMD`; ratings are 56dp with Good solid. Type-answer is `TextFieldMMD`. Timebox is a `PanelDialog`; action feedback uses `MessageHost`. Answer timer hidden (A8) |
+| 3. `assets/mmd-card.css` | Written and linked after `ankidroid.css`; `stdHtml()` hardcodes white/black and drops the night-mode classes. Lato for `html, body, .card` (note-type fonts on inner elements still apply) |
+| 4. Delete old views | Done: `fragment_reviewer`, `view_answer_area`, `view_study_counts`, `AnswerAreaView`, `StudyCountsView`, `AnswerTimerView`, `AnswerFeedbackView`, `AnswerButton`, `ReviewerMenuView` + `ReviewerMenu.kt`, and the toolbar-actions settings screen (`ReviewerMenuSettingsFragment`, adapter, layouts). Study-screen settings that no longer do anything are gone too: frame style, hide system bars, display cutout, answer feedback, toolbar position (with `FrameStyle`, `HideSystemBars`, `ToolbarPosition`). `ReviewerMenuRepository` stays for now (its test and `ViewerAction` defaults use it) |
+| 5. `EinkRefresh.onChange` | Called on every answer |
+
+Known gaps: the Compose type-answer field does not set the IME hint locales the old `EditText`
+did; the accessibility "answer button size" pref is ignored.
 
 ## Pre-existing issues (not caused by the fork)
 

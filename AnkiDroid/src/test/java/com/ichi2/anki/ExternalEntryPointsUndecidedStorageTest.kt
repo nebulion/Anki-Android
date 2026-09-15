@@ -6,7 +6,6 @@ import android.app.Activity
 import android.content.BroadcastReceiver
 import android.content.ContentProvider
 import android.content.Intent
-import android.os.Build
 import androidx.core.net.toUri
 import com.ichi2.anki.common.storage.CollectionHelper
 import com.ichi2.anki.common.storage.StorageDecision
@@ -77,17 +76,6 @@ class ExternalEntryPointsUndecidedStorageTest : RobolectricTest() {
             "com.ichi2.anki.AnkiCardContextMenuAction" ->
                 Intent(Intent.ACTION_PROCESS_TEXT).setType("text/plain").putExtra(Intent.EXTRA_PROCESS_TEXT, "dog")
             "com.ichi2.anki.CardBrowserDeepLink" -> Intent(Intent.ACTION_VIEW, "anki://x-callback-url/browser?search=dog".toUri())
-            // launched by the system's 'Manage space' settings button, with no action or extras
-            "com.ichi2.anki.ui.windows.managespace.ManageSpaceActivity" -> Intent()
-            // 'more info' button in the OS permission settings
-            "com.ichi2.anki.ui.windows.permissions.AllPermissionsExplanationActivity" ->
-                if (Build.VERSION.SDK_INT >=
-                    Build.VERSION_CODES.Q
-                ) {
-                    Intent(Intent.ACTION_VIEW_PERMISSION_USAGE)
-                } else {
-                    TODO("VERSION.SDK_INT < Q")
-                }
             "com.ichi2.anki.receiver.SdCardReceiver" -> Intent(Intent.ACTION_MEDIA_EJECT, "file:///storage/emulated/0".toUri())
             else -> fail("define the externally-sent intent for new entry point: $this")
         }

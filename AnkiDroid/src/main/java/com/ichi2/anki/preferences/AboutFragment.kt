@@ -17,8 +17,6 @@ import com.ichi2.anki.AnkiDroidApp
 import com.ichi2.anki.BuildConfig
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.R
-import com.ichi2.anki.common.destinations.ChangelogDestination
-import com.ichi2.anki.common.destinations.navigate
 import com.ichi2.anki.common.utils.android.showThemedToast
 import com.ichi2.anki.databinding.FragmentAboutBinding
 import com.ichi2.anki.launchCatchingTask
@@ -99,10 +97,6 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
 
         binding.rateAnkiDroid.setOnClickListener {
             IntentUtil.tryOpenIntent(requireAnkiActivity(), AnkiDroidApp.getMarketIntent(requireContext()))
-        }
-
-        binding.openChangelog.setOnClickListener {
-            navigate(ChangelogDestination)
         }
 
         binding.copyDebugInfo.text = TR.sentenceCase.copyDebugInfo

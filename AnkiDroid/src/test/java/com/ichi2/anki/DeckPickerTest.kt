@@ -2,7 +2,6 @@
 
 package com.ichi2.anki
 
-import android.Manifest.permission.INTERNET
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
@@ -15,8 +14,6 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.IntentCompat
-import androidx.core.content.edit
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
@@ -53,8 +50,6 @@ import com.ichi2.anki.settings.Prefs
 import com.ichi2.anki.snackbar.showSnackbar
 import com.ichi2.anki.ui.RecyclerFastScroller
 import com.ichi2.anki.ui.internationalization.sentenceCase
-import com.ichi2.anki.ui.windows.permissions.PermissionsActivity
-import com.ichi2.anki.ui.windows.permissions.PermissionsActivity.Companion.EXTRA_PERMISSIONS_SET
 import com.ichi2.anki.utils.Destination
 import com.ichi2.anki.utils.ext.defaultConfig
 import com.ichi2.anki.utils.ext.dismissAllDialogFragments
@@ -65,7 +60,6 @@ import com.ichi2.testutils.ext.addBasicNoteWithOp
 import com.ichi2.testutils.ext.menu
 import com.ichi2.testutils.revokeWritePermissions
 import com.ichi2.testutils.withBooleanPreference
-import com.ichi2.testutils.withDeniedPermissions
 import com.ichi2.testutils.withWritePermissions
 import kotlinx.coroutines.flow.merge
 import org.hamcrest.MatcherAssert.assertThat
@@ -90,7 +84,6 @@ import org.mockito.kotlin.whenever
 import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.Robolectric
 import org.robolectric.RuntimeEnvironment
-import org.robolectric.Shadows
 import org.robolectric.Shadows.shadowOf
 import org.robolectric.shadows.ShadowDialog
 import org.robolectric.shadows.ShadowLooper
@@ -118,7 +111,6 @@ class DeckPickerTest : RobolectricTest() {
     @Before
     fun before() {
         RuntimeEnvironment.setQualifiers(qualifiers)
-        setIntroductionSlidesShown(true)
     }
 
     @Test
@@ -764,10 +756,6 @@ class DeckPickerTest : RobolectricTest() {
             val binding = floatingActionButtonBinding
             assertThat(binding.fabMain.text.toString(), equalTo(getString(R.string.menu_add)))
             assertThat(
-                binding.addSharedButton.text.toString(),
-                equalTo(getString(R.string.menu_get_shared_decks)),
-            )
-            assertThat(
                 binding.addFilteredDeckButton.text.toString(),
                 equalTo(getString(R.string.new_dynamic_deck)),
             )
@@ -950,31 +938,6 @@ class DeckPickerTest : RobolectricTest() {
         }
 
     @Test
-    fun `On a new startup, the App Intro is displayed`() =
-        deckPicker(skipIntroduction = false) {
-            val nextIntent = Shadows.shadowOf(this).nextStartedActivity
-
-            assertThat(
-                "App Intro should be started on a new startup",
-                nextIntent.component?.className,
-                equalTo(IntroductionActivity::class.java.name),
-            )
-        }
-
-    @Suppress("RedundantValueArgument")
-    @Test
-    fun `On not a new startup, the App Intro is not displayed`() =
-        deckPicker(skipIntroduction = true) {
-            val nextIntent = Shadows.shadowOf(this).nextStartedActivity
-
-            assertThat(
-                "No other activity should be started when not a new startup",
-                nextIntent,
-                equalTo(null),
-            )
-        }
-
-    @Test
     fun `startup response is cleared after handling so it does not re-run on resume`() =
         deckPicker {
             ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
@@ -991,26 +954,6 @@ class DeckPickerTest : RobolectricTest() {
         deckPickerEx {
             runCatching { throw SQLiteDatabaseCorruptException() }
             assertThat(databaseErrorDialog, equalTo(DatabaseErrorDialogType.DIALOG_LOAD_FAILED))
-        }
-
-    @Test
-    fun `when INTERNET is denied, PermissionsActivity is shown`() =
-        runTest {
-            withDeniedPermissions(INTERNET) {
-                deckPicker {
-                    val intent = assertNotNull(shadowOf(this@deckPicker).nextStartedActivity)
-
-                    assertThat(
-                        intent.component?.shortClassName,
-                        equalTo(PermissionsActivity::class.java.name),
-                    )
-
-                    val extra = IntentCompat.getParcelableExtra(intent, EXTRA_PERMISSIONS_SET, StoragePermissionSet::class.java)
-
-                    assertNotNull(extra)
-                    assertThat(extra.permissions, equalTo(listOf(INTERNET)))
-                }
-            }
         }
 
     @Test
@@ -1070,18 +1013,10 @@ class DeckPickerTest : RobolectricTest() {
     }
 }
 
-fun RobolectricTest.setIntroductionSlidesShown(shown: Boolean) {
-    getPreferences().edit {
-        putBoolean(IntroductionActivity.INTRODUCTION_SLIDES_SHOWN, shown)
-    }
-}
-
 fun RobolectricTest.deckPicker(
     exposeTestData: Boolean = false,
-    skipIntroduction: Boolean = true,
     function: suspend DeckPicker.() -> Unit,
 ) = runTest {
-    setIntroductionSlidesShown(skipIntroduction)
     val deckPicker =
         startActivityNormallyOpenCollectionWithIntent(
             if (exposeTestData) DeckPickerTest.DeckPickerEx::class.java else DeckPicker::class.java,
@@ -1095,9 +1030,7 @@ fun RobolectricTest.deckPicker(
  *
  * @see DeckPickerTest.DeckPickerEx
  */
-internal fun RobolectricTest.deckPickerEx(
-    skipIntroduction: Boolean = true,
-    function: suspend DeckPickerTest.DeckPickerEx.() -> Unit,
-) = deckPicker(exposeTestData = true, skipIntroduction = skipIntroduction) {
-    function(this as DeckPickerTest.DeckPickerEx)
-}
+internal fun RobolectricTest.deckPickerEx(function: suspend DeckPickerTest.DeckPickerEx.() -> Unit) =
+    deckPicker(exposeTestData = true) {
+        function(this as DeckPickerTest.DeckPickerEx)
+    }

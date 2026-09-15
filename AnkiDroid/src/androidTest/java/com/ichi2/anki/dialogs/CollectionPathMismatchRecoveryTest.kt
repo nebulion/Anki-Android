@@ -19,7 +19,6 @@ import com.ichi2.anki.common.preferences.sharedPrefs
 import com.ichi2.anki.common.storage.CollectionHelper
 import com.ichi2.anki.startup.getDefaultAnkiDroidDirectory
 import com.ichi2.anki.tests.InstrumentedTest
-import com.ichi2.anki.testutil.disableIntroductionSlide
 import com.ichi2.anki.testutil.discardPreliminaryViews
 import org.junit.After
 import org.junit.Before
@@ -39,7 +38,6 @@ class CollectionPathMismatchRecoveryTest : InstrumentedTest() {
 
     @Before
     fun setUp() {
-        disableIntroductionSlide()
         CollectionManager.closeCollectionBlocking()
         val defaultDir = getDefaultAnkiDroidDirectory(testContext)
         nonDefaultDir = File(testContext.cacheDir, "CollectionPathMismatchRecoveryTest").apply { mkdirs() }

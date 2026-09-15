@@ -18,7 +18,6 @@ fun withDeckPicker(
 ) {
     // startup code occurs here so all users of this method are correctly setup
     test.ensureCollectionLoadIsSynchronous()
-    test.setIntroductionSlidesShown(true)
     BackupManagerTestUtilities.setupSpaceForBackup(test.targetContext)
     // suppress the periodic 'backup your collection' prompt so the screenshot is just the deck list
     test.targetContext.sharedPrefs().edit { putBoolean("backupPromptDisabled", true) }

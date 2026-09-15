@@ -44,9 +44,6 @@ class DeckPickerOnDiskTest : RobolectricTest() {
     @Before
     fun before() {
         RuntimeEnvironment.setQualifiers(qualifiers)
-        getPreferences().edit {
-            putBoolean(IntroductionActivity.INTRODUCTION_SLIDES_SHOWN, true)
-        }
     }
 
     @Test

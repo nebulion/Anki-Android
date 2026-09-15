@@ -98,7 +98,6 @@ class DeckPickerInsetsTest : RobolectricTest() {
     fun `the FAB does not move when the deck list first appears`() {
         // do not advance the looper: the FAB must be seen before the collection is loaded
         ensureCollectionLoadIsSynchronous()
-        setIntroductionSlidesShown(true)
         BackupManagerTestUtilities.setupSpaceForBackup(targetContext)
         targetContext.sharedPrefs().edit { putBoolean("backupPromptDisabled", true) }
         addDeck("Test Deck")

@@ -39,8 +39,6 @@ class ExternalEntryPointsTest : RobolectricTest() {
                 EntryPoint.ActivityAlias("com.ichi2.anki.AnkiCardContextMenuAction", "com.ichi2.anki.IntentHandler2"),
                 EntryPoint.ActivityAlias("com.ichi2.anki.CardBrowserDeepLink", "com.ichi2.anki.IntentHandler"),
                 EntryPoint.Activity("com.ichi2.anki.instantnoteeditor.InstantNoteEditorActivity"),
-                EntryPoint.Activity("com.ichi2.anki.ui.windows.managespace.ManageSpaceActivity"),
-                EntryPoint.Activity("com.ichi2.anki.ui.windows.permissions.AllPermissionsExplanationActivity"),
                 // Headless: reachable with no UI (third-party API, system broadcasts)
                 EntryPoint.Provider("com.ichi2.anki.provider.CardContentProvider"),
                 EntryPoint.Receiver("com.ichi2.anki.receiver.SdCardReceiver"),

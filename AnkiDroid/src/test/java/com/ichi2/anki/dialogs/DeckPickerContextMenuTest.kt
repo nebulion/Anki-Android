@@ -4,16 +4,13 @@ package com.ichi2.anki.dialogs
 
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.edit
 import androidx.fragment.app.testing.FragmentScenario
 import androidx.fragment.app.testing.FragmentScenario.Companion.launch
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.ichi2.anki.AnkiDroidApp
 import com.ichi2.anki.CollectionManager.TR
-import com.ichi2.anki.IntroductionActivity
 import com.ichi2.anki.R
-import com.ichi2.anki.common.preferences.sharedPrefs
 import com.ichi2.anki.libanki.DeckId
 import com.ichi2.anki.ui.internationalization.sentenceCase
 import com.ichi2.testutils.BackupManagerTestUtilities.setupSpaceForBackup
@@ -39,7 +36,6 @@ class DeckPickerContextMenuTest : JvmTest() {
     @Before
     fun before() {
         val context = ApplicationProvider.getApplicationContext<AnkiDroidApp>()
-        context.sharedPrefs().edit { putBoolean(IntroductionActivity.INTRODUCTION_SLIDES_SHOWN, true) }
         setupSpaceForBackup(context)
     }
 

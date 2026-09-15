@@ -6,7 +6,6 @@ import android.app.Activity
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.FrameLayout
 import androidx.core.view.RoundedCornerCompat
 import androidx.core.view.ViewCompat
@@ -15,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat.Type.displayCutout
 import androidx.core.view.WindowInsetsCompat.Type.navigationBars
 import androidx.core.view.WindowInsetsCompat.Type.statusBars
 import androidx.test.core.app.ActivityScenario
-import com.ichi2.anki.R
 import com.ichi2.anki.ScreenshotTest
 import com.ichi2.anki.settings.Prefs
 import com.ichi2.testutils.insetsOf
@@ -37,17 +35,6 @@ class AccountActivityScreenshotTest : ScreenshotTest() {
         withLoggedOut { activity ->
             activity.simulateNavigationBar()
             captureScreen("logged_out")
-        }
-
-    /** The AnkiWeb 'remove account' WebView, shown over the logged in screen */
-    @Test
-    fun removeAccount() =
-        withLoggedIn { activity ->
-            // show the fragment first: insets are only received by attached views
-            activity.findViewById<Button>(R.id.remove_account_button).performClick()
-            advanceRobolectricLooper()
-            activity.simulateNavigationBar()
-            captureScreen("remove_account")
         }
 
     /** Gesture navigation: a short inset, but larger rounded corners to clear */

@@ -62,7 +62,6 @@ class DeckPickerFloatingActionMenu(
 
         if (deckPicker.animationEnabled()) {
             // Show with animation
-            binding.addSharedButton.visibility = View.VISIBLE
             binding.addDeckButton.visibility = View.VISIBLE
             binding.addFilteredDeckButton.visibility = View.VISIBLE
             binding.fabBGLayout.visibility = View.VISIBLE
@@ -71,23 +70,18 @@ class DeckPickerFloatingActionMenu(
             binding.fabMain.extend()
 
             with(binding) {
-                addSharedButton.animate().translationY(0f).duration = 100
                 addDeckButton.animate().translationY(0f).duration = 70
                 addFilteredDeckButton.animate().translationY(0f).duration = 100
-                addSharedButton.animate().alpha(1f).duration = 100
                 addDeckButton.animate().alpha(1f).duration = 70
                 addFilteredDeckButton.animate().alpha(1f).duration = 100
             }
         } else {
             // Show without animation
-            binding.addSharedButton.visibility = View.VISIBLE
             binding.addDeckButton.visibility = View.VISIBLE
             binding.addFilteredDeckButton.visibility = View.VISIBLE
             binding.fabBGLayout.visibility = View.VISIBLE
-            binding.addSharedButton.alpha = 1f
             binding.addDeckButton.alpha = 1f
             binding.addFilteredDeckButton.alpha = 1f
-            binding.addSharedButton.translationY = 0f
             binding.addDeckButton.translationY = 0f
             binding.addFilteredDeckButton.translationY = 0f
             binding.fabMain.isExtended = true
@@ -125,10 +119,8 @@ class DeckPickerFloatingActionMenu(
                 binding.fabMain.shrink()
 
                 with(binding) {
-                    addSharedButton.animate().alpha(0f).duration = 50
                     addDeckButton.animate().alpha(0f).duration = 100
                     addFilteredDeckButton.animate().alpha(0f).duration = 100
-                    addSharedButton.animate().translationY(400f).duration = 100
                     addDeckButton
                         .animate()
                         .translationY(300f)
@@ -139,7 +131,6 @@ class DeckPickerFloatingActionMenu(
 
                                 override fun onAnimationEnd(animator: Animator) {
                                     if (!isFABOpen) {
-                                        addSharedButton.visibility = View.GONE
                                         addDeckButton.visibility = View.GONE
                                         addFilteredDeckButton.visibility = View.GONE
                                     }
@@ -160,7 +151,6 @@ class DeckPickerFloatingActionMenu(
 
                                 override fun onAnimationEnd(animator: Animator) {
                                     if (!isFABOpen) {
-                                        addSharedButton.visibility = View.GONE
                                         addDeckButton.visibility = View.GONE
                                         addFilteredDeckButton.visibility = View.GONE
                                     }
@@ -174,7 +164,6 @@ class DeckPickerFloatingActionMenu(
                 }
             } else {
                 // Close without animation
-                binding.addSharedButton.visibility = View.GONE
                 binding.addDeckButton.visibility = View.GONE
                 binding.addFilteredDeckButton.visibility = View.GONE
                 binding.fabMain.isExtended = false
@@ -194,10 +183,8 @@ class DeckPickerFloatingActionMenu(
                 binding.fabMain.shrink()
 
                 with(binding) {
-                    addSharedButton.animate().alpha(0f).duration = 70
                     addDeckButton.animate().alpha(0f).duration = 50
                     addFilteredDeckButton.animate().alpha(0f).duration = 50
-                    addSharedButton.animate().translationY(600f).duration = 100
                     addDeckButton
                         .animate()
                         .translationY(400f)
@@ -208,7 +195,6 @@ class DeckPickerFloatingActionMenu(
 
                                 override fun onAnimationEnd(animator: Animator) {
                                     if (!isFABOpen) {
-                                        addSharedButton.visibility = View.GONE
                                         addDeckButton.visibility = View.GONE
                                         addFilteredDeckButton.visibility = View.GONE
                                     }
@@ -229,7 +215,6 @@ class DeckPickerFloatingActionMenu(
 
                                 override fun onAnimationEnd(animator: Animator) {
                                     if (!isFABOpen) {
-                                        addSharedButton.visibility = View.GONE
                                         addDeckButton.visibility = View.GONE
                                         addFilteredDeckButton.visibility = View.GONE
                                     }
@@ -243,7 +228,6 @@ class DeckPickerFloatingActionMenu(
                 }
             } else {
                 // Close without animation
-                binding.addSharedButton.visibility = View.GONE
                 binding.addDeckButton.visibility = View.GONE
                 binding.addFilteredDeckButton.visibility = View.GONE
                 binding.fabMain.isExtended = false
@@ -368,25 +352,6 @@ class DeckPickerFloatingActionMenu(
                 }
             }
         binding.addFilteredDeckButton.setOnKeyListener(addFilteredDeckKeyListener)
-        val addSharedListener =
-            View.OnClickListener {
-                if (isFABOpen) {
-                    closeFloatingActionMenu(applyRiseAndShrinkAnimation = false)
-                    Timber.d("configureFloatingActionsMenu::addSharedButton::onClickListener - Adding Shared Deck")
-                    deckPicker.openAnkiWebSharedDecks()
-                }
-            }
-        binding.addSharedButton.setOnClickListener(addSharedListener)
-
-        // Enable keyboard activation for Enter/DPAD_CENTER keys
-        val addSharedKeyListener =
-            createActivationKeyListener("Add Shared Deck button: ENTER key pressed") {
-                if (isFABOpen) {
-                    closeFloatingActionMenu(applyRiseAndShrinkAnimation = false)
-                    deckPicker.openAnkiWebSharedDecks()
-                }
-            }
-        binding.addSharedButton.setOnKeyListener(addSharedKeyListener)
         // Mirrors the touch DoubleTapListener above: TalkBack and hardware keyboards activate via
         // ACTION_CLICK -> performClick(), which bypasses the touch GestureDetector. Opening the menu
         // must live here too, otherwise the FAB is inoperable when a screen reader is enabled.

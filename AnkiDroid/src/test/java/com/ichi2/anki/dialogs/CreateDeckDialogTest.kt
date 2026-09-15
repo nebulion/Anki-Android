@@ -8,12 +8,10 @@ import android.content.ContextWrapper
 import android.os.Looper
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.edit
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.DeckPicker
-import com.ichi2.anki.IntroductionActivity
 import com.ichi2.anki.R
 import com.ichi2.anki.RobolectricTest
 import com.ichi2.anki.dialogs.CreateDeckDialog.DeckDialogType
@@ -45,7 +43,6 @@ class CreateDeckDialogTest : RobolectricTest() {
 
     override fun setUp() {
         super.setUp()
-        getPreferences().edit { putBoolean(IntroductionActivity.INTRODUCTION_SLIDES_SHOWN, true) }
         ensureCollectionLoadIsSynchronous()
         activityScenario =
             ActivityScenario.launch(DeckPicker::class.java).apply {

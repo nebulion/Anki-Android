@@ -12,15 +12,12 @@ import com.ichi2.anki.CardTemplateBrowserAppearanceEditor.Companion.INTENT_ANSWE
 import com.ichi2.anki.CardTemplateBrowserAppearanceEditor.Companion.INTENT_QUESTION_FORMAT
 import com.ichi2.anki.CardTemplateEditor
 import com.ichi2.anki.DeckPicker
-import com.ichi2.anki.Info
 import com.ichi2.anki.IntentHandler
 import com.ichi2.anki.IntentHandler.Companion.getReviewDeckIntent
 import com.ichi2.anki.IntentHandler2
-import com.ichi2.anki.IntroductionActivity
 import com.ichi2.anki.NoteEditorActivity
 import com.ichi2.anki.NoteTypeFieldEditor
 import com.ichi2.anki.Reviewer
-import com.ichi2.anki.SharedDecksActivity
 import com.ichi2.anki.SingleFragmentActivity
 import com.ichi2.anki.StudyOptionsActivity
 import com.ichi2.anki.account.AccountActivity
@@ -29,9 +26,6 @@ import com.ichi2.anki.multimedia.MultimediaActivity
 import com.ichi2.anki.notetype.ManageNotetypes
 import com.ichi2.anki.preferences.PreferencesActivity
 import com.ichi2.anki.previewer.CardViewerActivity
-import com.ichi2.anki.ui.windows.managespace.ManageSpaceActivity
-import com.ichi2.anki.ui.windows.permissions.AllPermissionsExplanationActivity
-import com.ichi2.anki.ui.windows.permissions.PermissionsActivity
 import com.ichi2.anki.utils.ConfigAwareSingleFragmentActivity
 import com.ichi2.testutils.ActivityList.ActivityLaunchParam.Companion.get
 import org.robolectric.Robolectric
@@ -60,15 +54,9 @@ object ActivityList {
             // Likely has unhandled intents
             get(Reviewer::class.java),
             get(PreferencesActivity::class.java),
-            get(Info::class.java),
             get(CardTemplateEditor::class.java) { intentForCardTemplateEditor() },
             get(CardTemplateBrowserAppearanceEditor::class.java) { intentForCardTemplateBrowserAppearanceEditor() },
-            get(SharedDecksActivity::class.java),
-            get(IntroductionActivity::class.java),
             get(ManageNotetypes::class.java),
-            get(ManageSpaceActivity::class.java),
-            get(PermissionsActivity::class.java),
-            get(AllPermissionsExplanationActivity::class.java),
             get(SingleFragmentActivity::class.java),
             get(ConfigAwareSingleFragmentActivity::class.java),
             get(CardViewerActivity::class.java),

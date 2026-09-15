@@ -27,13 +27,10 @@ import com.ichi2.anki.servicelayer.PreferenceUpgradeService
 import com.ichi2.anki.servicelayer.PreferenceUpgradeService.setPreferencesUpToDate
 import com.ichi2.anki.startup.StoragePolicy
 import com.ichi2.anki.startup.folderToPersist
-import com.ichi2.anki.ui.windows.permissions.InternetPermissionFragment
 import com.ichi2.anki.ui.windows.permissions.LegacyNotificationsPermissionFragment
 import com.ichi2.anki.ui.windows.permissions.NotificationsPermissionFragment
 import com.ichi2.anki.ui.windows.permissions.PermissionsBottomSheet
 import com.ichi2.anki.ui.windows.permissions.PermissionsFragment
-import com.ichi2.anki.ui.windows.permissions.PermissionsStartingAt30Fragment
-import com.ichi2.anki.ui.windows.permissions.PermissionsUntil29Fragment
 import com.ichi2.utils.Permissions
 import com.ichi2.utils.VersionUtils.pkgVersionName
 import kotlinx.parcelize.Parcelize
@@ -207,7 +204,6 @@ object InitialActivity {
  */
 sealed interface PermissionSet : Parcelable {
     val permissions: List<String>
-    val permissionsFragment: Class<out PermissionsFragment>
 
     fun hasRequiredPermissions(context: Context): Boolean = hasAllPermissions(context, permissions)
 }
@@ -220,14 +216,13 @@ sealed interface PermissionSet : Parcelable {
 @Parcelize
 enum class StoragePermissionSet(
     override val permissions: List<String>,
-    override val permissionsFragment: Class<out PermissionsFragment>,
 ) : PermissionSet {
-    LEGACY_ACCESS(Permissions.legacyStorageAccessStartupPermissions, PermissionsUntil29Fragment::class.java),
+    LEGACY_ACCESS(Permissions.legacyStorageAccessStartupPermissions),
 
     @RequiresApi(Build.VERSION_CODES.R)
-    EXTERNAL_MANAGER(Permissions.externalManagerStorageAccessStartupPermissions, PermissionsStartingAt30Fragment::class.java),
+    EXTERNAL_MANAGER(Permissions.externalManagerStorageAccessStartupPermissions),
 
-    APP_PRIVATE(Permissions.appPrivateStartupPermissions, InternetPermissionFragment::class.java),
+    APP_PRIVATE(Permissions.appPrivateStartupPermissions),
     ;
 
     /** Who chooses the collection folder on a fresh install. */
@@ -252,7 +247,7 @@ enum class StoragePermissionSet(
 @Parcelize
 enum class OptionalPermissionSet(
     override val permissions: List<String>,
-    override val permissionsFragment: Class<out PermissionsFragment>,
+    val permissionsFragment: Class<out PermissionsFragment>,
 ) : PermissionSet {
     /**
      * For devices with API >= 33.

@@ -99,7 +99,6 @@ import com.ichi2.anki.common.android.animationDisabled
 import com.ichi2.anki.common.android.appContext
 import com.ichi2.anki.common.annotations.NeedsTest
 import com.ichi2.anki.common.crashreporting.CrashReportService
-import com.ichi2.anki.common.destinations.ChangelogDestination
 import com.ichi2.anki.common.destinations.DeferredNavigation
 import com.ichi2.anki.common.destinations.PreferencesDestination
 import com.ichi2.anki.common.destinations.ReviewDeckDestination
@@ -153,8 +152,6 @@ import com.ichi2.anki.dialogs.customstudy.CustomStudyDialog.CustomStudyAction.Co
 import com.ichi2.anki.dialogs.setDeckPickerContextMenuResultListener
 import com.ichi2.anki.export.ExportDialogFragment
 import com.ichi2.anki.filtered.FilteredDeckOptionsFragment
-import com.ichi2.anki.introduction.CollectionPermissionScreenLauncher
-import com.ichi2.anki.introduction.hasCollectionStoragePermissions
 import com.ichi2.anki.libanki.DeckId
 import com.ichi2.anki.libanki.sched.DeckNode
 import com.ichi2.anki.mediacheck.MediaCheckFragment
@@ -179,7 +176,6 @@ import com.ichi2.anki.ui.ResizablePaneManager
 import com.ichi2.anki.ui.animations.fadeIn
 import com.ichi2.anki.ui.animations.fadeOut
 import com.ichi2.anki.ui.internationalization.sentenceCase
-import com.ichi2.anki.ui.windows.permissions.PermissionsActivity
 import com.ichi2.anki.utils.Destination
 import com.ichi2.anki.utils.ShortcutUtils
 import com.ichi2.anki.utils.ext.dismissAllDialogFragments
@@ -230,7 +226,7 @@ import com.ichi2.anki.common.android.R as CommonR
  *
  * On a tablet, this is a fragmented view, with [StudyOptionsFragment] to the right: [tryShowStudyOptionsPanel]
  *
- * Often used as navigation to: [Reviewer], [NoteEditorFragment] (adding notes), [StudyOptionsFragment] [SharedDecksDownloadFragment]
+ * Often used as navigation to: [Reviewer], [NoteEditorFragment] (adding notes), [StudyOptionsFragment]
  *
  * Responsibilities:
  * * Setup/upgrades of the application: [handleStartup]
@@ -251,8 +247,6 @@ import com.ichi2.anki.common.android.R as CommonR
  * * A custom image as a background can be added: [applyDeckPickerBackground]
  */
 @KotlinCleanup("lots to do")
-@NeedsTest("If the collection has been created, the app intro is not displayed")
-@NeedsTest("If the user selects 'Sync Profile' in the app intro, a sync starts immediately")
 @NeedsTest("Regression test of #19555 or remove 'android:configChanges' for the screen")
 open class DeckPicker :
     NavigationDrawerActivity(),
@@ -262,8 +256,7 @@ open class DeckPicker :
     ImportColpkgListener,
     BaseSnackbarBuilderProvider,
     ApkgImportResultLauncherProvider,
-    CsvImportResultLauncherProvider,
-    CollectionPermissionScreenLauncher {
+    CsvImportResultLauncherProvider {
     val viewModel: DeckPickerViewModel by viewModels()
 
     private val importViewModel: ImportViewModel by viewModels()
@@ -336,21 +329,11 @@ open class DeckPicker :
     private var toolbarSearchItem: MenuItem? = null
     private var toolbarSearchView: AccessibleSearchView? = null
 
-    override val permissionScreenLauncher = recreateActivityResultLauncher()
-
     private val reviewLauncher =
         registerForActivityResult(
             ActivityResultContracts.StartActivityForResult(),
             DeckPickerActivityResultCallback {
                 processReviewResults(it.resultCode)
-            },
-        )
-
-    private val showNewVersionInfoLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult(),
-            DeckPickerActivityResultCallback {
-                showStartupScreensAndDialogs(baseContext.sharedPrefs(), 3)
             },
         )
 
@@ -497,19 +480,8 @@ open class DeckPicker :
 
         binding = ActivityHomescreenBinding.inflate(layoutInflater)
 
-        // handle the first load: display the app introduction
-        // This screen is currently better equipped to handle errors than IntroductionActivity
-        if (!hasShownAppIntro() && AnkiDroidApp.fatalError == null) {
-            Timber.i("Displaying app intro")
-            val appIntro = Intent(this, IntroductionActivity::class.java)
-            appIntro.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(appIntro)
-            finish() // calls onDestroy() immediately
-            return
-        }
-        Timber.d("Not displaying app intro")
         if (intent.hasExtra(INTENT_SYNC_FROM_LOGIN)) {
-            Timber.d("launched from introduction activity login: syncing")
+            Timber.d("launched from login: syncing")
             syncOnResume = true
         }
 
@@ -883,13 +855,6 @@ open class DeckPicker :
         fun onStartupResponse(response: StartupResponse) {
             Timber.d("onStartupResponse: %s", response)
             when (response) {
-                is StartupResponse.RequestPermissions -> {
-                    viewModel.flowOfStartupResponse.value = null // Prevent duplicate permission screen launches
-                    permissionScreenLauncher.launch(
-                        PermissionsActivity.getIntent(this, response.requiredPermissions),
-                    )
-                }
-
                 is StartupResponse.Success -> {
                     // Set flowOfStartupResponse to null after handling so it isn't re-emitted on resume.
                     // Must stay here: clearing in ViewModel would break cold start (collector is only active at RESUMED).
@@ -1060,13 +1025,6 @@ open class DeckPicker :
 
         val environment: AnkiDroidEnvironment =
             object : AnkiDroidEnvironment {
-                private val permissions = selectStoragePermissions(context)
-
-                override fun hasRequiredPermissions(): Boolean = permissions.hasRequiredPermissions(context)
-
-                override val requiredPermissions: StoragePermissionSet
-                    get() = permissions
-
                 override val preferences: SharedPreferences
                     get() = context.sharedPrefs()
 
@@ -1493,15 +1451,14 @@ open class DeckPicker :
         // As `loadDeckCounts` is cancelled in `migrate()`
         val message = dialogHandler.popMessage()
         super.onResume()
-        if (navDrawerIsReady() && hasCollectionStoragePermissions()) {
+        if (navDrawerIsReady()) {
             refreshState()
         }
         message?.let { dialogHandler.sendStoredMessage(it) }
     }
 
     fun refreshState() {
-        // Due to the App Introduction, this may be called before permission has been granted.
-        if (syncOnResume && hasCollectionStoragePermissions()) {
+        if (syncOnResume) {
             syncOnResume = false
             Timber.i("Performing Sync on Resume")
             Permissions.requestNotificationPermissionsForSyncing(this)
@@ -1856,19 +1813,11 @@ open class DeckPicker :
                 return
             }
 
-            // If no changes are required we go to the new features activity
-            // There the "lastVersion" is set, so that this code is not reached again
-            if (VersionUtils.isReleaseVersion) {
-                Timber.i("Displaying new features")
-                showNewVersionInfoLauncher.navigate(ChangelogDestination)
-            } else {
-                Timber.i("Dev Build - not showing 'new features'")
-                // Don't show new features dialog for development builds
-                InitialActivity.setUpgradedToLatestVersion(preferences)
-                val ver = resources.getString(R.string.updated_version, VersionUtils.pkgVersionName)
-                postSnackbar(ver, Snackbar.LENGTH_SHORT)
-                showStartupScreensAndDialogs(preferences, 2)
-            }
+            // The fork has no changelog screen: record the upgrade and say so
+            InitialActivity.setUpgradedToLatestVersion(preferences)
+            val ver = resources.getString(R.string.updated_version, VersionUtils.pkgVersionName)
+            postSnackbar(ver, Snackbar.LENGTH_SHORT)
+            showStartupScreensAndDialogs(preferences, 2)
         } else {
             // This is the main call when there is nothing special required
             Timber.i("No startup screens required")
@@ -2073,16 +2022,6 @@ open class DeckPicker :
                 SdCardReceiver.MEDIA_MOUNT
                     to { ActivityCompat.recreate(this) },
             )
-
-    fun openAnkiWebSharedDecks() {
-        if (!NetworkUtils.isOnline) {
-            showSnackbar(R.string.check_network)
-            Timber.d("DeckPicker:: No network, Shared deck download failed")
-            return
-        }
-        val intent = Intent(this, SharedDecksActivity::class.java)
-        startActivity(intent)
-    }
 
     private fun openStudyOptions() {
         if (tryShowStudyOptionsPanel()) return

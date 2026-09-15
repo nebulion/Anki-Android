@@ -19,7 +19,6 @@ package com.ichi2.anki
 import androidx.test.core.app.ActivityScenario
 import com.ichi2.anki.tests.InstrumentedTest
 import com.ichi2.anki.testutil.GrantStoragePermission
-import com.ichi2.anki.testutil.disableIntroductionSlide
 import com.ichi2.anki.testutil.grantPermissions
 import org.junit.Before
 import org.junit.Rule
@@ -31,7 +30,6 @@ class FilteredDeckOptionsTest : InstrumentedTest() {
 
     @Before
     fun before() {
-        disableIntroductionSlide()
     }
 
     @Test

@@ -20,7 +20,6 @@ import com.ichi2.anki.CollectionManager.withOpenColOrNull
 import com.ichi2.anki.DeckPicker
 import com.ichi2.anki.InitialActivity
 import com.ichi2.anki.OnErrorListener
-import com.ichi2.anki.StoragePermissionSet
 import com.ichi2.anki.common.destinations.BrowserDestination
 import com.ichi2.anki.common.destinations.DeckOptionsDestination
 import com.ichi2.anki.common.destinations.NoteEditorDestination
@@ -492,10 +491,6 @@ class DeckPickerViewModel :
         }
 
     sealed class StartupResponse {
-        data class RequestPermissions(
-            val requiredPermissions: StoragePermissionSet,
-        ) : StartupResponse()
-
         /**
          * The app failed to start and is probably unusable (e.g. No disk space/DB corrupt)
          *
@@ -510,18 +505,11 @@ class DeckPickerViewModel :
 
     /**
      * The first call in showing dialogs for startup - error or success.
-     * Attempts startup if storage permission has been acquired, else, it requests the permission
      *
      * @see flowOfStartupResponse
      */
     fun handleStartup(environment: AnkiDroidEnvironment) {
-        if (!environment.hasRequiredPermissions()) {
-            Timber.i("${this.javaClass.simpleName}: postponing startup code - permission screen shown")
-            flowOfStartupResponse.value = StartupResponse.RequestPermissions(environment.requiredPermissions)
-            return
-        }
-
-        Timber.d("handleStartup: Continuing after permission granted")
+        Timber.d("handleStartup")
         val failure = InitialActivity.getStartupFailureType(environment.preferences, environment::initializeAnkiDroidFolder)
         if (failure != null) {
             flowOfStartupResponse.value = StartupResponse.FatalError(failure)
@@ -536,10 +524,6 @@ class DeckPickerViewModel :
     }
 
     interface AnkiDroidEnvironment {
-        fun hasRequiredPermissions(): Boolean
-
-        val requiredPermissions: StoragePermissionSet
-
         /** The preferences of the (profile) context the collection path is read from */
         val preferences: SharedPreferences
 

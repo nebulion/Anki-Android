@@ -32,7 +32,6 @@ class DeckPickerScreenshotTest : ScreenshotTest() {
         super.setUp()
         setPhoneQualifiers()
         ensureCollectionLoadIsSynchronous()
-        setIntroductionSlidesShown(true)
         BackupManagerTestUtilities.setupSpaceForBackup(targetContext)
         // suppress the periodic 'backup your collection' prompt so the screenshot is just the activity
         targetContext.sharedPrefs().edit { putBoolean("backupPromptDisabled", true) }

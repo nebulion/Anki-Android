@@ -40,15 +40,8 @@ import java.lang.AssertionError
 
 @RunWith(AndroidJUnit4::class)
 class ReviewerTest : InstrumentedTest() {
-    // Launch IntroductionActivity instead of DeckPicker activity because in CI
-    // builds, it seems to create IntroductionActivity after the DeckPicker,
-    // causing the DeckPicker activity to be destroyed. As a consequence, this
-    // will throw RootViewWithoutFocusException when Espresso tries to interact
-    // with an already destroyed activity. By launching IntroductionActivity, we
-    // ensure that IntroductionActivity is launched first and navigate to the
-    // DeckPicker -> Reviewer activities
     @get:Rule
-    val activityScenarioRule = ActivityScenarioRule(IntroductionActivity::class.java)
+    val activityScenarioRule = ActivityScenarioRule(DeckPicker::class.java)
 
     @get:Rule
     val runtimePermissionRule = grantPermissions(storagePermission, notificationPermission)

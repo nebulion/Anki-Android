@@ -217,16 +217,12 @@ class IntentHandler : AbstractIntentHandler() {
         action: String?,
     ) {
         Timber.i("Handling file import")
-        if (!hasShownAppIntro()) {
+        if (CollectionHelper.storageDecision(sharedPrefs()) != StorageDecision.Decided) {
             Timber.i("Trying to import a file when the app was not started at all")
             showThemedToast(this, R.string.app_not_initialized_new, false)
             return
         }
         val importResult = handleFileImport(this, intent)
-        // attempt to delete the downloaded deck if it is a shared deck download import
-        if (intent.hasExtra(SharedDecksDownloadFragment.EXTRA_IS_SHARED_DOWNLOAD)) {
-            deleteDownloadedDeck(intent.data)
-        }
 
         // Start DeckPicker if we correctly processed ACTION_VIEW
         when (importResult) {
@@ -294,24 +290,6 @@ class IntentHandler : AbstractIntentHandler() {
                 // Fallback if no extras, though this shouldn't happen for ACTION_SEND
                 ?: NoteEditorDestination.AddNote()
         navigate(destination)
-    }
-
-    private fun deleteDownloadedDeck(sharedDeckUri: Uri?) {
-        if (sharedDeckUri == null) {
-            Timber.i("onCreate: downloaded a shared deck but uri was null when trying to delete its file")
-            return
-        }
-        // TODO improve the handling of the imported temporary files
-        // Launching this scope without tying it to a lifecycle since ,
-        // IntentHandler finishes quickly, but deletion may still be in progress
-        applicationScope.launch(Dispatchers.IO) {
-            try {
-                contentResolver.delete(sharedDeckUri, null, null)
-                Timber.i("onCreate: downloaded shared deck deleted")
-            } catch (e: Exception) {
-                Timber.w(e, "onCreate: failed to delete downloaded shared deck")
-            }
-        }
     }
 
     private fun launchDeckPickerIfNoOtherTasks(reloadIntent: Intent) {

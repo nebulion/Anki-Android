@@ -27,7 +27,6 @@ import com.ichi2.anki.TestUtils.activityInstance
 import com.ichi2.anki.TestUtils.isTablet
 import com.ichi2.anki.tests.InstrumentedTest
 import com.ichi2.anki.testutil.GrantStoragePermission.storagePermission
-import com.ichi2.anki.testutil.disableIntroductionSlide
 import com.ichi2.anki.testutil.discardPreliminaryViews
 import com.ichi2.anki.testutil.grantPermissions
 import com.ichi2.anki.testutil.notificationPermission
@@ -49,7 +48,6 @@ class DeckPickerTest : InstrumentedTest() {
     @Before
     fun before() {
         addNoteUsingBasicNoteType()
-        disableIntroductionSlide()
         discardPreliminaryViews()
     }
 

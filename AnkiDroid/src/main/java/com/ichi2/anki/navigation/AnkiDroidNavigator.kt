@@ -7,7 +7,6 @@ import android.content.Intent
 import com.ichi2.anki.browser.toIntent
 import com.ichi2.anki.common.destinations.BrowserDestination
 import com.ichi2.anki.common.destinations.CardInfoDestination
-import com.ichi2.anki.common.destinations.ChangelogDestination
 import com.ichi2.anki.common.destinations.CsvImporterDestination
 import com.ichi2.anki.common.destinations.DeckOptionsDestination
 import com.ichi2.anki.common.destinations.Destination
@@ -38,7 +37,6 @@ object AnkiDroidNavigator : Navigator {
             is NoteEditorDestination -> destination.toIntent(navContext)
             is CsvImporterDestination -> destination.toIntent(navContext)
             is DeckOptionsDestination -> destination.toIntent(navContext)
-            is ChangelogDestination -> destination.toIntent(navContext)
             is LauncherDestination -> destination.toIntent(navContext)
             is PreferencesDestination -> destination.toIntent(navContext)
             is ReviewDeckDestination -> destination.toIntent(navContext)

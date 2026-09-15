@@ -43,9 +43,7 @@ class DeckPickerNoExternalFilesDirTest : RobolectricTest() {
         // Currently undefined if we should fail when PREF_COLLECTION_PATH is set
         //  but getExternalFilesDir returns null
 
-        // IntroductionActivity should be skipped by our code so we can show the error
-        // without user interaction
-        deckPicker(skipIntroduction = false) {
+        deckPicker {
             val message = (ShadowDialog.getLatestDialog() as AlertDialog).message
             assertThat(message, containsString("getExternalFilesDir unexpectedly returned null"))
         }
@@ -54,9 +52,7 @@ class DeckPickerNoExternalFilesDirTest : RobolectricTest() {
     @Test
     @Config(application = AnkiDroidAppWithCollectionButUnwritableStorage::class)
     fun `Fatal error is shown when getExternalFilesDir is null and collection is set but unwritable`() {
-        // IntroductionActivity should be skipped by our code so we can show the error
-        // without user interaction
-        deckPicker(skipIntroduction = false) {
+        deckPicker {
             val message = (ShadowDialog.getLatestDialog() as AlertDialog).message
             assertThat(message, containsString("getExternalFilesDir unexpectedly returned null"))
         }
@@ -73,8 +69,6 @@ class DeckPickerNoExternalFilesDirTest : RobolectricTest() {
                 every { CollectionHelper.isCurrentAnkiDroidDirAccessible(any()) } returns false
                 every { CollectionManager.getColUnsafe() } throws TestException("")
                 every { SdCard.isMounted } returns true
-
-                setIntroductionSlidesShown(true)
 
                 deckPicker {
                     (ShadowDialog.getLatestDialog() as AlertDialog).also { dialog ->

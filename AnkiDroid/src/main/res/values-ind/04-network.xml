@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">Perubahan yang diminta mengharuskan basis data diunggah seluruhnya saat Anda melakukan sinkronisasi koleksi Anda. Jika Anda memiliki ulasan atau perubahan lainnya yang menunggu di perangkat lain yang belum disinkronkan di sini, mereka akan hilang. Lanjutkan?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Sync (one-way)</string>
-    <string name="sync_menu_title_no_account">Sinkronisasi (masuk)</string>
 </resources>

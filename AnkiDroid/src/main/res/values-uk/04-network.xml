@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">Обрана зміна вимагає повного перезавантаження бази даних під час наступної синхронізації ваших колекцій. Якщо ви мали несинхронізовані зміни на інших пристроях, їх буде втрачено. Продовжити?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Синхронізація (одностороння)</string>
-    <string name="sync_menu_title_no_account">Синхронізація (логін)</string>
 </resources>

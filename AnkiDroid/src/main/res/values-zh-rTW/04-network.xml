@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">此變動會使你下一次同步你的集合時，需要完整上傳你的資料庫。如果同步的話，你其他的裝置上尚未同步的複習卡片或其他變動的部分將會遺失，你是否要繼續？</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">同步（單向）</string>
-    <string name="sync_menu_title_no_account">同步 (登入)</string>
 </resources>

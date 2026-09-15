@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">Ang hiniling na pagbabago ay mangangailangan ng isang buong pag-upload ng database kapag susunod mong i-synchronize ang iyong koleksyon. Kung mayroon kang mga review o iba pang mga pagbabago na naghihintay sa iba pang mga device na hindi pa naka-synchronize dito, mawawala ang mga ito. Magpatuloy?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">I-sync (isang-daanan)</string>
-    <string name="sync_menu_title_no_account">I-sync (maglog-in)</string>
 </resources>

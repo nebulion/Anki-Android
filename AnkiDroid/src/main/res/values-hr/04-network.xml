@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">Zbog tražene promjene je potreban potpun prijenos Vaše baze podataka pri sljedećoj sinkronizaciji Vaše kolekcije. Ako imate ponavljanja ili druge promjene na nekom drugom uređaju koje nisu sinkronizirane, bit će izgubljene. Nastaviti?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Sinkronizacija (u jednom smjeru)</string>
-    <string name="sync_menu_title_no_account">Sinkronizacija (prijava)</string>
 </resources>

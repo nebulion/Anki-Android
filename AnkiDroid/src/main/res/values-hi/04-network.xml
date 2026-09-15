@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">जब आप अगले अपने संग्रह सिंक्रनाइज़ अनुरोध परिवर्तन डेटाबेस का एक पूर्ण अपलोड की आवश्यकता होगी । यदि आपके पास अभी तक सिंक्रनाइज़ नहीं किए गए किसी अन्य डिवाइस पर प्रतीक्षारत समीक्षाएँ या अन्य परिवर्तन हैं, तो वे खो जाएँगे. जारी?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">सिंक (एकतरफ़ा)</string>
-    <string name="sync_menu_title_no_account">सिंक (लॉग इन)</string>
 </resources>

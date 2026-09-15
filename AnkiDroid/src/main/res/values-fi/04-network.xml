@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">Pyytämäsi muutos vaatii tietokannan täyden lähetyksen AnkiWebiin kun synkronoit kokoelmasi seuraavan kerran. Jos sinulla on kertauksia tai muita muutoksia odottamassa toisessa laitteessa, jota ei ole vielä synkronoitu tänne, nämä synkronoimattomat tiedot katoavat. Haluatko jatkaa?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Synkronoi (yksisuuntaisesti)</string>
-    <string name="sync_menu_title_no_account">Synkronointi (vaatii kirjautumisen)</string>
 </resources>

@@ -45,5 +45,4 @@
 
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Sync (one-way)</string>
-    <string name="sync_menu_title_no_account">Sync (log in)</string>
 </resources>

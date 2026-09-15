@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">Żądana zmiana wymagać będzie pełnego wysłania bazy danych przy następnej synchronizacji Twojej kolekcji. Jeżeli posiadasz powtórki lub inne oczekujące zmiany na innym urządzeniu, które nie zostały jeszcze zsynchronizowane, zostaną one utracone. Kontynuować?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Synchronizacja (jednokierunkowa)</string>
-    <string name="sync_menu_title_no_account">Synchronizacja (logowanie)</string>
 </resources>

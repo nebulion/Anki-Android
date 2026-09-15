@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">השינוי שביקשת לבצע יחייב העלאה של כל מסד הנתונים בסנכרון הבא של אוסף החפיסות. אם יש שינונים או שינויים אחרים במכשיר אחר שלא סונכרנו עדיין, הם יאבדו. להמשיך?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">סנכרון (בכיוון אחד)</string>
-    <string name="sync_menu_title_no_account">סנכרון (מתחבר)</string>
 </resources>

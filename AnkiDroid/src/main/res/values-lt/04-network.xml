@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">Norint atlikti pageidaujamą pakeitimą, sekantį kartą sinchronizuojant jūsų kolekciją, reikės įkelti visą duomenų bazę. Jei kitame įrenginyje turite dar nesusinchronizuotų peržiūrų ar kitokių pakeitimų, jie bus panaikinti. Ar norite tęsti?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Sinchronizavimas (vienpusis)</string>
-    <string name="sync_menu_title_no_account">Sinchronizuojamas prisijungimas</string>
 </resources>

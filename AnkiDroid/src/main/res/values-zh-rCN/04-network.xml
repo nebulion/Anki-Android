@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">所做的修改要求在下次同步集合时完整上传数据库。若其他设备存在尚未同步至此的复习记录或其他更改，那些数据将会丢失。是否继续？</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">同步 (单向)</string>
-    <string name="sync_menu_title_no_account">同步（登录）</string>
 </resources>

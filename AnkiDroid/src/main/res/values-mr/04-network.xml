@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">आपण पुढील वेळी आपला संग्रह संकालित करता तेव्हा विनंती केलेल्या बदलास डेटाबेसचे संपूर्ण अपलोड आवश्यक असेल. आपल्याकडे पुनरावलोकने किंवा अन्य बदल येथे असल्यास ज्याचे अद्याप येथे संकालन केले नाही अशा दुसर्‍या डिव्हाइसची वाट पाहत असाल तर ते गमावतील. सुरू?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">समक्रमण (एक मार्ग)</string>
-    <string name="sync_menu_title_no_account">समक्रमण (लॉग इन)</string>
 </resources>

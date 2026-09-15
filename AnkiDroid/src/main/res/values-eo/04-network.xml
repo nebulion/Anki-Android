@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">La petita ŝanĝo postulos plenan alŝuton de la datumbazo dum la sekva samtempigado de via kolekto. Se vi havas ripetojn aŭ aliajn ŝanĝojn atendantajn ĉe alia aparato, kiuj jam ne estas samtempigitajn tie ĉi, ili perdiĝos. Ĉu pluigi?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Samtempigo (unudirekta)</string>
-    <string name="sync_menu_title_no_account">Samtempigo (ensaluto)</string>
 </resources>

@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">Schimbarea solicitată va necesita încărcarea completă a bazei de date la următoarea sincronizare a colecției. Dacă aveţi recenzii sau alte modificări care aşteaptă pe un alt dispozitiv care nu a fost încă sincronizat aici, acestea vor fi pierdute. Continuaţi?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Sync (one-way)</string>
-    <string name="sync_menu_title_no_account">Sincronizare (autentificare)</string>
 </resources>

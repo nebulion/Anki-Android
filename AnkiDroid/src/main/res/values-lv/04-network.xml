@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">Pieprasītajai izmaiņai nākamajā krājuma vienādošanas reizē būs nepieciešama pilna datubāzes augšupielāde. Ja kādā citā ierīcē ir veikta izskatīšana vai citas izmaiņas, kuras nav vēl nav vienādotas, tās tiks zaudētas. Turpināt?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Vienādot (vienā virzinā)</string>
-    <string name="sync_menu_title_no_account">Vienādot (pieteikties)</string>
 </resources>

@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">İstenen değişiklik koleksiyonunuzu bir sonraki senkronize edişinizde veritabanının toptan karşıya yüklenmesini gerektirecek. Başka bir cihazda bekleyen, burada henüz senkronize edilmemiş çalışmalarınız veya başka değişiklikleriniz varsa kaybolacaklar. Devam edilsin mi?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Senkronize et (tek yönlü)</string>
-    <string name="sync_menu_title_no_account">Senkronizasyon (giriş yap)</string>
 </resources>

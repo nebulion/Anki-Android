@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">Бараната промена ќе бара целосно поставување на базата на податоци кога следно ќе ја синхронизирате вашата колекција. Ако имате прегледи или други промени кои чекаат на друг уред што сè уште не се синхронизирани, тие ќе бидат изгубени. Продолжите?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Sync (one-way)</string>
-    <string name="sync_menu_title_no_account">Sync (log in)</string>
 </resources>

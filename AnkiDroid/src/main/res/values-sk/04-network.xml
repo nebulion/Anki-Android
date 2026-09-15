@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">Požadované zmeny si vyžadujú úplné nahratie databázy na server pri ďalšej synchronizácii vašej zbierky. Ak máte naplánované skúšanie alebo zmeny na iných zariadeniach, ktoré ešte neboli synchronizované, budú stratené. Chcete pokračovať?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Sznchronizácia (jednosmerná)</string>
-    <string name="sync_menu_title_no_account">Synchronizácia (prihlásiť)</string>
 </resources>

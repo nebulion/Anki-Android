@@ -54,5 +54,4 @@
     <string name="full_sync_confirmation">De gevraagde wijziging vergt een volledige upload van de database wanneer u de volgende keer uw collectie synchroniseert. Indien u overhoringen of wijzigingen heeft op een ander apparaat dat nog niet is gesynchroniseerd, dan zullen zij verloren gaan. Wilt u verder gaan?</string>
     <!-- Deck Picker Sync Icon -->
     <string name="sync_menu_title_one_way_sync">Synchroniseren (eenrichtingsverkeer)</string>
-    <string name="sync_menu_title_no_account">Synchroniseren (inloggen)</string>
 </resources>

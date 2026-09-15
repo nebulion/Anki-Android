@@ -17,12 +17,8 @@ package com.ichi2.anki.ui.windows.reviewer
 
 import com.ichi2.anki.CollectionManager
 import com.ichi2.anki.common.time.TimeManager
-import com.ichi2.anki.preferences.reviewer.MenuDisplayType
-import com.ichi2.anki.preferences.reviewer.ReviewerMenuRepository
-import com.ichi2.anki.preferences.reviewer.ViewerAction
 import com.ichi2.anki.settings.Prefs
 import com.ichi2.anki.settings.PrefsRepository
-import com.ichi2.anki.settings.enums.ToolbarPosition
 import com.ichi2.anki.utils.CollectionPreferences
 import com.ichi2.anki.utils.ext.cardStateCustomizer
 import timber.log.Timber
@@ -32,22 +28,9 @@ import java.net.ServerSocket
 class StudyScreenRepository(
     private val prefs: PrefsRepository = Prefs,
 ) {
-    val isMarkShownInToolbar: Boolean
-    val isFlagShownInToolbar: Boolean
     var isWhiteboardEnabled by prefs.booleanPref(KEY_WHITEBOARD_ENABLED, false)
     var isRecordVoiceEnabled by prefs.booleanPref(KEY_RECORD_VOICE_ENABLED, false)
     val isHtmlTypeAnswerEnabled get() = prefs.isHtmlTypeAnswerEnabled
-
-    init {
-        val actions =
-            ReviewerMenuRepository(prefs.sharedPrefs)
-                .getActionsByMenuDisplayTypes(
-                    MenuDisplayType.ALWAYS,
-                ).getValue(MenuDisplayType.ALWAYS)
-        val isToolbarShown = prefs.toolbarPosition != ToolbarPosition.NONE
-        isMarkShownInToolbar = isToolbarShown && ViewerAction.MARK in actions
-        isFlagShownInToolbar = isToolbarShown && ViewerAction.FLAG_MENU in actions
-    }
 
     fun getServerPort(): Int {
         if (!prefs.useFixedPortInReviewer) return 0

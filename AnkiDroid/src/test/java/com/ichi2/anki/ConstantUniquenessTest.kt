@@ -17,7 +17,6 @@
 package com.ichi2.anki
 
 import com.ichi2.anki.notifications.NotificationId
-import com.ichi2.anki.preferences.reviewer.ReviewerMenuSettingsRecyclerItem
 import com.ichi2.anki.worker.UniqueWorkNames
 import org.junit.Test
 import kotlin.reflect.KClass
@@ -32,7 +31,6 @@ class ConstantUniquenessTest {
     fun testConstantUniqueness() {
         assertConstantUniqueness(NotificationId::class)
         assertConstantUniqueness(UniqueWorkNames::class)
-        assertConstantUniqueness(ReviewerMenuSettingsRecyclerItem.Companion::class)
     }
 
     companion object {

@@ -134,6 +134,9 @@ class ReviewerViewModel(
 
     val isAutoAdvanceEnabledFlow = MutableStateFlow(autoAdvance.isEnabled)
     val answerButtonsNextTimeFlow: MutableStateFlow<AnswerButtonsNextTime?> = MutableStateFlow(null)
+
+    /** Whether the side being shown has audio or video, i.e. whether 'Replay' does anything. */
+    val hasMediaFlow = MutableStateFlow(false)
     private val shouldShowNextTimes = asyncIO { repository.getShouldShowNextTimes() }
 
     init {
@@ -530,6 +533,7 @@ class ReviewerViewModel(
     private suspend fun loadAndPlayMedia(side: CardSide) {
         Timber.v("ReviewerViewModel::loadAndPlaySounds")
         cardMediaPlayer.loadCardAvTags(currentCard.await())
+        hasMediaFlow.emit(cardMediaPlayer.hasMedia(displayAnswer = side == CardSide.ANSWER))
         cardMediaPlayer.autoplayAllForSide(side)
     }
 

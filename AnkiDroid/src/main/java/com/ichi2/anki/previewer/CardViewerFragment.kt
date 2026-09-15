@@ -45,10 +45,16 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import timber.log.Timber
 
-abstract class CardViewerFragment(
-    @LayoutRes layout: Int,
-) : Fragment(layout),
+abstract class CardViewerFragment :
+    Fragment,
     OnWebViewRecreatedListener {
+    /** For a subclass that builds its view in `onCreateView`, e.g. a Compose screen. */
+    constructor() : super()
+
+    constructor(
+        @LayoutRes layout: Int,
+    ) : super(layout)
+
     abstract val viewModel: CardViewerViewModel
     protected abstract val webViewLayout: SafeWebViewLayout
 

@@ -8,32 +8,25 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.KeyEvent
-import android.view.MenuItem
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
-import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import android.webkit.WebView
-import android.widget.EditText
-import android.widget.FrameLayout
-import android.widget.LinearLayout
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.ActionMenuView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
-import androidx.core.content.getSystemService
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
-import androidx.core.view.isVisible
-import androidx.core.view.updateLayoutParams
-import androidx.core.view.updatePadding
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import anki.scheduler.CardAnswer.Rating
 import com.ichi2.anki.CollectionManager
 import com.ichi2.anki.DispatchKeyEventListener
 import com.ichi2.anki.Flag
@@ -43,7 +36,6 @@ import com.ichi2.anki.cardviewer.Gesture
 import com.ichi2.anki.common.destinations.DeckOptionsDestination
 import com.ichi2.anki.common.destinations.navigate
 import com.ichi2.anki.common.utils.android.isRobolectric
-import com.ichi2.anki.databinding.FragmentReviewerBinding
 import com.ichi2.anki.dialogs.showDeckOptionsSelectionDialog
 import com.ichi2.anki.dialogs.tags.TagsDialog
 import com.ichi2.anki.dialogs.tags.TagsDialogFactory
@@ -52,8 +44,6 @@ import com.ichi2.anki.model.CardStateFilter
 import com.ichi2.anki.preferences.reviewer.ViewerAction
 import com.ichi2.anki.previewer.CardViewerActivity
 import com.ichi2.anki.previewer.CardViewerFragment
-import com.ichi2.anki.previewer.TypeAnswer
-import com.ichi2.anki.previewer.setFrameStyle
 import com.ichi2.anki.previewer.stdHtml
 import com.ichi2.anki.reviewer.BindingMap
 import com.ichi2.anki.reviewer.ReviewerBinding
@@ -61,65 +51,64 @@ import com.ichi2.anki.scheduling.ForgetCardsDialog
 import com.ichi2.anki.scheduling.SetDueDateDialog
 import com.ichi2.anki.scheduling.registerOnForgetHandler
 import com.ichi2.anki.settings.Prefs
-import com.ichi2.anki.settings.enums.FrameStyle
-import com.ichi2.anki.settings.enums.HideSystemBars
-import com.ichi2.anki.settings.enums.ToolbarPosition
-import com.ichi2.anki.snackbar.BaseSnackbarBuilderProvider
-import com.ichi2.anki.snackbar.SnackbarBuilder
-import com.ichi2.anki.snackbar.showSnackbar
+import com.ichi2.anki.ui.eink.EinkRefresh
 import com.ichi2.anki.utils.CollectionPreferences
 import com.ichi2.anki.utils.ext.collectIn
-import com.ichi2.anki.utils.ext.collectLatestIn
 import com.ichi2.anki.utils.ext.sharedPrefs
 import com.ichi2.anki.utils.ext.showDialogFragment
 import com.ichi2.anki.utils.ext.window
 import com.ichi2.anki.workarounds.SafeWebViewLayout
-import com.ichi2.themes.Themes
-import com.ichi2.utils.dp
-import com.ichi2.utils.show
+import com.ichi2.compose.mmd.ChoiceSheet
+import com.ichi2.compose.mmd.MenuItem
+import com.ichi2.compose.mmd.MenuPanel
+import com.ichi2.compose.mmd.MessageHostState
+import com.ichi2.compose.mmd.MmdTheme
+import com.ichi2.compose.mmd.PanelActions
+import com.ichi2.compose.mmd.PanelBody
+import com.ichi2.compose.mmd.PanelDialog
+import com.ichi2.compose.mmd.PanelPrimaryAction
+import com.ichi2.compose.mmd.PanelSecondaryAction
+import com.ichi2.compose.mmd.PanelTitle
+import com.ichi2.compose.mmd.WebContent
 import com.squareup.seismic.ShakeDetector
-import dev.androidbroadcast.vbpd.viewBinding
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import kotlin.math.max
 import kotlin.math.roundToInt
 
+/**
+ * The study screen. The UI is [ReviewerScreenMMD]; this fragment owns the card's WebView, the
+ * key/gesture bindings and the dialogs that are still Views (tags, set due date, reset progress).
+ */
 class ReviewerFragment :
-    CardViewerFragment(R.layout.fragment_reviewer),
-    BaseSnackbarBuilderProvider,
-    ActionMenuView.OnMenuItemClickListener,
+    CardViewerFragment(),
     DispatchKeyEventListener,
     TagsDialogListener,
     ShakeDetector.Listener {
     override val viewModel: ReviewerViewModel by viewModels()
-    private val binding by viewBinding(FragmentReviewerBinding::bind)
 
-    override val webViewLayout: SafeWebViewLayout get() = binding.webViewLayout
+    private var safeWebViewLayout: SafeWebViewLayout? = null
+    override val webViewLayout: SafeWebViewLayout
+        get() = requireNotNull(safeWebViewLayout) { "the view is not created" }
+
     private lateinit var bindingMap: BindingMap<ReviewerBinding, ViewerAction>
     private var shakeDetector: AnkiShakeDetector? = null
-    private val isBigScreen: Boolean get() = resources.configuration.smallestScreenWidthDp >= 720
-
-    override val baseSnackbarBuilder: SnackbarBuilder = {
-        anchorView =
-            when {
-                binding.typeAnswerContainer.isVisible -> binding.typeAnswerContainer
-                binding.answerArea.isVisible -> binding.answerArea
-                Prefs.toolbarPosition == ToolbarPosition.BOTTOM -> binding.toolsLayout
-                else -> null
-            }
-    }
-
     private lateinit var tagsDialogFactory: TagsDialogFactory
+
+    private val messages = MessageHostState()
+    private val isHtmlTypeAnswerEnabled by lazy { Prefs.isHtmlTypeAnswerEnabled }
+    private var typedAnswer by mutableStateOf("")
+    private var isTypeAnswerFocused = false
+    private var timeboxMessage by mutableStateOf<String?>(null)
+    private var flagNames by mutableStateOf<Map<Flag, String>>(emptyMap())
 
     override fun onLoadInitialHtml(): String =
         stdHtml(
             context = requireContext(),
             extraJsAssets = listOf("scripts/ankidroid-reviewer.js"),
-            nightMode = Themes.isNightTheme,
         )
 
     override fun onStart() {
@@ -142,27 +131,30 @@ class ReviewerFragment :
         tagsDialogFactory = TagsDialogFactory(this).attachToActivity<TagsDialogFactory>(requireActivity())
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        val webView = SafeWebViewLayout(requireContext()).also { safeWebViewLayout = it }
+        return ComposeView(requireContext()).apply {
+            // focusable, so key events and motion controllers reach the bindings
+            isFocusableInTouchMode = true
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent { MmdTheme { ReviewerContent(webView) } }
+        }
+    }
+
     override fun onViewCreated(
         view: View,
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.backButton.setOnClickListener {
-            requireActivity().finish()
-        }
-
-        setupBindings()
-        setupImmersiveMode()
+        setupBindings(view)
         setupTypeAnswer()
-        setupAnswerButtons()
-        setupCounts()
-        setupMenu()
-        setupToolbarPosition()
-        setupAnswerTimer()
-        setupMargins()
-        setupResetProgress()
         setupActions()
+        setupResetProgress()
         setupTimebox()
 
         viewModel.finishResultFlow.collectIn(lifecycleScope) { result ->
@@ -185,9 +177,8 @@ class ReviewerFragment :
 
         viewModel.showingAnswer.collectIn(lifecycleScope) {
             resetZoom()
-            // focus on the whole layout so motion controllers can be captured
-            // without navigating the other View elements
-            binding.rootLayout.requestFocus()
+            // focus on the whole screen so motion controllers are captured by the bindings
+            view.requestFocus()
         }
 
         viewModel.navigateFlow.collectIn(lifecycleScope) { destination ->
@@ -206,23 +197,13 @@ class ReviewerFragment :
             navigate(destination)
         }
 
-        binding.webViewContainer.setFrameStyle()
+        // E Ink: every few answers, flash the panel to clear ghosting
+        viewModel.answerFeedbackFlow.collectIn(lifecycleScope) {
+            EinkRefresh.onChange(activity)
+        }
 
-        if (Prefs.showAnswerFeedback) {
-            viewModel.answerFeedbackFlow.collectIn(lifecycleScope) { ease ->
-                val drawableId =
-                    when (ease) {
-                        Rating.AGAIN -> R.drawable.ic_ease_again
-                        Rating.HARD -> R.drawable.ic_ease_hard
-                        Rating.GOOD -> R.drawable.ic_ease_good
-                        Rating.EASY -> R.drawable.ic_ease_easy
-                        Rating.UNRECOGNIZED -> throw IllegalArgumentException("Invalid rating")
-                    }
-                binding.answerFeedback.apply {
-                    setImageResource(drawableId)
-                    toggle()
-                }
-            }
+        lifecycleScope.launch {
+            flagNames = Flag.queryDisplayNames(requireContext())
         }
 
         if (Prefs.keepScreenOn) {
@@ -230,69 +211,143 @@ class ReviewerFragment :
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        safeWebViewLayout = null
+    }
+
+    @Composable
+    private fun ReviewerContent(webView: SafeWebViewLayout) {
+        val counts by viewModel.countsFlow.collectAsStateWithLifecycle()
+        val isAnswerShown by viewModel.showingAnswer.collectAsStateWithLifecycle()
+        val nextTimes by viewModel.answerButtonsNextTimeFlow.collectAsStateWithLifecycle()
+        val undoLabel by viewModel.undoLabelFlow.collectAsStateWithLifecycle()
+        val hasMedia by viewModel.hasMediaFlow.collectAsStateWithLifecycle()
+        val flag by viewModel.flagFlow.collectAsStateWithLifecycle()
+        val isMarked by viewModel.isMarkedFlow.collectAsStateWithLifecycle()
+        val typeAnswer by viewModel.typeAnswerFlow.collectAsStateWithLifecycle()
+        val canBuryNote by viewModel.canBuryNoteFlow.collectAsStateWithLifecycle()
+        val canSuspendNote by viewModel.canSuspendNoteFlow.collectAsStateWithLifecycle()
+        val isAutoAdvanceEnabled by viewModel.isAutoAdvanceEnabledFlow.collectAsStateWithLifecycle()
+        var showCounts by remember { mutableStateOf(true) }
+        var isMenuShown by rememberSaveable { mutableStateOf(false) }
+        var isFlagSheetShown by rememberSaveable { mutableStateOf(false) }
+
+        LaunchedEffect(Unit) {
+            showCounts = CollectionPreferences.getShowRemainingDueCounts()
+        }
+
+        ReviewerScreenMMD(
+            state =
+                ReviewerUiState(
+                    counts = counts.takeIf { showCounts },
+                    isAnswerShown = isAnswerShown,
+                    nextTimes = nextTimes,
+                    undoLabel = undoLabel,
+                    hasMedia = hasMedia,
+                    flagName = flagNames[flag].takeIf { flag != Flag.NONE },
+                    isMarked = isMarked,
+                    showAnswerButtons = Prefs.showAnswerButtons,
+                    hideHardAndEasy = Prefs.hideHardAndEasyButtons,
+                    showTypeAnswer = typeAnswer != null && !isHtmlTypeAnswerEnabled,
+                    autoFocusTypeAnswer = Prefs.autoFocusTypeAnswer,
+                ),
+            typedAnswer = typedAnswer,
+            messages = messages,
+            onBack = { requireActivity().finish() },
+            onUndo = { viewModel.executeAction(ViewerAction.UNDO) },
+            onReplay = { viewModel.executeAction(ViewerAction.PLAY_MEDIA) },
+            onMenu = { isMenuShown = true },
+            onShowAnswer = viewModel::onShowAnswer,
+            onRate = viewModel::answerCard,
+            onTypedAnswerChange = { typedAnswer = it },
+            onTypeAnswerFocusChange = { isTypeAnswerFocused = it },
+            card = { modifier -> WebContent(factory = { webView }, modifier = modifier) },
+        )
+
+        if (isMenuShown) {
+            val context = requireContext()
+            MenuPanel(
+                title = getString(androidx.appcompat.R.string.abc_action_menu_overflow_description),
+                items =
+                    buildList {
+                        add(
+                            MenuItem(
+                                label = ViewerAction.FLAG_MENU.title(context),
+                                value = flagNames[flag].takeIf { flag != Flag.NONE },
+                            ) { isFlagSheetShown = true },
+                        )
+                        val markLabel = if (isMarked) getString(R.string.menu_unmark_note) else ViewerAction.MARK.title(context)
+                        add(MenuItem(markLabel) { viewModel.executeAction(ViewerAction.MARK) })
+                        add(MenuItem(ViewerAction.BURY_CARD.title(context)) { viewModel.executeAction(ViewerAction.BURY_CARD) })
+                        if (canBuryNote) {
+                            add(MenuItem(ViewerAction.BURY_NOTE.title(context)) { viewModel.executeAction(ViewerAction.BURY_NOTE) })
+                        }
+                        add(MenuItem(ViewerAction.SUSPEND_CARD.title(context)) { viewModel.executeAction(ViewerAction.SUSPEND_CARD) })
+                        if (canSuspendNote) {
+                            add(MenuItem(ViewerAction.SUSPEND_NOTE.title(context)) { viewModel.executeAction(ViewerAction.SUSPEND_NOTE) })
+                        }
+                        add(MenuItem(ViewerAction.CARD_INFO.title(context)) { viewModel.executeAction(ViewerAction.CARD_INFO) })
+                        add(MenuItem(ViewerAction.DECK_OPTIONS.title(context)) { viewModel.executeAction(ViewerAction.DECK_OPTIONS) })
+                        val autoAdvanceLabel = if (isAutoAdvanceEnabled) R.string.disable_auto_advance else R.string.enable_auto_advance
+                        add(MenuItem(getString(autoAdvanceLabel)) { viewModel.executeAction(ViewerAction.TOGGLE_AUTO_ADVANCE) })
+                    },
+                onDismissRequest = { isMenuShown = false },
+            )
+        }
+
+        if (isFlagSheetShown) {
+            ChoiceSheet(
+                title = ViewerAction.FLAG_MENU.title(requireContext()),
+                options = Flag.entries,
+                selected = flag,
+                label = { flagNames[it] ?: it.name },
+                onSelect = { viewModel.executeAction(it.setFlagAction()) },
+                onDismissRequest = { isFlagSheetShown = false },
+            )
+        }
+
+        timeboxMessage?.let { message ->
+            PanelDialog(onDismissRequest = {}, dismissOnClickOutside = false) {
+                PanelTitle(getString(R.string.timebox_reached_title))
+                PanelBody(message)
+                PanelActions {
+                    PanelSecondaryAction(
+                        label = CollectionManager.TR.studyingFinish(),
+                        onClick = {
+                            Timber.i("ReviewerFragment: Timebox 'Finish'")
+                            timeboxMessage = null
+                            requireActivity().finish()
+                        },
+                        modifier = Modifier.weight(1f),
+                    )
+                    PanelPrimaryAction(
+                        label = CollectionManager.TR.studyingContinue(),
+                        onClick = {
+                            Timber.i("ReviewerFragment: Timebox 'Continue'")
+                            timeboxMessage = null
+                            viewModel.onPageFinished(false)
+                        },
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+            }
+        }
+    }
+
     private fun setupTypeAnswer() {
-        binding.typeAnswerEditText.apply {
-            setOnEditorActionListener { _, actionId, _ ->
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    viewModel.onShowAnswer()
-                    return@setOnEditorActionListener true
-                }
-                false
-            }
-            setOnFocusChangeListener { editTextView, hasFocus ->
-                val insetsController = WindowInsetsControllerCompat(window, editTextView)
-                if (hasFocus) {
-                    insetsController.show(WindowInsetsCompat.Type.ime())
-                } else {
-                    insetsController.hide(WindowInsetsCompat.Type.ime())
-                }
+        if (isHtmlTypeAnswerEnabled && Prefs.autoFocusTypeAnswer) {
+            viewModel.typeAnswerFlow.flowWithLifecycle(lifecycle).collectIn(lifecycleScope) { typeInAnswer ->
+                if (typeInAnswer == null) return@collectIn
+                webViewLayout.focusOnWebView()
+                // `evaluateJavascript()` doesn't trigger the IME unless the WebView
+                // has been touched before, so ´loadUrl()` is used instead.
+                webViewLayout.loadUrl("javascript:document.getElementById('typeans')?.focus();")
             }
         }
 
-        val isHtmlTypeAnswerEnabled = Prefs.isHtmlTypeAnswerEnabled
-        lifecycleScope.launch {
-            val autoFocusTypeAnswer = Prefs.autoFocusTypeAnswer
-
-            /**
-             * Sync `imeHintLocales` on the answer `EditText` to match [typeInAnswer].
-             * Returns `true` if anything changed (caller should `restartInput()`).
-             */
-            fun EditText.syncTypeAnswerProperties(typeInAnswer: TypeAnswer): Boolean {
-                if (imeHintLocales == typeInAnswer.imeHintLocales) return false
-                imeHintLocales = typeInAnswer.imeHintLocales
-                return true
-            }
-
-            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.typeAnswerFlow.collect { typeInAnswer ->
-                    if (typeInAnswer == null) {
-                        binding.typeAnswerContainer.isVisible = false
-                        return@collect
-                    }
-
-                    if (isHtmlTypeAnswerEnabled) {
-                        if (!autoFocusTypeAnswer) return@collect
-                        webViewLayout.focusOnWebView()
-                        // `evaluateJavascript()` doesn't trigger the IME unless the WebView
-                        // has been touched before, so ´loadUrl()` is used instead.
-                        webViewLayout.loadUrl("javascript:document.getElementById('typeans')?.focus();")
-                        return@collect
-                    }
-
-                    binding.typeAnswerContainer.isVisible = true
-                    binding.typeAnswerEditText.apply {
-                        if (syncTypeAnswerProperties(typeInAnswer)) {
-                            context?.getSystemService<InputMethodManager>()?.restartInput(this)
-                        }
-                        if (autoFocusTypeAnswer) {
-                            requestFocus()
-                        }
-                    }
-                }
-            }
-        }
         viewModel.onCardUpdatedFlow.flowWithLifecycle(lifecycle).collectIn(lifecycleScope) {
-            binding.typeAnswerEditText.text = null
+            typedAnswer = ""
         }
 
         viewModel.onTypedAnswerResultFlow
@@ -301,12 +356,10 @@ class ReviewerFragment :
                 if (isHtmlTypeAnswerEnabled) {
                     val script = """document.getElementById("typeans").value;"""
                     webViewLayout.evaluateJavascript(script) { callback ->
-                        // the retuned string comes with surrounding `"`, so remove it once
-                        val typedAnswer = callback.removeSurrounding("\"")
-                        request.complete(typedAnswer)
+                        // the returned string comes with surrounding `"`, so remove it once
+                        request.complete(callback.removeSurrounding("\""))
                     }
                 } else {
-                    val typedAnswer = binding.typeAnswerEditText.text.toString()
                     request.complete(typedAnswer)
                 }
             }
@@ -318,179 +371,24 @@ class ReviewerFragment :
     }
 
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
-        if (
-            event.action != KeyEvent.ACTION_DOWN ||
-            view?.let { binding.typeAnswerEditText }?.isFocused == true
-        ) {
+        if (event.action != KeyEvent.ACTION_DOWN || isTypeAnswerFocused) {
             return false
         }
         return bindingMap.onKeyDown(event)
-    }
-
-    override fun onMenuItemClick(item: MenuItem): Boolean {
-        Timber.v("ReviewerFragment::onMenuItemClick %s", item)
-        if (item.hasSubMenu()) return false
-        val action = ViewerAction.fromId(item.itemId)
-        viewModel.executeAction(action)
-        return true
     }
 
     override fun hearShake() {
         bindingMap.onGesture(Gesture.SHAKE)
     }
 
-    private fun setupBindings() {
+    private fun setupBindings(view: View) {
         bindingMap = BindingMap(sharedPrefs(), ViewerAction.entries, viewModel)
-        binding.root.setOnGenericMotionListener { _, event ->
+        view.setOnGenericMotionListener { _, event ->
             bindingMap.onGenericMotionEvent(event)
         }
         if (bindingMap.isBound(Gesture.SHAKE)) {
             shakeDetector = AnkiShakeDetector.createInstance(requireContext(), this)
             shakeDetector?.start()
-        }
-    }
-
-    private fun setupAnswerButtons() {
-        if (!Prefs.showAnswerButtons) {
-            binding.answerArea.isVisible = false
-            return
-        }
-
-        binding.answerArea.setButtonListeners(
-            onRatingClicked = { viewModel.answerCard(it) },
-            onShowAnswerClicked = { viewModel.onShowAnswer() },
-        )
-
-        binding.answerArea.setRelativeHeight(Prefs.newStudyScreenAnswerButtonSize)
-
-        viewModel.answerButtonsNextTimeFlow
-            .flowWithLifecycle(lifecycle)
-            .collectIn(lifecycleScope) { times ->
-                binding.answerArea.setNextTimes(times)
-            }
-
-        val insetsController = WindowInsetsControllerCompat(window, binding.rootLayout)
-        viewModel.showingAnswer.collectLatestIn(lifecycleScope) { isAnswerShown ->
-            if (isAnswerShown) {
-                insetsController.hide(WindowInsetsCompat.Type.ime())
-            }
-            binding.answerArea.setAnswerState(isAnswerShown)
-        }
-
-        if (Prefs.hideHardAndEasyButtons) {
-            binding.answerArea.hideHardAndEasyButtons()
-        }
-    }
-
-    private fun setupCounts() {
-        viewModel.countsFlow
-            .flowWithLifecycle(lifecycle)
-            .collectLatestIn(lifecycleScope) { counts ->
-                binding.studyCounts.updateCounts(counts)
-            }
-
-        lifecycleScope.launch {
-            if (!CollectionPreferences.getShowRemainingDueCounts()) {
-                binding.studyCounts.isVisible = false
-            }
-        }
-    }
-
-    private fun setupMenu() {
-        binding.reviewerMenuView.apply {
-            setup(lifecycle, viewModel)
-            setOnMenuItemClickListener(this@ReviewerFragment)
-        }
-    }
-
-    private fun setupImmersiveMode() {
-        val barsToHide =
-            when (Prefs.hideSystemBars) {
-                HideSystemBars.NONE -> return
-                HideSystemBars.STATUS_BAR -> WindowInsetsCompat.Type.statusBars()
-                HideSystemBars.NAVIGATION_BAR -> WindowInsetsCompat.Type.navigationBars()
-                HideSystemBars.ALL -> WindowInsetsCompat.Type.systemBars()
-            }
-
-        val window = requireActivity().window
-        with(WindowInsetsControllerCompat(window, window.decorView)) {
-            hide(barsToHide)
-            systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
-
-        val minTopPadding =
-            if (Prefs.frameStyle == FrameStyle.CARD && Prefs.toolbarPosition != ToolbarPosition.TOP) {
-                8F.dp.toPx(requireContext())
-            } else {
-                0
-            }
-        val ignoreDisplayCutout = Prefs.ignoreDisplayCutout
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
-            val defaultTypes = WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.ime()
-            val typeMask =
-                if (ignoreDisplayCutout) {
-                    defaultTypes
-                } else {
-                    defaultTypes or WindowInsetsCompat.Type.displayCutout()
-                }
-            val bars = insets.getInsets(typeMask)
-            // don't let a 'card' frame reach the top of the screen
-            val topPadding = max(bars.top, minTopPadding)
-            v.updatePadding(
-                left = bars.left,
-                top = topPadding,
-                right = bars.right,
-                bottom = bars.bottom,
-            )
-            WindowInsetsCompat.CONSUMED
-        }
-    }
-
-    private fun setupToolbarPosition() {
-        when (Prefs.toolbarPosition) {
-            ToolbarPosition.TOP -> return
-            ToolbarPosition.NONE -> binding.toolsLayout.isVisible = false
-            ToolbarPosition.BOTTOM -> {
-                binding.mainLayout.removeView(binding.toolsLayout)
-                binding.mainLayout.addView(binding.toolsLayout)
-
-                // Put the answer buttons inside the toolbar on big screens
-                if (!isBigScreen || !Prefs.showAnswerButtons) return
-                binding.bottomLayout.removeView(binding.answerArea)
-                binding.toolsLayout.addView(binding.answerArea)
-                binding.answerArea.updateLayoutParams<ConstraintLayout.LayoutParams> {
-                    width = 0
-                    matchConstraintPercentWidth = 0.6F
-                    matchConstraintMaxWidth = 480.dp.toPx(requireContext())
-                    topToTop = ConstraintLayout.LayoutParams.PARENT_ID
-                    bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
-                    startToStart = ConstraintLayout.LayoutParams.PARENT_ID
-                    endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
-                }
-                binding.reviewerMenuView.updateLayoutParams<ConstraintLayout.LayoutParams> {
-                    width = 0
-                    matchConstraintPercentWidth = 0.16F
-                    startToEnd = ConstraintLayout.LayoutParams.UNSET
-                }
-            }
-        }
-    }
-
-    /**
-     * Updates margins based on the possible combinations
-     * of [Prefs.toolbarPosition], [Prefs.frameStyle] and `Hide answer buttons`
-     */
-    private fun setupMargins() {
-        if (Prefs.toolbarPosition == ToolbarPosition.BOTTOM && !isBigScreen) {
-            binding.bottomLayout.showDividers =
-                LinearLayout.SHOW_DIVIDER_MIDDLE or LinearLayout.SHOW_DIVIDER_BEGINNING
-        }
-    }
-
-    private fun setupAnswerTimer() {
-        lifecycle.addObserver(viewModel.answerTimer)
-        viewModel.answerTimer.state.collectIn(lifecycleScope) { state ->
-            binding.timer.setup(state)
         }
     }
 
@@ -508,25 +406,10 @@ class ReviewerFragment :
     private fun setupTimebox() {
         viewModel.timeBoxReachedFlow.flowWithLifecycle(lifecycle).collectIn(lifecycleScope) { timebox ->
             Timber.i("ReviewerFragment: Timebox reached (reps %d - secs %d)", timebox.reps, timebox.secs)
-
             viewModel.stopAutoAdvance()
-
             val minutes = (timebox.secs / 60f).roundToInt()
-            val message = CollectionManager.TR.studyingCardStudiedIn(timebox.reps) + " " + CollectionManager.TR.studyingMinute(minutes)
-
-            AlertDialog.Builder(requireContext()).show {
-                setTitle(R.string.timebox_reached_title)
-                setMessage(message)
-                setPositiveButton(CollectionManager.TR.studyingContinue()) { _, _ ->
-                    Timber.i("ReviewerFragment: Timebox 'Continue'")
-                    viewModel.onPageFinished(false)
-                }
-                setNegativeButton(CollectionManager.TR.studyingFinish()) { _, _ ->
-                    Timber.i("ReviewerFragment: Timebox 'Finish'")
-                    requireActivity().finish()
-                }
-                setCancelable(false)
-            }
+            timeboxMessage =
+                CollectionManager.TR.studyingCardStudiedIn(timebox.reps) + " " + CollectionManager.TR.studyingMinute(minutes)
         }
     }
 
@@ -534,7 +417,7 @@ class ReviewerFragment :
         viewModel.actionFeedbackFlow
             .flowWithLifecycle(lifecycle)
             .collectIn(lifecycleScope) { message ->
-                showSnackbar(message, duration = 500)
+                messages.show(message)
             }
 
         viewModel.editNoteTagsFlow.collectIn(lifecycleScope) { noteId ->
@@ -559,29 +442,6 @@ class ReviewerFragment :
         viewModel.pageDownFlow.flowWithLifecycle(lifecycle).collectIn(lifecycleScope) {
             webViewLayout.pageDown()
         }
-
-        val repository = StudyScreenRepository()
-
-        viewModel.isMarkedFlow
-            .flowWithLifecycle(lifecycle)
-            .collectIn(lifecycleScope) { isMarked ->
-                if (!repository.isMarkShownInToolbar) {
-                    binding.markIcon.isVisible = isMarked
-                }
-            }
-        val flagView = binding.flagIcon
-        viewModel.flagFlow
-            .flowWithLifecycle(lifecycle)
-            .collectIn(lifecycleScope) { flag ->
-                if (!repository.isFlagShownInToolbar) {
-                    if (flag == Flag.NONE) {
-                        flagView.isVisible = false
-                    } else {
-                        flagView.setImageDrawable(ContextCompat.getDrawable(requireContext(), flag.drawableRes))
-                        flagView.isVisible = true
-                    }
-                }
-            }
     }
 
     override fun onSelectedTags(
@@ -591,8 +451,6 @@ class ReviewerFragment :
     ) = viewModel.onEditedTags(selectedTags)
 
     override fun onCreateWebViewClient(savedInstanceState: Bundle?): CardViewerWebViewClient = ReviewerWebViewClient(savedInstanceState)
-
-    override fun onCreateWebChromeClient(): CardViewerWebChromeClient = ReviewerWebChromeClient()
 
     private inner class ReviewerWebViewClient(
         savedInstanceState: Bundle?,
@@ -643,10 +501,7 @@ class ReviewerFragment :
                 "signal" -> {
                     if (hasShownUnsupportedFeatureWarning) return true
                     hasShownUnsupportedFeatureWarning = true
-                    AlertDialog.Builder(requireContext()).show {
-                        setMessage(R.string.feature_not_supported_by_study_screen)
-                        setPositiveButton(R.string.dialog_ok) { _, _ -> }
-                    }
+                    messages.show(getString(R.string.feature_not_supported_by_study_screen))
                     true
                 }
                 else -> super.handleUrl(webView, url)
@@ -676,30 +531,20 @@ class ReviewerFragment :
         }
     }
 
-    private inner class ReviewerWebChromeClient : CardViewerWebChromeClient() {
-        override fun onHideCustomView() {
-            val barsToHide = Prefs.hideSystemBars
-            if (barsToHide == HideSystemBars.NONE) {
-                super.onHideCustomView()
-            } else {
-                val window = requireActivity().window
-                (window.decorView as FrameLayout).removeView(paramView)
-
-                val barsToShowBack =
-                    when (barsToHide) {
-                        HideSystemBars.STATUS_BAR -> WindowInsetsCompat.Type.navigationBars()
-                        HideSystemBars.NAVIGATION_BAR -> WindowInsetsCompat.Type.statusBars()
-                        HideSystemBars.ALL, HideSystemBars.NONE -> return
-                    }
-                with(WindowInsetsControllerCompat(window, window.decorView)) {
-                    show(barsToShowBack)
-                    systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-                }
-            }
-        }
-    }
-
     companion object {
         fun getIntent(context: Context): Intent = CardViewerActivity.getIntent(context, ReviewerFragment::class)
     }
 }
+
+/** The menu action that sets this flag on the current card. */
+private fun Flag.setFlagAction(): ViewerAction =
+    when (this) {
+        Flag.NONE -> ViewerAction.UNSET_FLAG
+        Flag.RED -> ViewerAction.FLAG_RED
+        Flag.ORANGE -> ViewerAction.FLAG_ORANGE
+        Flag.GREEN -> ViewerAction.FLAG_GREEN
+        Flag.BLUE -> ViewerAction.FLAG_BLUE
+        Flag.PINK -> ViewerAction.FLAG_PINK
+        Flag.TURQUOISE -> ViewerAction.FLAG_TURQUOISE
+        Flag.PURPLE -> ViewerAction.FLAG_PURPLE
+    }

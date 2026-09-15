@@ -8,8 +8,6 @@ import com.google.testing.junit.testparameterinjector.TestParameter
 import com.ichi2.anki.ScreenshotTest
 import com.ichi2.anki.previewer.CardViewerActivity
 import com.ichi2.anki.settings.Prefs
-import com.ichi2.anki.settings.enums.FrameStyle
-import com.ichi2.anki.settings.enums.ToolbarPosition
 import com.ichi2.testutils.ext.clear
 import org.junit.After
 import org.junit.Test
@@ -23,25 +21,16 @@ class StudyScreenScreenshotTest : ScreenshotTest() {
 
     @Test
     fun captureScreenshot(
-        @TestParameter toolbarPosition: ToolbarPosition,
         @TestParameter showAnswerButtons: Boolean,
-        @TestParameter frameStyle: FrameStyle,
     ) {
-        Prefs.isNewStudyScreenEnabled = true
-        Prefs.toolbarPosition = toolbarPosition
         Prefs.showAnswerButtons = showAnswerButtons
-        Prefs.frameStyle = frameStyle
-
-        val configName =
-            "bar=${toolbarPosition.name}_" +
-                "frame=${frameStyle.name}bttns=$showAnswerButtons"
 
         ActivityScenario
             .launch<CardViewerActivity>(
                 ReviewerFragment.getIntent(targetContext),
             ).use { scenario ->
                 scenario.onActivity {
-                    captureScreen(configName)
+                    captureScreen("bttns=$showAnswerButtons")
                 }
             }
     }

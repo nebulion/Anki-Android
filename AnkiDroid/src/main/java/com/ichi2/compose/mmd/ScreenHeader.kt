@@ -35,17 +35,33 @@ fun ScreenHeader(
     navigationIcon: @Composable () -> Unit = {},
     actions: @Composable RowScope.() -> Unit = {},
 ) {
+    ScreenHeader(
+        title = {
+            TextMMD(
+                text = title,
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        },
+        modifier = modifier,
+        navigationIcon = navigationIcon,
+        actions = actions,
+    )
+}
+
+/** [ScreenHeader] with a composed title, e.g. the study screen's counts with one of them bold. */
+@Composable
+fun ScreenHeader(
+    title: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    navigationIcon: @Composable () -> Unit = {},
+    actions: @Composable RowScope.() -> Unit = {},
+) {
     Column(modifier) {
         TopAppBarMMD(
-            title = {
-                TextMMD(
-                    text = title,
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.Bold,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            },
+            title = title,
             navigationIcon = navigationIcon,
             actions = actions,
             showDivider = false,

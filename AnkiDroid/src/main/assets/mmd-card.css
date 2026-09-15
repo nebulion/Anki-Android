@@ -1,0 +1,103 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ *
+ * Mudita Kompakt E Ink: every card is black on white, whatever its note type says.
+ * Loaded after ankidroid.css by stdHtml(), so equal-importance rules here win.
+ * Emphasis that templates express with colour becomes weight, underline or strike-through.
+ */
+
+@font-face {
+    font-family: Lato;
+    src: url("fonts/lato/lato_regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("fonts/lato/lato_bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("fonts/lato/lato_italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("fonts/lato/lato_bold_italic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+*,
+*::before,
+*::after {
+    color: #000 !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+}
+
+html,
+body {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+/* Inner elements inherit Lato unless the note type names a font; scripts Lato lacks use system sans */
+html,
+body,
+.card {
+    font-family: Lato, sans-serif !important;
+}
+
+a {
+    text-decoration: underline !important;
+}
+
+/* Cloze deletions and highlights: bold with a heavy underline instead of colour */
+.cloze,
+.cloze-inactive,
+mark,
+[style*="background-color"] {
+    font-weight: bold !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 3px !important;
+}
+
+/* Type-answer comparison */
+.typeGood {
+    font-weight: bold !important;
+}
+
+.typeBad {
+    text-decoration: line-through !important;
+}
+
+.typeMissed {
+    text-decoration: underline !important;
+}
+
+#typeans {
+    background-color: #fff !important;
+    border: 1px solid #000 !important;
+}
+
+hr {
+    border: none !important;
+    border-top: 1px dashed #000 !important;
+}
+
+img {
+    filter: grayscale(1) !important;
+}

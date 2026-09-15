@@ -11,7 +11,6 @@ import com.google.android.material.appbar.AppBarLayout
 import com.ichi2.anki.R
 import com.ichi2.anki.ScreenshotTest
 import com.ichi2.anki.common.storage.CollectionHelper
-import com.ichi2.anki.preferences.reviewer.ReviewerMenuSettingsFragment
 import com.ichi2.anki.settings.Prefs
 import com.ichi2.testutils.HIDDEN_GESTURE_BAR
 import com.ichi2.testutils.ext.clear
@@ -141,7 +140,6 @@ class PreferencesScreenshotTest : ScreenshotTest() {
     private fun Fragment.fullHeightList(): ((PreferencesActivity) -> RecyclerView)? =
         when (this) {
             is PreferenceFragmentCompat -> { activity -> (activity.settingsFragment as PreferenceFragmentCompat).listView }
-            is ReviewerMenuSettingsFragment -> { activity -> activity.settingsFragment!!.requireView().findViewById(R.id.recycler_view) }
             else -> null
         }
 }

@@ -4,18 +4,10 @@
 package com.ichi2.anki.previewer
 
 import android.content.Context
-import android.view.ViewGroup.MarginLayoutParams
-import androidx.appcompat.widget.ThemeUtils
-import androidx.core.view.updateLayoutParams
-import com.google.android.material.card.MaterialCardView
-import com.google.android.material.shape.ShapeAppearanceModel
 import com.ichi2.anki.LanguageUtils
 import com.ichi2.anki.common.android.appContext
 import com.ichi2.anki.libanki.CardOrdinal
-import com.ichi2.anki.settings.Prefs
-import com.ichi2.anki.settings.enums.FrameStyle
 import com.ichi2.themes.Themes
-import com.ichi2.utils.toRGBHex
 import org.intellij.lang.annotations.Language
 
 /**
@@ -34,13 +26,8 @@ fun stdHtml(
     nightMode: Boolean = false,
 ): String {
     val languageDirectionality = if (LanguageUtils.appLanguageIsRTL()) "rtl" else "ltr"
-    val baseTheme = if (nightMode) "dark" else "light"
-    val docClass = if (nightMode) "night-mode" else ""
-    val rootNightMode = if (nightMode) "[class*=night-mode]" else ""
-
-    val canvasColor = ThemeUtils.getThemeAttrColor(context, android.R.attr.colorBackground).toRGBHex()
-    val fgColor = ThemeUtils.getThemeAttrColor(context, android.R.attr.textColor).toRGBHex()
-    val colors = ":root$rootNightMode { --canvas: $canvasColor; --fg: $fgColor; }"
+    // E Ink: always black on white, whatever the theme; mmd-card.css forces the rest
+    val colors = ":root { --canvas: #FFFFFF; --fg: #000000; }"
 
     val jsAssets: List<String> =
         listOf(
@@ -57,14 +44,14 @@ fun stdHtml(
 
     return """
         <!DOCTYPE html>
-        <html class="$docClass" dir="$languageDirectionality" data-bs-theme="$baseTheme">
+        <html dir="$languageDirectionality" data-bs-theme="light">
         <head>
             <title>AnkiDroid</title>
                 <link rel="stylesheet" type="text/css" href="file:///android_asset/backend/css/root-vars.css">
                 <link rel="stylesheet" type="text/css" href="file:///android_asset/backend/css/reviewer.css">
                 <link rel="stylesheet" type="text/css" href="file:///android_asset/ankidroid.css">
+                <link rel="stylesheet" type="text/css" href="file:///android_asset/mmd-card.css">
             <style>
-                .night-mode button { --canvas: #606060; --fg: #eee; }
                 $colors
             </style>
         </head>
@@ -87,15 +74,3 @@ fun bodyClassForCardOrd(
 ): String = "card card${cardOrd + 1} ${bodyClass(nightMode)} mathjax-rendered"
 
 private fun bodyClass(nightMode: Boolean = Themes.isNightTheme): String = if (nightMode) "nightMode night_mode" else ""
-
-fun MaterialCardView.setFrameStyle() {
-    if (Prefs.frameStyle == FrameStyle.BOX && Prefs.isNewStudyScreenEnabled) {
-        updateLayoutParams<MarginLayoutParams> {
-            leftMargin = 0
-            rightMargin = 0
-        }
-        cardElevation = 0F
-        shapeAppearanceModel = ShapeAppearanceModel() // Remove corners
-        strokeWidth = 0
-    }
-}

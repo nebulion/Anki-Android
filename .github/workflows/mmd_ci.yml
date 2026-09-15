@@ -1,0 +1,99 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# CI for the Mudita Kompakt (MMD) fork: build, full lint and unit tests of the play flavor.
+# Failures are reported as job annotations by tools/mmd/ci_report.py, because annotations can be
+# read from the public API without a token. The full logs and reports are uploaded as an artifact.
+name: MMD fork CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - mmd-eink
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Build, lint, unit tests
+    # Only the fork runs this
+    if: github.repository != 'ankidroid/Anki-Android'
+    timeout-minutes: 120
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+
+      - name: Configure JDK
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
+        with:
+          distribution: "jetbrains"
+          java-version: "21"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
+        timeout-minutes: 10
+        with:
+          cache-provider: basic
+          # the fork's branch is not the default branch; still keep its cache between pushes
+          cache-read-only: false
+
+      - name: Build
+        id: build
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          ./gradlew :AnkiDroid:assemblePlayDebug :AnkiDroid:compilePlayDebugUnitTestKotlin :AnkiDroid:compilePlayDebugAndroidTestKotlin --continue 2>&1 | tee build.log
+
+      - name: Lint
+        id: lint
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          ./gradlew :AnkiDroid:lintPlayDebug --continue 2>&1 | tee lint.log
+
+      - name: Unit tests
+        id: tests
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          ./gradlew :AnkiDroid:testPlayDebugUnitTest --continue 2>&1 | tee tests.log
+
+      - name: Report build
+        if: always()
+        run: python3 tools/mmd/ci_report.py build
+
+      - name: Report lint
+        if: always()
+        run: python3 tools/mmd/ci_report.py lint
+
+      - name: Report unit tests
+        if: always()
+        run: python3 tools/mmd/ci_report.py tests
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: mmd-reports
+          path: |
+            build.log
+            lint.log
+            tests.log
+            AnkiDroid/build/reports/lint-results-playDebug.*
+            AnkiDroid/build/test-results/testPlayDebugUnitTest/
+          if-no-files-found: ignore
+
+      - name: Fail if a check failed
+        if: steps.build.outcome == 'failure' || steps.lint.outcome == 'failure' || steps.tests.outcome == 'failure'
+        run: |
+          echo "build=${{ steps.build.outcome }} lint=${{ steps.lint.outcome }} tests=${{ steps.tests.outcome }}"
+          exit 1

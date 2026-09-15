@@ -2,22 +2,15 @@
 
 package com.ichi2.anki.startup
 
-import android.annotation.SuppressLint
 import android.os.Build
-import android.os.Environment
 import androidx.core.content.edit
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.ichi2.anki.RobolectricTest
-import com.ichi2.anki.common.permissions.isExternalStorageManager
 import com.ichi2.anki.common.preferences.sharedPrefs
 import com.ichi2.anki.common.storage.CollectionHelper
 import com.ichi2.anki.exception.StorageNotConfiguredException
 import com.ichi2.anki.exception.SystemStorageException
-import com.ichi2.testutils.withManageExternalStorageInManifest
 import com.ichi2.testutils.withWritePermissions
-import io.mockk.every
-import io.mockk.mockkStatic
-import io.mockk.unmockkStatic
 import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -105,62 +98,21 @@ class SetupStorageTest : RobolectricTest() {
         assertEquals("/a/custom/path", collectionPath)
     }
 
-    // The permission screen is mandatory on Android 10 and below: the folder is fixed
+    /**
+     * The fork always stores its collection in app-private storage, so it can sit beside an
+     * installed AnkiDroid without touching `/sdcard/AnkiDroid`, even when storage is writable.
+     */
     @Test
     @Config(sdk = [Build.VERSION_CODES.Q])
-    fun `Android 10 - public storage is persisted before permissions are granted`() {
-        prefs.edit { remove(CollectionHelper.PREF_COLLECTION_PATH) }
-
-        ensureCollectionPathSet(targetContext)
-
-        assertEquals(publicDirectory, collectionPath)
-    }
-
-    @Test
-    @Config(sdk = [Build.VERSION_CODES.Q])
-    fun `Android 10 - public storage is persisted once permissions are granted`() {
+    fun `app-private storage is persisted even with storage permissions`() {
         prefs.edit { remove(CollectionHelper.PREF_COLLECTION_PATH) }
 
         withWritePermissions { ensureCollectionPathSet(targetContext) }
 
-        assertEquals(publicDirectory, collectionPath)
-    }
-
-    // TODO: 13574 - the decision is deferred to the user: the screen may be skipped
-    @Test
-    @Config(sdk = [Build.VERSION_CODES.R])
-    fun `full build - public storage is persisted before 'All files access' is granted`() {
-        prefs.edit { remove(CollectionHelper.PREF_COLLECTION_PATH) }
-
-        withManageExternalStorageInManifest { ensureCollectionPathSet(targetContext) }
-
-        assertEquals(publicDirectory, collectionPath)
-    }
-
-    @Test
-    @Config(sdk = [Build.VERSION_CODES.R])
-    fun `full build - public storage is persisted once 'All files access' is granted`() {
-        prefs.edit { remove(CollectionHelper.PREF_COLLECTION_PATH) }
-
-        withManageExternalStorageInManifest {
-            withAllFilesAccess { ensureCollectionPathSet(targetContext) }
-        }
-
-        assertEquals(publicDirectory, collectionPath)
-    }
-
-    private val publicDirectory: String
-        get() = File(Environment.getExternalStorageDirectory(), "AnkiDroid").absolutePath
-
-    /** `MANAGE_EXTERNAL_STORAGE` is granted */
-    @SuppressLint("NewApi") // isExternalStorageManager requires R, guaranteed by @Config
-    private fun withAllFilesAccess(block: () -> Unit) {
-        mockkStatic(::isExternalStorageManager)
-        every { isExternalStorageManager() } returns true
-        try {
-            block()
-        } finally {
-            unmockkStatic(::isExternalStorageManager)
-        }
+        assertEquals(getDefaultAnkiDroidDirectory(targetContext).absolutePath, collectionPath)
+        assertTrue(
+            collectionPath!!.contains("Android/data/${targetContext.packageName}"),
+            "the collection path should be app-private: $collectionPath",
+        )
     }
 }

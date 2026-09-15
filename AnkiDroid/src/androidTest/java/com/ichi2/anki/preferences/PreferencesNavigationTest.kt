@@ -27,7 +27,6 @@ import com.ichi2.anki.IntentHandler
 import com.ichi2.anki.R
 import com.ichi2.anki.testutil.GrantStoragePermission
 import com.ichi2.anki.testutil.awaitResumedActivity
-import com.ichi2.anki.testutil.closeGetStartedScreenIfExists
 import com.ichi2.anki.testutil.grantPermissions
 import com.ichi2.anki.utils.isWindowCompact
 import org.hamcrest.Matchers.allOf
@@ -52,7 +51,6 @@ class PreferencesNavigationTest {
         val context = ApplicationProvider.getApplicationContext<Context>()
         assumeTrue(context.resources.isWindowCompact())
         ActivityScenario.launch(IntentHandler::class.java)
-        closeGetStartedScreenIfExists()
         openSettings()
         onView(withId(com.bytehamster.lib.preferencesearch.R.id.search)).perform(click())
         onView(allOf(withId(com.bytehamster.lib.preferencesearch.R.id.search), hasFocus())).perform(typeText("Controls"))
@@ -78,7 +76,6 @@ class PreferencesNavigationTest {
         val context = ApplicationProvider.getApplicationContext<Context>()
         assumeTrue(isTablet(context))
         ActivityScenario.launch(IntentHandler::class.java)
-        closeGetStartedScreenIfExists()
         openSettings()
         onView(withId(com.bytehamster.lib.preferencesearch.R.id.search)).perform(click())
         onView(allOf(withId(com.bytehamster.lib.preferencesearch.R.id.search), hasFocus())).perform(typeText("Card"))

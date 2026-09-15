@@ -194,10 +194,6 @@ class TranslationTest : RobolectricTest() {
                 // TR.syncCancelButton()
                 "Card", // R.string.card, R.string.reviewer_frame_style_card
                 // TR.browsingCard()
-                "Cards", // R.string.show_cards
-                // TR.browsingCards()
-                // TR.editingCards()
-                // TR.notetypesCards()
                 "Close", // R.string.close | TR.actionsClose()
                 "Collapse", // R.string.collapse
                 // TR.editingCollapse()
@@ -207,7 +203,6 @@ class TranslationTest : RobolectricTest() {
                 "Copied to clipboard", // R.string.about_ankidroid_successfully_copied_debug_info
                 // TR.aboutCopiedToClipboard()
                 // TR.errorsCopiedToClipboard()
-                "Dark", // R.string.night_theme_dark | TR.preferencesThemeDark()
                 "Delete", // R.string.dialog_positive_delete
                 // TR.actionsDelete()
                 // TR.editingImageOcclusionDelete()
@@ -231,12 +226,7 @@ class TranslationTest : RobolectricTest() {
                 // TR.editingExpand()
                 // TR.browsingSidebarExpand()
                 // TR.changeNotetypeExpand()
-                "Fields", // R.string.standard_fields_tab_header
-                // TR.editingFields()
-                // TR.notetypesFields()
-                // TR.changeNotetypeFields()
                 "Flags", // R.string.filter_by_flags | TR.browsingSidebarFlags()
-                "Flip", // R.string.image_cropper_action_flip | TR.cardTemplatesFlip()
                 "General", // R.string.deck_conf_general, R.string.pref_cat_general
                 // TR.preferencesGeneral()
                 // TR.schedulingGeneral()
@@ -247,7 +237,6 @@ class TranslationTest : RobolectricTest() {
                 "Later", // R.string.button_backup_later | TR.schedulingUpdateLaterButton()
                 "Learn More", // R.string.scoped_storage_learn_more | TR.schedulingUpdateMoreInfoButton()
                 "Learn ahead limit", // R.string.learn_cutoff | TR.preferencesLearnAheadLimit()
-                "Light", // R.string.day_theme_light | TR.preferencesThemeLight()
                 "Media", // R.string.media
                 // TR.editingMedia()
                 // TR.preferencesMedia()
@@ -260,25 +249,16 @@ class TranslationTest : RobolectricTest() {
                 // TR.browsingNote()
                 // TR.preferencesNote()
                 // TR.notetypesOcclusionNote()
-                "Notes", // R.string.show_notes | TR.browsingNotes()
                 "OK", // R.string.dialog_ok
                 // TR.customStudyOk()
                 // TR.helpOk()
-                "Open", // R.string.open | TR.profilesOpen()
                 "Options", // R.string.error_handling_options, R.string.study_options
                 // TR.actionsOptions()
                 // TR.notetypesOptions()
                 // TR.cardTemplatesPreviewSettings()
-                "Preview", // R.string.card_editor_preview_card
-                // TR.actionsPreview()
-                // TR.cardTemplatesPreviewBox()
                 "Question", // R.string.card_side_question | TR.browsingQuestion()
-                "Record audio", // R.string.multimedia_editor_popup_audio | TR.editingRecordAudio()
                 "Redo", // R.string.redo | TR.undoRedo()
                 "Rename", // R.string.rename | TR.actionsRename()
-                "Reposition", // R.string.card_editor_reposition_card, R.string.card_template_reposition_template
-                // TR.actionsReposition()
-                "Reschedule", // R.string.card_editor_reschedule_card | TR.browsingReschedule()
                 "Reviews", // R.string.pref_controls_reviews_tab
                 // TR.schedulingReviews()
                 // TR.cardStatsReviewCount()
@@ -296,7 +276,6 @@ class TranslationTest : RobolectricTest() {
                 // TR.actionsSelect()
                 // TR.customStudySelect()
                 // TR.editingImageOcclusionSelectTool()
-                "Show remaining card count", // R.string.show_progress_summ | TR.preferencesShowRemainingCardCount()
                 "Study", // R.string.studyoptions_start | TR.decksStudy()
                 "Sync", // R.string.button_sync, R.string.pref_cat_sync
                 // TR.qtMiscSync()
@@ -304,7 +283,6 @@ class TranslationTest : RobolectricTest() {
                 "Tags", // R.string.card_details_tags
                 // TR.editingTags()
                 // TR.browsingSidebarTags()
-                "Theme", // R.string.app_theme | TR.preferencesTheme()
                 "Timebox time limit", // R.string.time_limit | TR.preferencesTimeboxTimeLimit()
                 "Undo", // R.string.undo | TR.undoUndo()
             )

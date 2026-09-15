@@ -36,6 +36,9 @@ jobs:
     if: github.repository != 'ankidroid/Anki-Android'
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    outputs:
+      # lint, tests and screenshots only need the app and its unit tests to compile
+      built: ${{ steps.build.outcome == 'success' }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -62,7 +65,15 @@ jobs:
         continue-on-error: true
         run: |
           set -o pipefail
-          ./gradlew :AnkiDroid:assemblePlayDebug :AnkiDroid:compilePlayDebugUnitTestKotlin :AnkiDroid:compilePlayDebugAndroidTestKotlin --build-cache --continue 2>&1 | tee build.log
+          ./gradlew :AnkiDroid:assemblePlayDebug :AnkiDroid:compilePlayDebugUnitTestKotlin --build-cache --continue 2>&1 | tee build.log
+
+      - name: Compile instrumented tests
+        id: android-test
+        if: steps.build.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          ./gradlew :AnkiDroid:compilePlayDebugAndroidTestKotlin --build-cache --continue 2>&1 | tee -a build.log
 
       - name: Report build
         if: always()
@@ -92,12 +103,13 @@ jobs:
           if-no-files-found: ignore
 
       - name: Fail if the build failed
-        if: steps.build.outcome == 'failure'
+        if: steps.build.outcome == 'failure' || steps.android-test.outcome == 'failure'
         run: exit 1
 
   lint:
     name: Lint
     needs: compile
+    if: always() && needs.compile.outputs.built == 'true'
     timeout-minutes: 45
     runs-on: ubuntu-latest
     steps:
@@ -154,6 +166,7 @@ jobs:
   tests:
     name: Unit tests ${{ matrix.shard }}
     needs: compile
+    if: always() && needs.compile.outputs.built == 'true'
     timeout-minutes: 45
     runs-on: ubuntu-latest
     strategy:
@@ -218,6 +231,7 @@ jobs:
   screenshots:
     name: Screenshots (Kompakt, E Ink)
     needs: compile
+    if: always() && needs.compile.outputs.built == 'true'
     timeout-minutes: 45
     runs-on: ubuntu-latest
     steps:

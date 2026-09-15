@@ -4,24 +4,20 @@ package com.ichi2.anki
 
 import androidx.core.content.edit
 import androidx.test.core.app.ActivityScenario
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import anki.scheduler.CardAnswer.Rating
 import com.ichi2.anki.common.preferences.sharedPrefs
 import com.ichi2.anki.libanki.Card
 import com.ichi2.anki.libanki.DeckId
 import com.ichi2.anki.previewer.CardViewerActivity
 import com.ichi2.anki.tests.InstrumentedTest
-import com.ichi2.anki.tests.checkWithTimeout
 import com.ichi2.anki.testutil.GrantStoragePermission.storagePermission
 import com.ichi2.anki.testutil.ensureWebViewIsSupported
 import com.ichi2.anki.testutil.grantPermissions
 import com.ichi2.anki.testutil.notificationPermission
 import com.ichi2.anki.testutil.waitUntil
 import com.ichi2.anki.ui.windows.reviewer.ReviewerFragment
+import com.ichi2.anki.ui.windows.reviewer.ReviewerViewModel
 import com.ichi2.anki.utils.ext.cardStateCustomizer
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.equalTo
@@ -32,8 +28,12 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.util.UUID
-import java.util.concurrent.TimeUnit
+import kotlin.time.Duration.Companion.seconds
 
+/**
+ * The study screen is Compose, so these tests drive [ReviewerViewModel] directly instead of
+ * clicking the answer buttons: what they check is the WebView's custom scheduler round trip.
+ */
 @RunWith(AndroidJUnit4::class)
 class ReviewerFragmentTest : InstrumentedTest() {
     @get:Rule
@@ -95,14 +95,15 @@ class ReviewerFragmentTest : InstrumentedTest() {
             true,
         )
 
-        withReviewer {
+        withReviewer { viewModel ->
             var cardFromDb = col.getCard(card.id).toBackendCard()
             assertThat(cardFromDb.easeFactor, equalTo(card.factor))
             assertThat(cardFromDb.interval, equalTo(card.ivl))
             assertThat(cardFromDb.customData, equalTo("""{"c":1}"""))
 
-            clickShowAnswerAndAnswerGood()
-            // Answering runs on the IO dispatcher, which Espresso does not wait for.
+            showAnswer(viewModel)
+            viewModel.answerCard(Rating.GOOD)
+            // Answering runs on the IO dispatcher
             waitUntil(message = { "The review of card ${card.id} was not saved" }) {
                 col.getCard(card.id).reps == card.reps + 1
             }
@@ -120,40 +121,39 @@ class ReviewerFragmentTest : InstrumentedTest() {
         col.cardStateCustomizer = "states.this_is_not_defined.normal.review = 12;"
         addCardToTestDeck()
 
-        withReviewer {
-            clickShowAnswer()
-            ensureAnswerButtonsAreDisplayed()
+        withReviewer { viewModel ->
+            showAnswer(viewModel)
         }
     }
 
     private fun addCardToTestDeck(): Card = addNoteUsingBasicNoteType("foo", "bar").firstCard(col).update { did = testDeckId }
 
-    private fun withReviewer(block: () -> Unit) {
-        ActivityScenario.launch<CardViewerActivity>(ReviewerFragment.getIntent(testContext)).use { block() }
+    private fun withReviewer(block: (ReviewerViewModel) -> Unit) {
+        ActivityScenario.launch<CardViewerActivity>(ReviewerFragment.getIntent(testContext)).use { scenario ->
+            lateinit var viewModel: ReviewerViewModel
+            scenario.onActivity { activity ->
+                viewModel =
+                    activity.supportFragmentManager.fragments
+                        .filterIsInstance<ReviewerFragment>()
+                        .single()
+                        .viewModel
+            }
+            block(viewModel)
+        }
     }
 
-    private fun clickShowAnswerAndAnswerGood() {
-        clickShowAnswer()
-        ensureAnswerButtonsAreDisplayed()
-        onView(withId(R.id.good_button)).perform(click())
-    }
-
-    private fun clickShowAnswer() {
-        onView(withId(R.id.show_answer_button)).perform(click())
-    }
-
-    private fun ensureAnswerButtonsAreDisplayed() {
-        // We need to wait for the card to fully load to allow enough time for
-        // the messages to be passed in and out of the WebView when evaluating
-        // the custom JS scheduler code. The ease buttons are hidden until the
-        // custom scheduler has finished running
-        onView(withId(R.id.good_button)).checkWithTimeout(
-            matches(isDisplayed()),
-            100,
-            // Increase to a max of 30 seconds because CI builds can be very
-            // slow
-            TimeUnit.SECONDS.toMillis(30),
-        )
+    /**
+     * Shows the answer once the card has loaded, then waits until it is shown: that needs the
+     * custom scheduler to have run inside the WebView, which can be slow on CI.
+     */
+    private fun showAnswer(viewModel: ReviewerViewModel) {
+        waitUntil(timeout = 30.seconds, message = { "The card did not load" }) {
+            viewModel.currentCard.isCompleted
+        }
+        viewModel.onShowAnswer()
+        waitUntil(timeout = 30.seconds, message = { "The answer was not shown" }) {
+            viewModel.showingAnswer.value
+        }
     }
 
     companion object {

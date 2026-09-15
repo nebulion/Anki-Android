@@ -30,37 +30,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Settings -->
         <LinearLayout
+            android:id="@+id/more_settings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="8dp">
+            android:layout_marginTop="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:paddingHorizontal="16dp">
 
-            <!-- Settings -->
-            <LinearLayout
-                android:id="@+id/more_settings"
+            <ImageView
+                android:importantForAccessibility="no"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                app:srcCompat="@drawable/ic_settings_black"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <com.ichi2.ui.FixedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center_vertical"
-                android:minHeight="56dp"
-                android:paddingHorizontal="16dp">
-
-                <ImageView
-                    android:importantForAccessibility="no"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="16dp"
-                    app:srcCompat="@drawable/ic_settings_black"
-                    app:tint="?attr/colorOnSurfaceVariant" />
-
-                <com.ichi2.ui.FixedTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/settings"
-                    android:textAppearance="?attr/textAppearanceBodyLarge" />
-            </LinearLayout>
-
+                android:text="@string/settings"
+                android:textAppearance="?attr/textAppearanceBodyLarge" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

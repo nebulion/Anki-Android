@@ -777,8 +777,8 @@ class DeckPickerTest : RobolectricTest() {
                 val bottomNav = ActivityHomescreenBinding.bind(findViewById(R.id.root_layout)).bottomNavigation!!
                 val shortcuts =
                     listOf(
+                        // the fork has no card browser, so Alt+2 has no destination
                         KeyEvent.KEYCODE_1 to BottomNavController.NavigationItem.HOME,
-                        KeyEvent.KEYCODE_2 to BottomNavController.NavigationItem.BROWSER,
                         KeyEvent.KEYCODE_3 to BottomNavController.NavigationItem.STATS,
                         KeyEvent.KEYCODE_4 to BottomNavController.NavigationItem.MORE,
                     )

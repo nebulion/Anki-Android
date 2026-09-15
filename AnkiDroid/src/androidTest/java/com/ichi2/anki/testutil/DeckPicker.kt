@@ -34,10 +34,6 @@ import com.ichi2.anki.testutil.ThreadUtils.sleep
  * This file contains utility methods to interact with the DeckPicker.
  */
 
-fun closeGetStartedScreenIfExists() {
-    onView(withId(R.id.get_started)).withFailureHandler { _, _ -> }.perform(click())
-}
-
 fun closeBackupCollectionDialogIfExists() {
     onView(withText(R.string.button_backup_later))
         .withFailureHandler { _, _ -> }
@@ -45,10 +41,9 @@ fun closeBackupCollectionDialogIfExists() {
 }
 
 /**
- * Discard the Get Started and the Backup Collection dialog if they exists
+ * Discard the Backup Collection dialog if it exists. The fork has no introduction screen.
  */
 fun discardPreliminaryViews() {
-    closeGetStartedScreenIfExists()
     closeBackupCollectionDialogIfExists()
 }
 

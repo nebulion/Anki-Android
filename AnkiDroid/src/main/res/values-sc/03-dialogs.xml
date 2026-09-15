@@ -114,8 +114,6 @@
                               \n
                               Sas optziones chi sighint ant a subraiscrìere sa colletzione atuale tua, si est possìbile cun una versione cumpatìbile de sa base de datos:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Aplicatzione de s\'immàgine de isfundu %s fallida</string>
-    <string name="background_image_too_large">S\'isfundu de s\'isseberadore de matzos est tropu largu</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Mancat su permissu netzessàriu pro s\'archiviatzione. Dae su permissu pro s\'archiviatzione e torra a proare a fàghere s\'atzione tua.</string>
@@ -136,13 +134,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">Su frunidore de ìnternet tuo ti diat pòdere fàghere pagare dinare pro s\'impreu de datos</string>
-    <string name="deck_picker_new">Nùmeru de cartas noas de pompiare oe in custu matzu.</string>
-    <string name="deck_picker_rev">Nùmeru de cartas chi iscadint oe in custu matzu.</string>
-    <string name="deck_picker_lrn">Nùmeru de cartas de imparare in custu matzu.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Aberi sa pàgina de sa panoràmica de su matzu chi cuntenet su nùmeru de cartas de pompiare oe.</string>
     <string name="import_deck_package">Pachete de su matzu (.apkg)</string>
     <string name="import_collection_package">Pachete de colletzione (.colpkg)</string>
     <string name="import_csv">Documentu de testu (.txt, .csv)</string>

@@ -28,10 +28,7 @@ class ControlsSettingsFragmentTest : RobolectricTest() {
     @Test
     fun `XML keys match the Enum keys`() {
         for (screen in ControlPreferenceScreen.entries) {
-            val xmlKeys =
-                PreferenceTestUtils.getKeysFromXml(targetContext, screen.xmlRes, excludeCategories = true).toMutableList().apply {
-                    remove("binding_STATISTICS")
-                }
+            val xmlKeys = PreferenceTestUtils.getKeysFromXml(targetContext, screen.xmlRes, excludeCategories = true)
             val enumKeys = screen.getActions().map { it.preferenceKey } - menuOnlyActionKeys
 
             assertThat(xmlKeys, HamcrestUtils.containsInAnyOrder(enumKeys))

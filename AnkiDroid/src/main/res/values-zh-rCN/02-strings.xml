@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">打开侧栏</string>
-    <string name="drawer_close">关闭侧栏</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">添加/过滤标签</string>
     <string name="add_tag" maxLength="28">添加标签</string>
@@ -44,11 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">构建标签列表&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="other">+%d 被隐藏</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">新卡片总数：</string>
-    <string name="studyoptions_total_label">卡片总数</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">编辑笔记</string>
     <string name="discard">丢弃</string>
@@ -61,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">重设学习进度</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">重命名</string>
-    <string name="checks_action" maxLength="28">检查</string>
     <string name="unknown_type_field_warning">输入答案：未知字段 %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">删除牌组\n请稍等&#8230;&#8230;</string>
     <string name="info_rate">给 AnkiDroid 评分</string>
@@ -96,7 +88,6 @@
     <string name="export_choice_share">分享</string>
     <string name="export_choice_save_to">保存至</string>
     <string name="export_saving_exported_collection">正在保存导出文件&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">学习选项</string>
     <string name="dyn_deck_desc">这是一个在计划外学习的特殊牌组，卡片在复习后会自动返回原来的牌组。\n在牌组列表中删除此牌组也将会把所有卡片都移回原来的牌组。</string>
     <string name="tag_editor_add_feedback">点击「%2$s」以确认添加「%1$s」</string>
     <string name="tag_editor_add_feedback_existing">已选中 %1$s</string>
@@ -124,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">卡片内容错误：加载「%s」失败</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">搜索牌组</string>
     <string name="ankidroid_init_failed_webview_title">严重错误</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid 依赖的系统 WebView 不可用。如果系统正在安装更新，可能会发生这种情况。请几分钟后再试。\n\n%s</string>
     <string name="ankidroid_init_failed_storage">由于 Android 系统错误，AnkiDroid 无法访问存储。\n\n%s</string>
@@ -133,10 +123,6 @@
     <string name="note_editor_video_too_large">视频文件太大，请手动插入视频</string>
     <string name="note_editor_audio_too_large">音频文件太大，请手动插入音频</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android 备份正在进行中。请重试</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">请使用 iManager 来允许 AnkiDroid 添加快捷方式</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">在系统设置中允许“主屏幕快捷方式”以便 %s 添加快捷方式</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">您的主屏幕不允许 AnkiDroid 添加快捷方式</string>
-    <string name="create_shortcut_error">添加快捷方式时出错：%s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">证书</string>
@@ -173,7 +159,6 @@
     <string name="deck_created">已创建牌组</string>
     <string name="deck_renamed">重命名牌组</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">牌组已删除。请删除快捷方式</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">描述</string>
@@ -186,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">牌组选择器</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">不经确认删除牌组</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">此笔记类型中未设置用户操作 %s。请配置它</string>
     <string name="feature_not_supported_by_study_screen">此卡片具有新学习界面尚不支持的功能。</string>
     <string name="directory_inaccessible_info">要了解有关如何恢复访问权限的更多信息，请访问此处 %s，或前往设置更新集合文件夹。</string>

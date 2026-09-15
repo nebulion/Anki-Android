@@ -27,9 +27,6 @@
     <plurals name="widget_minimum_cards_due_notification_ticker_text">
         <item quantity="other">%d 张卡片需要复习</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="other">%d 张卡片待复习</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">选择单个牌组</string>
 </resources>

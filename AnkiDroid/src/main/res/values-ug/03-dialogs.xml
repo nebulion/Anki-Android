@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">ماسلاشمايدىغان ساندان نەشرى</string>
     <string name="incompatible_database_version_summary">بۇ ساندان AnkiDroid تا ئىشلەيدىغان نەشرىدىن ئالىي نەشرى ئىكەن. ئۇنى ئېچىش ئۈچۈن AnkiDroid نى يۈكسەلتىڭ ياكى ساندان نەشرىنى تۆۋەنلىتىڭ\n\nقوللايدىغان نەشرى: %1$d\nساندان نەشرى: %2$d\n\nتۆۋەندىكى ئەسلىگە كەلتۈرۈش تاللانمىسى نۆۋەتتىكى توپلامنى قاپلىۋېتىدۇ، ماسلىشىشى مۇمكىن بولغان ساندان نەشرى:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">تەگلىك سۈرىتى %s نى قوللىنالمىدى</string>
-    <string name="background_image_too_large">دەستە تاللىغۇچ تەگلىكى بەك چوڭ</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">زۆرۈر ساقلاش ئىجازىتى كەم. ساقلاش ئىجازىتى بېرىپ ئاندىن مەشغۇلاتىڭىزنى قايتا سىناڭ.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">ئۆزلۈكىدىن قەدەمداشلاش %d سېكۇنتتا قوزغىلىشى مۇمكىن</item>
     </plurals>
     <string name="metered_sync_data_warning">ئىنتېرنېت تەمىنلىگۈچىڭىز ئىشلەتكەن سانلىق مەلۇماتقا ھەق ئېلىشى مۇمكىن</string>
-    <string name="deck_picker_new">بۈگۈن بۇ دەستىدە كۆرۈنىدىغان يېڭى كارتا سانى.</string>
-    <string name="deck_picker_rev">بۈگۈن بۇ دەستىدە مۆھلىتى توشىدىغان كارتا سانى.</string>
-    <string name="deck_picker_lrn">بۇ دەستىدە ئۆگىنىدىغان كارتا سانى.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">بۈگۈن كۆرسىتىدىغان كارتا سانىنىڭ دەستە قىسقىچە مەزمۇن بېتىنى ئاچىدۇ.</string>
     <string name="import_deck_package">دەستە بولىقى (.apkg)</string>
     <string name="import_collection_package">توپلام بولىقى (.colpkg)</string>
     <string name="import_csv">تېكىست ھۆججەت (.txt, .csv)</string>

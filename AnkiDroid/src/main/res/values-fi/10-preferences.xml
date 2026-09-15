@@ -70,8 +70,6 @@
     <string name="gestures_summ">Liitä eleitä toimintoihin, kuten vastaamiseen ja korttien muokkaamiseen.</string>
     <string name="gestures_corner_touch" maxLength="41">9 pisteen kosketus</string>
     <string name="gestures_corner_touch_summary">Käytä kosketuseleitä näytön kulmissa</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">Koko näytön navigointivalikko</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">Avaa navigointivalikko pyyhkäisemällä oikealle mistä tahansa näytöllä</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Ei mitään</string>
     <string name="gestures_swipe_up" maxLength="41">Pyyhkäisy ylös</string>
     <string name="gestures_swipe_down" maxLength="41">Pyyhkäisy alas</string>
@@ -183,7 +181,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Valitse tunnisteet</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Haku</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Korvaa rivinvaihdot HTML:llä</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

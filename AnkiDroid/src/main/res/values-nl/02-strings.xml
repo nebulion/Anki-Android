@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Zijmenu openen</string>
-    <string name="drawer_close">Zijmenu sluiten</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Labels toevoegen/filteren</string>
     <string name="add_tag" maxLength="28">Label toevoegen</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Lijst aanmaken van tags&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d verborgen</item>
-        <item quantity="other">+%d verborgen</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Totaal aantal nieuwe kaarten</string>
-    <string name="studyoptions_total_label">Totaal aantal kaarten</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Kaart bewerken</string>
     <string name="discard">Weggooien</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">Vooruitgang resetten</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Naam wijzigen</string>
-    <string name="checks_action" maxLength="28">Controleren</string>
     <string name="unknown_type_field_warning">Type antwoord: onbekend veld %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Leerset verwijderen&#8230;\nEven wachten.</string>
     <string name="info_rate">Beoordeel AnkiDroid</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">Delen</string>
     <string name="export_choice_save_to">Opslaan in</string>
     <string name="export_saving_exported_collection">Geëxporteerd bestand opslaan&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Studieopties</string>
     <string name="dyn_deck_desc">Dit is een speciale set bedoeld om buiten het normale schema te studeren. Kaarten keren onmiddellijk terug naar hun oorspronkelijke set nadat u hen overhoord heeft. Als u deze set verwijdert, keren alle overgebleven kaarten onmiddellijk terug naar hun oorspronkelijke set.</string>
     <string name="tag_editor_add_feedback">Druk op  “%2$s” om het toevoegen van “%1$s” te bevestigen</string>
     <string name="tag_editor_add_feedback_existing">Bestaand label “%1$s” geselecteerd</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Fout met de kaartinhoud: Laden van ‘%s ’ is mislukt</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Sets doorzoeken</string>
     <string name="ankidroid_init_failed_webview_title">Fatale fout</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid berust op de System WebView die niet beschikbaar is. Dit kan gebeuren als het systeem bezig is met het installeren van updates. Probeer opnieuw na enkele minuten.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid heeft geen toegang tot opslag vanwege een Android fout.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">Het videobestand is te groot, voeg de video handmatig in</string>
     <string name="note_editor_audio_too_large">Het audiobestand is te groot, voeg de audio handmatig in</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android back-up in uitvoering. Probeer opnieuw alstublieft</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Mogelijk moet u iManager gebruiken om AnkiDroid snelkoppelingen te laten toevoegen</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Sta \'startscherm snelkoppelingen\' toe in systeeminstellingen zodat %s snelkoppelingen kan maken</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">Uw startscherm staat niet toe dat AnkiDroid snelkoppelingen toevoegt</string>
-    <string name="create_shortcut_error">Fout bij het toevoegen van de snelkoppeling: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificaat</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">Leerset aanmaken</string>
     <string name="deck_renamed">Setnaam wijzigen</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Set is verwijderd. Verwijder de snelkoppeling</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Beschrijving</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Set verwijderen zonder bevestiging</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">Gebruikers actie %s is niet ingesteld in dit memo-type, stel het alstublieft in</string>
     <string name="feature_not_supported_by_study_screen">Deze kaart heeft functies die nog niet worden ondersteund door het nieuwe studiescherm.</string>
     <string name="directory_inaccessible_info">Leer hier %s meer over hoe je toegang terug kan krijgen of ga naar instellingen om je collectie map te updaten</string>

@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">അനുയോജ്യമല്ലാത്ത ഡാറ്റാബേസ് പതിപ്പ്</string>
     <string name="incompatible_database_version_summary">The database is a more advanced version than this version of AnkiDroid can work with. Upgrade AnkiDroid or downgrade the database to open it\n\nSupported version: %1$d\nDatabase version: %2$d\n\nThe following restore options will overwrite your current collection, possibly with a compatible database version:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">പശ്ചാത്തല ചിത്രം %s പ്രയോഗിക്കുന്നതിൽ പരാജയപ്പെട്ടു</string>
-    <string name="background_image_too_large">ഡെക്ക് പിക്കർ പശ്ചാത്തലം വളരെ വലുതാണ്</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">ആവശ്യമായ സംഭരണ ​​അനുമതി നഷ്‌ടമായി. സംഭരണ ​​അനുമതി നൽകി നിങ്ങളുടെ പ്രവർത്തനം വീണ്ടും ശ്രമിക്കുക.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">നിങ്ങളുടെ ഇൻ്റർനെറ്റ് ദാതാവ് ഡാറ്റ ഉപയോഗത്തിന് നിങ്ങളിൽ നിന്ന് നിരക്ക് ഈടാക്കിയേക്കാം</string>
-    <string name="deck_picker_new">ഈ ഡെക്കിൽ ഇന്ന് കാണാനുള്ള പുതിയ കാർഡുകളുടെ എണ്ണം.</string>
-    <string name="deck_picker_rev">ഈ ഡെക്കിൽ ഇന്ന് കാണാനുള്ള പുതിയ കാർഡുകളുടെ എണ്ണം.</string>
-    <string name="deck_picker_lrn">ഈ ഡെക്കിൽ ഇന്ന് കാണാനുള്ള പുതിയ കാർഡുകളുടെ എണ്ണം.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">ഇന്ന് കാണുന്നതിന് കാർഡുകളുടെ എണ്ണം അടങ്ങിയ ഡെക്ക് അവലോകന പേജ് തുറക്കുക.</string>
     <string name="import_deck_package">ഡെക്ക് പാക്കേജ് (.apkg)</string>
     <string name="import_collection_package">ശേഖരണ പാക്കേജ് (.colpkg)</string>
     <string name="import_csv">ടെക്സ്റ്റ് ഫയൽ (.txt, .csv)</string>

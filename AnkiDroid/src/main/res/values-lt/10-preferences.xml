@@ -72,8 +72,6 @@
     <string name="gestures_summ">Nustatykite kokiais gestais atsakinėsite į klausimus ir redaguosite korteles.</string>
     <string name="gestures_corner_touch" maxLength="41">9 taškų jutiklinis valdymas</string>
     <string name="gestures_corner_touch_summary">Leidimas naudoti jutiklinius gestus ekrano kampuose</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">Viso ekrano naršymo stalčius</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">Atidarykite navigacijos stalčių, kai iš bet kurios ekrano vietos braukiama į dešinę</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Nieko</string>
     <string name="gestures_swipe_up" maxLength="41">Braukiant aukštyn</string>
     <string name="gestures_swipe_down" maxLength="41">Braukiant žemyn</string>
@@ -189,7 +187,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Pasirinkite žymes</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Ieškoti</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Naujų eilučių pakeitimas HTML</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

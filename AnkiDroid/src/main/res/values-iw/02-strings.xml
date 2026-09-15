@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">פתיחת תפריט</string>
-    <string name="drawer_close">סגירת תפריט</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">הוסף/סנן תגיות</string>
     <string name="add_tag" maxLength="28">הוסף תגית</string>
@@ -44,13 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">בניית רשימת תגיות&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d קבור</item>
-        <item quantity="two">+%d קבורים</item>
-        <item quantity="other">+%d קבורים</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">סה\"כ קלפים חדשים</string>
-    <string name="studyoptions_total_label">סה\"כ קלפים</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">ערוך רשומה</string>
     <string name="discard">ביטול</string>
@@ -63,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">איפוס התקדמות</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">שינוי שם</string>
-    <string name="checks_action" maxLength="28">בדוק</string>
     <string name="unknown_type_field_warning">הקלד תשובה: שדה אינו מוכר %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">מוחק חפיסה&#8230;</string>
     <string name="info_rate">דירוג AnkiDroid</string>
@@ -98,7 +88,6 @@
     <string name="export_choice_share">שתף</string>
     <string name="export_choice_save_to">שמור אל</string>
     <string name="export_saving_exported_collection">שומר את הקובץ המיוצא&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">אפשרויות למידה</string>
     <string name="dyn_deck_desc">חפיסה זאת הינה חפיסה מיוחדת ללמידה מחוץ ללו\"ז הרגיל. הכרטיסים יוחזרו באופן אוטומטי לחפיסותיהם המקוריות לאחר סיום הלמידה. מחיקת החפיסה תחזיר את כל הכרטיסים שנותרו בה לחפיסותיהם המקוריות.</string>
     <string name="tag_editor_add_feedback">לחץ \"%2$s\" לאישור הוספת \"%1$s\"</string>
     <string name="tag_editor_add_feedback_existing">תגית קיימת \"%1$s\" נבחרה</string>
@@ -126,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">תקלה בתוכן הכרטיס: נכשל בטעינת %s</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">חיפוש בחפיסות</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid משתמש בדפדפן המערכת שאינו זמין. זה קורה לפעמים אם המערכת מתקינה עדכונים. נא נסה שנית בעוד כמה דקות. \n\n%s</string>
     <string name="ankidroid_init_failed_storage">ל-AnkiDroid אין גישה לאחסון עקב שגיאת אנדרואיד.\n\n%s</string>
@@ -135,10 +123,6 @@
     <string name="note_editor_video_too_large">קובץ הווידאו גדול מדי, אנא הכנס אותו באופן ידני</string>
     <string name="note_editor_audio_too_large">קובץ השמע גדול מדי, אנא הכנס אותו באופן ידני</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">בתהליך עדכון אנדרואיד, אנא נסה שנית.</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">ייתכן שיהיה עליך להשתמש ב- iManager כדי לאפשר ל- AnkiDroid להוסיף קיצורי דרך</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">מסך הבית שלך אינו מאפשר ל- AnkiDroid להוסיף קיצורי דרך</string>
-    <string name="create_shortcut_error">שגיאה בהוספת קיצור הדרך: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">תעודה</string>
@@ -175,7 +159,6 @@
     <string name="deck_created">החפיסה נוצרה</string>
     <string name="deck_renamed">שם החפיסה השתנה</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">החפיסה נמחקה. אנא הסר את קיצור הדרך</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">תיאור</string>
@@ -188,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">מחק את החפיסה ללא אישור</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">פעולת המשתמש %s לא מוגדרת בסוג רשומה זה. אנא הגדר אותו</string>
     <string name="feature_not_supported_by_study_screen">לקלף זה יש תכונות שעדיין לא נתמכות על ידי מסך הלימוד החדש</string>
     <string name="directory_inaccessible_info">למד עוד על איך לשחזר גישה כאן %s או עבור להגדרות כדי לעדכן את תיקיית האוסף.</string>

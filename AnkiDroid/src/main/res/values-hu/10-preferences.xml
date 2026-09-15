@@ -70,8 +70,6 @@
     <string name="gestures_summ">Gesztusok hozzárendelése olyan műveletekhez, mint a kártyák megválaszolása és szerkesztése.</string>
     <string name="gestures_corner_touch" maxLength="41">Érintési gesztusok beállítása</string>
     <string name="gestures_corner_touch_summary">Érintési gesztusok engedélyezése a képernyő sarkaiban</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">Navigációs sáv bezárása</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">Navigációs sáv megnyitása amikor a képernyő jobb oldalára csúsztat</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Nincs</string>
     <string name="gestures_swipe_up" maxLength="41">Felfelé csúsztatás</string>
     <string name="gestures_swipe_down" maxLength="41">Lefelé csúsztatás</string>
@@ -183,7 +181,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Válassz címkét</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Keresés</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Az újsor karakterek HTML helyettesítése</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

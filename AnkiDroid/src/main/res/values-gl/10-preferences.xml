@@ -70,8 +70,6 @@
     <string name="gestures_summ">Asignar xestos a accións como responder ou editar tarxetas</string>
     <string name="gestures_corner_touch" maxLength="41">Toque de 9 puntos</string>
     <string name="gestures_corner_touch_summary">Permitir xestos nas esquinas da pantalla</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">Panel de navegación a pantalla completa</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">Abrir o panel de navegación ao esvarar cara á dereita dende calquera lugar da pantalla</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Ningún</string>
     <string name="gestures_swipe_up" maxLength="41">Esvarar cara arriba</string>
     <string name="gestures_swipe_down" maxLength="41">Evarar cara abaixo</string>
@@ -185,7 +183,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Seleccionar etiquetas</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Buscar</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Substituír os saltos de liña por HTML</string>
     <string name="note_editor_replace_newlines_summ">No editor de notas, converte os casos de &lt;br&gt; en novas liñas ao editar unha tarxeta.</string>

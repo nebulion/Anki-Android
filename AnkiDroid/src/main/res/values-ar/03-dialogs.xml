@@ -114,8 +114,6 @@
     <string name="incompatible_database_version_title">إصدار قاعدة بيانات غير متوافق</string>
     <string name="incompatible_database_version_summary">إصدار قاعدة البيانات يفوق أعلى إصدار يعمل مع آنكي دوريد. حدِّث آنكي درويد أو خفِّض إصدار قاعدة البيانات لفتحها.\n\nالإصدار المدعوم: %1$d\nإصدار قاعدة البيانات: %2$d\n\nخيارات الاسترجاع التالية يحتمل أن تستبدل بمجموعتك الحالية نسخةً ذات إصدار قاعدة بيانات متوافق:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">تعذر تطبيق صورة الخلفية %s</string>
-    <string name="background_image_too_large">خلفية محدد الرزم كبيرة جدًا</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">لم نجد إذن التخزين المطلوب. يرجى منح إذن التخزين ثم المحاولة مجددًا.</string>
@@ -138,13 +136,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">قد تتم مزامنة تلقائية في %d ثانية</item>
     </plurals>
     <string name="metered_sync_data_warning">مقدم خدمة الإنترنت الخاص بك قد يدفّعك مالًا بدل استخدامك للبيانات</string>
-    <string name="deck_picker_new">عدد البطاقات الجديدة لتراها اليوم من هذه الرزمة.</string>
-    <string name="deck_picker_rev">عدد البطاقات التي موعدها اليوم في هذه الرزمة.</string>
-    <string name="deck_picker_lrn">عدد بطاقات التعلّم في هذه الرزمة.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">افتح صفحة مراجعة الرزمة،  والتي تحتوي عدد البطاقات التي تراها اليوم.</string>
     <string name="import_deck_package">حزمة رزمة (.apkg)</string>
     <string name="import_collection_package">حزمة مجموعة (.colpkg)</string>
     <string name="import_csv">ملف نصي (.txt; .csv)</string>

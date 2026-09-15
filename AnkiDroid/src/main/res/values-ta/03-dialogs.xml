@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">பொருந்தாத தரவுத்தள பதிப்பு</string>
     <string name="incompatible_database_version_summary">AnkiDroid இன் இந்த பதிப்பு வேலை செய்யக்கூடியதை விட தரவுத்தளமானது மிகவும் மேம்பட்ட பதிப்பாகும். AnkiDroid ஐ மேம்படுத்தவும் அல்லது அதைத் திறக்க தரவுத்தளத்தை தரமிறக்கவும்\n\nஆதரிக்கப்படும் பதிப்பு: %1$d\nடேட்டாபேஸ் பதிப்பு: %2$d\n\nபின்வரும் மீட்டெடுப்பு விருப்பங்கள் உங்கள் தற்போதைய சேகரிப்பை மேலெழுதும், ஒருவேளை இணக்கமான தரவுத்தள பதிப்பில்:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">%s பின்னணிப் படத்தைப் பயன்படுத்துவதில் தோல்வி</string>
-    <string name="background_image_too_large">டெக் பிக்கர் பின்னணி மிகவும் பெரியது</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">தேவையான சேமிப்பக அனுமதி இல்லை. சேமிப்பக அனுமதியை வழங்கவும், உங்கள் செயலை மீண்டும் முயற்சிக்கவும்.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">உங்கள் இணைய வழங்குநர் தரவு பயன்பாட்டிற்கு பணம் வசூலிக்கலாம்</string>
-    <string name="deck_picker_new">இந்த டெக்கில் இன்று பார்க்க வேண்டிய புதிய கார்டுகளின் எண்ணிக்கை.</string>
-    <string name="deck_picker_rev">இந்த டெக்கில் இன்று நிலுவையில் உள்ள கார்டுகளின் எண்ணிக்கை.</string>
-    <string name="deck_picker_lrn">இந்த டெக்கில் கற்றல் அட்டைகளின் எண்ணிக்கை.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">இன்று பார்க்க வேண்டிய கார்டுகளின் எண்ணிக்கையைக் கொண்ட டெக் மேலோட்டப் பக்கத்தைத் திறக்கவும்.</string>
     <string name="import_deck_package">டெக் தொகுப்பு (.apkg)</string>
     <string name="import_collection_package">சேகரிப்பு தொகுப்பு (.colpkg)</string>
     <string name="import_csv">உரை கோப்பு (.txt, .csv)</string>

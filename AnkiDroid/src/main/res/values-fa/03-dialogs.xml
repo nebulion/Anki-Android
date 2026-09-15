@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">نسخه پایگاه داده ناسازگار است</string>
     <string name="incompatible_database_version_summary">نسخه ی پایگاه داده پیشرفته‌تر از نسخه ای است که AnkiDroid توانایی کار کردن با آن را دارد. یا AnkiDroid را ارتقاء دهید یا درجه پایگاه داده را پایین آورید\n\nنسخه های همایت شده: %1$d\nنسخه پایگاه داده: %2$d\n\nگزینه های بازگرداندن زیر مجموعه شما را بازنویسی میکنند، ممکن تر با نسخه پایگاه داده سازگار:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">اعمال تصویر پس‌زمینه با خطا مواجه شد %s</string>
-    <string name="background_image_too_large">حجم تصویر پس‌زمینه بیشتر از حد پشتیبانی است</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">دسترسی حافظه لازم است. لطفاً دسترسی حافظه را به آنکی‌دروید داده و سپس دوباره تلاش کنید.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">ممکن است یک همگام‌سازی خودکار در %d ثانیه دیگر آغاز شود</item>
     </plurals>
     <string name="metered_sync_data_warning">ارائه‌دهنده اینترنت شما ممکن است برای استفاده از داده هزینه دریافت کند</string>
-    <string name="deck_picker_new">تعداد کارت های جدیدی که امروز در این دسته خواهید دید.</string>
-    <string name="deck_picker_rev">تعداد کارت های تا مهلت امروز در این دسته</string>
-    <string name="deck_picker_lrn">تعداد کارت های در حال یاد‌گیری در این دسته.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">صفحه ی مرور دسته کارت را که شامل تعداد کارت هایی که امروز باید ببینید را باز کن.</string>
     <string name="import_deck_package">بسته ی دسته کارت (.apkg)</string>
     <string name="import_collection_package">بسته ی مجموعه (.colpkg)</string>
     <string name="import_csv">فایل‌ متنی (.txt, .csv)</string>

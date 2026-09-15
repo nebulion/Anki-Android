@@ -28,10 +28,6 @@
         <item quantity="one">%d 𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌺𐌰𐍂𐍄𐌰 𐌽𐌰𐌿𐌷 𐌽𐌹 𐍄𐌰𐍅𐌹𐌳𐌴𐍃</item>
         <item quantity="other">%d 𐌽𐌰𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌺𐌰𐍂𐍄𐍉𐍃 𐌽𐌰𐌿𐌷 𐌽𐌹 𐍄𐌰𐍅𐌹𐌳𐌴𐍃</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d 𐌺𐌰𐍂𐍄𐌰 𐌽𐌰𐌿𐌷 𐌽𐌹 𐍄𐌰𐍅𐌹𐌳𐌴𐍃</item>
-        <item quantity="other">%d 𐌺𐌰𐍂𐍄𐍉𐍃 𐌽𐌰𐌿𐌷 𐌽𐌹 𐍄𐌰𐍅𐌹𐌳𐌴𐍃</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">𐌺𐌰𐍂𐍄𐌰𐌷𐌿𐌶𐌳 𐍅𐌰𐌻𐌾𐌰𐌽</string>
 </resources>

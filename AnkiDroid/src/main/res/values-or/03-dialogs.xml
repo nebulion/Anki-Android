@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">ଅସଙ୍ଗତ ଡାଟାବେସ୍ ସଂସ୍କରଣ</string>
     <string name="incompatible_database_version_summary">AnkiDroidର ଏହି ସଂସ୍କରଣ ଡାଟାବେସ୍ ସହିତ କାମ କରିପାରିବନାହିଁ। ଏହାକୁ ଖୋଲିବା ପାଇଁ AnkiDroidକୁ ଅଦ୍ୟତନ କରନ୍ତୁ କିମ୍ବା ଡାଟାବେସ୍‌କୁ ଡାଉନଗ୍ରେଡ୍ କରନ୍ତୁ\n\nସମର୍ଥିତ ସଂସ୍କରଣ: %1$d\nଡାଟାବେସ୍ ସଂସ୍କରଣ: %2$d\n\nନିମ୍ନଲିଖିତ ପୁନରୁଦ୍ଧାର ଵିକଳ୍ପ ଆପଣଙ୍କର ସାମ୍ପ୍ରତିକ ସଂଗ୍ରହକୁ ନବଲିଖନ କରିବ, ସମ୍ଭବତଃ ଏକ ସୁସଙ୍ଗତ ଡାଟାବେସ୍ ସଂସ୍କରଣ ସହିତ:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">ପୃଷ୍ଠପଟ ପ୍ରତିଛବି ପ୍ରୟୋଗ କରିବାରେ ବିଫଳ %s</string>
-    <string name="background_image_too_large">AnkiDroidର ମୂଳ ସ୍କ୍ରୀନ୍ ପୃଷ୍ଠପଟ ଛଵି ଅତ୍ୟଧିକ ବଡ଼ ଅଟେ</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">ଆବଶ୍ୟକୀୟ ଷ୍ଟୋରେଜ୍ ଅନୁମତି ନାହିଁ। ଦୟାକରି ଷ୍ଟୋରେଜ୍ ଅନୁମତି ପ୍ରଦାନ କରନ୍ତୁ ତାପରେ ଆପଣଙ୍କର କ୍ରିୟା ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">ଆପଣଙ୍କ ଇଣ୍ଟରନେଟ୍ ପ୍ରଦାତା ଡାଟା ବ୍ୟବହାର ପାଇଁ ଟଙ୍କା ଆଦାୟ କରିପାରନ୍ତି</string>
-    <string name="deck_picker_new">ଏହି କେରୀରେ ଆଜିର ଅଧ୍ୟୟନ ନିମିତ୍ତ ଥିବା ନୂତନ ପତ୍ରର ସଂଖ୍ୟା।</string>
-    <string name="deck_picker_rev">ଏହି କେରୀରେ ଆଜିର ଧାର୍ଯ୍ୟ ଥିବା ନୂତନ ପତ୍ରର ସଂଖ୍ୟା।</string>
-    <string name="deck_picker_lrn">ଏହି କେରୀରେ ଶିକ୍ଷାଧିନ ପତ୍ରର ସଂଖ୍ୟା।</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">ଆଜି ଅଧ୍ୟୟନ ନିମିତ୍ତ ଥିବା ପତ୍ରର ସଂଖ୍ୟା ଧାରଣ କରିଥିବା କେରୀ ବର୍ଣ୍ଣନା ପୃଷ୍ଠା ଖୋଲନ୍ତୁ।</string>
     <string name="import_deck_package">କେରୀ ପ୍ୟାକେଜ୍ (.apkg)</string>
     <string name="import_collection_package">ସଂଗ୍ରହ ପ୍ୟାକେଜ୍ (.colpkg)</string>
     <string name="import_csv">ପାଠ୍ୟ ଫାଇଲ୍ (.txt, .csv)</string>

@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Otvori ladicu</string>
-    <string name="drawer_close">Zatvori ladicu</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Dodaj / filtriraj oznake</string>
     <string name="add_tag" maxLength="28">Dodaj oznaku</string>
@@ -44,13 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Izgradnja popisa zastavica&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d zakopana</item>
-        <item quantity="few">+%d zakopane</item>
-        <item quantity="other">+%d zakopanih</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Ukupno novih kartica</string>
-    <string name="studyoptions_total_label">Ukupno kartica</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Uredi bilješku</string>
     <string name="discard">Odbaci</string>
@@ -63,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">Resetiraj napredak</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Preimenuj</string>
-    <string name="checks_action" maxLength="28">Provjeri</string>
     <string name="unknown_type_field_warning">Upiši odgovor: nepoznato polje %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Brisanje špila&#8230;</string>
     <string name="info_rate">Ocijeni AnkiDroid</string>
@@ -98,7 +88,6 @@
     <string name="export_choice_share">Podijeli</string>
     <string name="export_choice_save_to">Spremi u</string>
     <string name="export_saving_exported_collection">Spremanje izvezene datoteke&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Study options</string>
     <string name="dyn_deck_desc">Ovo je poseban špil za učenje izvan uobičajenog rasporeda. Kartice će automatski biti vraćene u njihov originalni špil nakon što ih ponovite. Brisanjem ovog špila iz popisa špilova će se sve preostale kartice vratiti u njihov originalni špil.</string>
     <string name="tag_editor_add_feedback">Pritisnite “%2$s” da potvrdite dodavanje “%1$s</string>
     <string name="tag_editor_add_feedback_existing">Odabrana postojeća oznaka “%1$s”</string>
@@ -126,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Greška sadržaja kartice: nije se uspio učitati ‘%s’</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Pretraži špilove</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">Android se oslanja na System WebView koji nije dostupan. Ovo se može dogoditi pri ažuriranju sustava. Pokušajte ponovno za par minuta.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid ne može pristupiti prostoru za pohranu zbog greške u Androidu:\n\n%s</string>
@@ -135,10 +123,6 @@
     <string name="note_editor_video_too_large">Video datoteka je prevelika, umetnite video ručno</string>
     <string name="note_editor_audio_too_large">Zvučna datoteka je prevelika, umetnite zvuk ručno</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Sigurnosna kopija Androida u tijeku. Pokušajte ponovno</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Možda ćete morati koristiti iManager kako biste dozvolili da AnkiDroid stvori prečace</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">Vaš kućni ekran ne dozvoljava da AnkiDroid stvara prečace</string>
-    <string name="create_shortcut_error">Greška pri dodavanju prečaca: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificate</string>
@@ -175,7 +159,6 @@
     <string name="deck_created">Špil stvoren</string>
     <string name="deck_renamed">Špil preimenovan</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Špil izbrisan. Uklonite prečac</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Opis</string>
@@ -188,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Izbriši špil bez potvrđivanja</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">Korisnička radnja %s nije postavljena u uvom tipu bilješke. Podesite je</string>
     <string name="feature_not_supported_by_study_screen">Ova kartica ima značajke koje još nisu podržane u novom ekranu za učenje</string>
     <string name="directory_inaccessible_info">Naučite više o tome kako obnoviti pristup ovdje %s ili odite u postavke kako biste ažurirali mapu za kolekcije.</string>

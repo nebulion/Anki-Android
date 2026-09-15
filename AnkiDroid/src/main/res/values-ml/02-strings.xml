@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">തുറക്കുക ഡ്രോയർ</string>
-    <string name="drawer_close">ഡ്രോയർ അടയ്‌ക്കുക</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">ടാഗുകൾ ചേർക്കുക / ഫിൽട്ടർ ചെയ്യുക</string>
     <string name="add_tag" maxLength="28">ടാഗ് ചേർക്കുക</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Building list of tags&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d അടക്കം ചെയ്തു</item>
-        <item quantity="other">+%d അടക്കം ചെയ്തു</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">എല്ലാ പുതിയ കാർഡുകളും</string>
-    <string name="studyoptions_total_label">ആകെ കാർഡുകൾ</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">കുറിപ്പ് എഡിറ്റുചെയ്യുക</string>
     <string name="discard">Discard</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">പുരോഗതി പുന et സജ്ജമാക്കുക</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">പേരുമാറ്റുക</string>
-    <string name="checks_action" maxLength="28">പരിശോധിക്കുക</string>
     <string name="unknown_type_field_warning">ഉത്തരം ടൈപ്പ് ചെയ്യുക: അജ്ഞാത ഫീൽഡ് %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">ഡെക്ക് ഇല്ലാതാക്കുന്നു&#8230;</string>
     <string name="info_rate">അങ്കിഡ്രോയിഡ് റേറ്റുചെയ്യുക</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">പങ്കിടുക</string>
     <string name="export_choice_save_to">ഇതിലേക്ക് സംരക്ഷിക്കുക</string>
     <string name="export_saving_exported_collection">കയറ്റുമതി ചെയ്ത ഫയൽ സംരക്ഷിക്കുന്നു&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">പഠന ഓപ്ഷനുകൾ</string>
     <string name="dyn_deck_desc">സാധാരണ ഷെഡ്യൂളിന് പുറത്ത് പഠിക്കുന്നതിനുള്ള ഒരു പ്രത്യേക ഡെക്കാണിത്. കാർഡുകൾ നിങ്ങൾ അവലോകനം ചെയ്ത ശേഷം അവയുടെ യഥാർത്ഥ ഡെക്കുകളിലേക്ക് സ്വപ്രേരിതമായി മടങ്ങും. ഡെക്ക് ലിസ്റ്റിൽ നിന്ന് ഈ ഡെക്ക് ഇല്ലാതാക്കുന്നത് ശേഷിക്കുന്ന എല്ലാ കാർഡുകളും അവയുടെ യഥാർത്ഥ ഡെക്കിലേക്ക് തിരികെ നൽകും.</string>
     <string name="tag_editor_add_feedback">“%1$s” ചേർക്കുന്നത് സ്ഥിരീകരിക്കുന്നതിന് “%2$s” സ്‌പർശിക്കുക.</string>
     <string name="tag_editor_add_feedback_existing">നിലവിലുള്ള ടാഗ് “%1$s” തിരഞ്ഞെടുത്തു</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">കാർഡ് ഉള്ളടക്ക പിശക്: ‘%s’ ലോഡുചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">തിരയൽ ഡെക്കുകൾ</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">ലഭ്യമല്ലാത്ത സിസ്റ്റം വെബ്‌വ്യൂവിനെ AnkiDroid ആശ്രയിക്കുന്നു. സിസ്റ്റം അപ്‌ഡേറ്റുകൾ‌ ഇൻ‌സ്റ്റാൾ‌ ചെയ്യുകയാണെങ്കിൽ‌ ഇത് സംഭവിക്കാം. കുറച്ച് മിനിറ്റിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക. \n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid cannot access storage due to an Android error.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">വീഡിയോ ഫയൽ വളരെ വലുതാണ്, വീഡിയോ നേരിട്ട് ചേർക്കുക</string>
     <string name="note_editor_audio_too_large">ഓഡിയോ ഫയൽ വളരെ വലുതാണ്, ഓഡിയോ നേരിട്ട് ചേർക്കുക</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android backup in progress. Please try again</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">കുറുക്കുവഴികൾ ചേർക്കാൻ AnkiDroid-നെ അനുവദിക്കുന്നതിന് നിങ്ങൾ iManager ഉപയോഗിക്കേണ്ടി വന്നേക്കാം</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">കുറുക്കുവഴികൾ ചേർക്കാൻ നിങ്ങളുടെ ഹോം സ്‌ക്രീൻ AnkiDroid-നെ അനുവദിക്കുന്നില്ല</string>
-    <string name="create_shortcut_error">കുറുക്കുവഴി ചേർക്കുന്നതിൽ പിശക്: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificate</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">ഡെക്ക് സൃഷ്ടിച്ചു</string>
     <string name="deck_renamed">Deck renamed</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">ഡെക്ക് ഇല്ലാതാക്കി. കുറുക്കുവഴി നീക്കം ചെയ്യുക</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">വിവരണം</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">സ്ഥിരീകരണമില്ലാതെ ഡെക്ക് ഇല്ലാതാക്കുക</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">ഈ കുറിപ്പ് തരത്തിൽ ഉപയോക്തൃ പ്രവർത്തനം %s സജ്ജീകരിച്ചിട്ടില്ല. ദയവായി അത് കോൺഫിഗർ ചെയ്യുക</string>
     <string name="feature_not_supported_by_study_screen">This card has features that are not yet supported by the new study screen.</string>
     <string name="directory_inaccessible_info">Learn more about how to restore access here %s or go to settings to update collection folder.</string>

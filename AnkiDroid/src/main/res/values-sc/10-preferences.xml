@@ -70,8 +70,6 @@
     <string name="gestures_summ">Assigna gestos a atziones che a sas rispostas e a sas modìficas de sas cartas.</string>
     <string name="gestures_corner_touch" maxLength="41">Tocu a 9 puntos</string>
     <string name="gestures_corner_touch_summary">Permiti sos gestos tàtiles in sos àngulos de s\'ischermu</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">Pannellu de navigatzione a ischermu intreu</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">Aberi su pannellu de navigatzione cando trìsinas cara a dereta dae cale si siat puntu de s\'ischermu</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Perunu</string>
     <string name="gestures_swipe_up" maxLength="41">Trìsina cara a artu</string>
     <string name="gestures_swipe_down" maxLength="41">Trìsina cara a bassu</string>
@@ -184,7 +182,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Seletziona sas etichetas</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Chirca</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Remplasa sas lìnias noas cun s\'HTML</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

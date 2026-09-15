@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Öppna meny</string>
-    <string name="drawer_close">Stäng meny</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Lägg till/Filtrera etiketter</string>
     <string name="add_tag" maxLength="28">Lägg till etikett</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Bygger lista över taggar&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d begravda</item>
-        <item quantity="other">+%d buried</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Totalt antal nya kort</string>
-    <string name="studyoptions_total_label">Totalt antal kort</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Redigera not</string>
     <string name="discard">Kasta</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">Återställ framsteg</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Byt namn</string>
-    <string name="checks_action" maxLength="28">Kontrollera</string>
     <string name="unknown_type_field_warning">Skriv svar: okänt fält %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Raderar kortlek&#8230;</string>
     <string name="info_rate">Betygsätt AnkiDroid</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">Dela</string>
     <string name="export_choice_save_to">Spara till</string>
     <string name="export_saving_exported_collection">Spara exporterad fil&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Studeringsalternativ</string>
     <string name="dyn_deck_desc">Det här är en specialkortlek för studier utanför det normala schemat. Korten återförs automatiskt till sina ursprungliga kortlekar efter att du repeterat dem. Om du tar bort denna kortlek återförs alla återstående kort till sina ursprungliga kortlekar.</string>
     <string name="tag_editor_add_feedback">Tryck på “%2$s” för att bekräfta att lägga till “%1$s”</string>
     <string name="tag_editor_add_feedback_existing">Befintlig etikett “%1$s” vald</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Kortet innehållsfel: Det gick inte att läsa in ‘%s’</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Sök kortlekar</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid använder sig av System WebView vilket inte är tillgängligt. Detta kan hända om systemet håller på att installera uppdateringar. Försök igen om några minuter.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid kan inte komma åt lagring på grund av ett Android-fel.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">Videofilen är för stor, lägg till videon manuellt</string>
     <string name="note_editor_audio_too_large">Ljudfilen är för stor, lägg till ljudet manuellt</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Säkerhetskopiering av Android pågår. Försök igen</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Du kan behöva använda iManager för att tillåta AnkiDroid att lägga till genvägar</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Tillåt ‘Startskärmen genvägar’ i systeminställningar för %s att lägga till genvägar</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">Din startskärm tillåter inte AnkiDroid att lägga till genvägar</string>
-    <string name="create_shortcut_error">Kunde inte lägga till genväg: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certifikat</string>
@@ -175,7 +160,6 @@
     <string name="deck_created">Kortlek skapad</string>
     <string name="deck_renamed">Kortlek namnändrad</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Kortlek raderad. Ta bort genvägen</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Beskrivning</string>
@@ -188,7 +172,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Ta bort kortlek utan konfirmation</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">Användaråtgärd %s är inte inställd i denna anteckningstyp. Vänligen konfigurera den</string>
     <string name="feature_not_supported_by_study_screen">Det här kortet har funktioner som inte stöds än av den nya studieskärmen.</string>
     <string name="directory_inaccessible_info">Läs mer om hur du återställer åtkomsten här: %s, eller gå till inställningarna för att uppdatera samlingsmappen.</string>

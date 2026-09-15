@@ -30,12 +30,6 @@
         <item quantity="many">%d AnkiDroid karty ke zkoušení</item>
         <item quantity="other">%d AnkiDroid karet ke zkoušení</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d karta ke zkoušení</item>
-        <item quantity="few">%d karty ke zkoušení</item>
-        <item quantity="many">%d karty ke zkoušení</item>
-        <item quantity="other">%d karet ke zkoušení</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Vybrat balíček</string>
 </resources>

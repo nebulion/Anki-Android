@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">باز کردن منوی جانبی</string>
-    <string name="drawer_close">بستن منوی جانبی</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">افزودن/فیلترکردن برچسب‌ها</string>
     <string name="add_tag" maxLength="28">اضافه نمودن برچسب</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">در حال ساختن لیست تگ ها&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d دفن شده</item>
-        <item quantity="other">+%d دفن شده</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">کل کارت های جدید</string>
-    <string name="studyoptions_total_label">کل کارتها</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">ویرایش یادداشت</string>
     <string name="discard">صرف‌نظر کردن</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">تنظیم مجدد پیشرفت</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">تغییر نام</string>
-    <string name="checks_action" maxLength="28">بررسی</string>
     <string name="unknown_type_field_warning">پاسخ را تایپ کنید:فیلد نامشخص %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">در حال حذف دسته کارت&#8230;</string>
     <string name="info_rate">امتیازدهی به AnkiDroid</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">اشتراک گزاری</string>
     <string name="export_choice_save_to">ذخیره به</string>
     <string name="export_saving_exported_collection">در حال ذخیره فایل صادر شده&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">گزینه‌های مطالعه</string>
     <string name="dyn_deck_desc">این یک دسته ویژه برای مطالعه در خارج از زمان‌بندی عادی می باشد.بعد از مرور کارتها آنها به‌طور خودکار به دسته های اصلی برگردانده خواهد شد.حذف کردن این دسته از لیست دسته ها سبب می شود که همه کارتهای باقیمانده نیز به دسته اصلی برگردانده شود.</string>
     <string name="tag_editor_add_feedback">برای تایید افزودن \"%1$s\" روی \"%2$s\" ضربه بزنید</string>
     <string name="tag_editor_add_feedback_existing">برچسب موجود \"%1$s\" انتخاب شده است</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">خطا در محتویات کارت:‌ بارگیری \'%s\' ناموفق بود</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">جستجو در تمام دسته‌ها</string>
     <string name="ankidroid_init_failed_webview_title">خطای جبران‌ناپذیر</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid بر روی سیستم WebView تکیه میکند که غیرقابل دسترسی است. این میتواند اتفاق بیفتد اگر سیستم در حال نسب کردن آپدیت باشد. لطفا دقایقی دیگر تلاش کنید.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">آنکی‌دروید به دلیل خطای اندروید نمی‌تواند به فضای ذخیره‌سازی دسترسی داشته باشد
@@ -136,10 +125,6 @@
     <string name="note_editor_video_too_large">فایل ویدیو زیادی بزرگ است، لطفا ویدیو را دستی وارد کنید</string>
     <string name="note_editor_audio_too_large">فایل صدا زیادی بزرگ است، لطفا صدا را دستی وارد کنید</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">پشتیبان گیری اندروید درحال انجام شدن هست. لطفا دوباره تلاش کنید</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">شما به iManager نیاز دارید تا به AnkiDroid اجازه اضافه کردن میانبر بدهید</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">برای افزودن میانبرها، دسترسی «میانبرهای صفحهٔ اصلی» را در تنظیمات سیستم برای %s فعال کنید</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">صفحه اصلی شما به AnkiDroid اجازه میانبور اضافه کردن نمیدهد</string>
-    <string name="create_shortcut_error">خطا در افزودن میانبُر: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">لینک</string>
     <string name="dialog_hint_certificate">گواهی امنیتی</string>
@@ -176,7 +161,6 @@
     <string name="deck_created">دسته ایجاد شد</string>
     <string name="deck_renamed">نام دسته تغییر کرد</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">دسته حذف شد. لطفاً میانبر آن را حذف کنید</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">توضیحات</string>
@@ -189,7 +173,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">ابزار انتخاب بسته کارت</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">دسته را بدون تایید حذف کن</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">عمل کاربر %s در این نوع کارت تنظیم نشده است. لطفاً آن را پیکربندی کنید.</string>
     <string name="feature_not_supported_by_study_screen">این کارت ویژگی‌هایی دارد که در حال حاضر در صفحهٔ مطالعهٔ جدید پشتیبانی نمی‌شوند.</string>
     <string name="directory_inaccessible_info">برای کسب اطلاعات بیشتر در مورد نحوه بازیابی دسترسی اینجا %s را ببینید یا به تنظیمات بروید تا پوشه مجموعه را به‌روزرسانی کنید.</string>

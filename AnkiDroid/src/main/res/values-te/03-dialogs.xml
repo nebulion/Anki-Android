@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">అననుకూల డేటాబేస్ వెర్షన్</string>
     <string name="incompatible_database_version_summary">డేటాబేస్ అనేది AnkiDroid యొక్క ఈ సంస్కరణతో పని చేయగల దాని కంటే మరింత అధునాతన సంస్కరణ. AnkiDroidని అప్‌గ్రేడ్ చేయండి లేదా డేటాబేస్‌ని తెరవడానికి డౌన్‌గ్రేడ్ చేయండి\n\nమద్దతు ఉన్న సంస్కరణ: %1$d\nడేటాబేస్ వెర్షన్: %2$d\n\nక్రింది పునరుద్ధరణ ఎంపికలు మీ ప్రస్తుత సేకరణను భర్తీ చేస్తాయి, బహుశా అనుకూల డేటాబేస్ వెర్షన్‌తో:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">నేపథ్య చిత్రం %sని వర్తింపజేయడంలో విఫలమైంది</string>
-    <string name="background_image_too_large">డెక్ పికర్ బ్యాక్ గ్రౌండ్ చాలా పెద్దది</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">అవసరమైన నిల్వ అనుమతి లేదు. దయచేసి నిల్వ అనుమతిని మంజూరు చేసి, మీ చర్యను మళ్లీ ప్రయత్నించండి.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">డేటా వినియోగం కోసం మీ ఇంటర్నెట్ ప్రొవైడర్ మీకు ఛార్జీ విధించవచ్చు</string>
-    <string name="deck_picker_new">ఈ రోజు ఈ డెక్‌లో చూడాల్సిన కొత్త కార్డ్‌ల సంఖ్య.</string>
-    <string name="deck_picker_rev">ఈ డెక్‌లో ఈరోజు చెల్లించాల్సిన కార్డ్‌ల సంఖ్య.</string>
-    <string name="deck_picker_lrn">ఈ డెక్‌లో తెలుసుకోవడానికి కార్డ్‌ల సంఖ్య.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">ఈరోజు చూడాల్సిన కార్డ్‌ల సంఖ్యను కలిగి ఉన్న డెక్ ఓవర్‌వ్యూ పేజీని తెరవండి.</string>
     <string name="import_deck_package">డెక్ ప్యాకేజీ (.apkg)</string>
     <string name="import_collection_package">సేకరణ ప్యాకేజీ (.colpkg)</string>
     <string name="import_csv">టెక్స్ట్ ఫైల్ (.txt, .csv)</string>

@@ -71,8 +71,6 @@
     <string name="gestures_summ">שיוך מחוות לפעולות כגון מענה ועריכת קלפים.</string>
     <string name="gestures_corner_touch" maxLength="41">מגע 9 נקודות</string>
     <string name="gestures_corner_touch_summary">אפשר מחוות מגע בפינות המסך</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">מגירת היישומים במסך מלא</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">פתח את מגירת הניווט בעת החלקה ימינה מכל מקום על המסך</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">ללא</string>
     <string name="gestures_swipe_up" maxLength="41">החלקת אצבע כלפי מעלה</string>
     <string name="gestures_swipe_down" maxLength="41">החלקת אצבע כלפי מטה</string>
@@ -185,7 +183,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">בחר תגיות</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">חיפוש</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">החלפת שורות חדשות ב־HTML</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

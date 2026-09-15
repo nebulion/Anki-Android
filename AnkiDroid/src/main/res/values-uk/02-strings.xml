@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Відкрити шухляду</string>
-    <string name="drawer_close">Закрити шухляду</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Додати/фільтрувати теги</string>
     <string name="add_tag" maxLength="28">Додати позначку</string>
@@ -44,14 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Створюється список тегів&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d відкладено</item>
-        <item quantity="few">+%d відкладено</item>
-        <item quantity="many">+%d відкладено</item>
-        <item quantity="other">+%d відкладено</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Всього нових карток</string>
-    <string name="studyoptions_total_label">Всього карток</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Редагувати запис</string>
     <string name="discard">Відкинути</string>
@@ -64,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">Скинути перебіг</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Перейменувати</string>
-    <string name="checks_action" maxLength="28">Перевірити</string>
     <string name="unknown_type_field_warning">Введіть відповідь: невідоме поле %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Видалення колоди&#8230;\n Будь ласка, зачекайте.</string>
     <string name="info_rate">Оцініть AnkiDroid</string>
@@ -99,7 +88,6 @@
     <string name="export_choice_share">Поділитись</string>
     <string name="export_choice_save_to">Зберегти до</string>
     <string name="export_saving_exported_collection">Збереження експортованого файлу&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Налаштування навчання</string>
     <string name="dyn_deck_desc">Це спеціальна колода для навчання поза межами нормального графіку. Картки будуть автоматично повернуті до своїх колод після повторення. Видалення цієї колоди поверне всі карточки до своїх колод.</string>
     <string name="tag_editor_add_feedback">Натисніть \"%2$s\", аби підтвердити додавання \"%1$s\"</string>
     <string name="tag_editor_add_feedback_existing">Обрано наявну позначку \"%1$s\"</string>
@@ -127,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Не вдалося завантажити «\'%s»</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Шукати колоди</string>
     <string name="ankidroid_init_failed_webview_title">Критична помилка</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid використовує системний WebView, який недоступний. Це можливе, якщо система встановлює оновлення. Будь ласка, спробуйте знову за кілька хвилин.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid не може отримати доступ до сховища через помилку Android.\n\n%s</string>
@@ -136,10 +123,6 @@
     <string name="note_editor_video_too_large">Відеофайл завеликий, будь ласка, вставте відео вручну</string>
     <string name="note_editor_audio_too_large">Аудіофайл завеликий, будь ласка, вставте аудіо вручну</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Виконується резервне копіювання Android. Будь ласка, спробуйте ще раз</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Використовуйте iManager, щоб дозволити AnkiDroid додавати ярлики</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Надайте дозвіл для «ярликів на головному екрані» в системних налаштуваннях для %s</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">Ваш головний екран не дозволяє AnkiDroid додати ярлики</string>
-    <string name="create_shortcut_error">Помилка при створенні ярлика: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Сертифікат</string>
@@ -176,7 +159,6 @@
     <string name="deck_created">Створена колода</string>
     <string name="deck_renamed">Колоду перейменовано</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Колоду було видалено. Будь ласка, видаліть ярлик</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Опис</string>
@@ -189,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Вибір колоди</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Видалити колоду без підтвердження</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">Дію користувача %s не встановлено в цьому типі запису. Будь ласка, налаштуйте її</string>
     <string name="feature_not_supported_by_study_screen">В цій картці є функції, які ще не підтримуються новим екраном навчання.</string>
     <string name="directory_inaccessible_info">Дізнайтесь більше про те, як відновити доступ тут – %s, або перейдіть в налаштування, щоб оновити теку колекцій.</string>

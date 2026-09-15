@@ -108,8 +108,6 @@
     <string name="incompatible_database_version_title">Nekompatibilní verze databáze</string>
     <string name="incompatible_database_version_summary">Databáze je pokročilejší verze, než se kterou může tato verze AnkiDroid pracovat. Aktualizujte AnkiDroid nebo ponižte databázi, abyste ji otevřeli\n\nPodporovaná verze: %1$d\nVerze databáze: %2$d\n\nNásledující možnosti obnovení přepíšou vaši současnou kolekci snad kompatibilní verzí databáze:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Nepodařilo se použít obrázek pozadí %s</string>
-    <string name="background_image_too_large">Pozadí výběru balíčků je příliš velké</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Chybí požadované oprávnění k úložišti. Prosím udělte oprávnění k úložišti a zkuste to znovu.</string>
@@ -130,13 +128,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Automatická synchronizace může být spuštěna za %d sekund</item>
     </plurals>
     <string name="metered_sync_data_warning">Váš poskytovatel internetu si může účtovat poplatky za používání dat</string>
-    <string name="deck_picker_new">Počet nových karet dnes k učení v tomto balíčku.</string>
-    <string name="deck_picker_rev">Počet karet dnes ke zkoušení v tomto balíčku.</string>
-    <string name="deck_picker_lrn">Počet karet v procesu učení v tomto balíčku.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Otevřete stránku s přehledem balíčku, která obsahuje počet karet dnes k učení.</string>
     <string name="import_deck_package">Balíček (.apkg)</string>
     <string name="import_collection_package">Kolekce (.colpkg)</string>
     <string name="import_csv">Textový soubor (.txt, .csv)</string>

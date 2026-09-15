@@ -30,12 +30,6 @@
         <item quantity="many">%d kart do przejrzenia</item>
         <item quantity="other">%d kart do przejrzenia</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d karta do przejrzenia</item>
-        <item quantity="few">%d karty do przejrzenia</item>
-        <item quantity="many">%d kart do przejrzenia</item>
-        <item quantity="other">%d kart do przejrzenia</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Wybierz talię</string>
 </resources>

@@ -70,8 +70,6 @@
     <string name="gestures_summ">उत्तर देणे आणि संपादन कार्ड यासारख्या क्रियांना जेश्चर नियुक्त करा.</string>
     <string name="gestures_corner_touch" maxLength="41">9-बिंदू स्पर्श</string>
     <string name="gestures_corner_touch_summary">स्क्रीन कोपर्यात स्पर्श जेश्चरला अनुमती द्या</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">पूर्ण स्क्रीन नेव्हिगेशन ड्रॉवर</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">स्क्रीनवर कुठूनही थेट स्वाइप करून नेव्हिगेशन ड्रॉवर उघडा</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">काहीही नाही</string>
     <string name="gestures_swipe_up" maxLength="41">स्वाइप अप</string>
     <string name="gestures_swipe_down" maxLength="41">खाली स्वाइप करा</string>
@@ -182,7 +180,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">टॅग निवडा</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">शोधा</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">एचटीएमएलसह नवीनलाइन पुनर्स्थित करा</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

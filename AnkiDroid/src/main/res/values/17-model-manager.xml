@@ -5,7 +5,6 @@
 <resources>
 
     <!--Menu Labels-->
-    <string name="model_browser_label" comment="Label of the browser of note types. The text can't be found in AnkiDroid directly." maxLength="28">Manage note types</string>
 
 
     <!--Toasts-->

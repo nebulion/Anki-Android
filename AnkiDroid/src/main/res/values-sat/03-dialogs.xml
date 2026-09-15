@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">ᱵᱟᱝ ᱴᱷᱤᱠ ᱵᱟᱴᱟᱵᱮᱥ ᱵᱷᱟᱹᱨᱥᱟᱹᱱ</string>
     <string name="incompatible_database_version_summary">ᱰᱟᱴᱟᱵᱮᱥ ᱫᱚ ᱱᱚᱶᱟ AnkiDroid ᱵᱷᱟᱹᱥᱚᱱ ᱠᱷᱚᱱ ᱡᱟᱹᱛᱤ ᱮᱰᱵᱷᱟᱱᱥ ᱜᱮᱭᱟ ᱾ ᱠᱷᱚᱞᱟ ᱞᱟᱹᱜᱤᱫᱽ ᱰᱟᱴᱟᱵᱮᱥ ᱟᱹᱯᱜᱮᱰ ᱟᱨ ᱵᱟᱝ ᱰᱟᱩᱱᱜᱨᱮᱰ ᱢᱮ\n\n ᱥᱟᱹᱯᱚᱴ ᱵᱷᱟᱹᱨᱥᱚᱱᱺ %1$d\n ᱰᱟᱴᱟᱵᱮᱥ ᱵᱷᱟᱹᱥᱚᱱᱺ %2$d\n\n ᱱᱚᱶᱟ ᱠᱚ ᱨᱤᱥᱴᱚᱨ ᱚᱯᱥᱚᱱ ᱠᱚ ᱟᱢᱟᱜᱽ ᱱᱤᱛᱚᱜᱼᱟᱜ ᱛᱩᱢᱟᱹ ᱥᱟᱞᱟᱜᱽ ᱫᱩᱦᱲᱟᱹ ᱚᱞᱚᱜᱚᱜ ᱠᱚᱢᱯᱟᱴᱤᱵᱟᱹᱞ ᱰᱟᱴᱟᱵᱮᱥ ᱵᱷᱟᱹᱥᱚᱱ ᱥᱟᱞᱟᱜᱽ ᱛᱮᱺ</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">ᱚᱱᱚᱰ ᱪᱤᱛᱟᱨ ᱵᱟᱦᱟᱞ ᱰᱤᱜᱟᱹᱣ %s</string>
-    <string name="background_image_too_large">ᱰᱠᱮ ᱦᱟᱛᱟᱣ ᱵᱮᱠᱜᱟᱨᱩᱸᱰ ᱢᱟᱨᱟᱝ ᱜᱮᱭᱟ</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">ᱫᱚᱦᱚ ᱪᱷᱟᱰ ᱵᱟᱱᱩᱜᱟ ᱾ ᱫᱚᱭᱟᱠᱟᱛᱮ ᱫᱚᱦᱚ ᱪᱷᱟᱰ ᱮᱢᱚᱜ ᱢᱮ ᱟᱨ ᱯᱷᱮᱨ ᱪᱮᱥᱴᱟᱭ ᱢᱮ</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">ᱟᱢᱟᱜ ᱤᱱᱴᱟᱨᱱᱮᱴ ᱯᱨᱚᱵᱷᱟᱭᱰᱟᱨ ᱰᱮᱴᱟ ᱵᱮᱵᱷᱟᱨ ᱞᱟᱹᱜᱤᱫ ᱴᱟᱠᱟ ᱦᱟᱛᱟᱣᱟ</string>
-    <string name="deck_picker_new">ᱱᱚᱣᱟ ᱰᱮᱠᱨᱮ ᱛᱮᱦᱮᱧ ᱧᱮᱞ ᱞᱟᱹᱜᱤᱫ ᱱᱟᱣᱟ ᱠᱟᱰ ᱨᱮᱭᱟᱜ ᱮᱞ</string>
-    <string name="deck_picker_rev">ᱱᱚᱣᱟ ᱰᱮᱠ ᱨᱮ ᱛᱮᱦᱮᱧ ᱞᱟᱹᱜᱤᱫ ᱢᱮᱱᱟᱜ ᱱᱟᱣᱟ ᱮᱞ</string>
-    <string name="deck_picker_lrn">ᱱᱚᱣᱟ ᱰᱮᱠ ᱨᱮᱭᱟᱜ ᱥᱮᱪᱮᱫ ᱠᱟᱰ  ᱮᱞ</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Open the deck overview page containing the number of cards to see today.</string>
     <string name="import_deck_package">ᱰᱮᱠ ᱯᱭᱟᱠᱮᱡᱽ (apkg)</string>
     <string name="import_collection_package">ᱦᱟᱞᱟᱝᱥᱟᱢᱴᱟ ᱯᱭᱟᱠᱮᱡ (.colpkg)</string>
     <string name="import_csv">ᱚᱞ ᱨᱮᱫ (.txt, .csv)</string>

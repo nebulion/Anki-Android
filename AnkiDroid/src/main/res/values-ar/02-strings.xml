@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">فتح القائمة</string>
-    <string name="drawer_close">أغلق القائمة</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">إضافة وفرز الوسوم</string>
     <string name="add_tag" maxLength="28">إضافة وسم</string>
@@ -44,16 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">يتم بناء مجموعة الوسوم&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="zero">+%d مدفونة</item>
-        <item quantity="one">+ %d مدفونة</item>
-        <item quantity="two">+%d مدفونتان</item>
-        <item quantity="few">+%d مدفونة</item>
-        <item quantity="many">+%d مدفونة</item>
-        <item quantity="other">+%d مدفونة</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">مجموع البطاقات الجديدة</string>
-    <string name="studyoptions_total_label">مجموع البطاقات</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">تحرير الملحوظة</string>
     <string name="discard">تجاهل</string>
@@ -66,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">إعادة ضبط التقدم</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">إعادة تسمية</string>
-    <string name="checks_action" maxLength="28">تحقق</string>
     <string name="unknown_type_field_warning">إدخال الجواب: حقل مجهول %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">جارٍ حذف الرزمة&#8230;</string>
     <string name="info_rate">قيِّم آنكي درويد</string>
@@ -101,7 +88,6 @@
     <string name="export_choice_share">مشاركة</string>
     <string name="export_choice_save_to">حفظ في</string>
     <string name="export_saving_exported_collection">يتم حفظ الملف المُصَدَّر&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">خيارات الدراسة</string>
     <string name="dyn_deck_desc">هذه رزمة خاصة للدراسة خارج الجدول المعتاد. ستعود البطاقات إلى رزمها الأصلية تلقائيًا بعد مراجعتها. يؤدي حذف هذه الرزمة من قائمة الرزم إلى إعادة كل البطاقات المتبقية إلى رزمها الأصلية.</string>
     <string name="tag_editor_add_feedback">انقر «%2$s» لتُأكِّد إضافة «%1$s»</string>
     <string name="tag_editor_add_feedback_existing">تم تحديد الوسم الموجود «%1$s»</string>
@@ -129,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">خلل في محتوى البطاقة: فشِل تحميل «%s»</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">بحث في الرزم</string>
     <string name="ankidroid_init_failed_webview_title">خلل فادح</string>
     <string name="ankidroid_init_failed_webview">يعتمد آنكي درويد على الويب فيو الخاص بالنظام وهو غير متوفر. يمكن أن يَحدث هذا إذا كان النظام قيد التحديث. الرجاء المحاولة مرةً أخرى بعد بضع دقائق.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">لم يتمكن آنكي درويد من الوصول إلى التخزين نتيجة لخلل في نظام الآندرويد.\n\n%s</string>
@@ -138,10 +123,6 @@
     <string name="note_editor_video_too_large">مِلَفّ الفيديو كبير جدًا، يرجى إدخال الفيديو يدويًا</string>
     <string name="note_editor_audio_too_large">المِلَفّ الصوتي كبير جدًا، يرجى إدخال الصوت يدويًا</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">يتم نسخ أندرويد الإحتياطي. من فضلك حاول مجددًا</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">قد تحتاج إلى استخدام «iManager» للسماح لآنكي درويد بإضافة اختصارات</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">اسمح لـ«إختصارات الشاشة الرئيسية» في إعدادات النظام ليتمكن %s من إنشاء الاختصارات</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">لا تسمح شاشتك الرئيسة لآنكي درويد بإضافة اختصارات</string>
-    <string name="create_shortcut_error">خلل في إضافة الاختصار: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">الرابط</string>
     <string name="dialog_hint_certificate">الرخصة</string>
@@ -178,7 +159,6 @@
     <string name="deck_created">تم إنشاء الرِزمة</string>
     <string name="deck_renamed">أُعيدت تسمية الرِزمة</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">تم حذف الرزمة. يرجى حذف الاختصار</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">الوصف</string>
@@ -191,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">مُخيِّر الرِزم</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">إحذف الرزم بلا تأكيد</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">لم يتم تعيين إجراء رقم %s في نوع الملحوظات هذا. عَيِّنه رجاءًا</string>
     <string name="feature_not_supported_by_study_screen">لدى هذه البطاقة ميزات غير متاحة حالياً في شاشة الدراسة الجديدة.</string>
     <string name="directory_inaccessible_info">تعلم أكثر عن كيفية إستعادة الإتاحة هنا %s أو إذهب إلى الإعدادات لتحديث ملف المجموعة.</string>

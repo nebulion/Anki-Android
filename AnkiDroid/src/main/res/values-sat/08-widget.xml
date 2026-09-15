@@ -28,10 +28,6 @@
         <item quantity="one">%d AnkiDroid ᱠᱟᱰ ᱥᱟᱨᱮᱡ ᱠᱚ</item>
         <item quantity="other">%d AnkiDroid ᱠᱟᱰ ᱥᱟᱨᱮᱡ ᱠᱚ</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d ᱠᱟᱰ ᱥᱟᱨᱟᱡ</item>
-        <item quantity="other">%d ᱥᱟᱰᱥ ᱥᱟᱨᱮᱡ</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">ᱢᱤᱫ ᱰᱮᱠ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
 </resources>

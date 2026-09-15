@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">يان تارتمىنى ئاچ</string>
-    <string name="drawer_close">يان تارتمىنى تاقا</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">بەلگە قوش/سۈزگۈچ</string>
     <string name="add_tag" maxLength="28">بەلگە قوش</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">بەلگە تىزىمى ھاسىللاۋاتىدۇ&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d يوشۇرۇلدى</item>
-        <item quantity="other">+%d يوشۇرۇلدى</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">جەمئىي يېڭى كارتا</string>
-    <string name="studyoptions_total_label">جەمئىي كارتا</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">خاتىرە تەھرىر</string>
     <string name="discard">تاشلىۋەت</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">ئىلگىرىلەشنى ئەسلىگە قايتۇر</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">ئات ئۆزگەرت</string>
-    <string name="checks_action" maxLength="28">تەكشۈر</string>
     <string name="unknown_type_field_warning">جاۋاب كىرگۈزۈلىدۇ: يوچۇن بۆلەك %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">دەستە ئۆچۈرۈۋاتىدۇ&#8230;</string>
     <string name="info_rate">AnkiDroid كە باھا بېرىڭ</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">ھەمبەھىر</string>
     <string name="export_choice_save_to">ساقلاش ئورنى</string>
     <string name="export_saving_exported_collection">چىقىرىدىغان ھۆججەتنى ساقلاۋاتىدۇ&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">ئۆگىنىش تاللانما</string>
     <string name="dyn_deck_desc">بۇ ئادەتتىكى كۈنتەرتىپنىڭ سىرتىدىكى مەزمۇننى ئۆگىنىدىغان ئالاھىدە دەستە. كارتىنى تەكرارلىغاندىن كېيىن ئەسلىدىكى دەستەسىگە قايتۇرۇلىدۇ. ئەگەر دەستە تىزىمىدىن بۇ دەستە ئۆچۈرۈلسە، قېپقالغان كارتا دەسلەپكى دەستە ئورنىغا ئەسلىگە قايتۇرۇلىدۇ.</string>
     <string name="tag_editor_add_feedback">«%2$s» نى چېكىپ «%1$s» نى قوشۇش  جەزملىنىدۇ</string>
     <string name="tag_editor_add_feedback_existing">مەۋجۇت «%1$s» بەلگە تاللاندى</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">كارتا مەزمۇنىدىكى خاتالىق: «%s» نى يۈكلىيەلمىدى</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">دەستە ئىزدە</string>
     <string name="ankidroid_init_failed_webview_title">ئېغىر خاتالىق</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid سىستېمىدىكى WebView غا تايىنىدۇ ئەمما ئۇنى ئىشلەتكىلى بولمايدۇ. بۇ سىستېما يېڭىلانمىنى ئورنىتىۋاتقاندا يۈز بېرىشى مۇمكىن. بىر قانچە مىنۇتتىن كېيىن قايتا سىناڭ.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">Android خاتالىقى سەۋەبىدىن AnkiDroid ساقلىغۇچنى زىيارەت قىلالمايدۇ.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">سىن ھۆججىتى بەك چوڭ، سىننى قولدا قىستۇرۇڭ</string>
     <string name="note_editor_audio_too_large">ئۈن ھۆججىتى بەك چوڭ، ئۈننى قولدا قىستۇرۇڭ</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android زاپاسلاش ئىجرا قىلىنىۋاتىدۇ. قايتا سىناڭ</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">iManager نى ئىشلىتىپ AnkiDroid نىڭ تېزلەتمە قوشۇشىغا يول قويۇڭ</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">سىستېما تەڭشىكىدە %s نىڭ تېزلەتمە قوشۇشى ئۈچۈن «باش ئېكران تېزلەتمىسى» گە يول قويىدۇ</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">باش ئېكرانىڭىز AnkiDroid نىڭ تېزلەتمە قوشۇشىغا يول قويمايدۇ</string>
-    <string name="create_shortcut_error">تېزلەتمە قوشۇش خاتالىقى: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">گۇۋاھنامە</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">دەستە قۇرۇلدى</string>
     <string name="deck_renamed">دەستە ئىسمى ئۆزگەرتىلدى</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">دەستە ئۆچۈرۈلدى. تېزلەتمىنى چىقىرىۋېتىڭ</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">چۈشەندۈرۈش</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">دەستە تاللىغۇچ</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">دەستىنى سورىمايلا ئۆچۈرىدۇ</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">%s  ئىشلەتكۈچى مەشغۇلاتى خاتىرە تۈرىدە تەڭشەلمىگەن. سەپلەڭ</string>
     <string name="feature_not_supported_by_study_screen">بۇ كارتىنىڭ يېڭى ئۆگىنىش ئېكرانى قوللىمايدىغان ئىقتىدارى بار.</string>
     <string name="directory_inaccessible_info">بۇ جاي %s دىكى زىيارەتنى قانداق ئەسلىگە كەلتۈرۈش ياكى تەڭشەككە يۆتكىلىپ توپلام قىسقۇچىنى يېڭىلاش ھەققىدىكى تەپسىلاتنى كۆرۈڭ.</string>

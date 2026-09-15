@@ -28,10 +28,6 @@
         <item quantity="one">%d tarjetas AnkiDroid pendientes</item>
         <item quantity="other">%d tarjetas AnkiDroid pendientes</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d tarjeta pendiente</item>
-        <item quantity="other">%d tarjetas pendientes</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Selecciona un mazo</string>
 </resources>

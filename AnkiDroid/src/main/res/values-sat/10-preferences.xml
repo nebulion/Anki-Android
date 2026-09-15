@@ -70,8 +70,6 @@
     <string name="gestures_summ">ᱛᱮᱞᱟ ᱮᱢ ᱟᱨ ᱠᱟᱰᱥ ᱥᱟᱯᱰᱟᱣ ᱞᱟᱹᱜᱤᱫ ᱜᱮᱥᱪᱚᱨ ᱠᱚ ᱴᱷᱤᱠ ᱢᱮ ᱾</string>
     <string name="gestures_corner_touch" maxLength="41">᱙ᱼᱤᱸᱪ ᱚᱛᱟ</string>
     <string name="gestures_corner_touch_summary">ᱥᱠᱨᱤᱱ ᱠᱩᱱᱟᱹ ᱠᱚᱨᱮ  ᱚᱛᱟ ᱜᱮᱥᱪᱚᱨᱠᱚ ᱮᱢ ᱪᱷᱚ</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">ᱯᱷᱩᱞᱥᱨᱤᱱ ᱱᱮᱵᱷᱤᱜᱮᱥᱚᱱ ᱰᱟᱨᱣᱮᱨ</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">ᱥᱠᱨᱤᱱ ᱨᱮᱭᱟᱜ ᱡᱟᱦᱟᱸᱥᱮᱫ ᱠᱷᱚᱱ ᱡᱚᱡᱚᱢ ᱯᱟᱦᱴᱟ ᱥᱣᱟᱭᱤᱯ ᱠᱟᱛᱮ ᱱᱟᱵᱷᱤᱜᱮᱥᱚᱱ ᱰᱨᱚᱣᱮᱨ ᱡᱷᱤᱡᱽ ᱯᱮ</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">ᱡᱟᱦᱟᱱ ᱵᱟᱝ</string>
     <string name="gestures_swipe_up" maxLength="41">ᱪᱮᱛᱟᱱ ᱴᱷᱮᱞᱟᱣ</string>
     <string name="gestures_swipe_down" maxLength="41">ᱞᱟᱛᱟᱨ ᱴᱷᱮᱞᱟᱣ</string>
@@ -184,7 +182,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Select tags</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">ᱥᱮᱸᱫᱽᱨᱟ</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">HTML ᱥᱟᱞᱟᱜ ᱱᱟᱣᱟᱞᱟᱹᱭᱤᱱ ᱵᱚᱫᱚᱞ ᱢᱮ</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

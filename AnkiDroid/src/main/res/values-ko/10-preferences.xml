@@ -69,8 +69,6 @@
     <string name="gestures_summ">응답 및 카드 편집 등의 작업에 제스쳐 할당</string>
     <string name="gestures_corner_touch" maxLength="41">9점 터치</string>
     <string name="gestures_corner_touch_summary">화면 모서리의 터치 제스쳐 허용</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">전체화면 탐색 서랍</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">화면 어디에서나 오른쪽으로 스와이프하여 탐색 서랍 열기</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">없음</string>
     <string name="gestures_swipe_up" maxLength="41">위로 밀기</string>
     <string name="gestures_swipe_down" maxLength="41">아래로 밀기</string>
@@ -181,7 +179,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">태그 선택하기</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">검색</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">줄바꿈을 HTML로 변환</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

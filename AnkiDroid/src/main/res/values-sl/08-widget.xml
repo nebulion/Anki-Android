@@ -30,12 +30,6 @@
         <item quantity="few">%d AnkiDroid cards due</item>
         <item quantity="other">%d AnkiDroid cards due</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d kartica zapadla</item>
-        <item quantity="two">%d kartici zapadli</item>
-        <item quantity="few">%d kartice zapadle</item>
-        <item quantity="other">%d kartic zapadlih</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Select a deck</string>
 </resources>

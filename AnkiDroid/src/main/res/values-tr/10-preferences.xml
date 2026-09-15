@@ -70,8 +70,6 @@
     <string name="gestures_summ">Cevap verme ve kart düzenleme gibi eylemlere el hareketleri ata.</string>
     <string name="gestures_corner_touch" maxLength="41">9 noktadan dokunma</string>
     <string name="gestures_corner_touch_summary">Ekran köşelerinde dokunma hareketlerine izin ver</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">Tam ekran gezinme çekmecesi</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">Ekranın üzerindeki herhangi bir yerden sağa doğru parmağınızı kaydırdığınızda bütün dosyaların genel görünümü için bir önizleme açılacaktır</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Hiçbiri</string>
     <string name="gestures_swipe_up" maxLength="41">Yukarı sürükleme</string>
     <string name="gestures_swipe_down" maxLength="41">Aşağı sürükleme</string>
@@ -183,7 +181,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Etiketleri Seçin</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Arama</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Satırbaşlarını HTML\'le değiştir</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

@@ -18,7 +18,6 @@
 <!-- This file contains strings related to the note types. Note type used to be called "model", hence the name of the file. -->
 <resources>
     <!--Menu Labels-->
-    <string name="model_browser_label" comment="Label of the browser of note types. The text can\'t be found in AnkiDroid directly." maxLength="28">𐌺𐌹𐌽𐌸𐌹𐌽𐍃 𐌼𐌴𐌻𐌴𐌹𐌽𐍉 𐌰𐍄𐌲𐌰𐍂𐌰𐌹𐌷𐍄𐌾𐌰𐌽</string>
     <!--Toasts-->
     <!--Plurals-->
     <!--Browser-->

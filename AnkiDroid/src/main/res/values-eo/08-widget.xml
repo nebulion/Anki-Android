@@ -28,10 +28,6 @@
         <item quantity="one">%d lernenda AnkiDroid-karto</item>
         <item quantity="other">%d lernendaj AnkiDroid-kartoj</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d lernenda karto</item>
-        <item quantity="other">%d lernendaj kartoj</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Elekti kartaron</string>
 </resources>

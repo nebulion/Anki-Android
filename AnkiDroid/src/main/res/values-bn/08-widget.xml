@@ -28,10 +28,6 @@
         <item quantity="one">%d টি আনকি-ড্রয়েড কার্ড বাকি</item>
         <item quantity="other">%d টি আনকি-ড্রয়েড কার্ড বাকি</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d টি কার্ড বাকি</item>
-        <item quantity="other">%d টি কার্ড বাকি</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">একটি ডেক নির্বাচন করুন</string>
 </resources>

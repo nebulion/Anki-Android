@@ -35,7 +35,6 @@
     <string name="expand" comment="In the deck picker: accessibility label of the buttons that display the subdecks of a deck.">𐌿𐍆𐌰𐍂𐌸𐌴𐌹𐌷𐌰𐌽</string>
     <string name="collapse" comment="In the deck picker: accessibility label of the buttons that hide the subdecks of a deck.">𐌰𐍆𐍆𐌹𐌻𐌷𐌰𐌽</string>
     <string name="no_cards_placeholder_title" comment="Text shown the first time AnkiDroid is opened, to explain to the user why they can\'t yet review.">𐌷𐌿𐌶𐌳 𐌹𐍃𐍄 𐌻𐌰𐌿𐍃</string>
-    <string name="no_cards_placeholder_description" comment="Text shown the first time AnkiDroid is opened, to explain what should be their first action.">𐌳𐌿𐍃𐍄𐍉𐌳𐌴𐌹 𐌱𐌹𐌰𐌿𐌺𐌰𐌽 𐌺𐌰𐍂𐍄𐍉𐍃\n𐌱𐍂𐌿𐌺𐌾𐌰𐌽 + 𐍄𐌰𐌹𐌺𐌽𐌰𐌹𐍃.</string>
     <!-- Reviewer -->
     <plurals name="reviewer_window_title" comment="Header of the reviewer, telling the users how many minutes remains before they have seen all cards.">
         <item quantity="one">𐌼𐌹𐌽𐌿𐍄𐌿𐍃 %d 𐌱𐌹𐌻𐌴𐌹𐌱𐌹𐌸</item>
@@ -59,10 +58,7 @@
     <string name="undo" maxLength="28" comment="When tapping on this text, the last action is undone.">𐌱𐌻𐌰𐌿𐌸𐌾𐌰𐌽</string>
     <string name="redo" maxLength="28" comment="Menu entry that allows to redo action that was just undone.">𐌰𐍆𐍄𐍂𐌰 𐍄𐌰𐌿𐌾𐌰𐌽</string>
     <!-- flashcard_portrait.xml -->
-    <string name="create_shortcut">𐌼𐌰𐌿𐍂𐌲𐌿𐍅𐌹𐌲 𐍃𐌺𐌰𐍀𐌾𐌰𐌽</string>
-    <string name="edit_deck_description" comment="edit the deck description">𐍃𐌺𐌴𐌹𐍂𐌴𐌹𐌽 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
     <string name="menu_add" comment="A generic add button. Please inform us if you need more specific strings" maxLength="28">𐌱𐌹𐌰𐌹𐌺𐌰𐌽</string>
-    <string name="menu_add_note" maxLength="28">𐌼𐌴𐌻𐌴𐌹𐌽 𐌱𐌹𐌰𐌹𐌺𐌰𐌽</string>
     <string name="menu_my_account" comment="Label of the window in which the user should enter their account. This text can\'t be found in AnkiDroid directly.">𐌲𐌰𐌻𐌴𐌹𐌺 𐍂𐌰𐌷𐌽𐌴𐌹𐌽𐌰𐌹𐍃</string>
     <string name="rename_flag">𐍆𐌰𐌽𐌰𐌽𐍃 𐌰𐍆𐍄𐍂𐌰𐌷𐌰𐌹𐍄𐌰𐌽</string>
     <string name="menu_edit_tags" maxLength="28">𐍃𐍉𐌺𐌽𐌹𐍅𐌰𐌿𐍂𐌳𐌰 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
@@ -100,7 +96,6 @@
     <string name="read_write_permission_label">𐌳𐌿 𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌳𐌰𐍄𐌰𐌱𐌿𐍃𐌰 𐌰𐌽𐌰𐌺𐌿𐌽𐌽𐌰𐌽 𐌾𐌰𐌷 𐌼𐌴𐌻𐌾𐌰𐌽</string>
     <string name="read_write_permission_description">𐌰𐍄𐌲𐌰𐌲𐌲 𐌹𐌽 𐍅𐌹𐍃𐌰𐌽𐌳𐌴𐌹𐌽𐍃 𐌼𐌴𐌻𐌴𐌹𐌽𐌹𐌽𐍃, 𐌺𐌰𐍂𐍄𐍉𐍃, 𐌷𐌰𐌹𐌳𐌿𐌽𐍃 𐌼𐌴𐌻𐌴𐌹𐌽𐍉, 𐌾𐌰𐌷 𐌺𐌰𐍂𐍄𐌰𐌷𐌿𐌶𐌳𐌰, 𐌾𐌰𐌷 𐌽𐌹𐌿𐌾𐌰 𐍃𐌺𐌰𐍀𐌾𐌰𐌽</string>
     <!-- Context Menu -->
-    <string name="card_browser_context_menu" comment="The value which appears in the system context menu. Note the casing difference">𐍃𐍉𐌺𐌾𐍉 𐌺𐌰𐍂𐍄𐍉</string>
     <!-- Sync conflict -->
     <string name="sync_conflict_message_new">𐌷𐌿𐌶𐌳𐌰 𐌽𐌹 𐌼𐌰𐌲𐌿𐌽 𐌱𐌻𐌰𐌽𐌳𐌰𐌽.\n𐍈𐌹𐌻𐌴𐌹𐌺 𐌷𐌿𐌶𐌳 𐍅𐌹𐌻𐌴𐌹𐍃 𐌲𐌰𐍆𐌰𐍃𐍄𐌰𐌽?</string>
     <string name="sync_conflict_keep_local_new" comment="Select AnkiDroid files to keep while syncing">𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳</string>

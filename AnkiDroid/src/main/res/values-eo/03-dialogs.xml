@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">Nekongrua versio de datumbazo</string>
     <string name="incompatible_database_version_summary">La datumbazo estas en pli nova versio ol tiu subtenata de tiu ĉi versio de AnkiDroid. Aktualigu la aplikaĵon AnkiDroid aŭ malpromociu la datumbazon por malfermi ĝin.\n\nSubtenata versio: %1$d\nVersio de datumbazo:%2$d\n\nLa jenaj restarigaj elektebloj ebligos al vi superskribi vian nunan kolekton, probable per kongrua versio de datumbazo:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Malsukcesis apliki fonan bildon %s</string>
-    <string name="background_image_too_large">Fono por elektilo de kartaro estas tro granda</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Mankas permeso al konservejo. Donu permeson al konservejo kaj sekve reprovu.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Aŭtomata samtempigo povas startigi post %d sekundoj</item>
     </plurals>
     <string name="metered_sync_data_warning">Via interret-provizanto povas enkasigi monon por transsendi datumojn</string>
-    <string name="deck_picker_new">Nombro de novaj hodiaŭaj kartoj por montri en tiu ĉi kartaro.</string>
-    <string name="deck_picker_rev">Nombro de hodiaŭaj lernendaj kartoj en tiu ĉi kartaro.</string>
-    <string name="deck_picker_lrn">Nombro de lernataj kortoj en tiu ĉi kartaro.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Malfermu la kartaran sumigon enhavantan nombron de kartoj por montri hodiaŭ.</string>
     <string name="import_deck_package">Kartaro (.apkg)</string>
     <string name="import_collection_package">Kolekto (.colpkg)</string>
     <string name="import_csv">Teksta dosiero (.txt, .csv)</string>

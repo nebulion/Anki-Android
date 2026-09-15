@@ -108,8 +108,6 @@
     <string name="incompatible_database_version_title">Nesuderinama duomenų bazės versija</string>
     <string name="incompatible_database_version_summary">Duomenų bazė yra pažangesnė versija, nei su kuria gali dirbti ši \"AnkiDroid\" versija. Atnaujinkite \"AnkiDroid\" arba sumažinkite duomenų bazės lygį, kad ją atidarytumėte\n\nPalaikoma versija: %1$d\nDomenų bazės versija: %2$d\n\nNurodytos atkūrimo parinktys perrašys jūsų dabartinę kolekciją, galbūt su suderinama duomenų bazės versija:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Nepavyko pritaikyti fono paveikslėlio %s</string>
-    <string name="background_image_too_large">Per didelis \"Deck Picker\" fonas</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Missing required storage permission. Please grant storage permission then retry your action.</string>
@@ -130,13 +128,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">Jūsų interneto paslaugų teikėjas gali imti mokestį už duomenų naudojimą</string>
-    <string name="deck_picker_new">Šiandien šiame kortelių rinkinyje galima pamatyti daug naujų kortelių</string>
-    <string name="deck_picker_rev">Šiandien šiame kortelių rinkinyje esančių kortų skaičius.</string>
-    <string name="deck_picker_lrn">Mokomųjų kortų skaičius šioje kortelių rinkinyje.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Atverkite kortelių rinkinio apžvalgos puslapį, kuriame yra šiandien norimas peržiūrėti kortelių skaičius.</string>
     <string name="import_deck_package">Kortelių rinkinio paketas (.apkg)</string>
     <string name="import_collection_package">Kolekcijos paketas (.colpkg)</string>
     <string name="import_csv">Tekstinis failas (.txt, .csv)</string>

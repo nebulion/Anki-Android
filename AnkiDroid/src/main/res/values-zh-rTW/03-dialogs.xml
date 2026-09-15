@@ -99,8 +99,6 @@
     <string name="incompatible_database_version_title">不相容的資料庫版本</string>
     <string name="incompatible_database_version_summary">該資料庫比此版本的 AnkiDroid 可以使用的更高。升級 AnkiDroid 或降級資料庫以開啟它\n\n支援的版本：%1$d\n資料庫版本：%2$d\n\n以下還原選項將覆蓋您當前的集合，通過使用可能相容的資料庫版本：</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">套用背景圖像 %s 失敗</string>
-    <string name="background_image_too_large">牌組選取器背景過大</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">缺失必須的儲存空間權限。請授予儲存空間權限再執行你的操作。</string>
@@ -118,13 +116,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d秒後可能產生自動同步</item>
     </plurals>
     <string name="metered_sync_data_warning">網路供應商可能會收取資料使用費</string>
-    <string name="deck_picker_new">此牌組中今天要看的新卡片數</string>
-    <string name="deck_picker_rev">詞牌組今天到期的卡片數量</string>
-    <string name="deck_picker_lrn">詞牌組中學習中的卡片數</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">開啟包含今天要查看的卡片數量的牌組概覽頁。</string>
     <string name="import_deck_package">卡包</string>
     <string name="import_collection_package">匯總打包</string>
     <string name="import_csv">文字檔案 (.txt、.csv)</string>

@@ -29,11 +29,6 @@
         <item quantity="two">נותרו %d כרטיסי AnkiDroid</item>
         <item quantity="other">נותרו %d כרטיסי AnkiDroid</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">נותר כרטיס אחד</item>
-        <item quantity="two">נותרו %d כרטיסים</item>
-        <item quantity="other">נותרו %d כרטיסים</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">בחר חפיסה</string>
 </resources>

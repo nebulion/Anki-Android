@@ -29,11 +29,6 @@
         <item quantity="one">Pienācis %d AnkiDroid kartītes laiks</item>
         <item quantity="other">Pienācis %d AnkiDroid kartīšu laiks</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="zero">Pienācis %d kartīšu laiks</item>
-        <item quantity="one">Pienācis %d kartītes laiks</item>
-        <item quantity="other">Pienācis %d kartīšu laiks</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Atlasīt kavu</string>
 </resources>

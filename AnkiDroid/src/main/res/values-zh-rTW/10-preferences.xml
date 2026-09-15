@@ -69,8 +69,6 @@
     <string name="gestures_summ">替動作設定手勢，像是回答問題和編輯卡片。</string>
     <string name="gestures_corner_touch" maxLength="41">九點邊角觸控</string>
     <string name="gestures_corner_touch_summary">允許在螢幕角落進行觸控</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">全屏的導航抽屜</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">從屏幕上任何地方向右劃，可以打開導航的抽屜。</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">無</string>
     <string name="gestures_swipe_up" maxLength="41">向上撥動</string>
     <string name="gestures_swipe_down" maxLength="41">向下撥動</string>
@@ -182,7 +180,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">選擇標籤</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">搜尋</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">以HTML取代新列</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

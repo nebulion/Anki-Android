@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Abrir cajón</string>
-    <string name="drawer_close">Cerrar cajón</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Añadir/filtrar etiquetas</string>
     <string name="add_tag" maxLength="28">Añadir etiqueta</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Creando lista de etiquetas&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d enterrada</item>
-        <item quantity="other">+%d enterradas</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Total de tarjetas nuevas</string>
-    <string name="studyoptions_total_label">Total de tarjetas</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Editar nota</string>
     <string name="discard">Borrar</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">Reiniciar el progreso</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Renombrar</string>
-    <string name="checks_action" maxLength="28">Verificar</string>
     <string name="unknown_type_field_warning">Escribir respuesta: campo %s desconocido</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Eliminando mazo&#8230;</string>
     <string name="info_rate">Puntúa AnkiDroid</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">Compartir</string>
     <string name="export_choice_save_to">Guardar en</string>
     <string name="export_saving_exported_collection">Guardando archivo exportado&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Opciones de estudio</string>
     <string name="dyn_deck_desc">Éste es un mazo especial para estudiar aparte del programa habitual. Las cartas se devolverán automáticamente a sus mazos originales después de que las revises. Borrar este mazo de la lista de mazos devolverá todas las cartas restantes a su mazo original.</string>
     <string name="tag_editor_add_feedback">Tocar \"%2$s\" para confirmar la adición de \"%1$s\"</string>
     <string name="tag_editor_add_feedback_existing">Etiqueta existente \"%1$s\" seleccionada</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Error de contenido de la tarjeta: Error al cargar ‘%s’</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Buscar mazos</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid confía en la WebView del sistema, que no está disponible. Esto puede suceder si el sistema está instalando actualizaciones. Por favor, inténtalo de nuevo en unos minutos.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid no puede acceder al almacenamiento debido a un error de Android.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">El archivo de vídeo es demasiado grande, por favor inserta el vídeo manualmente</string>
     <string name="note_editor_audio_too_large">El archivo de audio es demasiado grande, por favor inserta el audio manualmente</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Copia de seguridad de Android en progreso. Por favor, inténtalo de nuevo</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Puede que necesite usar iManager para permitir que AnkiDroid añada accesos directos</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">Tu pantalla de inicio no permite que AnkiDroid añada accesos directos</string>
-    <string name="create_shortcut_error">Error al añadir acceso directo: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificate</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">Mazo creado</string>
     <string name="deck_renamed">Mazo renombrado</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Mazo eliminado. Por favor, elimina el acceso directo</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Descripción</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Eliminar mazo sin confirmación</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">La acción del usuario %s no está establecida en este tipo de notas. Por favor, configúrala</string>
     <string name="feature_not_supported_by_study_screen">Esta tarjeta tiene características que aún no están soportadas por la nueva pantalla de estudio.</string>
     <string name="directory_inaccessible_info">Obtén más información sobre cómo restaurar el acceso aquí %s o ve a la configuración para actualizar la carpeta de colección.</string>

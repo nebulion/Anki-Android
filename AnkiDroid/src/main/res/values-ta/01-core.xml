@@ -35,7 +35,6 @@
     <string name="expand" comment="In the deck picker: accessibility label of the buttons that display the subdecks of a deck.">விரிவாக்கு</string>
     <string name="collapse" comment="In the deck picker: accessibility label of the buttons that hide the subdecks of a deck.">சரிவு</string>
     <string name="no_cards_placeholder_title" comment="Text shown the first time AnkiDroid is opened, to explain to the user why they can\'t yet review.">தொகுப்பு காலியாக  உள்ளது</string>
-    <string name="no_cards_placeholder_description" comment="Text shown the first time AnkiDroid is opened, to explain what should be their first action.">+ பொத்தானை அழுத்தி /n சேர்க்கவும்</string>
     <!-- Reviewer -->
     <plurals name="reviewer_window_title" comment="Header of the reviewer, telling the users how many minutes remains before they have seen all cards.">
         <item quantity="one">%d நிமிடம் விட்டுவிட்டது</item>
@@ -59,10 +58,7 @@
     <string name="undo" maxLength="28" comment="When tapping on this text, the last action is undone.">செயல்தவிர்ப்பது</string>
     <string name="redo" maxLength="28" comment="Menu entry that allows to redo action that was just undone.">மீண்டும் செய்</string>
     <!-- flashcard_portrait.xml -->
-    <string name="create_shortcut">குறுக்குவழி சேர்</string>
-    <string name="edit_deck_description" comment="edit the deck description">விளக்கத்தைத் திருத்தவும்</string>
     <string name="menu_add" comment="A generic add button. Please inform us if you need more specific strings" maxLength="28">கூட்டு</string>
-    <string name="menu_add_note" maxLength="28">குறிப்பு சேர்க்க</string>
     <string name="menu_my_account" comment="Label of the window in which the user should enter their account. This text can\'t be found in AnkiDroid directly.">ஒத்திசைக்க</string>
     <string name="rename_flag">கொடிகளை மறுபெயரிடவும்</string>
     <string name="menu_edit_tags" maxLength="28">Tags-ஐ திருத்து</string>
@@ -100,7 +96,6 @@
     <string name="read_write_permission_label">AnkiDroid டேட்டாபேஸ் எழுதப்</string>
     <string name="read_write_permission_description">தற்போதுள்ள குறிப்புகள், அட்டைகள், குறிப்பு வகைகள் மற்றும் அடுக்குகள் அணுக, அத்துடன் புதிய ஒன்றை உருவாக்க</string>
     <!-- Context Menu -->
-    <string name="card_browser_context_menu" comment="The value which appears in the system context menu. Note the casing difference">அட்டை உலாவி</string>
     <!-- Sync conflict -->
     <string name="sync_conflict_message_new">சேகரிப்புகளை இணைக்க முடியாது.\nஎந்த தொகுப்பை வைத்திருக்க விரும்புகிறீர்கள்?</string>
     <string name="sync_conflict_keep_local_new" comment="Select AnkiDroid files to keep while syncing">AnkiDroid</string>

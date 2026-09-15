@@ -28,10 +28,6 @@
         <item quantity="one">%d AnkiDroid കാർഡ് കാരണം</item>
         <item quantity="other">%d അങ്കിഡ്രോയിഡ് കാർഡുകൾ കാരണം</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d കാർഡ് അടയ്ക്കണം</item>
-        <item quantity="other">അടയ്‌ക്കേണ്ട %d കാർഡുകൾ</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">ഒരു ഡെക്ക് തിരഞ്ഞെടുക്കുക</string>
 </resources>

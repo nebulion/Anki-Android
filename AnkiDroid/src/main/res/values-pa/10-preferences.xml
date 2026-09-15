@@ -70,8 +70,6 @@
     <string name="gestures_summ">ਜਵਾਬ ਦੇਣ ਅਤੇ ਕਾਰਡਾਂ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਵਰਗੀਆਂ ਕਾਰਵਾਈਆਂ ਲਈ ਸੰਕੇਤ ਦਿਓ।</string>
     <string name="gestures_corner_touch" maxLength="41">9-ਪੁਆਇੰਟ ਟੱਚ</string>
     <string name="gestures_corner_touch_summary">ਸਕਰੀਨ ਕੋਨਿਆਂ ਵਿੱਚ ਛੋਹਣ ਦੇ ਇਸ਼ਾਰਿਆਂ ਦੀ ਆਗਿਆ ਦਿਓ</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">ਪੂਰੀ ਸਕ੍ਰੀਨ ਨੈਵੀਗੇਸ਼ਨ ਦਰਾਜ਼</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">ਸਕ੍ਰੀਨ \'ਤੇ ਕਿਤੇ ਵੀ ਸਵਾਈਪ ਕਰਨ \'ਤੇ ਨੈਵੀਗੇਸ਼ਨ ਦਰਾਜ਼ ਖੋਲ੍ਹੋ</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">ਕੋਈ ਨਹੀਂ</string>
     <string name="gestures_swipe_up" maxLength="41">ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
     <string name="gestures_swipe_down" maxLength="41">ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
@@ -183,7 +181,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">ਟੈਗ ਚੁਣੋ</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">ਖੋਜ</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">ਨਵੀਆਂ ਲਾਈਨਾਂ ਨੂੰ HTML ਨਾਲ ਬਦਲੋ</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

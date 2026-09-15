@@ -28,10 +28,6 @@
         <item quantity="one">%d AnkiDroid کارڈ باقی ہے۔</item>
         <item quantity="other">%d AnkiDroid کارڈز باقی ہیں۔</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d کارڈ باقی ہے۔</item>
-        <item quantity="other">%d کارڈز باقی ہیں۔</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Deck کو چونیں</string>
 </resources>

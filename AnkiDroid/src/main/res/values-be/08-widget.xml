@@ -30,12 +30,6 @@
         <item quantity="many">%d картак AnkiDroid для прагляду</item>
         <item quantity="other">%d картак AnkiDroid для прагляду</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d картка для прагляду</item>
-        <item quantity="few">%d карткі для прагляду</item>
-        <item quantity="many">%d картак для прагляду</item>
-        <item quantity="other">%d картак для прагляду</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Выбар калоды</string>
 </resources>

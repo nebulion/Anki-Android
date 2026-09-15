@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">Mos kelmaydigan maʼlumotlar bazasi versiyasi</string>
     <string name="incompatible_database_version_summary">Maʼlumotlar bazasi versiyasi AnkiDroid ishlay oladigan versiyadan ancha yuqori. Ochish uchun AnkiDroidʼni yangilang yoki maʼlumotlar baza versiyasini tushiring\n\nQoʻllab-quvvatlanadigan versiya: %1$d\nMaʼlumotlar bazasi versiyasi: %2$d\n\nQuyidagi tiklash variantlar mavjud kolleksiyangizni mos keladigan maʼlumotlar bazasi versiyasi bilan qayta yozishi mumkin:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">%s orqa fon rasmini qoʻllashda xatolik yuz berdi</string>
-    <string name="background_image_too_large">Dasta tanlagich orqa foni juda katta</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Xotiraga saqlash ruxsati yoʻq. Iltimos, xotiraga saqlashga ruxsat bering va qayta urinib koʻring.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Avtomatik sinxronizatsiya %d soniyadan soʻng ishga tushishi mumkin</item>
     </plurals>
     <string name="metered_sync_data_warning">Mobil tarmoqlargaa ulanish uchun qoʻshimcha toʻlov olinishi mumkin</string>
-    <string name="deck_picker_new">Ushbu dastadagi bugungi yangi kartalar soni.</string>
-    <string name="deck_picker_rev">Ushbu dastadagi bugun muddati kelgan kartalar soni.</string>
-    <string name="deck_picker_lrn">Ushbu dastadagi oʻrganilayotgan kartalar soni.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Bugungi kartalar sonini koʻrish uchun dasta umumiy maʼlumotlar sahifasini oching.</string>
     <string name="import_deck_package">Dasta paketi (.apkg)</string>
     <string name="import_collection_package">Kolleksiya paketi (.colpkg)</string>
     <string name="import_csv">Matn fayl (.txt, .csv)</string>

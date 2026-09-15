@@ -70,8 +70,6 @@
     <string name="gestures_summ">Javob berish va kartalarni tahrirlash kabi amallarga qoʻl ishoralarni belgilang.</string>
     <string name="gestures_corner_touch" maxLength="41">9 bosish nuqtalari</string>
     <string name="gestures_corner_touch_summary">Ekran burchaklarida bosish ishoralariga ruxsat berish</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">Butun ekran navigatsiya tortmasi</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">Ekranning istalgan joyidan oʻngga surilganda navigatsiya tortmasini ochish</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Hech qaysi</string>
     <string name="gestures_swipe_up" maxLength="41">Yuqoriga surish</string>
     <string name="gestures_swipe_down" maxLength="41">Pastga surish</string>
@@ -183,7 +181,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Teglarni tanlash</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Qidirish</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Yangi qatorlarni HTML bilan almashtirish</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

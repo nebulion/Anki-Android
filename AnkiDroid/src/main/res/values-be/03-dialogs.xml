@@ -108,8 +108,6 @@
     <string name="incompatible_database_version_title">Несумяшчальная версія базы даных</string>
     <string name="incompatible_database_version_summary">База даных была створана ў больш новай версіі праграмы і ў дадзены час з ёй немагчыма працаваць. Паспрабуйце абнавіць AnkiDroid або панізіць версію базы даных, каб адкрыць яе\n\nВерсія, якая падтрымліваецца: %1$d\nВерсія базы даных:%2$d\n\nНаступныя  параметры аднаўлення перазапішуць вашу бягучую калекцыю, магчыма з сумяшчальнай версіяй базы даных.</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Памылка ўжывання фонавага відарыса %s</string>
-    <string name="background_image_too_large">Фонавы відарыс занадта вялікі</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Няма дазволу на доступ да сховішча. Дайце неабходныя дазволы, а потым паўтарыце дзеянне.</string>
@@ -130,13 +128,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Аўтаматычная сінхранізацыя можа пачацца праз %d секунд</item>
     </plurals>
     <string name="metered_sync_data_warning">Ваш пастаўшчык паслуг інтэрнэту можа спаганяць грашовыя сродкі за выкарыстанне даных</string>
-    <string name="deck_picker_new">Колькасць новых картак, якія можна ўбачыць за сёння ў гэтай калодзе.</string>
-    <string name="deck_picker_rev">Колькасць картак на сёння ў гэтай калодзе.</string>
-    <string name="deck_picker_lrn">Колькасць картак, якія вывучаюцца ў гэтай калодзе.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Адкрыйце старонку папярэдняга прагляду калоды, якая змяшчае колькасць картак для прагляду на сёння.</string>
     <string name="import_deck_package">Пакет калоды (.apkg)</string>
     <string name="import_collection_package">Пакет калекцыі (.colpkg)</string>
     <string name="import_csv">Тэкставы файл (.txt, .csv)</string>

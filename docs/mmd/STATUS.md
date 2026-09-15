@@ -139,8 +139,11 @@ Statistics / More). MMD has no drawer, and the owner chose no FAB, so those two 
 still Views (create/rename deck, custom study, export, import, sync and database errors) stay until
 Phase 6, except where this phase's pattern needs a panel.
 
-State (2026-09-15): steps 2, 3, 4 and 6 are written and the old files deleted; local compile in
-progress, then CI. Step 5 (splash hold) is not started. `DeckPicker` is now ~1,000 lines: tabs via
+State (2026-09-15): steps 2, 3, 4 and 6 are written and the old files deleted; app and unit tests
+compile locally; committed as `258172e` on `fork/mmd-phase3`. CI run `35022472431`: compile and
+Kompakt screenshots passed; lint found 46 resources left unused by the rewrite (pruned), and two tests
+that had failed since before Phase 3 (`ControlsSettingsFragmentTest`, `TranslationTest`) are fixed.
+Step 5 (splash hold) is not started. `DeckPicker` is now ~1,000 lines: tabs via
 `HomeTab` (`deckpicker/HomeTab.kt`), `DeckListFragment`, `MoreTabFragment`; collection-wide actions
 are public methods the More tab calls. Messages from the home screen show above the bottom bar on
 every tab. Lost on purpose: create subdeck (type `Parent::Child` in Create deck), edit description,

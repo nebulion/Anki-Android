@@ -35,7 +35,6 @@
     <string name="expand" comment="In the deck picker: accessibility label of the buttons that display the subdecks of a deck.">إسدال</string>
     <string name="collapse" comment="In the deck picker: accessibility label of the buttons that hide the subdecks of a deck.">إخفاء</string>
     <string name="no_cards_placeholder_title" comment="Text shown the first time AnkiDroid is opened, to explain to the user why they can\'t yet review.">المجموعة فارغة</string>
-    <string name="no_cards_placeholder_description" comment="Text shown the first time AnkiDroid is opened, to explain what should be their first action.">إبدأ بإضافة البطاقات\nبالرمز (+).</string>
     <!-- Reviewer -->
     <plurals name="reviewer_window_title" comment="Header of the reviewer, telling the users how many minutes remains before they have seen all cards.">
         <item quantity="zero">بقِيَت (%d) دقيقة</item>
@@ -71,10 +70,7 @@
     <string name="undo" maxLength="28" comment="When tapping on this text, the last action is undone.">تراجع</string>
     <string name="redo" maxLength="28" comment="Menu entry that allows to redo action that was just undone.">إعادة إجراء</string>
     <!-- flashcard_portrait.xml -->
-    <string name="create_shortcut">إنشاء اختصار</string>
-    <string name="edit_deck_description" comment="edit the deck description">تعديل الوصف</string>
     <string name="menu_add" comment="A generic add button. Please inform us if you need more specific strings" maxLength="28">إضافة</string>
-    <string name="menu_add_note" maxLength="28">إضافة ملحوظة</string>
     <string name="menu_my_account" comment="Label of the window in which the user should enter their account. This text can\'t be found in AnkiDroid directly.">مزامنة الحساب</string>
     <string name="rename_flag">تغيير أسماء الأعلام</string>
     <string name="menu_edit_tags" maxLength="28">تعديل الوسوم</string>
@@ -112,7 +108,6 @@
     <string name="read_write_permission_label">القراءة والكتابة إلى قاعدة بيانات آنكي درويد</string>
     <string name="read_write_permission_description">الوصول إلى الملحوظات والبطاقات وأنواع الملحوظات والرزم الموجودة بالإضافة إلى إنشاء أخرى</string>
     <!-- Context Menu -->
-    <string name="card_browser_context_menu" comment="The value which appears in the system context menu. Note the casing difference">متصفح البطاقات</string>
     <!-- Sync conflict -->
     <string name="sync_conflict_message_new">لا يمكن دمج المجموعات.\nما هي المجموعة التي تريد الاحتفاظ بها؟</string>
     <string name="sync_conflict_keep_local_new" comment="Select AnkiDroid files to keep while syncing">آنكي درويد</string>

@@ -16,10 +16,6 @@
         <item quantity="other">%d AnkiDroid cards due</item>
     </plurals>
 
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d card due</item>
-        <item quantity="other">%d cards due</item>
-    </plurals>
 
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Select a deck</string>
 

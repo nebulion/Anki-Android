@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Avaa laatikosto</string>
-    <string name="drawer_close">Sulje laatikosto</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Lisää/suodata tunnisteita</string>
     <string name="add_tag" maxLength="28">Lisää tunniste</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Luodaan tunnisteluetteloa&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d haudattu</item>
-        <item quantity="other">+%d haudattu</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Uusia kortteja yhteensä</string>
-    <string name="studyoptions_total_label">Kortteja yhteensä</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Muokkaa muistiinpanoa</string>
     <string name="discard">Hylkää</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">Tyhjennä edistyminen</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Nimeä uudelleen</string>
-    <string name="checks_action" maxLength="28">Tarkista</string>
     <string name="unknown_type_field_warning">Kirjoita vastaus: tuntematon kenttä %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Poistetaan pakka&#8230;</string>
     <string name="info_rate">Arvostele AnkiDroid</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">Jaa</string>
     <string name="export_choice_save_to">Tallenna&#8230;</string>
     <string name="export_saving_exported_collection">Tallennetaan viety tiedosto&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Opiskeluasetukset</string>
     <string name="dyn_deck_desc">Tämä on erityispakka normaalin aikataulun ulkopuolella tapahtuvaan opiskeluun. Kortit palautetaan automaattisesti alkuperäisiin pakkoihinsa läpikäynnin jälkeen. Tämän pakan poistaminen palauttaa kaikki sen sisältämät kortit alkuperäisiin pakkoihin.</string>
     <string name="tag_editor_add_feedback">Paina ”%2$s” vahvistaaksesi ”%1$s”:n lisääminen</string>
     <string name="tag_editor_add_feedback_existing">Olemassa oleva tunniste ”%1$s” valittu</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Kortin sisällön virhe: \"%s\" lataaminen epäonnistui</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Etsi pakkoja</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid vaatii toimiakseen System WebView -palvelun, joka ei ole käytettävissä. Näin voi käydä, jos järjestelmän päivitys on käynnissä. Yritä uudelleen muutaman minuutin kuluttua.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid ei voi käyttää tallennustilaa Android-virheen vuoksi.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">Videotiedosto on liian suuri, aseta video käsin</string>
     <string name="note_editor_audio_too_large">Äänitiedosto on liian suuri, aseta ääni käsin</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android varmuuskopiointi käynnissä. Yritä uudelleen</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Saatat joutua käyttämään iManageria, jotta AnkiDroid voi lisätä pikanäppäimiä.</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">Aloitusnäyttösi ei salli AnkiDroidin lisätä pikakuvakkeita</string>
-    <string name="create_shortcut_error">Virhe lisättäessä pikakuvaketta: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificate</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">Pakka luotu</string>
     <string name="deck_renamed">Pakka nimetty uudelleen</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Pakka poistettu. Muista poistaa pikavalinta</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Kuvaus</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Poista pakka ilman vahvistusta</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">Käyttäjän toimea %s ei ole määritetty tässä muistiinpanotyypissä. Määritä se</string>
     <string name="feature_not_supported_by_study_screen">Tässä kortissa on ominaisuuksia, joita uusi opiskelunäkymä ei vielä tue.</string>
     <string name="directory_inaccessible_info">Lue lisää siitä, miten palauttaa pääsy tänne (%s) tai siirry asetuksiin vaihtaaksesi kokoelmakansiota</string>

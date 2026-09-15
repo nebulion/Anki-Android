@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">Versioni i papajtueshëm i bazës së të dhënave</string>
     <string name="incompatible_database_version_summary">Baza e të dhënave është një version më i avancuar sesa mund të punojë ky version i AnkiDroid. Përmirësoni AnkiDroid ose ulni bazën e të dhënave për ta hapur atë\n\nVersioni i mbështetur: %1$d\nVersioni i bazës së të dhënave: %2$d\n\nOpsionet e mëposhtme të rivendosjes do të mbishkruajnë koleksionin tuaj aktual, ndoshta me një version të përputhshëm të bazës së të dhënave:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Zbatimi i imazhit të sfondit %s dështoi</string>
-    <string name="background_image_too_large">Sfondi i Zgjedhësit të kuvertës shumë i madh</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Mungon leja e kërkuar e ruajtjes. Jepni lejen e ruajtjes dhe më pas riprovoni veprimin tuaj.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">Your internet provider may charge money for data use</string>
-    <string name="deck_picker_new">Number of new cards to see today in this deck.</string>
-    <string name="deck_picker_rev">Number of cards due today in this deck.</string>
-    <string name="deck_picker_lrn">Number of cards in learning in this deck.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Open the deck overview page containing the number of cards to see today.</string>
     <string name="import_deck_package">Deck package (.apkg)</string>
     <string name="import_collection_package">Collection package (.colpkg)</string>
     <string name="import_csv">Text file (.txt, .csv)</string>

@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">ਅਸੰਗਤ ਡਾਟਾਬੇਸ ਸੰਸਕਰਣ</string>
     <string name="incompatible_database_version_summary">The database is a more advanced version than this version of AnkiDroid can work with. Upgrade AnkiDroid or downgrade the database to open it\n\nSupported version: %1$d\nDatabase version: %2$d\n\nThe following restore options will overwrite your current collection, possibly with a compatible database version:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">ਪਿਛੋਕੜ ਚਿੱਤਰ %s ਨੂੰ ਲਾਗੂ ਕਰਨ ਵਿੱਚ ਅਸਫਲ</string>
-    <string name="background_image_too_large">ਡੈੱਕ ਚੋਣ ਦੀ ਪਿੱਠਭੂਮੀ ਬਹੁਤ ਵੱਡੀ ਹੈ</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">ਲੋੜੀਂਦੀ ਸਟੋਰੇਜ ਅਨੁਮਤੀ ਮੌਜੂਦ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਸਟੋਰੇਜ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ ਫਿਰ ਆਪਣੀ ਕਾਰਵਾਈ ਦੀ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">ਤੁਹਾਡਾ ਇੰਟਰਨੈੱਟ ਪ੍ਰਦਾਤਾ ਡਾਟਾ ਵਰਤੋਂ ਲਈ ਖਰਚਾ ਲੈ ਸਕਦਾ ਹੈ</string>
-    <string name="deck_picker_new">ਅੱਜ ਇਸ ਡੈੱਕ ਵਿੱਚ ਦੇਖਣ ਲਈ ਨਵੇਂ ਕਾਰਡਾਂ ਦੀ ਸੰਖਿਆ।</string>
-    <string name="deck_picker_rev">ਅੱਜ ਇਸ ਡੈੱਕ ਵਿੱਚ ਬਕਾਇਆ ਕਾਰਡਾਂ ਦੀ ਗਿਣਤੀ।</string>
-    <string name="deck_picker_lrn">ਇਸ ਡੈੱਕ ਵਿੱਚ ਸਿੱਖਣ ਵਿੱਚ ਕਾਰਡਾਂ ਦੀ ਗਿਣਤੀ।</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">ਅੱਜ ਦੇਖਣ ਲਈ ਕਾਰਡਾਂ ਦੀ ਗਿਣਤੀ ਦੇ ਨਾਲ ਡੈੱਕ ਓਵਰਵਿਊ ਪੰਨਾ ਖੋਲ੍ਹੋ।</string>
     <string name="import_deck_package">ਡੈੱਕ ਪੈਕੇਜ (.apkg)</string>
     <string name="import_collection_package">ਸੰਗ੍ਰਹਿ ਪੈਕੇਜ (.colpkg)</string>
     <string name="import_csv">ਟੈਕਸਟ ਫ਼ਾਈਲ (.txt, .csv)</string>

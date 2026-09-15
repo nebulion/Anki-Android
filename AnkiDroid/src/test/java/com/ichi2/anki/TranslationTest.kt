@@ -268,7 +268,6 @@ class TranslationTest : RobolectricTest() {
                 // TR.deckConfigSaveButton()
                 "Scheduling", // R.string.pref_cat_scheduling | TR.preferencesScheduling()
                 "Search", // R.string.card_browser_cram_search, R.string.card_browser_search_hint
-                // R.string.deck_conf_cram_search
                 // TR.actionsSearch()
                 // TR.statisticsRangeSearch()
                 "Select", // R.string.select
@@ -325,13 +324,7 @@ class TranslationTest : RobolectricTest() {
          * ept for reference, alternate framing of [getAndroidManifestStringResourceNames].
          *
          */
-        private val ANDROID_MANIFEST_STRINGS =
-            setOf(
-                "Add note", // R.string.menu_add_note | TR.actionsAddNote()
-                "Manage note types", // R.string.model_browser_label
-                // TR.browsingManageNoteTypes()
-                // TR.qtMiscManageNoteTypes()
-            )
+        private val ANDROID_MANIFEST_STRINGS = emptySet<String>()
 
         /**
          * Backend translation method names (e.g. `TR.xx()`) excluded from the

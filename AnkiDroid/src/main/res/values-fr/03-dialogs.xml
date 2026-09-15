@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">Version de la base de données incompatible</string>
     <string name="incompatible_database_version_summary">La base de données est une version plus avancée que la version avec laquelle AnkiDroid peut fonctionner. Mettre à jour AnkiDroid ou rétrograder la base de données pour l\'ouvrir\n\nVersion prise en charge : %1$d\nVersion de la base de données : %2$d\n\nLes options de restauration suivantes écraseront votre collection actuelle, éventuellement avec une version compatible de la base de données :</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Impossible d\'appliquer l\'image d\'arrière-plan %s</string>
-    <string name="background_image_too_large">L\'arrière-plan du sélecteur de paquets est trop grand</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Autorisation de stockage requise manquante. Veuillez accorder l’autorisation de stockage puis réessayez.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Une synchronisation automatique peut être déclenchée dans %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">Votre fournisseur d\'accès Internet peut vous facturer pour l\'utilisation des données</string>
-    <string name="deck_picker_new">Nombre de nouvelles cartes à voir aujourd\'hui dans ce paquet.</string>
-    <string name="deck_picker_rev">Nombre de cartes prévues aujourd\'hui dans ce paquet.</string>
-    <string name="deck_picker_lrn">Nombre de cartes en cours d\'apprentissage dans ce paquet.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Ouvrir la page d\'aperçu du paquet contenant le nombre de cartes à voir aujourd\'hui.</string>
     <string name="import_deck_package">Fichier du paquet (.apkg)</string>
     <string name="import_collection_package">Paquet de collecte (.colpkg)</string>
     <string name="import_csv">Fichier texte (.txt, .csv)</string>

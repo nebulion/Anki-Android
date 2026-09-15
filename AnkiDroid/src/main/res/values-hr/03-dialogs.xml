@@ -105,8 +105,6 @@
     <string name="incompatible_database_version_title">Nekompatibilna verzija baze podataka</string>
     <string name="incompatible_database_version_summary">Verzija baze podataka je naprednija od one s kojom trenutna verzija AnkiDroida može rukovati. Ažurirajte AnkiDroid ili smanjite verziju baze podataka kako biste je otvorili\n\nPodržana verzija:%1$d\nVerzija baze podataka: %2$d\n\nSljedeće postavke za obnovu će pregaziti vašu trenutnu kolekciju, potencijalno s kompatibilnom verzijom baze podatka:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Greška pri primjeni pozadinske slike %s</string>
-    <string name="background_image_too_large">Pozadina birača špila je prevelika</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Nedostaje dopuštenje za pohranu. Odobrite dopuštenje za pohranu te pokušajte ponovno.</string>
@@ -126,13 +124,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Automatska sinkronizacije se može okinuti za %d sekundi</item>
     </plurals>
     <string name="metered_sync_data_warning">Vaš pružatelj internetske usluge može naplatiti korištenje podataka</string>
-    <string name="deck_picker_new">Broj novih kartica koje će se danas vidjeti u ovom špilu</string>
-    <string name="deck_picker_rev">Number of cards due today in this deck.</string>
-    <string name="deck_picker_lrn">Broj kartica u ovom špilu koje su u učenju</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Otvorite stranicu za pregled špila koja sadrži broj kartica koje će se danas vidjeti</string>
     <string name="import_deck_package">Paket špila (.apkg)</string>
     <string name="import_collection_package">Paket kolekcije (.colpkg)</string>
     <string name="import_csv">Tekstualna datoteka (.txt, .csv)</string>

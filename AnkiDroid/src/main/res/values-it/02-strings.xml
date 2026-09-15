@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Apri barra di navigazione</string>
-    <string name="drawer_close">Chiudi barra di navigazione</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Aggiungi/filtra etichette</string>
     <string name="add_tag" maxLength="28">Aggiungi etichetta</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Costruendo lista di tag&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+sepolto</item>
-        <item quantity="other">+sepolto</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Totale carte nuove</string>
-    <string name="studyoptions_total_label">Carte totali</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Modifica nota</string>
     <string name="discard">Scarta</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">Reimposta progresso</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Rinomina</string>
-    <string name="checks_action" maxLength="28">Verifica</string>
     <string name="unknown_type_field_warning">Digita la risposta: campo sconosciuto %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Eliminazione mazzo in corso&#8230;</string>
     <string name="info_rate">Valuta AnkiDroid</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">Condividi</string>
     <string name="export_choice_save_to">Salva su</string>
     <string name="export_saving_exported_collection">Salvataggio del file esportato&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Opzioni di studio</string>
     <string name="dyn_deck_desc">Questo è un mazzo speciale per studiare al di fuori della pianificazione normale. Le carte ritorneranno automaticamente nel mazzo originale dopo che le hai ripetute. L\'eliminazione di questo mazzo dall\'elenco dei mazzi riporterà tutte le carte rimanenti nel loro mazzo originale.</string>
     <string name="tag_editor_add_feedback">Tocca \"%2$s\" per confermare l\'aggiunta di \"%1$s\"</string>
     <string name="tag_editor_add_feedback_existing">Etichetta esistente \"%1$s\" selezionata</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Errore nel contenuto della carta: impossibile caricare «%s»</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Cerca mazzi</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid si basa sulla WebView di Sistema che non è disponibile. Questo può verificarsi se il sistema sta installando aggiornamenti. Sei pregato di riprovare tra qualche minuto.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid non può accedere all\'archivio a causa di un errore di Android.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">Il file video è troppo grande, per favore inserisci il video manualmente.</string>
     <string name="note_editor_audio_too_large">Il file audio è troppo grande,  inserisci manualmente il file audio.</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Backup di Android in corso. Per favore riprova</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Utilizza iManager per consentire ad AnkiDroid di aggiungere scorciatoie</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">La tua schermata iniziale non consente ad AnkiDroid di aggiungere scorciatoie</string>
-    <string name="create_shortcut_error">Errore nell\'aggiunta della scorciatoia: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificate</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">Mazzo creato</string>
     <string name="deck_renamed">Mazzo rinominato</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Mazzo eliminato. Rimuovi la scorciatoia</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Descrizione</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Elimina mazzo senza conferma</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">L\'azione utente %s non è impostata in questo tipo di nota. Si prega di configurarla</string>
     <string name="feature_not_supported_by_study_screen">Questa scheda ha caratteristiche che non sono ancora supportate dalla nuova schermata di studio.</string>
     <string name="directory_inaccessible_info">Scopri di più su come ripristinare l\'accesso qui %s o vai alle impostazioni per aggiornare la cartella di raccolta.</string>

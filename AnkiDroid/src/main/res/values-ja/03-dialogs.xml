@@ -99,8 +99,6 @@
     <string name="incompatible_database_version_title">互換性のないバージョンのデータベース</string>
     <string name="incompatible_database_version_summary">このデータベースは、このAnkiDroidでは使用できません。 これを使用するには、AnkiDroidをアップグレードするか、データベースをダウングレードしてください。\n\nこのAnkiDroidで開ける最大バージョン: %1$d\nこのデータベースのバージョン: %2$d\n\n次の復元オプションは、現在のコレクションを、このAnkiDroidで使用できる可能性が高いデータベースで上書きします。</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">背景画像 %s の適用に失敗しました</string>
-    <string name="background_image_too_large">デッキリストの背景画像が大きすぎます</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">必要なストレージ権限がありません。ストレージ権限を付与してから、アクションを再試行してください。</string>
@@ -118,13 +116,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d秒後に自動同期が開始される可能性があります</item>
     </plurals>
     <string name="metered_sync_data_warning">データ通信の使用によって、通信事業者（携帯電話会社など）への支払い料金が増える場合があります。</string>
-    <string name="deck_picker_new">このデッキ内の、今日出題する予定の新規カードの数。</string>
-    <string name="deck_picker_rev">このデッキ内の、今日出題する予定のカードの数。</string>
-    <string name="deck_picker_lrn">このデッキ内の、習得中カードの数。</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">今日出題する予定のカード数などが記載されたデッキ概要ページを開きます。</string>
     <string name="import_deck_package">デッキパッケージ (.apkg)</string>
     <string name="import_collection_package">コレクションパッケージ (.colpkg)</string>
     <string name="import_csv">テキストファイル (.txt, .csv)</string>

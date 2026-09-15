@@ -30,12 +30,6 @@
         <item quantity="many">%d карток залишилося</item>
         <item quantity="other">%d картки залишилося</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d картка в черзі</item>
-        <item quantity="few">%d картки в черзі</item>
-        <item quantity="many">%d карток в черзі</item>
-        <item quantity="other">%d карток в черзі</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Вибрати колоду</string>
 </resources>

@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Otevřít menu</string>
-    <string name="drawer_close">Zavřít menu</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Přidat/Filtrovat štítky</string>
     <string name="add_tag" maxLength="28">Přidat štítek</string>
@@ -44,14 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Vytváří se seznam štítků&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d přeskočená</item>
-        <item quantity="few">+%d přeskočené</item>
-        <item quantity="many">+%d přeskočené</item>
-        <item quantity="other">+%d přeskočených</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Všechny nové karty</string>
-    <string name="studyoptions_total_label">Všechny karty</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Upravit poznámku</string>
     <string name="discard">Zahodit</string>
@@ -64,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">Obnovit proces učení</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Přejmenovat</string>
-    <string name="checks_action" maxLength="28">Zkontrolovat</string>
     <string name="unknown_type_field_warning">Zápis odpovědi: neznámé pole %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Odstraňuje se balíček&#8230;</string>
     <string name="info_rate">Ohodnotit AnkiDroid</string>
@@ -99,7 +88,6 @@
     <string name="export_choice_share">Sdílet</string>
     <string name="export_choice_save_to">Uložit do</string>
     <string name="export_saving_exported_collection">Ukládá se exportovaný soubor&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Možnosti studia</string>
     <string name="dyn_deck_desc">Toto je speciální balíček pro studium mimo normální plán. Karty se po opakování automaticky vrátí do svých původních balíčků. Odstraněním tohoto balíčku ze seznamu se všechny zbývající karty vrátí do svých původních balíčků.</string>
     <string name="tag_editor_add_feedback">Klepněte na „%2$s“, abyste potvrdili přidání „%1$s“</string>
     <string name="tag_editor_add_feedback_existing">Vybrán stávající štítek „%1$s“</string>
@@ -127,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Chyba obsahu karty: Nepodařilo se načíst „%s“</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Hledat balíčky</string>
     <string name="ankidroid_init_failed_webview_title">Kritická chyba</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid spoléhá na systémový WebView, který je nedostupný. K tomu může dojít, jestliže systém instaluje aktualizace. Zkuste to prosím znovu za pár minut.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid nemůže přistupovat k úložišti kvůli chybě Androidu.\n\n%s</string>
@@ -136,10 +123,6 @@
     <string name="note_editor_video_too_large">Video je příliš velké, vložte ho prosím ručně</string>
     <string name="note_editor_audio_too_large">Zvukový soubor je příliš velký, vložte ho prosím ručně</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Probíhá zálohování Androidu. Zkuste to prosím znovu</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Prosím použijte iManager, abyste povolili přidávání zástupců AnkiDroid</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">Vaše domovská obrazovka neumožňuje AnkiDroidu přidávat zástupce</string>
-    <string name="create_shortcut_error">Chyba při přidávání zástupce: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certifikát</string>
@@ -176,7 +159,6 @@
     <string name="deck_created">Balíček vytvořen</string>
     <string name="deck_renamed">Balíček přejmenován</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Balíček smazán. Prosím odstraňte zástupce</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Popisek</string>
@@ -189,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Výběr balíčků</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Odstranit balíček bez potvrzení</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">Akce uživatele %s není v tomto typu poznámky nastavena. Nakonfigurujte ji prosím</string>
     <string name="feature_not_supported_by_study_screen">Tato karta využívá funkce, které ještě nejsou podporovány novou obrazovkou učení.</string>
     <string name="directory_inaccessible_info">Další informace o tom, jak obnovit přístup zde %s nebo přejděte do nastavení a aktualizujte složku s kolekcí.</string>

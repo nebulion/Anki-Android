@@ -35,7 +35,6 @@
     <string name="expand" comment="In the deck picker: accessibility label of the buttons that display the subdecks of a deck.">Дэд цуглуулгуудыг харах</string>
     <string name="collapse" comment="In the deck picker: accessibility label of the buttons that hide the subdecks of a deck.">Дэд цуглуулгуудыг нуух</string>
     <string name="no_cards_placeholder_title" comment="Text shown the first time AnkiDroid is opened, to explain to the user why they can\'t yet review.">Таны том  цуглуулга хоосон  байна</string>
-    <string name="no_cards_placeholder_description" comment="Text shown the first time AnkiDroid is opened, to explain what should be their first action.">+ товчийг ашиглан шинэ карт нэмээрэй</string>
     <!-- Reviewer -->
     <plurals name="reviewer_window_title" comment="Header of the reviewer, telling the users how many minutes remains before they have seen all cards.">
         <item quantity="one">%d minute left</item>
@@ -59,10 +58,7 @@
     <string name="undo" maxLength="28" comment="When tapping on this text, the last action is undone.">Буцаах</string>
     <string name="redo" maxLength="28" comment="Menu entry that allows to redo action that was just undone.">Redo</string>
     <!-- flashcard_portrait.xml -->
-    <string name="create_shortcut">Товчлол үүсгэх</string>
-    <string name="edit_deck_description" comment="edit the deck description">Edit description</string>
     <string name="menu_add" comment="A generic add button. Please inform us if you need more specific strings" maxLength="28">Нэмэх</string>
-    <string name="menu_add_note" maxLength="28">Тэмдэг оруулах</string>
     <string name="menu_my_account" comment="Label of the window in which the user should enter their account. This text can\'t be found in AnkiDroid directly.">Бүртгэл(аккаунт)- ээ тааруулах</string>
     <string name="rename_flag">Rename flags</string>
     <string name="menu_edit_tags" maxLength="28">Шошгийг солих</string>
@@ -100,7 +96,6 @@
     <string name="read_write_permission_label">Read and write to the AnkiDroid database</string>
     <string name="read_write_permission_description">оршин буй тэмдэглэлүүд, картууд, тэмдэглэлүүдийн загварууд, болон багцуудыг ашиглах мөн шинийг бүтээх</string>
     <!-- Context Menu -->
-    <string name="card_browser_context_menu" comment="The value which appears in the system context menu. Note the casing difference">Карт хайгч</string>
     <!-- Sync conflict -->
     <string name="sync_conflict_message_new">Таны том цуглуулгуудыг нэгтгэх боломжгүй байна.\nТа аль том цуглуулгийг нь хадгалж үлдэх  вэ?</string>
     <string name="sync_conflict_keep_local_new" comment="Select AnkiDroid files to keep while syncing">АнкиДройд</string>

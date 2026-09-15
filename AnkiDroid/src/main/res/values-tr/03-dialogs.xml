@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">Uyumsuz Veritabanı Sürümü</string>
     <string name="incompatible_database_version_summary">Veritabanı, AnkiDroid\'in bu sürümünün çalışabileceğinden daha gelişmiş bir sürümdür. Açmak için AnkiDroid\'i yükseltin veya veritabanını düşürün\n\nDesteklenen sürüm: %1$d\nVeritabanı sürümü: %2$d\n\nAşağıdaki geri yükleme seçenekleri, muhtemelen uyumlu bir veritabanı sürümüyle mevcut koleksiyonunuzun üzerine yazacaktır:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Arka plan görüntüsü kaydetme başarısız oldu %s</string>
-    <string name="background_image_too_large">Deste Seçici arka planı çok büyük</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Gerekli depolama izni eksik. Lütfen depolama izni verin ve ardından işleminizi yeniden deneyin.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Otomatik bir senkronizasyon %d saniye sonra tetiklenebilir</item>
     </plurals>
     <string name="metered_sync_data_warning">İnternet sağlayıcınız veri kullanımı için ücret isteyebilir</string>
-    <string name="deck_picker_new">Bu destede bugün görülecek yeni kart sayısı</string>
-    <string name="deck_picker_rev">Bu destede bugün vakti ğeçen yeni kart sayısı</string>
-    <string name="deck_picker_lrn">Bu destede öğrenilen kart sayısı.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Bugün bakılacak kart sayısını içeren deste genel görünüm sayfasını açın.</string>
     <string name="import_deck_package">Deste paketi (.apkg)</string>
     <string name="import_collection_package">Koleksiyon paketi (.colpkg)</string>
     <string name="import_csv">Metin dosyası (.txt, .csv)</string>

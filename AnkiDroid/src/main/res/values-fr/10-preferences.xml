@@ -70,8 +70,6 @@
     <string name="gestures_summ">Assigner des gestes à des actions comme répondre et éditer des cartes.</string>
     <string name="gestures_corner_touch" maxLength="41">Écran tactile à 9 points</string>
     <string name="gestures_corner_touch_summary">Autoriser les gestes dans les coins de l\'écran</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">Panneau de navigation plein écran</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">Ouvrir le panneau de navigation lors d\'un balayage vers la droite de n\'importe où sur l\'écran</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Aucun</string>
     <string name="gestures_swipe_up" maxLength="41">Glissez vers le haut</string>
     <string name="gestures_swipe_down" maxLength="41">Glissez vers le bas</string>
@@ -184,7 +182,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Sélectionner les étiquettes</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Recherche</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Remplacer les nouvelles lignes par du HTML</string>
     <string name="note_editor_replace_newlines_summ">Dans l\'éditeur de notes, convertissez toutes les instances de &lt;br&gt; en nouvelles lignes lors de l\'édition d\'une carte.</string>

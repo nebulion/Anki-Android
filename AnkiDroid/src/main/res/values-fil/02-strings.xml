@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Buksan ang kahon</string>
-    <string name="drawer_close">Isara ang kahon</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Magdagdag / mag-filter ng mga tag</string>
     <string name="add_tag" maxLength="28">Magdagdag ng tag</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Gumagawa nang listahan nang tags&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d buried</item>
-        <item quantity="other">+%d buried</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Kabuuang bagong kard</string>
-    <string name="studyoptions_total_label">Kabuuang kard</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">I-edit ang tala</string>
     <string name="discard">Baliwalain</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">I-reset ang pag-unlad</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Baguhin ang pangalan</string>
-    <string name="checks_action" maxLength="28">Suriin</string>
     <string name="unknown_type_field_warning">I-type ang sagot: hindi kilalang patlang %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Tinatanggal ang deck&#8230;</string>
     <string name="info_rate">I-rate ang AnkiDroid</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">Ibahagi</string>
     <string name="export_choice_save_to">I-save sa</string>
     <string name="export_saving_exported_collection">Saving exported file&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Mga Opsiyon sa Pag-aaral</string>
     <string name="dyn_deck_desc">Ito ay isang espesyal na deck para sa pag-aaral sa labas ng normal na iskedyul. Ang mga kard ay awtomatikong ibabalik sa kanilang orihinal na mga deck matapos mong suriin ang mga ito. Ang pagtanggal sa kubyerta mula sa listahan ng deck ay babalik ang lahat ng natitirang mga card sa kanilang orihinal na deck.</string>
     <string name="tag_editor_add_feedback">Pindutin ang \"%2$s\" para kumpirmahin ang pagdaragdag ng \"%1$s\"</string>
     <string name="tag_editor_add_feedback_existing">Napili ang umiiral na tag na \"%1$s\"</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Kamalian sa Laman ng Card: Bigo sa pagload ng \'%s\'</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Maghanap ng mga deck</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">Umaasa ang AnkiDroid sa Pansistemang WebView kung saan ito ay hindi magamit. Nangyayari ito kung nag-iinstall ng update ang sistema. Mangyaring subukan muli makaraan ang ilang minuto.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid cannot access storage due to an Android error.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">Ang video file ay masyadong malaki, pakilagay ang video nang mano-mano</string>
     <string name="note_editor_audio_too_large">Ang audio file ay masyadong malaki, pakilagay ang audio nang mano-mano</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android backup in progress. Please try again</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Maaring kailangang gumamit ng iManager upang payagan ang AnkiDroid na magdagdag ng mga gitis.</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">Hindi pinpayagan ang AnkiDroid na maglagay ng gitis sa iyong home screen.</string>
-    <string name="create_shortcut_error">Kamalian sa pagdagdag ng gitis: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificate</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">Nailikha ang deck</string>
     <string name="deck_renamed">Napangalanan muli ang deck</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Naibura ang deck. Mangyaring tanggalin ang gitis</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Paglalarawan</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Delete deck without confirmation</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">User action %s is not set in this notetype. Please configure it</string>
     <string name="feature_not_supported_by_study_screen">This card has features that are not yet supported by the new study screen.</string>
     <string name="directory_inaccessible_info">Learn more about how to restore access here %s or go to settings to update collection folder.</string>

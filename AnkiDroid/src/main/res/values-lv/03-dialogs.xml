@@ -105,8 +105,6 @@
     <string name="incompatible_database_version_title">Nesaderīga datubāzes versija</string>
     <string name="incompatible_database_version_summary">Datubāzei ir jaunāka versija nekā tā, ar ko šī AnkiDroid versija var darboties. Jāuzlabo AnkiDroid vai jāpazemina databāze, lai atvērtu to\n\nAtbalstītā versija: %1$d\nDatubāzes versija: %2$d\n\nŠīs atjaunošanas iespējas aizstās pašreizējo krājumu, iespējams ar saderīgu datubāzes versiju:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Neizdevās iestatīt fona attēlu %s</string>
-    <string name="background_image_too_large">Kavu atlasītāja fons ir pārāk liels</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Trūkst nepieciešamās krātuves atļaujas. Lūgums piešķirt krātuves atļauju, tad veikt darbību vēlreiz.</string>
@@ -126,13 +124,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Automātiska vienādošana var tik izsaukta pēc %d sekundēm</item>
     </plurals>
     <string name="metered_sync_data_warning">Interneta pakalpojuma sniedzējs var pieprasīt samaksu par datu izmantošanu</string>
-    <string name="deck_picker_new">Jauno kartīšu skaits, ko šodien rādīt šajā kavā.</string>
-    <string name="deck_picker_rev">Kartīšu, kurām šodien pienācis laiks, skaits šajā kavā.</string>
-    <string name="deck_picker_lrn">Apgūstamo kartīšu skaits šajā kavā.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Atvērt kavas pārskata lapu, kas satur šodien apskatāmo kartīšu skaitu.</string>
     <string name="import_deck_package">Kavas pakotne (.apkg)</string>
     <string name="import_collection_package">Krājuma pakotne (.colpkg)</string>
     <string name="import_csv">Teksta datne (.txt, .csv)</string>

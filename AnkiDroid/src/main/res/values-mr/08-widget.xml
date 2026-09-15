@@ -28,10 +28,6 @@
         <item quantity="one">%d AnkiDroid कार्ड मुळे</item>
         <item quantity="other">%d AnkiDroid कार्ड मुळे</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d कार्ड देय</item>
-        <item quantity="other">%d कार्ड देय</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Select a deck</string>
 </resources>

@@ -60,8 +60,6 @@
     <string name="gestures_summ">Assign gestures to actions such as answering and editing cards.</string>
     <string name="gestures_corner_touch" maxLength="41">9-point touch</string>
     <string name="gestures_corner_touch_summary">Allow touch gestures in screen corners</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">Full screen navigation drawer</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">Open navigation drawer when swiped right from anywhere on the screen</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">None</string>
     <string name="gestures_swipe_up" maxLength="41">Swipe up</string>
     <string name="gestures_swipe_down" maxLength="41">Swipe down</string>
@@ -183,7 +181,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Select tags</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment = "Label of a text field that contains a search query.">Search</string>
 
     <!-- analytics options -->
 

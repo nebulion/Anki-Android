@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">ଡ୍ରର୍ ଖୋଲନ୍ତୁ</string>
-    <string name="drawer_close">ଡ୍ରର୍ ବନ୍ଦ କରନ୍ତୁ</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">ଟ୍ୟାଗ୍ ଯୋଡ଼ିବା ଅବା ଶୋଧନ କରିବା</string>
     <string name="add_tag" maxLength="28">ଟ୍ୟାଗ୍ ଯୋଡ଼ିବା</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Building list of tags&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%dଟିଏ ସ୍ଥଗିତ କରାଗଲା</item>
-        <item quantity="other">+%dଟି ସ୍ଥଗିତ କରାଗଲା</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">ମୋଟ ନୂଆ ପତ୍ର</string>
-    <string name="studyoptions_total_label">ମୋଟ ପତ୍ର</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">ନୋଟ୍ ସମ୍ପାଦନା</string>
     <string name="discard">ପରିତ୍ୟାଗ କରିବା</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">ପ୍ରଗତି ପୁନଃସେଟ୍ କରନ୍ତୁ</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">ନାମ ବଦଳାଇବା</string>
-    <string name="checks_action" maxLength="28">ଯାଞ୍ଚ କରିବା</string>
     <string name="unknown_type_field_warning">ଉତ୍ତର ଟାଇପ୍ କରନ୍ତୁ: ଅଜ୍ଞାତ କ୍ଷେତ୍ର %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">କେରୀ ଵିଲୋପ ଚାଲିଛି&#8230;</string>
     <string name="info_rate">AnkiDroid କୁ ମୂଲ୍ୟାଙ୍କନ କରନ୍ତୁ</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">ଅଂଶୀଦାର କରିବା</string>
     <string name="export_choice_save_to">ଏଠାରେ ସଞ୍ଚୟ କରିବା</string>
     <string name="export_saving_exported_collection">ରପ୍ତାନି ମାରିଥିବା ଫାଇଲ୍‌ଟି ସଞ୍ଚୟ ହେଉଛି&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">ଅଧ୍ୟୟନ ଵିକଳ୍ପ</string>
     <string name="dyn_deck_desc">ସାଧାରଣ କାର୍ଯ୍ୟସୂଚୀ ବାହାରେ ଅଧ୍ୟୟନ ପାଇଁ ଏହା ଏକ ସ୍ୱତନ୍ତ୍ର କେରୀ। ଆପଣ ସମୀକ୍ଷା କରିବା ପରେ ପତ୍ରଗୁଡ଼ିକ ଆପେ ସେଗୁଡ଼ିକର ମୂଳ କେରୀକୁ ଫେରି ଆସିବେ। କେରୀ ତାଲିକାରୁ ଏହି କେରୀ ବିଲୋପ କରିବା ସମସ୍ତ ଅବଶିଷ୍ଟ ପତ୍ରଗୁଡ଼ିକୁ ସେମାନଙ୍କର ମୂଳ କେରୀକୁ ଫେରାଇବ।</string>
     <string name="tag_editor_add_feedback">“%1$s” କୁ ଯୋଡ଼ିବା ପାଇଁ “%2$s” ଦବାନ୍ତୁ</string>
     <string name="tag_editor_add_feedback_existing">ଵିଦ୍ୟମାନ ଟ୍ୟାଗ୍ “%1$s” ଚୟନ କରାଯାଇଛି</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">ପତ୍ର ବିଷୟବସ୍ତୁ ତ୍ରୁଟି: ‘%s’ ଲୋଡ୍ କରିବାରେ ବିଫଳ ହେଲା</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">କେରୀ ସନ୍ଧାନ କରିବା</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid ସିଷ୍ଟମ୍ ୱେବ୍‌ଵ୍ୟୁ ଉପରେ ନିର୍ଭର କରେ ଯାହା ଅନୁପଲବ୍ଧ ଅଟେ। ଯଦି ସିଷ୍ଟମ୍ ଅପଡେଟ୍ ଅଧିସ୍ଥାପନ କରୁଥାଏ ତେବେ ଏହା ଘଟିପାରେ। ଦୟାକରି କିଛି ମିନିଟ୍‌ରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid cannot access storage due to an Android error.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">ଵିଡ଼ିଓ ଫାଇଲ୍‌ଟି ଅତ୍ୟଧିକ ବଡ଼ ଅଟେ, ଦୟାକରି ହସ୍ତକୃତ ଭାବେ ଵିଡ଼ିଓଟିକୁ ସନ୍ନିବେଶ କରନ୍ତୁ</string>
     <string name="note_editor_audio_too_large">ଅଡ଼ିଓ ଫାଇଲ୍‌ଟି ଅତ୍ୟଧିକ ବଡ଼ ଅଟେ, ଦୟାକରି ହସ୍ତକୃତ ଭାବେ ଅଡ଼ିଓଟିକୁ ସନ୍ନିବେଶ କରନ୍ତୁ</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android backup in progress. Please try again</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">AnkiDroid କୁ ସର୍ଟ୍‌କଟ୍ ଯୋଡ଼ିବା ଅନୁମତି ଦେବା ପାଇଁ ଆପଣଙ୍କୁ iManager ଵ୍ୟଵହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">ଆପଣଙ୍କ ଗୃହସ୍କ୍ରୀନ୍ AnkiDroidକୁ ସର୍ଟ୍‌କଟ୍ ଯୋଡ଼ିବାର ଅନୁମତି ଦିଏ ନାହିଁ</string>
-    <string name="create_shortcut_error">ସର୍ଟ୍‌କଟ୍ ଯୋଡ଼ିବାରେ ତ୍ରୁଟି: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificate</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">କେରୀ ସୃଷ୍ଟି କରାଗଲା</string>
     <string name="deck_renamed">କେରୀ ନାମ ବଦଳାଗଲା</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">କେରୀ ଵିଲୋପ ହୋଇଛି। ଦୟାକରି ସର୍ଟ୍‌କଟ୍‌ଟି ଅପସାରଣ କରନ୍ତୁ</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">ବର୍ଣ୍ଣନା</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">ବିନା ନିଶ୍ଚିତୀକରଣରେ କେରୀକୁ ବିଲୋପ କରିବା</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">User action %s is not set in this notetype. Please configure it</string>
     <string name="feature_not_supported_by_study_screen">This card has features that are not yet supported by the new study screen.</string>
     <string name="directory_inaccessible_info">Learn more about how to restore access here %s or go to settings to update collection folder.</string>

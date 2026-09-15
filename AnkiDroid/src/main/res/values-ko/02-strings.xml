@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">메뉴 열기</string>
-    <string name="drawer_close">메뉴 닫기</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">태그 추가/필터링</string>
     <string name="add_tag" maxLength="28">태그 추가</string>
@@ -44,11 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">태그 목록 작성 중&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="other">+%d 숨겨짐</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">새 카드 수</string>
-    <string name="studyoptions_total_label">전체 카드 수</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">노트 편집하기</string>
     <string name="discard">삭제하기</string>
@@ -61,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">학습 진도 재설정</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">이름 바꾸기</string>
-    <string name="checks_action" maxLength="28">확인</string>
     <string name="unknown_type_field_warning">정답 입력: 알 수 없는 필드 %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">카드 묶음 삭제 중&#8230;\n 잠시만 기다리세요.</string>
     <string name="info_rate">AnkiDroid 평가하기</string>
@@ -96,7 +88,6 @@
     <string name="export_choice_share">공유하기</string>
     <string name="export_choice_save_to">저장</string>
     <string name="export_saving_exported_collection">내보낸 파일 저장 중&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">학습 옵션</string>
     <string name="dyn_deck_desc">이것은 평상시 일정 이상으로 학습하기 위한 특별한 카드 덱입니다. 카드들은 복습 후 자동으로 원래의 카드 덱으로 돌아가게 됩니다. 카드 덱 목록에서 이 카드 덱을 지운다면 남아 있는 모든 카드는 원래의 카드 덱으로 돌아가게 됩니다.</string>
     <string name="tag_editor_add_feedback">\"%1$s\" 추가를 확인하려면 \"%2$s\" 누르세요</string>
     <string name="tag_editor_add_feedback_existing">기존 태그 \"%1$s\" 선택됨</string>
@@ -124,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">카드 내용 오류: \'%s\' 읽기 실패</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">덱 검색하기</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid이 필요한 시스템 WebView를 사용할 수 없습니다. 이 문제는 시스템이 업데이트를 설치하는 경우 발생할 수도 있습니다. 잠시 후 다시 시도하십시오.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">Android 오류로 인해 AnkiDroid가 저장소에 접근할 수 없습니다.\n\n%s</string>
@@ -133,10 +123,6 @@
     <string name="note_editor_video_too_large">영상 파일이 너무 큽니다. 수동으로 넣어 주세요.</string>
     <string name="note_editor_audio_too_large">오디오 파일이 너무 큽니다. 수동으로 넣어 주세요.</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android 백업중입니다. 다시 시도하십시오.</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">AnkiDroid 바로가기를 추가하려면 iManager가 필요할 수 있습니다.</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">%s의 \'홈 화면 바로가기\'를 시스템 설정에서 허용하세요</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">홈 화면에 AnkiDroid 바로 가기를 추가할 수 없습니다.</string>
-    <string name="create_shortcut_error">바로가기 생성 오류: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">인증서</string>
@@ -173,7 +159,6 @@
     <string name="deck_created">생성된 덱</string>
     <string name="deck_renamed">이름이 변경된 덱</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">삭제된 카드 덱입니다. 단축키를 삭제해 주세요.</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">설명</string>
@@ -186,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">덱 선택기</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">확인 없이 덱 삭제하기</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">이 노트 유형에는 사용자 행동 %s이(가) 설정되어 있지 않습니다. 설정을 확인해 주세요.</string>
     <string name="feature_not_supported_by_study_screen">이 카드에는 새 학습 화면에서 아직 지원하지 않는 기능이 있습니다</string>
     <string name="directory_inaccessible_info">여기에서 액세스를 복원하는 방법에 대해 자세히 알아보세요 %s 또는 설정으로 이동하여 컬렉션 폴더를 업데이트하세요.</string>

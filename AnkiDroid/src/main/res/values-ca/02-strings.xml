@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Obrir el calaix</string>
-    <string name="drawer_close">Tancar el calaix</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Afegir/filtrar etiquetes</string>
     <string name="add_tag" maxLength="28">Afegir etiqueta</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Building list of tags&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d enterrada</item>
-        <item quantity="other">+%d buried</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Total new cards</string>
-    <string name="studyoptions_total_label">Total cards</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Edita la nota</string>
     <string name="discard">Descarta</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">Reinicia</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Canvia el nom</string>
-    <string name="checks_action" maxLength="28">Comprova</string>
     <string name="unknown_type_field_warning">Tipus de resposta: camp desconegut %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">S\'està suprimint el paquet&#8230;\nUn moment si us plau.</string>
     <string name="info_rate">Valoreu l\'AnkiDroid</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">Comparteix</string>
     <string name="export_choice_save_to">Desa a</string>
     <string name="export_saving_exported_collection">Saving exported file&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Opcions d\'estudi</string>
     <string name="dyn_deck_desc">Es tracta d\'un paquet especial per a l\'estudi fora de la planificació normal. Després de revisar-les, les fitxes es tornaran automàticament al seus paquets originals. Si suprimiu aquest paquet de la llista de paquets, totes les fitxes tornaran al seu paquet inicial.</string>
     <string name="tag_editor_add_feedback">Prem \"%2$s\" per confirmar afegir \"%1$s\"</string>
     <string name="tag_editor_add_feedback_existing">Etiqueta existent \"%1$s\" seleccionada</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Error de contingut de la carta: Error al carregar \'%s\'</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Cerca de paquets</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid confia en el sistema WebView que no està disponible. Això pot passar si el sistema instal·la actualitzacions. Torneu-ho a provar d\'aquí a uns quants minuts.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid cannot access storage due to an Android error.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">El vídeo és massa gran per enganxar-lo. Inseriu-lo manualment si us plau</string>
     <string name="note_editor_audio_too_large">L\'àudio és massa gran per enganxar-lo. Inseriu-lo manualment si us plau</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android backup in progress. Please try again</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Potser haureu de fer servir iManager per permetre a AnkiDroid afegir dreceres</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">La pantalla d\'inici no permet que AnkiDroid afegeixi dreceres</string>
-    <string name="create_shortcut_error">Error afegint drecera: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificate</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">S\'ha generat un paquet</string>
     <string name="deck_renamed">S\'ha canviat el nom del paquet</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">S\'ha suprimit el paquet. Si us plau, elimineu la drecera</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Descripció</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Delete deck without confirmation</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">User action %s is not set in this notetype. Please configure it</string>
     <string name="feature_not_supported_by_study_screen">This card has features that are not yet supported by the new study screen.</string>
     <string name="directory_inaccessible_info">Learn more about how to restore access here %s or go to settings to update collection folder.</string>

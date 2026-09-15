@@ -28,10 +28,6 @@
         <item quantity="one">%d AnkiDroid kaardi tõttu</item>
         <item quantity="other">%d AnkiDroid kaardi tõttu</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d kaart ootel</item>
-        <item quantity="other">%d kaarti ootel</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Vali kaardipakk</string>
 </resources>

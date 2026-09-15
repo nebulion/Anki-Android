@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">Versão do banco de dados incompatível</string>
     <string name="incompatible_database_version_summary">O banco de dados é uma versão mais avançada do que esta versão do AnkiDroid pode trabalhar. Atualize o AnkiDroid ou faça o downgrade do banco de dados para abri-lo\n\nVersão Suportada: %1$d\nVersão do banco de dados: %2$d\n\nAs seguintes opções de restauração substituirão sua coleção atual, possivelmente com uma versão compatível do banco de dados:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Falha ao aplicar a imagem de fundo %s</string>
-    <string name="background_image_too_large">Fundo do seletor de deck muito grande</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Falta a permissão de armazenamento necessário. Por favor, conceda permissão de armazenamento e tente novamente.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Uma sincronização automática será ativada em %d segundos</item>
     </plurals>
     <string name="metered_sync_data_warning">Seu provedor de internet pode cobrar pelo uso de dados</string>
-    <string name="deck_picker_new">Número de novos cards para ver hoje neste baralho.</string>
-    <string name="deck_picker_rev">Número de cartões que vencem hoje neste baralho.</string>
-    <string name="deck_picker_lrn">Número de cards em para aprender neste baralho.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Abra a página de visão geral do deck contendo o número de cartas a serem vistas hoje.</string>
     <string name="import_deck_package">Baralho (.apkg)</string>
     <string name="import_collection_package">Coleção (.colpkg)</string>
     <string name="import_csv">Arquivo de texto (.txt, .csv)</string>

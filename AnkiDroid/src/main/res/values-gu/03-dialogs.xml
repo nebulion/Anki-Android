@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">અસંગત ડેટાબેઝ સંસ્કરણ</string>
     <string name="incompatible_database_version_summary">ડેટાબેઝ એ AnkiDroid ના આ વર્ઝન સાથે કામ કરી શકે છે તેના કરતાં વધુ અદ્યતન સંસ્કરણ છે. AnkiDroid ને અપગ્રેડ કરો અથવા તેને ખોલવા માટે ડેટાબેઝને ડાઉનગ્રેડ કરો\n\nઆધારિત સંસ્કરણ: %1$d\nડેટાબેઝ સંસ્કરણ: %2$d\n\nનીચેના પુનઃસ્થાપિત વિકલ્પો તમારા વર્તમાન સંગ્રહને ઓવરરાઈટ કરશે, સંભવતઃ સુસંગત ડેટાબેઝ સંસ્કરણ સાથે:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">પૃષ્ઠભૂમિ છબી %s લાગુ કરવામાં નિષ્ફળ</string>
-    <string name="background_image_too_large">ડેક પીકર પૃષ્ઠભૂમિ વિશાળ છે</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">જરૂરી સંગ્રહ પરવાનગી ખૂટે છે. કૃપા કરીને સ્ટોરેજની પરવાનગી આપો પછી તમારી ક્રિયાનો ફરી પ્રયાસ કરો.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">તમારા ઇન્ટરનેટ પ્રદાતા ડેટાના ઉપયોગ માટે પૈસા વસૂલ કરી શકે છે</string>
-    <string name="deck_picker_new">આજે આ ડેકમાં જોવા માટે નવા કાર્ડ્સની સંખ્યા.</string>
-    <string name="deck_picker_rev">આજે આ ડેકમાં બાકી રહેલા કાર્ડ્સની સંખ્યા.</string>
-    <string name="deck_picker_lrn">આ ડેકમાં લર્નિંગ કાર્ડ્સની સંખ્યા.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">આજે જોવા માટે કાર્ડ્સની સંખ્યા ધરાવતું ડેક વિહંગાવલોકન પૃષ્ઠ ખોલો.</string>
     <string name="import_deck_package">ડેક પેકેજ (.apkg)</string>
     <string name="import_collection_package">સંગ્રહ પેકેજ (.colpkg)</string>
     <string name="import_csv">ટેક્સ્ટ ફાઇલ (.txt, .csv)</string>

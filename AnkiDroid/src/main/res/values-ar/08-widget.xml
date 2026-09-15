@@ -32,14 +32,6 @@
         <item quantity="many">%d بطاقة آنكي درويد مستحقة</item>
         <item quantity="other">%d بطاقة آنكي درويد مستحقة</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="zero">%d بطاقة مستحقة</item>
-        <item quantity="one">%d بطاقة مستحقة</item>
-        <item quantity="two">%d بطاقة مستحقة</item>
-        <item quantity="few">%d بطاقات مستحقة</item>
-        <item quantity="many">%d بطاقة مستحقة</item>
-        <item quantity="other">%d بطاقة مستحقة</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">اختيار رِزمة</string>
 </resources>

@@ -70,8 +70,6 @@
     <string name="gestures_summ">استفاده از حرکات و ضربات لمسی برای انجام کارهایی مثل پاسخ دادن و ویرایش کارت‌ها.</string>
     <string name="gestures_corner_touch" maxLength="41">لمس صفحه 9 قسمت</string>
     <string name="gestures_corner_touch_summary">اجازه بده برای حرکات لمس در گوشه های صفحه</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">کشوی جهت‌یابی در کل صفحه</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">کشو ی جهت یابی را باز کن وقتی صفحه را به سمت راست می کشم</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">هیچ کدام</string>
     <string name="gestures_swipe_up" maxLength="41">ضربه به سمت بالا</string>
     <string name="gestures_swipe_down" maxLength="41">ضربه به سمت پایین</string>
@@ -183,7 +181,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">انتخاب برچسبها</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">جستجو</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">خط های جدید را با HTML جایگذین کن</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

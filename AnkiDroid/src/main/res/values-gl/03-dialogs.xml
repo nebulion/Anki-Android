@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">Versión da base de datos incompatíbel</string>
     <string name="incompatible_database_version_summary">A base de datos é dunha versión máis avanzada da que esta versión do AnkiDroid pode manexar. Actualiza o AnkiDroid ou reverte a versión da base de datos para abrila.\n\nVersión compatíbel: %1$d\nVersión da base de datos: %2$d\n\nAs seguintes opcións de restauración sobrescribirán a túa colección actual, posibelmente cunha versión compatible da base de datos:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Erro ao aplicar a imaxe do fondo %s</string>
-    <string name="background_image_too_large">A imaxe de fondo do selector de barallas é demasiado grande</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Faltan permisos de almacenamento necesarios. Concede o permiso de almacenamento e téntao de novo.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">A sincronización automática acontecerá en %d segundos</item>
     </plurals>
     <string name="metered_sync_data_warning">O teu provedor de internet podería cobrar polo uso de datos móbiles</string>
-    <string name="deck_picker_new">Número de tarxetas novas para ver hoxe nesta baralla.</string>
-    <string name="deck_picker_rev">Número de tarxetas pendentes para hoxe nesta baralla.</string>
-    <string name="deck_picker_lrn">Número de tarxetas en aprendizaxe nesta baralla.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Abre a páxina de resumo da baralla que contén o número de tarxetas para estudar hoxe.</string>
     <string name="import_deck_package">Baralla (.apkg)</string>
     <string name="import_collection_package">Colección (.colpkg)</string>
     <string name="import_csv">Ficheiro de texto (.txt, .csv)</string>

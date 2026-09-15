@@ -35,7 +35,6 @@
     <string name="expand" comment="In the deck picker: accessibility label of the buttons that display the subdecks of a deck.">Прошири</string>
     <string name="collapse" comment="In the deck picker: accessibility label of the buttons that hide the subdecks of a deck.">Умањи</string>
     <string name="no_cards_placeholder_title" comment="Text shown the first time AnkiDroid is opened, to explain to the user why they can\'t yet review.">Колекција је празна</string>
-    <string name="no_cards_placeholder_description" comment="Text shown the first time AnkiDroid is opened, to explain what should be their first action.">Додај (флеш) картице кликом на +.</string>
     <!-- Reviewer -->
     <plurals name="reviewer_window_title" comment="Header of the reviewer, telling the users how many minutes remains before they have seen all cards.">
         <item quantity="one">Остао је још %d минут</item>
@@ -62,10 +61,7 @@
     <string name="undo" maxLength="28" comment="When tapping on this text, the last action is undone.">Опозови</string>
     <string name="redo" maxLength="28" comment="Menu entry that allows to redo action that was just undone.">Понови</string>
     <!-- flashcard_portrait.xml -->
-    <string name="create_shortcut">Направи пречицу</string>
-    <string name="edit_deck_description" comment="edit the deck description">Измени опис</string>
     <string name="menu_add" comment="A generic add button. Please inform us if you need more specific strings" maxLength="28">Додај</string>
-    <string name="menu_add_note" maxLength="28">Додај белешку</string>
     <string name="menu_my_account" comment="Label of the window in which the user should enter their account. This text can\'t be found in AnkiDroid directly.">Налог за синхронизацију</string>
     <string name="rename_flag">Промени називе ознака</string>
     <string name="menu_edit_tags" maxLength="28">Уреди ознаке</string>
@@ -103,7 +99,6 @@
     <string name="read_write_permission_label">Читати и писати у бази података AnkiDroid</string>
     <string name="read_write_permission_description">Приступи постојећим белешкама, картицама, типовима белешки и сетовима и креирај нове</string>
     <!-- Context Menu -->
-    <string name="card_browser_context_menu" comment="The value which appears in the system context menu. Note the casing difference">Прегледач картица</string>
     <!-- Sync conflict -->
     <string name="sync_conflict_message_new">Ове колекције није могуће објединити.\nЖелиш ли да сачуваш једну од њих?</string>
     <string name="sync_conflict_keep_local_new" comment="Select AnkiDroid files to keep while syncing">AnkiDroid</string>

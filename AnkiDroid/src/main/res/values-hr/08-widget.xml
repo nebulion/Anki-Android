@@ -29,11 +29,6 @@
         <item quantity="few">%d AnkiDroid cards due</item>
         <item quantity="other">%d AnkiDroid cards due</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d karticu potrebno dovršiti</item>
-        <item quantity="few">%d kartice potrebno dovršiti</item>
-        <item quantity="other">%d kartica potrebno dovršiti</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Odaberi špil</string>
 </resources>

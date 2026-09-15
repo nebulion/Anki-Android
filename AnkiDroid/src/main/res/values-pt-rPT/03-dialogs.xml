@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">Versão de Base de Dados Incompatível</string>
     <string name="incompatible_database_version_summary">A base de dados tem uma versão mais recente do que aquelas com que esta versão do AnkiDroid consegue trabalhar. Actualize o AnkiDroid ou converta a base de dados para uma versão mais antiga.\n\nVersões Suportadas: %1$d\nVersão da Base de Dados: %2$d\n\nAs seguintes opções de restauro vão substituir a actual colecção, provavelmente com uma versão de base de dados compatível:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Falha na aplicação da imagem de fundo %s</string>
-    <string name="background_image_too_large">A imagem escolhida para o fundo do ecrã de selecção do baralho é demasiado grande.</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Permissão de armazenamento em falta. Por favor, conceda esta permissão e volte a tentar.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Uma sincronização automática pode ser despoletada em %d segundos</item>
     </plurals>
     <string name="metered_sync_data_warning">O seu provedor de Internet pode cobrar-lhe a utilização de dados móveis</string>
-    <string name="deck_picker_new">Número de fichas novas que tem para ver hoje, neste baralho.</string>
-    <string name="deck_picker_rev">Número de fichas a rever hoje, neste baralho.</string>
-    <string name="deck_picker_lrn">Número de fichas a aprender hoje, neste baralho.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Abra a visão geral do baralho que contém o número de fichas que tem para ver hoje.</string>
     <string name="import_deck_package">Pacote de Baralhos (.apkg)</string>
     <string name="import_collection_package">Pacote de Colecção (.colpkg)</string>
     <string name="import_csv">Ficheiro de Texto (.txt, .csv)</string>

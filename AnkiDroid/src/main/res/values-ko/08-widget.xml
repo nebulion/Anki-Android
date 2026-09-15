@@ -27,9 +27,6 @@
     <plurals name="widget_minimum_cards_due_notification_ticker_text">
         <item quantity="other">%d AnkiDroid 카드 예정</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="other">복습 카드 %d개</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">덱 선택하기</string>
 </resources>

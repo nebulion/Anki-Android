@@ -28,10 +28,6 @@
         <item quantity="one">%d AnkiDroid ਕਾਰਡ ਬਕਾਇਆ ਹੈ</item>
         <item quantity="other">%d AnkiDroid ਕਾਰਡ ਬਕਾਇਆ ਹੈ</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d ਕਾਰਡ ਬਕਾਇਆ ਹੈ</item>
-        <item quantity="other">%d ਕਾਰਡ ਬਕਾਇਆ ਹਨ</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">ਇੱਕ ਡੇਕ ਚੁਣੋ</string>
 </resources>

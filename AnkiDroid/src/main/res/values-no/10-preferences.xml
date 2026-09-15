@@ -70,8 +70,6 @@
     <string name="gestures_summ">Assign gestures to actions such as answering and editing cards.</string>
     <string name="gestures_corner_touch" maxLength="41">9-punkts berøring</string>
     <string name="gestures_corner_touch_summary">Tillat berøringsbevegelser i skjermens hjørner</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">Full screen navigation drawer</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">Open navigation drawer when swiped right from anywhere on the screen</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Ingen</string>
     <string name="gestures_swipe_up" maxLength="41">Sveip opp</string>
     <string name="gestures_swipe_down" maxLength="41">Sveip ned</string>
@@ -185,7 +183,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Velg emneord</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Søk</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Replace newlines with HTML</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

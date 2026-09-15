@@ -69,8 +69,6 @@
     <string name="gestures_summ">Chỉ định các cử chỉ để hành động như trả lời và chỉnh sửa thẻ.</string>
     <string name="gestures_corner_touch" maxLength="41">Chạm 9 điểm</string>
     <string name="gestures_corner_touch_summary">Cho phép cử chỉ chạm ở các góc màn hình</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">Full screen navigation drawer</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">Open navigation drawer when swiped right from anywhere on the screen</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">Không</string>
     <string name="gestures_swipe_up" maxLength="41">Vuốt lên</string>
     <string name="gestures_swipe_down" maxLength="41">Vuốt xuống</string>
@@ -180,7 +178,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Chọn thẻ</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Tìm</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">Thay thế dòng mới bằng HTML</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

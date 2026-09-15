@@ -28,10 +28,6 @@
         <item quantity="one">Tes %d tarxeta AnkiDroid pendente</item>
         <item quantity="other">Tes %d tarxetas AnkiDroid pendentes</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d tarxeta pendente</item>
-        <item quantity="other">%d tarxetas pendentes</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Selecciona unha baralla</string>
 </resources>

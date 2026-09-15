@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Abrir gaveta</string>
-    <string name="drawer_close">Fechar gaveta</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Adicionar/filtrar tags</string>
     <string name="add_tag" maxLength="28">Adicionar tag</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Criando lista de tags&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d oculto</item>
-        <item quantity="other">+%d oculto</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Total de cartões novos</string>
-    <string name="studyoptions_total_label">Total de cartões</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Editar nota</string>
     <string name="discard">Descartar</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">Redefinir progresso</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Renomear</string>
-    <string name="checks_action" maxLength="28">Verificar</string>
     <string name="unknown_type_field_warning">Digite a resposta: campo desconhecido %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Excluindo baralho&#8230;</string>
     <string name="info_rate">Avalie o AnkiDroid</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">Compartilhar</string>
     <string name="export_choice_save_to">Salvar em</string>
     <string name="export_saving_exported_collection">Salvando arquivo exportado&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Opções de estudo</string>
     <string name="dyn_deck_desc">Esse é um baralho especial para estudar fora do planejamento normal. Os cards retornarão um a um para os baralhos originais após revisá-los. Ao apagar esse baralho os cards restantes retornarão automaticamente à seus baralhos originais.</string>
     <string name="tag_editor_add_feedback">Toque \"%2$s\" para confirmar a adição de \"%1$s\"</string>
     <string name="tag_editor_add_feedback_existing">Tag existente \"%1$s\" selecionada</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Erro de Conteúdo do Card: Falha ao carregar ‘%s\'</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Pesquisar baralhos</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid depende do System WebView que não está disponível. Isso pode acontecer se o sistema está instalando atualizações. Por favor, tente novamente em alguns minutos.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid não pode acessar o armazenamento devido a um erro do Android.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">O arquivo de vídeo é muito grande, por favor insira o vídeo manualmente</string>
     <string name="note_editor_audio_too_large">O arquivo de áudio é muito grande, por favor insira o áudio manualmente</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Backup do Android em progresso. Por favor, tente novamente</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Por favor use o iManager para que AnkiDroid possa adicionar atalhos</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Permitir \'Atalhos da tela inicial\' nas configurações do sistema para %s adicionar atalhos</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">Sua tela de início não permite que AnkiDroid adicione atalhos</string>
-    <string name="create_shortcut_error">Erro ao adicionar atalho: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificado</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">Baralho criado</string>
     <string name="deck_renamed">Baralho renomeado</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Baralho excluído. Remova o atalho</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Descrição</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Deletar baralho sem confirmação</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">A ação do usuário %s não está definida neste tipo de nota. Por favor, configure-a</string>
     <string name="feature_not_supported_by_study_screen">Este cartão possui funcionalidades que ainda não são suportadas pela nova tela de estudo.</string>
     <string name="directory_inaccessible_info">Aprenda mais sobre como restaurar o acesso aqui %s ou vá em opções para atualizar a pasta de coleções.</string>

@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Buka menu</string>
-    <string name="drawer_close">Tutup menu</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Tambah/Filter tag</string>
     <string name="add_tag" maxLength="28">Tambah tag</string>
@@ -44,11 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Membuat daftar tag&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="other">+%d dipendam</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Total kartu baru</string>
-    <string name="studyoptions_total_label">Total Kartu</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Edit catatan</string>
     <string name="discard">Buang</string>
@@ -61,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">Reset kemajuan</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Ubah nama</string>
-    <string name="checks_action" maxLength="28">Periksa</string>
     <string name="unknown_type_field_warning">Ketik jawaban: bidang %s tidak diketahui</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Menghapus dek&#8230;</string>
     <string name="info_rate">Beri AnkiDroid rating</string>
@@ -96,7 +88,6 @@
     <string name="export_choice_share">Bagikan</string>
     <string name="export_choice_save_to">Simpan ke</string>
     <string name="export_saving_exported_collection">Menyimpan file yang diekspor&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Pilihan belajar</string>
     <string name="dyn_deck_desc">Ini adalah dek khusus untuk belajar di luar jadwal normal. Kartu akan otomatis dikembalikan ke dek aslinya setelah Anda mengulasnya. Menghapus dek ini dari daftar dek akan mengembalikan semua kartu yang tersisa ke dek aslinya.</string>
     <string name="tag_editor_add_feedback">Sentuh “%2$s” untuk konfirmasi menambah “%1$s”</string>
     <string name="tag_editor_add_feedback_existing">Tag “%1$s” dipilih</string>
@@ -124,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Isi Kartu Gagal: Gagal memuat \'%s\'</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Cari dek</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid membutuhkan System Webview yang sekarang sedang tidak ada. Hal ini dapat terjadi karena sistem sedang meng-install pembaruan. Mohon mencoba lagi dalam beberapa menit.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid tidak dapat mengakses penyimpanan karena kesalahan Android.\n\n%s</string>
@@ -133,10 +123,6 @@
     <string name="note_editor_video_too_large">File video terlalu besar, mohon masukkan video secara manual</string>
     <string name="note_editor_audio_too_large">File audio terlalu besar, mohon masukkan audio secara manual</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Backup Android sedang berlangsung. Mohon coba kembali.</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">Anda mungkin perlu menggunakan iManager untuk memperbolehkan AnkiDroid menambah pintasan</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">Layar utama Anda tidak memperbolehkan AnkiDroid untuk menambah pintasan</string>
-    <string name="create_shortcut_error">Gagal menambah shortcut: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificate</string>
@@ -173,7 +159,6 @@
     <string name="deck_created">Dek dibuat</string>
     <string name="deck_renamed">Dek diubah namanya</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Dek terhapus. Silakan menghapus pintasannya</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Deskripsi</string>
@@ -186,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Hapus dek tanpa konfirmasi</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">Aksi pengguna %s tidak diatur dalam jenis catatan ini. Mohon untuk dikonfigurasi.</string>
     <string name="feature_not_supported_by_study_screen">Kartu ini memiliki fitur yang belum didukung oleh layar belajar baru</string>
     <string name="directory_inaccessible_info">Pelajari lebih lanjut tentang cara mengembalikan akses di sini %s atau buka pengaturan untuk memperbarui folder koleksi.</string>

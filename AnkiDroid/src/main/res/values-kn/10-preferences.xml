@@ -70,8 +70,6 @@
     <string name="gestures_summ">ಪ್ರತ್ಯುತ್ತರ ಮತ್ತು ಕಾರ್ಡ್‌ಗಳನ್ನು ಸಂಪಾದಿಸುವಂತಹ ಕ್ರಿಯೆಗಳಿಗೆ ಗೆಸ್ಚರ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಿ.</string>
     <string name="gestures_corner_touch" maxLength="41">9-ಪಾಯಿಂಟ್ ಸ್ಪರ್ಶ</string>
     <string name="gestures_corner_touch_summary">ಪರದೆಯ ಮೂಲೆಗಳಲ್ಲಿ ಸ್ಪರ್ಶ ಗೆಸ್ಚರ್‌ಗಳನ್ನು ಅನುಮತಿಸಿ</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">ಪೂರ್ಣ ಪರದೆಯ ನ್ಯಾವಿಗೇಷನ್ ಡ್ರಾಯರ್</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">ಪರದೆಯ ಮೇಲೆ ಎಲ್ಲಿಂದಲಾದರೂ ಬಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡುವಾಗ ನ್ಯಾವಿಗೇಷನ್ ಡ್ರಾಯರ್ ತೆರೆಯಿರಿ</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">ಯಾವುದೂ</string>
     <string name="gestures_swipe_up" maxLength="41">ಮೇಲಕ್ಕೆ ಎಳಿ</string>
     <string name="gestures_swipe_down" maxLength="41">ಕೆಳಗೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
@@ -182,7 +180,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">ಟ್ಯಾಗ್‌ಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">ಇದಕ್ಕಾಗಿ ಹುಡುಕು</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">ಹೊಸ ಸಾಲುಗಳನ್ನು HTML ನೊಂದಿಗೆ ಬದಲಾಯಿಸಿ</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

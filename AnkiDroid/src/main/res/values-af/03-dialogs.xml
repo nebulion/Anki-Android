@@ -102,8 +102,6 @@
     <string name="incompatible_database_version_title">Onversoenbare Databasis-Weergawe</string>
     <string name="incompatible_database_version_summary">Die databasis is \'n meer gevorderde weergawe as wat hierdie weergawe van AnkiDroid mee kan werk. Opgradeer AnkiDroid of downgrade die databasis om dit oop te maak\n\nOndersteunde weergawe: %1$d\nDatabasis weergawe: %2$d\n\nDie volgende herstelopsies sal jou huidige versameling oorskryf, moontlik met \'n versoenbare databasisweergawe:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Kon nie agtergrondbeeld toepas nie %s</string>
-    <string name="background_image_too_large">Pak-Selektor agtergrond te groot</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Ontbrekende vereiste stoortoestemming. Verleen asseblief stoortoestemming en probeer jou aksie weer.</string>
@@ -122,13 +120,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d seconds</item>
     </plurals>
     <string name="metered_sync_data_warning">Jou internetverskaffer kan dalk geld vra vir datagebruik</string>
-    <string name="deck_picker_new">Aantal nuwe kaarte om vandag in hierdie pak te sien.</string>
-    <string name="deck_picker_rev">Aantal kaarte wat vandag in hierdie pak verskuldig is.</string>
-    <string name="deck_picker_lrn">Aantal kaarte in leer in hierdie pak.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Maak die pak-oorsigbladsy oop wat die aantal kaarte bevat om vandag te sien.</string>
     <string name="import_deck_package">Pak-pakket (.apkg)</string>
     <string name="import_collection_package">Versameling-pakket (.colpkg)</string>
     <string name="import_csv">Teks-lêer (.txt, .csv)</string>

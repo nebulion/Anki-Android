@@ -28,10 +28,6 @@
         <item quantity="one">%d carta de AnkiDroid de revisionare</item>
         <item quantity="other">%d cartas de AnkiDroid de revisionare</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d carta de revisionare</item>
-        <item quantity="other">%d cartas de revisionare</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Seletziona unu matzu</string>
 </resources>

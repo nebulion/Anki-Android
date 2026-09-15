@@ -28,10 +28,6 @@
         <item quantity="one">%d AnkiDroid கார்டு நிலுவையில் உள்ளது</item>
         <item quantity="other">%d AnkiDroid கார்டு நிலுவையில் உள்ளது</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d கார்டு நிலுவையில் உள்ளது</item>
-        <item quantity="other">%d கார்டுகள் நிலுவையில் உள்ளன</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">ஒரு தளத்தைத் தேர்ந்தெடுக்கவும்</string>
 </resources>

@@ -109,8 +109,6 @@
     <string name="incompatible_database_version_title">Несовместимая версия базы данных</string>
     <string name="incompatible_database_version_summary">Эта база данных современнее той, с которой может работать эта версия AnkiDroid. Обновите AnkiDroid или понизите версию базы данных, чтобы открыть её\n\nПоддерживаемая версия: %1$d\nВерсия базы данных: %2$d\n\nСледующие параметры восстановления перезапишут вашу текущую коллекцию, возможно, с совместимой версией базы данных:</string>
     <!-- Deck Picker Background-->
-    <string name="failed_to_apply_background_image">Не удалось установить фоновое изображение %s</string>
-    <string name="background_image_too_large">Фоновое изображение слишком большое</string>
     <!-- Global Intent handler -->
     <!-- Also used by Card Browser, not renaming to save translators effort -->
     <string name="intent_handler_failed_no_storage_permission">Нет разрешения на доступ к хранилищу. Предоставьте разрешение «Хранилище» и попробуйте снова.</string>
@@ -131,13 +129,9 @@
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Автоматическая синхронизация может быть запущена через %d секунд</item>
     </plurals>
     <string name="metered_sync_data_warning">Ваш интернет провайдер может взимать плату за использование данных</string>
-    <string name="deck_picker_new">Количество новых карточек на сегодня в этой колоде.</string>
-    <string name="deck_picker_rev">Количество карточек на сегодня в колоде.</string>
-    <string name="deck_picker_lrn">Количество изучаемых карточек в колоде.</string>
     <!-- This description is valid fos
     sched V2. For V1, it was counting the number of repetitions of cards in learning. This approximation is acceptable
     for the sake of simplicity and because V1 will leave.-->
-    <string name="deck_picker_counts">Открыть предпросмотр колоды с количеством карточек для просмотра сегодня.</string>
     <string name="import_deck_package">Пакет колоды (.apkg)</string>
     <string name="import_collection_package">Пакет коллекции (.colpkg)</string>
     <string name="import_csv">Текстовый файл (.txt, .csv)</string>

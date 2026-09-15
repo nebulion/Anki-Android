@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">அலமாரியைத் திறக்கவும்</string>
-    <string name="drawer_close">அலமாரியை மூடு</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">குறிச்சொற்களைச் சேர்க்கவும்/வடிகட்டவும்</string>
     <string name="add_tag" maxLength="28">குறியைச் சேர்க்கவும்</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Building list of tags&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d புதைக்கப்பட்டது</item>
-        <item quantity="other">+%d புதைக்கப்பட்டது</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">மொத்த புதிய அட்டைகள்</string>
-    <string name="studyoptions_total_label">மொத்த அட்டைகள்</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">குறிப்பைத் திருத்தவும்</string>
     <string name="discard">நிராகரி</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">முன்னேற்றத்தை மீட்டமைக்கவும்</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">மறுபெயரிடு</string>
-    <string name="checks_action" maxLength="28">சோதிக்கவும்</string>
     <string name="unknown_type_field_warning">பதிலைத் தட்டச்சு செய்க: தெரியாத புலம் %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">தளத்தை நீக்குகிறது&#8230;</string>
     <string name="info_rate">AnkiDroid ஐ மதிப்பிடவும்</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">பகிர்</string>
     <string name="export_choice_save_to">இதில் சேமி</string>
     <string name="export_saving_exported_collection">ஏற்றுமதி செய்யப்பட்ட கோப்பைச் சேமிக்கிறது&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">படிப்பு விருப்பங்கள்</string>
     <string name="dyn_deck_desc">இது வழக்கமான அட்டவணைக்கு வெளியே படிப்பதற்கான ஒரு சிறப்பு தளமாகும். நீங்கள் அவற்றை மதிப்பாய்வு செய்தபிறகு, கார்டுகள் தானாகவே அவற்றின் அசல் டெக்குகளுக்குத் திரும்பும். டெக் பட்டியலிலிருந்து இந்த டெக்கை நீக்கினால், மீதமுள்ள அனைத்து கார்டுகளும் அவற்றின் அசல் டெக்கிற்கு திரும்பும்.</string>
     <string name="tag_editor_add_feedback">“%1$s”ஐச் சேர்ப்பதை உறுதிசெய்ய “%2$s”ஐத் தொடவும்</string>
     <string name="tag_editor_add_feedback_existing">ஏற்கனவே உள்ள \"%1$s\" குறி தேர்ந்தெடுக்கப்பட்டது</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">அட்டை உள்ளடக்கப் பிழை: ‘%s’ ஐ ஏற்றுவதில் தோல்வி</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">தேடல் தளங்கள்</string>
     <string name="ankidroid_init_failed_webview_title">Fatal error</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid கணினி WebView ஐ நம்பியுள்ளது, இது கிடைக்கவில்லை. கணினி புதுப்பிப்புகளை நிறுவினால் இது நிகழலாம். சில நிமிடங்களில் மீண்டும் முயற்சிக்கவும்.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid cannot access storage due to an Android error.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">வீடியோ கோப்பு மிகவும் பெரியதாக உள்ளது, வீடியோவை கைமுறையாக செருகவும்</string>
     <string name="note_editor_audio_too_large">ஆடியோ கோப்பு மிகவும் பெரியதாக உள்ளது, ஆடியோவை கைமுறையாக செருகவும்</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android backup in progress. Please try again</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">குறுக்குவழிகளைச் சேர்க்க AnkiDroid ஐ அனுமதிக்க நீங்கள் iManager ஐப் பயன்படுத்த வேண்டியிருக்கலாம்</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">Allow ‘Home screen shortcuts’ in system settings for %s to add shortcuts</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">உங்கள் முகப்புத் திரை AnkiDroid குறுக்குவழிகளைச் சேர்க்க அனுமதிக்காது</string>
-    <string name="create_shortcut_error">குறுக்குவழியைச் சேர்ப்பதில் பிழை: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Certificate</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">டெக் உருவாக்கப்பட்டது</string>
     <string name="deck_renamed">டெக் மறுபெயரிடப்பட்டது</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">தளம் நீக்கப்பட்டது. தயவுசெய்து குறுக்குவழியை அகற்றவும்</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">விளக்கம்</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">உறுதிப்படுத்தல் இல்லாமல் டெக்கை நீக்கு</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">இந்த நோட்டிப்பில் பயனர் செயல் %s அமைக்கப்படவில்லை. தயவுசெய்து அதை உள்ளமைக்கவும்</string>
     <string name="feature_not_supported_by_study_screen">This card has features that are not yet supported by the new study screen.</string>
     <string name="directory_inaccessible_info">அணுகலை எவ்வாறு மீட்டெடுப்பது என்பது பற்றி இங்கே %s இல் மேலும் அறிக அல்லது சேகரிப்பு கோப்புறையைப் புதுப்பிக்க அமைப்புகளுக்குச் செல்லவும்.</string>

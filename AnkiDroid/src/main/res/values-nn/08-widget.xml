@@ -28,10 +28,6 @@
         <item quantity="one">%d AnkiDroid-kort i kø</item>
         <item quantity="other">%d AnkiDroid-kort i kø</item>
     </plurals>
-    <plurals name="widget_cards_due">
-        <item quantity="one">%d kort forfaller</item>
-        <item quantity="other">%d kort forfaller</item>
-    </plurals>
     <!-- Strings to explain usage in Deck Picker and Card Analysis Widget Configuration screen -->
     <string name="select_deck_title" comment="Title for Deck Selection Dialog">Select a deck</string>
 </resources>

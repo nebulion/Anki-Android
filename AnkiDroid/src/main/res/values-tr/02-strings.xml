@@ -24,8 +24,6 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Navigation drawer strings -->
-    <string name="drawer_open">Çekmeceyi aç</string>
-    <string name="drawer_close">Çekmeceyi kapat</string>
     <!-- Note editor screen -->
     <string name="add_new_filter_tags">Etiket ekle/filtrele</string>
     <string name="add_tag" maxLength="28">Etiket ekle</string>
@@ -44,12 +42,6 @@
     <!-- Custom study options -->
     <string name="custom_study_loading_tags">Etiket listesi oluşturuluyor&#8230;</string>
     <!-- Study options -->
-    <plurals name="studyoptions_buried_count">
-        <item quantity="one">+%d gömülü</item>
-        <item quantity="other">+%d gömülü</item>
-    </plurals>
-    <string name="studyoptions_total_new_label">Toplam yeni kart</string>
-    <string name="studyoptions_total_label">Toplam kart</string>
     <!-- Card editor -->
     <string name="cardeditor_title_edit_card" maxLength="28">Notu düzenle</string>
     <string name="discard">Vazgeç</string>
@@ -62,7 +54,6 @@
     <!-- minutes used in \'[studied in] x minutes\' context, causing inflexion in some languages -->
     <string name="card_editor_reset_card" maxLength="28">İlerlemeyi sıfırla</string>
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Yeniden adlandır</string>
-    <string name="checks_action" maxLength="28">Kontrol et</string>
     <string name="unknown_type_field_warning">Cevabı yaz: bilinmeyen alan %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Deste siliniyor&#8230;</string>
     <string name="info_rate">AnkiDroid\'e oy ver</string>
@@ -97,7 +88,6 @@
     <string name="export_choice_share">Paylaş</string>
     <string name="export_choice_save_to">Kaydet</string>
     <string name="export_saving_exported_collection">Dışarı aktarılan dosya kaydediliyor&#8230;</string>
-    <string name="menu__study_options" comment="Menu item that opens options for a Filtered deck (aka Cram deck, aka Custom study)">Çalışma seçenekleri</string>
     <string name="dyn_deck_desc">Bu normal programın dışında çalışmak için özel bir deste. Kartlar çalışıldıktan sonra otomatik olarak kendi destelerine geri dönecekler. Bu desteyi deste listesinden silmek kalan bütün kartları kendi destelerine geri döndürecek.</string>
     <string name="tag_editor_add_feedback">\"%1$s\" eklemek için buna dokunun: \"%2$s\"</string>
     <string name="tag_editor_add_feedback_existing">Varolan bir etiketi seçtiniz: \"%1$s\"</string>
@@ -125,7 +115,6 @@
     <!-- Card Viewer -->
     <string name="card_viewer_could_not_find_image">Kart İçeriği Hatası: \"%s\" yüklenemedi</string>
     <!-- Deck Picker -->
-    <string name="search_decks" maxLength="28">Deste ara</string>
     <string name="ankidroid_init_failed_webview_title">Kritik hata</string>
     <string name="ankidroid_init_failed_webview">AnkiDroid şu an ulaşılamayan System WebView\'a dayanır. Bu sistem güncelleme yüklerken olabilir. Lütfen birkaç dakika sonra tekrar deneyin.\n\n%s</string>
     <string name="ankidroid_init_failed_storage">AnkiDroid bir Android hatasından dolayı depolamaya erişemiyor.\n\n%s</string>
@@ -134,10 +123,6 @@
     <string name="note_editor_video_too_large">Bu video dosyası fazla büyük, lütfen videoyu elle ekleyin</string>
     <string name="note_editor_audio_too_large">Bu ses dosyası fazla büyük, lütfen sesi elle ekleyin</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android yedeklemesi gerçekleştiriliyor. Lütfen yeniden deneyin</string>
-    <string name="create_shortcut_error_vivo" comment="iManager is an app on Vivo phones">AnkiDroid\'in kısayol eklemesine izin vermek için iManager kullanmanız gerekebilir</string>
-    <string name="create_shortcut_error_miui" comment="Keep the message as short, as this is shown in a toast. %s is the app name: \'AnkiDroid\'">%s kısayol  ekleyebilmesi için \'Ana ekran kısayolları\'na sistem ayarlarından izin ver</string>
-    <string name="create_shortcut_failed" comment="home screen == launcher">Ana ekranın, kısayol ekleyebilmesi için AnkiDroid\'e izin vermiyor</string>
-    <string name="create_shortcut_error">Kısayolu eklerken hata: %s</string>
     <!-- Dialog hints -->
     <string name="dialog_hint_url">URL</string>
     <string name="dialog_hint_certificate">Sertifika</string>
@@ -174,7 +159,6 @@
     <string name="deck_created">Deste oluşturuldu</string>
     <string name="deck_renamed">Deste yeniden adlandırıldı</string>
     <!-- Deck Deletion -->
-    <string name="deck_shortcut_doesnt_exist">Deste silindi. Lütfen kısayolu kaldırın</string>
     <!-- Browser Options Dialog -->
     <!-- Chips should probably be in a separate file, due to the additional length req -->
     <string name="deck_description_field_hint">Açıklama</string>
@@ -187,7 +171,6 @@
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deste seçici</string>
-    <string name="delete_deck_without_confirmation" comment="Description of the shortcut that deletes the deck without asking for confirmation">Desteyi onay sormadan sil</string>
     <string name="missing_user_action_dialog_message" comment="%s is the user action number">%s kullanıcı eylemi bu not türünde belirlenmemiş. Lütfen eylemi ayarlayın</string>
     <string name="feature_not_supported_by_study_screen">Bu kart, yeni çalışma ekranı tarafından henüz desteklenmeyen özellikleri bulunduruyor.</string>
     <string name="directory_inaccessible_info">Erişimin nasıl yeniden sağlanıldığına dair daha fazlasını burda %s öğrenin ya da koleksiyon klasörünü değiştirmek için ayarlara gidin.</string>

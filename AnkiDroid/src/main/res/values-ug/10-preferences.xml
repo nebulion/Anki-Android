@@ -70,8 +70,6 @@
     <string name="gestures_summ">جاۋاب ۋە كارتا تەھرىرلەشكە ئوخشاش مەشغۇلاتقا قول ئىشارىتى بەلگىلەيدۇ.</string>
     <string name="gestures_corner_touch" maxLength="41">9 نۇقتا سەزگۈچ</string>
     <string name="gestures_corner_touch_summary">ئېكران بۇلۇڭلىرى تېگىشىش قول ئىشارىتىگە يول قويىدۇ</string>
-    <string name="gestures_full_screen_nav_drawer" maxLength="41">پۈتۈن ئېكران يولباشچى تارتمىسى</string>
-    <string name="gestures_fullscreen_nav_drawer_summary">ئېكراننىڭ خالىغان يېرىدىن ئوڭغا سۈرۈلسە يولباشچى تارتمىسىنى ئاچىدۇ</string>
     <string name="gestures_none" maxLength="41" comment="No gestures">يوق</string>
     <string name="gestures_swipe_up" maxLength="41">ئۈستىگە سۈر</string>
     <string name="gestures_swipe_down" maxLength="41">ئاستىغا سۈر</string>
@@ -185,7 +183,6 @@
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">بەلگە تاللىنىدۇ</string>
     <!-- Deck configurations -->
-    <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">ئىزدە</string>
     <!-- analytics options -->
     <string name="note_editor_replace_newlines" maxLength="41">يېڭى قۇرنى HTML بىلەن ئالماشتۇرىدۇ</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>

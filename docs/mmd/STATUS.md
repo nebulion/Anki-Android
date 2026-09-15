@@ -95,9 +95,9 @@ Both were deleted rather than disabled, at the owner's request.
 | 7. Drawer, bottom nav, FAB, deck long-press menu, tablet layouts | **Folded into Phase 3**: nearly all of it lives in the 2,400-line legacy `DeckPicker`, which Phase 3 replaces with `DeckListScreenMMD` and deletes (`activity_homescreen`, `DeckAdapter`, `DeckPickerContextMenu`); editing it now would be throwaway |
 | 8. Themes | Done: E Ink is the only theme and night mode is forced off. `NightTheme`, `AppTheme`, the theme prefs and settings, the dark/black/plain XML and their orphan selectors are deleted. `Themes.isNightTheme` stays as a constant `false`, so its ~8 callers still compile; they go with their screens in Phases 3–5 |
 | 9. Settings screens | Done (app and unit tests compile): Appearance (and with it the deck list background picker), Custom buttons, Developer options (and the About logo tap that enabled them), Switch profiles plus the whole unused `multiprofile` package and its docs, and the Controls keyboard-shortcuts row. The new study screen is now on by default (`Prefs.isNewStudyScreenEnabled` defaults to `true`). The MMD kit gallery moved to a debug-only row at the bottom of Advanced. **Deferred to Phase 5** (settings rebuilt in Compose): limiting the Controls bindings to touch gestures, since keys, gestures and gamepad share `ControlPreference` |
-| 10. Tests and orphaned resources | Pruned (`045bbce`): the 845 resources lint reported unused (245 files, their strings in every locale); styles kept because lint cannot see dotted parents. Resources still referenced were restored (`faded_primary`, reviewer menu ids, `bottom_area_layout`). **Verification runs in the fork CI** (upstream Unit Tests is disabled on forks; job logs need auth): waiting on the first `MMD fork CI` run |
+| 10. Tests and orphaned resources | Pruned (`045bbce`): the 845 resources lint reported unused (245 files, their strings in every locale); styles kept because lint cannot see dotted parents. Resources still referenced were restored (`faded_primary`, reviewer menu ids, `bottom_area_layout`). **Verified in the fork CI** (`MMD fork CI`, parallel since `0c43b9a`): compile, 1,284 unit tests and full lint ran; the fallout (storage tests for public storage, the removed Browser shortcut, stale translation baselines, whiteboard/voice control entries, dead instrumented tests, 2 lint errors) was fixed in `29c0280` and the follow-up commit |
 
-## Phase 2 — Reviewer (written, uncommitted until the Phase 1 CI is green)
+## Phase 2 — Reviewer (done; device check passed with open items below)
 
 | Step | State |
 | --- | --- |
@@ -105,10 +105,49 @@ Both were deleted rather than disabled, at the owner's request.
 | 2. `ReviewerScreenMMD` | Written. `ReviewerFragment` is now a Compose host (`CardViewerFragment` gained a no-layout constructor) and the WebView sits in `WebContent`, so gestures, bindings, JS and the tag/due-date/forget dialogs are unchanged. Header: back, counts `12 · 3 · 40` with the current queue bold, Undo, Replay (only when the side has media: new `ReviewerViewModel.hasMediaFlow`), Menu. Menu `MenuPanel`: Flag (`ChoiceSheet` of named flags), Mark, Bury card/note, Suspend card/note, Card info, Deck options, Auto-advance. Flag name + mark glyph over the card. Show answer is a full-width `ButtonMMD`; ratings are 56dp with Good solid. Type-answer is `TextFieldMMD`. Timebox is a `PanelDialog`; action feedback uses `MessageHost`. Answer timer hidden (A8) |
 | 3. `assets/mmd-card.css` | Written and linked after `ankidroid.css`; `stdHtml()` hardcodes white/black and drops the night-mode classes. Lato for `html, body, .card` (note-type fonts on inner elements still apply) |
 | 4. Delete old views | Done: `fragment_reviewer`, `view_answer_area`, `view_study_counts`, `AnswerAreaView`, `StudyCountsView`, `AnswerTimerView`, `AnswerFeedbackView`, `AnswerButton`, `ReviewerMenuView` + `ReviewerMenu.kt`, and the toolbar-actions settings screen (`ReviewerMenuSettingsFragment`, adapter, layouts). Study-screen settings that no longer do anything are gone too: frame style, hide system bars, display cutout, answer feedback, toolbar position (with `FrameStyle`, `HideSystemBars`, `ToolbarPosition`). `ReviewerMenuRepository` stays for now (its test and `ViewerAction` defaults use it) |
-| 5. `EinkRefresh.onChange` | Called on every answer |
+| 5. `EinkRefresh.onChange` | Called on every answer. The flash was off by default, so the owner saw no refresh; it is now **on by default every 12 answers** (`Prefs.isEinkRefreshEnabled`); its setting UI comes in Phase 5 |
 
 Known gaps: the Compose type-answer field does not set the IME hint locales the old `EditText`
 did; the accessibility "answer button size" pref is ignored.
+
+### Device check (2026-09-15, CI build of `29c0280`, owner-run)
+
+Install note: the phone kept the earlier locally built fork's package record and data after it was
+removed, and the CI APK is signed with a different debug key, so the install was refused until
+`adb uninstall com.ichi2.anki.mmd.debug` cleared the record. 2.24.1 (`com.ichi2.anki`) is not
+installed on the phone at the moment; `/sdcard/AnkiDroid` is intact.
+
+Deck: Ultimate Italian Conjugation (`.apkg`).
+
+- **Passed:** study screen layout, answering, undo, menu (flag, mark, bury, suspend, card info,
+  deck options, auto-advance), study-screen settings.
+- **Owner feedback:** no E Ink refresh while answering (fixed: on by default, every 12 answers);
+  margins, padding and sizes want a **unified sizing pass later**, consistent across the app and
+  with Mudita's apps, including the study screen's font size; "Show answer buttons" off seems
+  pointless → Phase 5 settings audit.
+- **Still to test** (the deck had none): an audio card (Replay icon and replay), a type-in-the-answer
+  card, the timebox panel.
+
+## Phase 3 — Home, Deck page, More (in progress)
+
+Approach: keep `DeckPicker` as the home **activity** (it owns startup, sync, import, backups and the
+error/sync dialogs, ~1,000 lines worth keeping) but make it a plain `AnkiActivity` whose whole UI is
+a Compose screen. Everything View-based around the deck list goes. Dialogs that are still Views
+(create/rename deck, custom study, export, import, sync and database errors) stay until Phase 6,
+except where this phase's pattern needs a panel.
+
+| Step | Plan |
+| --- | --- |
+| 1. Baselines | Not recorded (needs Gradle; the old screens stay in git at the phase's starting commit) |
+| 2. Deck page (`DeckPageFragment` in `SingleFragmentActivity`, over `StudyOptionsViewModel`) | Header: back, deck name, Deck options, Menu. `MenuPanel`: Custom study, Rename (panel + `TextFieldMMD`), Export, Unbury, Rebuild/Empty (filtered), Delete (`ConfirmPanel`). Body: New / Learning / To review counts, plain-text description, solid **Study**; Congrats state (Unbury / Custom study) and Empty state. `StudyOptionsDestination` opens it. Deletes `StudyOptionsActivity`/`Fragment`, their layouts and menus, `CongratsPage` and `new_congrats_screen` |
+| 3. Home (`DeckListScreenMMD`) | Header: "Decks", Sync glyph with `BadgeMMD` dot (pending changes; one-way / not logged in as a subtitle line), More. `PagedList` of `DisplayDeckNode`, one row per deck: indent by depth, expand chevron, italic filtered decks, three right-aligned counts (zero blank), dashed separators. "Studied today" line. Empty state: text + `ButtonMMD` "Import file". Tap = Deck page; no long-press. Messages via `MessageHost` |
+| 4. More page | Rows: Statistics, Import, Export, Create deck, Create filtered deck, Check database, Check media, Empty cards, Create backup, Restore backup, Sync account, Settings |
+| 5. Splash hold | Until the deck list has content, with a ceiling |
+| 6. Delete | `NavigationDrawerActivity` + drawer layouts, toolbar menu and deck search, FAB (`DeckPickerFloatingActionMenu`), bottom nav (`BottomNavController`, `HomeScreenNavigation`, `MoreFragment`), pull-to-sync, background image, tablet split pane, deck shortcuts, `activity_homescreen`, `include_deck_picker`, `item_deck`, `DeckAdapter`, `DeckHierarchyLinesDecoration`, `DeckPickerContextMenu` + its content provider, and their tests |
+| 7. E Ink refresh on answers | Done early (on by default every 12 answers, see Phase 2) |
+
+Order: deck page → home → More → deletions and tests → CI → device check (cold start, expand/collapse,
+deck page → rename → delete round trip on a throwaway deck, sync badge).
 
 ## Pre-existing issues (not caused by the fork)
 

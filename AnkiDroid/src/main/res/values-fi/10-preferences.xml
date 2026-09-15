@@ -156,8 +156,6 @@
     <string name="show_estimates_summ">Näytä seuraava kertausaika vastauspainikkeissa</string>
     <string name="show_large_answer_buttons" maxLength="41">Näytä suuret vastauspainikkeet</string>
     <string name="show_large_answer_buttons_summ">Näytä vastauspainikkeet kahdella rivillä</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">Näytä yläpalkki</string>
     <string name="show_top_bar_summary">Näytä korttien lukumäärät, vastausaika, lippu ja merkinnät yläpalkissa.</string>
     <string name="show_progress" maxLength="41">Näytä jäljelläoleva</string>

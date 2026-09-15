@@ -157,8 +157,6 @@
     <string name="show_estimates_summ">Εμφάνιση διαστήματος επανάληψης στα κουμπιά απάντησης</string>
     <string name="show_large_answer_buttons" maxLength="41">Εμφάνιση μεγάλων κουμπιών απάντησης</string>
     <string name="show_large_answer_buttons_summ">Εμφάνιση κουμπιού απάντησης σε 2 γραμμές</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">Εμφάνιση πάνω γραμμής</string>
     <string name="show_top_bar_summary">Show card counts, answer timer, flag and mark in top bar</string>
     <string name="show_progress" maxLength="41">Εμφάνιση υπολειπόμενων</string>

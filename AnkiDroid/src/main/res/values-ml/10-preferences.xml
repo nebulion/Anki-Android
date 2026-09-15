@@ -156,8 +156,6 @@
     <string name="show_estimates_summ">ഉത്തര ബട്ടണുകളിൽ അടുത്ത അവലോകന സമയം കാണിക്കുക</string>
     <string name="show_large_answer_buttons" maxLength="41">വലിയ ഉത്തര ബട്ടണുകൾ കാണിക്കുക</string>
     <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">മുകളിലെ ബാർ കാണിക്കുക</string>
     <string name="show_top_bar_summary">കാർഡുകളുടെ എണ്ണം കാണിക്കുക, ഉത്തരം ടൈമർ, ഫ്ലാഗ്, മുകളിലെ ബാറിൽ അടയാളപ്പെടുത്തുക</string>
     <string name="show_progress" maxLength="41">ബാക്കി കാണിക്കുക</string>

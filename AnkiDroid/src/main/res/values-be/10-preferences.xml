@@ -159,8 +159,6 @@
     <string name="show_estimates_summ">Паказваць наступны час паўтарэння над кнопкай адказу</string>
     <string name="show_large_answer_buttons" maxLength="41">Паказваць вялікія кнопкі адказу</string>
     <string name="show_large_answer_buttons_summ">Паказваць кнопкі адказу ў 2 радкі</string>
-    <string name="remove_animations" maxLength="41">Выдаліць анімацыю</string>
-    <string name="remove_animations_summary">Таксама ўключана, калі анімацыя выдалена ў сістэмных наладах</string>
     <string name="show_top_bar" maxLength="41">Паказваць верхнюю панэль</string>
     <string name="show_top_bar_summary">Паказваць лічыльнік картак, таймер адказу і пазнакі на верхняй панэлі</string>
     <string name="show_progress" maxLength="41">Паказваць тое, што засталося</string>

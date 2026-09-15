@@ -30,7 +30,7 @@ class EmptyApplication : Application() {
         AnkiDroidApp.simulateRestoreFromBackup()
 
         // EmptyApplication skips AnkiDroidApp.onCreate, so register the global singletons that
-        // activity code relies on (e.g. Animations, used by `Context.animationDisabled()`)
+        // activity code relies on (e.g. the navigator)
         registerTestApplicationSingletons()
     }
 }

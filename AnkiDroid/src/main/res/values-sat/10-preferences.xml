@@ -156,8 +156,6 @@
     <string name="show_estimates_summ">ᱛᱮᱞᱟ ᱵᱟᱹᱴᱚᱱ ᱨᱮ ᱞᱟᱦᱟ ᱫᱩᱦᱲᱟ ᱧᱮᱞ ᱥᱚᱢᱚᱭ ᱫᱮᱠᱷᱟᱣᱢᱮ</string>
     <string name="show_large_answer_buttons" maxLength="41">ᱢᱟᱨᱟᱝ ᱞᱟᱹᱱᱟᱹᱭ ᱵᱚᱴᱚᱱ ᱧᱮ ᱚᱪᱚᱭ ᱢᱮ</string>
     <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">ᱪᱮᱛᱟᱱ ᱵᱟᱨ ᱫᱮᱠᱷᱟᱣᱢᱮ</string>
     <string name="show_top_bar_summary">ᱪᱮᱛᱟᱱ ᱵᱟᱨ ᱨᱮ ᱠᱟᱨᱰ ᱠᱚᱢᱮᱰ, ᱚᱯᱷᱚᱨ ᱴᱟᱭᱢᱟᱨ, ᱯᱷᱞᱟᱜ ᱟᱨ ᱢᱟᱨᱠ ᱮᱢ ᱢᱮ</string>
     <string name="show_progress" maxLength="41">ᱵᱟᱹᱠᱤ ᱠᱚ ᱫᱮᱠᱷᱟᱣᱢᱮ</string>

@@ -157,8 +157,6 @@
     <string name="show_estimates_summ">ਜਵਾਬ ਬਟਨਾਂ \'ਤੇ ਅਗਲੀ ਸਮੀਖਿਆ ਸਮਾਂ ਦਿਖਾਓ</string>
     <string name="show_large_answer_buttons" maxLength="41">ਵੱਡੇ ਜਵਾਬ ਬਟਨ ਦਿਖਾਓ</string>
     <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">ਸਿਖਰ ਪੱਟੀ ਦਿਖਾਓ</string>
     <string name="show_top_bar_summary">ਸਿਖਰ ਪੱਟੀ ਵਿੱਚ ਕਾਰਡ ਗਿਣਤੀ, ਉੱਤਰ ਟਾਈਮਰ, ਝੰਡਾ ਅਤੇ ਨਿਸ਼ਾਨ ਦਿਖਾਓ</string>
     <string name="show_progress" maxLength="41">ਬਾਕੀ ਦਿਖਾਓ</string>

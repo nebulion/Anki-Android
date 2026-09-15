@@ -156,8 +156,6 @@
     <string name="show_estimates_summ">نمایش زمان مرور بعدی در بالای دکمه پاسخ</string>
     <string name="show_large_answer_buttons" maxLength="41">دکمه های بزرگ جواب نشان بده</string>
     <string name="show_large_answer_buttons_summ">نمایش دکمه پاسخ در ۲ ردیف</string>
-    <string name="remove_animations" maxLength="41">غیرفعال‌سازی انیمیشن‌ها</string>
-    <string name="remove_animations_summary">در صورت حذف انیمیشن‌ها در تنظیمات سیستم، این گزینه همچنین فعال می‌شود.</string>
     <string name="show_top_bar" maxLength="41">نمایش نوار بالا</string>
     <string name="show_top_bar_summary">نمایش تعداد کارت ها، ساعت شمار پاسخ، پرچم و علامت در نوار بالا</string>
     <string name="show_progress" maxLength="41">نمایش باقیمانده</string>

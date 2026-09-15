@@ -156,8 +156,6 @@
     <string name="show_estimates_summ">उत्तर बटणावर पुढील पुनरावलोकन वेळ दर्शवा</string>
     <string name="show_large_answer_buttons" maxLength="41">मोठी उत्तर बटणे दाखवा</string>
     <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">शीर्ष बार दर्शवा</string>
     <string name="show_top_bar_summary">Show card counts, answer timer, flag and mark in top bar</string>
     <string name="show_progress" maxLength="41">उर्वरित दर्शवा</string>

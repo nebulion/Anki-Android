@@ -157,8 +157,6 @@
     <string name="show_estimates_summ">Mostrar o próximo agendamento nos botões de resposta</string>
     <string name="show_large_answer_buttons" maxLength="41">Mostrar botões de resposta grandes</string>
     <string name="show_large_answer_buttons_summ">Mostrar botão de resposta em 2 linhas</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">Mostrar barra superior</string>
     <string name="show_top_bar_summary">Mostrar contagem de fichas, tempo de resposta, bandeiras e marcas na barra superior</string>
     <string name="show_progress" maxLength="41">Mostrar restantes</string>

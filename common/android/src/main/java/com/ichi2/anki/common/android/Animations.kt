@@ -3,62 +3,30 @@
 
 package com.ichi2.anki.common.android
 
-import android.app.Application
 import android.content.Context
-import android.provider.Settings
 import androidx.fragment.app.FragmentActivity
-import com.ichi2.anki.common.preferences.AnimationPreferences
 
 /**
  * Animation related functionality for the app.
  */
 object Animations {
-    /** resolved against the supplied [Context] so the result uses the active profile */
-    private lateinit var preferencesProvider: (Context) -> AnimationPreferences
-
-    /** Use during app startup to register the source of [AnimationPreferences]. */
-    context(_: Application)
-    fun setPreferencesProvider(provider: (Context) -> AnimationPreferences) {
-        preferencesProvider = provider
-    }
-
     /**
-     * @return whether the animations are enabled by the system settings,
-     * i.e. the 'Remove animations' setting is disabled.
-     * On most cases, using [Animations.areAnimationsEnabled] is preferred
-     * because it considers the app's own 'Remove animations' setting
+     * Always `false`: the MMD fork targets an E Ink panel, where every animation frame is a
+     * partial refresh that ghosts. Motion is off regardless of system or app settings.
      */
-    fun areSystemAnimationsEnabled(context: Context): Boolean =
-        try {
-            Settings.Global.getFloat(
-                context.contentResolver,
-                Settings.Global.ANIMATOR_DURATION_SCALE,
-                1f,
-            ) > 0f
-        } catch (_: Exception) {
-            true // Default to animations enabled if unable to read settings
-        }
-
-    /**
-     * @return whether animations are enabled on the system and app settings
-     */
-    fun areAnimationsEnabled(context: Context): Boolean =
-        areSystemAnimationsEnabled(context) && !preferencesProvider(context).removeAppAnimations
+    @Suppress("UNUSED_PARAMETER", "SameReturnValue")
+    fun areAnimationsEnabled(context: Context): Boolean = false
 }
 
 /**
- * Whether animations should not be displayed
- * This is used to improve the UX for e-ink devices
- * Can be tested via Settings - Advanced - Safe display mode
+ * Whether animations should not be displayed. Always `true` on the MMD fork.
  *
  * @see animationEnabled
  */
 fun FragmentActivity.animationDisabled(): Boolean = !Animations.areAnimationsEnabled(this)
 
 /**
- * Whether animations should be displayed
- * This is used to improve the UX for e-ink devices
- * Can be tested via Settings - Advanced - Safe display mode
+ * Whether animations should be displayed. Always `false` on the MMD fork.
  *
  * @see animationDisabled
  */

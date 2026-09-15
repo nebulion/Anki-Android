@@ -158,8 +158,6 @@
     <string name="show_estimates_summ">Rādīt nākamās pārskatīšanas laiku uz atbilžu pogām</string>
     <string name="show_large_answer_buttons" maxLength="41">Rādīt lielas atbilžu pogas</string>
     <string name="show_large_answer_buttons_summ">Rādīt atbilžu pogas 2 rindās</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">Rādīt augšējo joslu</string>
     <string name="show_top_bar_summary">Rādīt kartīšu skaitu, atbildes laika skaitītāju, karogu un iezīmi augšējā joslā</string>
     <string name="show_progress" maxLength="41">Rādīt atlikušās</string>

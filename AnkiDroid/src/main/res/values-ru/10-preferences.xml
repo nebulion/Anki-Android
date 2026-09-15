@@ -158,8 +158,6 @@
     <string name="show_estimates_summ">Показывает время следующего повторения над кнопками ответа</string>
     <string name="show_large_answer_buttons" maxLength="41">Большие кнопки ответа</string>
     <string name="show_large_answer_buttons_summ">Показать кнопку ответа в 2 строки</string>
-    <string name="remove_animations" maxLength="41">Удалить анимации</string>
-    <string name="remove_animations_summary">Также включается, если анимация отключена в системных настройках</string>
     <string name="show_top_bar" maxLength="41">Показывать верхнюю панель</string>
     <string name="show_top_bar_summary">Показать счетчик карт, время ответа, флаг и отметку в верхней строке</string>
     <string name="show_progress" maxLength="41">Показать оставшиеся</string>

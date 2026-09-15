@@ -155,8 +155,6 @@
     <string name="show_estimates_summ">次の学習までの時間の間隔を回答ボタンの中に表示します</string>
     <string name="show_large_answer_buttons" maxLength="41">回答ボタンを幅広に表示</string>
     <string name="show_large_answer_buttons_summ">「解答を表示」ボタンの縦幅を２倍にし、回答ボタンを縦２列で表示します</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">トップバーを表示</string>
     <string name="show_top_bar_summary">カードの残り枚数、回答時間測定タイマー、フラグ、マークをトップバーに表示する</string>
     <string name="show_progress" maxLength="41">残りのカード枚数を表示</string>

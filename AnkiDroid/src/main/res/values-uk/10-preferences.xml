@@ -159,8 +159,6 @@
     <string name="show_estimates_summ">Показувати час наступного повторення над кнопками відповіді</string>
     <string name="show_large_answer_buttons" maxLength="41">Показувати великі кнопки відповідей</string>
     <string name="show_large_answer_buttons_summ">Показувати кнопку відповіді в 2 рядках</string>
-    <string name="remove_animations" maxLength="41">Вимкнути анімацію</string>
-    <string name="remove_animations_summary">Також активовано, якщо анімація вимкнута в системних налаштуваннях</string>
     <string name="show_top_bar" maxLength="41">Показувати верхню панель</string>
     <string name="show_top_bar_summary">Показувати кількість карток, таймер відповіді, прапорець і позначку у верхній панелі</string>
     <string name="show_progress" maxLength="41">Показувати ті, що залишилися</string>

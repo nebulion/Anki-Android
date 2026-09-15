@@ -194,7 +194,6 @@
     <string name="pref_cat_workarounds_key">category_workarounds</string>
     <string name="pref_ankidroid_directory_key">deckPath</string>
     <string name="disable_hardware_render_key">softwareRender</string>
-    <string name="safe_display_key">safeDisplay</string>
     <string name="use_input_tag_key">useInputTag</string>
     <string name="disable_single_field_edit_key">disableExtendedTextUi</string>
     <string name="note_editor_newline_replace_key">noteEditorNewlineReplace</string>

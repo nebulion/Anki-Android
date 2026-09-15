@@ -156,8 +156,6 @@
     <string name="show_estimates_summ">Mostrar a próxima revisão acima dos botões de resposta</string>
     <string name="show_large_answer_buttons" maxLength="41">Mostrar botões de resposta grandes</string>
     <string name="show_large_answer_buttons_summ">Mostra o botão de respostas em 2 linhas.</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">Mostrar barra superior</string>
     <string name="show_top_bar_summary">Mostrar contagem de cartas, bandeira e marcações na barra superior</string>
     <string name="show_progress" maxLength="41">Mostar restantes</string>

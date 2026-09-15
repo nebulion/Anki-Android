@@ -156,8 +156,6 @@
     <string name="show_estimates_summ">Montri tempon de sekva ripeto ĉe butonoj de respondoj</string>
     <string name="show_large_answer_buttons" maxLength="41">Grandaj respondobutonoj</string>
     <string name="show_large_answer_buttons_summ">Montri respondobutonojn en 2 vicoj</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">Montri supran strion</string>
     <string name="show_top_bar_summary">Montri nombron da kartoj, tempon de respondo, flagon kaj markon sur la supra strio</string>
     <string name="show_progress" maxLength="41">Montri pliajn kartojn</string>

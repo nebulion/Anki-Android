@@ -157,8 +157,6 @@
     <string name="show_estimates_summ">Show next review time on answer buttons</string>
     <string name="show_large_answer_buttons" maxLength="41">𐌼𐌹𐌺𐌹𐌻𐍉𐍃 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌴 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="show_large_answer_buttons_summ">𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌴 𐌹𐌽 𐍄𐍅𐌰𐌹𐌼 𐍅𐌹𐌺𐍉𐌼 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">𐌰𐌽𐍃 𐌰𐌿𐌷𐌿𐌼𐌹𐍃𐍄𐌰𐌽𐌰 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="show_top_bar_summary">𐌺𐌰𐍂𐍄𐍉 𐍂𐌰𐌸𐌾𐍉𐌽𐍃, 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌰𐌹𐍃 𐌸𐌴𐌹𐌷𐍃, 𐍆𐌰𐌽𐌰𐌽 𐌾𐌰𐌷 𐌱𐌰𐌽𐌳𐍅𐍉𐌽 𐌹𐌽 𐌰𐌽𐍃𐌰 𐌰𐌿𐌷𐌿𐌼𐌹𐍃𐍄𐌰𐌽𐌰 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="show_progress" maxLength="41">𐌱𐌹𐌻𐌴𐌹𐌱𐌰𐌽𐌳𐍉𐌽𐌰 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>

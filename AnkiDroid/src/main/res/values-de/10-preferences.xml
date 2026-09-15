@@ -156,8 +156,6 @@
     <string name="show_estimates_summ">Zeigt Zeiten bis zur nächsten Wiederholung auf den Antwortschaltflächen</string>
     <string name="show_large_answer_buttons" maxLength="41">Große Antwortschaltflächen anzeigen</string>
     <string name="show_large_answer_buttons_summ">Antwort-Fläche in 2 Zeilen anzeigen</string>
-    <string name="remove_animations" maxLength="41">Animationen entfernen</string>
-    <string name="remove_animations_summary">Auch Aktiviert wenn Animationen in den Systemeinstellungen entfernt wurden</string>
     <string name="show_top_bar" maxLength="41">Obere Leiste anzeigen</string>
     <string name="show_top_bar_summary">Kartenzähler, Antwort-Timer, Flagge und Markierung in der oberen Leiste anzeigen</string>
     <string name="show_progress" maxLength="41">Fällige anzeigen</string>

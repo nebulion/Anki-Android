@@ -156,8 +156,6 @@
     <string name="show_estimates_summ">Mostrar el próximo repaso en los botones de respuesta</string>
     <string name="show_large_answer_buttons" maxLength="41">Mostrar botones de respuestas grandes</string>
     <string name="show_large_answer_buttons_summ">Mostrar botón de respuesta en 2 filas</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">Mostrar Barra Superior</string>
     <string name="show_top_bar_summary">Mostrar recuento de cartas, temporizador de respuesta, bandera y marca en la barra superior</string>
     <string name="show_progress" maxLength="41">Mostrar restante</string>

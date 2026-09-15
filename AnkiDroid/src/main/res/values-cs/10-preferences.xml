@@ -158,8 +158,6 @@
     <string name="show_estimates_summ">Zobrazit čas příštího opakování na tlačítkách odpovědí</string>
     <string name="show_large_answer_buttons" maxLength="41">Zobrazit velká tlačítka odpovědí</string>
     <string name="show_large_answer_buttons_summ">Zobrazit tlačítka odpovědí ve dvou řadách</string>
-    <string name="remove_animations" maxLength="41">Odstranit animace</string>
-    <string name="remove_animations_summary">Také povoleno, pokud jsou animace odstraněny v nastavení systému</string>
     <string name="show_top_bar" maxLength="41">Zobrazit horní lištu</string>
     <string name="show_top_bar_summary">Zobrazit počty karet, čas odpovědi, příznak a označení v horní liště</string>
     <string name="show_progress" maxLength="41">Zobrazit zbývající</string>

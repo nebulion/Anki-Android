@@ -156,8 +156,6 @@
     <string name="show_estimates_summ">ಉತ್ತರ ಬಟನ್‌ಗಳಲ್ಲಿ ಮುಂದಿನ ವಿಮರ್ಶೆ ಸಮಯವನ್ನು ತೋರಿಸಿ</string>
     <string name="show_large_answer_buttons" maxLength="41">ದೊಡ್ಡ ಉತ್ತರ ಬಟನ್‌ಗಳನ್ನು ತೋರಿಸಿ</string>
     <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">ಮೇಲಿನ ಪಟ್ಟಿಯನ್ನು ತೋರಿಸಿ</string>
     <string name="show_top_bar_summary">Show card counts, answer timer, flag and mark in top bar</string>
     <string name="show_progress" maxLength="41">ಏನು ಉಳಿದಿದೆ ಎಂಬುದನ್ನು ತೋರಿಸಿ</string>

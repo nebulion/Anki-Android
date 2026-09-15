@@ -155,8 +155,6 @@
     <string name="show_estimates_summ">Hiển thị thời gian đánh giá tiếp theo trên các nút trả lời</string>
     <string name="show_large_answer_buttons" maxLength="41">Show large answer buttons</string>
     <string name="show_large_answer_buttons_summ">Hiển thị nút trả lời thành 2 hàng</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">Hiển thị thanh trên cùng</string>
     <string name="show_top_bar_summary">Hiển thị số lượng thẻ, đồng hồ đếm thời gian trả lời, cờ đánh dấu và dấu ở thanh trên cùng</string>
     <string name="show_progress" maxLength="41">Hiển thị còn lại</string>

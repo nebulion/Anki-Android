@@ -159,8 +159,6 @@
     <string name="show_estimates_summ">Ant atsakymo mygtukų rodyti kiek liko laiko iki sekančios peržiūros</string>
     <string name="show_large_answer_buttons" maxLength="41">Show large answer buttons</string>
     <string name="show_large_answer_buttons_summ">Rodyti atsakymo mygtuką 2 eilutėse</string>
-    <string name="remove_animations" maxLength="41">Remove animations</string>
-    <string name="remove_animations_summary">Also enabled if animations are removed on the system settings</string>
     <string name="show_top_bar" maxLength="41">Rodyti viršutinę juostą</string>
     <string name="show_top_bar_summary">Viršutinėje juostoje rodyti kortelių skaičių, atsakymų laikmatį, vėliavėlę ir ženklą</string>
     <string name="show_progress" maxLength="41">Likusių kortelių rodymas</string>

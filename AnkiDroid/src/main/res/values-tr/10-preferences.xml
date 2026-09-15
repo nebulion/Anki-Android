@@ -156,8 +156,6 @@
     <string name="show_estimates_summ">Cevap düğmelerinin üzerinde sonraki çıkma zamanını göster</string>
     <string name="show_large_answer_buttons" maxLength="41">Büyük cevap düğmelerini göster</string>
     <string name="show_large_answer_buttons_summ">Cevap düğmesini 2 satırda göster</string>
-    <string name="remove_animations" maxLength="41">Animasyonları kaldır</string>
-    <string name="remove_animations_summary">Sistem ayarlarında animasyonlar kaldırılırsa da etkinleştirilir</string>
     <string name="show_top_bar" maxLength="41">Üst Çubuğu Göster</string>
     <string name="show_top_bar_summary">Kart sayılarını, cevap kronometresini, bayrağı ve işareti üst çubukta göster</string>
     <string name="show_progress" maxLength="41">Kalanı göster</string>

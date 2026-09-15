@@ -13,7 +13,6 @@ import com.ichi2.anki.AnkiDroidApp
 import com.ichi2.anki.BuildConfig
 import com.ichi2.anki.R
 import com.ichi2.anki.cardviewer.TapGestureMode
-import com.ichi2.anki.common.preferences.AnimationPreferences
 import com.ichi2.anki.common.preferences.sharedPrefs
 import com.ichi2.anki.common.utils.isRunningAsUnitTest
 import com.ichi2.anki.settings.enums.AppTheme
@@ -35,7 +34,7 @@ object Prefs : PrefsRepository(AnkiDroidApp.sharedPrefs(), AnkiDroidApp.appResou
 open class PrefsRepository(
     val sharedPrefs: SharedPreferences,
     private val resources: Resources,
-) : AnimationPreferences {
+) {
     constructor(context: Context) : this(context.sharedPrefs(), context.resources)
 
     @VisibleForTesting
@@ -394,7 +393,6 @@ open class PrefsRepository(
 
     val answerButtonsSize: Int by intPref(R.string.answer_button_size_preference, 100)
     val cardZoom: Int by intPref(R.string.card_zoom_preference, 100)
-    override val removeAppAnimations by booleanPref(R.string.safe_display_key, defaultValue = false)
 
     // **************************************** Advanced **************************************** //
 

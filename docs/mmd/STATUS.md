@@ -91,7 +91,8 @@ Both were deleted rather than disabled, at the owner's request.
 | 6. TTS and recording | Deleted (app and unit tests compile): `ReadText`, `TtsParser`, `TtsVoices`, `AndroidTtsPlayer`, the TTS voices and playback-error dialogs, the `{{tts-voices:}}` field filter, `recorder/`, the 'Read text' and 'allow templates to record audio' settings, the developer TTS shortcut, and the `RECORD_AUDIO`/`MODIFY_AUDIO_SETTINGS` permissions. `CardMediaPlayer` keeps `[sound:]` playback and skips `{{tts:}}` tags; card WebViews deny every permission request |
 | 7. Drawer, bottom nav, FAB, deck long-press menu, tablet layouts | **Folded into Phase 3**: nearly all of it lives in the 2,400-line legacy `DeckPicker`, which Phase 3 replaces with `DeckListScreenMMD` and deletes (`activity_homescreen`, `DeckAdapter`, `DeckPickerContextMenu`); editing it now would be throwaway |
 | 8. Themes | Done: E Ink is the only theme and night mode is forced off. `NightTheme`, `AppTheme`, the theme prefs and settings, the dark/black/plain XML and their orphan selectors are deleted. `Themes.isNightTheme` stays as a constant `false`, so its ~8 callers still compile; they go with their screens in Phases 3–5 |
-| 9. Settings screens | Next |
+| 9. Settings screens | Done (app and unit tests compile): Appearance (and with it the deck list background picker), Custom buttons, Developer options (and the About logo tap that enabled them), Switch profiles plus the whole unused `multiprofile` package and its docs, and the Controls keyboard-shortcuts row. The new study screen is now on by default (`Prefs.isNewStudyScreenEnabled` defaults to `true`). The MMD kit gallery moved to a debug-only row at the bottom of Advanced. **Deferred to Phase 5** (settings rebuilt in Compose): limiting the Controls bindings to touch gestures, since keys, gestures and gamepad share `ControlPreference` |
+| 10. Tests and orphaned resources | Next: the Phase 1 build, `-PfastLint` prune, full lint, unit tests |
 
 ## Pre-existing issues (not caused by the fork)
 
@@ -109,15 +110,10 @@ Both were deleted rather than disabled, at the owner's request.
   `com.ichi2.anki.flashcards` (`api/build.gradle.kts:29`) while the manifest declares
   `${applicationId}.flashcards`. Upstream `.debug` builds already have this mismatch. The
   provider only serves third-party apps adding notes (authoring), which Phase 1 removes.
-- **Developer option "Set Database to pre-Scoped Storage default"** points the collection at
-  `/storage/emulated/0/AnkiDroid`, the real collection's folder. The fork cannot read it
-  without storage permission on Android 12, but delete the option in Phase 1 regardless.
 - `HelpItemActionsDispatcher` still calls `CrashReportService.sendReport`; it now returns
   `false`. Help is deleted in Phase 1.
 - `ComposeHostFragment` subclasses implement `ScreenContent()`, never `Content()`: inside
   `ComposeView.apply { }` that name resolves to `ComposeView.Content()` and recurses.
-- `docs/multiprofile/README.md:44` still cites the removed `Prefs.removeAppAnimations`; the
-  profiles code and its docs go in Phase 1 step 9.
 
 ## Design kit (in the repo, `AnkiDroid/src/main/java/com/ichi2/compose/mmd/`)
 
@@ -135,7 +131,7 @@ Every MMD signature used was checked against `mudita/MMD@0b8940c` source.
 `MmdTokens`: `Library` (default — 56dp rows, 8dp corners) and `KompaktSystem` (64dp rows,
 16dp corners, as measured). Swap with `MmdTheme(tokens = MmdTokens.KompaktSystem)`.
 
-**Developer options → MMD kit gallery** opens `MmdKitGalleryFragment` (debug builds) with
+**Settings → Advanced → MMD kit gallery** (last row) opens `MmdKitGalleryFragment` (debug builds) with
 every component, for checking on the panel. New preference keys: `einkRefreshEnabled`,
 `einkRefreshInterval`, `mmdKitGallery`.
 

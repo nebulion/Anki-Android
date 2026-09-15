@@ -13,7 +13,6 @@ import com.android.tools.lint.detector.api.Scope
 import com.android.tools.lint.detector.api.SourceCodeScanner
 import com.google.common.annotations.VisibleForTesting
 import com.ichi2.anki.lint.utils.Constants
-import com.ichi2.anki.lint.utils.LintUtils
 import org.jetbrains.uast.UElement
 import org.jetbrains.uast.UImportStatement
 
@@ -51,9 +50,7 @@ class AvoidAlertDialogUsage :
         object : UElementHandler() {
             override fun visitImportStatement(node: UImportStatement) {
                 val importReference = node.asSourceString()
-                if (importReference.contains("android.app.AlertDialog") &&
-                    !LintUtils.isAnAllowedClass(context.uastFile!!.classes, "AnkiDroidCrashReportDialog")
-                ) {
+                if (importReference.contains("android.app.AlertDialog")) {
                     context.report(
                         ISSUE,
                         node,

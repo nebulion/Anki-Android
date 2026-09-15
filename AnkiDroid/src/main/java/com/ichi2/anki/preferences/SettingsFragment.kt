@@ -20,7 +20,6 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import androidx.preference.PreferenceManager.OnPreferenceTreeClickListener
-import com.ichi2.anki.analytics.AnkiDroidUsageAnalytics
 import com.ichi2.anki.common.analytics.Analytics
 import com.ichi2.anki.common.analytics.AnalyticsEvent
 import com.ichi2.anki.databinding.FragmentSettingsBinding
@@ -50,15 +49,7 @@ abstract class SettingsFragment :
     override fun onSharedPreferenceChanged(
         sharedPreferences: SharedPreferences,
         key: String?,
-    ) {
-        if (key !in AnkiDroidUsageAnalytics.reportablePreferences) {
-            return
-        }
-        if (key != null) {
-            val valueToReport = getPreferenceReportableValue(sharedPreferences.get(key))
-            Analytics.send(AnalyticsEvent.SettingChanged(key, valueToReport))
-        }
-    }
+    ) = Unit
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -4,7 +4,7 @@
 package com.ichi2.anki.common.analytics
 
 /**
- * Opt-in usage analytics, implemented in the app module by `AnkiDroidUsageAnalytics`.
+ * Usage analytics contract. This fork registers no implementation, so every call is a no-op.
  *
  * Takes no Android types, so it can live in `:common`. Setup that needs a `Context`
  * stays on the implementation.

@@ -81,6 +81,13 @@ Both were deleted rather than disabled, at the owner's request.
   keys and `layout/dialog_feedback.xml`. Deleted from `values/` and all 82 translated
   `values-*/` (`660de76`); lint now reports none.
 
+## Phase 1 — Delete what the Kompakt won't use
+
+| Step | State |
+| --- | --- |
+| 1. Widgets | Deleted (building): the four providers (small, add note, deck picker, card analysis), both config activities, `WidgetPermissionReceiver`, `WidgetRegistry`, the provider/alarm/config code in `:widgets`, their layouts, drawables and `widget_provider_*` XML, 6 widget tests, the manifest entries, the recurring-alarm restore in `AnkiDroidApp`/`BootService`, and `AnkiDroidApp`'s `ChangeManager` subscription (it only refreshed widgets). Lint then flagged 20 orphaned resources: 12 strings/plurals × 83 locales, 3 sample deck names, 5 `drawable-v31` icons — all deleted. **Kept:** `WidgetStatus` (now only the due count behind the legacy 'cards due' notification), `DayRolloverAlarm`, `MetaDB.smallWidgetStatus`, and `:widgets`' `SmallWidgetStatus`/`WidgetRepository`/`WidgetNotificationScheduler` |
+| 2. Outside world | Next |
+
 ## Pre-existing issues (not caused by the fork)
 
 - **Lint** also reports `ThreadConstraint` (23), `WrongThread` (14) and
@@ -136,3 +143,10 @@ every component, for checking on the panel. New preference keys: `einkRefreshEna
   staged Kotlin files and fixes what it can.
 - First full build ~8 min; a targeted test run ~3–5 min; lint ~10 min. Run Gradle in the
   background and never edit sources while a build or lint is running.
+- Deleting files trips Kotlin's incremental cache (`Incremental compilation failed …
+  dirtyLookupSymbols`) and it falls back to a full recompile. Batch deletions per build.
+- **Faster loops.** `tools/mmd/gradle-high.sh <args>` runs `./gradlew` with every Java process
+  raised to High priority. `-PfastLint` limits lint to `UnusedResources` on main sources (can
+  flag resources used only by tests); run full lint once per phase.
+- **Machine memory** lives in `C:\Users\Antonio\.gradle\gradle.properties` (not in git):
+  Gradle daemon `-Xmx5g`, Kotlin daemon `-Xmx3g`, ParallelGC. The repo keeps upstream's 3 GB.

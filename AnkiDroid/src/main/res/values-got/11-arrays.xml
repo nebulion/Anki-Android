@@ -21,10 +21,6 @@
 <resources>
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
-    <!-- error_reporting_choice_labels -->
-    <string name="error_reporting_choice_always_report">𐍃𐌹𐌽𐍄𐌴𐌹𐌽𐍉 𐌼𐌴𐍂𐌾𐌰𐌽</string>
-    <string name="error_reporting_choice_never_report">𐌽𐌹 𐌰𐌹𐍅 𐌼𐌴𐍂𐌾𐌰𐌽</string>
-    <string name="error_reporting_choice_ask_user">𐌼𐌴𐌹𐌽𐌰 𐌱𐌹𐌳𐌾𐌰𐌽</string>
     <!-- add_to_cur_labels -->
     <string name="add_to_deck_use_current_deck">𐌰𐌽𐌳𐍅𐌰𐌹𐍂𐌸𐌹𐍃 𐌷𐌰𐍂𐍄𐌰𐌷𐌿𐌶𐌳𐌹𐍃 𐌱𐍂𐌿𐌺𐌾𐌰𐌽</string>
     <string name="add_to_deck_decide_by_note_type">Decide by note type</string>

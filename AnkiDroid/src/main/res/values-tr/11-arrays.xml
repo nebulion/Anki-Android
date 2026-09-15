@@ -21,10 +21,6 @@
 <resources>
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
-    <!-- error_reporting_choice_labels -->
-    <string name="error_reporting_choice_always_report">Her zaman bildir</string>
-    <string name="error_reporting_choice_never_report">Hiçbir zaman bildirme</string>
-    <string name="error_reporting_choice_ask_user">Bana sor</string>
     <!-- add_to_cur_labels -->
     <string name="add_to_deck_use_current_deck">Geçerli desteyi kullan</string>
     <string name="add_to_deck_decide_by_note_type">Not türüne göre karar ver</string>

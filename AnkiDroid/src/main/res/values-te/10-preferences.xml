@@ -227,9 +227,6 @@
     <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">సాధారణం</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">శోధన</string>
     <!-- analytics options -->
-    <string name="analytics_dialog_title">AnkiDroidని మెరుగుపరచడంలో సహాయపడండి!</string>
-    <string name="analytics_title" maxLength="41">ఫీచర్ వినియోగాన్ని భాగస్వామ్యం చేయండి</string>
-    <string name="analytics_summ">వ్యక్తులు ఉపయోగించే ఫీచర్‌లను చూడటంలో డెవలప్‌మెంట్ బృందానికి సహాయం చేయడం ద్వారా మీరు AnkiDroidకి సహకరించవచ్చు</string>
     <string name="note_editor_replace_newlines" maxLength="41">కొత్త పంక్తులను HTMLతో భర్తీ చేయండి</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">\'టైప్ ఇన్ ఆన్సర్\'పై దృష్టి పెట్టండి</string>

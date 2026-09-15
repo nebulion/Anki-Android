@@ -227,9 +227,6 @@
     <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">一般</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">搜尋</string>
     <!-- analytics options -->
-    <string name="analytics_dialog_title">幫助 AnkiDroid 做得更好！</string>
-    <string name="analytics_title" maxLength="41">分享功能使用方式</string>
-    <string name="analytics_summ">你可以通過幫助開發團隊看看人們在用什麼功能，來為 AnkiDroid 做出貢獻</string>
     <string name="note_editor_replace_newlines" maxLength="41">以HTML取代新列</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">聚焦“輸入答案”</string>

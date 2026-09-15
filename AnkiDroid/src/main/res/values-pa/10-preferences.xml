@@ -228,9 +228,6 @@
     <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">ਜਨਰਲ</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">ਖੋਜ</string>
     <!-- analytics options -->
-    <string name="analytics_dialog_title">AnkiDroid ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰੋ!</string>
-    <string name="analytics_title" maxLength="41">ਵਿਸ਼ੇਸ਼ਤਾ ਦੀ ਵਰਤੋਂ ਸਾਂਝੀ ਕਰੋ</string>
-    <string name="analytics_summ">ਤੁਸੀਂ ਵਿਕਾਸ ਟੀਮ ਦੀ ਇਹ ਦੇਖਣ ਵਿੱਚ ਮਦਦ ਕਰਕੇ AnkiDroid ਵਿੱਚ ਯੋਗਦਾਨ ਪਾ ਸਕਦੇ ਹੋ ਕਿ ਲੋਕ ਕਿਹੜੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹਨ</string>
     <string name="note_editor_replace_newlines" maxLength="41">ਨਵੀਆਂ ਲਾਈਨਾਂ ਨੂੰ HTML ਨਾਲ ਬਦਲੋ</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">ਫੋਕਸ \'ਜਵਾਬ ਟਾਈਪ ਕਰੋ\'</string>

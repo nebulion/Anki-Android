@@ -21,10 +21,6 @@
 <resources>
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
-    <!-- error_reporting_choice_labels -->
-    <string name="error_reporting_choice_always_report">Всегда</string>
-    <string name="error_reporting_choice_never_report">Никогда</string>
-    <string name="error_reporting_choice_ask_user">Спрашивать</string>
     <!-- add_to_cur_labels -->
     <string name="add_to_deck_use_current_deck">Использовать текущую</string>
     <string name="add_to_deck_decide_by_note_type">Выбрать по типу записи</string>

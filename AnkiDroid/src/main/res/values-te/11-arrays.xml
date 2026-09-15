@@ -21,10 +21,6 @@
 <resources>
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
-    <!-- error_reporting_choice_labels -->
-    <string name="error_reporting_choice_always_report">ఎల్లప్పుడూ రిపోర్ట్ చెయ్యండి</string>
-    <string name="error_reporting_choice_never_report">ఎప్పుడూ రిపోర్ట్ చెయ్యండి</string>
-    <string name="error_reporting_choice_ask_user">నన్ను అడుగు</string>
     <!-- add_to_cur_labels -->
     <string name="add_to_deck_use_current_deck">ప్రస్తుత డెక్ ఉపయోగించండి</string>
     <string name="add_to_deck_decide_by_note_type">గమనిక రకం ద్వారా నిర్ణయిస్తారు</string>

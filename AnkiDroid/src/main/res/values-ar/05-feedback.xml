@@ -25,13 +25,5 @@
 <resources>
     <!-- Feedback.java -->
     <string name="empty_string"></string>
-    <string name="error_reporting_choice" maxLength="41">وضعية الإبلاغ عن الأخطاء</string>
-    <string name="feedback_disclaimer">تنويه: لا نجمع أي معلومات شخصية عنك مثل عنوان البريد الإلكتروني الخاص بك أو رَقْم هاتفك أو IMEI الخاص بهاتفك. لكننا نجمع بعض المعلومات عن جهازك مثل الشركة المصنعة والطراز ونسخة أندرويد الخاص بجهازك، فضلا عن طبيعة تقارير الخطأ بحد ذاتها والخطوات التي أدت إلى حدوثها.</string>
-    <string name="feedback_title">آراء واقتراحات حول آنكي درويد</string>
-    <string name="feedback_default_text">أدخِل ملاحظاتك أو أدخِل معلومات عن طبيعة أي عُطل تُبلِّغ عنه.</string>
-    <string name="feedback_auto_toast_text">واجه آنكي درويد مشكلةً؛ يُجرى إرسال تقرير إلى المطورين&#8230;</string>
-    <string name="feedback_for_manual_toast_text">يتم إعداد تقرير خطأ للمطورين&#8230;</string>
-    <string name="feedback_report">إبلاغ</string>
-    <string name="feedback_report_automatically">إرسال تقارير الأخطاء تلقائيًا</string>
     <string name="feedback_no_suitable_app_found">لا توجد تطبيقات مناسبة</string>
 </resources>

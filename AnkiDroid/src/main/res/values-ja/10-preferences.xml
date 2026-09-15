@@ -227,9 +227,6 @@
     <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">一般</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">抽出条件</string>
     <!-- analytics options -->
-    <string name="analytics_dialog_title">機能向上のためご協力ください</string>
-    <string name="analytics_title" maxLength="41">設定の情報提供を許可する</string>
-    <string name="analytics_summ">各機能の使用傾向を開発チームが把握しやすくなり、AnkiDroidの機能向上に役立ちます</string>
     <string name="note_editor_replace_newlines" maxLength="41">改行タグを改行に置き換えて表示</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">文字入力欄にフォーカス</string>

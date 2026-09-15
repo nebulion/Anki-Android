@@ -229,9 +229,6 @@
     <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">Pangkalahatan</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Paghahanap</string>
     <!-- analytics options -->
-    <string name="analytics_dialog_title">Tulungang pabutihin pa ang AnkiDroid!</string>
-    <string name="analytics_title" maxLength="41">Ibahagi ang paggamit ng mga katangian</string>
-    <string name="analytics_summ">Maaari ka mag-ambag sa AnkiDroid sa pagtulong sa development team na makita ang mga katangiang madalas ginagamit ng mga tao</string>
     <string name="note_editor_replace_newlines" maxLength="41">Palitan ang mga newlines ng HTML</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Tampulan ang \'i-type ang sagot\'</string>

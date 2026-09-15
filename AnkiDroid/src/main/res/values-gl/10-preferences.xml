@@ -230,9 +230,6 @@
     <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">Xeral</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Buscar</string>
     <!-- analytics options -->
-    <string name="analytics_dialog_title">Axuda a mellorar AnkiDroid!</string>
-    <string name="analytics_title" maxLength="41">Compartir o uso das funcións</string>
-    <string name="analytics_summ">Podes contribuír ao AnkiDroid axudando ao equipo de desenvolvedores a saber que funcións se usan máis</string>
     <string name="note_editor_replace_newlines" maxLength="41">Substituír os saltos de liña por HTML</string>
     <string name="note_editor_replace_newlines_summ">No editor de notas, converte os casos de &lt;br&gt; en novas liñas ao editar unha tarxeta.</string>
     <string name="type_in_answer_focus" maxLength="41">Resaltar \"escribe a resposta\"</string>

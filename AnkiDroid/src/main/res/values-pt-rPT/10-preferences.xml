@@ -230,9 +230,6 @@
     <string name="deck_conf_general" maxLength="41" comment="Label of the submenu for the general options of new deck">Geral</string>
     <string name="deck_conf_cram_search" maxLength="41" comment="Label of a text field that contains a search query.">Procurar</string>
     <!-- analytics options -->
-    <string name="analytics_dialog_title">Ajude a tornar o AnkiDroid melhor!</string>
-    <string name="analytics_title" maxLength="41">Partilhar dados de utilização da funcionalidade</string>
-    <string name="analytics_summ">Podes contribuir para o AnkiDroid ao ajudar a equipa de programadores a ver quais os recursos as pessoas usam</string>
     <string name="note_editor_replace_newlines" maxLength="41">Substituir novas linhas por HTML</string>
     <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Focar a caixa de resposta</string>

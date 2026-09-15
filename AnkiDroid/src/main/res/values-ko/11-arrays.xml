@@ -21,10 +21,6 @@
 <resources>
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
-    <!-- error_reporting_choice_labels -->
-    <string name="error_reporting_choice_always_report">항상 보고하기</string>
-    <string name="error_reporting_choice_never_report">보고하지 않기</string>
-    <string name="error_reporting_choice_ask_user">오류 보고 전 묻기</string>
     <!-- add_to_cur_labels -->
     <string name="add_to_deck_use_current_deck">현재 덱 사용하기</string>
     <string name="add_to_deck_decide_by_note_type">노트 형식에 따라 결정</string>

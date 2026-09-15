@@ -10,6 +10,8 @@ on:
   push:
     branches:
       - mmd-eink
+      # work in progress, e.g. a phase verified while the previous one is still running
+      - "mmd-**"
 
 permissions:
   contents: read
@@ -67,6 +69,14 @@ jobs:
           set -o pipefail
           ./gradlew :AnkiDroid:testPlayDebugUnitTest --continue 2>&1 | tee tests.log
 
+      - name: Screenshots (Kompakt, E Ink)
+        # informational: a screenshot failure does not fail the job
+        id: screenshots
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          ./gradlew :AnkiDroid:recordRoborazziPlayDebug -Pscreenshot -Ptheme=eink -Pdevice=kompakt --continue 2>&1 | tee screenshots.log
+
       - name: Report build
         if: always()
         run: python3 tools/mmd/ci_report.py build
@@ -88,8 +98,25 @@ jobs:
             build.log
             lint.log
             tests.log
+            screenshots.log
             AnkiDroid/build/reports/lint-results-playDebug.*
             AnkiDroid/build/test-results/testPlayDebugUnitTest/
+          if-no-files-found: ignore
+
+      - name: Upload debug APK
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: mmd-apk
+          path: AnkiDroid/build/outputs/apk/play/debug/*.apk
+          if-no-files-found: ignore
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: mmd-screenshots
+          path: AnkiDroid/build/outputs/roborazzi/
           if-no-files-found: ignore
 
       - name: Fail if a check failed

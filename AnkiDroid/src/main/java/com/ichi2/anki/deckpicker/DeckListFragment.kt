@@ -40,8 +40,9 @@ class DeckListFragment : ComposeHostFragment() {
             onSync = { home.onSyncPressed() },
             onStatistics = { home.openStatistics() },
             onMore = { home.openMore() },
-            onDeckClick = { home.openDeck(it) },
-            onDeckLongPress = { home.studyDeck(it) },
+            // owner's call (2026-09-15): tap studies, long press opens the deck page
+            onDeckClick = { home.studyDeck(it) },
+            onDeckLongPress = { home.openDeck(it) },
             onToggleExpand = { viewModel.toggleDeckExpand(it) },
             onSignIn = { home.loginToSyncServer() },
             onImport = { home.showImportDialog() },

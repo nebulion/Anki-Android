@@ -181,4 +181,12 @@
     <string name="set_due_date_date_range">Дыяпазон даты</string>
     <string comment="Shown when retrying a running action" name="already_in_progress">Ужо выконваецца</string>
     <!-- Switch profiles screen -->
+    <plurals name="studyoptions_buried_count">
+        <item quantity="one">+%d адкладзеная</item>
+        <item quantity="few">+%d адкладзеныя</item>
+        <item quantity="many">+%d адкладзеных</item>
+        <item quantity="other">+%d адкладзеных</item>
+    </plurals>
+    <string name="studyoptions_total_new_label">Усяго новых картак</string>
+    <string name="studyoptions_total_label">Усяго картак</string>
 </resources>

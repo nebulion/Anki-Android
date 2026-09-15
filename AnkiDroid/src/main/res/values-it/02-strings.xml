@@ -183,4 +183,10 @@
     <string name="set_due_date_date_range">Date range</string>
     <string comment="Shown when retrying a running action" name="already_in_progress">Already in progress</string>
     <!-- Switch profiles screen -->
+    <plurals name="studyoptions_buried_count">
+        <item quantity="one">+sepolto</item>
+        <item quantity="other">+sepolto</item>
+    </plurals>
+    <string name="studyoptions_total_new_label">Totale carte nuove</string>
+    <string name="studyoptions_total_label">Carte totali</string>
 </resources>

@@ -183,4 +183,14 @@
     <string name="set_due_date_date_range">مدة</string>
     <string comment="Shown when retrying a running action" name="already_in_progress">قيد الإجراء</string>
     <!-- Switch profiles screen -->
+    <plurals name="studyoptions_buried_count">
+        <item quantity="zero">+%d مدفونة</item>
+        <item quantity="one">+ %d مدفونة</item>
+        <item quantity="two">+%d مدفونتان</item>
+        <item quantity="few">+%d مدفونة</item>
+        <item quantity="many">+%d مدفونة</item>
+        <item quantity="other">+%d مدفونة</item>
+    </plurals>
+    <string name="studyoptions_total_new_label">مجموع البطاقات الجديدة</string>
+    <string name="studyoptions_total_label">مجموع البطاقات</string>
 </resources>

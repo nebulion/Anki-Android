@@ -15,6 +15,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -30,12 +31,13 @@ import com.ichi2.compose.mmd.PanelPrimaryAction
 import com.ichi2.compose.mmd.PanelSecondaryAction
 import com.ichi2.compose.mmd.ScreenHeader
 import com.mudita.mmd.components.text.TextMMD
+import java.text.NumberFormat
 
 /** What the deck page shows. `null` fields are still loading. */
 sealed interface DeckPageUiState {
     data object Loading : DeckPageUiState
 
-    /** Cards are due: counts and the Study button. */
+    /** Cards are due: today's counts, the Study button and the deck's totals. */
     data class Study(
         val deckName: String,
         val description: String?,
@@ -43,6 +45,14 @@ sealed interface DeckPageUiState {
         val learnCount: Int,
         val reviewCount: Int,
         val isFiltered: Boolean,
+        /** Cards in the deck and its subdecks. */
+        val totalCards: Int = 0,
+        /** New cards not studied yet, beyond today's limit too. */
+        val totalNewCards: Int = 0,
+        /** Cards buried until tomorrow; not counted in the three counts. */
+        val buriedCount: Int = 0,
+        /** When no learning card is due now: the backend's sentence for when the next one is, or `null`. */
+        val nextLearnDue: String? = null,
     ) : DeckPageUiState
 
     /** Nothing due today. */
@@ -121,38 +131,86 @@ fun DeckPageScreenMMD(
     }
 }
 
+/**
+ * Owner's layout "A" (2026-09-15): today's three counts as large tiles, Study, then the deck's
+ * totals and when the next learning card comes, so the page carries information instead of space.
+ */
 @Composable
 private fun StudyBody(
     state: DeckPageUiState.Study,
     onStudy: () -> Unit,
 ) {
-    CountRow(TR.actionsNew(), state.newCount)
-    DashedDividerMMD()
-    CountRow(TR.schedulingLearning(), state.learnCount)
-    DashedDividerMMD()
-    CountRow(TR.studyingToReview(), state.reviewCount)
+    Row(Modifier.fillMaxWidth()) {
+        CountTile(state.newCount, TR.actionsNew(), Modifier.weight(1f))
+        CountTile(state.learnCount, TR.schedulingLearning(), Modifier.weight(1f))
+        CountTile(state.reviewCount, TR.studyingToReview(), Modifier.weight(1f))
+    }
+    if (state.buriedCount > 0) {
+        TextMMD(
+            text =
+                LocalContext.current.resources.getQuantityString(
+                    R.plurals.studyoptions_buried_count,
+                    state.buriedCount,
+                    state.buriedCount,
+                ),
+            style = MaterialTheme.typography.bodyMedium,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth(),
+        )
+    }
     PanelPrimaryAction(
         label = stringResource(R.string.studyoptions_start),
         onClick = onStudy,
         modifier = Modifier.fillMaxWidth().heightIn(min = PanelDefaults.ButtonHeight),
     )
+    Column {
+        InfoRow(stringResource(R.string.studyoptions_total_label), state.totalCards)
+        DashedDividerMMD()
+        InfoRow(stringResource(R.string.studyoptions_total_new_label), state.totalNewCards)
+    }
+    if (state.nextLearnDue != null) {
+        TextMMD(text = state.nextLearnDue, style = MaterialTheme.typography.bodyMedium)
+    }
     val description = if (state.isFiltered) stringResource(R.string.dyn_deck_desc) else state.description
     if (!description.isNullOrBlank()) {
         TextMMD(text = description, style = MaterialTheme.typography.bodyMedium)
     }
 }
 
+/** One of today's counts: the number large and bold over its label. */
 @Composable
-private fun CountRow(
-    label: String,
+private fun CountTile(
     count: Int,
+    label: String,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+        TextMMD(
+            text = NumberFormat.getIntegerInstance().format(count),
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold,
+            maxLines = 1,
+        )
+        TextMMD(
+            text = label,
+            style = MaterialTheme.typography.bodyMedium,
+            textAlign = TextAlign.Center,
+            maxLines = 2,
+        )
+    }
+}
+
+/** A deck total: label on the left, value on the right. */
+@Composable
+private fun InfoRow(
+    label: String,
+    value: Int,
 ) {
     Row(Modifier.fillMaxWidth().heightIn(min = 48.dp), verticalAlignment = Alignment.CenterVertically) {
         TextMMD(text = label, style = MaterialTheme.typography.bodyLarge, modifier = Modifier.weight(1f))
         TextMMD(
-            text = count.toString(),
+            text = NumberFormat.getIntegerInstance().format(value),
             style = MaterialTheme.typography.bodyLarge,
-            fontWeight = FontWeight.Bold,
             textAlign = TextAlign.End,
         )
     }

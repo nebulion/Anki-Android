@@ -183,4 +183,10 @@
     <string name="set_due_date_date_range">Datumsbereich</string>
     <string comment="Shown when retrying a running action" name="already_in_progress">Schon in Arbeit</string>
     <!-- Switch profiles screen -->
+    <plurals name="studyoptions_buried_count">
+        <item quantity="one">+%d aufgeschoben</item>
+        <item quantity="other">+%d vergraben</item>
+    </plurals>
+    <string name="studyoptions_total_new_label">Neue Karten insgesamt</string>
+    <string name="studyoptions_total_label">Karten insgesamt</string>
 </resources>

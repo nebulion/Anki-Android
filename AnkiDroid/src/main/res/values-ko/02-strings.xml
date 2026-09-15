@@ -183,4 +183,9 @@
     <string name="set_due_date_date_range">날짜 범위</string>
     <string comment="Shown when retrying a running action" name="already_in_progress">이미 실행중입니다</string>
     <!-- Switch profiles screen -->
+    <plurals name="studyoptions_buried_count">
+        <item quantity="other">+%d 숨겨짐</item>
+    </plurals>
+    <string name="studyoptions_total_new_label">새 카드 수</string>
+    <string name="studyoptions_total_label">전체 카드 수</string>
 </resources>

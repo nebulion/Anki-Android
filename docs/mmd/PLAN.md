@@ -517,6 +517,14 @@ collection, card info from the reviewer, `.apkg` import.
    `settings-audit.md`: tap zones, reminders, E Ink flash).
 5. **You** uninstall 2.24.1. `/sdcard/AnkiDroid` stays until you delete it yourself.
 
+### Phase 8 — Card editor (late; owner's call, 2026-09-15)
+
+At the Phase 3 device check the owner tried to add cards. The fork is review-only
+([eink-design.md](eink-design.md)), and they said: "the card editor coulddd return, but it should
+be one of the last phases perhaps". Scope it after the cutover: add and edit notes with
+`TextFieldMMD` fields on MMD panels, reusing the note-type and deck pickers. No image occlusion,
+whiteboard, audio recording, or template editing unless asked. Estimate once Phase 7 lands.
+
 ## Per-screen workflow (every screen in Phases 2–6)
 1. Confirm the screen still exists after Phase 1; note the decision in `STATUS.md`.
 2. Record a Roborazzi baseline of the current screen (KOMPAKT, EINK).

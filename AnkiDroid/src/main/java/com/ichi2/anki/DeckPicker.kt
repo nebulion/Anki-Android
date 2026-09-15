@@ -206,6 +206,12 @@ open class DeckPicker :
      */
     private var syncOnResume = false
 
+    /**
+     * Whether this instance restores a destroyed home screen rather than opening it. With "Don't keep
+     * activities" on, that happens on every return; start-up work must not repeat.
+     */
+    private var isRecreated = false
+
     private val loginForSyncLauncher =
         registerForActivityResult(
             ActivityResultContracts.StartActivityForResult(),
@@ -327,9 +333,12 @@ open class DeckPicker :
 
         binding = ActivityHomescreenBinding.inflate(layoutInflater)
 
-        if (intent.hasExtra(INTENT_SYNC_FROM_LOGIN)) {
+        isRecreated = savedInstanceState != null
+        // The extra stays on the activity's intent, so a rebuilt home screen would sync again
+        if (!isRecreated && intent.hasExtra(INTENT_SYNC_FROM_LOGIN)) {
             Timber.d("launched from login: syncing")
             syncOnResume = true
+            intent.removeExtra(INTENT_SYNC_FROM_LOGIN)
         }
 
         setViewBinding(binding)
@@ -922,6 +931,10 @@ open class DeckPicker :
      * Automatic sync
      */
     private fun onFinishedStartup() {
+        if (isRecreated) {
+            Timber.d("Home screen recreated: skipping the start-up sync and backup prompt")
+            return
+        }
         launchCatchingTask {
             if (!automaticSync()) {
                 BackupPromptDialog.showIfAvailable(this@DeckPicker)

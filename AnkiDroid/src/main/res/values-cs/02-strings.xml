@@ -183,4 +183,12 @@
     <string name="set_due_date_date_range">Časové období</string>
     <string comment="Shown when retrying a running action" name="already_in_progress">Already in progress</string>
     <!-- Switch profiles screen -->
+    <plurals name="studyoptions_buried_count">
+        <item quantity="one">+%d přeskočená</item>
+        <item quantity="few">+%d přeskočené</item>
+        <item quantity="many">+%d přeskočené</item>
+        <item quantity="other">+%d přeskočených</item>
+    </plurals>
+    <string name="studyoptions_total_new_label">Všechny nové karty</string>
+    <string name="studyoptions_total_label">Všechny karty</string>
 </resources>

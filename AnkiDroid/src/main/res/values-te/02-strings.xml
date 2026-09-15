@@ -183,4 +183,10 @@
     <string name="set_due_date_date_range">Date range</string>
     <string comment="Shown when retrying a running action" name="already_in_progress">Already in progress</string>
     <!-- Switch profiles screen -->
+    <plurals name="studyoptions_buried_count">
+        <item quantity="one">+%d ఖననం చేయబడింది</item>
+        <item quantity="other">+%d ఖననం చేయబడింది</item>
+    </plurals>
+    <string name="studyoptions_total_new_label">మొత్తం కొత్త కార్డులు</string>
+    <string name="studyoptions_total_label">మొత్తం కార్డులు</string>
 </resources>

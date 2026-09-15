@@ -416,6 +416,24 @@ class DeckPickerTest : RobolectricTest() {
             assertThat(snackbar?.anchorView, equalTo(findViewById<View>(R.id.message_bar)))
         }
 
+    /**
+     * Regression: the "sync after login" extra stays on the activity's intent. With "Don't keep
+     * activities" on (the owner's Kompakt), the home screen is rebuilt on every return, and each
+     * rebuild synced again.
+     */
+    @Test
+    fun `sync requested by login runs once, not again when the home screen is recreated`() {
+        val intent = DeckPicker.getIntent(targetContext, autoSync = true).setClass(targetContext, DeckPickerEx::class.java)
+        val controller = Robolectric.buildActivity(DeckPickerEx::class.java, intent).setup()
+        advanceRobolectricLooper()
+        assertThat("the login sync runs when the home screen first opens", controller.get().syncRequests, equalTo(1))
+
+        controller.recreate()
+        advanceRobolectricLooper()
+
+        assertThat("a rebuilt home screen does not sync again", controller.get().syncRequests, equalTo(0))
+    }
+
     @Test
     fun `startup response is cleared after handling so it does not re-run on resume`() =
         deckPicker {
@@ -468,6 +486,13 @@ class DeckPickerTest : RobolectricTest() {
 
     internal class DeckPickerEx : DeckPicker() {
         var databaseErrorDialog: DatabaseErrorDialogType? = null
+
+        /** Sync attempts on this instance; the real sync needs a network and an account. */
+        var syncRequests = 0
+
+        override fun sync(conflict: ConflictResolution?) {
+            syncRequests++
+        }
 
         override fun showDatabaseErrorDialog(
             errorDialogType: DatabaseErrorDialogType,

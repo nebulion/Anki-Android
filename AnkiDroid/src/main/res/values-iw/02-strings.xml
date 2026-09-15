@@ -183,4 +183,11 @@
     <string name="set_due_date_date_range">טוח תאריכים</string>
     <string comment="Shown when retrying a running action" name="already_in_progress">כבר בפעולה</string>
     <!-- Switch profiles screen -->
+    <plurals name="studyoptions_buried_count">
+        <item quantity="one">+%d קבור</item>
+        <item quantity="two">+%d קבורים</item>
+        <item quantity="other">+%d קבורים</item>
+    </plurals>
+    <string name="studyoptions_total_new_label">סה\"כ קלפים חדשים</string>
+    <string name="studyoptions_total_label">סה\"כ קלפים</string>
 </resources>

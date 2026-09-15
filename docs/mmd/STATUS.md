@@ -174,6 +174,30 @@ Debug builds now sign with the repo's public test keystore (`tools/fallback-rele
 `signingConfigs.debug` in `AnkiDroid/build.gradle`): from the first build with that change, updates
 install in place and keep the collection. The build on the phone still has a random key, so that one
 next install needs a final uninstall.
+
+### Device check, round 2 (2026-09-15, CI build of `53620f0`)
+
+- **Subdecks had solid separators and no indent:** `DeckNode.depth` is 0 for a top-level deck, and
+  the list used 1. Fixed.
+- **Rows shifted left when a list grew past one page:** MMD composes its scrollbar only while the list
+  can scroll. `PagedList` now keeps the 40dp column (24dp arrows + 8dp padding each side, read from
+  the MMD bytecode; matches the Kompakt Settings calibration) empty while it cannot.
+- **Every return to the home screen synced:** the phone has **"Don't keep activities" on**
+  (`always_finish_activities=1`), so the home activity is destroyed and rebuilt on each return, and
+  the login's `INTENT_SYNC_FROM_LOGIN` extra stayed on its intent. The phone log showed "Performing
+  Sync on Resume" after every screen. Regression test first (failed, then passed): the extra is read
+  once and removed, and a rebuilt home screen skips the start-up sync and backup prompt. The setting
+  itself is the owner's; the app must survive it.
+- **Gestures (owner's call):** tap a deck to study it, long press to open its page.
+- **Deck page (owner's layout "A"):** today's counts as tiles, buried count, Study, total cards, total
+  new cards, next learning card. The totals and buried strings deleted by the Phase 3 lint prune are
+  restored with their 82 translations.
+- **Side margins on the deck page:** the owner judged them fine after comparing with the Kompakt's own
+  12dp; no change.
+- **Card editor:** planned as a late Phase 8 (`PLAN.md`).
+
+Still open from the owner's thoughts: automatic syncs (app start, app exit, after studying) could run
+in the background with only tapped syncs showing the in-page bar. Not decided.
 Step 5 (splash hold) is not started. `DeckPicker` is now ~1,000 lines: tabs via
 `HomeTab` (`deckpicker/HomeTab.kt`), `DeckListFragment`, `MoreTabFragment`; collection-wide actions
 are public methods the More tab calls. Messages from the home screen show above the bottom bar on

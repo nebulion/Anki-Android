@@ -185,4 +185,10 @@
     <string name="set_due_date_date_range">محدودهٔ زمانی</string>
     <string comment="Shown when retrying a running action" name="already_in_progress">در حال انجام</string>
     <!-- Switch profiles screen -->
+    <plurals name="studyoptions_buried_count">
+        <item quantity="one">+%d دفن شده</item>
+        <item quantity="other">+%d دفن شده</item>
+    </plurals>
+    <string name="studyoptions_total_new_label">کل کارت های جدید</string>
+    <string name="studyoptions_total_label">کل کارتها</string>
 </resources>

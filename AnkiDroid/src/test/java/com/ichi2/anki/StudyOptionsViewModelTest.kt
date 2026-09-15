@@ -49,6 +49,9 @@ class StudyOptionsViewModelTest : RobolectricTest() {
             assertEquals(0, study.learnCount)
             assertEquals(0, study.reviewCount)
             assertFalse(study.isFiltered)
+            assertEquals(1, study.totalCards, "total cards")
+            assertEquals(1, study.totalNewCards, "total new cards")
+            assertEquals(0, study.buriedCount, "buried")
         }
 
     @Test
@@ -188,7 +191,9 @@ class StudyOptionsViewModelTest : RobolectricTest() {
             viewModel.refreshData().join()
 
             assertTrue(viewModel.haveBuried, "expected buried cards")
-            assertEquals(1, assertIs<DeckPageUiState.Study>(state).newCount)
+            val study = assertIs<DeckPageUiState.Study>(state)
+            assertEquals(1, study.newCount)
+            assertTrue(study.buriedCount > 0, "the buried card is reported")
         }
 
     @Test

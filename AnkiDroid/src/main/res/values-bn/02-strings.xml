@@ -183,4 +183,10 @@
     <string name="set_due_date_date_range">Date range</string>
     <string comment="Shown when retrying a running action" name="already_in_progress">Already in progress</string>
     <!-- Switch profiles screen -->
+    <plurals name="studyoptions_buried_count">
+        <item quantity="one">+%d সমাহিত করা হয়েছে</item>
+        <item quantity="other">+%d সমাহিত করা হয়েছে</item>
+    </plurals>
+    <string name="studyoptions_total_new_label">মোট নতুন কার্ড</string>
+    <string name="studyoptions_total_label">মোট কার্ড</string>
 </resources>

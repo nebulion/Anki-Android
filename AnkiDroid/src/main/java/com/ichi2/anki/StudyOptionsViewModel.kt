@@ -150,7 +150,17 @@ class StudyOptionsViewModel : ViewModel() {
                     canUnbury = haveBuried,
                     canCustomStudy = !isDynamic,
                 )
-            else ->
+            else -> {
+                // the tree's counts include today's buried cards; the scheduler's queues do not
+                val tree = sched.deckDueTree(deckId)
+                val buried =
+                    if (tree == null) {
+                        0
+                    } else {
+                        ((tree.newCount - counts.new) + (tree.learnCount - counts.lrn) + (tree.reviewCount - counts.rev))
+                            .coerceAtLeast(0)
+                    }
+                val secsUntilNextLearn = sched.congratulationsInfo().secsUntilNextLearn
                 DeckPageUiState.Study(
                     deckName = displayName,
                     description = if (isDynamic) null else plainDescription(deck.description, deck.descriptionAsMarkdown),
@@ -158,7 +168,17 @@ class StudyOptionsViewModel : ViewModel() {
                     learnCount = counts.lrn,
                     reviewCount = counts.rev,
                     isFiltered = isDynamic,
+                    totalCards = numberOfCards,
+                    totalNewCards = sched.totalNewForCurrentDeck(),
+                    buriedCount = buried,
+                    nextLearnDue =
+                        if (counts.lrn == 0 && secsUntilNextLearn in 1 until SECONDS_PER_DAY) {
+                            nextLearnDueText(secsUntilNextLearn)
+                        } else {
+                            null
+                        },
                 )
+            }
         }
     }
 
@@ -184,12 +204,17 @@ class StudyOptionsViewModel : ViewModel() {
         if (secsUntilNextLearn >= SECONDS_PER_DAY) {
             return resources.getString(R.string.studyoptions_congrats_finished)
         }
+        return resources.getString(R.string.studyoptions_congrats_next_due_in, nextLearnDueText(secsUntilNextLearn))
+    }
+
+    /** The backend's "next learning card" sentence for a wait of [secsUntilNextLearn] seconds. */
+    private fun nextLearnDueText(secsUntilNextLearn: Int): String {
         val (unit, amount) =
             when {
                 secsUntilNextLearn < TIME_MINUTE -> "seconds" to secsUntilNextLearn.toDouble()
                 secsUntilNextLearn < TIME_HOUR -> "minutes" to secsUntilNextLearn / TIME_MINUTE
                 else -> "hours" to secsUntilNextLearn / TIME_HOUR
             }
-        return resources.getString(R.string.studyoptions_congrats_next_due_in, TR.schedulingNextLearnDue(unit, round(amount).toInt()))
+        return TR.schedulingNextLearnDue(unit, round(amount).toInt())
     }
 }

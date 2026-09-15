@@ -66,7 +66,7 @@ data class DeckListUiState(
 
 /**
  * The home screen: one row per deck under a header that also opens Statistics and the More page.
- * Tapping a deck opens its page; holding it starts studying; the chevron expands or collapses
+ * Tapping a deck starts studying it; holding it opens its page; the chevron expands or collapses
  * subdecks. A solid line separates top-level decks, a dashed line the subdecks inside one.
  * While syncing, the list gives way to the sync's progress.
  */
@@ -156,7 +156,7 @@ private fun SyncAction(
 
 /**
  * One deck: indent by depth, chevron when it has subdecks, name (italic if filtered), three counts.
- * Tap opens the deck page; a long press starts studying.
+ * Tap starts studying (or opens the page when nothing is due); a long press opens the deck page.
  */
 @Composable
 private fun DeckRow(
@@ -172,8 +172,8 @@ private fun DeckRow(
                 .fillMaxWidth()
                 .heightIn(min = RowDefaults.MinHeight)
                 .combinedClickable(
-                    onClickLabel = deck.lastDeckNameComponent,
-                    onLongClickLabel = TR.decksStudyDeck(),
+                    onClickLabel = TR.decksStudyDeck(),
+                    onLongClickLabel = deck.lastDeckNameComponent,
                     onLongClick = { onDeckLongPress(deck.did) },
                     onClick = { onDeckClick(deck.did) },
                 ).padding(start = indent, end = RowDefaults.EdgePadding),
@@ -289,8 +289,11 @@ private fun FirstRun(
     }
 }
 
-/** [DisplayDeckNode.depth] of a deck with no parent: the tree's root is a synthetic node at depth 0. */
-private const val TOP_LEVEL_DEPTH = 1
+/**
+ * [DisplayDeckNode.depth] of a deck with no parent ("A" is 0, "A::B" is 1). The first draft used 1,
+ * which gave first-level subdecks solid separators and no indent.
+ */
+private const val TOP_LEVEL_DEPTH = 0
 
 /** One sweep of the sync bar while the amount of work is unknown. */
 private const val SYNC_BAR_CYCLE_MS = 2_000

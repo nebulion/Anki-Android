@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.util.TypedValue
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.ichi2.anki.AnkiActivity
+import com.ichi2.anki.DeckPicker
 import com.ichi2.anki.RobolectricTest
-import com.ichi2.anki.StudyOptionsActivity
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsString
 import org.hamcrest.Matchers.equalTo
@@ -40,7 +40,7 @@ class ThemesTest : RobolectricTest() {
         RuntimeEnvironment.setQualifiers("+night")
         val activity =
             startActivityNormallyOpenCollectionWithIntent(
-                StudyOptionsActivity::class.java,
+                DeckPicker::class.java,
                 Intent(),
             )
 

@@ -33,7 +33,7 @@ AnkiDroid 2.24.1 is on the device today with the real collection. The fork **rep
 | Card Browser | **Deleted.** |
 | New cards arrive by | **Both** AnkiWeb sync and `.apkg`/`.colpkg` file import. |
 | Card audio (`[sound:]`) | **Playback kept**, with one replay action. |
-| Navigation | **MuditaOS style.** The deck list is home, actions sit in the header, everything else is drill-down pages. No drawer, no bottom bar. |
+| Navigation | **MMD bottom bar** (changed 2026-09-15, Phase 3): `NavigationBottomBarMMD` with Decks / Statistics / More; each tab's actions sit in its header; everything else is drill-down pages. No drawer, no FAB (MMD ships no drawer; create deck lives on More). Originally "MuditaOS style, no bottom bar". |
 
 ## Design rules (eink-design.md, applied to AnkiDroid)
 

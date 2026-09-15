@@ -131,19 +131,29 @@ Deck: Ultimate Italian Conjugation (`.apkg`).
 ## Phase 3 — Home, Deck page, More (in progress)
 
 Approach: keep `DeckPicker` as the home **activity** (it owns startup, sync, import, backups and the
-error/sync dialogs, ~1,000 lines worth keeping) but make it a plain `AnkiActivity` whose whole UI is
-a Compose screen. Everything View-based around the deck list goes. Dialogs that are still Views
-(create/rename deck, custom study, export, import, sync and database errors) stay until Phase 6,
-except where this phase's pattern needs a panel.
+error/sync dialogs, ~1,000 lines worth keeping) but make it a plain `AnkiActivity`: a fragment
+container for the current tab above an MMD bottom bar. Old View-based pieces are **replaced by their
+MMD equivalents where MMD has one** (owner's call, 2026-09-15: "some of these are in MMD"):
+toolbar → `ScreenHeader` with header actions, bottom nav → `NavigationBottomBarMMD` (Decks /
+Statistics / More). MMD has no drawer, and the owner chose no FAB, so those two go. Dialogs that are
+still Views (create/rename deck, custom study, export, import, sync and database errors) stay until
+Phase 6, except where this phase's pattern needs a panel.
+
+State (2026-09-15): steps 2, 3, 4 and 6 are written and the old files deleted; local compile in
+progress, then CI. Step 5 (splash hold) is not started. `DeckPicker` is now ~1,000 lines: tabs via
+`HomeTab` (`deckpicker/HomeTab.kt`), `DeckListFragment`, `MoreTabFragment`; collection-wide actions
+are public methods the More tab calls. Messages from the home screen show above the bottom bar on
+every tab. Lost on purpose: create subdeck (type `Parent::Child` in Create deck), edit description,
+review reminders per deck, deck search, drag-and-drop import.
 
 | Step | Plan |
 | --- | --- |
 | 1. Baselines | Not recorded (needs Gradle; the old screens stay in git at the phase's starting commit) |
 | 2. Deck page (`DeckPageFragment` in `SingleFragmentActivity`, over `StudyOptionsViewModel`) | Header: back, deck name, Deck options, Menu. `MenuPanel`: Custom study, Rename (panel + `TextFieldMMD`), Export, Unbury, Rebuild/Empty (filtered), Delete (`ConfirmPanel`). Body: New / Learning / To review counts, plain-text description, solid **Study**; Congrats state (Unbury / Custom study) and Empty state. `StudyOptionsDestination` opens it. Deletes `StudyOptionsActivity`/`Fragment`, their layouts and menus, `CongratsPage` and `new_congrats_screen` |
-| 3. Home (`DeckListScreenMMD`) | Header: "Decks", Sync glyph with `BadgeMMD` dot (pending changes; one-way / not logged in as a subtitle line), More. `PagedList` of `DisplayDeckNode`, one row per deck: indent by depth, expand chevron, italic filtered decks, three right-aligned counts (zero blank), dashed separators. "Studied today" line. Empty state: text + `ButtonMMD` "Import file". Tap = Deck page; no long-press. Messages via `MessageHost` |
-| 4. More page | Rows: Statistics, Import, Export, Create deck, Create filtered deck, Check database, Check media, Empty cards, Create backup, Restore backup, Sync account, Settings |
+| 3. Home (`DeckListScreenMMD` in the Decks tab) | Bottom bar: `NavigationBottomBarMMD` with Decks / Statistics (the existing `Statistics` page, back arrow hidden) / More. Decks header: "Decks", Sync glyph with `BadgeMMD` dot (pending changes; one-way / not logged in as a subtitle line). `PagedList` of `DisplayDeckNode`, one row per deck: indent by depth, expand chevron, italic filtered decks, three right-aligned counts (zero blank), dashed separators. "Studied today" line. Empty state: text + `ButtonMMD` "Import file". Tap = Deck page; no long-press. Messages via `MessageHost` |
+| 4. More tab | Rows: Import, Export, Create deck, Create filtered deck, Check database, Check media, Empty cards, Create backup, Restore backup, Sync account, Settings (Statistics is its own tab) |
 | 5. Splash hold | Until the deck list has content, with a ceiling |
-| 6. Delete | `NavigationDrawerActivity` + drawer layouts, toolbar menu and deck search, FAB (`DeckPickerFloatingActionMenu`), bottom nav (`BottomNavController`, `HomeScreenNavigation`, `MoreFragment`), pull-to-sync, background image, tablet split pane, deck shortcuts, `activity_homescreen`, `include_deck_picker`, `item_deck`, `DeckAdapter`, `DeckHierarchyLinesDecoration`, `DeckPickerContextMenu` + its content provider, and their tests |
+| 6. Replace / delete | Replaced by MMD versions: the Material bottom nav (`BottomNavController`, `HomeScreenNavigation`, `bottom_nav_menu`, `MoreFragment`) and the toolbar. Deleted (no MMD version, or not wanted): `NavigationDrawerActivity` + drawer layouts, the toolbar overflow menu and deck search, the FAB (`DeckPickerFloatingActionMenu`), pull-to-sync, background image, tablet split pane, deck shortcuts, `activity_homescreen`, `include_deck_picker`, `item_deck`, `DeckAdapter`, `DeckHierarchyLinesDecoration`, `DeckPickerContextMenu` + its content provider, and their tests |
 | 7. E Ink refresh on answers | Done early (on by default every 12 answers, see Phase 2) |
 
 Order: deck page → home → More → deletions and tests → CI → device check (cold start, expand/collapse,

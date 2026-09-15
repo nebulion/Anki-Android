@@ -32,11 +32,6 @@
             android:icon="@drawable/ic_language_black_24dp"
             android:title="@string/language"
             app:useSimpleSummaryProvider="true"/>
-        <SwitchPreferenceCompat
-            android:defaultValue="false"
-            android:key="@string/nav_drawer_gesture_key"
-            android:summary="@string/gestures_fullscreen_nav_drawer_summary"
-            android:title="@string/gestures_full_screen_nav_drawer" />
     <PreferenceCategory android:title="@string/pref_cat_editing">
         <SwitchPreferenceCompat
             android:defaultValue="true"

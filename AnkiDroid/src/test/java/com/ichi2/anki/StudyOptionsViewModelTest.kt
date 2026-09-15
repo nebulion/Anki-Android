@@ -6,10 +6,11 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import anki.scheduler.CardAnswer.Rating
 import app.cash.turbine.test
 import com.ichi2.anki.CollectionManager.withCol
+import com.ichi2.anki.StudyOptionsViewModel.RenameResult
+import com.ichi2.anki.deckpage.DeckPageUiState
+import com.ichi2.anki.deckpage.deckNameOrEmpty
 import com.ichi2.testutils.ensureOpsExecuted
 import kotlinx.coroutines.joinAll
-import org.hamcrest.MatcherAssert.assertThat
-import org.hamcrest.Matchers.instanceOf
 import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.test.assertEquals
@@ -21,9 +22,11 @@ import kotlin.test.assertTrue
 class StudyOptionsViewModelTest : RobolectricTest() {
     private val viewModel = StudyOptionsViewModel()
 
+    private val state get() = viewModel.flowOfDeckPage.value
+
     @Test
     fun `initial state is Loading`() {
-        assertThat(viewModel.state, instanceOf(StudyOptionsState.Loading::class.java))
+        assertIs<DeckPageUiState.Loading>(state)
     }
 
     @Test
@@ -31,23 +34,21 @@ class StudyOptionsViewModelTest : RobolectricTest() {
         runTest {
             col
             viewModel.refreshData().join()
-            assertIs<StudyOptionsState.Empty>(viewModel.state)
+            assertIs<DeckPageUiState.Empty>(state)
         }
 
     @Test
-    fun `refreshData - deck with due cards shows StudyOptions state`() =
+    fun `refreshData - deck with due cards shows Study state`() =
         runTest {
             addBasicNote("Front", "Back")
 
             viewModel.refreshData().join()
 
-            val state = viewModel.state
-            assertIs<StudyOptionsState.StudyOptions>(state)
-            assertEquals(1, state.data.newCardsToday)
-            assertEquals(1, state.data.numberOfCardsInDeck)
-            assertEquals(1, state.data.totalNewCards)
-            assertEquals(0, state.data.lrnCardsToday)
-            assertEquals(0, state.data.revCardsToday)
+            val study = assertIs<DeckPageUiState.Study>(state)
+            assertEquals(1, study.newCount)
+            assertEquals(0, study.learnCount)
+            assertEquals(0, study.reviewCount)
+            assertFalse(study.isFiltered)
         }
 
     @Test
@@ -73,22 +74,24 @@ class StudyOptionsViewModelTest : RobolectricTest() {
 
             viewModel.refreshData().join()
 
-            assertIs<StudyOptionsState.Congrats>(viewModel.state)
+            val congrats = assertIs<DeckPageUiState.Congrats>(state)
+            assertTrue(congrats.message.isNotBlank(), "congrats message is shown")
+            assertTrue(congrats.canCustomStudy)
         }
 
     @Test
     fun `refreshData - state flow emits updates`() =
         runTest {
             col
-            viewModel.flowOfState.test {
-                assertIs<StudyOptionsState.Loading>(awaitItem())
+            viewModel.flowOfDeckPage.test {
+                assertIs<DeckPageUiState.Loading>(awaitItem())
 
                 viewModel.refreshData().join()
-                assertIs<StudyOptionsState.Empty>(awaitItem())
+                assertIs<DeckPageUiState.Empty>(awaitItem())
 
                 addBasicNote()
                 viewModel.refreshData().join()
-                assertIs<StudyOptionsState.StudyOptions>(awaitItem())
+                assertIs<DeckPageUiState.Study>(awaitItem())
             }
         }
 
@@ -99,32 +102,30 @@ class StudyOptionsViewModelTest : RobolectricTest() {
 
             viewModel.refreshData().join()
 
-            val state = assertIs<StudyOptionsState.StudyOptions>(viewModel.state)
-            assertEquals(5, state.data.newCardsToday)
-            assertEquals(5, state.data.numberOfCardsInDeck)
+            assertEquals(5, assertIs<DeckPageUiState.Study>(state).newCount)
         }
 
     @Test
-    fun `refreshData - deck name is correct`() =
+    fun `refreshData - deck name is the last name component`() =
         runTest {
-            addBasicNote()
+            val deckId = addDeck("Language::Verbs")
+            withCol { decks.select(deckId) }
 
             viewModel.refreshData().join()
 
-            val state = assertIs<StudyOptionsState.StudyOptions>(viewModel.state)
-            assertEquals("Default", state.deckName)
+            assertIs<DeckPageUiState.Empty>(state)
+            assertEquals("Verbs", state.deckNameOrEmpty())
+            assertEquals("Language::Verbs", viewModel.deckFullName)
         }
 
     @Test
-    fun `rebuildCram - updates state`() =
+    fun `rebuildCram - selects a filtered deck`() =
         runTest {
             addBasicNote()
             addDynamicDeck("Filtered", "")
 
             viewModel.rebuildCram()
 
-            val state = viewModel.state
-            assertThat(state, instanceOf(StudyOptionsState::class.java))
             assertTrue(viewModel.isFilteredDeck)
         }
 
@@ -175,7 +176,7 @@ class StudyOptionsViewModelTest : RobolectricTest() {
         }
 
     @Test
-    fun `refreshData - buried cards are counted`() =
+    fun `refreshData - buried cards are not counted as due`() =
         runTest {
             addBasicNote("Front1", "Back1")
             addBasicNote("Front2", "Back2")
@@ -186,9 +187,57 @@ class StudyOptionsViewModelTest : RobolectricTest() {
 
             viewModel.refreshData().join()
 
-            val state = assertIs<StudyOptionsState.StudyOptions>(viewModel.state)
-            assertTrue(state.data.buriedNew > 0, "expected buried new cards")
-            assertEquals(1, state.data.newCardsToday)
+            assertTrue(viewModel.haveBuried, "expected buried cards")
+            assertEquals(1, assertIs<DeckPageUiState.Study>(state).newCount)
+        }
+
+    @Test
+    fun `renameDeck - renames the selected deck`() =
+        runTest {
+            val deckId = addDeck("Old name")
+            withCol { decks.select(deckId) }
+            viewModel.refreshData().join()
+
+            val result = viewModel.renameDeck("New name")
+
+            assertIs<RenameResult.Renamed>(result)
+            assertEquals("New name", withCol { decks.name(deckId) })
+        }
+
+    @Test
+    fun `renameDeck - refuses a name another deck has`() =
+        runTest {
+            addDeck("Taken")
+            val deckId = addDeck("Mine")
+            withCol { decks.select(deckId) }
+            viewModel.refreshData().join()
+
+            val result = viewModel.renameDeck("Taken")
+
+            assertIs<RenameResult.Invalid>(result)
+            assertEquals("Mine", withCol { decks.name(deckId) })
+        }
+
+    @Test
+    fun `renameDeck - refuses a blank name`() =
+        runTest {
+            val deckId = addDeck("Mine")
+            withCol { decks.select(deckId) }
+            viewModel.refreshData().join()
+
+            assertIs<RenameResult.Invalid>(viewModel.renameDeck("   "))
+        }
+
+    @Test
+    fun `deleteDeck - removes the selected deck`() =
+        runTest {
+            val deckId = addDeck("Doomed")
+            withCol { decks.select(deckId) }
+            viewModel.refreshData().join()
+
+            viewModel.deleteDeck()
+
+            assertEquals(null, withCol { decks.getLegacy(deckId) })
         }
 
     @Test
@@ -203,11 +252,11 @@ class StudyOptionsViewModelTest : RobolectricTest() {
     fun `refreshData - state stays Loading when collection is closed from the start`() =
         runTest {
             withNullCollection {
-                assertIs<StudyOptionsState.Loading>(viewModel.state)
+                assertIs<DeckPageUiState.Loading>(state)
 
                 viewModel.refreshData().join()
 
-                assertIs<StudyOptionsState.Loading>(viewModel.state)
+                assertIs<DeckPageUiState.Loading>(state)
             }
         }
 
@@ -216,14 +265,14 @@ class StudyOptionsViewModelTest : RobolectricTest() {
         runTest {
             addBasicNote("Front", "Back")
             viewModel.refreshData().join()
-            val populatedState = assertIs<StudyOptionsState.StudyOptions>(viewModel.state)
+            val populatedState = assertIs<DeckPageUiState.Study>(state)
             val populatedDeckId = viewModel.selectedDeckId
             val populatedIsFiltered = viewModel.isFilteredDeck
             val populatedHaveBuried = viewModel.haveBuried
 
             withNullCollection {
                 viewModel.refreshData().join()
-                assertEquals(populatedState, viewModel.state)
+                assertEquals(populatedState, state)
                 assertEquals(populatedDeckId, viewModel.selectedDeckId)
                 assertEquals(populatedIsFiltered, viewModel.isFilteredDeck)
                 assertEquals(populatedHaveBuried, viewModel.haveBuried)
@@ -231,11 +280,11 @@ class StudyOptionsViewModelTest : RobolectricTest() {
         }
 
     @Test
-    fun `refreshData - flowOfState emits no extra value when collection is closed`() =
+    fun `refreshData - flowOfDeckPage emits no extra value when collection is closed`() =
         runTest {
             withNullCollection {
-                viewModel.flowOfState.test {
-                    assertIs<StudyOptionsState.Loading>(awaitItem())
+                viewModel.flowOfDeckPage.test {
+                    assertIs<DeckPageUiState.Loading>(awaitItem())
                     viewModel.refreshData().join()
                     expectNoEvents()
                 }
@@ -249,7 +298,7 @@ class StudyOptionsViewModelTest : RobolectricTest() {
                 val jobs = (1..10).map { viewModel.refreshData() }
                 jobs.joinAll()
 
-                assertIs<StudyOptionsState.Loading>(viewModel.state)
+                assertIs<DeckPageUiState.Loading>(state)
             }
         }
 
@@ -258,23 +307,12 @@ class StudyOptionsViewModelTest : RobolectricTest() {
         runTest {
             withNullCollection {
                 viewModel.refreshData().join()
-                assertIs<StudyOptionsState.Loading>(viewModel.state)
+                assertIs<DeckPageUiState.Loading>(state)
             }
 
             addBasicNote("Front", "Back")
             viewModel.refreshData().join()
 
-            assertIs<StudyOptionsState.StudyOptions>(viewModel.state)
-        }
-
-    @Test
-    fun `refreshData - mutating operations stay safe when collection is closed`() =
-        runTest {
-            withNullCollection {
-                viewModel.refreshData().join()
-                viewModel.refreshData().join()
-                viewModel.refreshData().join()
-                assertIs<StudyOptionsState.Loading>(viewModel.state)
-            }
+            assertIs<DeckPageUiState.Study>(state)
         }
 }

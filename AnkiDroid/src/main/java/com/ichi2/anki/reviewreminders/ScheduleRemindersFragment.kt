@@ -84,9 +84,7 @@ class ScheduleRemindersFragment :
      * Possible hosts of this fragment. Certain stylistic changes need to be made based on where this
      * fragment is opened from / nested within.
      *
-     * This fragment applies the system bar insets to its own views. Hosts which instead apply the
-     * insets to this fragment's container ([STUDY_OPTIONS_FRAGMENT] and [STUDY_OPTIONS_FRAME])
-     * consume them, so that they are not applied a second time here.
+     * This fragment applies the system bar insets to its own views.
      *
      * @param containerId The XML ID of the container in which this fragment is hosted.
      * @param toolbarType The type of toolbar to display for this fragment.
@@ -106,27 +104,7 @@ class ScheduleRemindersFragment :
         ),
 
         /**
-         * Side-by-side view of a specific deck's review reminders on large screens.
-         * @see com.ichi2.anki.DeckPicker.tryShowScheduleRemindersPanel
-         */
-        STUDY_OPTIONS_FRAGMENT(
-            containerId = R.id.studyoptions_fragment,
-            toolbarType = ToolbarType.INTERNAL_NON_COLLAPSIBLE,
-        ),
-
-        /**
-         * Full-screen view of a specific deck's review reminders on small screens when launched after
-         * viewing the study options screen.
-         * @see com.ichi2.anki.StudyOptionsActivity
-         */
-        STUDY_OPTIONS_FRAME(
-            containerId = R.id.studyoptions_frame,
-            toolbarType = ToolbarType.EXTERNAL,
-        ),
-
-        /**
-         * Full-screen view of a specific deck's review reminders on small screens when launched
-         * via long-pressing a deck in the DeckPicker.
+         * Full-screen view of a specific deck's review reminders.
          * @see com.ichi2.anki.deckpicker.DeckPickerViewModel.scheduleReviewReminders
          */
         STANDALONE_ACTIVITY(
@@ -351,8 +329,6 @@ class ScheduleRemindersFragment :
 
     /**
      * Replace the root CoordinatorLayout's inset handling.
-     *
-     * No-op in [FragmentHost.STUDY_OPTIONS_FRAGMENT] and [FragmentHost.STUDY_OPTIONS_FRAME]
      */
     private fun setRootInsetsListener(block: (bars: Insets) -> Unit) {
         // API < 30: simulate API 30+ behaviour - insets are not affected by siblings.

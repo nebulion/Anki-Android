@@ -10,17 +10,12 @@ import androidx.test.core.app.ActivityScenario
 import com.google.android.material.appbar.AppBarLayout
 import com.ichi2.anki.R
 import com.ichi2.anki.ScreenshotTest
-import com.ichi2.anki.StudyOptionsActivity
-import com.ichi2.anki.common.destinations.StudyOptionsDestination
-import com.ichi2.anki.common.destinations.launchActivity
 import com.ichi2.anki.databinding.FragmentReminderTroubleshootingBinding
 import com.ichi2.anki.databinding.FragmentScheduleRemindersBinding
 import com.ichi2.anki.preferences.PreferencesActivity
 import com.ichi2.anki.preferences.PreferencesFragment
 import com.ichi2.anki.reviewreminders.ScheduleRemindersFragment.FragmentHost
 import com.ichi2.anki.utils.ConfigAwareSingleFragmentActivity
-import com.ichi2.anki.withDeckPicker
-import com.ichi2.testutils.BackupManagerTestUtilities
 import com.ichi2.testutils.scrollToLastPosition
 import com.ichi2.testutils.simulateSystemBars
 import com.ichi2.utils.dp
@@ -88,50 +83,6 @@ class ReviewRemindersScreenshotTest : ScreenshotTest() {
             // in RTL, so it is inset via its end margin
             activity.simulateSystemBars(cutoutLeft = 32.dp)
             captureScreen("settingsHost_landscapeCutout_rtl")
-        }
-    }
-
-    @Test
-    fun `study options fragment host`() {
-        setTabletQualifiers()
-        withDeckPicker(deckCount = 1, withCards = true) { deckPicker ->
-            val deckId = addDeck("Test Deck")
-            commitScheduleRemindersAndCapture(
-                fragmentManager = deckPicker.supportFragmentManager,
-                containerId = R.id.studyoptions_fragment,
-                host = FragmentHost.STUDY_OPTIONS_FRAGMENT,
-                scope = ReviewReminderScope.DeckSpecific(deckId),
-                prefix = "studyOptionsFragmentHost",
-            )
-            commitTroubleshootingAndCapture(
-                fragmentManager = deckPicker.supportFragmentManager,
-                containerId = R.id.studyoptions_fragment,
-                host = FragmentHost.STUDY_OPTIONS_FRAGMENT,
-                prefix = "studyOptionsFragmentHost",
-            )
-        }
-        BackupManagerTestUtilities.reset()
-    }
-
-    @Test
-    fun `study options frame host`() {
-        val deckId = addDeck("Test Deck")
-        launchActivity<StudyOptionsActivity>(StudyOptionsDestination).use { scenario ->
-            scenario.onActivity { activity ->
-                commitScheduleRemindersAndCapture(
-                    fragmentManager = activity.supportFragmentManager,
-                    containerId = R.id.studyoptions_frame,
-                    host = FragmentHost.STUDY_OPTIONS_FRAME,
-                    scope = ReviewReminderScope.DeckSpecific(deckId),
-                    prefix = "studyOptionsFrameHost",
-                )
-                commitTroubleshootingAndCapture(
-                    fragmentManager = activity.supportFragmentManager,
-                    containerId = R.id.studyoptions_frame,
-                    host = FragmentHost.STUDY_OPTIONS_FRAME,
-                    prefix = "studyOptionsFrameHost",
-                )
-            }
         }
     }
 

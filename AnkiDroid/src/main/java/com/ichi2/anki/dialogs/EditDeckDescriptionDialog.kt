@@ -17,7 +17,6 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.R
-import com.ichi2.anki.StudyOptionsFragment
 import com.ichi2.anki.databinding.DialogDeckDescriptionBinding
 import com.ichi2.anki.dialogs.EditDeckDescriptionDialogViewModel.DismissType
 import com.ichi2.anki.libanki.DeckId
@@ -37,8 +36,6 @@ import timber.log.Timber
 
 /**
  * Allows a user to edit the [deck description][com.ichi2.anki.libanki.Deck.description]
- *
- * This is visible on [StudyOptionsFragment]
  */
 class EditDeckDescriptionDialog : DialogFragment() {
     private val viewModel: EditDeckDescriptionDialogViewModel by viewModels()

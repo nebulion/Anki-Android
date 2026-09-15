@@ -35,8 +35,6 @@
     <item type="id" name="action_edit_tags"/>
     <item type="id" name="action_card_info"/>
     <item type="id" name="action_previous_card_info"/>
-    <!-- fragment_study_options anchors to it; the reviewer layout that declared it is deleted -->
-    <item type="id" name="bottom_area_layout"/>
 
     <item type="id" name="action_bury"/>
     <item type="id" name="action_suspend"/>

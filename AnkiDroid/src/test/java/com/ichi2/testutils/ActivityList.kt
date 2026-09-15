@@ -10,7 +10,6 @@ import com.ichi2.anki.DeckPicker
 import com.ichi2.anki.IntentHandler
 import com.ichi2.anki.IntentHandler.Companion.getReviewDeckIntent
 import com.ichi2.anki.SingleFragmentActivity
-import com.ichi2.anki.StudyOptionsActivity
 import com.ichi2.anki.account.AccountActivity
 import com.ichi2.anki.preferences.PreferencesActivity
 import com.ichi2.anki.previewer.CardViewerActivity
@@ -34,7 +33,6 @@ object ActivityList {
                     1L,
                 )
             },
-            get(StudyOptionsActivity::class.java),
             get(PreferencesActivity::class.java),
             get(SingleFragmentActivity::class.java),
             get(ConfigAwareSingleFragmentActivity::class.java),

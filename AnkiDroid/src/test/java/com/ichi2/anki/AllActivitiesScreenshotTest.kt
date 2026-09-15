@@ -101,14 +101,10 @@ class AllActivitiesScreenshotTest : ScreenshotTest() {
                 setOf(
                     // AccountActivityScreenshotTest
                     AccountActivity::class.java,
-                    // DeckPickerScreenshotTest
-                    DeckPicker::class.java,
                     // StudyScreenScreenshotTest, PreviewerScreenshotTest and TemplatePreviewerScreenshotTest
                     CardViewerActivity::class.java,
                     // PreferencesScreenshotTest
                     PreferencesActivity::class.java,
-                    // StudyOptionsScreenshotTest
-                    StudyOptionsActivity::class.java,
                 )
             return ActivityList
                 .allActivitiesAndIntents()

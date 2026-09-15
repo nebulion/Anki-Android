@@ -13,7 +13,6 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.DrawerActions
 import androidx.test.espresso.matcher.ViewMatchers.hasFocus
 import androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
@@ -23,8 +22,11 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withResourceName
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import com.ichi2.anki.DeckPicker
 import com.ichi2.anki.IntentHandler
 import com.ichi2.anki.R
+import com.ichi2.anki.TestUtils
 import com.ichi2.anki.testutil.GrantStoragePermission
 import com.ichi2.anki.testutil.awaitResumedActivity
 import com.ichi2.anki.testutil.grantPermissions
@@ -86,10 +88,11 @@ class PreferencesNavigationTest {
         onView(withClassName(endsWith("PreferencesActivity"))).check(doesNotExist())
     }
 
-    /** Opens [PreferencesActivity] via the navigation drawer. */
+    /** Opens [PreferencesActivity] as the home screen's More tab does. */
     private fun openSettings() {
-        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
-        onView(withId(R.id.nav_settings)).perform(click())
+        awaitResumedActivity<DeckPicker>()
+        val home = TestUtils.activityInstance as DeckPicker
+        InstrumentationRegistry.getInstrumentation().runOnMainSync { home.openSettings() }
         awaitResumedActivity<PreferencesActivity>()
     }
 }

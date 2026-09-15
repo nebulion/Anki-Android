@@ -187,13 +187,6 @@
             android:exported="false"
             android:configChanges="keyboardHidden|orientation|screenSize"
             />
-        <activity
-            android:name="com.ichi2.anki.StudyOptionsActivity"
-            android:exported="false"
-            android:configChanges="keyboardHidden|screenSize"
-            android:parentActivityName=".DeckPicker"
-            >
-        </activity>
 
         <activity
             android:name="com.ichi2.anki.account.AccountActivity"

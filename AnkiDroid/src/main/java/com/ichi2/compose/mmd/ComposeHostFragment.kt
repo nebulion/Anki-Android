@@ -18,8 +18,12 @@ import androidx.fragment.app.Fragment
  * leaves navigation, lifecycle and back-stack code untouched while the screen itself is Compose.
  */
 abstract class ComposeHostFragment : Fragment() {
+    /**
+     * The screen. Not named `Content`: inside `ComposeView.apply { }` that name resolves to
+     * `ComposeView.Content()`, which calls itself until the stack overflows.
+     */
     @Composable
-    protected abstract fun Content()
+    protected abstract fun ScreenContent()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +32,6 @@ abstract class ComposeHostFragment : Fragment() {
     ): View =
         ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
-            setContent { MmdTheme { Content() } }
+            setContent { MmdTheme { ScreenContent() } }
         }
 }

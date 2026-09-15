@@ -45,7 +45,7 @@ import com.mudita.mmd.components.text.TextMMD
  */
 class MmdKitGalleryFragment : ComposeHostFragment() {
     @Composable
-    override fun Content() {
+    override fun ScreenContent() {
         val messages = remember { MessageHostState() }
         var showMenu by rememberSaveable { mutableStateOf(false) }
         var showChoice by rememberSaveable { mutableStateOf(false) }

@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// Runs one shard of the unit tests, so CI can split them across parallel jobs.
+//
+//   SHARD_TOTAL=4 SHARD_INDEX=0 ./gradlew :AnkiDroid:testPlayDebugUnitTest \
+//       --init-script tools/mmd/test-shard.init.gradle --no-configuration-cache
+//
+// A test class belongs to the shard picked by the hash of its top-level class name, so nested
+// classes stay with their outer class. Without both variables every test runs.
+
+def total = System.getenv("SHARD_TOTAL")?.toInteger()
+def index = System.getenv("SHARD_INDEX")?.toInteger()
+
+if (total != null && index != null && total > 1) {
+    allprojects {
+        tasks.withType(Test).configureEach {
+            exclude { element ->
+                if (element.directory || !element.name.endsWith(".class")) {
+                    return false
+                }
+                def topLevelClass = element.relativePath.pathString.replaceAll(/\.class$/, "").replaceAll(/\$.*$/, "")
+                Math.floorMod(topLevelClass.hashCode(), total) != index
+            }
+        }
+    }
+}

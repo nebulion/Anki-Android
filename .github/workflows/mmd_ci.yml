@@ -1,8 +1,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-# CI for the Mudita Kompakt (MMD) fork: build, full lint and unit tests of the play flavor.
+# CI for the Mudita Kompakt (MMD) fork: build, full lint, unit tests and Kompakt screenshots of
+# the play flavor.
+#
+# Speed: one job compiles and saves Gradle's build cache for this commit; lint, the unit-test
+# shards and the screenshots then run in parallel and take the compiled outputs from that cache.
+#
 # Failures are reported as job annotations by tools/mmd/ci_report.py, because annotations can be
-# read from the public API without a token. The full logs and reports are uploaded as an artifact.
+# read from the public API without a token. Logs, reports, the APK and screenshots are artifacts.
 name: MMD fork CI
 
 on:
@@ -20,12 +25,16 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  BUILD_CACHE_KEY: mmd-build-cache-${{ github.sha }}
+  BUILD_CACHE_PATH: ~/.gradle/caches/build-cache-1
+
 jobs:
-  check:
-    name: Build, lint, unit tests
+  compile:
+    name: Compile
     # Only the fork runs this
     if: github.repository != 'ankidroid/Anki-Android'
-    timeout-minutes: 120
+    timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -45,7 +54,7 @@ jobs:
         timeout-minutes: 10
         with:
           cache-provider: basic
-          # the fork's branch is not the default branch; still keep its cache between pushes
+          # the fork's branches are not the default branch; still keep dependencies between pushes
           cache-read-only: false
 
       - name: Build
@@ -53,54 +62,25 @@ jobs:
         continue-on-error: true
         run: |
           set -o pipefail
-          ./gradlew :AnkiDroid:assemblePlayDebug :AnkiDroid:compilePlayDebugUnitTestKotlin :AnkiDroid:compilePlayDebugAndroidTestKotlin --continue 2>&1 | tee build.log
-
-      - name: Lint
-        id: lint
-        continue-on-error: true
-        run: |
-          set -o pipefail
-          ./gradlew :AnkiDroid:lintPlayDebug --continue 2>&1 | tee lint.log
-
-      - name: Unit tests
-        id: tests
-        continue-on-error: true
-        run: |
-          set -o pipefail
-          ./gradlew :AnkiDroid:testPlayDebugUnitTest --continue 2>&1 | tee tests.log
-
-      - name: Screenshots (Kompakt, E Ink)
-        # informational: a screenshot failure does not fail the job
-        id: screenshots
-        continue-on-error: true
-        run: |
-          set -o pipefail
-          ./gradlew :AnkiDroid:recordRoborazziPlayDebug -Pscreenshot -Ptheme=eink -Pdevice=kompakt --continue 2>&1 | tee screenshots.log
+          ./gradlew :AnkiDroid:assemblePlayDebug :AnkiDroid:compilePlayDebugUnitTestKotlin :AnkiDroid:compilePlayDebugAndroidTestKotlin --build-cache --continue 2>&1 | tee build.log
 
       - name: Report build
         if: always()
         run: python3 tools/mmd/ci_report.py build
 
-      - name: Report lint
-        if: always()
-        run: python3 tools/mmd/ci_report.py lint
+      - name: Save build cache for the parallel jobs
+        if: steps.build.outcome == 'success'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ env.BUILD_CACHE_PATH }}
+          key: ${{ env.BUILD_CACHE_KEY }}
 
-      - name: Report unit tests
-        if: always()
-        run: python3 tools/mmd/ci_report.py tests
-
-      - name: Upload reports
+      - name: Upload build log
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: mmd-reports
-          path: |
-            build.log
-            lint.log
-            tests.log
-            screenshots.log
-            AnkiDroid/build/reports/lint-results-playDebug.*
-            AnkiDroid/build/test-results/testPlayDebugUnitTest/
+          name: mmd-build-log
+          path: build.log
           if-no-files-found: ignore
 
       - name: Upload debug APK
@@ -111,16 +91,174 @@ jobs:
           path: AnkiDroid/build/outputs/apk/play/debug/*.apk
           if-no-files-found: ignore
 
+      - name: Fail if the build failed
+        if: steps.build.outcome == 'failure'
+        run: exit 1
+
+  lint:
+    name: Lint
+    needs: compile
+    timeout-minutes: 45
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+
+      - name: Configure JDK
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
+        with:
+          distribution: "jetbrains"
+          java-version: "21"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
+        timeout-minutes: 10
+        with:
+          cache-provider: basic
+          cache-read-only: true
+
+      - name: Restore build cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ env.BUILD_CACHE_PATH }}
+          key: ${{ env.BUILD_CACHE_KEY }}
+
+      - name: Lint
+        id: lint
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          ./gradlew :AnkiDroid:lintPlayDebug --build-cache --continue 2>&1 | tee lint.log
+
+      - name: Report lint
+        if: always()
+        run: python3 tools/mmd/ci_report.py lint
+
+      - name: Upload lint report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: mmd-lint
+          path: |
+            lint.log
+            AnkiDroid/build/reports/lint-results-playDebug.*
+          if-no-files-found: ignore
+
+      - name: Fail if lint failed
+        if: steps.lint.outcome == 'failure'
+        run: exit 1
+
+  tests:
+    name: Unit tests ${{ matrix.shard }}
+    needs: compile
+    timeout-minutes: 45
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    env:
+      SHARD_TOTAL: 4
+      SHARD_INDEX: ${{ matrix.shard }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+
+      - name: Configure JDK
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
+        with:
+          distribution: "jetbrains"
+          java-version: "21"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
+        timeout-minutes: 10
+        with:
+          cache-provider: basic
+          cache-read-only: true
+
+      - name: Restore build cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ env.BUILD_CACHE_PATH }}
+          key: ${{ env.BUILD_CACHE_KEY }}
+
+      - name: Unit tests
+        id: tests
+        continue-on-error: true
+        # the shard's test-class filter is a closure, which the configuration cache cannot store
+        run: |
+          set -o pipefail
+          ./gradlew :AnkiDroid:testPlayDebugUnitTest --init-script tools/mmd/test-shard.init.gradle --no-configuration-cache --build-cache --continue 2>&1 | tee tests.log
+
+      - name: Report unit tests
+        if: always()
+        run: python3 tools/mmd/ci_report.py tests
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: mmd-tests-${{ matrix.shard }}
+          path: |
+            tests.log
+            AnkiDroid/build/test-results/testPlayDebugUnitTest/
+          if-no-files-found: ignore
+
+      - name: Fail if tests failed
+        if: steps.tests.outcome == 'failure'
+        run: exit 1
+
+  screenshots:
+    name: Screenshots (Kompakt, E Ink)
+    needs: compile
+    timeout-minutes: 45
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+
+      - name: Configure JDK
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
+        with:
+          distribution: "jetbrains"
+          java-version: "21"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
+        timeout-minutes: 10
+        with:
+          cache-provider: basic
+          cache-read-only: true
+
+      - name: Restore build cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ env.BUILD_CACHE_PATH }}
+          key: ${{ env.BUILD_CACHE_KEY }}
+
+      - name: Record screenshots
+        # informational: a screenshot failure does not fail the workflow
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          ./gradlew :AnkiDroid:recordRoborazziPlayDebug -Pscreenshot -Ptheme=eink -Pdevice=kompakt --build-cache --continue 2>&1 | tee screenshots.log
+
       - name: Upload screenshots
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: mmd-screenshots
-          path: AnkiDroid/build/outputs/roborazzi/
+          path: |
+            screenshots.log
+            AnkiDroid/build/outputs/roborazzi/
           if-no-files-found: ignore
-
-      - name: Fail if a check failed
-        if: steps.build.outcome == 'failure' || steps.lint.outcome == 'failure' || steps.tests.outcome == 'failure'
-        run: |
-          echo "build=${{ steps.build.outcome }} lint=${{ steps.lint.outcome }} tests=${{ steps.tests.outcome }}"
-          exit 1

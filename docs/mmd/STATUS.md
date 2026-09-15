@@ -26,6 +26,11 @@ Target device: **Mudita Kompakt `MK20250408317`** (MuditaOS K 1.6.0, Android 12,
 | `46d2cc5` | Give the fork its own identity: `com.ichi2.anki.mmd` |
 | `660de76` | Remove resources orphaned by the ACRA and analytics removal |
 | `9251b37` | Add `com.mudita:MMD` 1.0.2 and the MMD design kit |
+| `71cc8d1` | Record Kompakt calibration and correct the confirmation pattern |
+| `75f1662` | Add the OFL-1.1 licence and REUSE entry for Lato |
+| `b3fb1f8` | Fix `StackOverflowError` opening any `ComposeHostFragment` (regression test first) |
+| `43f59aa` | Match `ConfirmPanel` to the Kompakt's own delete confirmation |
+| `1f67ac2` | Add a Kompakt device to the screenshot tests |
 
 ## Phase 0 — Safety and foundation
 
@@ -36,12 +41,12 @@ Target device: **Mudita Kompakt `MK20250408317`** (MuditaOS K 1.6.0, Android 12,
 | 3. Identity (`com.ichi2.anki.mmd`, "AnkiDroid MMD", `-mmd`) | Done (`46d2cc5`) |
 | 4. Storage forced to app-private, `MANAGE_EXTERNAL_STORAGE` removed | Done (`58576f7`), tests written first and seen failing |
 | 5. Remove upstream reporting (ACRA + Google Analytics) | Done (`a99d419`, `660de76`); lint reports no unused resources |
-| 6. MMD 1.0.2 compatibility spike | **Passed at build level** (`9251b37`): material3 resolves 1.3.1 → 1.4.0, APK installs as `com.ichi2.anki.mmd.debug`. Runtime check (open the gallery on the panel) next |
+| 6. MMD 1.0.2 compatibility spike | **Passed at build level** (`9251b37`): material3 resolves 1.3.1 → 1.4.0, APK installs as `com.ichi2.anki.mmd.debug`. The first on-device gallery run crashed (`StackOverflowError`, fixed in `b3fb1f8`); on-panel check of the fixed gallery still open |
 | 7. Calibrate against Kompakt system apps | Settings, Notes list, Notes selection mode and delete confirmation done (see `eink-design.md`); Contacts optional |
-| 8. Lato + OFL licence | Native screens use the Lato fonts inside the MMD AAR (no copy). `LICENSES/OFL-1.1.txt` + `REUSE.toml` entry staged for the WebView font copy (Phase 2/4) |
-| 9. One XML theme | Not started |
-| 10. Motion off globally | Not started |
-| 11. Design kit `com.ichi2.compose.mmd` | In the repo (`9251b37`); `ConfirmPanel` reworked to the measured bottom confirmation (building) |
+| 8. Lato + OFL licence | Done (`75f1662`). Native screens use the Lato fonts inside the MMD AAR (no copy); the annotation covers the WebView copy added in Phase 2/4 |
+| 9. One XML theme | **Folded into Phase 1 step 8**, which deletes the other themes, enums and prefs; doing it twice would churn `ThemesTest` and `ScreenshotTest` for nothing |
+| 10. Motion off globally | `Animations.areAnimationsEnabled` always `false`; "Remove animations" pref, `AnimationPreferences`, the provider registration and both strings (83 locales) removed (building) |
+| 11. Design kit `com.ichi2.compose.mmd` | In the repo (`9251b37`); `ConfirmPanel` matches the measured bottom confirmation (`43f59aa`) |
 | 12. Test harness (Compose UI test deps, KOMPAKT device config) | `KOMPAKT` screenshot device (`-Pdevice=kompakt`, 360×601dp tvdpi) added; Compose UI test deps not yet |
 
 ### Step 4 — app-private storage
@@ -97,6 +102,10 @@ Both were deleted rather than disabled, at the owner's request.
   without storage permission on Android 12, but delete the option in Phase 1 regardless.
 - `HelpItemActionsDispatcher` still calls `CrashReportService.sendReport`; it now returns
   `false`. Help is deleted in Phase 1.
+- `ComposeHostFragment` subclasses implement `ScreenContent()`, never `Content()`: inside
+  `ComposeView.apply { }` that name resolves to `ComposeView.Content()` and recurses.
+- `docs/multiprofile/README.md:44` still cites the removed `Prefs.removeAppAnimations`; the
+  profiles code and its docs go in Phase 1 step 9.
 
 ## Design kit (in the repo, `AnkiDroid/src/main/java/com/ichi2/compose/mmd/`)
 

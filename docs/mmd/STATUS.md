@@ -143,6 +143,8 @@ State (2026-09-15): steps 2, 3, 4 and 6 are written and the old files deleted; a
 compile locally; committed as `258172e` on `fork/mmd-phase3`. CI run `35022472431`: compile and
 Kompakt screenshots passed; lint found 46 resources left unused by the rewrite (pruned), and two tests
 that had failed since before Phase 3 (`ControlsSettingsFragmentTest`, `TranslationTest`) are fixed.
+**CI green on `d9e00bb`** (run `35024419219`: compile, lint, 4 test shards, Kompakt screenshots). Device
+check pending.
 Step 5 (splash hold) is not started. `DeckPicker` is now ~1,000 lines: tabs via
 `HomeTab` (`deckpicker/HomeTab.kt`), `DeckListFragment`, `MoreTabFragment`; collection-wide actions
 are public methods the More tab calls. Messages from the home screen show above the bottom bar on

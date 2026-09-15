@@ -21,7 +21,6 @@ import androidx.core.net.toUri
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ProcessLifecycleOwner
-import anki.collection.OpChanges
 import com.ichi2.anki.AnkiDroidApp.Companion.sharedPreferencesTestingOverride
 import com.ichi2.anki.browser.SharedPreferencesLastDeckIdRepository
 import com.ichi2.anki.common.android.AdaptionUtil
@@ -48,7 +47,6 @@ import com.ichi2.anki.logging.LogType
 import com.ichi2.anki.logging.ProductionCrashReportingTree
 import com.ichi2.anki.logging.RobolectricDebugTree
 import com.ichi2.anki.navigation.initializeNavigator
-import com.ichi2.anki.observability.ChangeManager
 import com.ichi2.anki.preferences.SharedPreferencesProvider
 import com.ichi2.anki.reviewreminders.ReminderLogTree
 import com.ichi2.anki.servicelayer.DebugInfoService
@@ -58,7 +56,6 @@ import com.ichi2.anki.settings.Prefs
 import com.ichi2.anki.startup.ensureCollectionPathSet
 import com.ichi2.anki.startup.getDefaultAnkiDroidDirectory
 import com.ichi2.anki.ui.dialogs.ActivityAgnosticDialogs
-import com.ichi2.anki.widget.RECURRING_WIDGETS
 import com.ichi2.utils.AlarmManagement
 import com.ichi2.utils.ExceptionUtil
 import com.ichi2.utils.LanguageUtil
@@ -66,9 +63,6 @@ import com.ichi2.utils.measureTime
 import com.ichi2.utils.setWebContentsDebuggingEnabled
 import com.ichi2.widget.DayRolloverAlarm
 import com.ichi2.widget.WidgetNotificationScheduler
-import com.ichi2.widget.cardanalysis.CardAnalysisWidget
-import com.ichi2.widget.deckpicker.DeckPickerWidget
-import com.ichi2.widget.restoreRecurringAlarms
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import timber.log.Timber.DebugTree
@@ -78,9 +72,7 @@ import java.util.Locale
  * Application class.
  */
 @KotlinCleanup("IDE Lint")
-open class AnkiDroidApp :
-    Application(),
-    ChangeManager.Subscriber {
+open class AnkiDroidApp : Application() {
     /** An exception if AnkiDroidApp fails to load  */
     private var fatalInitializationError: FatalInitializationError? = null
 
@@ -166,7 +158,6 @@ open class AnkiDroidApp :
         setup("makeBackendUsable") { makeBackendUsable(this) }
         setupNotifications()
         setupAppLifecycleObserver()
-        setupBackendChangeManager()
 
         // Probe WebView availability before any other init touches it (#5794).
         if (!checkWebViewAvailable()) {
@@ -178,8 +169,6 @@ open class AnkiDroidApp :
         val anki = AnkiContext.apply { setupAnkiBackend() }
         with(anki) { initializeAnkiDroidDirectory() }
         with(anki) { setupDayRollover() }
-
-        restoreRecurringAlarms(this, RECURRING_WIDGETS)
 
         setupLifecycleLogging()
         activityAgnosticDialogs = ActivityAgnosticDialogs.register(this)
@@ -337,19 +326,6 @@ open class AnkiDroidApp :
                 .addObserver(appLifecycleObserver)
         }
 
-    /**
-     * Ensures any changes in the backend are propagated to:
-     *
-     * - widgets
-     *
-     * @see opExecuted
-     * @see ChangeManager
-     */
-    private fun setupBackendChangeManager() =
-        setup("setupBackendChangeManager") {
-            ChangeManager.subscribe(this)
-        }
-
     private fun setupAnkiBackend() =
         setup("setupAnkiBackend") {
             LanguageUtil.setDefaultBackendLanguages()
@@ -470,31 +446,9 @@ open class AnkiDroidApp :
         }
 
     /**
-     * Callback method invoked when operations that affect the app state are executed.
-     * If relevant changes related to the study queues are detected, the Deck Picker Widgets
-     * are updated accordingly.
-     *
-     * @param changes The set of changes that occurred.
-     * @param handler An optional handler that can be used for custom processing (unused here).
-     */
-    override fun opExecuted(
-        changes: OpChanges,
-        handler: Any?,
-    ) {
-        Timber.d("ChangeSubscriber - opExecuted called with changes: %s", changes)
-        if (changes.studyQueues) {
-            DeckPickerWidget.updateDeckPickerWidgets(this)
-            CardAnalysisWidget.updateCardAnalysisWidgets(this)
-        } else {
-            Timber.d("No relevant changes to update the widget")
-        }
-    }
-
-    /**
      * Initialization for the Anki Backend has completed:
      * - [initAnkiBackend] - platform environment variables/logging
      * - [makeBackendUsable] - load rsdroid.so
-     * - [setupBackendChangeManager] - change manager is subscribed
      * - [setupAnkiBackend] - i18n is set up
      */
 

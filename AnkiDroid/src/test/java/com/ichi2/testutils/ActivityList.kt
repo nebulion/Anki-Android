@@ -3,7 +3,6 @@
 package com.ichi2.testutils
 
 import android.app.Activity
-import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
 import androidx.annotation.CheckResult
@@ -35,8 +34,6 @@ import com.ichi2.anki.ui.windows.permissions.AllPermissionsExplanationActivity
 import com.ichi2.anki.ui.windows.permissions.PermissionsActivity
 import com.ichi2.anki.utils.ConfigAwareSingleFragmentActivity
 import com.ichi2.testutils.ActivityList.ActivityLaunchParam.Companion.get
-import com.ichi2.widget.cardanalysis.CardAnalysisWidgetConfig
-import com.ichi2.widget.deckpicker.DeckPickerWidgetConfig
 import org.robolectric.Robolectric
 import org.robolectric.android.controller.ActivityController
 import java.util.function.Function
@@ -77,8 +74,6 @@ object ActivityList {
             get(CardViewerActivity::class.java),
             get(InstantNoteEditorActivity::class.java),
             get(MultimediaActivity::class.java),
-            get(DeckPickerWidgetConfig::class.java),
-            get(CardAnalysisWidgetConfig::class.java) { intentForWidgetConfig() },
             get(AccountActivity::class.java),
         )
 
@@ -91,8 +86,6 @@ object ActivityList {
     }
 
     private fun intentForCardTemplateEditor(): Intent = Intent().apply { putExtra("noteTypeId", 1L) }
-
-    private fun intentForWidgetConfig(): Intent = Intent().apply { putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, 1) }
 
     class ActivityLaunchParam(
         var activity: Class<out Activity>,

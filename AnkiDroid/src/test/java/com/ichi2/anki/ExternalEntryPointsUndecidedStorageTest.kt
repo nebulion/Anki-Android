@@ -3,9 +3,7 @@
 package com.ichi2.anki
 
 import android.app.Activity
-import android.appwidget.AppWidgetManager
 import android.content.BroadcastReceiver
-import android.content.ComponentName
 import android.content.ContentProvider
 import android.content.Intent
 import android.os.Build
@@ -20,7 +18,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.Robolectric
-import org.robolectric.Shadows.shadowOf
 import org.robolectric.shadows.ShadowMediaPlayer
 import kotlin.test.assertFailsWith
 import kotlin.test.fail
@@ -91,15 +88,7 @@ class ExternalEntryPointsUndecidedStorageTest : RobolectricTest() {
                 } else {
                     TODO("VERSION.SDK_INT < Q")
                 }
-            // the widget host configures a newly added widget
-            "com.ichi2.widget.deckpicker.DeckPickerWidgetConfig",
-            "com.ichi2.widget.cardanalysis.CardAnalysisWidgetConfig",
-            ->
-                Intent(AppWidgetManager.ACTION_APPWIDGET_CONFIGURE).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, 1)
             "com.ichi2.anki.receiver.SdCardReceiver" -> Intent(Intent.ACTION_MEDIA_EJECT, "file:///storage/emulated/0".toUri())
-            // the widget host redraws the widgets
-            "com.ichi2.widget.AddNoteWidget", "com.ichi2.widget.AnkiDroidWidgetSmall" ->
-                Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE).putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, intArrayOf(1))
             else -> fail("define the externally-sent intent for new entry point: $this")
         }
 
@@ -125,11 +114,6 @@ class ExternalEntryPointsUndecidedStorageTest : RobolectricTest() {
     private fun sendBroadcast(className: String) {
         val receiverClass = Class.forName(className).asSubclass(BroadcastReceiver::class.java)
         val intent = entryPoint!!.externalIntent()
-        // the host only requests an update for widgets it has bound
-        intent.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS)?.forEach { appWidgetId ->
-            shadowOf(AppWidgetManager.getInstance(targetContext))
-                .bindAppWidgetId(appWidgetId, ComponentName(targetContext, receiverClass))
-        }
         receiverClass.getDeclaredConstructor().newInstance().onReceive(targetContext, intent)
     }
 

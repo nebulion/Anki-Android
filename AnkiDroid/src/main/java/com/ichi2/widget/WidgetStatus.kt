@@ -16,77 +16,57 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 /**
- * The status of the widget.
+ * The due-cards count behind the legacy 'cards due' notification.
+ *
+ * The MMD fork has no home-screen widgets; the name and storage (`smallWidgetStatus` in
+ * [com.ichi2.anki.MetaDB]) are kept so the notification keeps working unchanged.
  */
 object WidgetStatus {
-    private var smallWidgetEnabled = false
-    private var smallWidgetUpdateJob: Job? = null
+    private var updateJob: Job? = null
 
-    /**
-     * Request the widget to update its status.
-     * TODO Mike - we can reduce battery usage by widget users by removing updatePeriodMillis from metadata
-     *             and replacing it with an alarm we set so device doesn't wake to update the widget, see:
-     *             https://developer.android.com/guide/topics/appwidgets/#MetaData
-     */
+    /** Refreshes the stored due count and reschedules the legacy notification, if it is enabled. */
     fun updateInBackground(context: Context) {
-        val preferences = context.sharedPrefs()
-        smallWidgetEnabled = preferences.getBoolean("widgetSmallEnabled", false)
-        val canExecuteTask = smallWidgetUpdateJob == null || smallWidgetUpdateJob?.isActive == false
-
         if (Prefs.newReviewRemindersEnabled) {
-            if (smallWidgetEnabled && canExecuteTask) {
-                Timber.d("WidgetStatus.update(): updating")
-                smallWidgetUpdateJob = launchSmallWidgetUpdateJob(context)
-            } else {
-                Timber.d("WidgetStatus.update(): already running or not enabled")
-            }
+            Timber.d("WidgetStatus.update(): new review reminders do not use the stored status")
+            return
+        }
+        val notificationEnabled =
+            context
+                .sharedPrefs()
+                .getString(context.getString(R.string.pref_notifications_minimum_cards_due_key), "1000001")!!
+                .toInt() < 1000000
+        val canExecuteTask = updateJob == null || updateJob?.isActive == false
+        if (notificationEnabled && canExecuteTask) {
+            Timber.d("WidgetStatus.update(): updating")
+            updateJob = launchUpdateJob()
         } else {
-            val notificationEnabled =
-                preferences
-                    .getString(context.getString(R.string.pref_notifications_minimum_cards_due_key), "1000001")!!
-                    .toInt() < 1000000
-            if ((smallWidgetEnabled || notificationEnabled) && canExecuteTask) {
-                Timber.d("WidgetStatus.update(): updating")
-                smallWidgetUpdateJob = launchSmallWidgetUpdateJob(context)
-            } else {
-                Timber.d("WidgetStatus.update(): already running or not enabled; enabled: %b", smallWidgetEnabled)
-            }
+            Timber.d("WidgetStatus.update(): already running or not enabled")
         }
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    private fun launchSmallWidgetUpdateJob(context: Context): Job =
+    private fun launchUpdateJob(): Job =
         GlobalScope.launch {
             try {
-                updateSmallWidgetStatus(context)
+                updateStatus()
                 Timber.v("launchUpdateJob completed")
             } catch (exc: java.lang.Exception) {
-                Timber.w(exc, "failure in widget update")
+                Timber.w(exc, "failure in widget status update")
             }
         }
 
-    suspend fun updateSmallWidgetStatus(context: Context) {
+    private suspend fun updateStatus() {
         if (!SdCard.isMounted) {
             Timber.w("updateStatus failed: no SD Card")
             return
         }
-        val status = querySmallWidgetStatus()
-        widgetRepository.storeSmallWidgetStatus(status)
-        if (smallWidgetEnabled) {
-            Timber.i("triggering small widget UI update")
-            AnkiDroidWidgetSmall.UpdateService().doUpdate(context)
-        }
-        if (!Prefs.newReviewRemindersEnabled) {
-            widgetNotificationScheduler.scheduleNotification()
-        }
+        widgetRepository.storeSmallWidgetStatus(queryStatus())
+        widgetNotificationScheduler.scheduleNotification()
     }
-
-    /** Returns the status of each of the decks.  */
-    fun fetchSmall(): SmallWidgetStatus = widgetRepository.getWidgetSmallStatus()
 
     fun fetchDue(): Int = widgetRepository.dueCardsCount()
 
-    private suspend fun querySmallWidgetStatus(): SmallWidgetStatus =
+    private suspend fun queryStatus(): SmallWidgetStatus =
         withCol {
             val total = sched.allDecksCounts()
             val eta = sched.eta(total, false)

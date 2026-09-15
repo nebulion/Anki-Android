@@ -22,10 +22,8 @@ import com.ichi2.anki.libanki.Collection
 import com.ichi2.anki.preferences.PENDING_NOTIFICATIONS_ONLY
 import com.ichi2.anki.runGloballyWithTimeout
 import com.ichi2.anki.settings.Prefs
-import com.ichi2.anki.widget.RECURRING_WIDGETS
 import com.ichi2.utils.AlarmManagement
 import com.ichi2.widget.DayRolloverAlarm
-import com.ichi2.widget.restoreRecurringAlarms
 import timber.log.Timber
 import java.util.Calendar
 import kotlin.time.Duration.Companion.seconds
@@ -78,7 +76,6 @@ class BootService : AnkiBroadcastReceiver() {
             failedToShowNotifications = false
         }
 
-        restoreRecurringAlarms(context, RECURRING_WIDGETS)
         DayRolloverAlarm.scheduleNext(context)
         wasRun = true
     }

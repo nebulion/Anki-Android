@@ -41,13 +41,9 @@ class ExternalEntryPointsTest : RobolectricTest() {
                 EntryPoint.Activity("com.ichi2.anki.instantnoteeditor.InstantNoteEditorActivity"),
                 EntryPoint.Activity("com.ichi2.anki.ui.windows.managespace.ManageSpaceActivity"),
                 EntryPoint.Activity("com.ichi2.anki.ui.windows.permissions.AllPermissionsExplanationActivity"),
-                EntryPoint.WidgetConfig("com.ichi2.widget.deckpicker.DeckPickerWidgetConfig"),
-                EntryPoint.WidgetConfig("com.ichi2.widget.cardanalysis.CardAnalysisWidgetConfig"),
-                // Headless: reachable with no UI (third-party API, system broadcasts, widget updates)
+                // Headless: reachable with no UI (third-party API, system broadcasts)
                 EntryPoint.Provider("com.ichi2.anki.provider.CardContentProvider"),
                 EntryPoint.Receiver("com.ichi2.anki.receiver.SdCardReceiver"),
-                EntryPoint.Receiver("com.ichi2.widget.AddNoteWidget"),
-                EntryPoint.Receiver("com.ichi2.widget.AnkiDroidWidgetSmall"),
             )
     }
 }

@@ -149,5 +149,11 @@ every component, for checking on the panel. New preference keys: `einkRefreshEna
 - **Faster loops.** `tools/mmd/gradle-high.sh <args>` runs `./gradlew` with every Java process
   raised to High priority. `-PfastLint` limits lint to `UnusedResources` on main sources (can
   flag resources used only by tests); run full lint once per phase.
+- **Mass deletions confuse Gradle's file watcher.** After the Phase 1 resource prune (245 files
+  deleted by script), `mergePlayDebugResources` stayed UP-TO-DATE / FROM-CACHE with the deleted
+  tablet layouts still merged, even after clearing `build/intermediates`. Fix: `./gradlew --stop`,
+  then build with `--no-watch-fs --no-build-cache`.
+- **Phase-end builds run in a Claude cloud agent** (user preference, 2026-09-15): commit locally,
+  launch the remote agent to run build + full lint + unit tests and report; fix locally.
 - **Machine memory** lives in `C:\Users\Antonio\.gradle\gradle.properties` (not in git):
   Gradle daemon `-Xmx5g`, Kotlin daemon `-Xmx3g`, ParallelGC. The repo keeps upstream's 3 GB.

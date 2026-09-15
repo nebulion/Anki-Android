@@ -140,6 +140,15 @@ android {
                 keyPassword "Test@123"
             }
         }
+        // MMD fork: every debug build (local and each CI run) signs with the same public test key,
+        // so a new build installs over the previous one and keeps its data. Android's default
+        // debug keystore is regenerated on every CI runner, which forced an uninstall per build.
+        debug {
+            storeFile file("${rootDir}/tools/fallback-release-keystore.jks")
+            storePassword "Test@123"
+            keyAlias "my-key"
+            keyPassword "Test@123"
+        }
     }
     buildTypes {
         named('debug') {

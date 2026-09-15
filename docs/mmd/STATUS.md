@@ -167,6 +167,13 @@ that had failed since before Phase 3 (`ControlsSettingsFragmentTest`, `Translati
 
 Open: the owner could not add cards; the fork is review-only by design (`eink-design.md`), so cards
 come from `.apkg` import or AnkiWeb. Asked whether an editor should come back.
+
+Installed on the phone: the CI build of `53620f0` (run `35029719888`), after an uninstall. Every CI run
+had signed with a freshly generated Android debug key, so no CI build could update the previous one.
+Debug builds now sign with the repo's public test keystore (`tools/fallback-release-keystore.jks`,
+`signingConfigs.debug` in `AnkiDroid/build.gradle`): from the first build with that change, updates
+install in place and keep the collection. The build on the phone still has a random key, so that one
+next install needs a final uninstall.
 Step 5 (splash hold) is not started. `DeckPicker` is now ~1,000 lines: tabs via
 `HomeTab` (`deckpicker/HomeTab.kt`), `DeckListFragment`, `MoreTabFragment`; collection-wide actions
 are public methods the More tab calls. Messages from the home screen show above the bottom bar on

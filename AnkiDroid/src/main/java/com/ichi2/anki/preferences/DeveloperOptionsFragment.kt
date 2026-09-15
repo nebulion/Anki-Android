@@ -47,6 +47,16 @@ class DeveloperOptionsFragment : SettingsFragment() {
             Timber.w("Crash triggered on purpose from advanced preferences in debug mode")
             throw RuntimeException("This is a test crash")
         }
+        // MMD kit gallery
+        requirePreference<Preference>(R.string.pref_mmd_kit_gallery_key).setOnPreferenceClickListener {
+            startActivity(
+                com.ichi2.anki.SingleFragmentActivity.getIntent(
+                    requireContext(),
+                    com.ichi2.anki.ui.eink.MmdKitGalleryFragment::class,
+                ),
+            )
+            true
+        }
         // Lock database
         requirePreference<Preference>(R.string.pref_lock_database_key).setOnPreferenceClickListener {
             Timber.w("Toggling database lock")

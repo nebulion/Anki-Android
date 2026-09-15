@@ -230,6 +230,12 @@ open class PrefsRepository(
 
     val exitViaDoubleTapBack by booleanPref(R.string.exit_via_double_tap_back_key, false)
 
+    // ****************************************** E Ink ****************************************** //
+
+    /** Flash the window black every [einkRefreshInterval] answers to clear ghosting. See `EinkRefresh`. */
+    val isEinkRefreshEnabled by booleanPref(R.string.eink_refresh_enabled_key, defaultValue = false)
+    val einkRefreshInterval by intPref(R.string.eink_refresh_interval_key, defaultValue = 12)
+
     // ****************************************** Sync ****************************************** //
 
     val isAutoSyncEnabled by booleanPref(R.string.automatic_sync_choice_key, false)

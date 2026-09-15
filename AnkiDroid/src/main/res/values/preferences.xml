@@ -5,6 +5,10 @@
     <string name="pref_general_screen_key">generalScreen</string>
     <string name="deck_for_new_cards_key">useCurrent</string>
     <string name="pref_language_key">language</string>
+    <!-- E Ink (MMD fork) -->
+    <string name="eink_refresh_enabled_key">einkRefreshEnabled</string>
+    <string name="eink_refresh_interval_key">einkRefreshInterval</string>
+    <string name="pref_mmd_kit_gallery_key">mmdKitGallery</string>
     <!-- Reviewing -->
     <string name="pref_reviewing_screen_key">reviewingScreen</string>
     <string name="day_offset_preference">dayOffset</string>

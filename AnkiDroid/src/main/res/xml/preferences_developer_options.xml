@@ -36,6 +36,10 @@
         android:summary="Touch here for an immediate test crash"
         android:key="@string/pref_trigger_crash_key"/>
     <Preference
+        android:title="MMD kit gallery"
+        android:summary="Every Mudita Mindful Design kit component, for checking on the E Ink panel"
+        android:key="@string/pref_mmd_kit_gallery_key"/>
+    <Preference
         android:title="Lock database"
         android:summary="Touch here to lock the database (all threads block in-process, exception if using second process)"
         android:key="@string/pref_lock_database_key"/>

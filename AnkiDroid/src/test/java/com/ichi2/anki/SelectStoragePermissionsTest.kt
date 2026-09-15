@@ -5,14 +5,18 @@ package com.ichi2.anki
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
+import android.os.Environment
 import androidx.core.content.edit
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.ichi2.anki.common.preferences.sharedPrefs
+import com.ichi2.anki.common.storage.AnkiDroidFolder
 import com.ichi2.anki.common.storage.CollectionHelper
+import com.ichi2.anki.startup.getDefaultAnkiDroidDirectory
 import com.ichi2.testutils.EmptyApplication
 import com.ichi2.testutils.withManageExternalStorageInManifest
 import org.hamcrest.CoreMatchers.equalTo
+import org.hamcrest.CoreMatchers.not
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.contains
 import org.junit.Test
@@ -102,25 +106,50 @@ class SelectStoragePermissionsTest {
         )
     }
 
-    @SuppressLint("NewApi") // EXTERNAL_MANAGER requires R, guaranteed by @Config
+    /*
+     * MMD fork: the fork is installed beside AnkiDroid 2.24.1, whose real collection lives in the
+     * public ~/AnkiDroid folder. The fork must never select public storage, whatever the device
+     * or manifest allows, so two apps can never open the same collection.
+     */
+
     @Config(sdk = [R_OR_AFTER])
-    @Test // #13574: no collection path is set: permissions are based on device capabilities
-    fun `full build - screen is required while no collection path is set`() {
+    @Test
+    fun `fork - app-private storage is selected while no collection path is set`() {
         context.sharedPrefs().edit { remove(CollectionHelper.PREF_COLLECTION_PATH) }
         withManageExternalStorageInManifest {
-            assertThat(selectStoragePermissions(context), equalTo(StoragePermissionSet.EXTERNAL_MANAGER))
+            assertThat(selectStoragePermissions(context), equalTo(StoragePermissionSet.APP_PRIVATE))
+            assertThat(selectAnkiDroidFolder(context), equalTo(AnkiDroidFolder.APP_PRIVATE))
         }
     }
 
-    @SuppressLint("NewApi") // EXTERNAL_MANAGER requires R, guaranteed by @Config
     @Config(sdk = [R_OR_AFTER])
-    @Test // #13574: public storage which the app cannot access: the screen is required
-    fun `full build - screen is required when access to public storage was revoked`() {
+    @Test
+    fun `fork - a public collection path never selects public storage`() {
         context.sharedPrefs().edit {
             putString(CollectionHelper.PREF_COLLECTION_PATH, "/storage/emulated/0/AnkiDroid")
         }
         withManageExternalStorageInManifest {
-            assertThat(selectStoragePermissions(context), equalTo(StoragePermissionSet.EXTERNAL_MANAGER))
+            assertThat(selectStoragePermissions(context), equalTo(StoragePermissionSet.APP_PRIVATE))
+            assertThat(selectAnkiDroidFolder(context), equalTo(AnkiDroidFolder.APP_PRIVATE))
+        }
+    }
+
+    @Config(sdk = [BEFORE_Q])
+    @Test
+    fun `fork - legacy devices also use app-private storage`() {
+        context.sharedPrefs().edit { remove(CollectionHelper.PREF_COLLECTION_PATH) }
+        assertThat(selectStoragePermissions(context), equalTo(StoragePermissionSet.APP_PRIVATE))
+    }
+
+    @Config(sdk = [R_OR_AFTER])
+    @Test
+    fun `fork - the default directory is never the public AnkiDroid folder`() {
+        context.sharedPrefs().edit { remove(CollectionHelper.PREF_COLLECTION_PATH) }
+        withManageExternalStorageInManifest {
+            assertThat(
+                getDefaultAnkiDroidDirectory(context),
+                not(equalTo(File(Environment.getExternalStorageDirectory(), "AnkiDroid"))),
+            )
         }
     }
 

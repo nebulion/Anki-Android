@@ -8,7 +8,6 @@ import android.content.SharedPreferences
 import android.database.sqlite.SQLiteDatabaseCorruptException
 import android.database.sqlite.SQLiteFullException
 import android.os.Build
-import android.os.Environment
 import android.os.Parcelable
 import androidx.annotation.CheckResult
 import androidx.annotation.RequiresApi
@@ -21,7 +20,6 @@ import com.ichi2.anki.common.preferences.sharedPrefs
 import com.ichi2.anki.common.storage.AnkiDroidFolder
 import com.ichi2.anki.common.storage.CollectionHelper
 import com.ichi2.anki.common.storage.StorageDecision
-import com.ichi2.anki.common.storage.isLegacyStorage
 import com.ichi2.anki.common.utils.android.SdCard
 import com.ichi2.anki.compat.CompatHelper.Companion.sdkVersion
 import com.ichi2.anki.exception.StorageAccessException
@@ -297,22 +295,15 @@ internal fun selectStoragePermissions(
     }
 }
 
-fun selectStoragePermissions(context: Context): StoragePermissionSet {
-    // `false`: the collection is app-private, so it can be accessed without storage permissions
-    // `null`: no collection path is set
-    val currentFolderIsLegacy = isLegacyStorage(context, setCollectionPath = false)
-    if (currentFolderIsLegacy == false) {
-        return StoragePermissionSet.APP_PRIVATE
-    }
-
-    val canAccessLegacyStorage = Build.VERSION.SDK_INT < Build.VERSION_CODES.Q || Environment.isExternalStorageLegacy()
-    val currentFolderIsAccessibleAndLegacy = canAccessLegacyStorage && currentFolderIsLegacy == true
-
-    return selectStoragePermissions(
-        canManageExternalStorage = Permissions.canManageExternalStorage(context),
-        currentFolderIsAccessibleAndLegacy = currentFolderIsAccessibleAndLegacy,
-    )
-}
+/**
+ * MMD fork: always [StoragePermissionSet.APP_PRIVATE].
+ *
+ * The fork is installed beside AnkiDroid 2.24.1, whose real collection is in the public
+ * `~/AnkiDroid` folder. Selecting public storage here could let both apps open the same
+ * collection, so the device and manifest capabilities checked upstream are ignored.
+ */
+@Suppress("UNUSED_PARAMETER")
+fun selectStoragePermissions(context: Context): StoragePermissionSet = StoragePermissionSet.APP_PRIVATE
 
 /** The folder where AnkiDroid data is saved. See [selectStoragePermissions]. */
 fun selectAnkiDroidFolder(context: Context): AnkiDroidFolder =

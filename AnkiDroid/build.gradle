@@ -308,7 +308,7 @@ android {
                             }
                         }
                         validateInput(theme, ["light", "plain", "dark", "black", "eink", "all"])
-                        validateInput(device, ["phone", "tablet", "foldable", "desktop", "all"])
+                        validateInput(device, ["phone", "tablet", "foldable", "desktop", "kompakt", "all"])
 
                         systemProperty "screenshot.theme", theme
                         systemProperty "screenshot.device", device

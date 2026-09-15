@@ -50,7 +50,7 @@ abstract class ScreenshotTest : RobolectricTest() {
 
     enum class ThemeConfig { LIGHT, PLAIN, DARK, BLACK, EINK }
 
-    enum class DeviceConfig { PHONE, TABLET, FOLDABLE, DESKTOP }
+    enum class DeviceConfig { PHONE, TABLET, FOLDABLE, DESKTOP, KOMPAKT }
 
     @TestParameter(valuesProvider = ThemeProvider::class)
     lateinit var theme: ThemeConfig
@@ -87,6 +87,10 @@ abstract class ScreenshotTest : RobolectricTest() {
                 setDesktopQualifiers()
                 fileNamePrefix += "desktop_"
             }
+            DeviceConfig.KOMPAKT -> {
+                setKompaktQualifiers()
+                fileNamePrefix += "kompakt_"
+            }
         }
     }
 
@@ -118,6 +122,9 @@ abstract class ScreenshotTest : RobolectricTest() {
     protected fun setFoldableQualifiers() = RuntimeEnvironment.setQualifiers(RobolectricDeviceQualifiers.Pixel9ProFold)
 
     protected fun setDesktopQualifiers() = RuntimeEnvironment.setQualifiers(RobolectricDeviceQualifiers.MediumDesktop)
+
+    /** Mudita Kompakt, the MMD fork's target: 480×800px at 213dpi (tvdpi) = 360×601dp portrait */
+    protected fun setKompaktQualifiers() = RuntimeEnvironment.setQualifiers("w360dp-h601dp-port-tvdpi")
 
     /**
      * Captures a screenshot to `build/outputs/roborazzi/<TestClass>/<name>.png`.

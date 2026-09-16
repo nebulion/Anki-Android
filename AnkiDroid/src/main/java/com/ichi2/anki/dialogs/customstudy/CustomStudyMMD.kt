@@ -20,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -124,7 +125,7 @@ private fun CustomStudyMenu(
         items =
             ContextMenuOption.entries.map { option ->
                 val (isAvailable, label) = loaded.getValue(option)
-                MenuItem(label = option.getTitle(context.resources), value = label) {
+                MenuItem(label = option.getTitle(LocalResources.current), value = label) {
                     if (isAvailable) onSelect(option) else onUnavailable()
                 }
             },
@@ -157,7 +158,7 @@ private fun AmountPanel(
     }
 
     PanelDialog(onDismissRequest = onDismiss) {
-        PanelTitle(option.getTitle(context.resources))
+        PanelTitle(option.getTitle(LocalResources.current))
         availabilityLabel?.let { PanelBody(it) }
         PanelBody(stringResource(option.descriptionRes))
         if (option == STUDY_TAGS) {

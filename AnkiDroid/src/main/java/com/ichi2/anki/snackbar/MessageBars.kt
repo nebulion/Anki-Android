@@ -76,7 +76,10 @@ fun routeToastToMessageBar(
     shortLength: Boolean,
 ): Boolean {
     val activity = context.findActivity()?.takeUnless { it.isFinishing || it.isDestroyed } ?: return false
-    val screen = activity.findViewById<View>(R.id.root_layout) ?: (activity as? MessageHostProvider)?.let { activity.window.decorView }
+    // Looking a view up creates the window's decor view. Before the activity has set its theme (e.g.
+    // the 'cannot open during a backup' toast) that is too early, and there is no screen to show on.
+    val decor = activity.window?.peekDecorView() ?: return false
+    val screen = decor.findViewById<View>(R.id.root_layout) ?: decor.takeIf { activity is MessageHostProvider }
     return screen?.showInMessageBar(
         Message(text = text, durationMillis = if (shortLength) SHORT_MILLIS else MessageDefaults.DURATION_MILLIS),
     ) ?: false

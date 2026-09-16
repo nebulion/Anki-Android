@@ -20,6 +20,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -36,7 +37,6 @@ import com.ichi2.compose.mmd.ValueRow
 import com.ichi2.compose.mmd.panelTextFieldColors
 import com.mudita.mmd.components.text.TextMMD
 import com.mudita.mmd.components.text_field.TextFieldMMD
-import java.util.Locale
 
 /** What the form reports back; each maps onto a [FilteredDeckOptionsViewModel] call. */
 interface FilteredDeckOptionsActions {
@@ -205,7 +205,8 @@ private fun ColumnScope.FilterFields(
     )
     if (state.cardOptions.isNotEmpty()) {
         var isChoosing by rememberSaveable(index) { mutableStateOf(false) }
-        val selectedBy = TR.decksCardsSelectedBy().replaceFirstChar { it.titlecase(Locale.getDefault()) }
+        val locale = LocalConfiguration.current.locales[0]
+        val selectedBy = TR.decksCardsSelectedBy().replaceFirstChar { it.titlecase(locale) }
         ValueRow(
             title = selectedBy,
             value = state.cardOptions.getOrElse(filter.index) { "" },

@@ -4,7 +4,6 @@ package com.ichi2.compose.mmd
 
 import android.app.Activity
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.SystemClock
 import android.view.WindowManager
 import androidx.activity.ComponentDialog
@@ -14,6 +13,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.core.graphics.drawable.toDrawable
 
 /**
  * The app's blocking progress window: a [Panel] with a line of text and, if the operation can be
@@ -55,7 +55,7 @@ class ProgressPanelDialog(
             },
         )
         window?.apply {
-            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
             setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
             setDimAmount(0f)
             setWindowAnimations(0)

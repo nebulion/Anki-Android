@@ -3,7 +3,6 @@
 package com.ichi2.compose.mmd
 
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.unit.dp
+import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.DialogFragment
 import com.mudita.mmd.components.text.TextMMD
 
@@ -57,7 +57,7 @@ fun DialogFragment.panelView(content: @Composable () -> Unit): View =
 /** Removes the window's background, dim and animation so only the panel shows. Call from `onStart`. */
 fun DialogFragment.applyPanelWindow() {
     dialog?.window?.apply {
-        setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
         setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
         setDimAmount(0f)
         setWindowAnimations(0)

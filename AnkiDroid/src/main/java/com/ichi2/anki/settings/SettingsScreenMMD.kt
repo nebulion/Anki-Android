@@ -16,6 +16,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.ichi2.anki.R
 import com.ichi2.compose.mmd.ActionRow
+import com.ichi2.compose.mmd.GroupDivider
 import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.NavRow
 import com.ichi2.compose.mmd.PagedList
@@ -29,10 +30,13 @@ import com.mudita.mmd.components.text.TextMMD
 
 /** A row of a settings page. */
 sealed interface SettingsEntry {
-    /** A heading above the rows that follow. */
+    /** A heading above the rows that follow, for a page whose groups need a name. */
     data class Section(
         val title: String,
     ) : SettingsEntry
+
+    /** The solid rule that starts a new group of rows, as on the Kompakt's own Settings root. */
+    data object Group : SettingsEntry
 
     /** Does something straight away, e.g. "Check database". */
     data class Action(
@@ -58,14 +62,26 @@ sealed interface SettingsEntry {
         val subtitle: String? = null,
     ) : SettingsEntry
 
-    /** A setting whose value is shown on the right; tapping opens a sheet or a panel. */
+    /** A setting and its value, written under it; tapping opens a sheet or a panel. */
     data class Value(
         val title: String,
         val value: String,
         val onClick: () -> Unit,
-        val subtitle: String? = null,
     ) : SettingsEntry
 }
+
+/** Whether this entry is a row of its own, rather than a heading or a group rule. */
+private val SettingsEntry.isRow: Boolean
+    get() = this !is SettingsEntry.Section && this != SettingsEntry.Group
+
+/** The row's leading icon, which also decides where its dotted line starts. */
+private val SettingsEntry.leadingIcon: Int?
+    get() =
+        when (this) {
+            is SettingsEntry.Action -> icon
+            is SettingsEntry.Page -> icon
+            else -> null
+        }
 
 /**
  * A settings page (pattern P1): headed sections of rows, each one a heading, an action, another
@@ -106,40 +122,38 @@ fun SettingsScreenMMD(
         }
         PagedList(Modifier.weight(1f)) {
             itemsIndexed(entries) { index, entry ->
+                // a row's dotted line is left out where a solid group rule or a heading follows it
+                val next = entries.getOrNull(index + 1)
+                val isLastInGroup = next == null || next is SettingsEntry.Group || next is SettingsEntry.Section
                 Column {
                     when (entry) {
                         is SettingsEntry.Section -> SectionTitle(entry.title)
-                        is SettingsEntry.Action -> {
+                        SettingsEntry.Group -> GroupDivider()
+                        is SettingsEntry.Action ->
                             ActionRow(
                                 title = entry.title,
                                 subtitle = entry.subtitle,
                                 leadingIcon = entry.icon,
                                 onClick = entry.onClick,
                             )
-                            RowDivider(hasLeadingIcon = entry.icon != null)
-                        }
-                        is SettingsEntry.Page -> {
+                        is SettingsEntry.Page ->
                             NavRow(
                                 title = entry.title,
                                 subtitle = entry.subtitle,
                                 leadingIcon = entry.icon,
                                 onClick = entry.onClick,
                             )
-                            RowDivider(hasLeadingIcon = entry.icon != null)
-                        }
-                        is SettingsEntry.Switch -> {
+                        is SettingsEntry.Switch ->
                             SwitchRow(
                                 title = entry.title,
                                 subtitle = entry.subtitle,
                                 checked = entry.checked,
                                 onCheckedChange = entry.onCheckedChange,
                             )
-                            RowDivider()
-                        }
-                        is SettingsEntry.Value -> {
-                            ValueRow(title = entry.title, subtitle = entry.subtitle, value = entry.value, onClick = entry.onClick)
-                            RowDivider()
-                        }
+                        is SettingsEntry.Value -> ValueRow(title = entry.title, value = entry.value, onClick = entry.onClick)
+                    }
+                    if (entry.isRow && !isLastInGroup) {
+                        RowDivider(hasLeadingIcon = entry.leadingIcon != null)
                     }
                 }
             }

@@ -45,7 +45,6 @@ fun numberEntry(
     value: Int,
     min: Int,
     max: Int,
-    subtitle: String? = null,
     body: String? = null,
     display: (Int) -> String = { it.toString() },
     onValue: (Int) -> Unit,
@@ -71,7 +70,6 @@ fun numberEntry(
     }
     return SettingsEntry.Value(
         title = title,
-        subtitle = subtitle,
         value = display(current),
         onClick = { isEditing = true },
     )
@@ -84,7 +82,6 @@ fun <T> choiceEntry(
     options: List<T>,
     value: T,
     label: (T) -> String,
-    subtitle: String? = null,
     onSelect: (T) -> Unit,
 ): SettingsEntry {
     var current by remember { mutableStateOf(value) }
@@ -104,7 +101,6 @@ fun <T> choiceEntry(
     }
     return SettingsEntry.Value(
         title = title,
-        subtitle = subtitle,
         value = label(current),
         onClick = { isChoosing = true },
     )
@@ -116,7 +112,6 @@ fun textEntry(
     title: String,
     value: String?,
     emptyValue: String,
-    subtitle: String? = null,
     body: String? = null,
     validate: (String) -> String? = { null },
     onValue: (String) -> Unit,
@@ -140,7 +135,6 @@ fun textEntry(
     }
     return SettingsEntry.Value(
         title = title,
-        subtitle = subtitle,
         value = current.ifEmpty { emptyValue },
         onClick = { isEditing = true },
     )

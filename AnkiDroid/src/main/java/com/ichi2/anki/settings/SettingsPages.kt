@@ -57,7 +57,6 @@ internal fun SettingsPageFragment.rootEntries(): List<SettingsEntry> {
     // Only some backend labels have a Fragment overload; inside `with(context)` those are ambiguous
     val checkDatabase = TR.sentenceCase.checkDatabase
     return listOf(
-        SettingsEntry.Section(getString(R.string.mmd_section_study)),
         SettingsEntry.Page(getString(R.string.pref_cat_reviewing), icon = R.drawable.ic_running_clock) {
             openPage(SettingsPage.Reviewing)
         },
@@ -73,7 +72,7 @@ internal fun SettingsPageFragment.rootEntries(): List<SettingsEntry> {
         SettingsEntry.Page(getString(R.string.mmd_settings_eink), icon = R.drawable.ic_remove_red_eye_white) {
             openPage(SettingsPage.EInk)
         },
-        SettingsEntry.Section(getString(R.string.mmd_section_collection)),
+        SettingsEntry.Group,
         SettingsEntry.Action(TR.sentenceCase.createDeck, icon = R.drawable.ic_add) { home.showCreateDeckDialog() },
         SettingsEntry.Action(getString(R.string.new_dynamic_deck), icon = R.drawable.ic_star) {
             home.showCreateFilteredDeckDialog()
@@ -88,14 +87,14 @@ internal fun SettingsPageFragment.rootEntries(): List<SettingsEntry> {
         SettingsEntry.Page(getString(R.string.button_backup), icon = R.drawable.ic_backup_restore) {
             openPage(SettingsPage.Backups)
         },
-        SettingsEntry.Section(getString(R.string.mmd_section_account)),
+        SettingsEntry.Group,
         SettingsEntry.Action(
             title = TR.sentenceCase.ankiWebAccount,
             subtitle = Prefs.username.ifNullOrEmpty { getString(R.string.sync_account_summ_logged_out) },
             icon = R.drawable.ic_baseline_email_24,
         ) { home.openAccount() },
         SettingsEntry.Page(getString(R.string.pref_cat_sync), icon = R.drawable.ic_sync) { openPage(SettingsPage.Sync) },
-        SettingsEntry.Section(getString(R.string.mmd_section_app)),
+        SettingsEntry.Group,
         SettingsEntry.Page(getString(R.string.notification_pref), icon = R.drawable.ic_notifications) {
             openPage(SettingsPage.Notifications)
         },
@@ -138,19 +137,19 @@ internal fun SettingsPageFragment.reviewingEntries(): List<SettingsEntry>? {
         ) { hour -> launchCatchingTask { setDayOffset(requireContext(), hour) } },
         numberEntry(
             title = getString(R.string.learn_cutoff),
-            subtitle = getString(R.string.mmd_settings_minutes),
             value = values.learnAheadMinutes,
             min = 0,
             max = 999,
+            display = { minutes(it) },
         ) { minutes ->
             launchCatchingTask { CollectionPreferences.setLearnAheadLimit(minutes.toDuration(DurationUnit.MINUTES)) }
         },
         numberEntry(
             title = getString(R.string.time_limit),
-            subtitle = getString(R.string.mmd_settings_minutes),
             value = values.timeboxMinutes,
             min = 0,
             max = 999,
+            display = { minutes(it) },
         ) { minutes ->
             launchCatchingTask { CollectionPreferences.setTimeboxTimeLimit(minutes.toDuration(DurationUnit.MINUTES)) }
         },
@@ -248,7 +247,7 @@ internal fun SettingsPageFragment.accessibilityEntries(): List<SettingsEntry> =
         ) { percent -> Prefs.imageZoom = percent },
         numberEntry(
             title = getString(R.string.pref_double_tap_time_interval),
-            subtitle = getString(R.string.pref_double_tap_time_interval_summary),
+            body = getString(R.string.pref_double_tap_time_interval_summary),
             value = Prefs.doubleTapInterval,
             min = 0,
             max = 1000,
@@ -270,6 +269,7 @@ internal fun SettingsPageFragment.einkEntries(): List<SettingsEntry> =
             value = Prefs.einkRefreshInterval,
             min = 1,
             max = 100,
+            display = { answers -> resources.getQuantityString(R.plurals.mmd_settings_every_answers, answers, answers) },
         ) { answers -> Prefs.einkRefreshInterval = answers },
     )
 
@@ -385,10 +385,10 @@ internal fun SettingsPageFragment.syncEntries(): List<SettingsEntry> {
         SettingsEntry.Section(getString(R.string.pref_cat_advanced)),
         numberEntry(
             title = TR.preferencesNetworkTimeout(),
-            subtitle = getString(R.string.mmd_settings_seconds),
             value = Prefs.networkTimeoutSecs,
             min = 30,
             max = 99999,
+            display = { seconds(it) },
         ) { seconds -> Prefs.networkTimeoutSecs = seconds },
         SettingsEntry.Action(
             title = getString(R.string.one_way_sync_title),
@@ -586,6 +586,10 @@ internal fun SettingsPageFragment.advancedEntries(): List<SettingsEntry> =
     }
 
 // ************************************ Actions the rows run ********************************** //
+
+private fun SettingsPageFragment.minutes(count: Int): String = resources.getQuantityString(R.plurals.mmd_settings_minutes, count, count)
+
+private fun SettingsPageFragment.seconds(count: Int): String = resources.getQuantityString(R.plurals.mmd_settings_seconds, count, count)
 
 /** Sets the app's language, as [com.ichi2.anki.preferences.GeneralSettingsFragment] did. */
 private fun setLanguage(tag: String) {

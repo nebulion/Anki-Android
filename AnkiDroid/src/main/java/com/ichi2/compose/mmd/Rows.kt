@@ -3,12 +3,14 @@
 package com.ichi2.compose.mmd
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -88,23 +90,33 @@ fun SwitchRow(
     }
 }
 
-/** A setting whose current [value] is shown on the right; tapping opens a `ChoiceSheet` or panel. */
+/**
+ * A setting and its current value; tapping opens a `ChoiceSheet` or a panel.
+ *
+ * Kompakt Settings writes the value **under** the title rather than beside it, with the title bold
+ * and a chevron at the right (its "Screen Timeout / After 5 min of inactivity"). A long value then
+ * has the width of the row, which a right-aligned one does not.
+ */
 @Composable
 fun ValueRow(
     title: String,
     value: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    subtitle: String? = null,
     @DrawableRes leadingIcon: Int? = null,
 ) {
     RowScaffold(
         modifier = modifier.clickable(onClick = onClick),
         title = title,
-        subtitle = subtitle,
+        subtitle = value,
         leadingIcon = leadingIcon,
     ) {
-        TextMMD(text = value, style = MaterialTheme.typography.bodyMedium)
+        Icon(
+            painter = painterResource(R.drawable.ic_baseline_chevron_right_24),
+            contentDescription = null,
+            modifier = Modifier.size(RowDefaults.ChevronSize),
+            tint = MaterialTheme.colorScheme.onSurface,
+        )
     }
 }
 
@@ -138,6 +150,19 @@ fun SectionTitle(
         modifier = modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 12.dp),
     )
 }
+
+/**
+ * The solid 2dp rule between groups of rows: after a top-level deck and its subdecks, or between the
+ * groups of the settings. Inside a group, rows are separated by the dotted [RowDivider].
+ *
+ * Kompakt Settings has no text headings on its root page, so a group is marked by this line alone.
+ */
+@Composable
+fun GroupDivider() {
+    Box(Modifier.fillMaxWidth().height(GroupDividerThickness).background(MaterialTheme.colorScheme.onSurface))
+}
+
+private val GroupDividerThickness = 2.dp
 
 /**
  * The dotted row divider, inset to where the label starts, as in Kompakt Settings.
@@ -181,7 +206,11 @@ private fun RowScaffold(
             }
         }
         Column(Modifier.weight(1f).padding(end = 16.dp)) {
-            TextMMD(text = title, style = MaterialTheme.typography.bodyLarge)
+            TextMMD(
+                text = title,
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = if (subtitle != null) FontWeight.Bold else FontWeight.Normal,
+            )
             if (subtitle != null) {
                 TextMMD(text = subtitle, style = MaterialTheme.typography.bodyMedium)
             }

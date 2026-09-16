@@ -7,7 +7,6 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +16,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -39,6 +37,7 @@ import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.R
 import com.ichi2.anki.libanki.DeckId
 import com.ichi2.compose.mmd.DashedDividerMMD
+import com.ichi2.compose.mmd.GroupDivider
 import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.PanelPrimaryAction
@@ -121,7 +120,7 @@ fun DeckListScreenMMD(
                             DeckRow(deck, onDeckClick, onDeckLongPress, onToggleExpand)
                             val next = state.decks.getOrNull(index + 1)
                             if (next == null || next.depth <= TOP_LEVEL_DEPTH) {
-                                DeckGroupDivider()
+                                GroupDivider()
                             } else {
                                 DashedDividerMMD(Modifier.padding(horizontal = RowDefaults.EdgePadding))
                             }
@@ -201,12 +200,6 @@ private fun DeckRow(
     }
 }
 
-/** The solid line after a top-level deck and its subdecks. */
-@Composable
-private fun DeckGroupDivider() {
-    Box(Modifier.fillMaxWidth().height(DeckGroupDividerThickness).background(MaterialTheme.colorScheme.onSurface))
-}
-
 /**
  * The sync in progress, in place of the deck list: a title, a bar that fills as work completes
  * (or keeps moving while the amount is unknown), the backend's latest report and Cancel.
@@ -280,4 +273,3 @@ private const val TOP_LEVEL_DEPTH = 0
 private const val SYNC_BAR_CYCLE_MS = 2_000
 
 private val ChevronTouch = 48.dp
-private val DeckGroupDividerThickness = 2.dp

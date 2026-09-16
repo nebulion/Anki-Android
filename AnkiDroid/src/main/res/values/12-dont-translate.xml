@@ -36,10 +36,6 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="bottom_nav_more" maxLength="28">More</string>
     <string name="bottom_nav_browse" maxLength="28">Browse</string>
     <!-- MMD fork: the single settings screen (More folded into Settings) -->
-    <string name="mmd_section_study">Study</string>
-    <string name="mmd_section_collection">Collection</string>
-    <string name="mmd_section_account">Account</string>
-    <string name="mmd_section_app">App</string>
     <string name="mmd_settings_study_screen">Study screen</string>
     <string name="mmd_settings_gestures">Gestures</string>
     <string name="mmd_settings_maintenance">Maintenance</string>
@@ -47,11 +43,21 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="mmd_eink_flash_title">Flash to clear ghosting</string>
     <string name="mmd_eink_flash_summary">Briefly invert the screen while you answer</string>
     <string name="mmd_eink_interval_title">Answers between flashes</string>
-    <string name="mmd_settings_minutes">Minutes</string>
-    <string name="mmd_settings_seconds">Seconds</string>
     <string name="mmd_settings_not_set">Not set</string>
     <string name="mmd_settings_invalid_url">Enter a valid URL</string>
     <string name="mmd_settings_number_range">Enter a number between %1$d and %2$d</string>
     <string name="mmd_version">Version %s</string>
+    <plurals name="mmd_settings_minutes">
+        <item quantity="one">%d minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
+    <plurals name="mmd_settings_seconds">
+        <item quantity="one">%d second</item>
+        <item quantity="other">%d seconds</item>
+    </plurals>
+    <plurals name="mmd_settings_every_answers">
+        <item quantity="one">After every answer</item>
+        <item quantity="other">Every %d answers</item>
+    </plurals>
 </resources>
 

@@ -260,7 +260,6 @@ class TranslationTest : RobolectricTest() {
                 // TR.actionsSave()
                 // TR.deckConfigSaveButton()
                 "Scheduling", // R.string.pref_cat_scheduling | TR.preferencesScheduling()
-                "Search", // R.string.card_browser_cram_search, R.string.card_browser_search_hint
                 // TR.actionsSearch()
                 // TR.statisticsRangeSearch()
                 "Select", // R.string.select

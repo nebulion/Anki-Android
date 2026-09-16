@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Questo è spesso causato da un bug nell\'app che hai usato per selezionare il file. Si prega di provare le seguenti correzioni:\n\n%s</string>
     <string name="import_interrupted">Importazione interrotta</string>
     <string name="export_ready_title">Esportazione pronta</string>
-    <string name="export_send_no_handlers">Nessuna applicazione disponibile per gestire apkg. Salvataggio&#8230;</string>
     <string name="export_save_apkg_successful">Pacchetto di Anki salvato con successo</string>
     <string name="export_save_apkg_unsuccessful">Salvataggio pacchetto di Anki fallito</string>
-    <string name="export_share_title">Invia pacchetto Anki usando</string>
-    <string name="export_email_subject">AnkiDroid ha esportato le carte: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Ciao!
-        <br/><br/>
-        Questo è un mazzo di carte di studio Anki inviato da AnkiDroid[1].
-        Prova ad aprirlo usando una delle distribuzioni di Anki[2] e goditi un apprendimento semplice ed efficiente!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Condividi</string>
     <string name="export_choice_save_to">Salva su</string>
     <string name="export_saving_exported_collection">Salvataggio del file esportato&#8230;</string>
     <string name="dyn_deck_desc">Questo è un mazzo speciale per studiare al di fuori della pianificazione normale. Le carte ritorneranno automaticamente nel mazzo originale dopo che le hai ripetute. L\'eliminazione di questo mazzo dall\'elenco dei mazzi riporterà tutte le carte rimanenti nel loro mazzo originale.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Nome già esistente</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Errore nella condivisione del file apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Il sistema non ha un\'applicazione installata che può eseguire questa azione.</string>
     <string name="no_browser_msg">Nessun browser trovato per aprire il collegamento: %s</string>

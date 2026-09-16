@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Invoer onderbreek: AnkiDroid is gesluit</string>
     <string name="export_ready_title">Gereed vir uitvoer</string>
-    <string name="export_send_no_handlers">Geen toepassings beskikbaar om .apkg te hanteer nie. Stoor&#8230;</string>
     <string name="export_save_apkg_successful">Suksesvol Anki-pakket gestoor</string>
     <string name="export_save_apkg_unsuccessful">Stoor Anki-pakket het misluk</string>
-    <string name="export_share_title">Stuur Anki-pakket met behulp van</string>
-    <string name="export_email_subject">AnkiDroid uitgevoerde flitskaarte: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Hi!
-        <br/><br/>
-        Dit is \'n Anki-flitskaarte-dek wat vanaf AnkiDroid gestuur is[1].
-        Probeer om dit oop te maak met een van die beskikbare Anki-verspreidings[2] en geniet maklike en doeltreffende leer!<br/><br/>
-        [1]%1$s<br/>
-        [2]%2$s
-        ]]></string>
-    <string name="export_choice_share">Deel</string>
     <string name="export_choice_save_to">Stoor na</string>
     <string name="export_saving_exported_collection">Stoor uitgevoerde lêer&#8230;</string>
     <string name="dyn_deck_desc">Dit is \'n spesiale dek vir studie buite die normale skedule. Kaartjies sal outomaties na hul oorspronklike dekke teruggestuur word nadat jy dit hersien het. Die verwydering van hierdie dek uit die deklys sal alle oorblywende kaartjies na hul oorspronklike dek terugstuur.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Fout met die deel van apkg-lêer</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Die stelsel het nie \'n toepassing geïnstalleer wat hierdie aksie kan uitvoer nie.</string>
     <string name="no_browser_msg">Geen blaaier gevind om die skakel oop te maak nie: %s</string>

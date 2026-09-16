@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Bu genellikle dosyayı seçmek için kullandığınız uygulamadaki bir bugdan kaynaklanır. Lütfen şu düzeltmeleri deneyin:\n\n%s</string>
     <string name="import_interrupted">Aktarım yarıda kesildi: AnkiDroid kapatıldı</string>
     <string name="export_ready_title">Dışa aktarım hazır</string>
-    <string name="export_send_no_handlers">Apkg işleyecek uygulama yok. Kaydediliyor&#8230;</string>
     <string name="export_save_apkg_successful">Anki paketi başarıyla kaydedildi</string>
     <string name="export_save_apkg_unsuccessful">Anki paketi kaydı başarısız oldu</string>
-    <string name="export_share_title">Anki paketini göndermek için kullan</string>
-    <string name="export_email_subject">AnkiDroid\'den dışa aktarılan bilgi kartları: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Selam!
-        <br/><br/>
-        Bu, AnkiDroid\'den[1] gönderilmiş bir Anki bilgi kartı destesi.
-        Mevcut Anki dağıtımlarından[2] biriyle açmayı deneyin ve kolay ve verimli öğrenmenin tadını çıkarın!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Paylaş</string>
     <string name="export_choice_save_to">Kaydet</string>
     <string name="export_saving_exported_collection">Dışarı aktarılan dosya kaydediliyor&#8230;</string>
     <string name="dyn_deck_desc">Bu normal programın dışında çalışmak için özel bir deste. Kartlar çalışıldıktan sonra otomatik olarak kendi destelerine geri dönecekler. Bu desteyi deste listesinden silmek kalan bütün kartları kendi destelerine geri döndürecek.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">İsim zaten var</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Apkg dosyasını paylaşırken hata</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Sistemde bu eylemi gerçekleştirebilecek bir uygulama yüklü değil.</string>
     <string name="no_browser_msg">%s linkini açacak tarayıcı bulunamadı</string>

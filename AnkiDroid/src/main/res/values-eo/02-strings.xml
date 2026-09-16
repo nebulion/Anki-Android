@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Tio ĉi ofte okazas pro eraro en la aplikaĵo uzita por elekti la dosieron. Provu la jenon por solvi la problemon:\n\n%s</string>
     <string name="import_interrupted">Enportado interrompita</string>
     <string name="export_ready_title">Elporto estas preta</string>
-    <string name="export_send_no_handlers">Neniu aplikaĵo por pritrakti apkg. Konservado&#8230;</string>
     <string name="export_save_apkg_successful">Sukcese konservis Anki-pakaĵon</string>
     <string name="export_save_apkg_unsuccessful">Malsukcesis konservi Anki-pakaĵon</string>
-    <string name="export_share_title">Sendi Anki-pakaĵon per</string>
-    <string name="export_email_subject">AnkiDroid elportis lernkartojn: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Saluton!
-        <br/><br/>
-        Tio ĉi estas Anki-kartaro sendita per la aplikaĵo Anki[1].
-        Malfermu ĝin per iu el la disponeblaj Anki-programoj[2] por ĝui facilan kaj efikan lernadon!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Konigi</string>
     <string name="export_choice_save_to">Konservi en</string>
     <string name="export_saving_exported_collection">Konservado de elportita dosiero&#8230;</string>
     <string name="dyn_deck_desc">Tio ĉi estas speciala kartaro por lerni ekster la norma lern-plano. Kartoj aŭtomate revenos al originalaj kartaroj post ripeti ilin. Forigi tiun ĉi kartaron el la listo de kartaroj redonos ĉiujn restantajn kartojn al originalaj kartaroj.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Nomo jam ekzistas</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Eraro dum kunhavigado de apkg-dosiero</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Mankas instalita aplikaĵo por plenumi tiun ĉi agon.</string>
     <string name="no_browser_msg">Neniu retfoliumilo por malfermi la ligilon: %s</string>

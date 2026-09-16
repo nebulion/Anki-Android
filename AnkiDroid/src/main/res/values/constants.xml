@@ -67,13 +67,11 @@
     <string name="link_webview_update">https://github.com/ankidroid/Anki-Android/wiki/WebView-Detection-and-Package-Updates#outdated-webview</string>
     <string name="link_legacy_webview_update">https://github.com/ankidroid/Anki-Android/wiki/WebView-Detection-and-Package-Updates#outdated-android-native-webview</string>
     <!-- Link is in the name of Glutanimate - server admin -->
-    <string name="link_distributions">https://apps.ankiweb.net/#download</string>
     <string name="link_install_non_play_store_install">https://github.com/ankidroid/Anki-Android/wiki/Full-Storage-Access</string>
     <string name="link_set_due_date_help">https://docs.ankiweb.net/browsing.html#cards</string>
     <string name="link_full_storage_access">https://github.com/ankidroid/Anki-Android/wiki/Full-Storage-Access</string>
     <string name="link_help_forget_cards">https://docs.ankiweb.net/studying.html#editing-and-more</string>
     <string name="link_scheduler_upgrade_faq">https://faqs.ankiweb.net/the-anki-2.1-scheduler.html#updating-to-v2-from-v1</string>
-    <string name="link_filtered_decks_help">https://docs.ankiweb.net/filtered-decks.html</string>
 
 
     <!-- Themes -->

@@ -4,14 +4,11 @@
 package com.ichi2.anki.dialogs
 
 import android.content.Intent
-import android.widget.ListView
-import androidx.appcompat.app.AlertDialog
 import com.ichi2.anki.R
 import com.ichi2.anki.RobolectricTest
 import com.ichi2.anki.dialogs.ImportFileSelectionFragment.Companion.buildImportFilePickerIntent
 import com.ichi2.anki.dialogs.ImportFileSelectionFragment.ImportOptions
 import com.ichi2.anki.utils.MimeTypeUtils
-import com.ichi2.testutils.launchFragment
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
@@ -63,79 +60,47 @@ class ImportFileSelectionFragmentTest : RobolectricTest() {
 
     @Test
     fun `dialog with all import options shows three entries`() {
-        showDialog(
-            ImportOptions(importColpkg = true, importApkg = true, importTextFile = true),
-        ) { dialog ->
-            assertThat(dialog.listView.count, equalTo(3))
-            assertThat(
-                dialog.listView.itemLabels(),
-                equalTo(
-                    listOf(
-                        targetContext.getString(R.string.import_deck_package),
-                        importCollectionPackageLabel,
-                        importCsvLabel,
-                    ),
+        assertThat(
+            labelsFor(ImportOptions(importColpkg = true, importApkg = true, importTextFile = true)),
+            equalTo(
+                listOf(
+                    targetContext.getString(R.string.import_deck_package),
+                    importCollectionPackageLabel,
+                    importCsvLabel,
                 ),
-            )
-        }
+            ),
+        )
     }
 
     @Test
     fun `dialog with only colpkg option shows only colpkg entry (restore backup scenario)`() {
-        showDialog(
-            ImportOptions(importColpkg = true, importApkg = false, importTextFile = false),
-        ) { dialog ->
-            assertThat(dialog.listView.count, equalTo(1))
-            assertThat(
-                dialog.listView.itemLabels(),
-                equalTo(listOf(importCollectionPackageLabel)),
-            )
-        }
+        assertThat(
+            labelsFor(ImportOptions(importColpkg = true, importApkg = false, importTextFile = false)),
+            equalTo(listOf(importCollectionPackageLabel)),
+        )
     }
 
     @Test
     fun `dialog with only apkg option shows only apkg entry`() {
-        showDialog(
-            ImportOptions(importColpkg = false, importApkg = true, importTextFile = false),
-        ) { dialog ->
-            assertThat(dialog.listView.count, equalTo(1))
-            assertThat(dialog.listView.itemLabels(), equalTo(listOf(targetContext.getString(R.string.import_deck_package))))
-        }
+        assertThat(
+            labelsFor(ImportOptions(importColpkg = false, importApkg = true, importTextFile = false)),
+            equalTo(listOf(targetContext.getString(R.string.import_deck_package))),
+        )
     }
 
     @Test
     fun `dialog with only csv option shows only csv entry`() {
-        showDialog(
-            ImportOptions(importColpkg = false, importApkg = false, importTextFile = true),
-        ) { dialog ->
-            assertThat(dialog.listView.count, equalTo(1))
-            assertThat(dialog.listView.itemLabels(), equalTo(listOf(importCsvLabel)))
-        }
+        assertThat(
+            labelsFor(ImportOptions(importColpkg = false, importApkg = false, importTextFile = true)),
+            equalTo(listOf(importCsvLabel)),
+        )
     }
 
-    /**
-     * Launches [ImportFileSelectionFragment.newInstance] in an empty host activity,
-     * then hands the shown [AlertDialog] to the caller's [block] for assertions.
-     */
-    private inline fun showDialog(
-        options: ImportOptions,
-        crossinline block: (AlertDialog) -> Unit,
-    ) {
-        launchFragment<ImportFileSelectionFragment>(
-            fragmentArgs = ImportFileSelectionFragment.newInstance(options).arguments,
-        ).use { scenario ->
-            scenario.onFragment { fragment ->
-                val dialog =
-                    fragment.dialog as? AlertDialog
-                        ?: error("ImportFileSelectionFragment did not show an AlertDialog")
-                block(dialog)
-            }
-        }
-    }
+    /** The labels of the choices the panel offers for [options], in order */
+    private fun labelsFor(options: ImportOptions): List<String> =
+        ImportFileSelectionFragment.importEntries(options).map { targetContext.getString(it.titleRes) }
 
     private val importCollectionPackageLabel = targetContext.getString(R.string.import_collection_package)
 
     private val importCsvLabel = targetContext.getString(R.string.import_csv)
-
-    private fun ListView.itemLabels(): List<String> = (0 until adapter.count).map { adapter.getItem(it).toString() }
 }

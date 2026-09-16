@@ -68,21 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Импорт бүленгән иде</string>
     <string name="export_ready_title">Export ready</string>
-    <string name="export_send_no_handlers">apkg файлын укый ала торган кушымталар юк. Саклана&#8230;</string>
     <string name="export_save_apkg_successful">Anki пакеты уңышлы итеп сакланды</string>
     <string name="export_save_apkg_unsuccessful">Anki пакеты саклана алмады</string>
-    <string name="export_share_title">Send Anki package using</string>
-    <string name="export_email_subject">AnkiDroid экспортланган кәртләр: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Сәлам!
-        <br/><br/>
-        Бу - AnkiDroid кушымтасыннан җибәрелгән Anki кәртләр колодасы[1].
-        Аны ачыр өчен,  Anki кушымтасын көйләгез[2] һәм җиңел һәм уңышлы итеп өйрәнегез!
-<br/><br/>
-        [1]%1$s<br/>
-        [2]%2$s
-        ]]></string>
-    <string name="export_choice_share">Уртаклашу</string>
     <string name="export_choice_save_to">Save to</string>
     <string name="export_saving_exported_collection">Saving exported file&#8230;</string>
     <string name="dyn_deck_desc">Бу - гадәттәгедән тыш күбрәк уку өчен колода. Кәртләрне карап чыккач, алар үзенең колодаларына кире кайтачаклар. Бу колоданы бетерү аның эчендәге кәртләрнең үзенең колодаларына кайтуына китерер.</string>
@@ -92,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">apkg файлын экспортлаганда хата</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">The system does not have an app installed that can perform this action.</string>
     <string name="no_browser_msg">No browser found for opening the link: %s</string>

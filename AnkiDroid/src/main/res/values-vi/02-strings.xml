@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Nhập dữ liệu bị gián đoạn: AnkiDroid đã bị đóng</string>
     <string name="export_ready_title">Trích xuất sẵn sàng</string>
-    <string name="export_send_no_handlers">Không có ứng dụng nào khả dụng để xử lý apkg. Đang lưu&#8230;</string>
     <string name="export_save_apkg_successful">Lưu gói Anki thành công</string>
     <string name="export_save_apkg_unsuccessful">Lưu gói Anki thất bại</string>
-    <string name="export_share_title">Gửi gói Anki đang dùng</string>
-    <string name="export_email_subject">AnkiDroid đã kết xuất các thẻ ghi nhớ: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Xin chào!
-        <br/><br/>
-        Đây là bộ thẻ ghi nhớ Anki được gửi từ AnkiDroid[1].
-        Hãy thử mở nó bằng một trong những bản phát hành Anki[2] và tận hưởng việc học dễ dàng và hiệu quả!<br/><br/>
-        [1]%1$s<br/>
-        [2]%2$s
-        ]]></string>
-    <string name="export_choice_share">Chia sẻ</string>
     <string name="export_choice_save_to">Lưu tới</string>
     <string name="export_saving_exported_collection">Đang lưu tệp đã xuất&#8230;</string>
     <string name="dyn_deck_desc">Đây là bộ thẻ đặc biệt phục vụ cho việc học ngoài lịch trình thông thường. Các thẻ sẽ tự động quay lại bộ thẻ ban đầu của chúng sau khi ôn tập. Xoá bộ thẻ này khỏi danh sách sẽ chuyển toàn bộ thẻ còn lại về bộ thẻ ban đầu của chúng.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Lỗi chia sẻ tệp tin apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Hệ thống chưa cài đặt ứng dụng có thể thực hiện tác vụ này.</string>
     <string name="no_browser_msg">Không tìm thấy trình duyệt để mở liên kết: %s</string>

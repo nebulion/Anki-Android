@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">匯入中斷</string>
     <string name="export_ready_title">已準備好要匯出</string>
-    <string name="export_send_no_handlers">無應用程式可用於處理 apkg。儲存中&#8230;</string>
     <string name="export_save_apkg_successful">成功儲存 Anki 套件</string>
     <string name="export_save_apkg_unsuccessful">儲存 Anki 套件失敗</string>
-    <string name="export_share_title">以&#8230;傳送Anki牌組包</string>
-    <string name="export_email_subject">AnkiDroid 已匯出單字卡：%s</string>
-    <string name="export_email_text"><![CDATA[
-        你好！
-        <br/><br/>
-        這是從 AnkiDroid[1] 發送的 Anki 單字卡牌組。
-        使用任一 Anki 用戶端[2] 開啟，享受輕鬆高效的學習吧！<br/><br/>
-        [1]%1$s<br/>
-        [2]%2$s
-        ]]></string>
-    <string name="export_choice_share">分享</string>
     <string name="export_choice_save_to">儲存到&#8230;</string>
     <string name="export_saving_exported_collection">儲存已匯出的檔案&#8230;</string>
     <string name="dyn_deck_desc">這是專門用來進行額外學習進度的牌組。卡片在你複習完以後會自動回歸原本的牌組。如果在牌組列表中刪除這個牌組，其他剩下的卡片也會回歸它們原本的牌組。</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">分享 Apkg 檔案時出錯</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">此系統不包含能執行此操作的應用程式。</string>
     <string name="no_browser_msg">未找到開啟連結的瀏覽器： %s</string>

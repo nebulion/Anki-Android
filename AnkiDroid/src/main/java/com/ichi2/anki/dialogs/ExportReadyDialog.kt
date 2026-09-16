@@ -4,72 +4,67 @@
 package com.ichi2.anki.dialogs
 
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.DialogFragment
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import com.ichi2.anki.AnkiActivity
 import com.ichi2.anki.R
 import com.ichi2.anki.dialogs.viewmodel.ExportReadyViewModel.ExportReadyParams
 import com.ichi2.anki.utils.ext.requireString
-import com.ichi2.utils.negativeButton
-import com.ichi2.utils.positiveButton
+import com.ichi2.compose.mmd.PanelActions
+import com.ichi2.compose.mmd.PanelDialogFragment
+import com.ichi2.compose.mmd.PanelPrimaryAction
+import com.ichi2.compose.mmd.PanelSecondaryAction
+import com.ichi2.compose.mmd.PanelTitle
 import timber.log.Timber
 
-class ExportReadyDialog : DialogFragment() {
+/**
+ * The export is written: offer to save it with the system file picker.
+ *
+ * There is no Share: on the Kompakt the share sheet has almost nowhere to send a file, and the
+ * picker is where a file can be kept or moved to a computer.
+ */
+class ExportReadyDialog : PanelDialogFragment() {
     private val exportPath
         get() = requireArguments().requireString(KEY_EXPORT_PATH)
-    private val asText: Boolean
-        get() = requireArguments().getBoolean(ARG_SHARE_AS_TEXT, false)
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): AlertDialog {
-        val dialog = AlertDialog.Builder(requireActivity())
-
-        dialog
-            .setTitle(getString(R.string.export_ready_title))
-            .positiveButton(R.string.export_choice_save_to) {
-                parentFragmentManager.setFragmentResult(
-                    REQUEST_EXPORT_SAVE,
-                    Bundle().apply { putString(KEY_EXPORT_PATH, exportPath) },
-                )
-            }.negativeButton(R.string.export_choice_share) {
-                parentFragmentManager.setFragmentResult(
-                    REQUEST_EXPORT_SHARE,
-                    Bundle().apply {
-                        putString(KEY_EXPORT_PATH, exportPath)
-                        putBoolean(ARG_SHARE_AS_TEXT, asText)
-                    },
-                )
-            }
-
-        return dialog.create()
+    @Composable
+    override fun PanelContent() {
+        PanelTitle(getString(R.string.export_ready_title))
+        PanelActions {
+            PanelSecondaryAction(
+                label = getString(R.string.dialog_cancel),
+                onClick = ::dismiss,
+                modifier = Modifier.weight(1f),
+            )
+            PanelPrimaryAction(
+                label = getString(R.string.export_choice_save_to),
+                onClick = {
+                    parentFragmentManager.setFragmentResult(
+                        REQUEST_EXPORT_SAVE,
+                        Bundle().apply { putString(KEY_EXPORT_PATH, exportPath) },
+                    )
+                    dismiss()
+                },
+                modifier = Modifier.weight(1f),
+            )
+        }
     }
 
     companion object {
         const val REQUEST_EXPORT_SAVE = "request_export_save"
-        const val REQUEST_EXPORT_SHARE = "request_export_share"
         const val KEY_EXPORT_PATH = "key_export_path"
-        const val ARG_SHARE_AS_TEXT = "arg_share_as_text"
 
-        fun newInstance(
-            exportPath: String,
-            asText: Boolean = false,
-        ) = ExportReadyDialog().apply {
-            arguments =
-                Bundle().apply {
-                    putString(KEY_EXPORT_PATH, exportPath)
-                    putBoolean(ARG_SHARE_AS_TEXT, asText)
-                }
-        }
+        fun newInstance(exportPath: String) =
+            ExportReadyDialog().apply {
+                arguments = Bundle().apply { putString(KEY_EXPORT_PATH, exportPath) }
+            }
     }
 }
 
-/**
- * Handles the last part of the export process where we show the [ExportReadyDialog] fragment. The
- * method will either show the dialog if possible or save it to show it later.
- */
 internal fun AnkiActivity.handleExportReadyRequest(params: ExportReadyParams) {
     runCatching {
         Timber.i("Attempting to show ExportReadyDialog...")
-        val dialog = ExportReadyDialog.newInstance(params.exportPath, params.asText)
+        val dialog = ExportReadyDialog.newInstance(params.exportPath)
         dialog.show(supportFragmentManager, "ExportReadyDialog")
     }.onFailure { exception ->
         if (exception !is IllegalStateException) throw exception
@@ -77,8 +72,6 @@ internal fun AnkiActivity.handleExportReadyRequest(params: ExportReadyParams) {
             exception,
             "Failed to show ExportReadyDialog, activity is likely paused.",
         )
-        // TODO the previous code was showing a notification here which allowed the user to come
-        //  back to the activity, after the main ui refactor see if this is more feasible to implement
     }.onSuccess {
         Timber.i("ExportReadyDialog is displayed, clearing any stored requests...")
         exportReadyViewModel.clearExportReadyRequest()

@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Це часто відбувається через помилку в програмі, яку ви використовували для вибору файлу. Спробуйте виконати наступні дії:\n\n%s</string>
     <string name="import_interrupted">Імпортування перервано</string>
     <string name="export_ready_title">Експорт готовий</string>
-    <string name="export_send_no_handlers">Не знайдено додатків для обробки apkg. Збереження&#8230;</string>
     <string name="export_save_apkg_successful">Пакунок Anki успішно збережено</string>
     <string name="export_save_apkg_unsuccessful">Не вдалося зберегти пакунок Anki</string>
-    <string name="export_share_title">Надіслати пакет Anki використовуючи</string>
-    <string name="export_email_subject">AnkiDroid експортує картки: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Привіт!
-        <br/><br/>
-        Це колода Anki надіслана з AnkiDroid[1].
-        Спробуйте відкрити її за допомогою однієї з версій Anki[2] і насолоджуйтесь легким та ефективним навчанням!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Поділитись</string>
     <string name="export_choice_save_to">Зберегти до</string>
     <string name="export_saving_exported_collection">Збереження експортованого файлу&#8230;</string>
     <string name="dyn_deck_desc">Це спеціальна колода для навчання поза межами нормального графіку. Картки будуть автоматично повернуті до своїх колод після повторення. Видалення цієї колоди поверне всі карточки до своїх колод.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Назва вже існує</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Помилка поширення файлу apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Система не має встановленого додатку, який може це виконати.</string>
     <string name="no_browser_msg">Не знайдено жодного браузера для відкриття посилання: %s</string>

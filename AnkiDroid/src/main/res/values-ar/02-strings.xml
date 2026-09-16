@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">غالباً ما يحدث هذا نتيجة لخلل في التطبيق الذي استعملته لاختيار الملف. جرب الحلول التالية رجاءاً:\n\n%s</string>
     <string name="import_interrupted">تمت مقاطعة الاستيراد: لقد أُغلق آنكي درويد</string>
     <string name="export_ready_title">المُصَدَّر مُعدّ</string>
-    <string name="export_send_no_handlers">لا توجد تطبيقات متاحة للتعامل مع «apkg». يتم الحفظ&#8230;</string>
     <string name="export_save_apkg_successful">تم حفظ حزمة آنكي بنجاح</string>
     <string name="export_save_apkg_unsuccessful">فشل حفظ حزمة آنكي</string>
-    <string name="export_share_title">إرسال حُزْمَة آنكي باستخدام</string>
-    <string name="export_email_subject">بطاقات مُصَدَّرة من قبل آنكي درويد: %s</string>
-    <string name="export_email_text"><![CDATA[
-        مرحبًا!
-        <br/><br/>
-        هذه رزمة بطاقات استذكار آنكي مرسلة من آنكي درويد[١].
-        جرب فتحها باستخدام برنامج من برامج آنكي المتوفرة[٢] واستمتع بتعلم سهل وفعال!<br/><br/>
-        [١] %1$s<br/>
-        [٢] %2$s
-        ]]></string>
-    <string name="export_choice_share">مشاركة</string>
     <string name="export_choice_save_to">حفظ في</string>
     <string name="export_saving_exported_collection">يتم حفظ الملف المُصَدَّر&#8230;</string>
     <string name="dyn_deck_desc">هذه رزمة خاصة للدراسة خارج الجدول المعتاد. ستعود البطاقات إلى رزمها الأصلية تلقائيًا بعد مراجعتها. يؤدي حذف هذه الرزمة من قائمة الرزم إلى إعادة كل البطاقات المتبقية إلى رزمها الأصلية.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">الاِسم موجود</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">حدث خطأ أثناء مشاركة ملف «apkg»</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">ليس للنظام تطبيق منصب يمكنه إجراء هذا.</string>
     <string name="no_browser_msg">لم نجد متصفحًا لفتح الرابط: %s</string>

@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Jest to często spowodowane błędem w aplikacji, której użyłeś do wybrania pliku. Spróbuj następujących rozwiązań:\n\n%s</string>
     <string name="import_interrupted">Import przerwany: AnkiDroid zostało zamknięte</string>
     <string name="export_ready_title">Eksportowanie zakończone</string>
-    <string name="export_send_no_handlers">Nie znaleziono aplikacji, która obsługuje apkg. Zapisywanie&#8230;</string>
     <string name="export_save_apkg_successful">Pakiet Anki zapisany pomyślnie</string>
     <string name="export_save_apkg_unsuccessful">Zapis pakietu Anki nieudany</string>
-    <string name="export_share_title">Wyślij pakiet Anki używając</string>
-    <string name="export_email_subject">AnkiDroid wyeksportował fiszki: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Cześć!
-        <br/><br/>
-        To jest talia fiszek programu Anki wysłana z AnkiDroid[1].
-        Spróbuj ją otworzyć używając jednej z dostępnych wersji Anki[2] i ciesz się łatwą i efektywną nauką!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Udostępnij</string>
     <string name="export_choice_save_to">Zapisz do</string>
     <string name="export_saving_exported_collection">Zapisywanie eksportowanego pliku&#8230;</string>
     <string name="dyn_deck_desc">To jest specjalna talia do nauki poza normalnym trybem. Karty automatycznie powrócą do oryginalnych talii po ich przejrzeniu. Usunięcie tej talii z listy spowoduje przywrócenie pozostałych w niej kart do oryginalnych talii.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Nazwa już istnieje</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Błąd udostępniania pliku apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">System nie ma zainstalowanej aplikacji, która może wykonać tę czynność.</string>
     <string name="no_browser_msg">Nie znaleziono przeglądarki do otwarcia linku: %s</string>

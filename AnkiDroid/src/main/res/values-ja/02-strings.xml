@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">インポートが中断されました: AnkiDroidが閉じられました</string>
     <string name="export_ready_title">エクスポートの準備完了</string>
-    <string name="export_send_no_handlers">Ankiパッケージに対応する他のアプリがありません。ファイルを保存します&#8230;</string>
     <string name="export_save_apkg_successful">パッケージファイルを保存しました</string>
     <string name="export_save_apkg_unsuccessful">パッケージファイルの保存に失敗しました</string>
-    <string name="export_share_title">Ankiパッケージを送信:</string>
-    <string name="export_email_subject">[AnkiDroid] %s</string>
-    <string name="export_email_text"><![CDATA[
-        こんにちは！
-        <br/><br/>
-        このメールには、AnkiDroid[1] から送信された、カードデッキのファイルが添付されています。
-        Anki公式サイトで紹介されているソフトウェア・アプリケーション[2]のいずれかを使ってこのデッキを開き、簡単で効率的な学習をお楽しみください！<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">共有</string>
     <string name="export_choice_save_to">保存先を選択</string>
     <string name="export_saving_exported_collection">エクスポートしたファイルを保存しています&#8230;</string>
     <string name="dyn_deck_desc">これは標準のスケジュールから外れて学習する特別なデッキです。 復習が終わったカードは自動的に元のデッキに戻ります。 このデッキを削除すると、残りのカードもすべて元のデッキに戻ります。</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">この名前のデッキがすでに存在します</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Ankiファイル（*.apkg）の共有中にエラーが発生しました</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">この操作を実行できるアプリがインストールされていません。</string>
     <string name="no_browser_msg">次のリンクを開くためのブラウザが見つかりません: %s</string>

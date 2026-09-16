@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">იმპორტი შეჩერდა: AnkiDroid გამოირთო</string>
     <string name="export_ready_title">ექსპორტი მზადაა</string>
-    <string name="export_send_no_handlers">არაა სხვა აპლიკაციები APKG-ფაილების გასახსნელად. ინახება&#8230;</string>
     <string name="export_save_apkg_successful">Anki-პაკეტი წარმატებით შეინახა</string>
     <string name="export_save_apkg_unsuccessful">Anki-პაკეტი ვერ შეინახა</string>
-    <string name="export_share_title">Anki-პაკეტის გაგზავნა:</string>
-    <string name="export_email_subject">AnkiDroid-მა წარმატებით განახორციელა ბარათების ექსპორტი: %s</string>
-    <string name="export_email_text"><![CDATA[
-        გამარჯობა!
-        <br/><br/>
-        ეს არის AnkiDroid-ის მიერ გამოგზავნილი ბარათების დასტა[1].
-        სცადეთ მისი გახსნა Anki-ს ნებისმიერი ხელმისაწვდომი ვერსიით[2] და ისიამოვნეთ ადვილი და შედეგიანი სწავლებით!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">გაზიარება</string>
     <string name="export_choice_save_to">შენახვა</string>
     <string name="export_saving_exported_collection">ექსპორტირებული ფაილის შენახვა&#8230;</string>
     <string name="dyn_deck_desc">ეს მიზნობრივი დასტაა, რომელიც საშუალებას გაძლევთ, ჩვეულებრივი განრიგი უგულებელყოფოთ და სურვილისამებრ ისწავლოთ. მეცადინეობის შემდეგ ბარათები საწყის დასტას ავტომატურად დაუბრუნდება. დასტის დასტების სიიდან ამოშლის შემთხვევაში ყველა დარჩენილი ბარათი შესაბამის საწყის დასტას დაუბრუნდება.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">შეცდომა APKG ფაილის გაზიარებისას</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">The system does not have an app installed that can perform this action.</string>
     <string name="no_browser_msg">No browser found for opening the link: %s</string>

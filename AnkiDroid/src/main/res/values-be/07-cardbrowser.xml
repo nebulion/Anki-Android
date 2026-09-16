@@ -24,7 +24,6 @@
   -->
 <resources>
     <!-- CardBrowser -->
-    <string name="card_browser_cram_search" maxLength="28" comment="Menu entry to start a search.">Пошук</string>
     <string name="card_details_tags">Меткі</string>
     <string name="card_browser_unknown_deck_name">Невядома</string>
     <string name="set_due_date_hintText" comment="plural set_due_date_label_suffix is used for parameters, parameter 1 is the plural for 0, parameter 2 is the plural for 1">Сёння «0 %1$s», заўтра «1 %2$s» і г.д&#8230;</string>

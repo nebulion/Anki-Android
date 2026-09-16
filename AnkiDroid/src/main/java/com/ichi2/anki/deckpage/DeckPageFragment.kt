@@ -25,7 +25,7 @@ import com.ichi2.anki.dialogs.customstudy.ContextMenuOption
 import com.ichi2.anki.dialogs.customstudy.CustomStudyAction
 import com.ichi2.anki.dialogs.customstudy.CustomStudyFlow
 import com.ichi2.anki.dialogs.customstudy.CustomStudyViewModel
-import com.ichi2.anki.export.ExportDialogFragment
+import com.ichi2.anki.export.ExportFragment
 import com.ichi2.anki.filtered.FilteredDeckOptionsFragment
 import com.ichi2.anki.launchCatchingTask
 import com.ichi2.anki.observability.ChangeManager
@@ -252,9 +252,7 @@ class DeckPageFragment :
     }
 
     private fun exportDeck() {
-        ExportDialogFragment
-            .newInstance(viewModel.selectedDeckId)
-            .show(requireActivity().supportFragmentManager, "exportOptions")
+        startActivity(ExportFragment.getIntent(requireContext(), viewModel.selectedDeckId))
     }
 
     private fun rebuildFiltered() =

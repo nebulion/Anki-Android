@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">आयात व्यत्यय: अंकीड्रोइड बंद होता</string>
     <string name="export_ready_title">निर्यात तयार आहे</string>
-    <string name="export_send_no_handlers">एपीकेजी हाताळण्यासाठी कोणतेही अनुप्रयोग उपलब्ध नाहीत. बचत&#8230;</string>
     <string name="export_save_apkg_successful">अंकी पॅकेज यशस्वीरित्या सेव्ह केले</string>
     <string name="export_save_apkg_unsuccessful">अंकी पॅकेज जतन करणे अयशस्वी झाले</string>
-    <string name="export_share_title">वापरून अंकी पॅकेज पाठवा</string>
-    <string name="export_email_subject">AnkiDroid niryāta phlĕśakārḍa: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Hi!
-        <br/><br/>
-        This is an Anki flashcards deck sent from AnkiDroid[1].
-        Try to open it using one of the available Anki distributions[2] and enjoy easy and efficient learning!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">शेअर करा</string>
     <string name="export_choice_save_to">मध्ये जतन करा</string>
     <string name="export_saving_exported_collection">निर्यात केलेली फाइल जतन करत आहे&#8230;</string>
     <string name="dyn_deck_desc">सामान्य शेड्यूलच्या बाहेर अभ्यास करण्यासाठी हा एक विशेष डेक आहे. तुम्ही त्यांचे पुनरावलोकन केल्यानंतर कार्डे आपोआप त्यांच्या मूळ डेकवर परत येतील. डेक सूचीमधून हा डेक हटवल्याने उर्वरित सर्व कार्ड त्यांच्या मूळ डेकवर परत येतील.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">apkg फाइल शेअर करताना त्रुटी</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">ही क्रिया करू शकणारे ॲप सिस्टीमवर स्थापित केलेले नाही.</string>
     <string name="no_browser_msg">दुवा उघडण्यासाठी कोणताही ब्राउझर आढळला नाही: %s</string>

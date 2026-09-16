@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">بۇ ئادەتتە سىز ھۆججەت تاللاشقا ئىشلىتىۋاتقان ئەپتىكى خاتالىق سەۋەبىدىن كېلىپ چىقىدۇ. تۆۋەندىكى ئوڭشاشنى سىناڭ:\n\n%s</string>
     <string name="import_interrupted">ئەكىرىش ئۈزۈلدى: AnkiDroid تاقالغان</string>
     <string name="export_ready_title">چىقىرىشقا تەييار</string>
-    <string name="export_send_no_handlers">apkg نى بىر تەرەپ قىلىدىغان ئەپ يوق. ساقلاۋاتىدۇ&#8230;</string>
     <string name="export_save_apkg_successful">Anki بولىقى مۇۋەپپەقىيەتلىك ساقلاندى</string>
     <string name="export_save_apkg_unsuccessful">Anki بولىقىنى ساقلىيالمىدى</string>
-    <string name="export_share_title">Anki بولىقى يوللاش تاللىنىدۇ</string>
-    <string name="export_email_subject">AnkiDroid چىقارغان كارتا: %s</string>
-    <string name="export_email_text"><![CDATA[
-        سالام!
-        <br/><br/>
-        بۇ AnkiDroid[1] دىن ئەۋەتىلگەن Anki چاقماق كارتا دەستىسى.
-        ئىشلەتكىلى بولىدىغان Anki تارقىتىلغان نەشرى[2]دىن بىرىنى ئىشلىتىپ ئېچىپ ئاسان ۋە ئۈنۈملۈك ئۆگىنىشتىن ھۇزۇرلىنىڭ! <br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">ھەمبەھىر</string>
     <string name="export_choice_save_to">ساقلاش ئورنى</string>
     <string name="export_saving_exported_collection">چىقىرىدىغان ھۆججەتنى ساقلاۋاتىدۇ&#8230;</string>
     <string name="dyn_deck_desc">بۇ ئادەتتىكى كۈنتەرتىپنىڭ سىرتىدىكى مەزمۇننى ئۆگىنىدىغان ئالاھىدە دەستە. كارتىنى تەكرارلىغاندىن كېيىن ئەسلىدىكى دەستەسىگە قايتۇرۇلىدۇ. ئەگەر دەستە تىزىمىدىن بۇ دەستە ئۆچۈرۈلسە، قېپقالغان كارتا دەسلەپكى دەستە ئورنىغا ئەسلىگە قايتۇرۇلىدۇ.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">ئاتى مەۋجۇد</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">apkg ھۆججەتنى ھەمبەھىرلەش خاتالىقى</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">سىستېمىدا بۇ مەشغۇلاتنى ئىجرا قىلىدىغان ئەپ ئورنىتىلمىغان.</string>
     <string name="no_browser_msg">ئۇلانمىنى ئاچىدىغان توركۆرگۈ يوق: %s</string>

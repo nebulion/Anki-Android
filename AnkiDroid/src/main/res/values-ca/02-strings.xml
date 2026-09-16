@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Importació interrompuda: AnkiDroid s\'ha tancat</string>
     <string name="export_ready_title">Export ready</string>
-    <string name="export_send_no_handlers">No hi ha aplicacions disponibles per a gestionar apkg. Desant&#8230;</string>
     <string name="export_save_apkg_successful">Paquet Anki desat amb èxit</string>
     <string name="export_save_apkg_unsuccessful">Error al desar paquet Anki</string>
-    <string name="export_share_title">Voleu enviar el paquet Anki?</string>
-    <string name="export_email_subject">Notes exportades a AnkiDroid: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Hola!
-        <br/><br/>
-		Això és un paquet de targetes d\'Anki enviat des d\'AnkiDroid.[1]
-        Intenteu obrir-ho utilitzant una de les distribucions d\'Anki disponibles[2] i gaudiu d\'un estudi senzilll i eficient!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Comparteix</string>
     <string name="export_choice_save_to">Desa a</string>
     <string name="export_saving_exported_collection">Saving exported file&#8230;</string>
     <string name="dyn_deck_desc">Es tracta d\'un paquet especial per a l\'estudi fora de la planificació normal. Després de revisar-les, les fitxes es tornaran automàticament al seus paquets originals. Si suprimiu aquest paquet de la llista de paquets, totes les fitxes tornaran al seu paquet inicial.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Error en compartir l\'arxiu apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">El sistema no té instal·lada cap aplicació que pugui realitzar aquesta acció.</string>
     <string name="no_browser_msg">No browser found for opening the link: %s</string>

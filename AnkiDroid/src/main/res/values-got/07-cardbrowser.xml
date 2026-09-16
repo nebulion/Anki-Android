@@ -24,7 +24,6 @@
   -->
 <resources>
     <!-- CardBrowser -->
-    <string name="card_browser_cram_search" maxLength="28" comment="Menu entry to start a search.">𐍃𐍉𐌺𐌾𐌰𐌽</string>
     <string name="card_details_tags">𐍃𐍉𐌺𐌽𐌹𐍅𐌰𐌿𐍂𐌳𐌰</string>
     <string name="card_browser_unknown_deck_name">𐌿𐌽𐌺𐌿𐌽𐌸</string>
     <string name="set_due_date_hintText" comment="plural set_due_date_label_suffix is used for parameters, parameter 1 is the plural for 0, parameter 2 is the plural for 1">𐌷𐌹𐌼𐌼𐌰 𐌳𐌰𐌲𐌰 𐌹𐍃𐍄 \'0 %1$s\', 𐌳𐌿 𐌼𐌰𐌿𐍂𐌲𐌹𐌽𐌰 𐌹𐍃𐍄 \'1 %2$s\', 𐌾𐌰𐌷 𐍃𐍅𐌴 𐍆𐍂𐌰𐌼𐍅𐌹𐌲𐌹𐍃&#8230;</string>

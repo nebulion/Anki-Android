@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">ಆಮದು ಅಡ್ಡಿಪಡಿಸಲಾಗಿದೆ: ಆಂಕಿಡ್ರಾಯ್ಡ್ ಅನ್ನು ಮುಚ್ಚಲಾಗಿದೆ</string>
     <string name="export_ready_title">ರಫ್ತು ಸಿದ್ಧವಾಗಿದೆ</string>
-    <string name="export_send_no_handlers">ಎಪಿಕೆಜಿ ನಿರ್ವಹಿಸಲು ಯಾವುದೇ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಲಭ್ಯವಿಲ್ಲ. ಉಳಿಸಲಾಗುತ್ತಿದೆ &#8230;</string>
     <string name="export_save_apkg_successful">ಅಂಕಿ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಉಳಿಸಲಾಗಿದೆ</string>
     <string name="export_save_apkg_unsuccessful">ಉಳಿಸಿ ಅಂಕಿ ಪ್ಯಾಕೇಜ್ ವಿಫಲವಾಗಿದೆ</string>
-    <string name="export_share_title">ಬಳಸಿ ಅಂಕಿ ಪ್ಯಾಕೇಜ್ ಕಳುಹಿಸಿ</string>
-    <string name="export_email_subject">ಆಂಕಿಡ್ರಾಯ್ಡ್ ರಫ್ತು ಮಾಡಿದ ಫ್ಲ್ಯಾಷ್‌ಕಾರ್ಡ್‌ಗಳು:%s</string>
-    <string name="export_email_text"><![CDATA[
-        ನಮಸ್ತೆ!
-        <br/><br/>
-        ಇದು AnkiDroid[1] ನಿಂದ ಕಳುಹಿಸಲಾದ ಅಂಕಿ ಫ್ಲಾಶ್‌ಕಾರ್ಡ್‌ಗಳ ಡೆಕ್ ಆಗಿದೆ.
-        ಲಭ್ಯವಿರುವ ಅಂಕಿ ವಿತರಣೆಗಳಲ್ಲಿ[2] ಒಂದನ್ನು ಬಳಸಿಕೊಂಡು ಅದನ್ನು ತೆರೆಯಲು ಪ್ರಯತ್ನಿಸಿ ಮತ್ತು ಸುಲಭ ಮತ್ತು ಪರಿಣಾಮಕಾರಿ ಕಲಿಕೆಯನ್ನು ಆನಂದಿಸಿ!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">ಹಂಚಿರಿ</string>
     <string name="export_choice_save_to">ಗೆ ಉಳಿಸಿ</string>
     <string name="export_saving_exported_collection">Saving exported file&#8230;</string>
     <string name="dyn_deck_desc">ಸಾಮಾನ್ಯ ವೇಳಾಪಟ್ಟಿಯ ಹೊರಗೆ ಅಧ್ಯಯನ ಮಾಡಲು ಇದು ವಿಶೇಷ ಡೆಕ್ ಆಗಿದೆ. ನೀವು ಅವುಗಳನ್ನು ಪರಿಶೀಲಿಸಿದ ನಂತರ ಕಾರ್ಡ್‌ಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಅವುಗಳ ಮೂಲ ಡೆಕ್‌ಗಳಿಗೆ ಹಿಂತಿರುಗಿಸಲಾಗುತ್ತದೆ. ಡೆಕ್ ಪಟ್ಟಿಯಿಂದ ಈ ಡೆಕ್ ಅನ್ನು ಅಳಿಸುವುದರಿಂದ ಉಳಿದ ಎಲ್ಲಾ ಕಾರ್ಡ್‌ಗಳನ್ನು ಅವುಗಳ ಮೂಲ ಡೆಕ್‌ಗೆ ಹಿಂತಿರುಗಿಸುತ್ತದೆ.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">ಎಪಿಕೆಜಿ ಫೈಲ್ ಹಂಚುವಲ್ಲಿ ದೋಷ</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">ಈ ಕ್ರಿಯೆಯನ್ನು ನಿರ್ವಹಿಸಬಲ್ಲ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಸಿಸ್ಟಮ್ ಸ್ಥಾಪಿಸಿಲ್ಲ.</string>
     <string name="no_browser_msg">ಲಿಂಕ್ ತೆರೆಯಲು ಯಾವುದೇ ಬ್ರೌಸರ್ ಕಂಡುಬಂದಿಲ್ಲ: %s</string>

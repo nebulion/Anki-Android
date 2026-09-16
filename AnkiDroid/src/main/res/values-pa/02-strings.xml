@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">ਆਯਾਤ ਵਿੱਚ ਰੁਕਾਵਟ: AnkiDroid ਬੰਦ ਸੀ</string>
     <string name="export_ready_title">ਨਿਰਯਾਤ ਤਿਆਰ ਹੈ</string>
-    <string name="export_send_no_handlers">apkk ਨੂੰ ਸੰਭਾਲਣ ਲਈ ਕੋਈ ਐਪਲੀਕੇਸ਼ਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਰੱਖਿਅਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ&#8230;</string>
     <string name="export_save_apkg_successful">Successfully saved Anki package</string>
     <string name="export_save_apkg_unsuccessful">ਸੰਖਿਆਤਮਕ ਪੈਕੇਜ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰਨ ਵਿੱਚ ਅਸਫਲ</string>
-    <string name="export_share_title">ਵਰਤ ਕੇ Anki ਪੈਕੇਜ ਭੇਜੋ</string>
-    <string name="export_email_subject">AnkiDroid ਐਕਸਪੋਰਟ ਫਲੈਸ਼ਕਾਰਡਸ: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Hi!
-        <br/><br/>
-        This is an Anki flashcards deck sent from AnkiDroid[1].
-        Try to open it using one of the available Anki distributions[2] and enjoy easy and efficient learning!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">ਇਹ ਸਾਂਝਾ ਕਰੀਏ</string>
     <string name="export_choice_save_to">ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕਰੋ</string>
     <string name="export_saving_exported_collection">ਨਿਰਯਾਤ ਕੀਤੀ ਫਾਈਲ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ&#8230;</string>
     <string name="dyn_deck_desc">ਇਹ ਆਮ ਅਨੁਸੂਚੀ ਤੋਂ ਬਾਹਰ ਅਧਿਐਨ ਕਰਨ ਲਈ ਇੱਕ ਵਿਸ਼ੇਸ਼ ਡੈੱਕ ਹੈ। ਤੁਹਾਡੇ ਦੁਆਰਾ ਉਹਨਾਂ ਦੀ ਸਮੀਖਿਆ ਕਰਨ ਤੋਂ ਬਾਅਦ ਕਾਰਡ ਆਪਣੇ ਆਪ ਉਹਨਾਂ ਦੇ ਅਸਲ ਡੈੱਕ \'ਤੇ ਵਾਪਸ ਆ ਜਾਣਗੇ। ਡੈੱਕ ਸੂਚੀ ਵਿੱਚੋਂ ਇਸ ਡੈੱਕ ਨੂੰ ਮਿਟਾਉਣ ਨਾਲ ਬਾਕੀ ਸਾਰੇ ਕਾਰਡ ਉਹਨਾਂ ਦੇ ਅਸਲ ਡੈੱਕ \'ਤੇ ਵਾਪਸ ਆ ਜਾਣਗੇ।</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">apkk ਫਾਈਲ ਨੂੰ ਸਾਂਝਾ ਕਰਨ ਵਿੱਚ ਤਰੁੱਟੀ</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">ਸਿਸਟਮ ਵਿੱਚ ਕੋਈ ਐਪ ਸਥਾਪਤ ਨਹੀਂ ਹੈ ਜੋ ਇਹ ਕਾਰਵਾਈ ਕਰ ਸਕੇ।</string>
     <string name="no_browser_msg">ਲਿੰਕ ਖੋਲ੍ਹਣ ਲਈ ਕੋਈ ਬ੍ਰਾਊਜ਼ਰ ਨਹੀਂ ਮਿਲਿਆ: %s</string>

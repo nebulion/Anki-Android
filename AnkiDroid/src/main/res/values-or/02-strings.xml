@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">ଆମଦାନୀ ବାଧାପ୍ରାପ୍ତ: AnkiDroid ବନ୍ଦ ହୋଇଯାଇଥିଲା</string>
     <string name="export_ready_title">ରପ୍ତାନି ପ୍ରସ୍ତୁତ ହୋଇଅଛି</string>
-    <string name="export_send_no_handlers">apkg ପରିଚାଳନା ପାଇଁ କୌଣସି ଆପ୍ ଉପଲବ୍ଧ ନାହିଁ। ସଞ୍ଚୟ ହେଉଛି&#8230;</string>
     <string name="export_save_apkg_successful">ସଫଳତାର ସହିତ Anki package ସଂରକ୍ଷିତ ହେଲା</string>
     <string name="export_save_apkg_unsuccessful">Anki package ସଂରକ୍ଷିତ ହେବାରେ ବିଫଳ ହେଲା</string>
-    <string name="export_share_title">ଏହାର ଉପଯୋଗ କରି Anki package ପଠାଇବା</string>
-    <string name="export_email_subject">AnkiDroid ଫ୍ଲାସକାର୍ଡ ରପ୍ତାନି କଲା: %s</string>
-    <string name="export_email_text"><![CDATA[
-        ନମସ୍କାର!
-        <br/><br/>
-        ଏହା AnkiDroid[1] ରୁ ପଠାଯାଇଥିବା ଏକ Anki ଝଲକ-ପତ୍ର କେରୀ।
-        ଉପଲବ୍ଧ Anki distributions[2] ମଧ୍ୟରୁ ଗୋଟିଏ ବ୍ୟବହାର କରି ଏହାକୁ ଖୋଲିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ ଏବଂ ସହଜ ଓ ଦକ୍ଷ ଶିକ୍ଷା ଉପଭୋଗ କରନ୍ତୁ!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">ଅଂଶୀଦାର କରିବା</string>
     <string name="export_choice_save_to">ଏଠାରେ ସଞ୍ଚୟ କରିବା</string>
     <string name="export_saving_exported_collection">ରପ୍ତାନି ମାରିଥିବା ଫାଇଲ୍‌ଟି ସଞ୍ଚୟ ହେଉଛି&#8230;</string>
     <string name="dyn_deck_desc">ସାଧାରଣ କାର୍ଯ୍ୟସୂଚୀ ବାହାରେ ଅଧ୍ୟୟନ ପାଇଁ ଏହା ଏକ ସ୍ୱତନ୍ତ୍ର କେରୀ। ଆପଣ ସମୀକ୍ଷା କରିବା ପରେ ପତ୍ରଗୁଡ଼ିକ ଆପେ ସେଗୁଡ଼ିକର ମୂଳ କେରୀକୁ ଫେରି ଆସିବେ। କେରୀ ତାଲିକାରୁ ଏହି କେରୀ ବିଲୋପ କରିବା ସମସ୍ତ ଅବଶିଷ୍ଟ ପତ୍ରଗୁଡ଼ିକୁ ସେମାନଙ୍କର ମୂଳ କେରୀକୁ ଫେରାଇବ।</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">apkg ଫାଇଲ୍ ଅଂଶୀଦାର କରିବାରେ ତ୍ରୁଟି</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">ଏହି ସିଷ୍ଟମରେ ଏହି କାମ କରିବାଯୋଗ୍ୟ ଆପ୍ ସଂସ୍ଥାପିତ ହେଇନାହିଁ।</string>
     <string name="no_browser_msg">No browser found for opening the link: %s</string>

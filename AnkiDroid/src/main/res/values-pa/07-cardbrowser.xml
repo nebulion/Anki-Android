@@ -24,7 +24,6 @@
   -->
 <resources>
     <!-- CardBrowser -->
-    <string name="card_browser_cram_search" maxLength="28" comment="Menu entry to start a search.">Search</string>
     <string name="card_details_tags">ਟੈਗਸ</string>
     <string name="card_browser_unknown_deck_name">ਅਗਿਆਤ</string>
     <string name="set_due_date_hintText" comment="plural set_due_date_label_suffix is used for parameters, parameter 1 is the plural for 0, parameter 2 is the plural for 1">ਅੱਜ \'0 %1$s\' ਹੈ, ਕੱਲ੍ਹ \'1 %2$s\' ਹੈ, ਆਦਿ&#8230;</string>

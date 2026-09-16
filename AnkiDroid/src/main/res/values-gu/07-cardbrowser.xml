@@ -24,7 +24,6 @@
   -->
 <resources>
     <!-- CardBrowser -->
-    <string name="card_browser_cram_search" maxLength="28" comment="Menu entry to start a search.">Search</string>
     <string name="card_details_tags">ટૅગ્સ</string>
     <string name="card_browser_unknown_deck_name">અજ્ઞાત</string>
     <string name="set_due_date_hintText" comment="plural set_due_date_label_suffix is used for parameters, parameter 1 is the plural for 0, parameter 2 is the plural for 1">આજે ‘0 %1$s’ છે, આવતીકાલે ‘1 %2$s’ છે, વગેરે&#8230;</string>

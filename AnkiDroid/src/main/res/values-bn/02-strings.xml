@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">আমদানি ব্যাধিত: AnkiDroid বন্ধ করা হয়েছে</string>
     <string name="export_ready_title">রপ্তানি প্রস্তুতি সমাপ্ত</string>
-    <string name="export_send_no_handlers">apkg সামলানোর জন্য কোনো অ্যাপ নেই। সেভ করা হচ্ছে&#8230;</string>
     <string name="export_save_apkg_successful">সফলতাপূর্বক Anki প্যাকেজ সেভ হয়েছে</string>
     <string name="export_save_apkg_unsuccessful">আনকি প্যাকেজ সেভ করা ব্যর্থ</string>
-    <string name="export_share_title">Anki প্যাকেজ পাঠান:</string>
-    <string name="export_email_subject">AnkiDroid এর রপ্তানি করা ফ্ল্যাশকার্ড: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Hi!
-        <br/><br/>
-        This is an Anki flashcards deck sent from AnkiDroid[1].
-        Try to open it using one of the available Anki distributions[2] and enjoy easy and efficient learning!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">শেয়ার করুন</string>
     <string name="export_choice_save_to">সংরক্ষণ</string>
     <string name="export_saving_exported_collection">রপ্তানি করা ফাইল সংরক্ষণ করা হচ্ছে</string>
     <string name="dyn_deck_desc">স্বাভাবিক সময়সূচীর বাইরে অধ্যয়ন করার জন্য এটি একটি বিশেষ ডেক। রিভিউয়ের পর কার্ডসমূহকে স্বয়ংক্রিয়ভাবে তাদের আসল ডেকসমূহে ফিরিয়ে দেয়া হবে। এই ডেকটি মুছে ফেলা হলে বাকি থাকা কার্ডগুলিকে তাদের আসল ডেকে ফিরিয়ে দেয়া হবে।</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Error sharing apkg file</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">এই ক্রিয়াটি সম্পাদন করতে পারে এমন সিস্টেমে কোনও অ্যাপ ইনস্টল করা নেই৷</string>
     <string name="no_browser_msg">লিঙ্ক খোলার জন্য কোনো ব্রাউজার পাওয়া যায়নি: %s</string>

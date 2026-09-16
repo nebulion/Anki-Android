@@ -4,16 +4,25 @@
 package com.ichi2.anki.dialogs
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.CheckResult
-import androidx.appcompat.app.AlertDialog
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.fragment.app.activityViewModels
 import com.ichi2.anki.R
 import com.ichi2.anki.common.annotations.NeedsTest
 import com.ichi2.anki.dialogs.ImportDialog.Type.DIALOG_IMPORT_ADD_CONFIRM
 import com.ichi2.anki.dialogs.ImportDialog.Type.DIALOG_IMPORT_REPLACE_CONFIRM
 import com.ichi2.anki.utils.ext.dismissAllDialogFragments
-import com.ichi2.utils.negativeButton
-import com.ichi2.utils.positiveButton
+import com.ichi2.compose.mmd.PanelActions
+import com.ichi2.compose.mmd.PanelBody
+import com.ichi2.compose.mmd.PanelPrimaryAction
+import com.ichi2.compose.mmd.PanelSecondaryAction
+import com.ichi2.compose.mmd.PanelTitle
+import com.ichi2.compose.mmd.applyPanelWindow
+import com.ichi2.compose.mmd.panelView
 import timber.log.Timber
 import java.net.URLDecoder
 
@@ -27,32 +36,48 @@ class ImportDialog : AsyncDialogFragment() {
     private val packagePath: String
         get() = requireArguments().getString(IMPORT_DIALOG_PACKAGE_PATH_KEY)!!
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): AlertDialog {
-        val dialog = AlertDialog.Builder(requireActivity())
-        dialog.setCancelable(true)
-        val displayFileName = filenameFromPath(convertToDisplayName(packagePath))
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View = panelView { ImportConfirmation() }
 
-        return when (dialogType) {
-            DIALOG_IMPORT_ADD_CONFIRM -> {
-                dialog
-                    .setTitle(R.string.import_title)
-                    .setMessage(res().getString(R.string.import_dialog_message_add, displayFileName))
-                    .positiveButton(R.string.import_message_add) {
-                        importViewModel.triggerImportAdd(packagePath)
-                        activity?.dismissAllDialogFragments()
-                    }.negativeButton(R.string.dialog_cancel)
-                    .create()
+    override fun onStart() {
+        super.onStart()
+        applyPanelWindow()
+    }
+
+    /** Adding to the collection, or replacing it, asks first (P5). */
+    @Composable
+    private fun ImportConfirmation() {
+        val displayFileName = filenameFromPath(convertToDisplayName(packagePath))
+        val (message, confirmLabel, confirm) =
+            when (dialogType) {
+                DIALOG_IMPORT_ADD_CONFIRM ->
+                    Triple(
+                        res().getString(R.string.import_dialog_message_add, displayFileName),
+                        getString(R.string.import_message_add),
+                        { importViewModel.triggerImportAdd(packagePath) },
+                    )
+                DIALOG_IMPORT_REPLACE_CONFIRM ->
+                    Triple(
+                        res().getString(R.string.import_message_replace_confirm, displayFileName),
+                        getString(R.string.dialog_positive_replace),
+                        { importViewModel.triggerImportReplace(packagePath) },
+                    )
             }
-            DIALOG_IMPORT_REPLACE_CONFIRM -> {
-                dialog
-                    .setTitle(R.string.import_title)
-                    .setMessage(res().getString(R.string.import_message_replace_confirm, displayFileName))
-                    .positiveButton(R.string.dialog_positive_replace) {
-                        importViewModel.triggerImportReplace(packagePath)
-                        activity?.dismissAllDialogFragments()
-                    }.negativeButton(R.string.dialog_cancel)
-                    .create()
-            }
+        PanelTitle(getString(R.string.import_title))
+        PanelBody(message)
+        PanelActions {
+            PanelSecondaryAction(label = getString(R.string.dialog_cancel), onClick = ::dismiss, modifier = Modifier.weight(1f))
+            PanelPrimaryAction(
+                label = confirmLabel,
+                onClick = {
+                    confirm()
+                    activity?.dismissAllDialogFragments()
+                },
+                modifier = Modifier.weight(1f),
+            )
         }
     }
 

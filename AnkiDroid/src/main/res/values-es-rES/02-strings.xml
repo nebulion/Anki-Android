@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Esto suele estar causado por un error en la app que has usado para seleccionar el archivo. Por favor, intenta los siguientes arreglos:\n\n%s</string>
     <string name="import_interrupted">Importación interrumpida: AnkiDroid se cerró</string>
     <string name="export_ready_title">Exportación preparada</string>
-    <string name="export_send_no_handlers">No hay aplicaciones disponibles para manejar apkg. Guardando&#8230;</string>
     <string name="export_save_apkg_successful">Paquete Anki guardado correctamente</string>
     <string name="export_save_apkg_unsuccessful">Error al guardar el paquete Anki</string>
-    <string name="export_share_title">Enviar paquete Anki usando</string>
-    <string name="export_email_subject">Tarjetas AnkiDroid exportadas: %s</string>
-    <string name="export_email_text"><![CDATA[
-        ¡Hola!
-        <br/><br/>
-        Esta es una baraja de cartas Anki enviada desde AnkiDroid[1].
-        ¡Intenta abrirlo usando una de las distribuciones disponibles de Anki[2] y disfruta de un aprendizaje fácil y eficiente!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Compartir</string>
     <string name="export_choice_save_to">Guardar en</string>
     <string name="export_saving_exported_collection">Guardando archivo exportado&#8230;</string>
     <string name="dyn_deck_desc">Éste es un mazo especial para estudiar aparte del programa habitual. Las cartas se devolverán automáticamente a sus mazos originales después de que las revises. Borrar este mazo de la lista de mazos devolverá todas las cartas restantes a su mazo original.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Error al compartir el archivo apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">El sistema no tiene una aplicación instalada que pueda realizar esta acción.</string>
     <string name="no_browser_msg">No se encontró ningún navegador para abrir el enlace: %s</string>

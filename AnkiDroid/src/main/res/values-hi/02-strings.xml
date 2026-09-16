@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">आयात बाधित हुआ</string>
     <string name="export_ready_title">एक्सपोर्ट तैयार  है</string>
-    <string name="export_send_no_handlers">apkg को संभालने के लिए कोई एप्लिकेशन उपलब्ध नहीं है। सहेजा जा रहा है &#8230;</string>
     <string name="export_save_apkg_successful">सफलतापूर्वक Anki पैकेज को सहेजा गया</string>
     <string name="export_save_apkg_unsuccessful">Anki पैकेज सहेजना विफल रहा</string>
-    <string name="export_share_title">Anki पैकेज का उपयोग करके भेजें</string>
-    <string name="export_email_subject">AnkiDroid निर्यात किए गए स्पैनिश: %s</string>
-    <string name="export_email_text"><![CDATA[
-        नमस्ते!
-        <br/><br/>
-        यह AnkiDroid[1] से भेजा गया Anki फ़्लैशकार्ड डेक है।
-        उपलब्ध Anki वितरणों में से किसी एक का उपयोग करके इसे खोलने का प्रयास करें[2] और आसान और कुशल सीखने का आनंद लें!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">शेयर करें</string>
     <string name="export_choice_save_to">यहां सेव करें</string>
     <string name="export_saving_exported_collection">निर्यात की गई फ़ाइल सहेजी जा रही है&#8230;</string>
     <string name="dyn_deck_desc">यह सामान्य समय के बाहर अध्ययन करने के लिए एक विशेष डेक है। तुम उन की समीक्षा करने के बाद कार्ड स्वचालित रूप से उनके मूल डेक को लौट जाएगा। इस डेक डेक सूची से हटाने के सभी शेष कार्ड उनके मूल डेक करने के लिए वापस आ जाएगी।</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Apkg फ़ाइल साझा करने में त्रुटि</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">सिस्टम में कोई ऐप इंस्टॉल नहीं है जो इस क्रिया को कर सके।</string>
     <string name="no_browser_msg">लिंक खोलने के लिए कोई ब्राउज़र नहीं मिला: %s</string>

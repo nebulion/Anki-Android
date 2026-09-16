@@ -2,7 +2,6 @@
 
 package com.ichi2.anki.dialogs
 
-import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
@@ -10,9 +9,8 @@ import android.os.Parcelable
 import androidx.activity.result.ActivityResultLauncher
 import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
-import androidx.appcompat.app.AlertDialog
+import androidx.compose.runtime.Composable
 import androidx.core.os.BundleCompat
-import androidx.fragment.app.DialogFragment
 import com.ichi2.anki.AnkiActivity
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.R
@@ -22,21 +20,21 @@ import com.ichi2.anki.common.analytics.LinkAction
 import com.ichi2.anki.requireAnkiActivity
 import com.ichi2.anki.snackbar.showSnackbar
 import com.ichi2.anki.utils.MimeTypeUtils
-import com.ichi2.utils.title
+import com.ichi2.compose.mmd.PanelChoice
+import com.ichi2.compose.mmd.PanelDialogFragment
+import com.ichi2.compose.mmd.PanelTitle
 import kotlinx.parcelize.Parcelize
 import timber.log.Timber
 
-class ImportFileSelectionFragment : DialogFragment() {
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val entries = buildImportEntries()
-        return AlertDialog
-            .Builder(requireActivity())
-            .title(text = TR.actionsImport())
-            .setItems(
-                entries.map { requireActivity().getString(it.titleRes) }.toTypedArray(),
-            ) { _, position ->
-                val entry = entries[position]
+class ImportFileSelectionFragment : PanelDialogFragment() {
+    @Composable
+    override fun PanelContent() {
+        val entries = importEntries(options())
+        PanelTitle(TR.actionsImport())
+        entries.forEachIndexed { index, entry ->
+            PanelChoice(label = getString(entry.titleRes), isFirst = index == 0) {
                 Analytics.send(LinkClicked(entry.analyticsId))
+                dismiss()
                 openImportFilePicker(
                     activity = requireAnkiActivity(),
                     fileType = entry.type,
@@ -44,51 +42,18 @@ class ImportFileSelectionFragment : DialogFragment() {
                     mimeType = entry.mimeType,
                     extraMimes = entry.extraMimes,
                 )
-            }.create()
-    }
-
-    private fun buildImportEntries(): List<ImportEntry> {
-        return arguments?.let { args ->
-            args.classLoader = this@ImportFileSelectionFragment::class.java.classLoader
-            val options =
-                BundleCompat.getParcelable(args, ARG_IMPORT_OPTIONS, ImportOptions::class.java)
-                    ?: return emptyList()
-            mutableListOf<ImportEntry>().apply {
-                if (options.importApkg) {
-                    add(
-                        ImportEntry(
-                            R.string.import_deck_package,
-                            LinkAction.IMPORT_APKG_FILE,
-                            ImportFileType.APKG,
-                        ),
-                    )
-                }
-                if (options.importColpkg) {
-                    add(
-                        ImportEntry(
-                            R.string.import_collection_package,
-                            LinkAction.IMPORT_COLPKG_FILE,
-                            ImportFileType.COLPKG,
-                        ),
-                    )
-                }
-                if (options.importTextFile) {
-                    add(
-                        ImportEntry(
-                            R.string.import_csv,
-                            LinkAction.IMPORT_CSV_FILE,
-                            ImportFileType.CSV,
-                            multiple = false,
-                            mimeType = "*/*",
-                            extraMimes = MimeTypeUtils.CSV_TSV_MIME_TYPES,
-                        ),
-                    )
-                }
             }
-        } ?: emptyList()
+        }
     }
 
-    private class ImportEntry(
+    private fun options(): ImportOptions? =
+        arguments?.let { args ->
+            args.classLoader = this@ImportFileSelectionFragment::class.java.classLoader
+            BundleCompat.getParcelable(args, ARG_IMPORT_OPTIONS, ImportOptions::class.java)
+        }
+
+    @VisibleForTesting
+    internal class ImportEntry(
         @StringRes val titleRes: Int,
         val analyticsId: LinkAction,
         val type: ImportFileType,
@@ -120,6 +85,32 @@ class ImportFileSelectionFragment : DialogFragment() {
 
     companion object {
         private const val ARG_IMPORT_OPTIONS = "arg_import_options"
+
+        /** The kinds of file [options] allows, in the order they are offered. */
+        @VisibleForTesting
+        internal fun importEntries(options: ImportOptions?): List<ImportEntry> {
+            if (options == null) return emptyList()
+            return buildList {
+                if (options.importApkg) {
+                    add(ImportEntry(R.string.import_deck_package, LinkAction.IMPORT_APKG_FILE, ImportFileType.APKG))
+                }
+                if (options.importColpkg) {
+                    add(ImportEntry(R.string.import_collection_package, LinkAction.IMPORT_COLPKG_FILE, ImportFileType.COLPKG))
+                }
+                if (options.importTextFile) {
+                    add(
+                        ImportEntry(
+                            R.string.import_csv,
+                            LinkAction.IMPORT_CSV_FILE,
+                            ImportFileType.CSV,
+                            multiple = false,
+                            mimeType = "*/*",
+                            extraMimes = MimeTypeUtils.CSV_TSV_MIME_TYPES,
+                        ),
+                    )
+                }
+            }
+        }
 
         fun newInstance(options: ImportOptions) =
             ImportFileSelectionFragment().apply {

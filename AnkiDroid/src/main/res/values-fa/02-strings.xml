@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">این مشکل اغلب به دلیل وجود اشکال در برنامه‌ای که برای انتخاب فایل استفاده کرده‌اید، ایجاد می‌شود. لطفاً راه‌حل‌های زیر را امتحان کنید:\n\n%s</string>
     <string name="import_interrupted">در فرایند ورود اختلال ایجاد شد: AnkiDroid بسته بود</string>
     <string name="export_ready_title">خروجی آماده است</string>
-    <string name="export_send_no_handlers">هیچ برنامه ای برای بررسی apkg در دسترس نیست. در حال ذخیره&#8230;</string>
     <string name="export_save_apkg_successful">بسته Anki با موفقیت ذخیره شد</string>
     <string name="export_save_apkg_unsuccessful">بسته انکی ذخیره نشد</string>
-    <string name="export_share_title">ارسال بسته Anki با</string>
-    <string name="export_email_subject">فلش کارت های صادر شده: %s</string>
-    <string name="export_email_text"><![CDATA[
-                سلام!
-                <br/><br/>
-                این یک دسته فلش کارت Anki فرستاده شده از AnkiDroid است[1].
-                با استفاده از یکی از عوامل در دسترس Anki، آن را باز کنید[2] و از آموزش آسان و کارآمد لذت ببرید!<br/><br/>
-                [1] %1$s<br/>
-                [2]%2$s
-                ]]></string>
-    <string name="export_choice_share">اشتراک گزاری</string>
     <string name="export_choice_save_to">ذخیره به</string>
     <string name="export_saving_exported_collection">در حال ذخیره فایل صادر شده&#8230;</string>
     <string name="dyn_deck_desc">این یک دسته ویژه برای مطالعه در خارج از زمان‌بندی عادی می باشد.بعد از مرور کارتها آنها به‌طور خودکار به دسته های اصلی برگردانده خواهد شد.حذف کردن این دسته از لیست دسته ها سبب می شود که همه کارتهای باقیمانده نیز به دسته اصلی برگردانده شود.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">نامی با این عنوان موجود است</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">اشتراک گذاری فایل apkg با خطا مواجه شد</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">دستگاه شما نرم افزار قادر به انجام این عمل را ندارد.</string>
     <string name="no_browser_msg">مرورگری برای باز کردن لینک یافت نشد: %s</string>

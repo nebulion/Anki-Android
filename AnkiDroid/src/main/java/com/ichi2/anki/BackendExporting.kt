@@ -80,7 +80,7 @@ fun AnkiActivity.exportSelectedNotes(
                 )
             }
         }
-        exportReadyViewModel.registerExportReadyRequest(ExportReadyParams(exportPath, asText = true))
+        exportReadyViewModel.registerExportReadyRequest(ExportReadyParams(exportPath))
     }
 }
 
@@ -100,7 +100,7 @@ fun AnkiActivity.exportSelectedCards(
                 exportCardsCsv(exportPath, withHtml, limit)
             }
         }
-        exportReadyViewModel.registerExportReadyRequest(ExportReadyParams(exportPath, asText = true))
+        exportReadyViewModel.registerExportReadyRequest(ExportReadyParams(exportPath))
     }
 }
 

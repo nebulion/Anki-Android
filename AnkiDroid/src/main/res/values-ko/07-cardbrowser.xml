@@ -24,7 +24,6 @@
   -->
 <resources>
     <!-- CardBrowser -->
-    <string name="card_browser_cram_search" maxLength="28" comment="Menu entry to start a search.">검색하기</string>
     <string name="card_details_tags">태그</string>
     <string name="card_browser_unknown_deck_name">알 수 없음</string>
     <string name="set_due_date_hintText" comment="plural set_due_date_label_suffix is used for parameters, parameter 1 is the plural for 0, parameter 2 is the plural for 1">오늘은 \'0 %1$s\', 내일은 \'1 %2$s\', &#8230;</string>

@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Importas nutrauktas: AnkiDroid buvo uždarytas</string>
     <string name="export_ready_title">Paruošta eksportuoti</string>
-    <string name="export_send_no_handlers">Nėra jokių programėlių, galinčių nuskaityti apkg. Išsaugoma&#8230;</string>
     <string name="export_save_apkg_successful">„Anki“ paketas sėkmingai išsaugotas</string>
     <string name="export_save_apkg_unsuccessful">Išsaugoti „Anki“ paketo nepavyko</string>
-    <string name="export_share_title">Siųsti \"Anki\" paketą naudojant</string>
-    <string name="export_email_subject">Eksportuota „AnkiDroid“ kortelių: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Sveiki!
-        <br/><br/>
-        Tai "Anki" kortelių kaladė, atsiųsta iš "AnkiDroid"[1].
-        Pabandykite jį atidaryti naudodami vieną iš turimų "Anki" distribucijų[2] ir mėgaukitės lengvu ir efektyviu mokymusi! <br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Dalintis</string>
     <string name="export_choice_save_to">Išsaugoti į</string>
     <string name="export_saving_exported_collection">Eksportuoto failo išsaugojimas&#8230;</string>
     <string name="dyn_deck_desc">Tai yra specialus rinkinys, skirtas mokytis papildomai. Peržiūrėjus korteles, jos bus automatiškai grąžintos į savo pagrindinius rinkinius. Ištrynus šį rinkinį iš sąrašo, visos kortelės bus grąžintos į savo pradinį rinkinį.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Pasidalinti apkg failo nepavyko</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Sistemoje nėra įdiegtos šį veiksmą galinčios atlikti programos</string>
     <string name="no_browser_msg">Nerandama naršyklės, kurioje būtų galima atidaryti nuorodą: %s</string>

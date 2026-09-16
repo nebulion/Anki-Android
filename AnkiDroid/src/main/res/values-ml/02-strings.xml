@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">ഇറക്കുമതി തടസ്സപ്പെട്ടു: അങ്കിഡ്രോയിഡ് അടച്ചു</string>
     <string name="export_ready_title">കയറ്റുമതി തയ്യാറാണ്</string>
-    <string name="export_send_no_handlers">apkg കൈകാര്യം ചെയ്യാൻ അപ്ലിക്കേഷനുകളൊന്നും ലഭ്യമല്ല. സംരക്ഷിക്കുന്നത്&#8230;</string>
     <string name="export_save_apkg_successful">അങ്കി പാക്കേജ് വിജയകരമായി സംരക്ഷിച്ചു</string>
     <string name="export_save_apkg_unsuccessful">അങ്കി പാക്കേജ് സംരക്ഷിക്കുന്നത് പരാജയപ്പെട്ടു</string>
-    <string name="export_share_title">ഉപയോഗിച്ച് അങ്കി പാക്കേജ് അയയ്ക്കുക</string>
-    <string name="export_email_subject">AnkiDroid എക്‌സ്‌പോർട്ടുചെയ്‌ത ഫ്ലാഷ് കാർഡുകൾ:%s</string>
-    <string name="export_email_text"><![CDATA[
-        Hi!
-        <br/><br/>
-        This is an Anki flashcards deck sent from AnkiDroid[1].
-        Try to open it using one of the available Anki distributions[2] and enjoy easy and efficient learning!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">പങ്കിടുക</string>
     <string name="export_choice_save_to">ഇതിലേക്ക് സംരക്ഷിക്കുക</string>
     <string name="export_saving_exported_collection">കയറ്റുമതി ചെയ്ത ഫയൽ സംരക്ഷിക്കുന്നു&#8230;</string>
     <string name="dyn_deck_desc">സാധാരണ ഷെഡ്യൂളിന് പുറത്ത് പഠിക്കുന്നതിനുള്ള ഒരു പ്രത്യേക ഡെക്കാണിത്. കാർഡുകൾ നിങ്ങൾ അവലോകനം ചെയ്ത ശേഷം അവയുടെ യഥാർത്ഥ ഡെക്കുകളിലേക്ക് സ്വപ്രേരിതമായി മടങ്ങും. ഡെക്ക് ലിസ്റ്റിൽ നിന്ന് ഈ ഡെക്ക് ഇല്ലാതാക്കുന്നത് ശേഷിക്കുന്ന എല്ലാ കാർഡുകളും അവയുടെ യഥാർത്ഥ ഡെക്കിലേക്ക് തിരികെ നൽകും.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">apkg ഫയൽ പങ്കിടുന്നതിൽ പിശക്</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">ഈ പ്രവർത്തനം നടത്താൻ കഴിയുന്ന ഒരു അപ്ലിക്കേഷൻ സിസ്റ്റത്തിൽ ഇൻസ്റ്റാളുചെയ്‌തിട്ടില്ല.</string>
     <string name="no_browser_msg">ലിങ്ക് തുറക്കാൻ ബ്രൗസറൊന്നും കണ്ടെത്തിയില്ല: %s</string>

@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">درآمد میں رکاوٹ: AnkiDroid بند تھا۔</string>
     <string name="export_ready_title">ایکسپورٹ تیار ہے۔</string>
-    <string name="export_send_no_handlers">apkg کو ہینڈل کرنے کے لیے کوئی ایپلیکیشن دستیاب نہیں ہے۔ محفوظ کر رہا ہے&#8230;</string>
     <string name="export_save_apkg_successful">انکی پیکج کو کامیابی کے ساتھ محفوظ کر لیا گیا۔</string>
     <string name="export_save_apkg_unsuccessful">انکی پیکج کو کامیابی کے ساتھ محفوظ کر لیا</string>
-    <string name="export_share_title">کا استعمال کرتے ہوئے Anki پیکج بھیجیں</string>
-    <string name="export_email_subject">AnkiDroid نے برآمد شدہ فلیش کارڈز: %s</string>
-    <string name="export_email_text"><![CDATA[
-        ہائے!
-        <br/><br/>
-        یہ AnkiDroid[1] سے بھیجا گیا انکی فلیش کارڈز ڈیک ہے۔
-        دستیاب Anki تقسیم[2] میں سے ایک کا استعمال کرتے ہوئے اسے کھولنے کی کوشش کریں اور آسان اور موثر سیکھنے سے لطف اندوز ہوں!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">بانٹیں</string>
     <string name="export_choice_save_to">محفوظ کریں</string>
     <string name="export_saving_exported_collection">برآمد شدہ فائل محفوظ ہو رہی ہے&#8230;</string>
     <string name="dyn_deck_desc">This is a special deck for studying outside of the normal schedule. Cards will be automatically returned to their original decks after you review them. Deleting this deck from the deck list will return all remaining cards to their original deck.
@@ -92,7 +80,6 @@
     <string name="error_name_exists">نام پہلے سے موجود ہے</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">apkg فائل کا اشتراک کرنے میں خرابی۔</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">سسٹم میں کوئی ایپ انسٹال نہیں ہے جو اس کارروائی کو انجام دے سکے۔</string>
     <string name="no_browser_msg">لنک کو کھولنے کے لیے کوئی براؤزر نہیں ملا: %s</string>

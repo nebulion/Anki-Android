@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Import tergendala: AnkiDroid telah ditutup</string>
     <string name="export_ready_title">Eksport sedia</string>
-    <string name="export_send_no_handlers">Tiada aplikasi tersedia mengendalikan apkg. Menyimpan&#8230;</string>
     <string name="export_save_apkg_successful">Berjaya simpan pakej Anki</string>
     <string name="export_save_apkg_unsuccessful">Gagal simpan pakej Anki</string>
-    <string name="export_share_title">Hantar pakej Anki menggunakan</string>
-    <string name="export_email_subject">Kad imbasan dieksport AnkiDroid: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Hi!
-        <br/><br/>
-        Ini merupakan dek kad imbasan Anki dihantar dari AnkiDroid[1].
-        Cuba buka dek ini menggunakan salah satu pengedaran Anki tersedia[2] dan nikmati pembelajaran senang dan cekap!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Kongsi</string>
     <string name="export_choice_save_to">Simpan ke</string>
     <string name="export_saving_exported_collection">Saving exported file&#8230;</string>
     <string name="dyn_deck_desc">Ini merupakan dek khas untuk mengulang kaji diluar jadual biasa. Kad akan dikembalikan ke dek asal setelah disemak. Memadam dek ini daripada senarai dek akan mengembalikan baki kad ke dek asal.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Ralat kongsikan fail apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Sistem tidak mempunyai aplikasi dipasang yang boleh melakukan tindakan ini.</string>
     <string name="no_browser_msg">No browser found for opening the link: %s</string>

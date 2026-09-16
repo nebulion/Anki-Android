@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Ovo je obično uzrokovano greškom u aplikaciji kojoj ste odabrali ovu datoteku. Pokušajte sljedeća rješenja:\n\n%s</string>
     <string name="import_interrupted">Uvoz prekinut: AnkiDroid je zatvoren</string>
     <string name="export_ready_title">Izvoz je spreman</string>
-    <string name="export_send_no_handlers">Nijedna aplikacija nije dostupna da rukuje s apkg. Spremanje&#8230;</string>
     <string name="export_save_apkg_successful">Anki paket uspješno spremljen</string>
     <string name="export_save_apkg_unsuccessful">Anki paket nije uspješno spremljen</string>
-    <string name="export_share_title">Pošalji Anki paket koristeći</string>
-    <string name="export_email_subject">Izvezene AnkiDroid kartice: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Bok!
-        <br/><br/>
-        Ovo je Anki špil flash kartica poslan iz AnkiDroida[1].
-        Pokušaj ga otvoriti koristeći jednu od dostupnih distribucija[2] te uživaj u jednostavnom i efikasnom učenju!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Podijeli</string>
     <string name="export_choice_save_to">Spremi u</string>
     <string name="export_saving_exported_collection">Spremanje izvezene datoteke&#8230;</string>
     <string name="dyn_deck_desc">Ovo je poseban špil za učenje izvan uobičajenog rasporeda. Kartice će automatski biti vraćene u njihov originalni špil nakon što ih ponovite. Brisanjem ovog špila iz popisa špilova će se sve preostale kartice vratiti u njihov originalni špil.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Greška pri dijeljenju apkg datoteke</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Sustav nema instaliranu aplikaciju koje može izvesti ovu radnju</string>
     <string name="no_browser_msg">Nije pronađen nijedan preglednik za otvaranje poveznice: %s</string>

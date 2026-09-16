@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">这通常是由您用来选择文件的应用中的错误引起的。请尝试以下修复：\n\n%s</string>
     <string name="import_interrupted">导入中断</string>
     <string name="export_ready_title">已准备好导出</string>
-    <string name="export_send_no_handlers">没有可用处理 apkg 的应用程序。正在保存&#8230;</string>
     <string name="export_save_apkg_successful">已成功保存 apkg 文件</string>
     <string name="export_save_apkg_unsuccessful">保存 apkg 文件失败</string>
-    <string name="export_share_title">选择如何发送 apkg 文件</string>
-    <string name="export_email_subject">AnkiDroid 导出卡片： %s</string>
-    <string name="export_email_text"><![CDATA[
-        嗨！
-        <br/><br/>
-        这是从 <br/>AnkiDroid[1] 发送的 Anki 记忆牌组。
-        使用任一 Anki 客户端[2] 打开它，享受轻松高效的学习吧！<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-       ]]></string>
-    <string name="export_choice_share">分享</string>
     <string name="export_choice_save_to">保存至</string>
     <string name="export_saving_exported_collection">正在保存导出文件&#8230;</string>
     <string name="dyn_deck_desc">这是一个在计划外学习的特殊牌组，卡片在复习后会自动返回原来的牌组。\n在牌组列表中删除此牌组也将会把所有卡片都移回原来的牌组。</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">名称已存在</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">共享 apkg 文件时出错</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">系统中没有安装可以执行此操作的应用程序。</string>
     <string name="no_browser_msg">未找到打开链接的浏览器: %s</string>

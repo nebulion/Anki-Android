@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Часто это вызвано ошибкой в приложении, которое вы использовали для выбора файла. Пожалуйста, попробуйте следующие исправления:\n\n%s</string>
     <string name="import_interrupted">Импорт прерван</string>
     <string name="export_ready_title">Экспорт готов</string>
-    <string name="export_send_no_handlers">Нет приложений для чтения файлов apkg. Сохраняется&#8230;</string>
     <string name="export_save_apkg_successful">Пакет Anki успешно сохранён</string>
     <string name="export_save_apkg_unsuccessful">Не удалось сохранить пакет Anki</string>
-    <string name="export_share_title">Отправить пакет Anki с помощью</string>
-    <string name="export_email_subject">AnkiDroid экспортировал колоды карточек: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Привет!
-        <br/><br/>
-        Это колода карточек Anki, отправленная из приложения AnkiDroid[1].
-        Её можно открыть в одной из совместимых с Anki программ[2] и наслаждаться легким и эффективным обучением!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Поделиться</string>
     <string name="export_choice_save_to">Сохранить в</string>
     <string name="export_saving_exported_collection">Экспортированный файл сохраняется&#8230;</string>
     <string name="dyn_deck_desc">Это специальная колода для зубрёжки не по расписанию. После просмотра карточки вернутся в свою колоду. Удаление этой колоды вернёт все оставшиеся карточки в их колоду.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Название уже существует</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Ошибка при отправке файла apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">В системе нет приложения, которое может выполнить это действие.</string>
     <string name="no_browser_msg">Нет браузера, чтобы открыть ссылку %s</string>

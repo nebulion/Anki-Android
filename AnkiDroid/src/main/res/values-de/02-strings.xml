@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Dies wird oft durch einen Fehler in der App verursacht, mit der du die Datei ausgewählt hast. Bitte versuche die folgenden Korrekturen:\n\n%s</string>
     <string name="import_interrupted">Import unterbrochen</string>
     <string name="export_ready_title">Export bereit</string>
-    <string name="export_send_no_handlers">Keine Anwendungen zum Öffnen von APKG-Dateien verfügbar. Wird gespeichert &#8230;</string>
     <string name="export_save_apkg_successful">Anki-Paket erfolgreich gespeichert</string>
     <string name="export_save_apkg_unsuccessful">Anki-Paket konnte nicht gespeichert werden</string>
-    <string name="export_share_title">Anki-Paket senden mit</string>
-    <string name="export_email_subject">Von AnkiDroid exportierte Karteikarten: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Hallo!
-        <br/><br/>
-        Dies ist ein Stapel von Anki Lernkarten gesendet von AnkiDroid[1].
-        Versuche ihn mit einer der verfügbaren Anki Distributionen[2] zu öffnen und genieße ein einfaches und effizientes Lernen!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Teilen</string>
     <string name="export_choice_save_to">Speichern unter</string>
     <string name="export_saving_exported_collection">Exportierte Datei speichern&#8230;</string>
     <string name="dyn_deck_desc">Dies ist ein besonderer Stapel, um außerhalb des regulären Zeitplans zu lernen. Karten werden nach dem Wiederholen automatisch in ihren ursprünglichen Stapel zurückgelegt. Beim Löschen dieses Stapels aus der Stapelliste werden alle verbleibenden Karten in ihren ursprünglichen Stapel zurückgelegt.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name existiert bereits</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Fehler beim Teilen der APKG-Datei</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Auf dem System ist keine App installiert, die diese Aktion ausführen kann.</string>
     <string name="no_browser_msg">Kein Browser zum Öffnen des Links gefunden: %s</string>

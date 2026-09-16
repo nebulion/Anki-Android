@@ -100,7 +100,7 @@ import com.ichi2.anki.dialogs.SchedulerUpgradeDialog
 import com.ichi2.anki.dialogs.SyncErrorDialog
 import com.ichi2.anki.dialogs.SyncErrorDialog.Companion.newInstance
 import com.ichi2.anki.dialogs.SyncErrorDialog.SyncErrorDialogListener
-import com.ichi2.anki.export.ExportDialogFragment
+import com.ichi2.anki.export.ExportFragment
 import com.ichi2.anki.filtered.FilteredDeckOptionsFragment
 import com.ichi2.anki.libanki.DeckId
 import com.ichi2.anki.libanki.sched.DeckNode
@@ -410,7 +410,7 @@ open class DeckPicker :
         }
 
         fun onExportDeck(deckId: DeckId) {
-            ExportDialogFragment.newInstance(deckId).show(supportFragmentManager, "exportOptions")
+            startActivity(ExportFragment.getIntent(this, deckId))
         }
 
         fun onPromptUserToUpdateScheduler(op: Unit) {
@@ -650,7 +650,7 @@ open class DeckPicker :
     }
 
     fun exportCollection() {
-        ExportDialogFragment.newInstance().show(supportFragmentManager, "exportDialog")
+        startActivity(ExportFragment.getIntent(this))
     }
 
     fun confirmCheckDatabase() {

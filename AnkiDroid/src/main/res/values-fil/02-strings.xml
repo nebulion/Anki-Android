@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Naudlot ang pag-angkat: Nasara ang AnkiDroid</string>
     <string name="export_ready_title">Handa na ang pag-export</string>
-    <string name="export_send_no_handlers">Walang magagamit na mga aplikasyon upang pangasiwaan ang apkg. Sini-save&#8230;</string>
     <string name="export_save_apkg_successful">Matagumpay na na-isave ang Anki package</string>
     <string name="export_save_apkg_unsuccessful">Bigo sa pag-save ng Anki package</string>
-    <string name="export_share_title">Ipadala ng Anki package gamit ang</string>
-    <string name="export_email_subject">Na-export ang AnkiDroid flashcards:%s</string>
-    <string name="export_email_text"><![CDATA[
-        Kumusta!
-        <br/><br/>
-        Ito ay isang deck ng Anki flashcards na ipinadala gamit ang AnkiDroid[1].
-        Subukang buksan ito gamit ang isa sa mga Anki distribtion[2] at tamasahin ang madali and mabisa na paraan ng pag-aaral!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Ibahagi</string>
     <string name="export_choice_save_to">I-save sa</string>
     <string name="export_saving_exported_collection">Saving exported file&#8230;</string>
     <string name="dyn_deck_desc">Ito ay isang espesyal na deck para sa pag-aaral sa labas ng normal na iskedyul. Ang mga kard ay awtomatikong ibabalik sa kanilang orihinal na mga deck matapos mong suriin ang mga ito. Ang pagtanggal sa kubyerta mula sa listahan ng deck ay babalik ang lahat ng natitirang mga card sa kanilang orihinal na deck.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Mali sa pagbabahagi ng apkg file</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Walang aplikasyong naka-install sa sistema na maaaring gumawa sa aksyong ito.</string>
     <string name="no_browser_msg">Walang mahanap na browser para buksan ang link na: %s</string>

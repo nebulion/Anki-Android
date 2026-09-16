@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Tämä johtuu usein viasta sovelluksessa, jota käytit tiedoston valitsemiseen. Kokeile seuraavia korjauksia:\n\n%s</string>
     <string name="import_interrupted">Tuonti keskeytyi: AnkiDroid suljettiin</string>
     <string name="export_ready_title">Vienti valmis</string>
-    <string name="export_send_no_handlers">Sovellusta apkg:n käsittelyyn ei ole olemassa. Tallennetaan&#8230;</string>
     <string name="export_save_apkg_successful">Anki-tiedosto tallennettu.</string>
     <string name="export_save_apkg_unsuccessful">Anki-tiedoston tallennus epäonnistui.</string>
-    <string name="export_share_title">Lähetä Anki-pakkaus käyttäen</string>
-    <string name="export_email_subject">AnkiDroid toi kortit: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Hei!
-        <br/><br/>
-        Tässä on Anki-opiskelukorttipakka, joka on lähetetty AnkiDroidista[1].
-        Kokeile avata se käyttämällä jotakin Anki-jakelua[2] ja opi uutta helposti ja tehokkaasti!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Jaa</string>
     <string name="export_choice_save_to">Tallenna&#8230;</string>
     <string name="export_saving_exported_collection">Tallennetaan viety tiedosto&#8230;</string>
     <string name="dyn_deck_desc">Tämä on erityispakka normaalin aikataulun ulkopuolella tapahtuvaan opiskeluun. Kortit palautetaan automaattisesti alkuperäisiin pakkoihinsa läpikäynnin jälkeen. Tämän pakan poistaminen palauttaa kaikki sen sisältämät kortit alkuperäisiin pakkoihin.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Virhe jaettaessa apkg-tiedostoa</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Järjestelmään ei ole asennettu sovellusta, joka voisi suorittaa tämän toiminnon.</string>
     <string name="no_browser_msg">Selainta ei löytynyt linkin avaamiseksi: %s</string>

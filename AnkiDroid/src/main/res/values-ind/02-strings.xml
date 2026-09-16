@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Hal ini disebabkan oleh bug di aplikasi yang anda gunakan untuk memilih file. Silahkan coba solusi berikut: \n\n%s</string>
     <string name="import_interrupted">Impor terganggu</string>
     <string name="export_ready_title">Ekspor siap</string>
-    <string name="export_send_no_handlers">Tidak ada aplikasi tersedia untuk memproses apkg. Menyimpan&#8230;</string>
     <string name="export_save_apkg_successful">Berhasil menyimpan paket Anki</string>
     <string name="export_save_apkg_unsuccessful">Paket Anki gagal disimpan</string>
-    <string name="export_share_title">Kirim paket Anki menggunakan</string>
-    <string name="export_email_subject">Flashcard AnkiDroid terekspor: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Hai!
-        <br/><br/>
-        Ini adalah dek flashcard Anki yang dikirim dari AnkiDroid[1].
-        Coba buka menggunakan salah satu distribusi Anki[2] dan nikmati pembelajaran yang cepat dan efisien!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Bagikan</string>
     <string name="export_choice_save_to">Simpan ke</string>
     <string name="export_saving_exported_collection">Menyimpan file yang diekspor&#8230;</string>
     <string name="dyn_deck_desc">Ini adalah dek khusus untuk belajar di luar jadwal normal. Kartu akan otomatis dikembalikan ke dek aslinya setelah Anda mengulasnya. Menghapus dek ini dari daftar dek akan mengembalikan semua kartu yang tersisa ke dek aslinya.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Galat membagikan berkas apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Sistem tidak mempunyai aplikasi terinstal yang dapat melakukan aksi ini.</string>
     <string name="no_browser_msg">Tidak ada peramban yang ditemukan untuk membuka tautan: %s</string>

@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Bu koʻpincha faylni tanlash uchun foydalangan ilovadagi xato tufayli yuzaga keladi. Quyidagi yechimlarni sinab koʻring:\n\n%s</string>
     <string name="import_interrupted">Import uzuldi: AnkiDroid yopilgan</string>
     <string name="export_ready_title">Eksportga tayyor</string>
-    <string name="export_send_no_handlers">apkg bilan ishlash uchun ilova mavjud emas. Saqlanmoqda&#8230;</string>
     <string name="export_save_apkg_successful">Anki paket muvaffaqiyatli saqlandi</string>
     <string name="export_save_apkg_unsuccessful">Anki paketini saqlab boʻlmadi</string>
-    <string name="export_share_title">Anki paketini quyidagi bilan yuboring</string>
-    <string name="export_email_subject">AnkiDroid kartalarni eksport qildi: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Salom!
-        <br/><br/>
-        Bu Ankidroidʼdan[1] yuborilgan kartalar dastasi.
-        Mavjud Anki distributivlaridan biri yordamida uni ochib koʻring[2] va oson va samarali o‘rganishdan bahramand boʻling!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Ulashish</string>
     <string name="export_choice_save_to">Saqlash</string>
     <string name="export_saving_exported_collection">Eksport qilingan fayl saqlanmoqda&#8230;</string>
     <string name="dyn_deck_desc">Bu odatiy kun tartibidan tashqarida oʻqish uchun maxsus dasta. Koʻrib chiqilganidan soʻng kartalar avtomatik ravishda oʻzining asl dastalariga qaytariladi. Ushbu dastani dastalar roʻyxatidan oʻchirib tashlasangiz, qolgan barcha kartalar oʻzining asl dastalariga qaytariladi.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Ushbu nom allaqachon mavjud</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">apkg faylni ulashishda xatolik yuz berdi</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Tizimda bu amalni bajara oladigan ilova oʻrnatilmagan.</string>
     <string name="no_browser_msg">Havolani ochish uchun brauzer topilmadi: %s</string>

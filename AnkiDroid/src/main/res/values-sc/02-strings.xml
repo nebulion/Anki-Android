@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Importatzione firmada: AnkiDroid est istadu serradu</string>
     <string name="export_ready_title">Esportatzione pronta</string>
-    <string name="export_send_no_handlers">Peruna aplicatzione a disponimentu pro gestire apkg. Sarvende&#8230;</string>
     <string name="export_save_apkg_successful">Pachete de Anki sarvadu in manera curreta</string>
     <string name="export_save_apkg_unsuccessful">Sarvamentu de su pachete de Anki fallidu</string>
-    <string name="export_share_title">Imbia su pachete de Anki impreende</string>
-    <string name="export_email_subject">Cartas mnemònicas esportadas dae AnkiDroid: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Salude!
-        <br/><br/>
-        Custu est unu matzu de cartas mnemònicas de Anki imbiadu dae AnkiDroid[1].
-        Proa a l\'abèrrere impreende una de sas distributziones de Anki a disponimentu[2] e gosa·ti un\'imparu fàtzile e efitziente!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Cumpartzi</string>
     <string name="export_choice_save_to">Sarva in</string>
     <string name="export_saving_exported_collection">Sarvende su documentu esportadu&#8230;</string>
     <string name="dyn_deck_desc">Custu est unu matzu ispetziale pro istudiare in foras de sa pranificatzione normale. Sas cartas ant a torrare in manera automàtica a sos matzos originales issoro a pustis chi las as a revisionare. Iscantzellende custu matzu dae sa lista de matzos at a fàghere torrare totu sas cartas chi abarrant a sos matzos originales issoro.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Faddina cumpartzende su documentu apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Su sistema non tenet un\'aplicatzione installada chi potzat fàghere custa atzione.</string>
     <string name="no_browser_msg">Perunu navigadore atzapadu pro s\'abertura de su ligàmene: %s</string>

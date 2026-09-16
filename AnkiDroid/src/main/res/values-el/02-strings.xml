@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Η εισαγωγή διακόπηκε: το AnkiDroid έκλεισε</string>
     <string name="export_ready_title">Εξαγωγή έτοιμη</string>
-    <string name="export_send_no_handlers">Δεν υπάρχουν διαθέσιμες εφαρμογές για χειρισμό apkg. Αποθήκευση&#8230;</string>
     <string name="export_save_apkg_successful">Επιτυχής αποθήκευση πακέτου Αnki</string>
     <string name="export_save_apkg_unsuccessful">Αποτυχία αποθήκευσης πακέτου Anki</string>
-    <string name="export_share_title">Αποστολή πακέτου Anki μέσω</string>
-    <string name="export_email_subject">Εξαχθείσες κάρτες AnkiDroid: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Γεια!
-        <br/><br/>
-        Αυτή είναι μια τράπουλα καρτών Anki που στάλθηκε από το AnkiDroid[1].
-        Δοκιμάστε να την ανοίξετε με κάποια από τις διαθέσιμες διανομές[2] του Anki και απολαύστε έναν γρήγορο και αποτελεσματικό τρόπο εκμάθησης!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Κοινοποίηση</string>
     <string name="export_choice_save_to">Αποθήκευση σε</string>
     <string name="export_saving_exported_collection">Το εξαγόμενο αρχείο αποθηκεύεται&#8230;</string>
     <string name="dyn_deck_desc">Αυτή είναι μια ειδική τράπουλα για μάθηση εκτός του κανονικού προγράμματος. Οι κάρτες θα επιστραφούν αυτόματα στην αρχική τους τράπουλα μετά την επανάληψή τους. Η διαγραφή αυτής της τράπουλας από τη λίστα τραπουλών θα επιστρέψει όλες τις κάρτες στην αρχική τους τράπουλα.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Σφάλμα κοινής χρήσης αρχείου apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Το σύστημα δεν έχει εγκατεστημένη εφαρμογή που μπορεί να εκτελέσει αυτήν την ενέργεια.</string>
     <string name="no_browser_msg">Δε βρέθηκε περιηγητής για το άνοιγμα του συνδέσμου: %s</string>

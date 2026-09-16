@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">దిగుమతికి అంతరాయం ఏర్పడింది: AnkiDroid మూసివేయబడింది</string>
     <string name="export_ready_title">ఎగుమతి సిద్ధంగా ఉంది</string>
-    <string name="export_send_no_handlers">apkkని నిర్వహించడానికి అప్లికేషన్‌లు ఏవీ అందుబాటులో లేవు. సేవ్ చేస్తోంది&#8230;</string>
     <string name="export_save_apkg_successful">Anki ప్యాకేజీ విజయవంతంగా సేవ్ చేయబడింది</string>
     <string name="export_save_apkg_unsuccessful">Anki ప్యాకేజీని సేవ్ చేయడంలో విఫలమైంది</string>
-    <string name="export_share_title">ఉపయోగించి Anki ప్యాకేజీని పంపండి</string>
-    <string name="export_email_subject">AnkiDroid ఫ్లాష్ కార్డ్స్ ఎగుమతి:%s</string>
-    <string name="export_email_text"><![CDATA[
-        హాయ్!
-        <br/><br/>
-        ఇది AnkiDroid[1] నుండి పంపబడిన Anki ఫ్లాష్ కార్డ్స్ డెక్.
-        అందుబాటులో ఉన్న Anki పంపిణీలలో ఒకదానిని ఉపయోగించి దీన్ని తెరవడానికి ప్రయత్నించండి[2] మరియు సులభమైన మరియు సమర్థవంతమైన అభ్యాసాన్ని ఆస్వాదించండి!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">దానిని పంచు</string>
     <string name="export_choice_save_to">కు సేవ్ చేయండి</string>
     <string name="export_saving_exported_collection">ఎగుమతి చేసిన ఫైల్‌ను సేవ్ చేస్తోంది&#8230;</string>
     <string name="dyn_deck_desc">సాధారణ షెడ్యూల్ అధ్యయనం కోసం ఇది ప్రత్యేక డెక్. స్వయంచాలకంగా కార్డ్లను వాటిని సమీక్షించి, దాని అసలు డెక్స్కు వాటిని స్వయంచాలకంగా పునరుద్ధరించండి. డెక్ జాబితా నుండి ఈ డెక్ను తొలగిస్తే మిగిలిన అన్ని కార్డులను వారి అసలు డెక్కు తిరిగి పంపుతుంది.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Apkg ఫైల్ను భాగస్వామ్యం చేయడంలో లోపం</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">ఈ చర్యను అమలు చేయగల యాప్ ఏదీ సిస్టమ్‌లో ఇన్‌స్టాల్ చేయబడలేదు.</string>
     <string name="no_browser_msg">లింక్‌ని తెరవడానికి బ్రౌజర్ కనుగొనబడలేదు: %s</string>

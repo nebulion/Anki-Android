@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Import interrupted: AnkiDroid was closed</string>
     <string name="export_ready_title">𐌿𐍄𐌱𐌰𐌿𐍂 𐌼𐌰𐌽𐍅𐌹𐌸 𐌹𐍃𐍄</string>
-    <string name="export_send_no_handlers">𐌽𐌹 𐍃𐌹𐌽𐌳 𐌰𐍀𐍀𐌻𐌴𐌹𐌺𐌰𐍄𐌾𐍉𐌽𐍃 𐌰𐍀𐌺𐌲 𐌳𐌿 𐍅𐌰𐌿𐍂𐌺𐌾𐌰𐌽. 𐌲𐌰𐍆𐌰𐍃𐍄𐌰𐌽𐌳𐍃&#8230;</string>
     <string name="export_save_apkg_successful">𐌲𐌰𐍆𐌰𐍃𐍄𐌰𐌹𐌳𐌰 𐍀𐌰𐌺𐌺𐌿 𐌰𐌽𐌺𐌴𐌹𐌽𐍃 𐍅𐌰𐌹𐌻𐌰</string>
     <string name="export_save_apkg_unsuccessful">𐌽𐌹 𐌼𐌰𐌷𐍄𐌰 𐍀𐌰𐌺𐌺𐌿 𐌰𐌽𐌺𐌴𐌹𐌽𐍃 𐌲𐌰𐍆𐌰𐍃𐍄𐌰𐌽</string>
-    <string name="export_share_title">𐍀𐌰𐌺𐌺𐌿 𐌰𐌽𐌺𐌴𐌹𐌽𐍃 𐍃𐌰𐌽𐌳𐌾𐌰𐌽 𐌱𐍂𐌿𐌺𐌾𐌰𐌽𐌳𐍃</string>
-    <string name="export_email_subject">𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌿𐍄𐌱𐌰𐍂 𐌻𐌰𐌿𐌷𐌰𐍄𐌴𐌹𐌽𐌰𐌹𐍃 𐍇𐌰𐍂𐍄𐍉𐍃: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Hi!
-        <br/><br/>
-        This is an Anki flashcards deck sent from AnkiDroid[1].
-        Try to open it using one of the available Anki distributions[2] and enjoy easy and efficient learning!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">𐌳𐌰𐌹𐌻𐌾𐌰𐌽</string>
     <string name="export_choice_save_to">𐌲𐌰𐍆𐌰𐍃𐍄𐌰𐌽 𐌳𐌿</string>
     <string name="export_saving_exported_collection">𐌲𐌰𐍆𐌰𐍃𐍄𐌰𐌳𐌰 𐌿𐍄𐌱𐌰𐌿𐍂𐌰𐌽 𐍆𐌰𐌾𐌻&#8230;</string>
     <string name="dyn_deck_desc">This is a special deck for studying outside of the normal schedule. Cards will be automatically returned to their original decks after you review them. Deleting this deck from the deck list will return all remaining cards to their original deck.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">𐌰𐌹𐍂𐌶𐌴𐌹 𐍅𐌰𐍂𐌸 𐌳𐌰𐌹𐌻𐌾𐌰𐌽 apkg 𐍆𐌰𐌾𐌻</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">The system does not have an app installed that can perform this action.</string>
     <string name="no_browser_msg">𐌽𐌹 𐌱𐌹𐌲𐌰𐍄 𐌱𐍂𐌰𐍅𐍃𐌰𐌹𐍂 𐌳𐌿 𐌿𐍃𐌻𐌿𐌺𐌰𐌽 𐌲𐌰𐍅𐌹𐍃𐍃: %s</string>

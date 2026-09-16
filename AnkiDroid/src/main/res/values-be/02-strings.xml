@@ -68,18 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Гэта часта выклікана памылкай у праграме, якую вы выкарыстоўваеце для выбару файла. Паспрабуйце наступныя выпраўленні:\n\n%s</string>
     <string name="import_interrupted">Імпарт перарваны</string>
     <string name="export_ready_title">Экспартаванне выканана</string>
-    <string name="export_send_no_handlers">Няма адпаведнай праграмы для апрацоўкі пакета apkg. Захаванне&#8230;</string>
     <string name="export_save_apkg_successful">Пакет Anki паспяхова захаваны</string>
     <string name="export_save_apkg_unsuccessful">Памылка захавання пакета Anki</string>
-    <string name="export_share_title">Адправіць пакет Anki з выкарыстаннем</string>
-    <string name="export_email_subject">AnkiDroid экспартаваў калоды картак для запамінання: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Вітаем!
-        <br/><br/>
-        Гэта калода картак была адпраўленая з праграмы <a href="%1$s">AnkiDroid</a>.
-        Вы можаце адкрыць яе з дапамогай праграмы <a href="%2$s">Anki</a> і атрымаць асалоду ад лёгкага і эфектыўнага навучання!
-        ]]></string>
-    <string name="export_choice_share">Абагуліць</string>
     <string name="export_choice_save_to">Захаваць у</string>
     <string name="export_saving_exported_collection">Захаванне экспартаванага файла&#8230;</string>
     <string name="dyn_deck_desc">Гэта спецыяльная калода для навучання па-за межамі звыклага графіка. Пасля паўтору, карткі будуць аўтаматычна вяртацца ў сваю першапачатковую калоду. Выдаленне гэтай калоды верне ўсе карткі ў іх першапачатковую калоду.</string>
@@ -89,7 +79,6 @@
     <string name="error_name_exists">Такая назва ўжо існуе</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Памылка агульнага доступу да файла apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">У сістэме адсутнічае ўсталяваная праграма, якая можа выканаць гэта дзеянне.</string>
     <string name="no_browser_msg">Не знойдзены браўзер для адкрыцця спасылкі: %s</string>

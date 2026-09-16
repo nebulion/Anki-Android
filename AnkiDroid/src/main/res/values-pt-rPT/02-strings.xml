@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Importação interrompida: o AnkiDroid foi fechado</string>
     <string name="export_ready_title">Exportação pronta</string>
-    <string name="export_send_no_handlers">Não tem nenhuma aplicação para lidar com ficheiros .apkg. A guardar&#8230;</string>
     <string name="export_save_apkg_successful">Pacote Anki guardado com sucesso</string>
     <string name="export_save_apkg_unsuccessful">Falha ao guardar pacote Anki</string>
-    <string name="export_share_title">Enviar pacote Anki utilizando</string>
-    <string name="export_email_subject">Fichas exportadas pelo AnkiDroid: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Olá!
-        <br/><br/>
-        Isto é um baralho de fichas enviado a partir do AnkiDroid[1].
-        Tente abri-lo utilizando uma das aplicações Anki[2] e disfrute duma aprendizagem fácil e eficiente!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Partilhar</string>
     <string name="export_choice_save_to">Guardar em</string>
     <string name="export_saving_exported_collection">A guardar o ficheiro exportado&#8230;</string>
     <string name="dyn_deck_desc">Este é um baralho especial para estudar fora do horário normal. As fichas serão automaticamente devolvidas aos seus baralhos originais depois das rever. Ao eliminar este baralho da lista de baralhos irá devolver todas as fichas restantes ao seu baralho original.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Erro ao partilhar ficheiro apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">O sistema não tem nenhuma aplicação instalada para executar esta acção.</string>
     <string name="no_browser_msg">Não foi encontrado nenhum navegador (\"browser\") para abrir o endereço: %s</string>

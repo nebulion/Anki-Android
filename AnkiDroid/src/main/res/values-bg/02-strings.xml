@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">This is often caused by a bug in the app you used to select the file. Please try the following fixes:\n\n%s</string>
     <string name="import_interrupted">Импортът е прекъснат: AnkiDroid беше затворен</string>
     <string name="export_ready_title">Готовно за експорт</string>
-    <string name="export_send_no_handlers">Няма налични приложения, които да обработват apkg. Запазване&#8230;</string>
     <string name="export_save_apkg_successful">Успешно запазване на Anki пакет</string>
     <string name="export_save_apkg_unsuccessful">Неуспешно запазване на пакета Anki</string>
-    <string name="export_share_title">Изпращане на пакет Anki чрез</string>
-    <string name="export_email_subject">Експортирани от AnkiDroid флашкарти: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Здравейте!
-        <br/><br/>
-        Това е тесте от флашки на Anki, изпратено от AnkiDroid[1].
-        Опитайте се да го отворите с помощта на една от наличните дистрибуции на Anki[2] и се наслаждавайте на лесното и резултатно учене!<br/><br/>
-        [1] %1$s<br/
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Сподели</string>
     <string name="export_choice_save_to">Запазване в</string>
     <string name="export_saving_exported_collection">Запазване на експортирания файл&#8230;</string>
     <string name="dyn_deck_desc">Това е специално тесте за учене извън нормалния график. Картите автоматично ще бъдат върнати в техните първоначални тестета след като бъдат разгледани. Изтриването на това тесте от списъка с тестета ще върне всички останали карти в тестетата, където са били първоначално.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Name already exists</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Грешка при споделяне apkg файл</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">Системата няма инсталирано приложение, което може да извърши това действие.</string>
     <string name="no_browser_msg">Не е намерен браузър за отваряне на връзката: %s</string>

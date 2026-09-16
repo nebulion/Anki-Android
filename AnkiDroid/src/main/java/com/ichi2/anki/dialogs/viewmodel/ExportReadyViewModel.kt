@@ -37,7 +37,6 @@ class ExportReadyViewModel(
     @Parcelize
     data class ExportReadyParams(
         val exportPath: String,
-        val asText: Boolean = false,
     ) : Parcelable
 
     companion object {

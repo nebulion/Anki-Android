@@ -68,20 +68,8 @@
     <string name="import_error_copy_to_cache_explanation" comment="The substitution is a list of suggested fixes in bullet point form">Toto je často způsobeno chybou v aplikaci, kterou jste použili pro výběr souboru. Zkuste prosím následující opravy:\n\n%s</string>
     <string name="import_interrupted">Import přerušen: AnkiDroid se zavřel</string>
     <string name="export_ready_title">Export připraven</string>
-    <string name="export_send_no_handlers">Nenalezena žádná aplikace pro zpracování apkg. Ukládá se&#8230;</string>
     <string name="export_save_apkg_successful">Anki balíček úspěšně uložen</string>
     <string name="export_save_apkg_unsuccessful">Nepodařilo se uložit Anki balíček</string>
-    <string name="export_share_title">Odeslat Anki balíček pomocí</string>
-    <string name="export_email_subject">AnkiDroid exportované kartičky: %s</string>
-    <string name="export_email_text"><![CDATA[
-        Ahoj!
-        <br/><br/>
-        Tohle je balíček kartiček Anki poslaný z AnkiDroid[1].
-        Zkus ho otevřít pomocí jedné z dostupných distribucí Anki[2] a užij si jednoduché a účinné učení!<br/><br/>
-        [1] %1$s<br/>
-        [2] %2$s
-        ]]></string>
-    <string name="export_choice_share">Sdílet</string>
     <string name="export_choice_save_to">Uložit do</string>
     <string name="export_saving_exported_collection">Ukládá se exportovaný soubor&#8230;</string>
     <string name="dyn_deck_desc">Toto je speciální balíček pro studium mimo normální plán. Karty se po opakování automaticky vrátí do svých původních balíčků. Odstraněním tohoto balíčku ze seznamu se všechny zbývající karty vrátí do svých původních balíčků.</string>
@@ -91,7 +79,6 @@
     <string name="error_name_exists">Název již existuje</string>
     <!-- Time spans -->
     <!-- Currently only used if exporting APKG fails -->
-    <string name="apk_share_error">Chyba sdílení souboru apkg</string>
     <!-- Import and export v2 feedback -->
     <string name="activity_start_failed">V systému není nainstalována aplikace, která může provést tuto akci.</string>
     <string name="no_browser_msg">Nenalezen žádný prohlížeč pro otevření odkazu: %s</string>

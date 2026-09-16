@@ -8,7 +8,6 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.ActivityNotFoundException
 import android.content.BroadcastReceiver
-import android.content.ClipData
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
@@ -43,9 +42,7 @@ import androidx.browser.customtabs.CustomTabsIntent.COLOR_SCHEME_LIGHT
 import androidx.browser.customtabs.CustomTabsIntent.COLOR_SCHEME_SYSTEM
 import androidx.core.app.NotificationCompat
 import androidx.core.app.PendingIntentCompat
-import androidx.core.app.ShareCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -64,7 +61,6 @@ import com.ichi2.anki.common.android.AnkiBroadcastReceiver
 import com.ichi2.anki.common.android.animationDisabled
 import com.ichi2.anki.common.android.themes.disableXiaomiForceDarkMode
 import com.ichi2.anki.common.annotations.LegacyNotifications
-import com.ichi2.anki.common.annotations.NeedsTest
 import com.ichi2.anki.common.crashreporting.CrashReportService
 import com.ichi2.anki.common.preferences.sharedPrefs
 import com.ichi2.anki.common.ui.TransitionDirection
@@ -80,10 +76,8 @@ import com.ichi2.anki.dialogs.DatabaseErrorDialog
 import com.ichi2.anki.dialogs.DatabaseErrorDialog.CustomExceptionData
 import com.ichi2.anki.dialogs.DatabaseErrorDialog.DatabaseErrorDialogType
 import com.ichi2.anki.dialogs.DialogHandler
-import com.ichi2.anki.dialogs.ExportReadyDialog.Companion.ARG_SHARE_AS_TEXT
 import com.ichi2.anki.dialogs.ExportReadyDialog.Companion.KEY_EXPORT_PATH
 import com.ichi2.anki.dialogs.ExportReadyDialog.Companion.REQUEST_EXPORT_SAVE
-import com.ichi2.anki.dialogs.ExportReadyDialog.Companion.REQUEST_EXPORT_SHARE
 import com.ichi2.anki.dialogs.SimpleMessageDialog
 import com.ichi2.anki.dialogs.handleExportReadyRequest
 import com.ichi2.anki.dialogs.viewmodel.ExportReadyViewModel
@@ -91,7 +85,6 @@ import com.ichi2.anki.libanki.Collection
 import com.ichi2.anki.receiver.SdCardReceiver
 import com.ichi2.anki.settings.Prefs
 import com.ichi2.anki.snackbar.showSnackbar
-import com.ichi2.anki.utils.ext.requireString
 import com.ichi2.anki.utils.ext.showDialogFragment
 import com.ichi2.anki.workarounds.AppLoadedFromBackupWorkaround.showedActivityFailedScreen
 import com.ichi2.compat.customtabs.CustomTabActivityHelper
@@ -155,12 +148,6 @@ open class AnkiActivity(
         supportFragmentManager.setFragmentResultListener(REQUEST_EXPORT_SAVE, this) { _, bundle ->
             saveExportFile(
                 bundle.getString(KEY_EXPORT_PATH) ?: error("Missing required exportPath!"),
-            )
-        }
-        supportFragmentManager.setFragmentResultListener(REQUEST_EXPORT_SHARE, this) { _, bundle ->
-            shareFile(
-                path = bundle.requireString(KEY_EXPORT_PATH),
-                asText = bundle.getBoolean(ARG_SHARE_AS_TEXT, false),
             )
         }
 
@@ -706,62 +693,6 @@ open class AnkiActivity(
             outState.putString(KEY_EXPORT_FILE_NAME, fileExportPath)
         }
         super.onSaveInstanceState(outState)
-    }
-
-    @NeedsTest("#20993 verify that the proper mime type is used for the share intent")
-    private fun shareFile(
-        path: String,
-        asText: Boolean = false,
-    ) {
-        // Make sure the file actually exists
-        val attachment = File(path)
-        if (!attachment.exists()) {
-            Timber.e("Specified apkg file %s does not exist", path)
-            showThemedToast(this, resources.getString(R.string.apk_share_error), false)
-            return
-        }
-        val authority = "${this.packageName}.apkgfileprovider"
-
-        // Get a URI for the file to be shared via the FileProvider API
-        val uri: Uri =
-            try {
-                FileProvider.getUriForFile(this, authority, attachment)
-            } catch (e: IllegalArgumentException) {
-                Timber.e(e, "Could not generate a valid URI for the apkg file")
-                showThemedToast(this, resources.getString(R.string.apk_share_error), false)
-                return
-            }
-        val targetMimeType = if (asText) "text/plain" else "application/apkg"
-
-        val sendIntent =
-            ShareCompat
-                .IntentBuilder(this)
-                .setType(targetMimeType)
-                .setStream(uri)
-                .setSubject(getString(R.string.export_email_subject, attachment.name))
-                .setHtmlText(
-                    getString(
-                        R.string.export_email_text,
-                        getString(R.string.link_manual),
-                        getString(R.string.link_distributions),
-                    ),
-                ).intent
-                .apply {
-                    clipData = ClipData.newUri(contentResolver, attachment.name, uri)
-                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-                }
-        val shareFileIntent =
-            Intent.createChooser(
-                sendIntent,
-                getString(R.string.export_share_title),
-            )
-        if (shareFileIntent.resolveActivity(packageManager) != null) {
-            startActivity(shareFileIntent)
-        } else {
-            // Try to save it?
-            showSnackbar(R.string.export_send_no_handlers)
-            saveExportFile(path)
-        }
     }
 
     private fun saveExportFile(exportPath: String) {

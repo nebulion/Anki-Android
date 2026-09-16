@@ -17,8 +17,6 @@ package com.ichi2.anki.pages
 
 import android.os.Bundle
 import android.view.View
-import com.google.android.material.appbar.MaterialToolbar
-import com.ichi2.anki.R
 
 class CardInfoFragment : PageFragment() {
     override val pagePath: String by lazy {
@@ -31,10 +29,7 @@ class CardInfoFragment : PageFragment() {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-        val title = requireArguments().getString(KEY_TITLE)
-        if (title != null) {
-            view.findViewById<MaterialToolbar>(R.id.toolbar)?.setTitle(title)
-        }
+        requireArguments().getString(KEY_TITLE)?.let { title = it }
     }
 
     companion object {

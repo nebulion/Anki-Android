@@ -16,43 +16,106 @@
 package com.ichi2.anki.pages
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.annotation.CallSuper
-import androidx.annotation.LayoutRes
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.compose.ui.res.stringResource
 import androidx.core.net.toUri
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.google.android.material.appbar.MaterialToolbar
-import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.ichi2.anki.R
 import com.ichi2.anki.workarounds.OnWebViewRecreatedListener
 import com.ichi2.anki.workarounds.SafeWebViewLayout
+import com.ichi2.compose.mmd.HeaderAction
+import com.ichi2.compose.mmd.MmdTheme
+import com.ichi2.compose.mmd.ScreenHeader
+import com.ichi2.compose.mmd.WebContent
 import com.ichi2.utils.WebViewVersion
 import com.ichi2.utils.showDialogIfWebViewOutdated
+import com.mudita.mmd.components.text.TextMMD
 import timber.log.Timber
 
 /**
  * Base class for displaying Anki HTML pages
  */
-abstract class PageFragment(
-    @LayoutRes contentLayoutId: Int = R.layout.fragment_page,
-) : Fragment(contentLayoutId),
+abstract class PageFragment :
+    Fragment(),
     PostRequestHandler,
     OnWebViewRecreatedListener {
     lateinit var webViewLayout: SafeWebViewLayout
     private lateinit var server: AnkiServer
     protected abstract val pagePath: String
 
+    /** The header's title. Subclasses set it as soon as they know what the page shows. */
+    protected var title: String by mutableStateOf("")
+
     /**
-     * A loading indicator for the page. May be shown before the WebView is loaded to
-     * stop flickering
-     *
-     * @exception IllegalStateException if accessed before [onViewCreated]
+     * Whether the page is still preparing itself, shown as a line of text: a spinner repaints
+     * continuously, which ghosts on E Ink.
      */
-    val pageLoadingIndicator: CircularProgressIndicator
-        get() = requireView().findViewById(R.id.page_loading)
+    protected var isLoading: Boolean by mutableStateOf(false)
+
+    /** Extra actions for the header, to the right of the title. */
+    @Composable
+    protected open fun RowScope.HeaderActions() = Unit
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        // invisible until the page has loaded, so a half-drawn page never reaches the screen
+        webViewLayout = SafeWebViewLayout(requireContext()).apply { isVisible = false }
+        return ComposeView(requireContext()).apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent { MmdTheme { PageScreen() } }
+        }
+    }
+
+    @Composable
+    private fun PageScreen() {
+        Column(Modifier.fillMaxSize()) {
+            ScreenHeader(
+                title = title,
+                navigationIcon = {
+                    HeaderAction(
+                        icon = R.drawable.ic_baseline_arrow_back_24,
+                        contentDescription = stringResource(androidx.appcompat.R.string.abc_action_bar_up_description),
+                        onClick = { requireActivity().onBackPressedDispatcher.onBackPressed() },
+                    )
+                },
+                actions = { HeaderActions() },
+            )
+            Box(Modifier.weight(1f).fillMaxWidth()) {
+                WebContent(factory = { webViewLayout }, modifier = Modifier.fillMaxSize())
+                if (isLoading) {
+                    TextMMD(
+                        text = stringResource(R.string.dialog_processing),
+                        style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.align(Alignment.Center),
+                    )
+                }
+            }
+        }
+    }
 
     /**
      * Override this to set a custom [WebViewClient] to the page.
@@ -104,7 +167,6 @@ abstract class PageFragment(
         savedInstanceState: Bundle?,
     ) {
         server = AnkiServer(this).also { it.start() }
-        webViewLayout = view.findViewById(R.id.webview_layout)
 
         minimumWebViewVersion?.let { minVersion ->
             val isOutdated =
@@ -117,9 +179,6 @@ abstract class PageFragment(
                 Timber.w("${this::class.simpleName} requires modern WebView version, aborting load")
                 return
             }
-        }
-        view.findViewById<MaterialToolbar>(R.id.toolbar)?.setNavigationOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
         setupWebView(savedInstanceState)
     }

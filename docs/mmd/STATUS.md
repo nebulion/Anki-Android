@@ -217,6 +217,19 @@ review reminders per deck, deck search, drag-and-drop import.
 Order: deck page → home → More → deletions and tests → CI → device check (cold start, expand/collapse,
 deck page → rename → delete round trip on a throwaway deck, sync badge).
 
+## Phase 4 — Backend web pages (in progress)
+
+| Step | State |
+| --- | --- |
+| 1. Backend CSS variables | Done: `docs/mmd/web-tokens.md`. 59 variables read from the backend's own `root-vars.css` (names never guessed), with the fork's mapping for each. The bundle uses 253 in all: 183 Bootstrap `--bs-*`, 36 component-local |
+| 2. `assets/mmd-pages.css` | Done: the 59 variables become black, white or transparent; shadows, blur and motion removed; controls outlined, only the primary button filled; links underlined; system font. `PageWebViewClient` links it last in the SvelteKit shell's `<head>`, so it wins over the bundle and nothing flashes in Anki's colours. Page URLs no longer carry `#night` |
+| 3. `assets/mmd-halftone.js` | Done: on the graphs page only. 4x4 Bayer patterns at six densities; every non-monochrome SVG fill becomes the pattern matching its darkness, with an outline so pale series stay visible; text and marks under 6px are solid black. A `MutationObserver` re-runs it as the graphs redraw |
+| 4. Page chrome in Compose | Done: `PageFragment` hosts `ScreenHeader` + `WebContent`; loading is a line of text, not a spinner. Deck options, card info and the importer set the header title; Statistics shows the deck name with a header action to change deck, and its PDF export is deleted |
+| 5. Delete old layouts | Done: `fragment_page.xml`, `page_statistics.xml`, `menu/statistics.xml` |
+
+**Device check (pending):** deck options (edit and save a limit), statistics for one deck and for the
+whole collection, card info from the reviewer, `.apkg` import.
+
 ## Pre-existing issues (not caused by the fork)
 
 - **Lint** also reports `ThreadConstraint` (23), `WrongThread` (14) and

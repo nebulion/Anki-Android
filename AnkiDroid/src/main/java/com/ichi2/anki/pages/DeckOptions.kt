@@ -15,7 +15,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import anki.collection.ComputeParamsProgress
 import anki.collection.OpChanges
-import com.google.android.material.appbar.MaterialToolbar
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.ProgressContext
@@ -151,11 +150,10 @@ class DeckOptions : PageFragment() {
         view: View,
         savedInstanceState: Bundle?,
     ) {
-        pageLoadingIndicator.isVisible = true
+        isLoading = true
         super.onViewCreated(view, savedInstanceState)
         launchCatchingTask {
-            val deckName = withCol { decks.name(deckId, default = true) }
-            view.findViewById<MaterialToolbar>(R.id.toolbar).title = deckName
+            title = withCol { decks.name(deckId, default = true) }
         }
     }
 
@@ -235,7 +233,7 @@ class DeckOptions : PageFragment() {
         Timber.d("WebView ready to receive input")
         webViewIsReady = true
         webViewLayout.isVisible = true
-        pageLoadingIndicator.isVisible = false
+        isLoading = false
         setParameterUnlockClickTimeout()
     }
 

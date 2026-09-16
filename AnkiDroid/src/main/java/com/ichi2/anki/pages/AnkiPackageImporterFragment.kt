@@ -8,10 +8,8 @@ import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
 import androidx.activity.OnBackPressedCallback
-import com.google.android.material.appbar.MaterialToolbar
 import com.ichi2.anki.CollectionManager
 import com.ichi2.anki.CollectionManager.TR
-import com.ichi2.anki.R
 import com.ichi2.anki.SingleFragmentActivity
 import com.ichi2.anki.hideShowButtonCss
 import com.ichi2.utils.OLDEST_WORKING_WEBVIEW_VERSION
@@ -44,7 +42,7 @@ class AnkiPackageImporterFragment : PageFragment() {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<MaterialToolbar>(R.id.toolbar)?.title = TR.actionsImport()
+        title = TR.actionsImport()
     }
 
     class AnkiPackageImporterWebViewClient(

@@ -22,7 +22,7 @@ import com.ichi2.anki.android.input.ShortcutGroup
 import com.ichi2.anki.android.input.ShortcutGroupProvider
 import com.ichi2.anki.common.destinations.StudyOptionsDestination
 import com.ichi2.anki.common.destinations.navigate
-import com.ichi2.anki.dialogs.customstudy.CustomStudyDialog.CustomStudyAction
+import com.ichi2.anki.dialogs.customstudy.CustomStudyAction
 import com.ichi2.anki.snackbar.BaseSnackbarBuilderProvider
 import com.ichi2.anki.snackbar.SnackbarBuilder
 import com.ichi2.anki.startup.ensureStorageIsReady

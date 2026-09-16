@@ -5,6 +5,7 @@ package com.ichi2.anki
 
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.lifecycleScope
 import anki.collection.Progress
 import anki.sync.SyncAuth
 import anki.sync.SyncCollectionResponse
@@ -18,6 +19,7 @@ import com.ichi2.anki.observability.ChangeManager.notifySubscribersAllValuesChan
 import com.ichi2.anki.settings.Prefs
 import com.ichi2.anki.settings.enums.ShouldFetchMedia
 import com.ichi2.anki.snackbar.showSnackbar
+import com.ichi2.anki.ui.eink.EinkRefresh
 import com.ichi2.anki.ui.internationalization.sentenceCase
 import com.ichi2.anki.worker.SyncMediaWorker
 import com.ichi2.utils.NetworkUtils
@@ -173,10 +175,19 @@ suspend fun <T> DeckPicker.withSyncProgress(
         }
     } finally {
         viewModel.flowOfSyncProgress.value = null
+        // the sync screen repainted the whole panel for its whole length: once the deck list is back,
+        // flash to clear what it left behind (off with the E Ink setting)
+        lifecycleScope.launch {
+            delay(SYNC_FLASH_DELAY_MS)
+            EinkRefresh.flashNow(this@withSyncProgress)
+        }
     }
 }
 
 private const val SYNC_PROGRESS_MIN_INTERVAL_MS = 1_000L
+
+/** Long enough for the deck list to replace the sync screen before the flash. */
+private const val SYNC_FLASH_DELAY_MS = 300L
 
 private suspend fun handleNormalSync(
     deckPicker: DeckPicker,

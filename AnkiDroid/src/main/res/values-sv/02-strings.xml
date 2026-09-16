@@ -40,7 +40,6 @@
     <string name="filtered_option_delay_hard">Fördröjning för hårt</string>
     <string name="filtered_option_delay_good">Fördröjning för bra</string>
     <!-- Custom study options -->
-    <string name="custom_study_loading_tags">Bygger lista över taggar&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
     <string name="discard">Kasta</string>

@@ -40,7 +40,6 @@
     <string name="filtered_option_delay_hard">مکث برای گزینهٔ سخت</string>
     <string name="filtered_option_delay_good">زمان تأخیر خوب</string>
     <!-- Custom study options -->
-    <string name="custom_study_loading_tags">در حال ساختن لیست تگ ها&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
     <string name="discard">صرف‌نظر کردن</string>

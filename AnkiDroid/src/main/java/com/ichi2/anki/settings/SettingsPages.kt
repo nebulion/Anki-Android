@@ -62,7 +62,7 @@ internal fun SettingsPageFragment.rootEntries(): List<SettingsEntry> {
         SettingsEntry.Page(getString(R.string.mmd_settings_study_screen), icon = R.drawable.ic_flashcard_black) {
             openPage(SettingsPage.StudyScreen)
         },
-        SettingsEntry.Page(getString(R.string.pref_cat_gestures), icon = R.drawable.ic_gesture_tap_regular) {
+        SettingsEntry.Page(getString(R.string.pref_cat_gestures), icon = R.drawable.ic_touch_app) {
             openPage(SettingsPage.Gestures)
         },
         SettingsEntry.Page(getString(R.string.accessibility), icon = R.drawable.ic_accessibility_24) {

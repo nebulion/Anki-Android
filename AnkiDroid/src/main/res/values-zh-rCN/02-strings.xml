@@ -40,7 +40,6 @@
     <string name="filtered_option_delay_hard">因困难而延迟</string>
     <string name="filtered_option_delay_good">永远延迟</string>
     <!-- Custom study options -->
-    <string name="custom_study_loading_tags">构建标签列表&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
     <string name="discard">丢弃</string>

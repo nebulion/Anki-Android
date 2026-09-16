@@ -40,7 +40,6 @@
     <string name="filtered_option_delay_hard">Затрымка для «Цяжка»</string>
     <string name="filtered_option_delay_good">Затрымка для «Добра»</string>
     <!-- Custom study options -->
-    <string name="custom_study_loading_tags">Пабудова спіса тэгаў&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
     <string name="discard">Адхіліць</string>

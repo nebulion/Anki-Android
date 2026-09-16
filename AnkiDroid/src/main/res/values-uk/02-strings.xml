@@ -40,7 +40,6 @@
     <string name="filtered_option_delay_hard">Затримка для «Важко»</string>
     <string name="filtered_option_delay_good">Затримка для «Добре»</string>
     <!-- Custom study options -->
-    <string name="custom_study_loading_tags">Створюється список тегів&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
     <string name="discard">Відкинути</string>

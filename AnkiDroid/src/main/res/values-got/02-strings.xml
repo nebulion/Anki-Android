@@ -40,7 +40,6 @@
     <string name="filtered_option_delay_hard">Delay for hard</string>
     <string name="filtered_option_delay_good">Delay for good</string>
     <!-- Custom study options -->
-    <string name="custom_study_loading_tags">𐍅𐌹𐌺𐍉 𐌲𐌰𐍄𐌹𐌼𐍂𐌾𐌰𐌳𐌰 𐍃𐍉𐌺𐌽𐌹𐍅𐌰𐌿𐍂𐌳𐌴&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
     <string name="discard">𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽</string>

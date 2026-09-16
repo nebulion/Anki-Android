@@ -3,6 +3,10 @@
 
     <style name="Theme_Dark.Launcher" parent="Theme_Light_Eink">
         <item name="android:windowBackground">@drawable/launch_screen</item>
+        <!-- Android 12's own splash: white, and the icon without its dark grey square behind it -->
+        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@android:color/white</item>
+        <item name="android:windowSplashScreenIconBackgroundColor" tools:targetApi="31">@android:color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="31">@drawable/ic_launcher_foreground</item>
     </style>
 
     <style name="Animation.Translucent" parent="@android:style/Animation.Translucent">

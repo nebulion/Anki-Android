@@ -40,7 +40,6 @@
     <string name="filtered_option_delay_hard">فاصل صعب</string>
     <string name="filtered_option_delay_good">فاصل جيد</string>
     <!-- Custom study options -->
-    <string name="custom_study_loading_tags">يتم بناء مجموعة الوسوم&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
     <string name="discard">تجاهل</string>

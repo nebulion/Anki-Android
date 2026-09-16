@@ -40,7 +40,6 @@
     <string name="filtered_option_delay_hard">Przerwa dla trudnych</string>
     <string name="filtered_option_delay_good">Przerwa dla łatwych</string>
     <!-- Custom study options -->
-    <string name="custom_study_loading_tags">Tworzenie listy tagów&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
     <string name="discard">Odrzuć</string>

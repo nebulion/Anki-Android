@@ -11,22 +11,26 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import anki.collection.OpChanges
 import com.ichi2.anki.CollectionManager.TR
+import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.R
 import com.ichi2.anki.StudyOptionsViewModel
 import com.ichi2.anki.common.destinations.ReviewDeckDestination
 import com.ichi2.anki.common.destinations.navigate
-import com.ichi2.anki.dialogs.customstudy.CustomStudyDialog
+import com.ichi2.anki.dialogs.customstudy.ContextMenuOption
+import com.ichi2.anki.dialogs.customstudy.CustomStudyAction
+import com.ichi2.anki.dialogs.customstudy.CustomStudyFlow
+import com.ichi2.anki.dialogs.customstudy.CustomStudyViewModel
 import com.ichi2.anki.export.ExportDialogFragment
 import com.ichi2.anki.filtered.FilteredDeckOptionsFragment
 import com.ichi2.anki.launchCatchingTask
 import com.ichi2.anki.observability.ChangeManager
 import com.ichi2.anki.pages.DeckOptions
 import com.ichi2.anki.ui.internationalization.sentenceCase
-import com.ichi2.anki.utils.ext.showDialogFragment
 import com.ichi2.anki.withProgress
 import com.ichi2.compose.mmd.ComposeHostFragment
 import com.ichi2.compose.mmd.ConfirmPanel
@@ -41,6 +45,7 @@ import com.ichi2.compose.mmd.PanelTitle
 import com.ichi2.compose.mmd.panelTextFieldColors
 import com.mudita.mmd.components.text.TextMMD
 import com.mudita.mmd.components.text_field.TextFieldMMD
+import net.ankiweb.rsdroid.BackendException
 import timber.log.Timber
 
 /**
@@ -51,6 +56,7 @@ class DeckPageFragment :
     ComposeHostFragment(),
     ChangeManager.Subscriber {
     private val viewModel: StudyOptionsViewModel by viewModels()
+    private val customStudyViewModel: CustomStudyViewModel by viewModels()
     private val messages = MessageHostState()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,6 +90,11 @@ class DeckPageFragment :
         var isMenuShown by rememberSaveable { mutableStateOf(false) }
         var isRenameShown by rememberSaveable { mutableStateOf(false) }
         var isDeleteShown by rememberSaveable { mutableStateOf(false) }
+        var isCustomStudyShown by rememberSaveable { mutableStateOf(false) }
+        val openCustomStudy = {
+            customStudyViewModel.deckId = viewModel.selectedDeckId
+            isCustomStudyShown = true
+        }
 
         DeckPageScreenMMD(
             state = state,
@@ -95,14 +106,31 @@ class DeckPageFragment :
             onMenu = { isMenuShown = true },
             onStudy = { navigate(ReviewDeckDestination.CurrentDeck) },
             onUnbury = { viewModel.unbury() },
-            onCustomStudy = ::openCustomStudy,
+            onCustomStudy = openCustomStudy,
         )
 
         if (isMenuShown) {
             MenuPanel(
                 title = state.deckNameOrEmpty(),
-                items = menuItems(onRename = { isRenameShown = true }, onDelete = { isDeleteShown = true }),
+                items =
+                    menuItems(
+                        onCustomStudy = openCustomStudy,
+                        onRename = { isRenameShown = true },
+                        onDelete = { isDeleteShown = true },
+                    ),
                 onDismissRequest = { isMenuShown = false },
+            )
+        }
+        if (isCustomStudyShown) {
+            CustomStudyFlow(
+                viewModel = customStudyViewModel,
+                chooseTagsLabel = TR.sentenceCase.chooseTags,
+                onRun = { option, amount, tags ->
+                    isCustomStudyShown = false
+                    runCustomStudy(option, amount, tags)
+                },
+                onUnavailable = { messages.show(getString(R.string.studyoptions_no_cards_due)) },
+                onDismiss = { isCustomStudyShown = false },
             )
         }
         if (isRenameShown) {
@@ -124,6 +152,7 @@ class DeckPageFragment :
     }
 
     private fun menuItems(
+        onCustomStudy: () -> Unit,
         onRename: () -> Unit,
         onDelete: () -> Unit,
     ): List<MenuItem> {
@@ -134,7 +163,7 @@ class DeckPageFragment :
                 add(MenuItem(TR.actionsRebuild()) { rebuildFiltered() })
                 add(MenuItem(getString(R.string.empty_cram_label)) { emptyFiltered() })
             } else {
-                add(MenuItem(TR.sentenceCase.customStudy, onClick = ::openCustomStudy))
+                add(MenuItem(TR.sentenceCase.customStudy, onClick = onCustomStudy))
             }
             add(MenuItem(with(context) { TR.sentenceCase.renameDeck }, onClick = onRename))
             add(MenuItem(getString(R.string.export_deck)) { exportDeck() })
@@ -197,8 +226,29 @@ class DeckPageFragment :
         startActivity(intent)
     }
 
-    private fun openCustomStudy() {
-        showDialogFragment(CustomStudyDialog.createInstance(deckId = viewModel.selectedDeckId))
+    /**
+     * Runs a custom study chosen in [CustomStudyFlow]. The host activity then reopens the deck page
+     * for the deck custom study selected: a new "Custom Study Session", or this deck with raised limits.
+     */
+    private fun runCustomStudy(
+        option: ContextMenuOption,
+        amount: Int,
+        tags: List<String>,
+    ) {
+        requireActivity().launchCatchingTask(
+            // net.ankiweb.rsdroid.BackendException: No cards matched the criteria you provided.
+            skipCrashReport = { it is BackendException },
+        ) {
+            val action =
+                withProgress {
+                    withCol { decks.select(customStudyViewModel.deckId) }
+                    customStudyViewModel.customStudy(option, amount, tagsToInclude = tags)
+                }
+            requireActivity().supportFragmentManager.setFragmentResult(
+                CustomStudyAction.REQUEST_KEY,
+                bundleOf(CustomStudyAction.BUNDLE_KEY to action.ordinal),
+            )
+        }
     }
 
     private fun exportDeck() {

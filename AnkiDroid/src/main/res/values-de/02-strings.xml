@@ -40,7 +40,6 @@
     <string name="filtered_option_delay_hard">Verzögerung für Schwer</string>
     <string name="filtered_option_delay_good">Verzögerung für gut</string>
     <!-- Custom study options -->
-    <string name="custom_study_loading_tags">Erstelle Schlagwortliste&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
     <string name="discard">Verwerfen</string>

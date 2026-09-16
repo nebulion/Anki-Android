@@ -40,7 +40,6 @@
     <string name="filtered_option_delay_hard">Retardo para difícil</string>
     <string name="filtered_option_delay_good">Retardo para ben</string>
     <!-- Custom study options -->
-    <string name="custom_study_loading_tags">Creando lista de etiquetas&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
     <string name="discard">Descartar</string>

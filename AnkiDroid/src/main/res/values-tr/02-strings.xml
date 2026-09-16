@@ -40,7 +40,6 @@
     <string name="filtered_option_delay_hard">Zor için ertele</string>
     <string name="filtered_option_delay_good">İyi için ertele</string>
     <!-- Custom study options -->
-    <string name="custom_study_loading_tags">Etiket listesi oluşturuluyor&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
     <string name="discard">Vazgeç</string>

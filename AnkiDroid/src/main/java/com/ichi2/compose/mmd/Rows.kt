@@ -120,6 +120,24 @@ fun ValueRow(
     }
 }
 
+/**
+ * A fact and its value, written under it, that cannot be tapped: card info's "Added / 2026-09-16".
+ * The same shape as [ValueRow] without the chevron, so a page of facts reads like Settings.
+ */
+@Composable
+fun InfoRow(
+    title: String,
+    value: String,
+    modifier: Modifier = Modifier,
+) {
+    RowScaffold(
+        modifier = modifier,
+        title = title,
+        subtitle = value,
+        leadingIcon = null,
+    ) {}
+}
+
 /** A row that performs an action directly, e.g. "Check database". */
 @Composable
 fun ActionRow(

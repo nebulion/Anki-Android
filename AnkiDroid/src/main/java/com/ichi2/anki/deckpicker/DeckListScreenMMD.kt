@@ -21,7 +21,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -32,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -58,8 +58,6 @@ data class DeckListUiState(
     /** Sync is offered only to a signed-in user; before that, the empty collection offers sign-in. */
     val isLoggedIn: Boolean = false,
     val syncState: SyncIconState = SyncIconState.Normal,
-    /** What Undo would undo, or `null` when there is nothing to undo. */
-    val undoLabel: String? = null,
     /** A sync in progress replaces the deck list; `null` when not syncing. */
     val syncProgress: SyncProgress? = null,
 )
@@ -73,7 +71,6 @@ data class DeckListUiState(
 @Composable
 fun DeckListScreenMMD(
     state: DeckListUiState,
-    onUndo: () -> Unit,
     onSync: () -> Unit,
     onStatistics: () -> Unit,
     onMore: () -> Unit,
@@ -88,9 +85,6 @@ fun DeckListScreenMMD(
         ScreenHeader(
             title = TR.actionsDecks(),
             actions = {
-                if (state.undoLabel != null && !isSyncing) {
-                    HeaderAction(icon = R.drawable.ic_undo_white, contentDescription = state.undoLabel, onClick = onUndo)
-                }
                 if (state.isLoggedIn) {
                     SyncAction(state.syncState, enabled = !isSyncing, onSync)
                 }
@@ -155,7 +149,8 @@ private fun SyncAction(
 }
 
 /**
- * One deck: indent by depth, chevron when it has subdecks, name (italic if filtered), three counts.
+ * One deck: a chevron when it has subdecks and its name, bold while it has cards to do (owner's
+ * call, 2026-09-15: no counts and no indent in the list; the deck page carries the numbers).
  * Tap starts studying (or opens the page when nothing is due); a long press opens the deck page.
  */
 @Composable
@@ -165,7 +160,7 @@ private fun DeckRow(
     onDeckLongPress: (DeckId) -> Unit,
     onToggleExpand: (DeckId) -> Unit,
 ) {
-    val indent = DepthIndent * (deck.depth - TOP_LEVEL_DEPTH).coerceAtLeast(0)
+    val hasCardsToStudy = deck.newCount + deck.lrnCount + deck.revCount > 0
     Row(
         modifier =
             Modifier
@@ -176,7 +171,7 @@ private fun DeckRow(
                     onLongClickLabel = deck.lastDeckNameComponent,
                     onLongClick = { onDeckLongPress(deck.did) },
                     onClick = { onDeckClick(deck.did) },
-                ).padding(start = indent, end = RowDefaults.EdgePadding),
+                ).padding(end = RowDefaults.EdgePadding),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(
@@ -198,26 +193,12 @@ private fun DeckRow(
             text = deck.lastDeckNameComponent,
             style = MaterialTheme.typography.bodyLarge,
             fontStyle = if (deck.filtered) FontStyle.Italic else FontStyle.Normal,
+            fontWeight = if (hasCardsToStudy) FontWeight.Bold else FontWeight.Normal,
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.weight(1f),
         )
-        Count(deck.newCount)
-        Count(deck.lrnCount)
-        Count(deck.revCount)
     }
-}
-
-/** A count, right-aligned in a fixed column so numbers line up; zero shows nothing, large counts are shortened. */
-@Composable
-private fun Count(value: Int) {
-    TextMMD(
-        text = if (value == 0) "" else compactCount(value),
-        style = MaterialTheme.typography.bodyLarge,
-        textAlign = TextAlign.End,
-        maxLines = 1,
-        modifier = Modifier.width(CountWidth),
-    )
 }
 
 /** The solid line after a top-level deck and its subdecks. */
@@ -298,7 +279,5 @@ private const val TOP_LEVEL_DEPTH = 0
 /** One sweep of the sync bar while the amount of work is unknown. */
 private const val SYNC_BAR_CYCLE_MS = 2_000
 
-private val DepthIndent = 16.dp
 private val ChevronTouch = 48.dp
-private val CountWidth = 44.dp
 private val DeckGroupDividerThickness = 2.dp

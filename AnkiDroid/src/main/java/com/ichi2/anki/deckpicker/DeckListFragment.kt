@@ -33,10 +33,8 @@ class DeckListFragment : ComposeHostFragment() {
                     // read when the menu state recomposes this, which happens on return from the login screen
                     isLoggedIn = isLoggedIn(),
                     syncState = menuState?.syncIcon ?: SyncIconState.Normal,
-                    undoLabel = menuState?.takeIf { it.undoAvailable }?.undoLabel,
                     syncProgress = syncProgress,
                 ),
-            onUndo = { home.undo() },
             onSync = { home.onSyncPressed() },
             onStatistics = { home.openStatistics() },
             onMore = { home.openMore() },

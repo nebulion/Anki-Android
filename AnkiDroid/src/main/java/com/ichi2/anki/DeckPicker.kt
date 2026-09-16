@@ -153,7 +153,7 @@ import kotlin.time.Duration.Companion.minutes
  * The entry point for AnkiDroid: the home screen.
  *
  * The deck list fills the screen; its header opens Statistics and the More page. Tapping a deck
- * opens its deck page, where it is studied and managed.
+ * studies it; a long press opens its deck page, where it is managed.
  *
  * Responsibilities:
  * * Setup/upgrades of the application: [handleStartup]
@@ -742,6 +742,9 @@ open class DeckPicker :
             sync()
         } else {
             updateDeckList()
+            // studying leaves changes to send; the owner wants that sync quiet, unlike the one when
+            // the app opens. At most one every AUTOMATIC_SYNC_MINIMAL_INTERVAL.
+            launchCatchingTask { automaticSync(runInBackground = true, ignoreInterval = false) }
         }
         // Update sync status (if we've come back from a screen)
         refreshMenuState()
@@ -788,10 +791,14 @@ open class DeckPicker :
     /**
      * Performs a sync if the conditions are met, e.g. user is logged in, there are changes,
      * and auto sync is enabled.
-     * @param runInBackground whether the sync should be performed in the background or not
+     * @param runInBackground run it in [SyncWorker] (quiet) instead of on screen with a progress bar
+     * @param ignoreInterval sync even if the last one was recent; set when leaving the app
      * @return whether a sync was performed or not.
      */
-    private suspend fun automaticSync(runInBackground: Boolean = false): Boolean {
+    private suspend fun automaticSync(
+        runInBackground: Boolean = false,
+        ignoreInterval: Boolean = runInBackground,
+    ): Boolean {
         /**
          * @return whether there are collection changes to be sync.
          *
@@ -822,7 +829,7 @@ open class DeckPicker :
             !Prefs.isAutoSyncEnabled -> Timber.d("autoSync: not enabled")
             MeteredSyncPolicy.shouldBlock() -> Timber.d("autoSync: blocked by metered connection")
             !NetworkUtils.isOnline -> Timber.d("autoSync: offline")
-            !runInBackground && !syncIntervalPassed() -> Timber.d("autoSync: interval not passed")
+            !ignoreInterval && !syncIntervalPassed() -> Timber.d("autoSync: interval not passed")
             !isLoggedIn() -> Timber.d("autoSync: not logged in")
             !areThereChangesToSync() -> {
                 Timber.d("autoSync: no collection changes to sync. Syncing media if set")

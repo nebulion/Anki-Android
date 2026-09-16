@@ -2,17 +2,23 @@
 
 package com.ichi2.compose.mmd
 
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
 import com.mudita.mmd.components.lazy.LazyColumnMMD
 
@@ -23,8 +29,8 @@ import com.mudita.mmd.components.lazy.LazyColumnMMD
  * - `LazyColumnMMD` pages **by item** (`scrollToItem` in steps of [scrollStep]). Emit one item per
  *   row; a single tall item cannot be scrolled at all, and hidden items still count.
  * - The list is drawn at `alpha = 0` until its items are counted.
- * - MMD composes the scrollbar only while the list can scroll. While it cannot, this keeps the
- *   scrollbar's width empty instead, so rows do not shift left when the list grows past one page.
+ * - MMD composes the scrollbar only while the list can scroll. While it cannot, an inactive one is
+ *   drawn in its place, so the bar is always there and rows never shift when the list grows.
  */
 @Composable
 fun PagedList(
@@ -44,8 +50,29 @@ fun PagedList(
             content = content,
         )
         if (isScrollbarVisible && !canScroll) {
-            Spacer(Modifier.width(PagedListDefaults.ScrollbarGutter))
+            InactiveScrollbar()
         }
+    }
+}
+
+/** MMD's scrollbar with nothing to scroll: the track alone, faint and without a thumb or arrows. */
+@Composable
+private fun InactiveScrollbar() {
+    Box(
+        Modifier.width(PagedListDefaults.ScrollbarGutter).fillMaxHeight(),
+        contentAlignment = Alignment.Center,
+    ) {
+        Box(
+            Modifier
+                .width(PagedListDefaults.ScrollbarTrackWidth)
+                .fillMaxHeight()
+                .alpha(PagedListDefaults.INACTIVE_ALPHA)
+                .border(
+                    width = PagedListDefaults.ScrollbarTrackBorder,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    shape = RoundedCornerShape(PagedListDefaults.ScrollbarTrackWidth / 2),
+                ),
+        )
     }
 }
 
@@ -59,4 +86,11 @@ object PagedListDefaults {
      * 40dp from the edge (`docs/mmd/eink-design.md` → Calibration).
      */
     val ScrollbarGutter = 40.dp
+
+    /** The track's width and border, from `LazyDefaultsMMD.sliderBackgroundWidth`/`...BorderWidth`. */
+    val ScrollbarTrackWidth = 8.dp
+    val ScrollbarTrackBorder = 1.dp
+
+    /** The Kompakt's own lists grey out a scrollbar arrow that cannot be used. */
+    const val INACTIVE_ALPHA = 0.4f
 }

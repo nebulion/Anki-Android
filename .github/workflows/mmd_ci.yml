@@ -202,6 +202,25 @@ jobs:
           path: ${{ env.BUILD_CACHE_PATH }}
           key: ${{ env.BUILD_CACHE_KEY }}
 
+      # Robolectric fetches its android-all-instrumented jars at test time; one failed download
+      # fails a whole shard (run 35041791340, shard 0). Cache them, and pre-fetch with retries.
+      - name: Cache Robolectric SDKs
+        id: robolectric-cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.m2/repository/org/robolectric
+          key: robolectric-${{ hashFiles('AnkiDroid/robolectricDownloader.gradle') }}
+
+      - name: Download Robolectric SDKs
+        if: steps.robolectric-cache.outputs.cache-hit != 'true'
+        run: |
+          for attempt in 1 2 3; do
+            ./gradlew :AnkiDroid:robolectricSdkDownload --build-cache && exit 0
+            echo "robolectric download failed (attempt $attempt), retrying"
+            sleep 15
+          done
+          exit 1
+
       - name: Unit tests
         id: tests
         continue-on-error: true

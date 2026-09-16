@@ -5,6 +5,7 @@ package com.ichi2.anki.pages
 
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.runtime.Composable
 import com.ichi2.anki.CollectionManager.TR
@@ -31,7 +32,7 @@ class Statistics : PageFragment() {
         HeaderAction(
             icon = R.drawable.id_arrow_drop_down,
             contentDescription = TR.actionsDecks(),
-            onClick = { startDeckSelection(allowAll = false, allowFiltered = false, skipEmptyDefault = true) },
+            onClick = ::showDeckPicker,
         )
     }
 
@@ -49,7 +50,14 @@ class Statistics : PageFragment() {
         }
     }
 
-    private fun onDeckSelected(deck: SelectableDeck?) {
+    /** The header action: statistics are for one deck, so neither "all decks" nor a filtered deck. */
+    @VisibleForTesting
+    internal fun showDeckPicker() {
+        startDeckSelection(allowAll = false, allowFiltered = false, skipEmptyDefault = true)
+    }
+
+    @VisibleForTesting
+    internal fun onDeckSelected(deck: SelectableDeck?) {
         if (deck == null) return
         require(deck is SelectableDeck.Deck)
         changeDeck(deck.name)

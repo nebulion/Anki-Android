@@ -23,6 +23,7 @@ import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.annotation.CallSuper
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
@@ -65,7 +66,8 @@ abstract class PageFragment :
     protected abstract val pagePath: String
 
     /** The header's title. Subclasses set it as soon as they know what the page shows. */
-    protected var title: String by mutableStateOf("")
+    @VisibleForTesting
+    internal var title: String by mutableStateOf("")
 
     /**
      * Whether the page is still preparing itself, shown as a line of text: a spinner repaints

@@ -46,9 +46,6 @@ open class PageWebViewClient : SafeWebViewClient() {
         if (path == "/$MMD_PAGES_CSS") {
             return WebResourceResponse("text/css", "utf-8", view.context.assets.open(MMD_PAGES_CSS))
         }
-        if (path == "/$MMD_HALFTONE_JS") {
-            return WebResourceResponse("text/javascript", "utf-8", view.context.assets.open(MMD_HALFTONE_JS))
-        }
 
         val assetPath =
             if (path.startsWith("/_app/")) {
@@ -77,7 +74,6 @@ open class PageWebViewClient : SafeWebViewClient() {
     /**
      * The SvelteKit shell with [MMD_PAGES_CSS] linked last in its head: the fork's black and white
      * then wins over the bundle's own stylesheet, and the page never flashes in Anki's colours.
-     * The graphs page also gets [MMD_HALFTONE_JS], which dithers its fills.
      */
     private fun sveltekitShell(
         view: WebView,
@@ -90,9 +86,6 @@ open class PageWebViewClient : SafeWebViewClient() {
         val head =
             buildString {
                 append("""<link rel="stylesheet" href="/$MMD_PAGES_CSS">""")
-                if (path.removePrefix("/").substringBefore("/") == "graphs") {
-                    append("""<script src="/$MMD_HALFTONE_JS" defer></script>""")
-                }
                 append("</head>")
             }
         return WebResourceResponse("text/html", "utf-8", ByteArrayInputStream(html.replace("</head>", head).toByteArray()))
@@ -125,9 +118,6 @@ open class PageWebViewClient : SafeWebViewClient() {
 
 /** The fork's stylesheet for backend pages, in `assets/`. */
 private const val MMD_PAGES_CSS = "mmd-pages.css"
-
-/** Dithers the graphs' fills into 4x4 dot patterns; the graphs page only. */
-private const val MMD_HALFTONE_JS = "mmd-halftone.js"
 
 private const val SVELTEKIT_INDEX = "backend/sveltekit/index.html"
 

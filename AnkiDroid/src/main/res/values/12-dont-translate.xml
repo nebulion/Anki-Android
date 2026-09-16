@@ -46,6 +46,10 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="mmd_settings_invalid_url">Enter a valid URL</string>
     <string name="mmd_settings_number_range">Enter a number between %1$d and %2$d</string>
     <string name="mmd_version">Version %s</string>
+    <!-- MMD fork: the native statistics page -->
+    <string name="mmd_stats_history">History</string>
+    <string name="mmd_stats_year">Year</string>
+    <string name="mmd_stats_tap_hint">Tap the graph to see its numbers</string>
     <plurals name="mmd_settings_minutes">
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>

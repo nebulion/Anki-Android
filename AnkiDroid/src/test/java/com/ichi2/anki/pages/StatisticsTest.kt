@@ -57,8 +57,10 @@ class StatisticsTest : RobolectricTest() {
                     assertEquals(testDeckName1, statistics.title, "the current deck is shown")
 
                     statistics.onDeckSelected(SelectableDeck.Deck(testDeck2, testDeckName2))
-
-                    assertEquals(testDeckName2, statistics.title, "the selected deck is shown")
+                }
+                advanceUntilIdle()
+                scenario.onActivity { activity ->
+                    assertEquals(testDeckName2, activity.statistics().title, "the selected deck is shown")
                 }
             }
         }
@@ -66,8 +68,8 @@ class StatisticsTest : RobolectricTest() {
     @Test
     fun `uses expected constraints for decks list selection dialog`() =
         runTest {
-            // the statistics screen doesn't allow the selection of 'All Decks' and filtered decks,
-            // also 'Default' deck should be enabled no matter its status(empty/not empty)
+            // 'All decks' shows the whole collection; filtered decks can't be chosen, and the 'Default'
+            // deck is offered whether or not it is empty
             launchActivity<SingleFragmentActivity>(StatisticsDestination).use { scenario ->
                 advanceUntilIdle()
                 scenario.onActivity { activity ->
@@ -76,9 +78,22 @@ class StatisticsTest : RobolectricTest() {
 
                     val deckSelectionDialog = activity.supportFragmentManager.findFragmentByTag(DeckSelectionDialog.TAG)
                     assertNotNull(deckSelectionDialog)
-                    assertFalse(deckSelectionDialog.requireArguments().getBoolean(DeckSelectionDialog.ARG_ALLOW_ALL, true))
+                    assertTrue(deckSelectionDialog.requireArguments().getBoolean(DeckSelectionDialog.ARG_ALLOW_ALL, false))
                     assertFalse(deckSelectionDialog.requireArguments().getBoolean(DeckSelectionDialog.ARG_ALLOW_FILTERED, true))
                     assertTrue(deckSelectionDialog.requireArguments().getBoolean(DeckSelectionDialog.ARG_SKIP_EMPTY_DEFAULT, false))
+                }
+            }
+        }
+
+    @Test
+    fun `'All decks' shows the collection`() =
+        runTest {
+            launchActivity<SingleFragmentActivity>(StatisticsDestination).use { scenario ->
+                advanceUntilIdle()
+                scenario.onActivity { activity -> activity.statistics().onDeckSelected(SelectableDeck.AllDecks) }
+                advanceUntilIdle()
+                scenario.onActivity { activity ->
+                    assertEquals(col.tr.statisticsRangeCollection(), activity.statistics().title)
                 }
             }
         }

@@ -2,10 +2,13 @@
 
 package com.ichi2.compose.mmd
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyListState
@@ -18,7 +21,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.unit.dp
 import com.mudita.mmd.components.lazy.LazyColumnMMD
 
@@ -55,24 +59,53 @@ fun PagedList(
     }
 }
 
-/** MMD's scrollbar with nothing to scroll: the track alone, faint and without a thumb or arrows. */
+/**
+ * MMD's scrollbar with nothing to scroll: the same column, track and arrows, but the track is empty
+ * and nothing reacts to a tap. Drawn here because MMD composes its own only while a list can scroll.
+ */
 @Composable
 private fun InactiveScrollbar() {
-    Box(
+    val ink = MaterialTheme.colorScheme.onSurface
+    Column(
         Modifier.width(PagedListDefaults.ScrollbarGutter).fillMaxHeight(),
-        contentAlignment = Alignment.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        ScrollArrow(pointingUp = true, color = ink)
         Box(
             Modifier
                 .width(PagedListDefaults.ScrollbarTrackWidth)
-                .fillMaxHeight()
-                .alpha(PagedListDefaults.INACTIVE_ALPHA)
+                .weight(1f)
                 .border(
                     width = PagedListDefaults.ScrollbarTrackBorder,
-                    color = MaterialTheme.colorScheme.onSurface,
+                    color = ink,
                     shape = RoundedCornerShape(PagedListDefaults.ScrollbarTrackWidth / 2),
                 ),
         )
+        ScrollArrow(pointingUp = false, color = ink)
+    }
+}
+
+/** One of the scrollbar's page arrows: a filled triangle, the size MMD gives its own. */
+@Composable
+private fun ScrollArrow(
+    pointingUp: Boolean,
+    color: Color,
+) {
+    Canvas(Modifier.size(PagedListDefaults.ScrollbarArrowSize)) {
+        val halfWidth = size.width * 0.3f
+        val halfHeight = size.height * 0.18f
+        val centreX = size.width / 2
+        val centreY = size.height / 2
+        val tip = if (pointingUp) centreY - halfHeight else centreY + halfHeight
+        val base = if (pointingUp) centreY + halfHeight else centreY - halfHeight
+        val triangle =
+            Path().apply {
+                moveTo(centreX, tip)
+                lineTo(centreX + halfWidth, base)
+                lineTo(centreX - halfWidth, base)
+                close()
+            }
+        drawPath(triangle, color)
     }
 }
 
@@ -91,6 +124,6 @@ object PagedListDefaults {
     val ScrollbarTrackWidth = 8.dp
     val ScrollbarTrackBorder = 1.dp
 
-    /** The Kompakt's own lists grey out a scrollbar arrow that cannot be used. */
-    const val INACTIVE_ALPHA = 0.4f
+    /** The page arrows, from `LazyDefaultsMMD.navigateIconSize`. */
+    val ScrollbarArrowSize = 24.dp
 }

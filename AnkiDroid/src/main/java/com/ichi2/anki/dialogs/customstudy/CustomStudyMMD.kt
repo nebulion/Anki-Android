@@ -51,7 +51,7 @@ import com.mudita.mmd.components.text_field.TextFieldMMD
 
 /**
  * Custom study as MMD surfaces, one at a time: a menu of the six kinds, a panel asking for the
- * amount, and for 'study by tag' a sheet of the deck's tags. [CustomStudyViewModel] decides
+ * amount (with how many cards that kind has), and for 'study by tag' a sheet of the deck's tags. [CustomStudyViewModel] decides
  * everything; this only shows it.
  *
  * @param chooseTagsLabel "Choose tags", which the backend only sentence-cases for a Fragment
@@ -111,9 +111,11 @@ private fun CustomStudyMenu(
     onDismiss: () -> Unit,
 ) {
     val context = LocalContext.current
-    // the menu waits for the backend's defaults rather than filling in its availability line by line
-    val availability by produceState<Map<ContextMenuOption, Pair<Boolean, String?>>?>(null, viewModel) {
-        value = ContextMenuOption.entries.associateWith { viewModel.isAvailable(it) to viewModel.availabilityLabel(it) }
+    // the menu waits for the backend's defaults rather than enabling its items one by one. How many
+    // cards each kind has is not listed here, where it crowded the menu (owner, 2026-09-16): it is
+    // on the panel that asks for the amount
+    val availability by produceState<Map<ContextMenuOption, Boolean>?>(null, viewModel) {
+        value = ContextMenuOption.entries.associateWith { viewModel.isAvailable(it) }
     }
     val loaded = availability ?: return
     // MenuPanel reports a dismissal before running the chosen item. Choosing an item replaces this
@@ -124,8 +126,8 @@ private fun CustomStudyMenu(
         title = with(context) { TR.sentenceCase.customStudy },
         items =
             ContextMenuOption.entries.map { option ->
-                val (isAvailable, label) = loaded.getValue(option)
-                MenuItem(label = option.getTitle(LocalResources.current), value = label) {
+                val isAvailable = loaded.getValue(option)
+                MenuItem(label = option.getTitle(LocalResources.current)) {
                     if (isAvailable) onSelect(option) else onUnavailable()
                 }
             },

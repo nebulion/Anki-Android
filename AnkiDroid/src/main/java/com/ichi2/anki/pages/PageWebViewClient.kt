@@ -15,18 +15,15 @@
  */
 package com.ichi2.anki.pages
 
-import android.graphics.Bitmap
 import android.webkit.ValueCallback
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import androidx.core.view.isVisible
-import com.google.android.material.color.MaterialColors
 import com.ichi2.anki.OnPageFinishedCallback
 import com.ichi2.anki.workarounds.SafeWebViewClient
 import com.ichi2.anki.workarounds.SafeWebViewLayout
 import com.ichi2.utils.AssetHelper.guessMimeType
-import com.ichi2.utils.toRGBHex
 import timber.log.Timber
 import java.io.ByteArrayInputStream
 import java.io.IOException
@@ -46,17 +43,24 @@ open class PageWebViewClient : SafeWebViewClient() {
         if (path == "/favicon.png") {
             return WebResourceResponse("image/x-icon", null, ByteArrayInputStream(byteArrayOf()))
         }
+        if (path == "/$MMD_PAGES_CSS") {
+            return WebResourceResponse("text/css", "utf-8", view.context.assets.open(MMD_PAGES_CSS))
+        }
+        if (path == "/$MMD_HALFTONE_JS") {
+            return WebResourceResponse("text/javascript", "utf-8", view.context.assets.open(MMD_HALFTONE_JS))
+        }
 
         val assetPath =
             if (path.startsWith("/_app/")) {
                 "backend/sveltekit/app/${path.substring(6)}"
             } else if (isSvelteKitPage(path.substring(1))) {
-                "backend/sveltekit/index.html"
+                SVELTEKIT_INDEX
             } else {
                 return null
             }
 
         try {
+            if (assetPath == SVELTEKIT_INDEX) return sveltekitShell(view, path)
             val mimeType = guessMimeType(assetPath)
             val inputStream = view.context.assets.open(assetPath)
             val response = WebResourceResponse(mimeType, null, inputStream)
@@ -70,19 +74,28 @@ open class PageWebViewClient : SafeWebViewClient() {
         return null
     }
 
-    override fun onPageStarted(
-        view: WebView?,
-        url: String?,
-        favicon: Bitmap?,
-    ) {
-        super.onPageStarted(view, url, favicon)
-        view?.let { webView ->
-            val bgColor = MaterialColors.getColor(webView, android.R.attr.colorBackground).toRGBHex()
-            webView.evaluateAfterDOMContentLoaded(
-                """document.body.style.setProperty("background-color", "$bgColor", "important");
-                    console.log("Background color set");""",
-            )
-        }
+    /**
+     * The SvelteKit shell with [MMD_PAGES_CSS] linked last in its head: the fork's black and white
+     * then wins over the bundle's own stylesheet, and the page never flashes in Anki's colours.
+     * The graphs page also gets [MMD_HALFTONE_JS], which dithers its fills.
+     */
+    private fun sveltekitShell(
+        view: WebView,
+        path: String,
+    ): WebResourceResponse {
+        val html =
+            view.context.assets
+                .open(SVELTEKIT_INDEX)
+                .use { it.readBytes().decodeToString() }
+        val head =
+            buildString {
+                append("""<link rel="stylesheet" href="/$MMD_PAGES_CSS">""")
+                if (path.removePrefix("/").substringBefore("/") == "graphs") {
+                    append("""<script src="/$MMD_HALFTONE_JS" defer></script>""")
+                }
+                append("</head>")
+            }
+        return WebResourceResponse("text/html", "utf-8", ByteArrayInputStream(html.replace("</head>", head).toByteArray()))
     }
 
     /**
@@ -109,6 +122,14 @@ open class PageWebViewClient : SafeWebViewClient() {
         onShowWebView(view)
     }
 }
+
+/** The fork's stylesheet for backend pages, in `assets/`. */
+private const val MMD_PAGES_CSS = "mmd-pages.css"
+
+/** Dithers the graphs' fills into 4x4 dot patterns; the graphs page only. */
+private const val MMD_HALFTONE_JS = "mmd-halftone.js"
+
+private const val SVELTEKIT_INDEX = "backend/sveltekit/index.html"
 
 fun isSvelteKitPage(path: String): Boolean {
     val pageName = path.substringBefore("/")

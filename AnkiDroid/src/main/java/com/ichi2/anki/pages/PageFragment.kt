@@ -29,7 +29,6 @@ import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.ichi2.anki.R
 import com.ichi2.anki.workarounds.OnWebViewRecreatedListener
 import com.ichi2.anki.workarounds.SafeWebViewLayout
-import com.ichi2.themes.Themes
 import com.ichi2.utils.WebViewVersion
 import com.ichi2.utils.showDialogIfWebViewOutdated
 import timber.log.Timber
@@ -140,8 +139,8 @@ abstract class PageFragment(
             setupBridgeCommand(pageWebViewClient)
             onWebViewCreated()
         }
-        val nightMode = if (Themes.isNightTheme) "#night" else ""
-        val url = "${server.baseUrl()}$pagePath$nightMode".toUri()
+        // one theme in this fork: the backend's #night fragment is never appended
+        val url = "${server.baseUrl()}$pagePath".toUri()
         Timber.i("Loading $url")
         webViewLayout.loadUrl(url.toString())
     }

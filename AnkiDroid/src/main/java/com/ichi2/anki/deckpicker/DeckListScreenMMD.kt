@@ -63,7 +63,7 @@ data class DeckListUiState(
 )
 
 /**
- * The home screen: one row per deck under a header that also opens Statistics and the More page.
+ * The home screen: one row per deck under a header that also opens Statistics and Settings.
  * Tapping a deck starts studying it; holding it opens its page; the chevron expands or collapses
  * subdecks. A solid line separates top-level decks, a dashed line the subdecks inside one.
  * While syncing, the list gives way to the sync's progress.
@@ -73,7 +73,7 @@ fun DeckListScreenMMD(
     state: DeckListUiState,
     onSync: () -> Unit,
     onStatistics: () -> Unit,
-    onMore: () -> Unit,
+    onSettings: () -> Unit,
     onDeckClick: (DeckId) -> Unit,
     onDeckLongPress: (DeckId) -> Unit,
     onToggleExpand: (DeckId) -> Unit,
@@ -95,9 +95,9 @@ fun DeckListScreenMMD(
                     enabled = !isSyncing,
                 )
                 HeaderAction(
-                    icon = R.drawable.ic_more_vertical,
-                    contentDescription = stringResource(R.string.bottom_nav_more),
-                    onClick = onMore,
+                    icon = R.drawable.ic_settings_black,
+                    contentDescription = stringResource(R.string.settings),
+                    onClick = onSettings,
                     enabled = !isSyncing,
                 )
             },

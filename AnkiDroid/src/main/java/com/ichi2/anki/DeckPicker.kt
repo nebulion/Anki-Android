@@ -84,7 +84,6 @@ import com.ichi2.anki.deckpicker.DeckPickerViewModel
 import com.ichi2.anki.deckpicker.DeckPickerViewModel.AnkiDroidEnvironment
 import com.ichi2.anki.deckpicker.DeckPickerViewModel.StartupResponse
 import com.ichi2.anki.deckpicker.EmptyCardsResult
-import com.ichi2.anki.deckpicker.MoreTabFragment
 import com.ichi2.anki.dialogs.AsyncDialogFragment
 import com.ichi2.anki.dialogs.BackupPromptDialog
 import com.ichi2.anki.dialogs.CreateDeckDialog
@@ -113,6 +112,8 @@ import com.ichi2.anki.receiver.SdCardReceiver
 import com.ichi2.anki.reviewreminders.ReviewRemindersDatabase
 import com.ichi2.anki.servicelayer.ScopedStorageService
 import com.ichi2.anki.settings.Prefs
+import com.ichi2.anki.settings.SettingsPage
+import com.ichi2.anki.settings.SettingsPageFragment
 import com.ichi2.anki.snackbar.BaseSnackbarBuilderProvider
 import com.ichi2.anki.snackbar.SnackbarBuilder
 import com.ichi2.anki.sync.MeteredSyncPolicy
@@ -257,18 +258,6 @@ open class DeckPicker :
             },
         )
 
-    private val preferencesLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            Timber.i("Handling settings result: %d", result.resultCode)
-            // We trigger a notifications channel set-up since the user may have changed the locale set
-            // from within the app, which should cause the notification channel names to be reloaded to
-            // match the new locale
-            setupNotificationChannels(applicationContext)
-            // Restart the activity on preference change
-            // collection path hasn't been changed so just restart the current activity
-            ActivityCompat.recreate(this)
-        }
-
     private val exitAndSyncBackCallback =
         object : OnBackPressedCallback(enabled = true) {
             override fun handleOnBackPressed() {
@@ -284,10 +273,10 @@ open class DeckPicker :
         }
 
     /**
-     * Back from the More page returns to the deck list before it can exit the app. The exit callbacks
+     * Back from a settings page returns to the deck list before it can exit the app. The exit callbacks
      * are added after the fragment manager's own, so they would otherwise run first.
      */
-    private val closeMoreBackCallback =
+    private val closeSettingsBackCallback =
         object : OnBackPressedCallback(enabled = false) {
             override fun handleOnBackPressed() {
                 supportFragmentManager.popBackStack()
@@ -352,7 +341,7 @@ open class DeckPicker :
 
         onBackPressedDispatcher.addCallback(this, exitAndSyncBackCallback)
         onBackPressedDispatcher.addCallback(this, exitViaDoubleTapBackCallback())
-        onBackPressedDispatcher.addCallback(this, closeMoreBackCallback)
+        onBackPressedDispatcher.addCallback(this, closeSettingsBackCallback)
 
         setupContent(savedInstanceState)
 
@@ -388,19 +377,22 @@ open class DeckPicker :
             supportFragmentManager.commit { replace(R.id.home_container, DeckListFragment()) }
         }
         supportFragmentManager.addOnBackStackChangedListener {
-            closeMoreBackCallback.isEnabled = supportFragmentManager.backStackEntryCount > 0
+            closeSettingsBackCallback.isEnabled = supportFragmentManager.backStackEntryCount > 0
         }
-        closeMoreBackCallback.isEnabled = supportFragmentManager.backStackEntryCount > 0
+        closeSettingsBackCallback.isEnabled = supportFragmentManager.backStackEntryCount > 0
     }
 
-    /** Opens the More page over the deck list; back returns to the decks. */
-    fun openMore() {
-        Timber.i("DeckPicker:: More selected")
-        if (supportFragmentManager.findFragmentByTag(MORE_FRAGMENT_TAG) != null) return
+    /**
+     * Opens a settings page over the deck list; back returns to the page before it, then to the
+     * decks. Settings hold the collection's actions as well as its preferences, so this is also how
+     * importing, exporting and maintenance are reached.
+     */
+    fun openSettings(page: SettingsPage = SettingsPage.Root) {
+        Timber.i("DeckPicker:: opening settings page %s", page)
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            replace(R.id.home_container, MoreTabFragment(), MORE_FRAGMENT_TAG)
-            addToBackStack(MORE_FRAGMENT_TAG)
+            replace(R.id.home_container, SettingsPageFragment.newInstance(page), SETTINGS_FRAGMENT_TAG)
+            addToBackStack(SETTINGS_FRAGMENT_TAG)
         }
     }
 
@@ -697,11 +689,6 @@ open class DeckPicker :
 
     fun openAccount() {
         startActivity(AccountActivity.getIntent(this))
-    }
-
-    /** Opens AnkiDroid's settings; the home screen is recreated when they close. */
-    fun openSettings() {
-        preferencesLauncher.navigate(PreferencesDestination.Root)
     }
 
     private fun showMediaCheckDialog() {
@@ -1221,7 +1208,7 @@ open class DeckPicker :
          */
         private val AUTOMATIC_SYNC_MINIMAL_INTERVAL: Duration = 10.minutes
 
-        private const val MORE_FRAGMENT_TAG = "more"
+        private const val SETTINGS_FRAGMENT_TAG = "settings"
 
         /**
          * Builds an intent for [DeckPicker]

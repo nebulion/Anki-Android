@@ -221,18 +221,28 @@ open class PrefsRepository(
 
     // ****************************************** General ****************************************** //
 
-    val exitViaDoubleTapBack by booleanPref(R.string.exit_via_double_tap_back_key, false)
+    var exitViaDoubleTapBack by booleanPref(R.string.exit_via_double_tap_back_key, false)
+
+    /** An IETF language tag, or [com.ichi2.utils.LanguageUtil.SYSTEM_LANGUAGE_TAG]. */
+    var language by stringPref(R.string.pref_language_key)
+
+    // ************************************** Notifications ************************************* //
+
+    /** The number of cards due that justifies a notification, as one of `notification_minimum_cards_due_values`. */
+    var notificationMinimumCardsDue by stringPref(R.string.pref_notifications_minimum_cards_due_key, defaultValue = "1000000")
+    var notificationVibrate by booleanPref(R.string.pref_notifications_vibrate_key, defaultValue = false)
+    var notificationBlink by booleanPref(R.string.pref_notifications_blink_key, defaultValue = false)
 
     // ****************************************** E Ink ****************************************** //
 
     /** Flash the window black every [einkRefreshInterval] answers to clear ghosting. See `EinkRefresh`. */
-    val isEinkRefreshEnabled by booleanPref(R.string.eink_refresh_enabled_key, defaultValue = true)
-    val einkRefreshInterval by intPref(R.string.eink_refresh_interval_key, defaultValue = 12)
+    var isEinkRefreshEnabled by booleanPref(R.string.eink_refresh_enabled_key, defaultValue = true)
+    var einkRefreshInterval by intPref(R.string.eink_refresh_interval_key, defaultValue = 12)
 
     // ****************************************** Sync ****************************************** //
 
-    val isAutoSyncEnabled by booleanPref(R.string.automatic_sync_choice_key, false)
-    val displaySyncStatus by booleanPref(R.string.sync_status_badge_key, defaultValue = true)
+    var isAutoSyncEnabled by booleanPref(R.string.automatic_sync_choice_key, false)
+    var displaySyncStatus by booleanPref(R.string.sync_status_badge_key, defaultValue = true)
     var allowSyncOnMeteredConnections by booleanPref(R.string.metered_sync_key, defaultValue = false)
 
     var username by stringPref(R.string.username_key)
@@ -241,16 +251,15 @@ open class PrefsRepository(
 
     var lastSyncTime by longPref(R.string.last_sync_time_key, defaultValue = 0L)
 
-    val shouldFetchMedia: ShouldFetchMedia
-        get() = getEnum(R.string.sync_fetch_media_key, ShouldFetchMedia.ALWAYS)
+    var shouldFetchMedia by enumPref(R.string.sync_fetch_media_key, ShouldFetchMedia.ALWAYS)
 
     var networkTimeoutSecs by intPref(R.string.sync_io_timeout_secs_key, defaultValue = 60)
 
     //region Custom sync server
 
-    val customSyncCertificate by stringPref(R.string.custom_sync_certificate_key)
-    val customSyncUri by stringPref(R.string.custom_sync_server_collection_url_key)
-    val isCustomSyncEnabled by booleanPref(R.string.custom_sync_server_enabled_key, defaultValue = false)
+    var customSyncCertificate by stringPref(R.string.custom_sync_certificate_key)
+    var customSyncUri by stringPref(R.string.custom_sync_server_collection_url_key)
+    var isCustomSyncEnabled by booleanPref(R.string.custom_sync_server_enabled_key, defaultValue = false)
     var isBackgroundEnabled by booleanPref(R.string.pref_deck_picker_background_key, defaultValue = false)
 
     //endregion
@@ -347,15 +356,18 @@ open class PrefsRepository(
 
     // **************************************** Reviewer **************************************** //
 
-    val autoFocusTypeAnswer by booleanPref(R.string.type_in_answer_focus_key, true)
+    var autoFocusTypeAnswer by booleanPref(R.string.type_in_answer_focus_key, true)
     var showAnswerButtons by booleanPref(R.string.show_answer_buttons_key, true)
-    val keepScreenOn by booleanPref(R.string.keep_screen_on_preference, defaultValue = false)
-    val hideHardAndEasyButtons by booleanPref(R.string.hide_hard_and_easy_key, defaultValue = false)
+    var keepScreenOn by booleanPref(R.string.keep_screen_on_preference, defaultValue = false)
+    var hideHardAndEasyButtons by booleanPref(R.string.hide_hard_and_easy_key, defaultValue = false)
 
-    val doubleTapInterval by intPref(R.string.double_tap_timeout_pref_key, defaultValue = 200)
+    var doubleTapInterval by intPref(R.string.double_tap_timeout_pref_key, defaultValue = 200)
+
+    /** How far a swipe has to travel, as a percentage. The study screen wants it as a factor. */
+    var swipeSensitivityPercent by intPref(R.string.pref_swipe_sensitivity_key, defaultValue = 100)
 
     val swipeSensitivity: Float
-        get() = getInt(R.string.pref_swipe_sensitivity_key, 100) / 100F
+        get() = swipeSensitivityPercent / 100F
 
     //region Appearance
 
@@ -364,9 +376,14 @@ open class PrefsRepository(
     // **************************************** Controls **************************************** //
     //region Controls
 
+    var areGesturesEnabled by booleanPref(R.string.gestures_preference, defaultValue = false)
+
+    /** Whether a tap on the card is placed on a 3x3 grid rather than a 2x2 one. */
+    var isNinePointTapEnabled by booleanPref(R.string.gestures_corner_touch_preference, defaultValue = false)
+
     val tapGestureMode: TapGestureMode
         get() =
-            when (getBoolean(R.string.gestures_corner_touch_preference, false)) {
+            when (isNinePointTapEnabled) {
                 true -> TapGestureMode.NINE_POINT
                 false -> TapGestureMode.FOUR_POINT
             }
@@ -375,12 +392,15 @@ open class PrefsRepository(
     // ************************************** Accessibility ************************************* //
 
     val answerButtonsSize: Int by intPref(R.string.answer_button_size_preference, 100)
-    val cardZoom: Int by intPref(R.string.card_zoom_preference, 100)
+    var cardZoom: Int by intPref(R.string.card_zoom_preference, 100)
+    var imageZoom: Int by intPref(R.string.image_zoom_preference, 100)
 
     // **************************************** Advanced **************************************** //
 
-    val isHtmlTypeAnswerEnabled by booleanPref(R.string.use_input_tag_key, defaultValue = false)
+    var isHtmlTypeAnswerEnabled by booleanPref(R.string.use_input_tag_key, defaultValue = false)
     var useFixedPortInReviewer by booleanPref(R.string.use_fixed_port_pref_key, false)
+    var isSoftwareRenderEnabled by booleanPref(R.string.disable_hardware_render_key, defaultValue = false)
+    var allowDangerousJsApi by booleanPref(R.string.pref_allow_dangerous_js_api, defaultValue = false)
 
     var reviewerPort by intPref(R.string.reviewer_port_pref_key, defaultValue = 0)
 

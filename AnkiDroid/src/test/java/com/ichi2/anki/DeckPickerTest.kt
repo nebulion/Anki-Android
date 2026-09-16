@@ -14,12 +14,12 @@ import anki.collection.opChanges
 import com.ichi2.anki.common.utils.annotation.KotlinCleanup
 import com.ichi2.anki.deckpicker.DeckListFragment
 import com.ichi2.anki.deckpicker.DeckPickerViewModel
-import com.ichi2.anki.deckpicker.MoreTabFragment
 import com.ichi2.anki.dialogs.DatabaseErrorDialog
 import com.ichi2.anki.dialogs.DatabaseErrorDialog.DatabaseErrorDialogType
 import com.ichi2.anki.dialogs.utils.input
 import com.ichi2.anki.dialogs.utils.performPositiveClick
 import com.ichi2.anki.observability.ChangeManager
+import com.ichi2.anki.settings.SettingsPageFragment
 import com.ichi2.anki.snackbar.showSnackbar
 import com.ichi2.anki.utils.ext.defaultConfig
 import com.ichi2.testutils.BackendEmulatingOpenConflict
@@ -342,13 +342,13 @@ class DeckPickerTest : RobolectricTest() {
         }
 
     @Test
-    fun `back from the More page returns to the deck list`() =
+    fun `back from settings returns to the deck list`() =
         deckPicker {
-            openMore()
+            openSettings()
             advanceRobolectricLooper()
             assertThat(
                 supportFragmentManager.findFragmentById(R.id.home_container),
-                instanceOf(MoreTabFragment::class.java),
+                instanceOf(SettingsPageFragment::class.java),
             )
 
             onBackPressedDispatcher.onBackPressed()

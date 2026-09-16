@@ -2,6 +2,7 @@
 
 package com.ichi2.anki.settings
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -37,6 +38,7 @@ sealed interface SettingsEntry {
     data class Action(
         val title: String,
         val subtitle: String? = null,
+        @DrawableRes val icon: Int? = null,
         val onClick: () -> Unit,
     ) : SettingsEntry
 
@@ -44,6 +46,7 @@ sealed interface SettingsEntry {
     data class Page(
         val title: String,
         val subtitle: String? = null,
+        @DrawableRes val icon: Int? = null,
         val onClick: () -> Unit,
     ) : SettingsEntry
 
@@ -107,12 +110,22 @@ fun SettingsScreenMMD(
                     when (entry) {
                         is SettingsEntry.Section -> SectionTitle(entry.title)
                         is SettingsEntry.Action -> {
-                            ActionRow(title = entry.title, subtitle = entry.subtitle, onClick = entry.onClick)
-                            RowDivider()
+                            ActionRow(
+                                title = entry.title,
+                                subtitle = entry.subtitle,
+                                leadingIcon = entry.icon,
+                                onClick = entry.onClick,
+                            )
+                            RowDivider(hasLeadingIcon = entry.icon != null)
                         }
                         is SettingsEntry.Page -> {
-                            NavRow(title = entry.title, subtitle = entry.subtitle, onClick = entry.onClick)
-                            RowDivider()
+                            NavRow(
+                                title = entry.title,
+                                subtitle = entry.subtitle,
+                                leadingIcon = entry.icon,
+                                onClick = entry.onClick,
+                            )
+                            RowDivider(hasLeadingIcon = entry.icon != null)
                         }
                         is SettingsEntry.Switch -> {
                             SwitchRow(

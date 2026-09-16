@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListScope
@@ -69,7 +70,8 @@ fun PagedList(
 @Composable
 private fun InactiveScrollbar() {
     Column(
-        Modifier.width(PagedListDefaults.ScrollbarGutter).fillMaxHeight(),
+        // `LazyMMD.kt`'s own scrollbar column: 8dp either side of a 24dp arrow, so 40dp in all
+        Modifier.fillMaxHeight().padding(horizontal = PagedListDefaults.ScrollbarSidePadding),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         ScrollArrow(pointingUp = true)
@@ -103,7 +105,10 @@ private fun ScrollArrow(pointingUp: Boolean) {
             ),
         contentDescription = null,
         tint = Color.Unspecified,
-        modifier = Modifier.size(PagedListDefaults.ScrollbarArrowSize),
+        modifier =
+            Modifier
+                .padding(vertical = PagedListDefaults.ScrollbarArrowPadding)
+                .size(PagedListDefaults.ScrollbarArrowSize),
     )
 }
 
@@ -117,6 +122,10 @@ object PagedListDefaults {
      * 40dp from the edge (`docs/mmd/eink-design.md` → Calibration).
      */
     val ScrollbarGutter = 40.dp
+
+    /** The gap either side of an arrow, and above and below it, in `LazyMMD.kt`'s own scrollbar. */
+    val ScrollbarSidePadding = 8.dp
+    val ScrollbarArrowPadding = 16.dp
 
     /**
      * The track's width, from `LazyDefaultsMMD.sliderBackgroundWidth`, which is internal to MMD.

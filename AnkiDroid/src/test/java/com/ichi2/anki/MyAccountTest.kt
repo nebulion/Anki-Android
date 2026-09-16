@@ -17,65 +17,59 @@
 
 package com.ichi2.anki
 
-import android.widget.Button
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.google.android.material.textfield.TextInputEditText
-import com.ichi2.anki.account.LoginFragment
+import com.ichi2.anki.account.LoginError
+import com.ichi2.anki.account.LoginViewModel
 import com.ichi2.anki.settings.Prefs
-import com.ichi2.testutils.launchFragmentInContainer
-import junit.framework.TestCase.assertFalse
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
+/**
+ * The login screen offers its button only once both fields are filled in. The screen itself is
+ * Compose (`LoginScreenMMD`) and reads this state, so the rule is asserted where it lives.
+ */
 @RunWith(AndroidJUnit4::class)
 class MyAccountTest : RobolectricTest() {
+    private lateinit var viewModel: LoginViewModel
+
     @Before
     fun setup() {
         Prefs.username = ""
         Prefs.hkey = ""
+        viewModel = LoginViewModel()
     }
 
     @Test
     fun testLoginEmailPasswordProvided() {
-        launchFragmentInContainer<LoginFragment>().use { scenario ->
-            scenario.onFragment { fragment ->
-                val testPassword = "randomStrongPassword"
-                val testEmail = "random.email@example.com"
+        viewModel.onTextChanged("random.email@example.com", "randomStrongPassword")
 
-                fragment.view?.findViewById<TextInputEditText>(R.id.username)?.setText(testEmail)
-                fragment.view?.findViewById<TextInputEditText>(R.id.password)?.setText(testPassword)
-
-                val loginButton = fragment.view?.findViewById<Button>(R.id.login_button)
-                assertEquals(loginButton?.isEnabled, true)
-            }
-        }
+        assertTrue(viewModel.loginButtonEnabled.value)
     }
 
     @Test
     fun testLoginFailsNoEmailProvided() {
-        launchFragmentInContainer<LoginFragment>().use { scenario ->
-            scenario.onFragment { fragment ->
-                val testPassword = "randomStrongPassword"
+        viewModel.onTextChanged("", "randomStrongPassword")
 
-                fragment.view?.findViewById<TextInputEditText>(R.id.password)?.setText(testPassword)
-                val loginButton = fragment.view?.findViewById<Button>(R.id.login_button)
-                assertFalse(loginButton?.isEnabled == true)
-            }
-        }
+        assertFalse(viewModel.loginButtonEnabled.value)
     }
 
     @Test
     fun testLoginFailsNoPasswordProvided() {
-        launchFragmentInContainer<LoginFragment>().use { scenario ->
-            scenario.onFragment { fragment ->
-                val testEmail = "random.email@example.com"
+        viewModel.onTextChanged("random.email@example.com", "")
 
-                fragment.view?.findViewById<TextInputEditText>(R.id.username)?.setText(testEmail)
-                val loginButton = fragment.view?.findViewById<Button>(R.id.login_button)
-                assertFalse(loginButton?.isEnabled == true)
-            }
-        }
+        assertFalse(viewModel.loginButtonEnabled.value)
+    }
+
+    @Test
+    fun `leaving a field empty names it`() {
+        viewModel.onUserNameFocusChange(hasFocus = false, userName = "")
+        viewModel.onPasswordFocusChange(hasFocus = false, password = "")
+
+        assertEquals(LoginError.EMPTY_USERNAME, viewModel.userNameError.value)
+        assertEquals(LoginError.EMPTY_PASSWORD, viewModel.passwordError.value)
     }
 }

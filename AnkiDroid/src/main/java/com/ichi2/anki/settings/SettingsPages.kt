@@ -58,30 +58,53 @@ internal fun SettingsPageFragment.rootEntries(): List<SettingsEntry> {
     val checkDatabase = TR.sentenceCase.checkDatabase
     return listOf(
         SettingsEntry.Section(getString(R.string.mmd_section_study)),
-        SettingsEntry.Page(getString(R.string.pref_cat_reviewing)) { openPage(SettingsPage.Reviewing) },
-        SettingsEntry.Page(getString(R.string.mmd_settings_study_screen)) { openPage(SettingsPage.StudyScreen) },
-        SettingsEntry.Page(getString(R.string.mmd_settings_gestures)) { openPage(SettingsPage.Gestures) },
-        SettingsEntry.Page(getString(R.string.accessibility)) { openPage(SettingsPage.Accessibility) },
-        SettingsEntry.Page(getString(R.string.mmd_settings_eink)) { openPage(SettingsPage.EInk) },
-        SettingsEntry.Section(getString(R.string.mmd_section_collection)),
-        SettingsEntry.Action(TR.sentenceCase.createDeck) { home.showCreateDeckDialog() },
-        SettingsEntry.Action(getString(R.string.new_dynamic_deck)) { home.showCreateFilteredDeckDialog() },
-        SettingsEntry.Action(TR.actionsImport()) { home.showImportDialog() },
-        SettingsEntry.Action(TR.actionsExport()) { home.exportCollection() },
-        SettingsEntry.Page(getString(R.string.mmd_settings_maintenance), subtitle = checkDatabase) {
-            openPage(SettingsPage.Maintenance)
+        SettingsEntry.Page(getString(R.string.pref_cat_reviewing), icon = R.drawable.ic_running_clock) {
+            openPage(SettingsPage.Reviewing)
         },
-        SettingsEntry.Page(getString(R.string.button_backup)) { openPage(SettingsPage.Backups) },
+        SettingsEntry.Page(getString(R.string.mmd_settings_study_screen), icon = R.drawable.ic_flashcard_black) {
+            openPage(SettingsPage.StudyScreen)
+        },
+        SettingsEntry.Page(getString(R.string.mmd_settings_gestures), icon = R.drawable.ic_gesture_tap_regular) {
+            openPage(SettingsPage.Gestures)
+        },
+        SettingsEntry.Page(getString(R.string.accessibility), icon = R.drawable.ic_accessibility_24) {
+            openPage(SettingsPage.Accessibility)
+        },
+        SettingsEntry.Page(getString(R.string.mmd_settings_eink), icon = R.drawable.ic_remove_red_eye_white) {
+            openPage(SettingsPage.EInk)
+        },
+        SettingsEntry.Section(getString(R.string.mmd_section_collection)),
+        SettingsEntry.Action(TR.sentenceCase.createDeck, icon = R.drawable.ic_add) { home.showCreateDeckDialog() },
+        SettingsEntry.Action(getString(R.string.new_dynamic_deck), icon = R.drawable.ic_star) {
+            home.showCreateFilteredDeckDialog()
+        },
+        SettingsEntry.Action(TR.actionsImport(), icon = R.drawable.ic_double_arrow_down) { home.showImportDialog() },
+        SettingsEntry.Action(TR.actionsExport(), icon = R.drawable.ic_double_arrow_up) { home.exportCollection() },
+        SettingsEntry.Page(
+            title = getString(R.string.mmd_settings_maintenance),
+            subtitle = checkDatabase,
+            icon = R.drawable.ic_outline_troubleshoot,
+        ) { openPage(SettingsPage.Maintenance) },
+        SettingsEntry.Page(getString(R.string.button_backup), icon = R.drawable.ic_backup_restore) {
+            openPage(SettingsPage.Backups)
+        },
         SettingsEntry.Section(getString(R.string.mmd_section_account)),
         SettingsEntry.Action(
             title = TR.sentenceCase.ankiWebAccount,
             subtitle = Prefs.username.ifNullOrEmpty { getString(R.string.sync_account_summ_logged_out) },
+            icon = R.drawable.ic_baseline_email_24,
         ) { home.openAccount() },
-        SettingsEntry.Page(getString(R.string.pref_cat_sync)) { openPage(SettingsPage.Sync) },
+        SettingsEntry.Page(getString(R.string.pref_cat_sync), icon = R.drawable.ic_sync) { openPage(SettingsPage.Sync) },
         SettingsEntry.Section(getString(R.string.mmd_section_app)),
-        SettingsEntry.Page(getString(R.string.notification_pref)) { openPage(SettingsPage.Notifications) },
-        SettingsEntry.Page(getString(R.string.pref_cat_general)) { openPage(SettingsPage.General) },
-        SettingsEntry.Page(getString(R.string.pref_cat_advanced)) { openPage(SettingsPage.Advanced) },
+        SettingsEntry.Page(getString(R.string.notification_pref), icon = R.drawable.ic_notifications) {
+            openPage(SettingsPage.Notifications)
+        },
+        SettingsEntry.Page(getString(R.string.pref_cat_general), icon = R.drawable.ic_settings_black) {
+            openPage(SettingsPage.General)
+        },
+        SettingsEntry.Page(getString(R.string.pref_cat_advanced), icon = R.drawable.ic_tune_white) {
+            openPage(SettingsPage.Advanced)
+        },
     )
 }
 

@@ -33,12 +33,7 @@
     <!-- MyAccount.kt -->
     <string name="username">Email address</string>
     <string name="password">Password</string>
-    <string name="sign_up_description">Wala ka bang account sa AnkiWeb? Libre ito!</string>
-    <string name="sign_up_not_affiliated">Pabatid: Ang AnkiWeb ay walang kaugnayan sa AnkiDroid</string>
-    <string name="sign_up">Mag Sign-up</string>
     <string name="logged_as">Naka-login bilang</string>
-    <string name="reset_password">I-reset ang password</string>
-    <string name="lost_mail_instructions">Forgot Email?</string>
     <string name="sign_in">Signing in</string>
     <!-- AndroidManifest.xml -->
     <string name="sync_title">Pagsisingkronisa</string>

@@ -5,325 +5,132 @@ package com.ichi2.anki.account
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.content.res.Configuration
-import android.os.Build
-import android.os.Bundle
-import android.view.KeyEvent
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.net.toUri
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
-import androidx.core.view.updatePadding
-import androidx.core.widget.doOnTextChanged
-import androidx.fragment.app.Fragment
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import com.google.android.material.appbar.MaterialToolbar
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.DeckPicker
 import com.ichi2.anki.R
 import com.ichi2.anki.account.AccountActivity.Companion.START_FROM_DECKPICKER
 import com.ichi2.anki.getEndpoint
-import com.ichi2.anki.snackbar.showSnackbar
-import com.ichi2.anki.ui.internationalization.sentenceCase
-import com.ichi2.anki.utils.bottomCornerClearance
-import com.ichi2.anki.utils.ext.isCompactWidth
-import com.ichi2.anki.utils.hideKeyboard
-import com.ichi2.anki.utils.openUrl
-import com.ichi2.anki.withProgress
-import com.ichi2.ui.TextInputEditField
+import com.ichi2.compose.mmd.ComposeHostFragment
+import com.ichi2.compose.mmd.ConfirmPanel
 import com.ichi2.utils.Permissions
-import com.ichi2.utils.negativeButton
-import com.ichi2.utils.positiveButton
-import com.ichi2.utils.show
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class LoginFragment : Fragment(R.layout.fragment_my_account) {
+/**
+ * Logging in to AnkiWeb.
+ *
+ * The screen is [LoginScreenMMD]; [LoginViewModel] still does the signing in, so what the backend
+ * is asked and what is stored are unchanged.
+ */
+class LoginFragment : ComposeHostFragment() {
     private val viewModel: LoginViewModel by viewModels()
 
-    private lateinit var username: TextInputEditText
-    private lateinit var userNameLayout: TextInputLayout
-    private lateinit var password: TextInputEditField
-    private lateinit var passwordLayout: TextInputLayout
-    private lateinit var loginLogo: ImageView
-    private lateinit var loginButton: Button
+    @Composable
+    override fun ScreenContent() {
+        var username by rememberSaveable { mutableStateOf("") }
+        var password by rememberSaveable { mutableStateOf("") }
+        var isLoggingIn by rememberSaveable { mutableStateOf(false) }
+        var loginError by rememberSaveable { mutableStateOf<String?>(null) }
+        var isAskingToSync by rememberSaveable { mutableStateOf(false) }
+        // whether the fields are filled in, and which of them is empty, stay in the view model
+        val canLogIn by viewModel.loginButtonEnabled.collectAsState()
+        val usernameError by viewModel.userNameError.collectAsState()
+        val passwordError by viewModel.passwordError.collectAsState()
 
-    override fun onViewCreated(
-        view: View,
-        savedInstanceState: Bundle?,
-    ) {
-        super.onViewCreated(view, savedInstanceState)
-        setupEdgeToEdge(view)
-
-        val toolbar: MaterialToolbar = view.findViewById(R.id.toolbar)
-        val activity = requireActivity() as AppCompatActivity
-        activity.setSupportActionBar(toolbar)
-
-        activity.supportActionBar?.apply {
-            title = TR.sentenceCase.ankiWebAccount
-            setDisplayHomeAsUpEnabled(true)
-            setDisplayShowHomeEnabled(true)
-        }
-
-        toolbar.setNavigationOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
-        }
-
-        passwordLayout = view.findViewById(R.id.password_layout)
-        username = view.findViewById(R.id.username)
-        userNameLayout = view.findViewById(R.id.username_layout)
-        password = view.findViewById(R.id.password)
-        loginLogo = view.findViewById(R.id.login_logo)
-        loginButton = view.findViewById(R.id.login_button)
-        loginButton.text = TR.sentenceCase.logIn
-
-        initListeners()
-        initObservers()
-    }
-
-    /** Applies edge-to-edge insets for the screen */
-    private fun setupEdgeToEdge(view: View) {
-        val toolbarContainer = view.findViewById<View>(R.id.toolbar_container)
-        val content = view.findViewById<View>(R.id.account_content)
-        ViewCompat.setOnApplyWindowInsetsListener(view) { _, insets ->
-            val bars =
-                insets.getInsets(
-                    WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout(),
-                )
-            val withKeyboard =
-                insets.getInsets(
-                    WindowInsetsCompat.Type.systemBars() or
-                        WindowInsetsCompat.Type.displayCutout() or
-                        WindowInsetsCompat.Type.ime(),
-                )
-            toolbarContainer.updatePadding(left = bars.left, top = bars.top, right = bars.right)
-            content.updatePadding(
-                left = bars.left,
-                right = bars.right,
-                bottom = maxOf(withKeyboard.bottom, insets.bottomCornerClearance(content)),
-            )
-            insets
-        }
-    }
-
-    private fun login() {
-        hideKeyboard()
-        val username = username.text.toString().trim()
-        val password = password.text.toString()
-        handleNewLogin(username, password)
-    }
-
-    private fun initListeners() {
-        initUsernameListeners()
-        initPasswordListeners()
-        initButtonListeners()
-    }
-
-    private fun initUsernameListeners() {
-        username.setOnFocusChangeListener { _, hasFocus ->
-            viewModel.onUserNameFocusChange(hasFocus, username.text.toString())
-        }
-
-        username.doOnTextChanged { text, _, _, _ ->
-            onUsernameChanged(text.toString())
-        }
-    }
-
-    private fun initPasswordListeners() {
-        password.setOnFocusChangeListener { _, hasFocus ->
-            viewModel.onPasswordFocusChange(hasFocus, password.text.toString())
-        }
-
-        password.setOnKeyListener { _, keyCode, event ->
-            if (event.action == KeyEvent.ACTION_DOWN) {
-                when (keyCode) {
-                    KeyEvent.KEYCODE_DPAD_CENTER,
-                    KeyEvent.KEYCODE_ENTER,
-                    KeyEvent.KEYCODE_NUMPAD_ENTER,
-                    -> {
-                        if (loginButton.isEnabled) login()
-                        return@setOnKeyListener true
-                    }
-                }
-            }
-            false
-        }
-
-        password.doOnTextChanged { text, _, _, _ ->
-            onPasswordChanged(text.toString())
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            password.setAutoFillListener {
-                passwordLayout.isEndIconVisible = false
-                Timber.i("Attempting login from autofill")
-                attemptLogin()
-            }
-        }
-    }
-
-    private fun initButtonListeners() {
-        loginButton.setOnClickListener { login() }
-
-        requireView()
-            .findViewById<Button>(R.id.reset_password_button)
-            .setOnClickListener { openUrl(resources.getString(R.string.resetpw_url).toUri()) }
-
-        requireView()
-            .findViewById<Button>(R.id.sign_up_button)
-            .setOnClickListener { openUrl(resources.getString(R.string.register_url).toUri()) }
-
-        requireView()
-            .findViewById<Button>(R.id.lost_mail_instructions)
-            .setOnClickListener { openUrl(resources.getString(R.string.link_ankiweb_lost_email_instructions).toUri()) }
-    }
-
-    private fun onUsernameChanged(newUsername: String) {
-        viewModel.onTextChanged(newUsername, password.text.toString())
-    }
-
-    private fun onPasswordChanged(newPassword: String) {
-        viewModel.onTextChanged(username.text.toString(), newPassword)
-    }
-
-    private fun initObservers() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.loginButtonEnabled.collect { isEnabled ->
-                loginButton.isEnabled = isEnabled
-            }
-        }
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.userNameError.collect { error ->
-                userNameLayout.error = error?.toHumanReadableString(requireContext())
-            }
-        }
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.passwordError.collect { error ->
-                passwordLayout.error = error?.toHumanReadableString(requireContext())
-            }
-        }
-
-        viewLifecycleOwner.lifecycleScope.launch {
+        LaunchedEffect(Unit) {
             viewModel.loginState.collect { state ->
                 when (state) {
                     is LoginState.Success -> {
                         Timber.i("Login Successful")
-                        val activity = requireActivity()
-                        val isForResult = arguments?.getBoolean(START_FROM_DECKPICKER) ?: false
-
-                        // If the user explicitly came from a sync prompt (onboarding/pressing sync)
-                        // then their intent was to sync after login success
-                        if (isForResult) {
-                            activity.setResult(RESULT_OK)
-                            activity.finish()
-                            return@collect
+                        isLoggingIn = false
+                        loginError = null
+                        // the sync prompt and pressing sync both want a sync as soon as this returns
+                        if (arguments?.getBoolean(START_FROM_DECKPICKER) == true) {
+                            requireActivity().setResult(RESULT_OK)
+                            requireActivity().finish()
+                        } else {
+                            isAskingToSync = true
                         }
-                        showLoginSuccessDialog()
                     }
                     is LoginState.Error -> {
-                        showSnackbar(text = state.exception.message.toString())
+                        isLoggingIn = false
+                        // the backend's message may name the account, so it is shown, not logged
+                        loginError = state.exception.message
                     }
-                    is LoginState.Idle -> { /* Not needed */ }
+                    is LoginState.Idle -> {}
                 }
             }
         }
-    }
 
-    /**
-     * Displays a dialog asking if a user would like to sync after a login success
-     *
-     * * **Positive:** opens the Deck Picker and starts a sync
-     * * **Negative:** continues to [LoggedInFragment]
-     */
-    private fun showLoginSuccessDialog() {
-        /** @see LoggedInFragment */
-        fun showLoggedInView() {
-            Timber.i("Showing LoggedIn view")
-            val fragmentManager = requireActivity().supportFragmentManager
-            fragmentManager.popBackStack(
-                null,
-                FragmentManager.POP_BACK_STACK_INCLUSIVE,
-            )
-            fragmentManager.commit {
-                replace(R.id.fragment_container, LoggedInFragment())
-            }
-            Permissions.requestNotificationPermissionsForSyncing(requireActivity())
-        }
-
-        /** @see DeckPicker.onNewIntent */
-        fun openDeckPickerAndSync() {
-            Timber.i("Opening Deck Picker for Sync")
-            val intent =
-                DeckPicker.getIntent(
-                    requireContext(),
-                    autoSync = true,
-                )
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            startActivity(intent)
-            requireActivity().finish()
-        }
-
-        MaterialAlertDialogBuilder(requireContext()).show {
-            Timber.i("Showing dialog: 'Sync now?'")
-            setTitle(R.string.login_successful)
-            setIcon(R.drawable.ic_sync)
-            setMessage(R.string.sync_now)
-            positiveButton(R.string.button_sync) { openDeckPickerAndSync() }
-            negativeButton(R.string.dialog_continue) { showLoggedInView() }
-            setOnCancelListener { showLoggedInView() }
-        }
-    }
-
-    private fun attemptLogin() {
-        val username = username.text.toString().trim()
-        val password = password.text.toString()
-        if (username.isEmpty() || password.isEmpty()) {
-            Timber.i("Auto-login cancelled - username/password missing")
-            return
-        }
-        Timber.i("Attempting auto-login")
-        handleNewLogin(username, password)
-    }
-
-    private fun handleNewLogin(
-        username: String,
-        password: String,
-    ) {
-        val endpoint = getEndpoint()
-
-        lifecycleScope.launch {
-            requireActivity().withProgress(
-                extractProgress = {
-                    text = getString(R.string.sign_in)
+        if (isAskingToSync) {
+            ConfirmPanel(
+                title = getString(R.string.login_successful),
+                body = getString(R.string.sync_now),
+                confirmLabel = getString(R.string.button_sync),
+                dismissLabel = getString(R.string.dialog_continue),
+                onConfirm = {
+                    isAskingToSync = false
+                    openDeckPickerAndSync()
                 },
-                onCancel = { backend -> backend.setWantsAbort() },
-            ) {
-                viewModel.handleLogin(
-                    username,
-                    password,
-                    endpoint,
-                )
-
-                viewModel.loginState.first { it is LoginState.Success || it is LoginState.Error }
-            }
+                onDismiss = {
+                    isAskingToSync = false
+                    showLoggedInView()
+                },
+            )
         }
+
+        LoginScreenMMD(
+            username = username,
+            password = password,
+            usernameError = usernameError?.toHumanReadableString(requireContext()),
+            passwordError = passwordError?.toHumanReadableString(requireContext()),
+            loginError = loginError,
+            canLogIn = canLogIn,
+            isLoggingIn = isLoggingIn,
+            onUsernameChange = {
+                username = it
+                loginError = null
+                viewModel.onTextChanged(username, password)
+            },
+            onPasswordChange = {
+                password = it
+                loginError = null
+                viewModel.onTextChanged(username, password)
+            },
+            onLogIn = {
+                isLoggingIn = true
+                loginError = null
+                viewModel.handleLogin(username.trim(), password, getEndpoint())
+            },
+            onBack = { requireActivity().onBackPressedDispatcher.onBackPressed() },
+        )
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        loginLogo.isVisible = !(isCompactWidth && newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+    /** @see LoggedInFragment */
+    private fun showLoggedInView() {
+        Timber.i("Showing LoggedIn view")
+        val fragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        fragmentManager.commit {
+            replace(R.id.fragment_container, LoggedInFragment())
+        }
+        Permissions.requestNotificationPermissionsForSyncing(requireActivity())
+    }
+
+    /** @see DeckPicker.onNewIntent */
+    private fun openDeckPickerAndSync() {
+        Timber.i("Opening Deck Picker for Sync")
+        val intent = DeckPicker.getIntent(requireContext(), autoSync = true)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
+        requireActivity().finish()
     }
 }

@@ -33,12 +33,7 @@
     <!-- MyAccount.kt -->
     <string name="username">E-mailadresse</string>
     <string name="password">Adgangskode</string>
-    <string name="sign_up_description">Har du endnu ikke en AnkiWeb-konto? Det er gratis!</string>
-    <string name="sign_up_not_affiliated">Bemærk: AnkiWeb er ikke forbundet med AnkiDroid</string>
-    <string name="sign_up">Tilmeld dig</string>
     <string name="logged_as">Logget på som</string>
-    <string name="reset_password">Nulstil adgangskode</string>
-    <string name="lost_mail_instructions">Glemt e-mail?</string>
     <string name="sign_in">Logger på</string>
     <!-- AndroidManifest.xml -->
     <string name="sync_title">Synkronisering</string>

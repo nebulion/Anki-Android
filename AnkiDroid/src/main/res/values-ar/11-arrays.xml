@@ -22,26 +22,9 @@
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
     <!-- add_to_cur_labels -->
-    <string name="add_to_deck_use_current_deck">استخدم المجموعة الحالية</string>
-    <string name="add_to_deck_decide_by_note_type">قرر حسب نوع الملحوظة</string>
     <!-- theme labels -->
     <!-- day_theme_labels -->
     <!-- night_theme_labels -->
     <!-- html_size_code_labels -->
     <!-- gestures_labels -->
-    <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">الإجابة بسهل</string>
-    <string name="gesture_abort_learning" maxLength="41">إغلاق شاشة الدراسة</string>
-    <string name="gesture_flag_red" maxLength="41">تبديل بالعلم الأحمر</string>
-    <string name="gesture_flag_orange" maxLength="41">تبديل بالعلم البرتقالي</string>
-    <string name="gesture_flag_green" maxLength="41">تبديل بالعلم الأخضر</string>
-    <string name="gesture_flag_blue" maxLength="41">تبديل بالعلم الأزرق</string>
-    <string name="gesture_flag_pink" maxLength="41">تبديل بالعلم الوردي</string>
-    <string name="gesture_flag_turquoise" maxLength="41">تبديل بالعلم الفيروزي</string>
-    <string name="gesture_flag_purple" maxLength="41">تبديل بالعلم البنفسجي</string>
-    <string name="gesture_flag_remove" maxLength="41">إزالة العلم</string>
-    <string name="gesture_page_up" maxLength="41">مر صفحة إلى الأعلى</string>
-    <string name="gesture_page_down" maxLength="41">مر صفحة إلى الأسفل</string>
-    <string name="gesture_toggle_whiteboard" maxLength="41">تفعيل أو تعطيل السَّبُّورَة</string>
-    <string name="gesture_show_hint" maxLength="41">أظهر التلميح</string>
-    <string name="gesture_show_all_hints" maxLength="41">أظهر كل التلميحات</string>
 </resources>

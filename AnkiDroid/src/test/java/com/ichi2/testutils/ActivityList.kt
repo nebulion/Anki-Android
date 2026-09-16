@@ -11,7 +11,6 @@ import com.ichi2.anki.IntentHandler
 import com.ichi2.anki.IntentHandler.Companion.getReviewDeckIntent
 import com.ichi2.anki.SingleFragmentActivity
 import com.ichi2.anki.account.AccountActivity
-import com.ichi2.anki.preferences.PreferencesActivity
 import com.ichi2.anki.previewer.CardViewerActivity
 import com.ichi2.anki.utils.ConfigAwareSingleFragmentActivity
 import com.ichi2.testutils.ActivityList.ActivityLaunchParam.Companion.get
@@ -33,7 +32,6 @@ object ActivityList {
                     1L,
                 )
             },
-            get(PreferencesActivity::class.java),
             get(SingleFragmentActivity::class.java),
             get(ConfigAwareSingleFragmentActivity::class.java),
             get(CardViewerActivity::class.java),

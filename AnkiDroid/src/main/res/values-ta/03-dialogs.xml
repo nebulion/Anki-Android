@@ -66,9 +66,7 @@
     <string name="dialog_positive_overwrite">மேலெழுதவும்</string>
     <string name="dialog_positive_repair">பழுது</string>
     <string name="dialog_positive_replace">மாற்றம்</string>
-    <string name="dialog_collection_path_not_dir">குறிப்பிடப்பட்ட பாதை சரியான கோப்பகமாக இல்லை</string>
     <string name="dialog_invalid_custom_certificate">வழங்கப்பட்ட உரை சரியான PEM-குறியீடு செய்யப்பட்ட X509 சான்றிதழில் தீர்க்கப்படாது</string>
-    <string name="dialog_invalid_custom_certificate_title">சான்றிதழைப் பாகுபடுத்துவதில் பிழை</string>
     <string name="dialog_updated_custom_certificate">சான்றிதழ் புதுப்பிக்கப்பட்டது</string>
     <!-- Media checking -->
     <string name="check_media_warning">This may take a long time with large media collections. Proceed?</string>
@@ -113,7 +111,6 @@
     <string name="locale_selection_dialog_summary">GBoard போன்ற சில பன்மொழி விசைப்பலகைகள், உரையைத் திருத்தும்போது மொழியை மாற்றுவதை ஆதரிக்கின்றன\n\nஉங்கள் விசைப்பலகை மொழியை மாற்றவில்லை என்றால், உங்கள் விசைப்பலகை உற்பத்தியாளரிடமிருந்து \"setImeHintLocales\" அம்சத்தைக் கோரவும்.</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">உதவி பெறவும்</string>
-    <string name="help_item_support_opencollective_donate">தானம் செய்</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d second</item>

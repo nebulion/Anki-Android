@@ -25,47 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">Keelatud</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d minut</item>
-        <item quantity="other">%d minutit</item>
-    </plurals>
     <string name="pref_milliseconds">%s ms</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">Tulemusi pole</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">Üldine</string>
-    <string name="pref_cat_studying" maxLength="41">Õppimine</string>
-    <string name="pref_cat_system_wide" maxLength="41">Süsteemiülene</string>
     <string name="pref_cat_reviewing" maxLength="41">Kordamine</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Sünkrooni</string>
     <string name="pref_cat_scheduling" maxLength="41">Ajastamine</string>
     <string name="pref_cat_gestures" maxLength="41">Viiped</string>
-    <string name="pref_cat_controls" maxLength="41">Juhtimine</string>
     <string name="pref_cat_advanced" maxLength="41">Lisavalikud</string>
     <string name="pref_cat_workarounds" maxLength="41">Alt. lahendused</string>
-    <string name="pref_cat_plugins" maxLength="41">Pluginad</string>
     <string name="pref_cat_editing" maxLength="41">Muutmine</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">Kirjuta vastus kaarti</string>
     <string name="use_input_tag_summ">Use a text input box inside the card to type in the answer</string>
-    <string name="reset_languages" maxLength="41">Reset languages</string>
-    <string name="reset_languages_summ">Reset language assignments (for text to speech and dictionaries) for all decks</string>
-    <string name="reset_languages_question">Reset all language assignments?</string>
-    <string name="reset_confirmation">All states reset</string>
     <string name="card_zoom" maxLength="41">Kaardi suum</string>
     <string name="image_zoom" maxLength="41">Kujutise suum</string>
-    <string name="button_size" maxLength="41">Answer button size</string>
-    <string name="card_browser_font_size" maxLength="41">Card browser font scaling</string>
-    <string name="col_path" maxLength="41">AnkiDroidi kaust</string>
     <string name="gestures" maxLength="41">Luba žestid</string>
     <string name="gestures_summ">Assign gestures to actions such as answering and editing cards.</string>
     <string name="gestures_corner_touch" maxLength="41">9-point touch</string>
@@ -89,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">Vajutus 3 sõrmega</string>
     <string name="gestures_four_finger_tap" maxLength="41">Vajutus 4 sõrmega</string>
     <string name="gestures_shake" maxLength="41">Raputa seadet</string>
-    <string name="double_scrolling_gap" maxLength="41">Double scrolling</string>
-    <string name="double_scrolling_gap_summ">Double the scroll gap with eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Swipe sensitivity</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Fetch media on sync</string>
@@ -105,8 +84,6 @@
     <string name="sync_status_badge_summ">Change the sync icon when changes can be uploaded</string>
     <string name="metered_sync_title" maxLength="41">Allow sync on metered connections</string>
     <string name="metered_sync_summary">If disabled, you will be warned if you try to sync on a metered connection</string>
-    <string name="backup_limits_frequency">Sagedus</string>
-    <string name="backup_limits_lifetime">Eluaegne</string>
     <string name="language" maxLength="41">Keel</string>
     <string name="language_system">Süsteemi keel</string>
     <string name="notification_pref" maxLength="41">Teavitused</string>
@@ -118,92 +95,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">Blink light</string>
     <string name="software_render" maxLength="41">Disable card hardware render</string>
     <string name="software_render_summ">Hardware render is faster but may have problems, specifically on Android 8/8.1. If you cannot see parts of the card review user interface, try this setting.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Double tap time interval</string>
     <string name="pref_double_tap_time_interval_summary">A second tap of the answer buttons will be ignored if this time has not elapsed. This prevents accidental double taps</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">Show answer long-press time</string>
-    <string name="pref_show_answer_long_press_time_summary">Minimum pressing time before the show answer button registers a touch.</string>
-    <string name="show_large_answer_buttons" maxLength="41">Näita suuri vastamise nuppe</string>
-    <string name="show_large_answer_buttons_summ">Näita vastamise nuppe kahes reas</string>
-    <string name="use_current" maxLength="41">Uute kaartide kaardipakk</string>
     <string name="learn_cutoff" maxLength="41">Learn ahead limit</string>
     <string name="time_limit" maxLength="41">Timebox time limit</string>
     <string name="day_offset_with_description" maxLength="41">Järgmise päeva algus</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d tund pärast südaööd</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d tundi pärast südaööd</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">Hoia ekraan sees</string>
     <string name="pref_keep_screen_on_summ">Lülita ekraani aegumine välja</string>
-    <string name="enable_api_title" maxLength="41">Enable AnkiDroid API</string>
-    <string name="enable_api_summary">Let other apps connect to AnkiDroid and read / write data without your intervention</string>
     <string name="custom_buttons_setting_always_show">Näita alati</string>
     <string name="custom_buttons_setting_menu_only">Ainult menüü</string>
-    <string name="reset_custom_buttons" maxLength="41">Taasta vaikesätted</string>
     <string name="reset">Lähtesta</string>
-    <string name="thirdparty_apps_title" maxLength="41">Kolmanda osapoole API rakendused</string>
-    <string name="thirdparty_apps_summary">See a list of applications which make use of the AnkiDroid API such as dictionaries, utilities.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Kordamine</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Kordamised</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Juurdepääsetavus</string>
     <string name="exit_via_double_tap_back" maxLength="41">Press back twice to go back/exit</string>
     <string name="exit_via_double_tap_back_summ">To avoid accidentally leaving the study screen or the app</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">Allow all files in media imports</string>
-    <string name="media_import_allow_all_files_summ">If Android doesn’t recognize a media file</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Custom sync server</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">Pole kasutuses</string>
-    <string name="custom_sync_server_help2"><![CDATA[
-        As an alternative to synchronizing with AnkiWeb,
-        you may use your own server for synchronization.
-        If not set, the default AnkiWeb server will be used instead.
-        <a href="%s">Learn more</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">Custom root certificate (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">Klaviatuur</string>
-    <string name="bluetooth">Bluetooth</string>
     <string name="answer_buttons" maxLength="41">Vastuse nupud</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">Kaart</string>
     <string name="note" maxLength="41">Märkus</string>
-    <string name="navigation" maxLength="41">Navigatsioon</string>
     <string name="media" maxLength="41">Meedia</string>
-    <string name="misc" maxLength="41">Varia</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Lisa meeldetuletus</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Lisa kordamise meeldetuletus</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Muuda kordamise meeldetuletust</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">Sul pole ühtegi kordamise meeldetuletust</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Vali sildid</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">Replace newlines with HTML</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Focus ‘type in answer’</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">Teave</string>
-    <string name="contributors_title">Panustajad</string>
-    <string name="about_contributors_description"><![CDATA[Need on meie suurepärased <a href=\"%1$s\">kaastöölised</a>. Ka sina võid AnkiDroid aidata programmeerimise, tõlkimise, annetamise ja <a href=\"%2$s\">palju muuga</a>!]]></string>
-    <string name="license">Litsents</string>
-    <string name="license_description"><![CDATA[AnkiDroid is released under the <a href=\"%1$s\">GPL-3.0</a> and <a href=\"%2$s\">AGPL-3.0</a> licenses, with the source code available <a href=\"%3$s\">on GitHub</a>]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid also uses third-party libraries and icons, which are licensed under various open source <a href=\"%1$s\">licenses</a>]]></string>
-    <string name="donate_description"><![CDATA[You can support AnkiDroid\'s development by <a href=\"%1$s\">donating</a>. Any amount is deeply appreciated.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">Lisa viibe</string>
-    <string name="binding_add_key">Lisa klahv</string>
     <string name="key_picker_default_press_key">Vajuta klahvi</string>
-    <string name="binding_add_axis">Add joystick/motion controller</string>
     <string name="axis_picker_move_joystick">Move a joystick/motion controller</string>
-    <string name="user_actions" maxLength="41">Kasutaja toimingud</string>
-    <string name="user_actions_summary" maxLength="41">Trigger JavaScript from the study screen</string>
     <string name="user_action_1" maxLength="28">Kasutaja toiming 1</string>
     <string name="user_action_2" maxLength="28">Kasutaja toiming 2</string>
     <string name="user_action_3" maxLength="28">Kasutaja toiming 3</string>
@@ -224,8 +154,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">K: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">V: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">Eemalda ‘%s’</string>
-    <string name="bindings_already_bound">Already bound to ‘%s’</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Eksperimentaalne</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Please upgrade to the new text to speech format</string>
@@ -235,16 +163,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[
-        AnkiDroid periodically backs up your collection.
-        After backups are more than two days old,
-        AnkiDroid will start removing some of them to free up disk space.
-        <br><br>
-        Note that media files are not backed up.
-        To be safe, please periodically synchronize your collection, or back up exports of it.
-        <br><br>
-        You can restore from a backup and export your collection in the deck list menu.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">Minuteid automaatsete varukoopiate vahel</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">Daily backups to keep</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">Weekly backups to keep</string>
@@ -261,19 +179,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Kogu pole</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Viga</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Tõmbamine&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Kogu pole olemas</string>
-    <string name="show_answer_buttons" maxLength="41">Show answer buttons</string>
     <string name="hide_hard_and_easy" maxLength="41">Peida nupud ‘Raske’ ja ‘Lihtne’</string>
-    <string name="toolbar" maxLength="41">Tööriistariba</string>
-    <string name="new_study_screen" maxLength="41">Uus õppimise leht</string>
-    <string name="screen" maxLength="41">Ekraan</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Ainult vastus</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Pööra ja vasta</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Ava seaded</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Related settings</string>
 </resources>

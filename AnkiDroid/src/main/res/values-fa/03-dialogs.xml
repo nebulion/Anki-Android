@@ -66,9 +66,7 @@
     <string name="dialog_positive_overwrite">رونويسي کردن</string>
     <string name="dialog_positive_repair">اصلاح</string>
     <string name="dialog_positive_replace">جایگزین کردن</string>
-    <string name="dialog_collection_path_not_dir">مسیر مشخص شده یک مسیر معتبر نیست</string>
     <string name="dialog_invalid_custom_certificate">متن ارائه شده به یک گواهی X509 کدگذاری شده با PEM معتبر تبدیل نمی‌شود</string>
-    <string name="dialog_invalid_custom_certificate_title">خطا در تجزیه گواهی</string>
     <string name="dialog_updated_custom_certificate">گواهی به‌روزرسانی شد</string>
     <!-- Media checking -->
     <string name="check_media_warning">با مجموعه‌های رسانه‌ای حجیم، این کار ممکن است بسیار زمان‌بر باشد. آیا ادامه می‌دهید؟</string>
@@ -113,7 +111,6 @@
     <string name="locale_selection_dialog_summary">بعضی کیبورد‌های چند‌زبانه مثل GBoard توانایی این را دارند که هنگام تغییر نوشته زبانتان را تغییر دهند\n\nلطفا ویژگی “setImeHintLocales” را از سازنده‌ی کیبورد خود درخواست کنید اگر کیبوردتان توانایی تغییر زبان ندارد.</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">کمک گرفتن</string>
-    <string name="help_item_support_opencollective_donate">کمک مالی</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">ممکن است یک همگام‌سازی خودکار در %d ثانیه دیگر آغاز شود</item>

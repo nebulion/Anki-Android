@@ -19,8 +19,8 @@ import com.ichi2.anki.common.time.Time
 import com.ichi2.anki.common.time.TimeManager
 import com.ichi2.anki.common.utils.android.showThemedToast
 import com.ichi2.anki.libanki.Collection
-import com.ichi2.anki.preferences.PENDING_NOTIFICATIONS_ONLY
 import com.ichi2.anki.runGloballyWithTimeout
+import com.ichi2.anki.settings.PENDING_NOTIFICATIONS_ONLY
 import com.ichi2.anki.settings.Prefs
 import com.ichi2.utils.AlarmManagement
 import com.ichi2.widget.DayRolloverAlarm

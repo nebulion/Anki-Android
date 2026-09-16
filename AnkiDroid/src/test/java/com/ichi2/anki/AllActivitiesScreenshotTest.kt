@@ -13,7 +13,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.testing.junit.testparameterinjector.TestParameter
 import com.google.testing.junit.testparameterinjector.TestParameterValuesProvider
 import com.ichi2.anki.account.AccountActivity
-import com.ichi2.anki.preferences.PreferencesActivity
 import com.ichi2.anki.previewer.CardViewerActivity
 import com.ichi2.anki.utils.ConfigAwareSingleFragmentActivity
 import com.ichi2.testutils.ActivityList
@@ -103,8 +102,6 @@ class AllActivitiesScreenshotTest : ScreenshotTest() {
                     AccountActivity::class.java,
                     // StudyScreenScreenshotTest, PreviewerScreenshotTest and TemplatePreviewerScreenshotTest
                     CardViewerActivity::class.java,
-                    // PreferencesScreenshotTest
-                    PreferencesActivity::class.java,
                 )
             return ActivityList
                 .allActivitiesAndIntents()

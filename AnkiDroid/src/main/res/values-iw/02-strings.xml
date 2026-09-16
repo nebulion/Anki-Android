@@ -43,7 +43,6 @@
     <string name="custom_study_loading_tags">בניית רשימת תגיות&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
-    <string name="cardeditor_title_edit_card" maxLength="28">ערוך רשומה</string>
     <string name="discard">ביטול</string>
     <string name="save" maxLength="28">שמירה</string>
     <string name="close">סגירה</string>
@@ -56,7 +55,6 @@
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">שינוי שם</string>
     <string name="unknown_type_field_warning">הקלד תשובה: שדה אינו מוכר %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">מוחק חפיסה&#8230;</string>
-    <string name="info_rate">דירוג AnkiDroid</string>
     <string name="import_title">מתבצע ייבוא</string>
     <string name="import_preparing_file">מכין קובץ לייבוא&#8230;</string>
     <string name="import_message_add" comment="Adding a new deck to the collection (import)">הוספה</string>
@@ -124,13 +122,7 @@
     <string name="note_editor_audio_too_large">קובץ השמע גדול מדי, אנא הכנס אותו באופן ידני</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">בתהליך עדכון אנדרואיד, אנא נסה שנית.</string>
     <!-- Dialog hints -->
-    <string name="dialog_hint_url">URL</string>
-    <string name="dialog_hint_certificate">תעודה</string>
     <!-- IncrementNumberRangePreference -->
-    <string name="plus_sign" comment="Label for increment button in IncrementerNumberRangePreference">+</string>
-    <string name="minus_sign" comment="Label for decrement button in IncrementerNumberRangePreference">-</string>
-    <string name="invalid_value" comment="Error message in IncrementerNumberRangePreference when input is not a valid number">ערך לא תקין</string>
-    <string name="maximum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the maximum allowed value">ערך מקסימלי הוא %d</string>
     <string name="minimum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the minimum allowed value">ערך מינימלי הוא %d</string>
     <!-- Used for credential empty warning message -->
     <string name="invalid_email">נא הזן כתובת דוא\"ל תקפה</string>
@@ -166,7 +158,6 @@
     <string name="format_deck_description_as_markdown">Format as Markdown</string>
     <string name="help_button_content_description">פתח עזרה עבור \'%s\'</string>
     <string name="failed_to_copy">ההעתקה נכשלה</string>
-    <string name="previewer_next" comment="Name of the next button in the previewer" maxLength="28">הבא</string>
     <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">הקודם</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->

@@ -17,7 +17,6 @@ package com.ichi2.anki
 
 import android.app.Activity
 import android.os.Looper.getMainLooper
-import com.ichi2.anki.preferences.PreferencesActivity
 import com.ichi2.testutils.ActivityList
 import com.ichi2.testutils.ActivityList.ActivityLaunchParam
 import com.ichi2.testutils.skipTest
@@ -48,10 +47,6 @@ class ActivityStartupUnderBackupTest : RobolectricTest() {
     @Before
     fun before() {
         notYetHandled(IntentHandler::class.java.simpleName, "Not working (or implemented) - inherits from Activity")
-        notYetHandled(
-            PreferencesActivity::class.java.simpleName,
-            "Not working (or implemented) - inherits from AppCompatPreferenceActivity",
-        )
         notYetHandled(
             SingleFragmentActivity::class.java.simpleName,
             "Implemented, but the test fails because the activity throws if a specific intent extra isn't set",

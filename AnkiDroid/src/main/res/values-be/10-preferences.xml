@@ -25,49 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">Адключана</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d хв</item>
-        <item quantity="few">%d хв</item>
-        <item quantity="many">%d хвл</item>
-        <item quantity="other">%d хвл</item>
-    </plurals>
     <string name="pref_milliseconds">%s мс</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">Вынікі адсутнічаюць</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">Агульныя</string>
-    <string name="pref_cat_studying" maxLength="41">Навучанне</string>
-    <string name="pref_cat_system_wide" maxLength="41">Згодна сістэме</string>
     <string name="pref_cat_reviewing" maxLength="41">Паўтарэнне</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Сінхранізацыя</string>
     <string name="pref_cat_scheduling" maxLength="41">Расклад</string>
     <string name="pref_cat_gestures" maxLength="41">Жэсты</string>
-    <string name="pref_cat_controls" maxLength="41">Кіраванне</string>
     <string name="pref_cat_advanced" maxLength="41">Дадаткова</string>
     <string name="pref_cat_workarounds" maxLength="41">Абходныя шляхі</string>
-    <string name="pref_cat_plugins" maxLength="41">Плагiны</string>
     <string name="pref_cat_editing" maxLength="41">Рэдагаванне</string>
-    <string name="pref_cat_security" maxLength="41">Бяспека</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Дазволіць небяспечныя API у JavaScript</string>
     <string name="allow_dangerous_js_api_summ">Дазволіць любой картцы або шаблону чытаць і змяняць іншыя карткі або даныя ў вашай калекцыі Anki.\nПакіньце выключаным пакуль у вас няма даверу да ўсіх картак і шаблонаў у вашай калекцыі.</string>
     <string name="dangerous_js_api_denied_snackbar">Бяспека: небяспечны выклік JavaScript заблакіраваны.\nКалі вы давяраеце ўсім карткам і шаблонам у вашай калекцыі, то гэту функцыю можна разблакіраваць у пашыраных наладах</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Карткі могуць запускаць іншыя праграмы</string>
-    <string name="allow_card_external_launch_summ">Карткі могуць адкрываць іншыя праграму ў вашай прыладзе і запускаць патэнцыйна непажаданыя дзеянні.\nПакіньце выключаным пакуль у вас няма даверу да ўсіх картак і шаблонаў у вашай калекцыі.</string>
     <string name="card_external_launch_denied_snackbar">Бяспека: картка не можа запускаць іншыя праграмы.\nКалі вы давяраеце ўсім карткам і шаблонам у вашай калекцыі, то гэту функцыю можна разблакіраваць у пашыраных наладах.</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">Уводзіць адказ на картцы</string>
     <string name="use_input_tag_summ">Дадае на картку поле ўводу для адказу</string>
-    <string name="reset_languages" maxLength="41">Скінуць мовы</string>
-    <string name="reset_languages_summ">Скінуць прызначэнне моў (для агучвання тэкстаў і слоўнікаў) для ўсіх калод</string>
-    <string name="reset_languages_question">Скінуць усе моўныя прызначэнні?</string>
-    <string name="reset_confirmation">Усе налады скінутыя</string>
     <string name="card_zoom" maxLength="41">Маштаб картак</string>
     <string name="image_zoom" maxLength="41">Маштаб ваяваў</string>
-    <string name="button_size" maxLength="41">Памер кнопкі адказу</string>
-    <string name="card_browser_font_size" maxLength="41">Маштаб шрыфту аглядальніка картак</string>
-    <string name="col_path" maxLength="41">Каталог AnkiDroid</string>
     <string name="gestures" maxLength="41">Уключыць жэсты</string>
     <string name="gestures_summ">Прызначыць жэсты для такіх дзеянняў, як адказ і рэдагаванне картак.</string>
     <string name="gestures_corner_touch" maxLength="41">9-пунктавы дотык</string>
@@ -91,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">Націск трыма пальцамі</string>
     <string name="gestures_four_finger_tap" maxLength="41">Націск чатырма пальцамі</string>
     <string name="gestures_shake" maxLength="41">Патрасіце прыладу</string>
-    <string name="double_scrolling_gap" maxLength="41">Падвоеная прагортка</string>
-    <string name="double_scrolling_gap_summ">Падвоены разрыў прагорткі ў eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Адчувальнасць правядзення</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Спампоўваць медыяфайлы</string>
@@ -107,8 +84,6 @@
     <string name="sync_status_badge_summ">Значок сінхранізацыі зменіцца, калі можна будзе загрузіць змены</string>
     <string name="metered_sync_title" maxLength="41">Дазволіць сінхранізацыю пры тарыфікацыі злучэння</string>
     <string name="metered_sync_summary">Калі адключана, то вы атрымаеце папярэджанне, што адбудзецца сінхранізацыя праз тарыфікаванае злучэнне.</string>
-    <string name="backup_limits_frequency">Частата</string>
-    <string name="backup_limits_lifetime">Працягласць</string>
     <string name="language" maxLength="41">Мова</string>
     <string name="language_system">Сістэмная мова</string>
     <string name="notification_pref" maxLength="41">Апавяшчэнні</string>
@@ -120,94 +95,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">Мігаценне святлодыёда</string>
     <string name="software_render" maxLength="41">Адключыць апаратны апрацоўшчык картак</string>
     <string name="software_render_summ">Апаратны апрацоўшчык працуе хутчэй, але можа выклікаць праблемы (асабліва ў АС Android 8/8.1). Паспрабуйце гэтыя налады, калі ў вас праблемы з адлюстраваннем картак у рэжыме паўтарэння.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Інтэрвал у падвойным дотыку</string>
     <string name="pref_double_tap_time_interval_summary">Другі націск на кнопку адказу будзе праігнараваны, калі час яшчэ не мінуў. Гэта прадухіляе выпадковы двайны націск</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">Працягласць націску для адказу</string>
-    <string name="pref_show_answer_long_press_time_summary">Мінімальны час націску да таго, як кнопка дотыку пакажа адказ.</string>
-    <string name="show_large_answer_buttons" maxLength="41">Паказваць вялікія кнопкі адказу</string>
-    <string name="show_large_answer_buttons_summ">Паказваць кнопкі адказу ў 2 радкі</string>
-    <string name="use_current" maxLength="41">Калода для новых картак</string>
     <string name="learn_cutoff" maxLength="41">Вучыць наперад</string>
     <string name="time_limit" maxLength="41">Абмежаванне навучальнага блока</string>
     <string name="day_offset_with_description" maxLength="41">Пачатак наступнага дня</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d гадзіна пасля поўначы</item>
-        <item quantity="few">%d гадзіны пасля поўначы</item>
-        <item quantity="many">%d гадзін пасля поўначы</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d гадзін пасля поўначы</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">Не выключаць экран</string>
     <string name="pref_keep_screen_on_summ">Адключыць час чакання экрана</string>
-    <string name="enable_api_title" maxLength="41">Уключыць AnkiDroid API</string>
-    <string name="enable_api_summary">Дазваляе іншым праграмам падключацца да AnkiDroid для чытання / запісу даных без вашага ўдзелу</string>
     <string name="custom_buttons_setting_always_show">Заўсёды паказваць</string>
     <string name="custom_buttons_setting_menu_only">Толькі меню</string>
-    <string name="reset_custom_buttons" maxLength="41">Скінуць да прадвызначаных</string>
     <string name="reset">Скінуць</string>
-    <string name="thirdparty_apps_title" maxLength="41">Праграмныя API іншых распрацоўшчыкаў</string>
-    <string name="thirdparty_apps_summary">Паглядзець спіс праграм, якія выкарыстоўваць API AnkiDroid (слоўнікі, службовыя праграмы і г.д.).</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Перагляды</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Перадпрагляды</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Пераключаць толькі задні бок</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Спецыяльныя магчымасці</string>
     <string name="exit_via_double_tap_back" maxLength="41">Націсніце \"Назад\" двойчы для выхаду</string>
     <string name="exit_via_double_tap_back_summ">Для прадухілення выпадковага выхаду з экрана навучання або праграмы</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">Дазволіць усе файлы пры імпарце медыя</string>
-    <string name="media_import_allow_all_files_summ">Калі Android не распазнае файл з медыя</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Старонні сервер для сінхранізацыі</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">Не выкарыстоўваецца</string>
-    <string name="custom_sync_server_help2"><![CDATA[
-        Замест сінхранізацыі з серверам AnkiWeb,
-        вы можаце выкарыстоўваць старонні сервер.
-        Калі не зададзена, то прадвызначана выкарыстоўваецца сервер AnkiWeb.
-        <a href="%s">Даведацца больш</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Сінхранізацыя URL-адраса</string>
     <string name="custom_sync_certificate_title" maxLength="41">Карыстальніцкі каранёвы сертыфікат (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">Клавіятура</string>
-    <string name="bluetooth">Bluetooth</string>
     <string name="answer_buttons" maxLength="41">Кнопкі адказу</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">Картка</string>
     <string name="note" maxLength="41">Нататка</string>
-    <string name="navigation" maxLength="41">Навігацыя</string>
     <string name="media" maxLength="41">Медыя</string>
-    <string name="misc" maxLength="41">Рознае</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Дадаць напамін</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Дадаць нагадванне паўтарэння</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Рэдагаваць нагадванне паўтарэння</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">У вас адсутнічаюць нагадванні паўтарэння</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Выберыце меткі</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">Замяняць новыя радкі на HTML</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Пераключацца на поле «Увесці адказ»</string>
     <string name="type_in_answer_focus_summ">Аўтаматычна пераключацца на поле «Увесці адказ» у экране навучання</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">Аб праграме</string>
-    <string name="contributors_title">Удзельнікі</string>
-    <string name="about_contributors_description"><![CDATA[Гэта нашы ашаламляльныя <a href=\"%1$s\">ўдзельнікі</a>. Вы таксама можаце дапамагчы AnkiDroid з праграмаваннем, перакладамі, ахвяраваннямі і <a href=\"%2$s\">іншымі рэчамі</a>!]]></string>
-    <string name="license">Ліцэнзія</string>
-    <string name="license_description"><![CDATA[AnkiDroid выпушчаны на ўмовах ліцэнзій <a href=\"%1$s\">GPL-3.0</a> і <a href=\"%2$s\">AGPL-3.0</a>, а таксама зыходным кодам, які даступны <a href=\"%3$s\">на GitHub</a>]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid таксама выкарыстоўвае староннія бібліятэкі і значкі, якія ліцэнзуюцца пад рознымі <a href=\"%1$s\">ліцэнзіямі</a> з адкрытым зыходным кодам]]></string>
-    <string name="donate_description"><![CDATA[Вы можаце падтрымаць распрацоўку AnkiDroid <a href=\"%1$s\">ахвяраваннем</a>. Мы будзем удзячныя за любую суму.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">Дадаць жэст</string>
-    <string name="binding_add_key">Дадаць кнопку</string>
     <string name="key_picker_default_press_key">Націсніце кнопку</string>
-    <string name="binding_add_axis">Дадаць джойсцік/кантролер руху</string>
     <string name="axis_picker_move_joystick">Перамясціць джойсцік/кантролер руху</string>
-    <string name="user_actions" maxLength="41">Дзеянні карыстальніка</string>
-    <string name="user_actions_summary" maxLength="41">Запусціць JavaScript з экрана з экрана навучання</string>
     <string name="user_action_1" maxLength="28">Дзеянне карыстальніка 1</string>
     <string name="user_action_2" maxLength="28">Дзеянне карыстальніка 2</string>
     <string name="user_action_3" maxLength="28">Дзеянне карыстальніка 3</string>
@@ -228,8 +154,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">П: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">А: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">Выдаліць «%s»</string>
-    <string name="bindings_already_bound">Ужо прызначана «%s»</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Эксперыментальныя</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Абнавіце праграму да новага сінтэзу маўлення</string>
@@ -239,17 +163,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[
-        AnkiDroid перыядычна робіць рэзервовыя копіі вашай калекцыі.
-        Праграма таксама выдаляе рэзервовыя копіі, якія старэйшыя за два дні, 
-        каб вызваліць месца на дыску.
-        <br><br>
-        Заўважце, што мультымедыйныя файлы не рэзервуюцца.
-        Перыядычна сінхранізуйце сваю калекцыю або экспартуйце рэзервовыя копіі,                 
-        каб пазбегнуць страты даных.
-        <br><br>
-        Вы можаце аднавіць з рэзервовай копіі і экспартаваць сваю калекцыю ў меню спіса калод.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">Хвілін паміж аўтаматычнымі рэзервовымі копіямі</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">Колькасць рэзервовых копій у дзень</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">Колькасць рэзервовых копій у тыдзень</string>
@@ -266,19 +179,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Няма калекцыі</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Памылка</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Атрыманне&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Калекцыя не існуе</string>
-    <string name="show_answer_buttons" maxLength="41">Паказваць кнопкі адказу</string>
     <string name="hide_hard_and_easy" maxLength="41">Схаваць кнопкі «Цяжкі» і «Лёгкі»</string>
-    <string name="toolbar" maxLength="41">Панэль інструментаў</string>
-    <string name="new_study_screen" maxLength="41">Новы экран навучання</string>
-    <string name="screen" maxLength="41">Экран</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Толькі адказ</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Перавярнуць і адказаць</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Адкрыць налады</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Звязаныя налады</string>
 </resources>

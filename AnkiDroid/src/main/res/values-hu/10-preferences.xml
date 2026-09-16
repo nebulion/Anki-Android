@@ -25,47 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">Kikapcsolva</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d perc</item>
-        <item quantity="other">%d perc</item>
-    </plurals>
     <string name="pref_milliseconds">%s ms</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">Nincs találat</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">Általános</string>
-    <string name="pref_cat_studying" maxLength="41">Tanulás</string>
-    <string name="pref_cat_system_wide" maxLength="41">Rendszerszintű</string>
     <string name="pref_cat_reviewing" maxLength="41">Ismétlés</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Szinkronizálás</string>
     <string name="pref_cat_scheduling" maxLength="41">Ütemezés</string>
     <string name="pref_cat_gestures" maxLength="41">Gesztusok</string>
-    <string name="pref_cat_controls" maxLength="41">Kezelőszervek</string>
     <string name="pref_cat_advanced" maxLength="41">Haladó</string>
     <string name="pref_cat_workarounds" maxLength="41">Lehetséges megoldások</string>
-    <string name="pref_cat_plugins" maxLength="41">Bővítmények</string>
     <string name="pref_cat_editing" maxLength="41">Szerkesztés</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">Válasz begépelése</string>
     <string name="use_input_tag_summ">A kártyán megjelenő beviteli mezőbe kell begépelni a választ</string>
-    <string name="reset_languages" maxLength="41">Nyelvek visszaállítása</string>
-    <string name="reset_languages_summ">Nyelvek visszaállítása (hangos olvasáshoz és szótárakhoz) az összes paklihoz</string>
-    <string name="reset_languages_question">Állítsa vissza az összes nyelvi beállítást?</string>
-    <string name="reset_confirmation">Mindent alapállapotba</string>
     <string name="card_zoom" maxLength="41">Kártyák nagyítása</string>
     <string name="image_zoom" maxLength="41">Képek nagyítása</string>
-    <string name="button_size" maxLength="41">Válasz gombok mérete</string>
-    <string name="card_browser_font_size" maxLength="41">Kártya böngésző betűméretezése</string>
-    <string name="col_path" maxLength="41">AnkiDroid könyvtár</string>
     <string name="gestures" maxLength="41">Gesztusvezérlés engedélyezése</string>
     <string name="gestures_summ">Gesztusok hozzárendelése olyan műveletekhez, mint a kártyák megválaszolása és szerkesztése.</string>
     <string name="gestures_corner_touch" maxLength="41">Érintési gesztusok beállítása</string>
@@ -89,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">Three-finger tap</string>
     <string name="gestures_four_finger_tap" maxLength="41">Four-finger tap</string>
     <string name="gestures_shake" maxLength="41">Készülék megrázása</string>
-    <string name="double_scrolling_gap" maxLength="41">Dupla görgetés</string>
-    <string name="double_scrolling_gap_summ">Görgess a kétszeres méretű e-Olvasó méretre</string>
     <string name="swipe_sensitivity" maxLength="41">Törlés érzékenysége</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Média letöltése szinkronizáláskor</string>
@@ -105,8 +84,6 @@
     <string name="sync_status_badge_summ">A szinkronizálás ikonjának módosítása, amikor a változások feltölthetők</string>
     <string name="metered_sync_title" maxLength="41">Szinkronizálás forgalmi díjas kapcsolaton</string>
     <string name="metered_sync_summary">Ha letiltva, figyelmeztet, ha szinkronizálni próbál mért kapcsolaton.</string>
-    <string name="backup_limits_frequency">Gyakoriság</string>
-    <string name="backup_limits_lifetime">Időköz</string>
     <string name="language" maxLength="41">Nyelv</string>
     <string name="language_system">Rendszer nyelvének használata</string>
     <string name="notification_pref" maxLength="41">Értesítések</string>
@@ -118,90 +95,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">Villogó fény</string>
     <string name="software_render" maxLength="41">Kártya hw megjelenítő (render) tiltása</string>
     <string name="software_render_summ">A hw renderelés gyorsabb, de okozhat problémát, különösen az Android 8/8.1-en. Ha nem látod a kártya ismétléskor a kezelőfelület egy részét, próbáld meg ezt a beállítást.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Két érintés időzítése</string>
     <string name="pref_double_tap_time_interval_summary">A második érintést nem fogja figyelembe venni, ha ezen időn belül történik. Ez megakadályozza a véletlen kettős érintéseket</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">Válasz megjelenítése nyomvatartásra</string>
-    <string name="pref_show_answer_long_press_time_summary">Minimális nyomvatartási idő, mielőtt a válasz megjelenítése gomb érintést érzékel.</string>
-    <string name="show_large_answer_buttons" maxLength="41">Nagy válasz gombok megjelenítése</string>
-    <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="use_current" maxLength="41">Új kártyák paklija</string>
     <string name="learn_cutoff" maxLength="41">Korai tanulás korlátai</string>
     <string name="time_limit" maxLength="41">Időkorlát érték</string>
     <string name="day_offset_with_description" maxLength="41">Nap kezdete</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d órával éjfél után</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d órával éjfél után</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">Ne kapcsolja ki a képernyőt</string>
     <string name="pref_keep_screen_on_summ">Képernyő időtúllépésének kikapcsolása</string>
-    <string name="enable_api_title" maxLength="41">Engedélyezze az AnkiDroid API-t</string>
-    <string name="enable_api_summary">Engedélyezd, hogy más alkalmazások csatlakozzanak az AnkiDroidhoz, és lehetővé tegyék az adatok beolvasását/írását automatikusan</string>
     <string name="custom_buttons_setting_always_show">Mindig mutasd</string>
     <string name="custom_buttons_setting_menu_only">Csak a menü</string>
-    <string name="reset_custom_buttons" maxLength="41">Alapértelmezett értékek visszaállítása</string>
     <string name="reset">Visszaállít</string>
-    <string name="thirdparty_apps_title" maxLength="41">Külsős API alkalmazások</string>
-    <string name="thirdparty_apps_summary">Egy lista az alkalmazásokról, amik az AnkiDroid API-t használják, mint például szótárak és segédprogramok.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Reviews</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Previews</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Kisegítő lehetőségek</string>
     <string name="exit_via_double_tap_back" maxLength="41">Kétszer Vissza gombra Vissza/Kilép</string>
     <string name="exit_via_double_tap_back_summ">To avoid accidentally leaving the study screen or the app</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">A tárolón lévő összes fájl importálása</string>
-    <string name="media_import_allow_all_files_summ">Ha az Android nem ismeri fel egy média fájl</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Egyéni szinkronizáló kiszolgáló</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">Nem használt</string>
-    <string name="custom_sync_server_help2"><![CDATA[        AnkiWeb-es szinkronizálás helyett használsz saját szervert is.
-        Ha nincs beállítva, akkor az AnkiWeb lesz használva.
-        <a href="%s">További információk</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">Custom root certificate (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">Billentyűzet</string>
-    <string name="bluetooth">Bluetooth</string>
     <string name="answer_buttons" maxLength="41">Válasz gombok</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">Kártya</string>
     <string name="note" maxLength="41">Jegyzet</string>
-    <string name="navigation" maxLength="41">Navigáció</string>
     <string name="media" maxLength="41">Média</string>
-    <string name="misc" maxLength="41">Egyéb</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Add reminder</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Add review reminder</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Edit review reminder</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">You have no review reminders</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Válassz címkét</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">Az újsor karakterek HTML helyettesítése</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">\'válasz begépelés\' kiválasztás</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">Névjegy</string>
-    <string name="contributors_title">Közreműködők</string>
-    <string name="about_contributors_description"><![CDATA[Ők a mi csodálatos <a href=\"%1$s\"> közreműködőink </a>. Te is segíthethetsz az AnkiDroidnak programozással, fordítással, adományozással és sok <a href=\"%2$s\">mással</a>!]]></string>
-    <string name="license">Licensz</string>
-    <string name="license_description"><![CDATA[Az AnkiDroid a <a href=\"%1$s\">GPL-3.</a> és az <a href=\"%2$s\">AGPL-3.0</a> licenc alatt lett kiadva. A forráskód <a href=\"%3$s\"> GitHubon</a> érhető el.]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid also uses third-party libraries and icons, which are licensed under various open source <a href=\"%1$s\">licenses</a>]]></string>
-    <string name="donate_description"><![CDATA[Elősegítheted az AnkiDroid fejlesztését <a href=\"%1$s\">támogatással</a>. Bármilyen összeget nagyra értékelünk.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">Gesztus hozzáadása</string>
-    <string name="binding_add_key">Kulcs hozzáadása</string>
     <string name="key_picker_default_press_key">Nyomj meg egy billentyűt</string>
-    <string name="binding_add_axis">Add joystick/motion controller</string>
     <string name="axis_picker_move_joystick">Move a joystick/motion controller</string>
-    <string name="user_actions" maxLength="41">User actions</string>
-    <string name="user_actions_summary" maxLength="41">Trigger JavaScript from the study screen</string>
     <string name="user_action_1" maxLength="28">User action 1</string>
     <string name="user_action_2" maxLength="28">User action 2</string>
     <string name="user_action_3" maxLength="28">User action 3</string>
@@ -222,8 +154,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">K: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">V: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">‘%s’ törlése</string>
-    <string name="bindings_already_bound">Már össze van kötve: %s</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Kísérleti</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Please upgrade to the new text to speech format</string>
@@ -233,16 +163,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[
-        AnkiDroid rendszeresen biztonsági másolatot készít a gyűjteményedről.
-        Ha a biztonsági másolatok több mint két naposak,
-        AnkiDroid elkezd törölni néhányat közülük, hogy helyet szabadítson fel.
-        <br><br>
-        Ne feledd, hogy a médiafájlokról nem készül biztonsági másolat.
-        A biztonság kedvéért rendszeresen szinkronizáld a gyűjteményed, vagy készíts biztonsági másolatot az exportálásokról.
-        <br><br>
-        A biztonsági másolatról való visszaállításhoz és a gyűjtemény exportálásához nyisd meg a paklilista menüt.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">Aut. biztonsági mentés gyakorisága (perc)</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">Napi mentések megtartása</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">Heti mentések megtartása</string>
@@ -259,19 +179,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Nincs gyűjtemény.</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Hiba</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Letöltés&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Gyűjtemény nem létezik</string>
-    <string name="show_answer_buttons" maxLength="41">Show answer buttons</string>
     <string name="hide_hard_and_easy" maxLength="41">\'Nehéz\' és \'Könnyű\' gombok elrejtése</string>
-    <string name="toolbar" maxLength="41">Toolbar</string>
-    <string name="new_study_screen" maxLength="41">New study screen</string>
-    <string name="screen" maxLength="41">Screen</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Only answer</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Flip and answer</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Beállítások megnyitása</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Related settings</string>
 </resources>

@@ -22,26 +22,9 @@
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
     <!-- add_to_cur_labels -->
-    <string name="add_to_deck_use_current_deck">Utilisez le paquet courant</string>
-    <string name="add_to_deck_decide_by_note_type">Décider par type de note</string>
     <!-- theme labels -->
     <!-- day_theme_labels -->
     <!-- night_theme_labels -->
     <!-- html_size_code_labels -->
     <!-- gestures_labels -->
-    <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Réponse facile</string>
-    <string name="gesture_abort_learning" maxLength="41">Fermer l\'écran de révision</string>
-    <string name="gesture_flag_red" maxLength="41">Activer/désactiver la balise rouge</string>
-    <string name="gesture_flag_orange" maxLength="41">Activer/désactiver la balise orange</string>
-    <string name="gesture_flag_green" maxLength="41">Activer/désactiver la balise verte</string>
-    <string name="gesture_flag_blue" maxLength="41">Activer/désactiver la balise bleue</string>
-    <string name="gesture_flag_pink" maxLength="41">Activer/désactiver le balise rose</string>
-    <string name="gesture_flag_turquoise" maxLength="41">Activer/désactiver la balise turquoise</string>
-    <string name="gesture_flag_purple" maxLength="41">Activer/désactiver la balise violette</string>
-    <string name="gesture_flag_remove" maxLength="41">Retirer la balise</string>
-    <string name="gesture_page_up" maxLength="41">Remonter</string>
-    <string name="gesture_page_down" maxLength="41">Descendre</string>
-    <string name="gesture_toggle_whiteboard" maxLength="41">Activer le tableau blanc</string>
-    <string name="gesture_show_hint" maxLength="41">Afficher l\'indice</string>
-    <string name="gesture_show_all_hints" maxLength="41">Afficher tous les indices</string>
 </resources>

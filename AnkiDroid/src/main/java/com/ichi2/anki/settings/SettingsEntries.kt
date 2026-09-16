@@ -4,6 +4,7 @@ package com.ichi2.anki.settings
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -49,7 +50,7 @@ fun numberEntry(
     display: (Int) -> String = { it.toString() },
     onValue: (Int) -> Unit,
 ): SettingsEntry {
-    var current by remember { mutableStateOf(value) }
+    var current by remember { mutableIntStateOf(value) }
     var isEditing by remember { mutableStateOf(false) }
     if (isEditing) {
         NumberPanel(

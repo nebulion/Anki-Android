@@ -100,10 +100,7 @@ class LayoutValidationTest : InstrumentedTest() {
             // with a specified fragment name, as these would currently fail the test, throwing:
             //   UnsupportedOperationException: FragmentContainerView must be within
             //   a FragmentActivity to use android:name="..."
-            val ignoredLayoutIds =
-                listOf(
-                    com.ichi2.anki.R.layout.fragment_preferences,
-                )
+            val ignoredLayoutIds = emptyList<Int>()
 
             return layout::class.java.fields
                 .map { arrayOf<Any>(it.getInt(layout), it.name) }

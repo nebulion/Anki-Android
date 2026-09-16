@@ -25,48 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">מבוטל</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">דקה אחת</item>
-        <item quantity="two">%d דקות</item>
-        <item quantity="other">%d דקות</item>
-    </plurals>
     <string name="pref_milliseconds">%s מילישניות</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">אין תוצאות</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">כללי</string>
-    <string name="pref_cat_studying" maxLength="41">לימוד</string>
-    <string name="pref_cat_system_wide" maxLength="41">מערכת רחבה</string>
     <string name="pref_cat_reviewing" maxLength="41">שינון</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">סנכרון</string>
     <string name="pref_cat_scheduling" maxLength="41">תיזמון</string>
     <string name="pref_cat_gestures" maxLength="41">מחוות</string>
-    <string name="pref_cat_controls" maxLength="41">פקדים</string>
     <string name="pref_cat_advanced" maxLength="41">מתקדם</string>
     <string name="pref_cat_workarounds" maxLength="41">מעקפים</string>
-    <string name="pref_cat_plugins" maxLength="41">תוספים</string>
     <string name="pref_cat_editing" maxLength="41">עריכה</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">הקלד את התשובה אל הכרטיס</string>
     <string name="use_input_tag_summ">להשתמש בתיבת הטקסט שבתוך הקלף כדי להקליד בה את התשובה</string>
-    <string name="reset_languages" maxLength="41">איפוס שפות</string>
-    <string name="reset_languages_summ">אפס משימות השפה (לטקסט לדיבור ולמילונים) לכל החפיסות</string>
-    <string name="reset_languages_question">לאפס את כל מטלות השפה?</string>
-    <string name="reset_confirmation">כל המצבים אופסו</string>
     <string name="card_zoom" maxLength="41">זום כרטיס</string>
     <string name="image_zoom" maxLength="41">זום תמונה</string>
-    <string name="button_size" maxLength="41">גודל כפתורי התשובה</string>
-    <string name="card_browser_font_size" maxLength="41">קנה מידה להגדלת גופן הקלפים</string>
-    <string name="col_path" maxLength="41">ספריית AnkiDroid</string>
     <string name="gestures" maxLength="41">הפעלת מחוות</string>
     <string name="gestures_summ">שיוך מחוות לפעולות כגון מענה ועריכת קלפים.</string>
     <string name="gestures_corner_touch" maxLength="41">מגע 9 נקודות</string>
@@ -90,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">הקשה בשלוש אצבעות</string>
     <string name="gestures_four_finger_tap" maxLength="41">הקשה בארבע אצבעות</string>
     <string name="gestures_shake" maxLength="41">נער את המכשיר</string>
-    <string name="double_scrolling_gap" maxLength="41">גלילה כפולה</string>
-    <string name="double_scrolling_gap_summ">הכפל את פער הגלילה עם eReader</string>
     <string name="swipe_sensitivity" maxLength="41">רגישות להחלקת האצבע</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">הורדת קבצי מדיה בסנכרון</string>
@@ -106,8 +84,6 @@
     <string name="sync_status_badge_summ">שנה את סמל הסנכרון כאשר ניתן להעלות שינויים</string>
     <string name="metered_sync_title" maxLength="41">אפשר סנכרון בחיבורים מדורגים</string>
     <string name="metered_sync_summary">אם מושבת, תקבל אזהרה אם תנסה לסנכרן בחיבור בנדידה</string>
-    <string name="backup_limits_frequency">תדירות</string>
-    <string name="backup_limits_lifetime">אורך חיים</string>
     <string name="language" maxLength="41">שפה</string>
     <string name="language_system">שפת מערכת</string>
     <string name="notification_pref" maxLength="41">התראות</string>
@@ -119,91 +95,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">אור מהבהב</string>
     <string name="software_render" maxLength="41">השבת את עיבוד החומרה של הכרטיס</string>
     <string name="software_render_summ">עיבוד החומרה מהיר יותר אך עשוי ליצור בעיות, במיוחד באנדרואיד 8/8.1. אם אינך יכול לראות חלקים מממשק המשתמש של סקירת הכרטיסים, נסה את ההגדרה הזו.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">מרווח זמן של לחיצה כפולה</string>
     <string name="pref_double_tap_time_interval_summary">לחיצה שנייה על כפתורי התשובה תתעלם אם הזמן הזה לא חלף. זה מונע הקשה כפולה בשוגג</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">הצג תשובה בלחיצה ארוכה</string>
-    <string name="pref_show_answer_long_press_time_summary">משך לחיצה מינימלי לפני שכפתור הצג תשובה מגיב למגע</string>
-    <string name="show_large_answer_buttons" maxLength="41">לחצני תשובה גדולים</string>
-    <string name="show_large_answer_buttons_summ">הצג כפתורי תשובה בשתי שורות</string>
-    <string name="use_current" maxLength="41">חפיסה לכרטיסים חדשים</string>
     <string name="learn_cutoff" maxLength="41">לימוד מעבר למכסה</string>
     <string name="time_limit" maxLength="41">מגבלת זמן בתיבת-זמן</string>
     <string name="day_offset_with_description" maxLength="41">התחל את היום הבא</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d שעה אחרי חצות</item>
-        <item quantity="two">%d שעות אחרי חצות</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d שעות אחרי חצות</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">להשאיר את המסך דולק</string>
     <string name="pref_keep_screen_on_summ">השבת כיבוי מסך</string>
-    <string name="enable_api_title" maxLength="41">הפעלת ה־API של AnkiDroid</string>
-    <string name="enable_api_summary">אפשר לאפליקציות אחרות להתחבר ל-AnkiDroid ולקרוא / לכתוב נתונים ללא התערבותך</string>
     <string name="custom_buttons_setting_always_show">תמיד להציג</string>
     <string name="custom_buttons_setting_menu_only">תפריט בלבד</string>
-    <string name="reset_custom_buttons" maxLength="41">איפוס לבררת מחדל</string>
     <string name="reset">איפוס</string>
-    <string name="thirdparty_apps_title" maxLength="41">יישומי צד שלישי</string>
-    <string name="thirdparty_apps_summary">ראה רשימת יישומים המשתמשים ב- API של AnkiDroid כגון מילונים, כלי עזר.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">סקירה</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">תצוגה מקדימה</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">החלף את הצד האחורי בלבד</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">נגישות</string>
     <string name="exit_via_double_tap_back" maxLength="41">לחץ אחורה פעמיים כדי לחזור אחורה/יציאה</string>
     <string name="exit_via_double_tap_back_summ">כדי להימנע מעזיבת מסך הלימוד או האפליקציה בטעות</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">אפשר את כל הקבצים בייבוא מדיה</string>
-    <string name="media_import_allow_all_files_summ">אם אנדרואיד לא מזהה קובץ מדיה</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">שרת סנכרון מותאם אישית</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">לא בשימוש</string>
-    <string name="custom_sync_server_help2"><![CDATA[כחלופה לסנכרון עם AnkiWeb,
-         אתה יכול להשתמש בשרת משלך לסנכרון.
-         אם לא מוגדר, שרת ברירת המחדל של AnkiWeb ישמש במקום זאת.
-         <a href="%s">למידע נוסף</a>]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">אישור שורש מותאם אישית (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">מקלדת</string>
-    <string name="bluetooth">בלוטות\'</string>
     <string name="answer_buttons" maxLength="41">כפתורי תשובות</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">כרטיס</string>
     <string name="note" maxLength="41">רשומה</string>
-    <string name="navigation" maxLength="41">ניווט</string>
     <string name="media" maxLength="41">מדיה</string>
-    <string name="misc" maxLength="41">אחר</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">הוספת תזכורת</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">הוסף תזכורת לסקירה</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">תזכורת עריכת סקירה</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">You have no review reminders</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">בחר תגיות</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">החלפת שורות חדשות ב־HTML</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">התמקד ב\'הקלד תשובה\'</string>
     <string name="type_in_answer_focus_summ">מיקוד אוטומטי של שדה \'הקלד תשובה\' במסך הלימוד</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">אודות</string>
-    <string name="contributors_title">תורמים</string>
-    <string name="about_contributors_description"><![CDATA[אלו הם ה<a href=\"%1$s\">תורמים</a> המדהימים שלנו. אתה יכול לעזור גם ל-AnkiDroid על ידי תכנות, תרגום, תרומה ו<a href=\"%2$s\">עוד</a>!]]></string>
-    <string name="license">רישיון</string>
-    <string name="license_description"><![CDATA[AnkiDroid משוחרר תחת הרישיונות <a href=\"%1$s\">GPL-3.0</a> ו-<a href=\"%2$s\">AGPL-3.0</a>, עם קוד המקור זמין <a href=\"%3$s\">ב-GitHub</a>]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid משתמש גם בספריות ובסמלים של צד שלישי, המורשים תחת רישיונות שונים של <a href=\"%1$s\">קוד פתוח</a>]]></string>
-    <string name="donate_description"><![CDATA[אתה יכול לתמוך בפיתוח של AnkiDroid על ידי <a href=\"%1$s\">תרומה</a>. כל סכום מוערך מאוד.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">הוסף מחווה</string>
-    <string name="binding_add_key">הוסף כפתור</string>
     <string name="key_picker_default_press_key">לחץ על כפתור</string>
-    <string name="binding_add_axis">הוסף ג\'ויסטיק/בקר תנועה</string>
     <string name="axis_picker_move_joystick">הזז ג\'ויסטיק/בקר תנועה</string>
-    <string name="user_actions" maxLength="41">פעולות משתמש</string>
-    <string name="user_actions_summary" maxLength="41">הפעל JavaScript ממסך הסקירה</string>
     <string name="user_action_1" maxLength="28">פעולת משתמש 1</string>
     <string name="user_action_2" maxLength="28">פעולת משתמש 2</string>
     <string name="user_action_3" maxLength="28">פעולת משתמש 3</string>
@@ -224,8 +154,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">ש: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">ת: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">הסר ׳%s׳</string>
-    <string name="bindings_already_bound">כבר קשור ל\'%s\'</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">ניסיוני</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">שדרג לפורמט החדש של טקסט לדיבור</string>
@@ -235,16 +163,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[
-         AnkiDroid מגבה מעת לעת את האוסף שלך.
-         לאחר שהגיבויים הם בני יותר מיומיים,
-         AnkiDroid יתחיל להסיר חלק מהם כדי לפנות שטח דיסק.
-         <br><br>
-         שים לב שקובצי מדיה אינם מגובים.
-         ליתר ביטחון, אנא סנכרן מדי פעם את האוסף שלך, או גבה את הייצוא שלו.
-         <br><br>
-         אתה יכול לשחזר מגיבוי ולייצא את האוסף שלך בתפריט רשימת הסיפונים.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">דקות בין גיבויים אוטומטיים</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">גיבויים יומיים לשמירה</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">גיבויים שבועיים לשמירה</string>
@@ -261,19 +179,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">אין אוספים</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">שגיאה</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">מייבא&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">האוסף אינו קיים.</string>
-    <string name="show_answer_buttons" maxLength="41">הצג כפתורי תשובה</string>
     <string name="hide_hard_and_easy" maxLength="41">הסתר את הלחצנים \'קשה\' ו\'קל\'</string>
-    <string name="toolbar" maxLength="41">סרגל כלים</string>
-    <string name="new_study_screen" maxLength="41">מסך לימוד חדש</string>
-    <string name="screen" maxLength="41">מסך</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Only answer</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Flip and answer</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">פתח הגדרות</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">הגדרות קשורים</string>
 </resources>

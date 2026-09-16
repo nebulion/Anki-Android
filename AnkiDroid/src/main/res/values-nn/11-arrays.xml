@@ -22,26 +22,9 @@
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
     <!-- add_to_cur_labels -->
-    <string name="add_to_deck_use_current_deck">Bruk nåværende kortstokk</string>
-    <string name="add_to_deck_decide_by_note_type">Velg basert på notattype</string>
     <!-- theme labels -->
     <!-- day_theme_labels -->
     <!-- night_theme_labels -->
     <!-- html_size_code_labels -->
     <!-- gestures_labels -->
-    <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Svar lett</string>
-    <string name="gesture_abort_learning" maxLength="41">Lukk studievisning</string>
-    <string name="gesture_flag_red" maxLength="41">Slå på/av rød flagg</string>
-    <string name="gesture_flag_orange" maxLength="41">Slå på/av oransj flagg</string>
-    <string name="gesture_flag_green" maxLength="41">Slå på/av grønn flagg</string>
-    <string name="gesture_flag_blue" maxLength="41">Slå på/av blå flagg</string>
-    <string name="gesture_flag_pink" maxLength="41">Slå på/av rosa flagg</string>
-    <string name="gesture_flag_turquoise" maxLength="41">Slå på/av turkis flagg</string>
-    <string name="gesture_flag_purple" maxLength="41">Slå på/av lilla flagg</string>
-    <string name="gesture_flag_remove" maxLength="41">Fjern flagg</string>
-    <string name="gesture_page_up" maxLength="41">Bla opp</string>
-    <string name="gesture_page_down" maxLength="41">Bla ned</string>
-    <string name="gesture_toggle_whiteboard" maxLength="41">Slå på/av tavle</string>
-    <string name="gesture_show_hint" maxLength="41">Vis hint</string>
-    <string name="gesture_show_all_hints" maxLength="41">Vis alle hinter</string>
 </resources>

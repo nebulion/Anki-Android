@@ -68,9 +68,7 @@
     <string name="dialog_positive_overwrite">Overwrite</string>
     <string name="dialog_positive_repair">Popravi</string>
     <string name="dialog_positive_replace">Zamijeni</string>
-    <string name="dialog_collection_path_not_dir">Zadani put nije bio valjana mapa</string>
     <string name="dialog_invalid_custom_certificate">Navedeni tekst se na razrješava u valjani PEM-kodirani X509 certifikat</string>
-    <string name="dialog_invalid_custom_certificate_title">Greška u parsiranju certifikata</string>
     <string name="dialog_updated_custom_certificate">Certifikat ažuriran</string>
     <!-- Media checking -->
     <string name="check_media_warning">This may take a long time with large media collections. Proceed?</string>
@@ -116,7 +114,6 @@
     <string name="locale_selection_dialog_summary">Some multilingual keyboards, such as GBoard support changing language when editing text\n\nPlease request the “setImeHintLocales” feature from your keyboard manufacturer if your keyboard does not change language.</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">Zatraži pomoć</string>
-    <string name="help_item_support_opencollective_donate">Doniraj</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">Automatska sinkronizacije se može okinuti za %d sekundu</item>

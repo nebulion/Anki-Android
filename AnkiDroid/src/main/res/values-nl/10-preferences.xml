@@ -25,47 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">Uitgeschakeld</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d min</item>
-        <item quantity="other">%d min</item>
-    </plurals>
     <string name="pref_milliseconds">%s ms</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">Geen resultaten</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">Algemeen</string>
-    <string name="pref_cat_studying" maxLength="41">Studeren</string>
-    <string name="pref_cat_system_wide" maxLength="41">Systeembreed</string>
     <string name="pref_cat_reviewing" maxLength="41">Overhoren</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Synchronisatie</string>
     <string name="pref_cat_scheduling" maxLength="41">Plannen</string>
     <string name="pref_cat_gestures" maxLength="41">Gebaren</string>
-    <string name="pref_cat_controls" maxLength="41">Besturing</string>
     <string name="pref_cat_advanced" maxLength="41">Geavanceerd</string>
     <string name="pref_cat_workarounds" maxLength="41">Tijdelijke oplossingen</string>
-    <string name="pref_cat_plugins" maxLength="41">Plugins</string>
     <string name="pref_cat_editing" maxLength="41">Bewerken</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">Typ het antwoord op de kaart</string>
     <string name="use_input_tag_summ">Een tekstinvoervak gebruiken op de kaart om het antwoord te typen</string>
-    <string name="reset_languages" maxLength="41">Reset talen</string>
-    <string name="reset_languages_summ">Reset taal-toewijzingen (voor tekst-naar-spraak en woordenboeken) voor alle decks</string>
-    <string name="reset_languages_question">Alle taalopdrachten terugzetten?</string>
-    <string name="reset_confirmation">Alle staten opnieuw instellen</string>
     <string name="card_zoom" maxLength="41">Kaart zoom</string>
     <string name="image_zoom" maxLength="41">Afbeelding zoom</string>
-    <string name="button_size" maxLength="41">Grootte antwoordknop</string>
-    <string name="card_browser_font_size" maxLength="41">Lettertypegrootte van de kaartenbrowser</string>
-    <string name="col_path" maxLength="41">AnkiDroid directory</string>
     <string name="gestures" maxLength="41">Bewegingen inschakelen</string>
     <string name="gestures_summ">Bewegingen toewijzen aan acties zoals het beantwoorden en bewerken van kaarten.</string>
     <string name="gestures_corner_touch" maxLength="41">9-punts aanraakscherm</string>
@@ -89,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">Tik met drie vingers</string>
     <string name="gestures_four_finger_tap" maxLength="41">Tik met vier vingers</string>
     <string name="gestures_shake" maxLength="41">Schud apparaat</string>
-    <string name="double_scrolling_gap" maxLength="41">Sneller scrollen</string>
-    <string name="double_scrolling_gap_summ">Verdubbel de scroll-afstand voor eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Veeggevoeligheid</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Media downloaden</string>
@@ -104,8 +83,6 @@
     <string name="sync_status_badge_summ">Verander het synchronisatie-icoon wanneer wijzigingen kunnen worden geüpload</string>
     <string name="metered_sync_title" maxLength="41">Synchroniseren bij verbinding met datalimieten toestaan</string>
     <string name="metered_sync_summary">Als deze optie is uitgeschakeld, wordt u gewaarschuwd als u probeert te synchroniseren via een verbinding met een datalimiet</string>
-    <string name="backup_limits_frequency">Frequentie</string>
-    <string name="backup_limits_lifetime">Levenslang</string>
     <string name="language" maxLength="41">Taal</string>
     <string name="language_system">Systeemtaal</string>
     <string name="notification_pref" maxLength="41">Meldingen</string>
@@ -117,91 +94,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">Licht knipperen</string>
     <string name="software_render" maxLength="41">Hardware render kaart uitschakelen</string>
     <string name="software_render_summ">Hardware render is sneller maar kan problemen hebben, met name op Android 8/8.1. Als u delen van de gebruikersinterface voor de beoordeling van de kaart niet kunt zien, probeer dan deze instelling.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Dubbele aanraking tijdsinterval</string>
     <string name="pref_double_tap_time_interval_summary">Een tweede aanraking op de antwoordknoppen wordt genegeerd als deze tijd nog niet voorbij is gegaan. Dit voorkomt dubbele aanrakingen.</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">Toon antwoord lange indruktijd</string>
-    <string name="pref_show_answer_long_press_time_summary">Minimale druktijd voordat de knop voor het tonen van een antwoord een aanraking registreert.</string>
-    <string name="show_large_answer_buttons" maxLength="41">Laat grote antwoordknoppen zien</string>
-    <string name="show_large_answer_buttons_summ">Toon antwoordknop in 2 rijen</string>
-    <string name="use_current" maxLength="41">Set voor nieuwe kaarten</string>
     <string name="learn_cutoff" maxLength="41">Max vooruit leren</string>
     <string name="time_limit" maxLength="41">Stel een tijdslimiet in</string>
     <string name="day_offset_with_description" maxLength="41">Begin van de volgende dag (0 is middernacht, 23 is 11PM)</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d Uur na middernacht</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d Uren na middernacht</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">Scherm aanlaten</string>
     <string name="pref_keep_screen_on_summ">Schermtimeout uitschakelen</string>
-    <string name="enable_api_title" maxLength="41">AnkiDroid API inschakelen</string>
-    <string name="enable_api_summary">Laat andere apps verbinding maken met AnkiDroid en gegevens zonder uw tussenkomst lezen/schrijven</string>
     <string name="custom_buttons_setting_always_show">Altijd tonen</string>
     <string name="custom_buttons_setting_menu_only">Alleen menu</string>
-    <string name="reset_custom_buttons" maxLength="41">Standaardinstellingen herstellen</string>
     <string name="reset">Resetten</string>
-    <string name="thirdparty_apps_title" maxLength="41">API-apps van derden</string>
-    <string name="thirdparty_apps_summary">Raadpleeg de lijst van applicaties die gebruik maken van de AnkiDroid API zoals woordenboeken, hulpprogramma\'s.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Beoordelingen</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Voorbeelden</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Alleen achterzijde in-/uitschakelen</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Toegankelijkheid</string>
     <string name="exit_via_double_tap_back" maxLength="41">Druk twee keer op terug om terug te gaan</string>
     <string name="exit_via_double_tap_back_summ">Om te voorkomen dat je per ongeluk het studiescherm of de app verlaat</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">Alle bestanden bij media-import toestaan</string>
-    <string name="media_import_allow_all_files_summ">Als Android een mediabestand niet herkent</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Aangepaste synchronisatie-server</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">Niet gebruikt</string>
-    <string name="custom_sync_server_help2"><![CDATA[        Als alternatief voor synchronisatie met AnkiWeb,
-        U kunt uw eigen server gebruiken voor synchronisatie.
-        Als dit niet is ingesteld, wordt in plaats daarvan de standaard AnkiWeb-server gebruikt.
-        <a href="%s">Meer informatie</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">Aangepast root-certificaat (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">Toetsenbord</string>
-    <string name="bluetooth">Bluetooth</string>
     <string name="answer_buttons" maxLength="41">Antwoordknoppen</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">Kaart</string>
     <string name="note" maxLength="41">Notitie</string>
-    <string name="navigation" maxLength="41">Navigatie</string>
     <string name="media" maxLength="41">Media</string>
-    <string name="misc" maxLength="41">Diversen</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Herinnering toevoegen</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Overhoringsherinnering toevoegen</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Overhoringsherinnering bewerken</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">U heeft geen overhoringsherinneringen</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Selecteer Tags</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">Nieuwe lijnen vervangen door HTML</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Focus op ‘type in antwoord’</string>
     <string name="type_in_answer_focus_summ">Automatisch focussen op het \'type in antwoord\'-veld in het studiescherm</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">Over</string>
-    <string name="contributors_title">Bijdragers</string>
-    <string name="about_contributors_description"><![CDATA[Dit zijn onze geweldige <a href=\"%1$s\">medewerkers</a>. U kunt AnkiDroid ook helpen door te programmeren, te vertalen, te doneren en <a href=\"%2$s\">meer</a>!]]></string>
-    <string name="license">Licentie</string>
-    <string name="license_description"><![CDATA[AnkiDroid is vrijgegeven onder de <a href=\"%1$s\">GPL-3.0</a> en <a href=\"%2$s\">AGPL-3.0</a> licenties, met de broncode beschikbaar <a href=\"%3$s\">op GitHub</a>]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid gebruikt ook bibliotheken en pictogrammen van derden, die zijn gelicentieerd onder verschillende open-source <a href=\"%1$s\">licenties</a>]]></string>
-    <string name="donate_description"><![CDATA[U kunt de ontwikkeling van AnkiDroid steunen door te <a href="%1$s">doneren</a>. Elk bedrag wordt zeer op prijs gesteld.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">Gebaar toevoegen</string>
-    <string name="binding_add_key">Sleutel toevoegen</string>
     <string name="key_picker_default_press_key">Druk op een toets</string>
-    <string name="binding_add_axis">Joystick/bewegingscontroller toevoegen</string>
     <string name="axis_picker_move_joystick">Joystick/bewegingscontroller bewegen</string>
-    <string name="user_actions" maxLength="41">Gebruikersacties</string>
-    <string name="user_actions_summary" maxLength="41">Activeer JavaScript on het studiescherm</string>
     <string name="user_action_1" maxLength="28">Gebruikersactie 1</string>
     <string name="user_action_2" maxLength="28">Gebruikersactie 2</string>
     <string name="user_action_3" maxLength="28">Gebruikersactie 3</string>
@@ -222,8 +153,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">V: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">A: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">Verwijder ‘%s’</string>
-    <string name="bindings_already_bound">Reeds gekoppeld aan %s</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Experimenteel</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Upgrade naar de nieuwe tekst-naar-spraak-indeling</string>
@@ -233,15 +162,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[        AnkiDroid maakt periodiek een back-up van uw verzameling.
-        Nadat back-ups meer dan twee dagen oud zijn,
-        zal AnkiDroid beginnen met het verwijderen van een aantal van hen om schijfruimte vrij te maken.
-        <br><br>
-        Houd er rekening mee dat er geen back-up van mediabestanden wordt gemaakt.
-        Synchroniseer voor de zekerheid regelmatig uw collectie of maak een back-up van de export ervan.
-        <br><br>
-        U kunt uw verzameling herstellen vanaf een back-up en exporteren in het menu met de setlijst.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">Minuten tussen automatische backups</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">Dagelijkse back-ups om te bewaren</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">Wekelijkse back-ups om te bewaren</string>
@@ -258,19 +178,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Geen collectie</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Foutmelding</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Ophalen&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Collectie bestaat niet</string>
-    <string name="show_answer_buttons" maxLength="41">Toon antwoordknoppen</string>
     <string name="hide_hard_and_easy" maxLength="41">Koppen \'Moeilijk\' &amp; \'Makkelijk\' verbergen</string>
-    <string name="toolbar" maxLength="41">Werkbalk</string>
-    <string name="new_study_screen" maxLength="41">Nieuw studiescherm</string>
-    <string name="screen" maxLength="41">Scherm</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Only answer</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Flip and answer</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Instellingen openen</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Related settings</string>
 </resources>

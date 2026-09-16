@@ -25,47 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">Inaktiverad</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d min</item>
-        <item quantity="other">%d min</item>
-    </plurals>
     <string name="pref_milliseconds">%s ms</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">Inga resultat</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">Allmänt</string>
-    <string name="pref_cat_studying" maxLength="41">Studerande</string>
-    <string name="pref_cat_system_wide" maxLength="41">Systemövergripande</string>
     <string name="pref_cat_reviewing" maxLength="41">Repetition</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Synkronisering</string>
     <string name="pref_cat_scheduling" maxLength="41">Schemaläggning</string>
     <string name="pref_cat_gestures" maxLength="41">Gester</string>
-    <string name="pref_cat_controls" maxLength="41">Kontroller</string>
     <string name="pref_cat_advanced" maxLength="41">Avancerat</string>
     <string name="pref_cat_workarounds" maxLength="41">Specialfunktioner</string>
-    <string name="pref_cat_plugins" maxLength="41">Plugins</string>
     <string name="pref_cat_editing" maxLength="41">Editing</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">Skriv svar i kortet</string>
     <string name="use_input_tag_summ">Använd en textinmatningsruta i kortet för att skriva in svaret</string>
-    <string name="reset_languages" maxLength="41">Nollställ språk</string>
-    <string name="reset_languages_summ">Återställ språk inställningar (för text till tal och orböcker) för alla kortlekar</string>
-    <string name="reset_languages_question">Återställ alla språktilldelningar?</string>
-    <string name="reset_confirmation">Alla lägen nollställda</string>
     <string name="card_zoom" maxLength="41">Kort-zoom</string>
     <string name="image_zoom" maxLength="41">Bild-zoom</string>
-    <string name="button_size" maxLength="41">Storlek på svarsknapp</string>
-    <string name="card_browser_font_size" maxLength="41">Typsnittsstorlek i kortbläddrare</string>
-    <string name="col_path" maxLength="41">AnkiDroid sökväg</string>
     <string name="gestures" maxLength="41">Aktivera gester</string>
     <string name="gestures_summ">Koppla gester till handlingar, som t ex att svara på eller redigera kort.</string>
     <string name="gestures_corner_touch" maxLength="41">9-punkters pekning</string>
@@ -89,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">Three-finger tap</string>
     <string name="gestures_four_finger_tap" maxLength="41">Four-finger tap</string>
     <string name="gestures_shake" maxLength="41">Skaka enhet</string>
-    <string name="double_scrolling_gap" maxLength="41">Dubbelrullning</string>
-    <string name="double_scrolling_gap_summ">Aktivera detta om du vill dubbla scroll gap med eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Svepkänslighet</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Hämta media vid synkronisering</string>
@@ -104,8 +83,6 @@
     <string name="sync_status_badge_summ">Ändra synkroniseringsikon när ändringar kan laddas upp</string>
     <string name="metered_sync_title" maxLength="41">Tillåt synk på anslutningar med datagräns</string>
     <string name="metered_sync_summary">Om inaktiverad kommer du bli varnad om du försöker synkronisera på en anslutning med datagräns</string>
-    <string name="backup_limits_frequency">Frekvens</string>
-    <string name="backup_limits_lifetime">Livslängd</string>
     <string name="language" maxLength="41">Språk</string>
     <string name="language_system">Systemspråk</string>
     <string name="notification_pref" maxLength="41">Meddelanden</string>
@@ -117,92 +94,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">Blinka</string>
     <string name="software_render" maxLength="41">Inaktivera kort hårdvarurendering</string>
     <string name="software_render_summ">Hårdvarurendering är snabbare men kan få problem, särskilt på Android 8/8.1. Om du inte kan se delar av kortgranskningsgränssnittet, prova den här inställningen.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Dubbeltryck tidsintervall</string>
     <string name="pref_double_tap_time_interval_summary">En andra knapptryckning av svarsknappar kommer att ignoreras om den här tiden inte har förflutit. Detta förhindrar oavsiktliga dubbeltryck</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">Visa svar lång trycktid</string>
-    <string name="pref_show_answer_long_press_time_summary">Minimum trycktid före svarsknappen registrerar en knapptryckning</string>
-    <string name="show_large_answer_buttons" maxLength="41">Visa stora svarsknappar</string>
-    <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="use_current" maxLength="41">Kortlek för nya kort</string>
     <string name="learn_cutoff" maxLength="41">Gräns för att lära i förväg</string>
     <string name="time_limit" maxLength="41">Tidsgräns</string>
     <string name="day_offset_with_description" maxLength="41">Början av nästa dag</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d hour past midnight</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d hours past midnight</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">Håll skärm på</string>
     <string name="pref_keep_screen_on_summ">Inaktivera skärmtimeout</string>
-    <string name="enable_api_title" maxLength="41">Aktivera AnkiDroid API</string>
-    <string name="enable_api_summary">Låt andra appar ansluta till AnkiDroid och läsa / skriva data utan din medverkan</string>
     <string name="custom_buttons_setting_always_show">Visa alltid</string>
     <string name="custom_buttons_setting_menu_only">Endast meny</string>
-    <string name="reset_custom_buttons" maxLength="41">Nollställ</string>
     <string name="reset">Nollställ</string>
-    <string name="thirdparty_apps_title" maxLength="41">Tredjeparts API-appar</string>
-    <string name="thirdparty_apps_summary">Se en lista över alla applikationer som använder AnkiDroids API, exempelvis ordböcker och händiga verktyg.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Recensioner</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Previews</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Tillgänglighet</string>
     <string name="exit_via_double_tap_back" maxLength="41">Tryck bakåt 2 ggr för att gå bakåt/sluta</string>
     <string name="exit_via_double_tap_back_summ">To avoid accidentally leaving the study screen or the app</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">Tillåt alla filer i medieimport</string>
-    <string name="media_import_allow_all_files_summ">Om Android inte känner igen en mediafil</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Annan synkroniseringsserver</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">Ej använd</string>
-    <string name="custom_sync_server_help2"><![CDATA[
-        Som ett alternativ till synkronisering med AnkiWeb,
-        kan du använda din egen server för synkronisering.
-        Om den inte är angiven kommer standardservern, AnkiWeb, att användas istället.
-        <a href="%s">Lär dig mer</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">Custom root certificate (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">Tangentbord</string>
-    <string name="bluetooth">Bluetooth</string>
     <string name="answer_buttons" maxLength="41">Svarsknappar</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">Kort</string>
     <string name="note" maxLength="41">Not</string>
-    <string name="navigation" maxLength="41">Navigering</string>
     <string name="media" maxLength="41">Media</string>
-    <string name="misc" maxLength="41">Övrigt</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Lägg till påminnelse</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Add review reminder</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Edit review reminder</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">You have no review reminders</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Välj etiketter</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">Ersätt radbrytningar med HTML</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Fokusera på ‘skriv in svar’</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">Om appen</string>
-    <string name="contributors_title">Bidragsgivare</string>
-    <string name="about_contributors_description"><![CDATA[Dessa är våra fantastiska <a href=\"%1$s\">bidragsgivare</a>. Du kan också hjälpa AnkiDroid genom att utveckla, översätta, donera och <a href=\"%2$s\">mer</a>!]]></string>
-    <string name="license">Programvarulicens</string>
-    <string name="license_description"><![CDATA[AnkiDroid släpps under licenserna <a href=\"%1$s\">GPL-3.0</a> och <a href=\"%2$s\">AGPL-3.0</a>, med källkoden tillgänglig <a href=\"%3$s\">på GitHub</a>]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid also uses third-party libraries and icons, which are licensed under various open source <a href=\"%1$s\">licenses</a>]]></string>
-    <string name="donate_description"><![CDATA[Du kan stödja AnkiDroids utveckling genom att <a href=\"%1$s\">donera</a>. Alla donationer uppskattas enormt!]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">Lägg till gest</string>
-    <string name="binding_add_key">Lägg till knapp</string>
     <string name="key_picker_default_press_key">Tryck på en knapp</string>
-    <string name="binding_add_axis">Lägg till joystick/rörelsekänslig handkontroll</string>
     <string name="axis_picker_move_joystick">Manövrera en joystick/rörelsekänslig handkontroll</string>
-    <string name="user_actions" maxLength="41">Användaråtgärder</string>
-    <string name="user_actions_summary" maxLength="41">Trigger JavaScript from the study screen</string>
     <string name="user_action_1" maxLength="28">Användaråtgärd 1</string>
     <string name="user_action_2" maxLength="28">Användaråtgärd 2</string>
     <string name="user_action_3" maxLength="28">Användaråtgärd 3</string>
@@ -223,8 +153,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">F: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">S: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">Ta bort ‘%s’</string>
-    <string name="bindings_already_bound">Redan bunden till %s</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Experimentellt</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Vänligen uppgradera till det nya text-till-tal-formatet</string>
@@ -234,16 +162,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[
-        AnkiDroid säkerhetskopierar regelbundet din samling.
-        När säkerhetskopior är mer än två dagar gamla,
-        kommer AnkiDroid att börja ta bort några av dem för att frigöra lagringsutrymme.
-        <br><br>
-        Observera att mediefiler inte säkerhetskopieras.
-        För att vara säker, vänligen synkronisera din samling regelbundet eller säkerhetskopiera en export av den.
-        <br><br>
-        Du kan återställa från en säkerhetskopia och exportera din samling i kortlekslista-menyn.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">Minuter mellan automatiska säkerhetskopieringar</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">Säkerhetskopior att behålla dagligen</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">Säkerhetskopior att behålla veckovis</string>
@@ -260,19 +178,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Ingen samling</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Fel</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Hämtar&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Samlingen finns inte</string>
-    <string name="show_answer_buttons" maxLength="41">Show answer buttons</string>
     <string name="hide_hard_and_easy" maxLength="41">Hide ‘Hard’ and ‘Easy’ buttons</string>
-    <string name="toolbar" maxLength="41">Verktygsfält</string>
-    <string name="new_study_screen" maxLength="41">New study screen</string>
-    <string name="screen" maxLength="41">Screen</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Only answer</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Flip and answer</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Öppna inställningar</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Related settings</string>
 </resources>

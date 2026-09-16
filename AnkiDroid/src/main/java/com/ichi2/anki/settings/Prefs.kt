@@ -224,7 +224,7 @@ open class PrefsRepository(
     var exitViaDoubleTapBack by booleanPref(R.string.exit_via_double_tap_back_key, false)
 
     /** An IETF language tag, or [com.ichi2.utils.LanguageUtil.SYSTEM_LANGUAGE_TAG]. */
-    var language by stringPref(R.string.pref_language_key)
+    var language by stringPref(R.string.pref_language_key, defaultValue = "")
 
     // ************************************** Notifications ************************************* //
 

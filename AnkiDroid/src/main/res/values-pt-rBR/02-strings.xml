@@ -43,7 +43,6 @@
     <string name="custom_study_loading_tags">Criando lista de tags&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
-    <string name="cardeditor_title_edit_card" maxLength="28">Editar nota</string>
     <string name="discard">Descartar</string>
     <string name="save" maxLength="28">Salvar</string>
     <string name="close">Fechar</string>
@@ -56,7 +55,6 @@
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Renomear</string>
     <string name="unknown_type_field_warning">Digite a resposta: campo desconhecido %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Excluindo baralho&#8230;</string>
-    <string name="info_rate">Avalie o AnkiDroid</string>
     <string name="import_title">Importando</string>
     <string name="import_preparing_file">Preparando arquivo para importação&#8230;</string>
     <string name="import_message_add" comment="Adding a new deck to the collection (import)">Adicionar</string>
@@ -124,13 +122,7 @@
     <string name="note_editor_audio_too_large">O arquivo de áudio é muito grande, por favor insira o áudio manualmente</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Backup do Android em progresso. Por favor, tente novamente</string>
     <!-- Dialog hints -->
-    <string name="dialog_hint_url">URL</string>
-    <string name="dialog_hint_certificate">Certificado</string>
     <!-- IncrementNumberRangePreference -->
-    <string name="plus_sign" comment="Label for increment button in IncrementerNumberRangePreference">+</string>
-    <string name="minus_sign" comment="Label for decrement button in IncrementerNumberRangePreference">-</string>
-    <string name="invalid_value" comment="Error message in IncrementerNumberRangePreference when input is not a valid number">Valor inválido</string>
-    <string name="maximum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the maximum allowed value">O valor máximo é %d</string>
     <string name="minimum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the minimum allowed value">O valor mínimo é %d</string>
     <!-- Used for credential empty warning message -->
     <string name="invalid_email">Insira um e-mail válido</string>
@@ -166,7 +158,6 @@
     <string name="format_deck_description_as_markdown">Format as Markdown</string>
     <string name="help_button_content_description">Abrir ajuda para ‘%s’</string>
     <string name="failed_to_copy">Falha ao copiar</string>
-    <string name="previewer_next" comment="Name of the next button in the previewer" maxLength="28">Próximo</string>
     <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">Anterior</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->

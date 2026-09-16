@@ -43,7 +43,6 @@
     <string name="custom_study_loading_tags">Building list of tags&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
-    <string name="cardeditor_title_edit_card" maxLength="28">નોંધ સંપાદિત કરો</string>
     <string name="discard">રદ્દ કરો</string>
     <string name="save" maxLength="28">સેવ કરો</string>
     <string name="close">બંધ</string>
@@ -56,7 +55,6 @@
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">નામ બદલો</string>
     <string name="unknown_type_field_warning">જવાબ લખો: અજ્ઞાત ફીલ્ડ %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">ડેક કાઢી રહ્યું છે&#8230;</string>
-    <string name="info_rate">AnkiDroid ને રેટ કરો</string>
     <string name="import_title">આયાત કરી રહ્યું છે</string>
     <string name="import_preparing_file">આયાત માટે ફાઇલ તૈયાર કરી રહ્યાં છીએ&#8230;</string>
     <string name="import_message_add" comment="Adding a new deck to the collection (import)">ઉમેરો</string>
@@ -124,13 +122,7 @@
     <string name="note_editor_audio_too_large">ઓડિયો ફાઇલ ખૂબ મોટી છે, મહેરબાની કરીને ઓડિયો ફાઇલ જાતે ઉમેરો</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">એન્ડ્રોઈડ બેકઅપ પ્રક્રિયામાં છે. મહેરબાની કરીને પછી પ્રયત્ન કરો</string>
     <!-- Dialog hints -->
-    <string name="dialog_hint_url">URL</string>
-    <string name="dialog_hint_certificate">Certificate</string>
     <!-- IncrementNumberRangePreference -->
-    <string name="plus_sign" comment="Label for increment button in IncrementerNumberRangePreference">+</string>
-    <string name="minus_sign" comment="Label for decrement button in IncrementerNumberRangePreference">-</string>
-    <string name="invalid_value" comment="Error message in IncrementerNumberRangePreference when input is not a valid number">Invalid value</string>
-    <string name="maximum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the maximum allowed value">Maximum value is %d</string>
     <string name="minimum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the minimum allowed value">Minimum value is %d</string>
     <!-- Used for credential empty warning message -->
     <string name="invalid_email">માન્ય ઇમેઇલ દાખલ કરો</string>
@@ -166,7 +158,6 @@
     <string name="format_deck_description_as_markdown">Format as Markdown</string>
     <string name="help_button_content_description">Open help for ‘%s’</string>
     <string name="failed_to_copy">કૉપિ કરવામાં નિષ્ફળ</string>
-    <string name="previewer_next" comment="Name of the next button in the previewer" maxLength="28">Next</string>
     <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">Back</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->

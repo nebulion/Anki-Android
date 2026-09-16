@@ -22,26 +22,9 @@
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
     <!-- add_to_cur_labels -->
-    <string name="add_to_deck_use_current_deck">Використовувати поточну колоду</string>
-    <string name="add_to_deck_decide_by_note_type">Вирішувати за типом записів</string>
     <!-- theme labels -->
     <!-- day_theme_labels -->
     <!-- night_theme_labels -->
     <!-- html_size_code_labels -->
     <!-- gestures_labels -->
-    <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Відповідь: легко</string>
-    <string name="gesture_abort_learning" maxLength="41">Закрити екран навчання</string>
-    <string name="gesture_flag_red" maxLength="41">Переключити червоний прапорець</string>
-    <string name="gesture_flag_orange" maxLength="41">Переключити помаранчевий прапорець</string>
-    <string name="gesture_flag_green" maxLength="41">Переключити зелений прапорець</string>
-    <string name="gesture_flag_blue" maxLength="41">Переключити синій прапорець</string>
-    <string name="gesture_flag_pink" maxLength="41">Переключити рожевий прапорець</string>
-    <string name="gesture_flag_turquoise" maxLength="41">Переключити бірюзовий прапорець</string>
-    <string name="gesture_flag_purple" maxLength="41">Переключити фіолетовий прапорець</string>
-    <string name="gesture_flag_remove" maxLength="41">Прибрати прапорець</string>
-    <string name="gesture_page_up" maxLength="41">Попередня сторінка</string>
-    <string name="gesture_page_down" maxLength="41">Наступна сторінка</string>
-    <string name="gesture_toggle_whiteboard" maxLength="41">Дошка</string>
-    <string name="gesture_show_hint" maxLength="41">Показати підказку</string>
-    <string name="gesture_show_all_hints" maxLength="41">Показати всі підказки</string>
 </resources>

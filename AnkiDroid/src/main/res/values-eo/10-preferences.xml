@@ -25,47 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">Malaktiva</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d min</item>
-        <item quantity="other">%d min</item>
-    </plurals>
     <string name="pref_milliseconds">%s ms</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">neniu rezulto</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">Ĝenerala</string>
-    <string name="pref_cat_studying" maxLength="41">Lernado</string>
-    <string name="pref_cat_system_wide" maxLength="41">Operaciumo</string>
     <string name="pref_cat_reviewing" maxLength="41">Ripetado</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Samtempigo</string>
     <string name="pref_cat_scheduling" maxLength="41">Planado</string>
     <string name="pref_cat_gestures" maxLength="41">Gestoj</string>
-    <string name="pref_cat_controls" maxLength="41">Stiriloj</string>
     <string name="pref_cat_advanced" maxLength="41">Altnivelaj</string>
     <string name="pref_cat_workarounds" maxLength="41">Provizoraĵoj</string>
-    <string name="pref_cat_plugins" maxLength="41">Kromaĵoj</string>
     <string name="pref_cat_editing" maxLength="41">Redaktado</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">Enigi respondon al karto</string>
     <string name="use_input_tag_summ">Uzi tekstan enigan kampon en la karto por enigi respondon</string>
-    <string name="reset_languages" maxLength="41">Restarigi lingvojn</string>
-    <string name="reset_languages_summ">Restarigi lingvajn alĝustigojn (por parolsinteziloj kaj vortaroj) por ĉiuj kartaroj</string>
-    <string name="reset_languages_question">Ĉu forviŝi ĉiujn lingvajn alĝustigojn?</string>
-    <string name="reset_confirmation">Restarigi ĉiujn alĝustigojn</string>
     <string name="card_zoom" maxLength="41">Grando de karto</string>
     <string name="image_zoom" maxLength="41">Grando de bildo</string>
-    <string name="button_size" maxLength="41">Grando de respondobutono</string>
-    <string name="card_browser_font_size" maxLength="41">Grando de tiparo de kart-foliumilo</string>
-    <string name="col_path" maxLength="41">Dosierujo de AnkiDroid</string>
     <string name="gestures" maxLength="41">Enŝalti gestojn</string>
     <string name="gestures_summ">Asigni gestojn al agoj, kiel respondi aŭ redakti karton.</string>
     <string name="gestures_corner_touch" maxLength="41">9-punkta frapeto</string>
@@ -89,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">Tri-fingra frapeto</string>
     <string name="gestures_four_finger_tap" maxLength="41">Kvar-fingra frapeto</string>
     <string name="gestures_shake" maxLength="41">Skui aparaton</string>
-    <string name="double_scrolling_gap" maxLength="41">Duobla rulumado</string>
-    <string name="double_scrolling_gap_summ">Duobligi distancon de rulumado kun elektronika legilo</string>
     <string name="swipe_sensitivity" maxLength="41">Ŝovuma sentemo</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Elŝuti aŭdvidaĵojn dum samtempigado</string>
@@ -104,8 +83,6 @@
     <string name="sync_status_badge_summ">Ŝanĝi la bildsimbolon de samtempigo kiam povas alŝuti ŝanĝojn</string>
     <string name="metered_sync_title" maxLength="41">Permesi samtempigon je tarifaj retkonektoj</string>
     <string name="metered_sync_summary">Se malaktiva, vi ricevos averton dum provi samtempigi uzante tarifan (pagendan) retkonekton</string>
-    <string name="backup_limits_frequency">Ofteco</string>
-    <string name="backup_limits_lifetime">Daŭro de konservado</string>
     <string name="language" maxLength="41">Lingvo</string>
     <string name="language_system">Laŭ operaciumo</string>
     <string name="notification_pref" maxLength="41">Sciigoj</string>
@@ -117,87 +94,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">Lumpulsi</string>
     <string name="software_render" maxLength="41">Malaktivigi aparataran bildigilon de kartoj</string>
     <string name="software_render_summ">Aparatara bildigilo estas pli rapida, sed povas kaŭzi problemojn, precipe ĉe Android 8/8.1. Se parto de fasado ĉe la ekrano “ripeti karton” ne aperas, provu aktivigi tiun ĉi agordon.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Ignori duan frapeton antaŭ ol</string>
     <string name="pref_double_tap_time_interval_summary">La dua frapeto al la respondobutono estos ignorita, se ĝi okazos antaŭ la agordita tempo Tio ĉi preventas de fari neatenditajn duoblaj frapetojn</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">Montri respondon post frapetadi</string>
-    <string name="pref_show_answer_long_press_time_summary">Minimuma tempo de frapetado post kiu la butono “Montri respondon” registras frapeton.</string>
-    <string name="show_large_answer_buttons" maxLength="41">Grandaj respondobutonoj</string>
-    <string name="show_large_answer_buttons_summ">Montri respondobutonojn en 2 vicoj</string>
-    <string name="use_current" maxLength="41">Kartaro por novaj kartoj</string>
     <string name="learn_cutoff" maxLength="41">Limigo de anticipa lernado</string>
     <string name="time_limit" maxLength="41">Limigo de lernada tempero (timebox)</string>
     <string name="day_offset_with_description" maxLength="41">Komenco de tago (0 estas la horo 00:00. 23 estas la horo 23:00)</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d horo post noktmezo</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d horoj post noktmezo</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">Teni ekranon ŝaltita</string>
     <string name="pref_keep_screen_on_summ">Ne malŝalti ekranon</string>
-    <string name="enable_api_title" maxLength="41">Aktivigi AnkiDroid-API</string>
-    <string name="enable_api_summary">Ebligi al aliaj aplikaĵoj konekti al AnkiDroid kaj legi/skribi datumojn sen via ago</string>
     <string name="custom_buttons_setting_always_show">Ĉiam montri</string>
     <string name="custom_buttons_setting_menu_only">Nur en menuo</string>
-    <string name="reset_custom_buttons" maxLength="41">Restarigi normojn</string>
     <string name="reset">Restarigi</string>
-    <string name="thirdparty_apps_title" maxLength="41">Eksteraj aplikaĵoj uzantaj API</string>
-    <string name="thirdparty_apps_summary">Vidigi listojn de aplikaĵoj, kiuj uzas AnkiDroid API kiel vortaroj kaj iloj.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Ripetado</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Antaŭrigardo</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Baskuligi montradon de nur dorso</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Alirebleco</string>
     <string name="exit_via_double_tap_back" maxLength="41">Duoble premi por reiri/eliri</string>
     <string name="exit_via_double_tap_back_summ">Por eviti pretervolan fermon de la lernada ekrano aŭ la aplikaĵo</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">Ĉiuj dosieroj dum enporti aŭdvidaĵojn</string>
-    <string name="media_import_allow_all_files_summ">Se Android ne povas rekoni dosierojn de aŭdvidaĵojn</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Propra servilo de samtempigo</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">Ne uzata</string>
-    <string name="custom_sync_server_help2"><![CDATA[Alternative al samtempigi kun AnkiWeb, vi povas uzi vian propran samtempigan servilon. Se nenio estas agordita, la implicita servilo de AnkiWeb estos uzata.<a href="%s">Pliaj informoj</a>]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">Propra radika atestilo (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">Klavaro</string>
-    <string name="bluetooth">Bludento</string>
     <string name="answer_buttons" maxLength="41">Respondobutonoj</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">Karto</string>
     <string name="note" maxLength="41">Noto</string>
-    <string name="navigation" maxLength="41">Navigi</string>
     <string name="media" maxLength="41">Aŭdvidaĵo</string>
-    <string name="misc" maxLength="41">Aliaj</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Aldoni memorigon</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Aldoni memorigon pri ripetado</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Redakti memorigon pri ripetado</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">Vi havas neniun memorigon pri ripetado</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Elekti etikedojn</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">Anstataŭigi novajn liniojn en HTML</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Marki kampon “enigi respondon”</string>
     <string name="type_in_answer_focus_summ">Aŭtomate marki la kampon “enigi respondon” sur la lernada ekrano</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">Pri</string>
-    <string name="contributors_title">Kontribuantoj</string>
-    <string name="about_contributors_description"><![CDATA[Jen listo de niaj karaj <a href=\"%1$s\">kontribuantoj</a>. Vi ankaŭ povas helpi al AnkiDroid per programi, traduki, donaci <a href=\"%2$s\">kaj pli</a>!]]></string>
-    <string name="license">Permesilo</string>
-    <string name="license_description"><![CDATA[AnkiDroid estas eldonita laŭ la permesiloj <a href=\"%1$s\">GPL-3.0</a> kaj <a href=\"%2$s\">AGPL-3.0</a>, ĝia fontkodo estas disponebla en <a href=\"%3$s\">GitHub</a>.]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid uzas bibliotekojn kaj bildsimbolojn de eksteraj liverantoj, kiuj estas eldonitaj laŭ diversaj malfermkodaj <a href=\"%1$s\">permesiloj</a>.]]></string>
-    <string name="donate_description"><![CDATA[Vi povas subteni evoluigon de AnkiDroid per <a href=\"%1$s\">donaci monon</a>. Ĉiu monsumo estas dankinda.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">Aldoni geston</string>
-    <string name="binding_add_key">Aldoni klavon</string>
     <string name="key_picker_default_press_key">Premu klavon</string>
-    <string name="binding_add_axis">Asigni ludstirilon</string>
     <string name="axis_picker_move_joystick">Movu per ludstirilo</string>
-    <string name="user_actions" maxLength="41">Agoj de uzanto</string>
-    <string name="user_actions_summary" maxLength="41">Plenumi JavaScript sur la lernada ekrano</string>
     <string name="user_action_1" maxLength="28">Ago de uzanto #1</string>
     <string name="user_action_2" maxLength="28">Ago de uzanto #2</string>
     <string name="user_action_3" maxLength="28">Ago de uzanto #3</string>
@@ -218,8 +153,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">D: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">R: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">Forigi: “%s”</string>
-    <string name="bindings_already_bound">Jam asignita al %s</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Eksperimenta</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Ĝisdatigu al pli nova formo de parolsintezo</string>
@@ -229,11 +162,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[AnkiDroid periode sekurkopias vian kolekton. Sekurkopioj pli malnovaj ol du tagoj estas forigataj por konservi spacon.
-<br><br>
-Rimarko: aŭdvidaĵoj ne estas sekurkopiataj. Por esti sekura, regule samtempigu vian kolekton aŭ sekurkopiu elportaĵojn de la kolekto.
-<br><br>
-Vi povas restarigi el sekurkopio aŭ elporti vian kolekton per la menuo de listo de kartaroj.]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">Minutoj inter aŭtomataj sekurkopioj</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">Limigo de ĉiutagaj sekurkopioj</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">Limigo de ĉiusemajnaj sekurkopioj</string>
@@ -250,19 +178,8 @@ Vi povas restarigi el sekurkopio aŭ elporti vian kolekton per la menuo de listo
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Neniu kolekto</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Eraro</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Enlegado&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Kolekto ne ekzistas</string>
-    <string name="show_answer_buttons" maxLength="41">Montri respondobutonojn</string>
     <string name="hide_hard_and_easy" maxLength="41">Kaŝi butonojn “Malfacila” kaj “Facila”</string>
-    <string name="toolbar" maxLength="41">Ilarstrio</string>
-    <string name="new_study_screen" maxLength="41">Nova lernada ekrano</string>
-    <string name="screen" maxLength="41">Ekrano</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Nur respondi</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Inversigi kaj respondi</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Malfermi agordojn</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Related settings</string>
 </resources>

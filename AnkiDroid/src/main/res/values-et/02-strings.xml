@@ -43,7 +43,6 @@
     <string name="custom_study_loading_tags">Siltide nimekirja loomine&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
-    <string name="cardeditor_title_edit_card" maxLength="28">Muuda märkust</string>
     <string name="discard">Discard</string>
     <string name="save" maxLength="28">Salvesta</string>
     <string name="close">Sulge</string>
@@ -56,7 +55,6 @@
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Nimeta ümber</string>
     <string name="unknown_type_field_warning">Type answer: unknown field %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Kustutan kaardipakki&#8230;</string>
-    <string name="info_rate">Hinda AnkiDroidi</string>
     <string name="import_title">Importimine</string>
     <string name="import_preparing_file">Faili ettevalmistamine importimiseks&#8230;</string>
     <string name="import_message_add" comment="Adding a new deck to the collection (import)">Lisa</string>
@@ -124,13 +122,7 @@
     <string name="note_editor_audio_too_large">The audio file is too large, please insert the audio manually</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android backup in progress. Please try again</string>
     <!-- Dialog hints -->
-    <string name="dialog_hint_url">URL</string>
-    <string name="dialog_hint_certificate">Certificate</string>
     <!-- IncrementNumberRangePreference -->
-    <string name="plus_sign" comment="Label for increment button in IncrementerNumberRangePreference">+</string>
-    <string name="minus_sign" comment="Label for decrement button in IncrementerNumberRangePreference">-</string>
-    <string name="invalid_value" comment="Error message in IncrementerNumberRangePreference when input is not a valid number">Vigane väärtus</string>
-    <string name="maximum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the maximum allowed value">Maksimaalne väärtus on %d</string>
     <string name="minimum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the minimum allowed value">Minimaalne väärtus on %d</string>
     <!-- Used for credential empty warning message -->
     <string name="invalid_email">Sisestage kehtiv e-posti aadress</string>
@@ -166,7 +158,6 @@
     <string name="format_deck_description_as_markdown">Format as Markdown</string>
     <string name="help_button_content_description">Open help for ‘%s’</string>
     <string name="failed_to_copy">Kopeerimine ebaõnnestus</string>
-    <string name="previewer_next" comment="Name of the next button in the previewer" maxLength="28">Järgmine</string>
     <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">Tagasi</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->

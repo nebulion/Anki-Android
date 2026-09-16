@@ -217,7 +217,7 @@ review reminders per deck, deck search, drag-and-drop import.
 Order: deck page → home → More → deletions and tests → CI → device check (cold start, expand/collapse,
 deck page → rename → delete round trip on a throwaway deck, sync badge).
 
-## Phase 4 — Backend web pages (in progress)
+## Phase 4 — Backend web pages (done; device check pending)
 
 | Step | State |
 | --- | --- |
@@ -229,6 +229,20 @@ deck page → rename → delete round trip on a throwaway deck, sync badge).
 
 **Device check (pending):** deck options (edit and save a limit), statistics for one deck and for the
 whole collection, card info from the reviewer, `.apkg` import.
+
+## Phase 5 — Settings, account, reminders (done; device check pending)
+
+| Step | State |
+| --- | --- |
+| 1. Audit every key | Done: `docs/mmd/settings-audit.md`, 127 keys, 51 kept. Key bindings dropped (owner, 2026-09-15: no physical keyboard); their stored values stay, since tap zones and swipes read them |
+| 2. Settings root | Done: `SettingsPageFragment` (one class, the page is an argument, so sub-pages are back-stack pushes that survive recreation). The More page is folded in and the home header shows a gear. Four groups the owner chose (study, collection, account, app), styled after the phone's own Settings: leading icons, no text headings, a solid rule between groups, version at the foot |
+| 3. Section pages | Done: Reviewing, Study screen, Gestures, Accessibility, E Ink, Maintenance, Backups, Sync, Custom sync server, Notifications, General, Advanced, over the existing `Prefs` keys and the collection's own config. Numbers are typed into `NumberPanel` (validated), text into `TextPanel`, choices use `ChoiceSheet`. Values sit on a second line under a bold title, as in the phone's Settings |
+| 4. AnkiWeb account | Done: `LoginScreenMMD`/`LoggedInScreenMMD` in the existing `AccountActivity`; `LoginViewModel` unchanged. Sign-up, reset-password and lost-email links deleted (no browser). Log out confirms in a bottom panel |
+| 5. Review reminders | **Not built** (owner's call, 2026-09-16): the upstream per-deck timed reminders are unfinished (hard-coded English, off by default, no way to turn them on here). The working due-cards notification is on the Notifications page. The unfinished screens are deleted; their storage and alarm code stay behind the off flag |
+| 6. Delete the old settings | Done: `PreferencesActivity` and its 17 fragments, the `com.ichi2.preferences` widgets, `BackupLimitsPresenter`, every `preferences_*.xml`, the SearchPreference library, `PreferencesDestination`, and 267 resources only they used. `setDayOffset` moved to `settings/DayOffset.kt`, `PENDING_NOTIFICATIONS_ONLY` to `SettingsPages.kt`. `PrefsRobolectricTest` went with the XMLs it compared against |
+
+**Device check (pending):** toggle a few settings and confirm the effect in the study screen; the
+E Ink flash interval; log in with a **throwaway** AnkiWeb account only.
 
 ## Pre-existing issues (not caused by the fork)
 

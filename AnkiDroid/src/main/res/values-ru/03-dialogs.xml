@@ -70,9 +70,7 @@
     <string name="dialog_positive_overwrite">Перезаписать</string>
     <string name="dialog_positive_repair">Исправить</string>
     <string name="dialog_positive_replace">Заменить</string>
-    <string name="dialog_collection_path_not_dir">Указанный путь не является допустимой папкой</string>
     <string name="dialog_invalid_custom_certificate">Предоставленный текст не преобразуется в допустимый X509 сертификат PEM</string>
-    <string name="dialog_invalid_custom_certificate_title">Ошибка при обработке сертификата</string>
     <string name="dialog_updated_custom_certificate">Сертификат обновлён</string>
     <!-- Media checking -->
     <string name="check_media_warning">Это может занять много времени с большими коллекциями медиа. Продолжить?</string>
@@ -120,7 +118,6 @@
     <string name="locale_selection_dialog_summary">Некоторые многоязычные клавиатуры, например GBoard, могут переключать язык при редактировании текста\n\nПожалуйста, запросите функцию «setImeHintLocales» у разработчика клавиатуры, если клавиатура не переключает язык.</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">Поддержка</string>
-    <string name="help_item_support_opencollective_donate">Пожертвовать</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">Автоматическая синхронизация может быть запущена через %d секунду</item>

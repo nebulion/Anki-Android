@@ -43,7 +43,6 @@
     <string name="custom_study_loading_tags">Пабудова спіса тэгаў&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
-    <string name="cardeditor_title_edit_card" maxLength="28">Рэдагаваць нататку</string>
     <string name="discard">Адхіліць</string>
     <string name="save" maxLength="28">Захаваць</string>
     <string name="close">Закрыць</string>
@@ -56,7 +55,6 @@
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Перайменаваць</string>
     <string name="unknown_type_field_warning">Тып адказу: невядомае поле %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Выдаленне калоды&#8230;</string>
-    <string name="info_rate">Ацаніць AnkiDroid</string>
     <string name="import_title">Імпартаванне</string>
     <string name="import_preparing_file">Падрыхтоўка файла для імпартавання&#8230;</string>
     <string name="import_message_add" comment="Adding a new deck to the collection (import)">Дадаць</string>
@@ -122,13 +120,7 @@
     <string name="note_editor_audio_too_large">Занадта вялікі аўдыяфайл, паспрабуйце ўставіць аўдыя ўручную</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Адбываецца рэзервовае капіяванне аперацыйнай сістэмы. Паспрабуйце яшчэ раз</string>
     <!-- Dialog hints -->
-    <string name="dialog_hint_url">URL-адрас</string>
-    <string name="dialog_hint_certificate">Сертыфікат</string>
     <!-- IncrementNumberRangePreference -->
-    <string name="plus_sign" comment="Label for increment button in IncrementerNumberRangePreference">+</string>
-    <string name="minus_sign" comment="Label for decrement button in IncrementerNumberRangePreference">-</string>
-    <string name="invalid_value" comment="Error message in IncrementerNumberRangePreference when input is not a valid number">Памылковае значэнне</string>
-    <string name="maximum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the maximum allowed value">Максімальнае значэнне %d</string>
     <string name="minimum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the minimum allowed value">Мінімальнае значэнне %d</string>
     <!-- Used for credential empty warning message -->
     <string name="invalid_email">Увядзіце сапраўдную электронную пошту</string>
@@ -164,7 +156,6 @@
     <string name="format_deck_description_as_markdown">Фармат як Markdown</string>
     <string name="help_button_content_description">Адкрыць даведку для «%s»</string>
     <string name="failed_to_copy">Не ўдалося скапіяваць</string>
-    <string name="previewer_next" comment="Name of the next button in the previewer" maxLength="28">Далей</string>
     <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">Назад</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->

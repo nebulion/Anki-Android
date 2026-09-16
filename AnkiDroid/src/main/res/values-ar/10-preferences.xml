@@ -25,51 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">مُعَطَّل</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="zero">%d دقيقة</item>
-        <item quantity="one">%d دقيقة</item>
-        <item quantity="two">%d دقيقة</item>
-        <item quantity="few">%d دقائق</item>
-        <item quantity="many">%d دقيقة</item>
-        <item quantity="other">%d دقيقة</item>
-    </plurals>
     <string name="pref_milliseconds">%s م ث</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">لا نتيجة</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">عام</string>
-    <string name="pref_cat_studying" maxLength="41">الدراسة</string>
-    <string name="pref_cat_system_wide" maxLength="41">على مستوى النظام</string>
     <string name="pref_cat_reviewing" maxLength="41">المراجعة</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">المزامنة</string>
     <string name="pref_cat_scheduling" maxLength="41">جدولة</string>
     <string name="pref_cat_gestures" maxLength="41">الإيماءات</string>
-    <string name="pref_cat_controls" maxLength="41">عناصر التحكم</string>
     <string name="pref_cat_advanced" maxLength="41">خيارات متقدمة</string>
     <string name="pref_cat_workarounds" maxLength="41">حلول بديلة</string>
-    <string name="pref_cat_plugins" maxLength="41">الإضافات</string>
     <string name="pref_cat_editing" maxLength="41">تحرير</string>
-    <string name="pref_cat_security" maxLength="41">الأمان</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">السماح لـ JavaScript API الخطرة عموماً</string>
     <string name="allow_dangerous_js_api_summ">يسمح لأي بطاقة أو قالب بقراءة وتعديل البطاقات الأخرى أو معلومات مجموعة آنكي خاصتك.\nدع هذا الخيار إلا إن كنت تثق بجميع البطاقات والقوالب في مجموعتك.</string>
     <string name="dangerous_js_api_denied_snackbar">الأمان: تم ردع نداء شديد الخطر لـ JavaScript.\nإن كنت تثق بجميع البطاقات والقوالب في مجموعتك فيمكنك أن تسمح لهذا في الخيارات المتقدمة.</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">السماح للبطاقات بفتح تطبيقات أخرى</string>
-    <string name="allow_card_external_launch_summ">تستطيع البطاقات فتح تطبيقات أخرى على جهازك مما قد يسبب نتائج غير مرغوبة.\nدع هذا الخيار إلا إن كنت تثق بجميع البطاقات والقوالب في مجموعتك.</string>
     <string name="card_external_launch_denied_snackbar">الأمان: تم منع البطاقة من فتح تطبيق آخر.\nإن كنت تثق بجميع البطاقات والقوالب في مجموعتك فيمكنك أن تسمح لهذا في الخيارات المتقدمة.</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">إدخال الجواب في البطاقة</string>
     <string name="use_input_tag_summ">استخدام مربع إدخال نصي داخل البطاقة لكتابة الجواب</string>
-    <string name="reset_languages" maxLength="41">إعادة تعيين اللغات</string>
-    <string name="reset_languages_summ">إعادة ضبط إعدادات اللغة (من أجل تحويل النص إلى كلام والقواميس) لجميع الرزم</string>
-    <string name="reset_languages_question">إعادة تعيين كافة تعيينات اللغة؟</string>
-    <string name="reset_confirmation">تمت إعادة تعيين كل الإعدادات</string>
     <string name="card_zoom" maxLength="41">تكبير البطاقة</string>
     <string name="image_zoom" maxLength="41">تكبير الصور</string>
-    <string name="button_size" maxLength="41">حجم زر الإجابة</string>
-    <string name="card_browser_font_size" maxLength="41">نسبة تضخيم حجم خط متصفح البطاقات</string>
-    <string name="col_path" maxLength="41">مجلد آنكي درويد</string>
     <string name="gestures" maxLength="41">تفعيل الإيماءات</string>
     <string name="gestures_summ">تعيين إيماءات إلى إجراءات مثل إجابة البطاقات وتحريرها.</string>
     <string name="gestures_corner_touch" maxLength="41">٩ مواضع للنقر</string>
@@ -93,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">النقر بثلاث أصابع</string>
     <string name="gestures_four_finger_tap" maxLength="41">النقر بأربع أصابع</string>
     <string name="gestures_shake" maxLength="41">رج الجهاز</string>
-    <string name="double_scrolling_gap" maxLength="41">مضاعفة فجوة التمرير</string>
-    <string name="double_scrolling_gap_summ">مضاعفة فجوة التمرير مع القارئ الإلكتروني</string>
     <string name="swipe_sensitivity" maxLength="41">حساسية السحب</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">اجلب الوسائط عند المزامنة</string>
@@ -109,8 +84,6 @@
     <string name="sync_status_badge_summ">يغير رمز المزامنة حين يكون رفع التغييرات ممكنًا</string>
     <string name="metered_sync_title" maxLength="41">السماح بالمزامنة على الاتصالات المحدودة</string>
     <string name="metered_sync_summary">إذا كان معطلًا، سيتم إنذارك إذا حاولت المزامنة باتصال محدود</string>
-    <string name="backup_limits_frequency">الوتيرة</string>
-    <string name="backup_limits_lifetime">مدة الحفظ</string>
     <string name="language" maxLength="41">اللغة</string>
     <string name="language_system">لغة النظام</string>
     <string name="notification_pref" maxLength="41">التنبيهات</string>
@@ -122,95 +95,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">وميض الضوء</string>
     <string name="software_render" maxLength="41">عطِّل عارض البطاقات العَتادي</string>
     <string name="software_render_summ">عرض العتاد أسرع لكنه قد يسبب مشاكل، خصوصًا على أندرويد ٨ أو ٨٫١. إذا لم تكن ترى جزءًا من واجهة مراجعة البطاقة، جرب هذا الخيار.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">الفاصل الزمني للنقر المزدوج</string>
     <string name="pref_double_tap_time_interval_summary">سيتم تجاهل نقرة ثانية على أزرار الإجابة إذا لم يمر الوقت. يمنع هذا النقر المزدوج غير المقصود</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">مدة الضغط المطول لإظهار الجواب</string>
-    <string name="pref_show_answer_long_press_time_summary">أدنى مدة تكفي ليسجل زر «أظهر الإجابة» النقر.</string>
-    <string name="show_large_answer_buttons" maxLength="41">إظهار أزرار إجابة كبيرة</string>
-    <string name="show_large_answer_buttons_summ">أظهر أزرار الإجابة في صفين</string>
-    <string name="use_current" maxLength="41">رزمة البطاقات الجديدة</string>
     <string name="learn_cutoff" maxLength="41">حد التعلم المبكر</string>
     <string name="time_limit" maxLength="41">مهلة مربع الوقت</string>
     <string name="day_offset_with_description" maxLength="41">بداية اليوم التالي</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="zero">%d ساعة بعد منتصف الليل</item>
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d ساعة بعد منتصف الليل</item>
-        <item quantity="two">%d ساعة بعد منتصف الليل</item>
-        <item quantity="few">%d ساعات بعد منتصف الليل</item>
-        <item quantity="many">%d ساعة بعد منتصف الليل</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d ساعة بعد منتصف الليل</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">إبقاء الشاشة مضيئة</string>
     <string name="pref_keep_screen_on_summ">تعطيل مهلة الشاشة</string>
-    <string name="enable_api_title" maxLength="41">تفعيل واجهة برمجة آنكي درويد</string>
-    <string name="enable_api_summary">يسمح للتطبيقات الأخرى بالاتصال بآنكي درويد وقراءة أو كتابة البيانات دون تدخلك</string>
     <string name="custom_buttons_setting_always_show">إظهار دائمًا</string>
     <string name="custom_buttons_setting_menu_only">القائمة فقط</string>
-    <string name="reset_custom_buttons" maxLength="41">استعادة الافتراضيات</string>
     <string name="reset">إعادة ضبط</string>
-    <string name="thirdparty_apps_title" maxLength="41">تطبيقات الطرف الثالث التي تستخدم واجهة البرمجة</string>
-    <string name="thirdparty_apps_summary">اطلع على قائمة لتطبيقات تستخدم واجهة برمجة آنكي درويد مثل القواميس والأدوات.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">المراجعات</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">المعاينات</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">تفعيل أو تعطيل وضع الإجابة</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">إمكانية الوصول</string>
     <string name="exit_via_double_tap_back" maxLength="41">اضغط رجوع مرتين للعودة أو الخروج</string>
     <string name="exit_via_double_tap_back_summ">لتجنب الخروج من شاشة الدراسة أو التطبيق بالخطأ</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">السماح بجميع الملفات في استيرادات الوسائط</string>
-    <string name="media_import_allow_all_files_summ">إذا لم يتعرف أندرويد على ملف وسائط</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">خادم مزامنة مخصص</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">غير مستخدم</string>
-    <string name="custom_sync_server_help2"><![CDATA[        كبديل للمزامنة مع آنكي ويب،
-        تستطيع استخدام خادمك الخاص للمزامنة.
-        إذا لم يتم ضبطه، سيتم استخدام خادم آنكي ويب بشكل افتراضي.
-        <a href="%s">تعلم المزيد</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">رابط المزامنة</string>
     <string name="custom_sync_certificate_title" maxLength="41">شهادة جذر مخصصة (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">لوحة المفاتيح</string>
-    <string name="bluetooth">بلوتوث</string>
     <string name="answer_buttons" maxLength="41">أزرار الإجابة</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">بطاقة</string>
     <string name="note" maxLength="41">ملحوظة</string>
-    <string name="navigation" maxLength="41">التنقل</string>
     <string name="media" maxLength="41">الوسائط</string>
-    <string name="misc" maxLength="41">منوع</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">إضافة تنبيه</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">إضافة تنبيه للمراجعة</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">تعديل تنبيه المراجعة</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">ليس لديك تنبيهات للمراجعة</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">اختيار وسوم</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">استبدال السطور الجديدة بـ HTML</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">التركيز على «أدخل الإجابة»</string>
     <string name="type_in_answer_focus_summ">ركز على حقل «أدخل الإجابة» في شاشة الدراسة تلقائيًا</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">حول</string>
-    <string name="contributors_title">مساهمون</string>
-    <string name="about_contributors_description"><![CDATA[هؤلاء هم <a href=\"%1$s\">متطوعونا</a> الرائعون. تستطيع مساعدة آنكي درويد أيضًا بالبرمجة والترجمة والتبرع و<a href=\"%2$s\">المزيد</a>!]]></string>
-    <string name="license">الرخصة</string>
-    <string name="license_description"><![CDATA[آنكي درويد مرخص تحت رخصتي <a href=\"%1$s\">GPL-3.0</a> و<a href=\"%2$s\">AGPL-3.0</a>، وتتوفر الشفرة المصدرية على <a href=\"%3$s\">GitHub</a>]]></string>
-    <string name="other_licenses"><![CDATA[يستخدم آنكي درويد أيضًا مكتبات وأيقونات من طرف ثالث وهي مرخصة تحت <a href=\"%1$s\">رخص</a> متنوعة مفتوحة المصدر.]]></string>
-    <string name="donate_description"><![CDATA[تستطيع دعم تطوير آنكي درويد من خلال <a href=\"%1$s\">التبرع</a>. نُقَدِّر أي مبلغ.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">إضافة إيماءة</string>
-    <string name="binding_add_key">إضافة مفتاح</string>
     <string name="key_picker_default_press_key">ضغط مفتاح</string>
-    <string name="binding_add_axis">إضافة وحدة عصا التحكم أو جهاز التحرك/حركة</string>
     <string name="axis_picker_move_joystick">نقل وحدة عصا التحكم أو جهاز التحرك/حركة</string>
-    <string name="user_actions" maxLength="41">إجراءات المستخدم</string>
-    <string name="user_actions_summary" maxLength="41">فعل JavaScript في شاشة الدراسة</string>
     <string name="user_action_1" maxLength="28">إجراء رقم ١</string>
     <string name="user_action_2" maxLength="28">إجراء رقم ٢</string>
     <string name="user_action_3" maxLength="28">إجراء رقم ٣</string>
@@ -231,8 +154,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">س: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">ج: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">إزالة \'%s\'</string>
-    <string name="bindings_already_bound">مربوط بالفعل بـ %s</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">تجريبي</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">يرجى التحديث إلى الصيغة الجديدة لتحويل النص إلى كلام</string>
@@ -242,15 +163,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[        يأخذ آنكي درويد نسخة احتياطية من مجموعتك بشكل دوري.
-        بعد مضي يومين على أخذ نسخة،
-        يبدأ آنكي درويد بحذف بعض النسخ لإخلاء المساحة.
-        <br><br>
-        لاحظ أن الوسائط لا يتم أخذ نسخ منها.
-        للضمانة، يرجى مزامنة مجموعتك دوريًا أو تصدير نسخ منها.
-        <br><br>
-        تستطيع استرجاع نسخة وتصدير مجموعتك من قائمة شاشة الرزم.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">الدقائق بين النسخ التلقائية</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">عدد النسخ اليومية المحفوظة</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">عدد النسخ الأسبوعية المحفوظة</string>
@@ -267,19 +179,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">لا مجموعة</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">خطأ</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">تحميل&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">لا توجد مجموعة</string>
-    <string name="show_answer_buttons" maxLength="41">أظهِر أزرار الإجابة</string>
     <string name="hide_hard_and_easy" maxLength="41">أخفِ زري «صعب» و«سهل»</string>
-    <string name="toolbar" maxLength="41">شريط الأدوات</string>
-    <string name="new_study_screen" maxLength="41">شاشة الدراسة الجديدة</string>
-    <string name="screen" maxLength="41">شاشة</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">إجابة فقط</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">قلب وإجابة</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">فتح الإعدادات</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">الإعدادات المرتبطة</string>
 </resources>

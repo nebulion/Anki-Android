@@ -34,7 +34,6 @@ import com.ichi2.anki.libanki.undoLabel
 import com.ichi2.anki.libanki.utils.extend
 import com.ichi2.anki.observability.undoableOp
 import com.ichi2.anki.performBackupInBackground
-import com.ichi2.anki.reviewreminders.ScheduleRemindersDestination
 import com.ichi2.anki.settings.Prefs
 import com.ichi2.anki.syncAuth
 import com.ichi2.anki.utils.Destination
@@ -318,11 +317,6 @@ class DeckPickerViewModel :
     fun unburyDeck(deckId: DeckId) =
         launchCatchingIO {
             undoableOp<OpChanges> { sched.unburyDeck(deckId) }
-        }
-
-    fun scheduleReviewReminders(deckId: DeckId) =
-        viewModelScope.launch {
-            flowOfDestination.emit(ScheduleRemindersDestination(deckId))
         }
 
     /**

@@ -25,47 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">Deshabilitat</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d min</item>
-        <item quantity="other">%d mins</item>
-    </plurals>
     <string name="pref_milliseconds">%s ms</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">Cap resultat</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">General</string>
-    <string name="pref_cat_studying" maxLength="41">Estudiant</string>
-    <string name="pref_cat_system_wide" maxLength="41">A tot el sistema</string>
     <string name="pref_cat_reviewing" maxLength="41">Revisió</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Sincronització</string>
     <string name="pref_cat_scheduling" maxLength="41">Planificació</string>
     <string name="pref_cat_gestures" maxLength="41">Gestos</string>
-    <string name="pref_cat_controls" maxLength="41">Controls</string>
     <string name="pref_cat_advanced" maxLength="41">Avançat</string>
     <string name="pref_cat_workarounds" maxLength="41">Solucions</string>
-    <string name="pref_cat_plugins" maxLength="41">Plugins</string>
     <string name="pref_cat_editing" maxLength="41">Editing</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">Tipus de resposta a la targeta</string>
     <string name="use_input_tag_summ">Utilitzar un quadre d\'entrada de text dins de la targeta per escriure la resposta</string>
-    <string name="reset_languages" maxLength="41">Reinicialització de llengües</string>
-    <string name="reset_languages_summ">Restablir les assignacions de llengua (per text a discurs i diccionaris) per tots els malls</string>
-    <string name="reset_languages_question">Voleu reiniciar les assignacions de tots el idiomes?</string>
-    <string name="reset_confirmation">Restablir tots els estats</string>
     <string name="card_zoom" maxLength="41">Zoom de carta</string>
     <string name="image_zoom" maxLength="41">Zoom d\'imatge</string>
-    <string name="button_size" maxLength="41">Mida de botó de resposta</string>
-    <string name="card_browser_font_size" maxLength="41">Tamany de lletra al cercador de targetes</string>
-    <string name="col_path" maxLength="41">Directori de l\'AnkiDroid</string>
     <string name="gestures" maxLength="41">Activa gestos</string>
     <string name="gestures_summ">Assignar gestos a accions com cartes de resposta i d\'edició.</string>
     <string name="gestures_corner_touch" maxLength="41">Tacte de 9 punts</string>
@@ -89,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">Three-finger tap</string>
     <string name="gestures_four_finger_tap" maxLength="41">Four-finger tap</string>
     <string name="gestures_shake" maxLength="41">Shake device</string>
-    <string name="double_scrolling_gap" maxLength="41">Desplaçament doble</string>
-    <string name="double_scrolling_gap_summ">Doble el scrolling amb l\'eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Sensibilitat de lliscar</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Recupera els media en sincronitzar</string>
@@ -104,8 +83,6 @@
     <string name="sync_status_badge_summ">Canvia la icona de sincronització quan es puguin pujar canvis</string>
     <string name="metered_sync_title" maxLength="41">Permet la sincronització a les connexions mesurades</string>
     <string name="metered_sync_summary">Si està desactivat, se us avisarà si intenteu sincronitzar amb una connexió mesurada</string>
-    <string name="backup_limits_frequency">Frequency</string>
-    <string name="backup_limits_lifetime">Lifetime</string>
     <string name="language" maxLength="41">Idioma</string>
     <string name="language_system">Idioma del sistema</string>
     <string name="notification_pref" maxLength="41">Notificacions</string>
@@ -117,92 +94,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">Parpellejar el llum</string>
     <string name="software_render" maxLength="41">Desactiva hardware de mostrar carta</string>
     <string name="software_render_summ">La mostra per hardware és més ràpida, però pot tenir problemes, concretament a Android 8 / 8.1. Si no podeu veure parts de la carta, proveu aquesta configuració.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Interval de doble tacte</string>
     <string name="pref_double_tap_time_interval_summary">Un segon toc dels botons de resposta s\'ignorarà si aquest temps no ha passat. D’aquesta manera s’impedeixen dobles cops accidentals</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">Show answer long-press time</string>
-    <string name="pref_show_answer_long_press_time_summary">Minimum pressing time before the show answer button registers a touch.</string>
-    <string name="show_large_answer_buttons" maxLength="41">Mostra botons de resposta grans</string>
-    <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="use_current" maxLength="41">Paquet per a cartes noves</string>
     <string name="learn_cutoff" maxLength="41">Informeu-vos de límit per davant</string>
     <string name="time_limit" maxLength="41">Límit de temps de Timebox</string>
     <string name="day_offset_with_description" maxLength="41">Principi del proper dia</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d hour past midnight</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d hours past midnight</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">Mantenir la pantalla encesa</string>
     <string name="pref_keep_screen_on_summ">Desactiva la pantalla de bloqueig</string>
-    <string name="enable_api_title" maxLength="41">Activa l\'API de l\'AnkiDroid</string>
-    <string name="enable_api_summary">Deixar altres apps connectar-se a AnkiDroid i llegir / escriure dades sense la seva intervenció</string>
     <string name="custom_buttons_setting_always_show">Mostrar sempre</string>
     <string name="custom_buttons_setting_menu_only">Només el menú</string>
-    <string name="reset_custom_buttons" maxLength="41">Restableix als valors per defecte</string>
     <string name="reset">Reinicia</string>
-    <string name="thirdparty_apps_title" maxLength="41">Aplicacions de terceres parts</string>
-    <string name="thirdparty_apps_summary">Consulteu una llista d\'aplicacions que fan ús de l\'API AnkiDroid, com ara diccionaris i utilitats.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Reviews</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Previews</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Accessibilitat</string>
     <string name="exit_via_double_tap_back" maxLength="41">Enrera dos vegades per enrera o sortir</string>
     <string name="exit_via_double_tap_back_summ">To avoid accidentally leaving the study screen or the app</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">Permet tots els fitxers en la importació de multimèdia</string>
-    <string name="media_import_allow_all_files_summ">Si Android no reconeix un fitxer multimèdia</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Servidor de sincronització personalitzat</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">Sense utilitzar</string>
-    <string name="custom_sync_server_help2"><![CDATA[
-        As an alternative to synchronizing with AnkiWeb,
-        you may use your own server for synchronization.
-        If not set, the default AnkiWeb server will be used instead.
-        <a href="%s">Learn more</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">Custom root certificate (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">Teclat</string>
-    <string name="bluetooth">Bluetooth</string>
     <string name="answer_buttons" maxLength="41">Answer buttons</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">Card</string>
     <string name="note" maxLength="41">Note</string>
-    <string name="navigation" maxLength="41">Navigation</string>
     <string name="media" maxLength="41">Media</string>
-    <string name="misc" maxLength="41">Misc</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Add reminder</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Add review reminder</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Edit review reminder</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">You have no review reminders</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Trieu les etiquetes</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">Substitueix noves línies per HTML</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Enfoca \'escriu resposta\'</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">Quant a</string>
-    <string name="contributors_title">Contribuïdors</string>
-    <string name="about_contributors_description"><![CDATA[Aquests són els nostres fantàstics <a href=\"%1$s\">col·laboradors</a>. També podeu ajudar l\'AnkiDroid programant, traduint, donant i <a href=\"%2$s\">d\'altres formes</a>!]]></string>
-    <string name="license">Llicència</string>
-    <string name="license_description"><![CDATA[AnkiDroid es publica sota les llicències <a href=\"%1$s\">GPL-3.0</a> i <a href=\"%2$s\">AGPL-3.0</a>, i el codi font està disponible <a href=\"%3$s\">a GitHub</a>]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid also uses third-party libraries and icons, which are licensed under various open source <a href=\"%1$s\">licenses</a>]]></string>
-    <string name="donate_description"><![CDATA[Podeu donar suport al desenvolupament d\'AnkiDroid <a href=\"%1$s\">fent una donació</a>. Apreciarem molt qualsevol quantitat.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">Afegeix gest</string>
-    <string name="binding_add_key">Afegir una clau</string>
     <string name="key_picker_default_press_key">Premeu una tecla</string>
-    <string name="binding_add_axis">Add joystick/motion controller</string>
     <string name="axis_picker_move_joystick">Move a joystick/motion controller</string>
-    <string name="user_actions" maxLength="41">User actions</string>
-    <string name="user_actions_summary" maxLength="41">Trigger JavaScript from the study screen</string>
     <string name="user_action_1" maxLength="28">User action 1</string>
     <string name="user_action_2" maxLength="28">User action 2</string>
     <string name="user_action_3" maxLength="28">User action 3</string>
@@ -223,8 +153,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">P: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">R: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">Suprimeix ‘%s’</string>
-    <string name="bindings_already_bound">Ja està lligat a \'%s\'</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Experimental</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Please upgrade to the new text to speech format</string>
@@ -234,16 +162,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[
-        AnkiDroid periodically backs up your collection.
-        After backups are more than two days old,
-        AnkiDroid will start removing some of them to free up disk space.
-        <br><br>
-        Note that media files are not backed up.
-        To be safe, please periodically synchronize your collection, or back up exports of it.
-        <br><br>
-        You can restore from a backup and export your collection in the deck list menu.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">Minuts entre còpies de seguretat automàtiques</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">Còpies de seguretat diàries per conservar</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">Còpies de seguretat setmanals per conservar</string>
@@ -260,19 +178,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Cap col·lecció</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">S\'ha produït un error</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">S\'està obtenint dades&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">La col·lecció no existeix</string>
-    <string name="show_answer_buttons" maxLength="41">Show answer buttons</string>
     <string name="hide_hard_and_easy" maxLength="41">Hide ‘Hard’ and ‘Easy’ buttons</string>
-    <string name="toolbar" maxLength="41">Toolbar</string>
-    <string name="new_study_screen" maxLength="41">New study screen</string>
-    <string name="screen" maxLength="41">Screen</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Only answer</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Flip and answer</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Open settings</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Related settings</string>
 </resources>

@@ -25,47 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">Devredışı</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d dk</item>
-        <item quantity="other">%d dk</item>
-    </plurals>
     <string name="pref_milliseconds">%s ms</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">Sonuç yok</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">Genel</string>
-    <string name="pref_cat_studying" maxLength="41">Çalışma</string>
-    <string name="pref_cat_system_wide" maxLength="41">Sistem geneli</string>
     <string name="pref_cat_reviewing" maxLength="41">Çalışma</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Senkronizasyon</string>
     <string name="pref_cat_scheduling" maxLength="41">Zamanlama</string>
     <string name="pref_cat_gestures" maxLength="41">Jestler</string>
-    <string name="pref_cat_controls" maxLength="41">Kontroller</string>
     <string name="pref_cat_advanced" maxLength="41">İleri Düzey</string>
     <string name="pref_cat_workarounds" maxLength="41">Geçici çözümler</string>
-    <string name="pref_cat_plugins" maxLength="41">Eklentiler</string>
     <string name="pref_cat_editing" maxLength="41">Düzenleme</string>
-    <string name="pref_cat_security" maxLength="41">Güvenlik</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Tehlikeli JavaScript API\'larına izin ver</string>
     <string name="allow_dangerous_js_api_summ">Herhangi bir kartın veya şablonun diğer kartları veya Anki koleksiyon verilerinizi okumasına ve değiştirmesine izin verir.\nKoleksiyonunuzdaki bütün kartlara ve şablonlara güvenmediğiniz sürece kapalı bırakın.</string>
     <string name="dangerous_js_api_denied_snackbar">Güvenlik: Güvensiz JavaScript çağrısı engellendi.\nEğer koleksiyonunuzdaki bütün kartlara ve şablonlara güveniyorsanız, bu engel ileri düzey ayarlardan kaldırılabilir.</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Kartların uygulama başlatmasına izin ver</string>
-    <string name="allow_card_external_launch_summ">Kartlar cihazınızdaki başka uygulamaları açıp potansiyel olarak istenmeyen eylemleri tetikleyebilirler.\nKoleksiyonunuzdaki bütün kartlara ve şablonlara güvenmediğiniz sürece kapalı bırakın.</string>
     <string name="card_external_launch_denied_snackbar">Güvenlik: Kartın başka bir uygulamayı başlatması engellendi.\nEğer koleksiyonunuzdaki bütün kartlara ve şablonlara güveniyorsanız, bu engel ileri düzey ayarlardan kaldırılabilir.</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">Cevabı karta yaz</string>
     <string name="use_input_tag_summ">Cevabı yazmak için kartın içinde bir metin giriş kutusu kullan</string>
-    <string name="reset_languages" maxLength="41">Dilleri sıfırla</string>
-    <string name="reset_languages_summ">Bütün desteler için dil atamalarını sıfırla (metin okuma ve sözlükler için)</string>
-    <string name="reset_languages_question">Tüm dil atamaları sıfırlansın mı?</string>
-    <string name="reset_confirmation">Bütün durumlar sıfırlandı</string>
     <string name="card_zoom" maxLength="41">Kart yakınlaştırma</string>
     <string name="image_zoom" maxLength="41">Resim yakınlaştırma</string>
-    <string name="button_size" maxLength="41">Cevap düğmesi büyüklüğü</string>
-    <string name="card_browser_font_size" maxLength="41">Kart tarayıcısı font ölçeği</string>
-    <string name="col_path" maxLength="41">AnkiDroid dizini</string>
     <string name="gestures" maxLength="41">El hareketlerini etkinleştir</string>
     <string name="gestures_summ">Cevap verme ve kart düzenleme gibi eylemlere el hareketleri ata.</string>
     <string name="gestures_corner_touch" maxLength="41">9 noktadan dokunma</string>
@@ -89,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">Üç parmakla dokunma</string>
     <string name="gestures_four_finger_tap" maxLength="41">Dört parmakla dokunma</string>
     <string name="gestures_shake" maxLength="41">Cihazı salla</string>
-    <string name="double_scrolling_gap" maxLength="41">Hızlı kaydırma</string>
-    <string name="double_scrolling_gap_summ">eOkuyucu\'yla kaydırma mesafesini iki katına çıkarmak istiyorsanız bunu etkinleştirin</string>
     <string name="swipe_sensitivity" maxLength="41">Kaydırma duyarlılığı</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Eşitlemede medyayı aktar</string>
@@ -104,8 +83,6 @@
     <string name="sync_status_badge_summ">Değişiklikler yüklenebildiğinde senkronizasyon simgesini değiştir</string>
     <string name="metered_sync_title" maxLength="41">Ölçülü bağlantılarda senkron. izin ver</string>
     <string name="metered_sync_summary">Kapatılırsa, ölçülü bir bağlantıda senkronizasyon yapmaya çalışırsanız uyarılırsınız</string>
-    <string name="backup_limits_frequency">Sıklık</string>
-    <string name="backup_limits_lifetime">Saklama süresi</string>
     <string name="language" maxLength="41">Dil</string>
     <string name="language_system">Sistem Dili</string>
     <string name="notification_pref" maxLength="41">Bildirimler</string>
@@ -117,91 +94,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">Işığı yanıp söndür</string>
     <string name="software_render" maxLength="41">Kart donanım renderını devredışı bırak</string>
     <string name="software_render_summ">Donanım renderı daha hızlıdır ama sorunları olabilir, özellikle de Android 8/8.1\'de. Kart çalışma kullanıcı arayüzünün bazı kısımlarını göremiyorsanız, bunu ayarı deneyin.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Çift dokunma zaman aralığı</string>
     <string name="pref_double_tap_time_interval_summary">Cevaplama düğmelerine ikinci bir tıklama, bu süre geçmediyse, göz ardı edilecektir. Bu, yanlışlıkla çift tıklamayı önler</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">Cevabı göster basılı tutma süresi</string>
-    <string name="pref_show_answer_long_press_time_summary">Cevabı göster düğmesi dokunmayı algılayana kadar minimum basma süresi</string>
-    <string name="show_large_answer_buttons" maxLength="41">Büyük cevap düğmelerini göster</string>
-    <string name="show_large_answer_buttons_summ">Cevap düğmesini 2 satırda göster</string>
-    <string name="use_current" maxLength="41">Yeni kartlar için deste</string>
     <string name="learn_cutoff" maxLength="41">Önceden öğrenme sınırı</string>
     <string name="time_limit" maxLength="41">Zaman sınırı</string>
     <string name="day_offset_with_description" maxLength="41">Sonraki günün başlangıcı (0 geceyarısı, 23 akşam 11)</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">Geceyarısından %d saat sonra</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">Geceyarısından %d saat sonra</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">Ekranı açık tut</string>
     <string name="pref_keep_screen_on_summ">Ekran zaman aşımını devredışı bırak</string>
-    <string name="enable_api_title" maxLength="41">AnkiDroid API etkinleştir</string>
-    <string name="enable_api_summary">Diğer uygulamaların AnkiDroid\'e bağlanmasına ve müdahaleniz olmadan veriyi okuyup / yazmasına izin verir</string>
     <string name="custom_buttons_setting_always_show">Hep göster</string>
     <string name="custom_buttons_setting_menu_only">Sadece menüde</string>
-    <string name="reset_custom_buttons" maxLength="41">Varsayılana döndür</string>
     <string name="reset">Sıfırla</string>
-    <string name="thirdparty_apps_title" maxLength="41">Üçüncü parti API uygulamaları</string>
-    <string name="thirdparty_apps_summary">AnkiDroid API\'ından faydalanan sözlük, araç gibi uygulamaların bir listesine bakın.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Çalışmalar</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Önçalışmalar</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Sadece arka tarafı göster</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Erişilebilirlik</string>
     <string name="exit_via_double_tap_back" maxLength="41">Geri gitmek/çıkmak için iki kez basın</string>
     <string name="exit_via_double_tap_back_summ">Çalışma ekranından ya da uygulamadan yanlışlıkla çıkmayı önlemek için</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">Yüklenmiş medyaların tümüne izin verin</string>
-    <string name="media_import_allow_all_files_summ">Bir medya dosyasını Android tanımazsa</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Özel senkronizasyon sunucusu</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">Kullanılmıyor</string>
-    <string name="custom_sync_server_help2"><![CDATA[        AnkiWeb\'le senkronize etmeye alternatif olarak,
-        senkronizasyon için kendi sunucunuzu kullanabilirsiniz.
-        Ayarlanmazsa yerine varsayılan AnkiWeb sunucusu kullanılır.
-        <a href="%s">Daha fazlasını öğren</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">URL Senkronize et</string>
     <string name="custom_sync_certificate_title" maxLength="41">Özel root sertifikası (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">Klavye</string>
-    <string name="bluetooth">Bluetooth</string>
     <string name="answer_buttons" maxLength="41">Cevap düğmeleri</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">Kart</string>
     <string name="note" maxLength="41">Not</string>
-    <string name="navigation" maxLength="41">Navigasyon</string>
     <string name="media" maxLength="41">Medya</string>
-    <string name="misc" maxLength="41">Diğer</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Hatırlatıcı ekle</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Çalışma hatırlatıcısı ekle</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Çalışma hatırlatıcısını değiştir</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">Çalışma hatırlatıcınız yok</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Etiketleri Seçin</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">Satırbaşlarını HTML\'le değiştir</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">\"Cevabı yaz\"a odaklan</string>
     <string name="type_in_answer_focus_summ">Çalışma ekranında otomatik olarak \"cevabı yaz\" alanını odakla</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">Hakkında</string>
-    <string name="contributors_title">Katkıda Bulunanlar</string>
-    <string name="about_contributors_description"><![CDATA[İşte uygulamamıza katkıda bulunan müthiş <a href=\"%1$s\">insanlar</a>. Siz de AnkiDroid\'e programlayarak, çevirerek, bağış yaparak ve <a href=\"%2$s\">daha fazla yolla</a> yardım edebilirsiniz!]]></string>
-    <string name="license">Lisans</string>
-    <string name="license_description"><![CDATA[AnkiDroid <a href=\"%1$s\">GPL-3.0</a> ve <a href=\"%2$s\">AGPL-3.0</a> lisansları altında yayınlanmaktadır, kaynak kodu <a href=\"%3$s\">GitHub\'da</a> mevcuttur]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid çeşitli açık kaynaklı <a href=\"%1$s\">lisanslar</a> altında üçüncü parti kütüphaneler ve simgeler de kullanır.]]></string>
-    <string name="donate_description"><![CDATA[AnkiDroid\'in geliştirilmesine <a href=\"%1$s\">bağış yaparak</a> destek olabilirsiniz. Miktarı ne olursa olsun içten teşekkürlerimizi kazanırsınız.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">Hareket ekle</string>
-    <string name="binding_add_key">Anahtar ekle</string>
     <string name="key_picker_default_press_key">Bir tuşa basın</string>
-    <string name="binding_add_axis">Joystick/hareket kumandası ekle</string>
     <string name="axis_picker_move_joystick">Bir joystick/hareket kumandasını hareket ettir</string>
-    <string name="user_actions" maxLength="41">Kullanıcı eylemleri</string>
-    <string name="user_actions_summary" maxLength="41">Çalışma ekranından JavaScript tetikle</string>
     <string name="user_action_1" maxLength="28">Kullanıcı eylemi 1</string>
     <string name="user_action_2" maxLength="28">Kullanıcı eylemi 2</string>
     <string name="user_action_3" maxLength="28">Kullanıcı eylemi 3</string>
@@ -222,8 +153,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">S: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">C: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">‘%s’ kaldır</string>
-    <string name="bindings_already_bound">%s bileşenine bağlı zaten</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Deneysel</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Lütfen yeni metin okuma formatına geçin</string>
@@ -233,15 +162,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[        AnkiDroid düzenli aralıklarla koleksiyonunuzu yedekler.
-        Yedekler iki günden fazla eskidiğinde,
-        AnkiDroid disk alanı boşaltmak için bazılarını kaldırmaya başlar.
-        <br><br>
-        Unutmayın ki medya dosyaları yedeklenmez.
-        Emin olmak için, lütfen düzenli aralıklarla koleksiyonunuzu senkronize edin, ya da çıktılarını yedekleyin.
-        <br><br>
-        Deste listesi menüsünde yedekten geri yükleyebilir ve koleksiyonunuzu dışarı aktarabilirsiniz.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">Otomatik yedeklemeler arası süre (dakika)</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">Günde saklanacak yedek</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">Haftada saklanacak yedek</string>
@@ -258,19 +178,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Koleksiyon yok</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Hata</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Okunuyor&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Koleksiyon mevcut değil</string>
-    <string name="show_answer_buttons" maxLength="41">Cevap düğmelerini göster</string>
     <string name="hide_hard_and_easy" maxLength="41">\"Zor\" ve \"Kolay\" düğmelerini gizle</string>
-    <string name="toolbar" maxLength="41">Araç çubuğu</string>
-    <string name="new_study_screen" maxLength="41">Yeni çalışma ekranı</string>
-    <string name="screen" maxLength="41">Ekran</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Sadece cevap ver</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Çevir ve cevap ver</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Ayarları aç</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">İlgili ayarlar</string>
 </resources>

@@ -194,15 +194,6 @@
             android:exported="false"
             android:configChanges="keyboardHidden|orientation|screenSize"
             />
-        <activity
-            android:name="com.ichi2.anki.preferences.PreferencesActivity"
-            android:exported="false"
-            android:configChanges="screenSize"
-            >
-            <intent-filter>
-                <category android:name="android.intent.category.MONKEY" />
-            </intent-filter>
-        </activity>
 
         <activity
             android:name="com.ichi2.anki.SingleFragmentActivity"

@@ -66,9 +66,7 @@
     <string name="dialog_positive_overwrite">Overwrite</string>
     <string name="dialog_positive_repair">Reparer</string>
     <string name="dialog_positive_replace">Replace</string>
-    <string name="dialog_collection_path_not_dir">The path specified wasn’t a valid directory</string>
     <string name="dialog_invalid_custom_certificate">The provided text does not resolve to a valid PEM-encoded X509 certificate</string>
-    <string name="dialog_invalid_custom_certificate_title">Error parsing certificate</string>
     <string name="dialog_updated_custom_certificate">Certificate updated</string>
     <!-- Media checking -->
     <string name="check_media_warning">This may take a long time with large media collections. Proceed?</string>
@@ -113,7 +111,6 @@
     <string name="locale_selection_dialog_summary">Noen flerspråklige tastaturer slik som GBoard, støtter bytte av språk når du redigerer tekst\n\nVennligst be om \"setImeHintLocales\"-funksjonen fra din tastaturprodusent hvis tastaturet ikke endrer språk.</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">Få hjelp</string>
-    <string name="help_item_support_opencollective_donate">Donér</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d second</item>

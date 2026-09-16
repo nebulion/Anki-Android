@@ -22,26 +22,9 @@
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
     <!-- add_to_cur_labels -->
-    <string name="add_to_deck_use_current_deck">Použiť aktuálny balíček</string>
-    <string name="add_to_deck_decide_by_note_type">Rozhodnúť podľa typu poznámky</string>
     <!-- theme labels -->
     <!-- day_theme_labels -->
     <!-- night_theme_labels -->
     <!-- html_size_code_labels -->
     <!-- gestures_labels -->
-    <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Odpovedať ľahké</string>
-    <string name="gesture_abort_learning" maxLength="41">Zatvoriť obrazovku študovania</string>
-    <string name="gesture_flag_red" maxLength="41">Označiť červeným príznakom</string>
-    <string name="gesture_flag_orange" maxLength="41">Označiť oranžovým príznakom</string>
-    <string name="gesture_flag_green" maxLength="41">Označiť zeleným príznakom</string>
-    <string name="gesture_flag_blue" maxLength="41">Označiť modrým príznakom</string>
-    <string name="gesture_flag_pink" maxLength="41">Označiť ružovým príznakom</string>
-    <string name="gesture_flag_turquoise" maxLength="41">Označiť tyrkysovým príznakom</string>
-    <string name="gesture_flag_purple" maxLength="41">Označiť purpurovým príznakom</string>
-    <string name="gesture_flag_remove" maxLength="41">Odstrániť príznak</string>
-    <string name="gesture_page_up" maxLength="41">Strana nahor</string>
-    <string name="gesture_page_down" maxLength="41">Strana nadol</string>
-    <string name="gesture_toggle_whiteboard" maxLength="41">Zapnúť/vypnúť tabuľu</string>
-    <string name="gesture_show_hint" maxLength="41">Ukázať nápovedu</string>
-    <string name="gesture_show_all_hints" maxLength="41">Ukázať všetky nápovedy</string>
 </resources>

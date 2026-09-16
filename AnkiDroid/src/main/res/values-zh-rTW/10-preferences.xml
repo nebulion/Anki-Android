@@ -25,46 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">已停用</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="other">%d分鐘</item>
-    </plurals>
     <string name="pref_milliseconds">%s 毫秒</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">無結果</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">一般</string>
-    <string name="pref_cat_studying" maxLength="41">學習中</string>
-    <string name="pref_cat_system_wide" maxLength="41">系統範圍</string>
     <string name="pref_cat_reviewing" maxLength="41">複習</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">同步</string>
     <string name="pref_cat_scheduling" maxLength="41">計畫任務</string>
     <string name="pref_cat_gestures" maxLength="41">手勢</string>
-    <string name="pref_cat_controls" maxLength="41">控制</string>
     <string name="pref_cat_advanced" maxLength="41">進階設定</string>
     <string name="pref_cat_workarounds" maxLength="41">解決方案</string>
-    <string name="pref_cat_plugins" maxLength="41">擴充套件</string>
     <string name="pref_cat_editing" maxLength="41">正在編輯</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">在卡片中輸入答案</string>
     <string name="use_input_tag_summ">在卡片中使用一個文本框裡輸入答案</string>
-    <string name="reset_languages" maxLength="41">重設語言</string>
-    <string name="reset_languages_summ">重置指定牌組語言 (TTS 和字典)</string>
-    <string name="reset_languages_question">重設所有的語言？</string>
-    <string name="reset_confirmation">重設所有狀態</string>
     <string name="card_zoom" maxLength="41">卡片縮放</string>
     <string name="image_zoom" maxLength="41">圖像縮放</string>
-    <string name="button_size" maxLength="41">答案按鈕尺寸</string>
-    <string name="card_browser_font_size" maxLength="41">卡片瀏覽器字型縮放</string>
-    <string name="col_path" maxLength="41">AnkiDroid 路徑</string>
     <string name="gestures" maxLength="41">開啟手勢</string>
     <string name="gestures_summ">替動作設定手勢，像是回答問題和編輯卡片。</string>
     <string name="gestures_corner_touch" maxLength="41">九點邊角觸控</string>
@@ -88,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">三指輕觸</string>
     <string name="gestures_four_finger_tap" maxLength="41">四指輕觸</string>
     <string name="gestures_shake" maxLength="41">搖晃裝置</string>
-    <string name="double_scrolling_gap" maxLength="41">加速捲動</string>
-    <string name="double_scrolling_gap_summ">加倍 eReader 的滾動間距</string>
     <string name="swipe_sensitivity" maxLength="41">滑動靈敏度</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">同步時取得媒體檔案</string>
@@ -103,8 +83,6 @@
     <string name="sync_status_badge_summ">可上傳變更時，變更同步圖標</string>
     <string name="metered_sync_title" maxLength="41">允許按流量計費的連接同步</string>
     <string name="metered_sync_summary">禁用後，如果嘗試在按流量計費的連接上同步，將收到警告</string>
-    <string name="backup_limits_frequency">頻率</string>
-    <string name="backup_limits_lifetime">若時</string>
     <string name="language" maxLength="41">語言</string>
     <string name="language_system">系統語言</string>
     <string name="notification_pref" maxLength="41">通知</string>
@@ -116,91 +94,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">提示燈</string>
     <string name="software_render" maxLength="41">禁用卡片硬體渲染</string>
     <string name="software_render_summ">硬體渲染速度較快，但可能存在問題，特別是位於 Android 8/8.1 中。如果您看不到部分卡片復習使用者頁面，請嘗試此設定。</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">雙擊的時間間隔</string>
     <string name="pref_double_tap_time_interval_summary">如果時間不到，按二次答案按鍵是無效的，這樣可以避免不小心雙擊按鍵。</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">顯示答案長按時間</string>
-    <string name="pref_show_answer_long_press_time_summary">顯示答案按鈕生效前的最短按壓時間</string>
-    <string name="show_large_answer_buttons" maxLength="41">顯示大的答案按鍵</string>
-    <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="use_current" maxLength="41">存放新卡片的牌組</string>
     <string name="learn_cutoff" maxLength="41">提早學習上限</string>
     <string name="time_limit" maxLength="41">時間盒的時間上限</string>
     <string name="day_offset_with_description" maxLength="41">下一天開始的時間</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d hours past midnight</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">保持螢幕開啟</string>
     <string name="pref_keep_screen_on_summ">關閉螢幕逾時</string>
-    <string name="enable_api_title" maxLength="41">開啟 AnkiDroid API</string>
-    <string name="enable_api_summary">讓其他應用程式不需經過你同意，即可連結到 AnkiDroid 且讀寫檔案</string>
     <string name="custom_buttons_setting_always_show">總是顯示</string>
     <string name="custom_buttons_setting_menu_only">僅限菜單</string>
-    <string name="reset_custom_buttons" maxLength="41">重置為預設</string>
     <string name="reset">重置</string>
-    <string name="thirdparty_apps_title" maxLength="41">第三方 API 應用程式</string>
-    <string name="thirdparty_apps_summary">查看一系列使用 AnkiDroid API 的應用程式，如字典，實用工具。</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">回顧</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">預覽</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">無障礙功能</string>
     <string name="exit_via_double_tap_back" maxLength="41">按二次返回鍵返回或者退出</string>
     <string name="exit_via_double_tap_back_summ">To avoid accidentally leaving the study screen or the app</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">允許所有置於媒體匯入中之檔案</string>
-    <string name="media_import_allow_all_files_summ">如果 Android 無法辨識媒體檔案</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">自訂同步伺服器</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">未使用</string>
-    <string name="custom_sync_server_help2"><![CDATA[
-        作為與 AnkiWeb 同步的替代方案，
-        你可以選擇用自己的伺服器進行同步。
-        如果未設定，預設的 AnkiWeb 伺服器將被使用。
-        <a href="%s">了解更多</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">自訂根憑證 (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">鍵盤</string>
-    <string name="bluetooth">藍芽</string>
     <string name="answer_buttons" maxLength="41">回答按鈕</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">卡</string>
     <string name="note" maxLength="41">筆記</string>
-    <string name="navigation" maxLength="41">瀏覽</string>
     <string name="media" maxLength="41">媒體</string>
-    <string name="misc" maxLength="41">雜項</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Add reminder</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Add review reminder</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Edit review reminder</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">You have no review reminders</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">選擇標籤</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">以HTML取代新列</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">聚焦“輸入答案”</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">關於</string>
-    <string name="contributors_title">貢獻者</string>
-    <string name="about_contributors_description"><![CDATA[這些是我們非常棒的<a href=\“%1$s\”>貢獻者</a>。 您也可以通過貢獻程式碼、翻譯、捐贈和<a href=\“%2$s\”>更多</a>來幫助AnkiDroid！]]></string>
-    <string name="license">許可證</string>
-    <string name="license_description"><![CDATA[AnkiDroid 在<a href=\"%1$s\">GPL-3.0</a>和<a href=\"%2$s\">AGPL-3.0</a>許可證下發佈，原始程式碼位於<a href=\"%3$s\">Github上</a>]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid also uses third-party libraries and icons, which are licensed under various open source <a href=\"%1$s\">licenses</a>]]></string>
-    <string name="donate_description"><![CDATA[您可以通過<a href=\"%1$s\">捐贈</a>支持AnkiDroid的開發。 我們感謝任何數額的捐贈。]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">新增手勢</string>
-    <string name="binding_add_key">新增按鍵</string>
     <string name="key_picker_default_press_key">按一個按鍵</string>
-    <string name="binding_add_axis">新增搖桿/運動控制器</string>
     <string name="axis_picker_move_joystick">移動搖桿/運動控制器</string>
-    <string name="user_actions" maxLength="41">使用者操作</string>
-    <string name="user_actions_summary" maxLength="41">Trigger JavaScript from the study screen</string>
     <string name="user_action_1" maxLength="28">用戶動作 1</string>
     <string name="user_action_2" maxLength="28">用戶動作 2</string>
     <string name="user_action_3" maxLength="28">用戶動作 3</string>
@@ -221,8 +153,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">問：%s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">答：%s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">移除%s</string>
-    <string name="bindings_already_bound">已經和%s關聯</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">實驗性功能</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">請升級至新的文字轉語音格式</string>
@@ -232,16 +162,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[
-        AnkiDroid 週期性備份你的集合。
-        在備份久於兩日後，
-        AnkiDroid 會將其中部分移除以節省磁碟空間。
-        <br><br>
-        請注意媒體檔案將不會備份。
-        為保證安全性，請週期性同步你的集合，或者備份其匯出檔案。
-        <br><br>
-        你可以在牌組清單選單中匯出你的集合。
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">自動備份間隔 (分鐘)</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">要保留的每日備份</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">要保留的每週備份</string>
@@ -258,19 +178,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">沒有集合</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">錯誤</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">正在擷取&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">集合不存在</string>
-    <string name="show_answer_buttons" maxLength="41">Show answer buttons</string>
     <string name="hide_hard_and_easy" maxLength="41">隱藏\"難\"和\"簡單\"按鈕</string>
-    <string name="toolbar" maxLength="41">Toolbar</string>
-    <string name="new_study_screen" maxLength="41">New study screen</string>
-    <string name="screen" maxLength="41">Screen</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Only answer</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Flip and answer</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Open settings</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Related settings</string>
 </resources>

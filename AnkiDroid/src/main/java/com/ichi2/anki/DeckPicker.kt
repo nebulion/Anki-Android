@@ -67,7 +67,6 @@ import com.ichi2.anki.android.input.ShortcutGroup
 import com.ichi2.anki.android.input.shortcut
 import com.ichi2.anki.common.android.appContext
 import com.ichi2.anki.common.crashreporting.CrashReportService
-import com.ichi2.anki.common.destinations.PreferencesDestination
 import com.ichi2.anki.common.destinations.ReviewDeckDestination
 import com.ichi2.anki.common.destinations.StatisticsDestination
 import com.ichi2.anki.common.destinations.StudyOptionsDestination
@@ -220,15 +219,6 @@ open class DeckPicker :
                 if (it.resultCode == RESULT_OK) {
                     syncOnResume = true
                 }
-            },
-        )
-
-    private val requestPathUpdateLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult(),
-            DeckPickerActivityResultCallback {
-                // The collection path was inaccessible on startup so just close the activity and let user restart
-                finish()
             },
         )
 
@@ -563,9 +553,9 @@ open class DeckPicker :
                 paddingStart = 32.dp.toPx(this@DeckPicker),
                 paddingEnd = 32.dp.toPx(this@DeckPicker),
             )
-            positiveButton(R.string.open_settings) {
-                requestPathUpdateLauncher.navigate(PreferencesDestination.Advanced)
-            }
+            // the collection's directory is fixed in this fork, so there is no setting to change:
+            // close, and let the next start try again
+            positiveButton(R.string.dialog_ok) { finish() }
         }
     }
 

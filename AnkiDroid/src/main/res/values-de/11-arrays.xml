@@ -22,26 +22,9 @@
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
     <!-- add_to_cur_labels -->
-    <string name="add_to_deck_use_current_deck">Aktuellen Stapel verwenden</string>
-    <string name="add_to_deck_decide_by_note_type">Nach Notiztyp entscheiden</string>
     <!-- theme labels -->
     <!-- day_theme_labels -->
     <!-- night_theme_labels -->
     <!-- html_size_code_labels -->
     <!-- gestures_labels -->
-    <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Antwort: einfach</string>
-    <string name="gesture_abort_learning" maxLength="41">Lernbildschirm schließen</string>
-    <string name="gesture_flag_red" maxLength="41">Rote Flagge setzen/entfernen</string>
-    <string name="gesture_flag_orange" maxLength="41">Orange Flagge setzen/entfernen</string>
-    <string name="gesture_flag_green" maxLength="41">Grüne Flagge setzen/entfernen</string>
-    <string name="gesture_flag_blue" maxLength="41">Blaue Flagge setzen/entfernen</string>
-    <string name="gesture_flag_pink" maxLength="41">Rosa Flagge setzen/entfernen</string>
-    <string name="gesture_flag_turquoise" maxLength="41">Türkise Flagge setzen/entfernen</string>
-    <string name="gesture_flag_purple" maxLength="41">Violette Flagge setzen/entfernen</string>
-    <string name="gesture_flag_remove" maxLength="41">Flagge entfernen</string>
-    <string name="gesture_page_up" maxLength="41">Seite nach oben</string>
-    <string name="gesture_page_down" maxLength="41">Seite nach unten</string>
-    <string name="gesture_toggle_whiteboard" maxLength="41">Whiteboard ein-/ausschalten</string>
-    <string name="gesture_show_hint" maxLength="41">Hinweis anzeigen</string>
-    <string name="gesture_show_all_hints" maxLength="41">Alle Hinweise anzeigen</string>
 </resources>

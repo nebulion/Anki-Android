@@ -20,7 +20,6 @@ import com.ichi2.anki.settings.enums.ShouldFetchMedia
 import com.ichi2.anki.snackbar.showSnackbar
 import com.ichi2.anki.ui.internationalization.sentenceCase
 import com.ichi2.anki.worker.SyncMediaWorker
-import com.ichi2.preferences.VersatileTextWithASwitchPreference
 import com.ichi2.utils.NetworkUtils
 import com.ichi2.utils.dismissSafely
 import kotlinx.coroutines.CancellationException
@@ -38,7 +37,9 @@ import timber.log.Timber
 object SyncPreferences {
     const val CURRENT_SYNC_URI = "currentSyncUri"
     const val CUSTOM_SYNC_URI = "syncBaseUrl"
-    const val CUSTOM_SYNC_ENABLED = CUSTOM_SYNC_URI + VersatileTextWithASwitchPreference.SWITCH_SUFFIX
+
+    // the old settings screen stored the switch beside the URL, under the URL's key plus "_switch"
+    const val CUSTOM_SYNC_ENABLED = CUSTOM_SYNC_URI + "_switch"
 }
 
 enum class ConflictResolution {

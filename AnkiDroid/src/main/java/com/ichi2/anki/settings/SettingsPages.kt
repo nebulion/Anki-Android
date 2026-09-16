@@ -22,7 +22,6 @@ import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.R
 import com.ichi2.anki.SingleFragmentActivity
 import com.ichi2.anki.launchCatchingTask
-import com.ichi2.anki.preferences.setDayOffset
 import com.ichi2.anki.services.BootService.Companion.scheduleNotification
 import com.ichi2.anki.services.NotificationService
 import com.ichi2.anki.settings.enums.ShouldFetchMedia
@@ -63,7 +62,7 @@ internal fun SettingsPageFragment.rootEntries(): List<SettingsEntry> {
         SettingsEntry.Page(getString(R.string.mmd_settings_study_screen), icon = R.drawable.ic_flashcard_black) {
             openPage(SettingsPage.StudyScreen)
         },
-        SettingsEntry.Page(getString(R.string.mmd_settings_gestures), icon = R.drawable.ic_gesture_tap_regular) {
+        SettingsEntry.Page(getString(R.string.pref_cat_gestures), icon = R.drawable.ic_gesture_tap_regular) {
             openPage(SettingsPage.Gestures)
         },
         SettingsEntry.Page(getString(R.string.accessibility), icon = R.drawable.ic_accessibility_24) {
@@ -591,7 +590,7 @@ private fun SettingsPageFragment.minutes(count: Int): String = resources.getQuan
 
 private fun SettingsPageFragment.seconds(count: Int): String = resources.getQuantityString(R.plurals.mmd_settings_seconds, count, count)
 
-/** Sets the app's language, as [com.ichi2.anki.preferences.GeneralSettingsFragment] did. */
+/** Sets the app's language, as the old General settings screen did. */
 private fun setLanguage(tag: String) {
     Prefs.language = tag
     LanguageUtil.setDefaultBackendLanguages(tag)
@@ -602,7 +601,7 @@ private fun setLanguage(tag: String) {
 
 /**
  * Schedules or cancels the due-cards notification for a new threshold, as
- * [com.ichi2.anki.preferences.NotificationsSettingsFragment] did.
+ * the old Notifications settings screen did.
  */
 private fun SettingsPageFragment.onNotificationThresholdChanged(value: String) {
     val context = requireContext()
@@ -621,4 +620,5 @@ private fun SettingsPageFragment.onNotificationThresholdChanged(value: String) {
     (context.getSystemService(Context.ALARM_SERVICE) as AlarmManager).cancel(intent)
 }
 
-private const val PENDING_NOTIFICATIONS_ONLY = 1000000
+/** A notification threshold at or above this means "only while reviews are pending", i.e. never scheduled. */
+const val PENDING_NOTIFICATIONS_ONLY = 1000000

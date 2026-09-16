@@ -37,7 +37,6 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="bottom_nav_browse" maxLength="28">Browse</string>
     <!-- MMD fork: the single settings screen (More folded into Settings) -->
     <string name="mmd_settings_study_screen">Study screen</string>
-    <string name="mmd_settings_gestures">Gestures</string>
     <string name="mmd_settings_maintenance">Maintenance</string>
     <string name="mmd_settings_eink">E Ink</string>
     <string name="mmd_eink_flash_title">Flash to clear ghosting</string>

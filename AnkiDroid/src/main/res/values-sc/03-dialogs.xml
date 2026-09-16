@@ -71,9 +71,7 @@
     <string name="dialog_positive_overwrite">Subraiscrie</string>
     <string name="dialog_positive_repair">Acontza</string>
     <string name="dialog_positive_replace">Remplasa</string>
-    <string name="dialog_collection_path_not_dir">S\'àndala dislindada non fiat una cartella vàlida</string>
     <string name="dialog_invalid_custom_certificate">Su testu frunidu non currispondet a unu tzertificadu X509 codificadu in PEM vàlidu</string>
-    <string name="dialog_invalid_custom_certificate_title">Faddina analizende su tzertificadu</string>
     <string name="dialog_updated_custom_certificate">Tzertificadu atualizadu</string>
     <!-- Media checking -->
     <string name="check_media_warning">This may take a long time with large media collections. Proceed?</string>
@@ -127,7 +125,6 @@
                             Pro praghere pedi sa funtzionalidade “setImeHintLocales” a su produtore de su tecladu tuo si cussu tecladu non mudat de limba.</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">Pedi agiudu</string>
-    <string name="help_item_support_opencollective_donate">Dona</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d second</item>

@@ -43,7 +43,6 @@
     <string name="custom_study_loading_tags">𐍅𐌹𐌺𐍉 𐌲𐌰𐍄𐌹𐌼𐍂𐌾𐌰𐌳𐌰 𐍃𐍉𐌺𐌽𐌹𐍅𐌰𐌿𐍂𐌳𐌴&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
-    <string name="cardeditor_title_edit_card" maxLength="28">𐌼𐌴𐌻𐌴𐌹𐌽 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
     <string name="discard">𐌿𐍃𐌵𐌹𐍃𐍄𐌾𐌰𐌽</string>
     <string name="save" maxLength="28">𐌲𐌰𐍆𐌰𐍃𐍄𐌰𐌽</string>
     <string name="close">𐌻𐌿𐌺𐌰𐌽</string>
@@ -56,7 +55,6 @@
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">𐌽𐌹𐌿𐌾𐌰𐍄𐌰 𐌽𐌰𐌼𐍉 𐌲𐌹𐌱𐌰𐌽</string>
     <string name="unknown_type_field_warning">𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄 𐌼𐌴𐌻𐌾𐌰𐌽: 𐌿𐌽𐌺𐌿𐌽𐌸𐍃 𐍃𐍄𐌰𐌸𐍃 %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">𐍅𐌹𐌺𐍉 𐌿𐍃𐌽𐌹𐌼𐌰𐌳𐌰&#8230;</string>
-    <string name="info_rate">𐍅𐌰𐌹𐍂𐌸 𐌳𐌿 𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌲𐌹𐌱𐌰𐌽</string>
     <string name="import_title">𐌹𐌽𐌽𐌰𐍄𐌱𐌰𐌹𐍂𐌰𐌳𐌰</string>
     <string name="import_preparing_file">𐌼𐌰𐌽𐍅𐌾𐌰𐌳𐌰 𐍆𐌰𐌾𐌻 𐌳𐌿 𐌹𐌽𐌽𐌰𐍄𐌱𐌰𐌹𐍂𐌰𐌽&#8230;</string>
     <string name="import_message_add" comment="Adding a new deck to the collection (import)">𐌱𐌹𐌰𐌿𐌺𐌰𐌽</string>
@@ -124,13 +122,7 @@
     <string name="note_editor_audio_too_large">𐌸𐌰𐍄𐌰 𐍆𐌰𐌾𐌻 𐌰𐍅𐌳𐌾𐍉𐌽𐍃 𐌿𐍆𐌰𐍂𐌼𐌹𐌺𐌹𐌻 𐌹𐍃𐍄, 𐌱𐌹𐌳𐌾𐌰𐌼 𐌸𐌿𐌺 𐌹𐌽𐌻𐌰𐌲𐌾𐌰𐌽 𐌰𐍅𐌳𐌾𐍉𐌽 𐌷𐌰𐌽𐌳𐌿𐍅𐌰𐌿𐍂𐌷𐍄𐌰𐌱𐌰</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">𐌰𐌽𐌳𐍂𐌰𐌿𐌳 𐌱𐌰𐌹𐌺-𐌰𐍀 𐌹𐌽 𐍆𐍂𐌰𐌼𐌲𐌰𐌷𐍄𐌰𐌹. 𐌱𐌹𐌳𐌾𐌰𐌼 𐌸𐌿𐌺, 𐍃𐍉𐌺𐌴𐌹 𐌰𐍆𐍄𐍂𐌰.</string>
     <!-- Dialog hints -->
-    <string name="dialog_hint_url">URL</string>
-    <string name="dialog_hint_certificate">Certificate</string>
     <!-- IncrementNumberRangePreference -->
-    <string name="plus_sign" comment="Label for increment button in IncrementerNumberRangePreference">+</string>
-    <string name="minus_sign" comment="Label for decrement button in IncrementerNumberRangePreference">-</string>
-    <string name="invalid_value" comment="Error message in IncrementerNumberRangePreference when input is not a valid number">𐍅𐌰𐌹𐍂𐌸 𐌿𐌽𐍂𐌰𐌹𐌷𐍄</string>
-    <string name="maximum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the maximum allowed value">𐌼𐌰𐌹𐍃𐍄𐌰𐍄𐌰 𐍅𐌰𐌹𐍂𐌸 𐌹𐍃𐍄 %d</string>
     <string name="minimum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the minimum allowed value">𐌼𐌹𐌽𐌽𐌹𐍃𐍄𐌰𐍄𐌰 𐍅𐌰𐌹𐍂𐌸 𐌹𐍃𐍄 %d</string>
     <!-- Used for credential empty warning message -->
     <string name="invalid_email">𐌴-𐌼𐌴𐌻 𐍂𐌰𐌹𐌷𐍄 𐌼𐌴𐌻𐌾𐌰𐌽</string>
@@ -166,7 +158,6 @@
     <string name="format_deck_description_as_markdown">Format as Markdown</string>
     <string name="help_button_content_description">𐌷𐌹𐌻𐍀𐌰 𐍆𐌰𐌿𐍂 \'%s\' 𐌿𐍃𐌻𐌿𐌺𐌰𐌽</string>
     <string name="failed_to_copy">𐌽𐌹 𐌼𐌰𐌷𐍄𐌰 𐌲𐌰𐌲𐌰𐌻𐌴𐌹𐌺𐍉𐌽</string>
-    <string name="previewer_next" comment="Name of the next button in the previewer" maxLength="28">𐌹𐍆𐍄𐌿𐌼𐌹𐌽</string>
     <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">𐌲𐌰𐍅𐌰𐌽𐌳𐌾𐌰𐌽 𐌸𐌿𐌺</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->

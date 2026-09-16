@@ -24,7 +24,6 @@ import com.ichi2.anki.common.utils.ext.allDecksCounts
 import com.ichi2.anki.libanki.Decks
 import com.ichi2.anki.libanki.EpochMilliseconds
 import com.ichi2.anki.libanki.sched.Counts
-import com.ichi2.anki.preferences.PENDING_NOTIFICATIONS_ONLY
 import com.ichi2.anki.reviewreminders.ReviewReminder
 import com.ichi2.anki.reviewreminders.ReviewReminderAlarmManager
 import com.ichi2.anki.reviewreminders.ReviewReminderId
@@ -32,6 +31,7 @@ import com.ichi2.anki.reviewreminders.ReviewReminderScope
 import com.ichi2.anki.reviewreminders.ReviewRemindersDatabase
 import com.ichi2.anki.reviewreminders.reminderLogPrefix
 import com.ichi2.anki.runGloballyWithTimeout
+import com.ichi2.anki.settings.PENDING_NOTIFICATIONS_ONLY
 import com.ichi2.anki.settings.Prefs
 import com.ichi2.anki.utils.ext.getParcelableCompat
 import com.ichi2.anki.utils.remainingTime

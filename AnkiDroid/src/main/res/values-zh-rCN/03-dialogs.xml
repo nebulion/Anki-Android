@@ -64,9 +64,7 @@
     <string name="dialog_positive_overwrite">覆盖</string>
     <string name="dialog_positive_repair">修复</string>
     <string name="dialog_positive_replace">替换</string>
-    <string name="dialog_collection_path_not_dir">指定的路径不是一个有效的目录</string>
     <string name="dialog_invalid_custom_certificate">提供的文本无法解析为有效的 PEM 编码的 X509 证书</string>
-    <string name="dialog_invalid_custom_certificate_title">解析证书时发生错误</string>
     <string name="dialog_updated_custom_certificate">证书已更新</string>
     <!-- Media checking -->
     <string name="check_media_warning">对于大型媒体集合，这可能需要很长时间。继续吗？</string>
@@ -110,7 +108,6 @@
     <string name="locale_selection_dialog_summary">某些多语言键盘，如 GBoard，支持编辑文本时更改语言\n\n如果您的键盘不会更改语言，请向您的键盘发布方请求“设置输入法编辑器本地化语言提示”特性。</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">获取帮助</string>
-    <string name="help_item_support_opencollective_donate">捐赠</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="other" comment="Consider keeping the unbreakable space after the digit">可能在 %d  秒后触发自动同步</item>

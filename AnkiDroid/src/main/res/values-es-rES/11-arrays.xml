@@ -22,26 +22,9 @@
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
     <!-- add_to_cur_labels -->
-    <string name="add_to_deck_use_current_deck">Usar mazo actual</string>
-    <string name="add_to_deck_decide_by_note_type">Decidir por tipo de nota</string>
     <!-- theme labels -->
     <!-- day_theme_labels -->
     <!-- night_theme_labels -->
     <!-- html_size_code_labels -->
     <!-- gestures_labels -->
-    <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Respuesta fácil</string>
-    <string name="gesture_abort_learning" maxLength="41">Cerrar pantalla de estudio</string>
-    <string name="gesture_flag_red" maxLength="41">Activar/desactivar marcador rojo</string>
-    <string name="gesture_flag_orange" maxLength="41">Activar/desactivar marcador naranja</string>
-    <string name="gesture_flag_green" maxLength="41">Activar/desactivar marcador verde</string>
-    <string name="gesture_flag_blue" maxLength="41">Activar/desactivar marcador azul</string>
-    <string name="gesture_flag_pink" maxLength="41">Activar/desactivar marcador rosa</string>
-    <string name="gesture_flag_turquoise" maxLength="41">Activar/desactivar marcador turquesa</string>
-    <string name="gesture_flag_purple" maxLength="41">Activar/desactivar marcador morado</string>
-    <string name="gesture_flag_remove" maxLength="41">Eliminar marcador</string>
-    <string name="gesture_page_up" maxLength="41">Página arriba</string>
-    <string name="gesture_page_down" maxLength="41">Página abajo</string>
-    <string name="gesture_toggle_whiteboard" maxLength="41">Activar/desactivar pizarra</string>
-    <string name="gesture_show_hint" maxLength="41">Mostrar pista</string>
-    <string name="gesture_show_all_hints" maxLength="41">Mostrar todas las pistas</string>
 </resources>

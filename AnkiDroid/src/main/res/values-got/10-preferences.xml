@@ -25,47 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">𐌿𐌽𐌲𐌰𐍄𐌰𐍅𐌹𐌸</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d 𐌼𐌹𐌽</item>
-        <item quantity="other">%d 𐌼𐌹𐌽𐍃</item>
-    </plurals>
     <string name="pref_milliseconds">%s 𐌼𐍃</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">𐌽𐌹 𐍄𐍉𐌾𐌰</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">𐌲𐌰𐌼𐌰𐌹𐌽</string>
-    <string name="pref_cat_studying" maxLength="41">𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐍃</string>
-    <string name="pref_cat_system_wide" maxLength="41">𐌰𐌻𐌻𐌰𐌹 𐍃𐍅𐍃𐍄𐌴𐌼𐌰𐌹</string>
     <string name="pref_cat_reviewing" maxLength="41">𐌰𐍆𐍄𐍂𐌰𐍃𐌹𐌿𐌽𐍃</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">𐌲𐌰𐌻𐌴𐌹𐌺</string>
     <string name="pref_cat_scheduling" maxLength="41">𐌲𐌰𐍂𐌴𐌷𐍃𐌽𐍃</string>
     <string name="pref_cat_gestures" maxLength="41">𐍄𐌰𐌹𐌺𐌽𐌴𐌹𐍃</string>
-    <string name="pref_cat_controls" maxLength="41">𐍃𐍄𐌹𐌿𐍂𐌹</string>
     <string name="pref_cat_advanced" maxLength="41">𐍆𐍂𐌰𐌼𐌲𐌰𐌷𐍄</string>
     <string name="pref_cat_workarounds" maxLength="41">Workarounds</string>
-    <string name="pref_cat_plugins" maxLength="41">Plugins</string>
     <string name="pref_cat_editing" maxLength="41">𐌹𐌽𐌼𐌰𐌹𐌳𐌴𐌹𐌽𐍃</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄 𐌹𐌽 𐌺𐌰𐍂𐍄𐌰𐌹 𐌼𐌴𐌻𐌾𐌰𐌽</string>
     <string name="use_input_tag_summ">𐌱𐍉𐌺𐍉 𐌹𐌽𐌼𐌴𐌻𐌴𐌹𐌽𐌰𐌹𐍃 𐌰𐍂𐌺𐌹𐌽𐍃 𐌹𐌽 𐌺𐌰𐍂𐍄𐌰𐌹 𐌱𐍂𐌿𐌺𐌾𐌰𐌽 𐌳𐌿 𐌼𐌴𐌻𐌾𐌰𐌽 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄</string>
-    <string name="reset_languages" maxLength="41">𐍂𐌰𐌶𐌳𐍉𐍃 𐌰𐍆𐍄𐍂𐌰𐌻𐌰𐌲𐌾𐌰𐌽</string>
-    <string name="reset_languages_summ">𐍂𐌰𐌶𐌳𐌰𐌿𐍃𐌸𐍂𐍉𐌸𐌴𐌹𐌽𐍃 𐌰𐍆𐍄𐍂𐌰𐌻𐌰𐌲𐌾𐌰𐌽 (𐌱𐍉𐌺𐍉-𐌳𐌿-𐍃𐍄𐌹𐌱𐌽𐌰𐌹 𐌾𐌰𐌷 𐍅𐌰𐌿𐍂𐌳𐌰𐌱𐍉𐌺𐍉𐌼) 𐌰𐌻𐌻𐌰𐌹𐌼 𐌺𐌰𐍂𐍄𐌰𐌷𐌿𐌶𐌳𐌰𐌼</string>
-    <string name="reset_languages_question">𐌰𐌻𐌻𐍉𐍃 𐍂𐌰𐌶𐌳𐌰𐌿𐍃𐌸𐍂𐍉𐌸𐌴𐌹𐌽𐌹𐌽𐍃 𐌰𐍆𐍄𐍂𐌰𐌻𐌰𐌲𐌾𐌰𐌽?</string>
-    <string name="reset_confirmation">𐌰𐌻𐌻𐍉𐍃 𐍃𐍄𐌰𐍃𐍃𐌹𐌽𐍃 𐌰𐍆𐍄𐍂𐌰𐌻𐌰𐌲𐌾𐌰𐌽</string>
     <string name="card_zoom" maxLength="41">Card zoom</string>
     <string name="image_zoom" maxLength="41">Image zoom</string>
-    <string name="button_size" maxLength="41">𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌰𐌹𐍃 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌼𐌹𐌺𐌹𐌻𐌴𐌹</string>
-    <string name="card_browser_font_size" maxLength="41">Card browser font scaling</string>
-    <string name="col_path" maxLength="41">𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌳𐌹𐍂𐌰𐌹𐌺𐍄𐌰𐌿𐍂𐌹</string>
     <string name="gestures" maxLength="41">𐍄𐌰𐌹𐌺𐌽𐌹𐌽𐍃 𐌲𐌰𐌻𐌰𐌲𐌾𐌰𐌽</string>
     <string name="gestures_summ">Assign gestures to actions such as answering and editing cards.</string>
     <string name="gestures_corner_touch" maxLength="41">9-point touch</string>
@@ -89,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">𐍄𐌴𐌷𐍄𐍃 𐌸𐍂𐌹𐌼 𐍆𐌹𐌲𐌲𐍂𐌰𐌼</string>
     <string name="gestures_four_finger_tap" maxLength="41">𐍄𐌴𐌷𐍄𐍃 𐍆𐌹𐌳𐍅𐍉𐍂𐌹𐌼 𐍆𐌹𐌲𐌲𐍂𐌰𐌼</string>
     <string name="gestures_shake" maxLength="41">Shake device</string>
-    <string name="double_scrolling_gap" maxLength="41">Double scrolling</string>
-    <string name="double_scrolling_gap_summ">Double the scroll gap with eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Swipe sensitivity</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">𐌼𐌰𐌹𐌳𐌾𐌰 𐌽𐌹𐌼𐌰𐌽 𐌸𐌰𐌽𐌿𐌷 𐌲𐌰𐌲𐌰𐌻𐌴𐌹𐌺𐍉𐌸</string>
@@ -105,8 +84,6 @@
     <string name="sync_status_badge_summ">Change the sync icon when changes can be uploaded</string>
     <string name="metered_sync_title" maxLength="41">Allow sync on metered connections</string>
     <string name="metered_sync_summary">If disabled, you will be warned if you try to sync on a metered connection</string>
-    <string name="backup_limits_frequency">𐍈𐌰𐌽 𐍆𐌹𐌻𐌿</string>
-    <string name="backup_limits_lifetime">𐌻𐌹𐌱𐌰𐌹𐌽𐌹𐌸𐌴𐌹𐌷𐍃</string>
     <string name="language" maxLength="41">𐍂𐌰𐌶𐌳𐌰</string>
     <string name="language_system">𐍂𐌰𐌶𐌳𐌰 𐍃𐍅𐍃𐍄𐌴𐌼𐍉𐍃</string>
     <string name="notification_pref" maxLength="41">Notifications</string>
@@ -118,93 +95,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">𐌲𐌻𐌹𐍄𐌼𐌿𐌽𐌾𐌰𐌽𐌳𐍉 𐌻𐌹𐌿𐌷𐌰𐌸</string>
     <string name="software_render" maxLength="41">Disable card hardware render</string>
     <string name="software_render_summ">𐌷𐌰𐍂𐌳𐌿𐍅𐌰𐍂𐍉𐍃 𐌰𐍄𐌰𐌿𐌲𐌾𐌰 𐍃𐍀𐍂𐌰𐌿𐍄𐌹𐌶𐌰 𐌹𐍃𐍄 𐌹𐌸 𐌼𐌰𐌲 𐌿𐌽𐍂𐌰𐌹𐌷𐍄𐌰𐌱𐌰 𐍅𐌰𐌿𐍂𐌺𐌾𐌰𐌽, 𐌸𐌹𐍃𐌷𐌿𐌽 𐌰𐌽𐌰 𐌰𐌽𐌳𐍂𐌰𐌿𐌳 8/8.1. 𐌾𐌰𐌱𐌰𐌹 𐌽𐌹 𐌼𐌰𐌲𐍄 𐌳𐌰𐌹𐌻𐌹𐌽𐍃 𐍃𐌰𐌹𐍈𐌰𐌽 𐌹𐌽𐍄𐌰𐌹𐍂𐍆𐌰𐌺𐌹𐍉𐍃 𐌱𐍂𐌿𐌺𐌾𐌰𐌽𐌴 𐌰𐍆𐍄𐍂𐌰𐍃𐌹𐌿𐌽𐌰𐌹𐍃 𐌺𐌰𐍂𐍄𐍉, 𐌺𐌹𐌿𐍃𐌰𐌹 𐌸𐍉 𐌻𐌰𐌲𐌴𐌹𐌽.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Double tap time interval</string>
     <string name="pref_double_tap_time_interval_summary">A second tap of the answer buttons will be ignored if this time has not elapsed. This prevents accidental double taps</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽 𐌸𐌴𐌹𐌷𐍃𐌹𐍃 𐌻𐌰𐌲𐌲𐌰𐌹 𐍄𐌴𐌷𐍄𐌰𐌹</string>
-    <string name="pref_show_answer_long_press_time_summary">𐌸𐌰𐍄𐌰 𐌼𐌹𐌽𐌽𐌹𐍃𐍄𐍉 𐌸𐌴𐌹𐌷𐍃 𐌸𐍂𐌿𐌺𐌴𐌹𐌽𐌰𐌹𐍃 𐍆𐌰𐌿𐍂𐌸𐌹𐌶𐌴𐌹 𐌿𐍆𐌺𐌿𐌽𐌽𐌰𐌹 𐍄𐌴𐌷𐍄 𐌸𐌰𐍄𐌰 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉 𐌳𐌿 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄.</string>
-    <string name="show_large_answer_buttons" maxLength="41">𐌼𐌹𐌺𐌹𐌻𐍉𐍃 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌴 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="show_large_answer_buttons_summ">𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌴 𐌹𐌽 𐍄𐍅𐌰𐌹𐌼 𐍅𐌹𐌺𐍉𐌼 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="use_current" maxLength="41">𐌺𐌰𐍂𐍄𐌰𐌷𐌿𐌶𐌳 𐌺𐌰𐍂𐍄𐍉𐌼 𐌽𐌹𐌿𐌾𐌰𐌹𐌼</string>
     <string name="learn_cutoff" maxLength="41">𐌼𐌰𐍂𐌺𐌰 𐍆𐌰𐌿𐍂𐌰𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐌰𐌹𐍃</string>
     <string name="time_limit" maxLength="41">Timebox time limit</string>
     <string name="day_offset_with_description" maxLength="41">𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽𐍃 𐌹𐍆𐍄𐌿𐌼𐌹𐌽𐍃 𐌳𐌰𐌲𐌹𐍃</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d 𐍈𐌴𐌹𐌻𐌰 𐌰𐍆𐌰𐍂 𐌼𐌹𐌳𐌾𐌰𐌽𐌰𐌷𐍄</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d 𐍈𐌴𐌹𐌻𐍉𐍃 𐌰𐍆𐌰𐍂 𐌼𐌹𐌳𐌾𐌰𐌽𐌰𐌷𐍄</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">𐌼𐌹𐌸 𐍃𐌺𐌰𐌹𐍂𐌼𐌰 𐍃𐌺𐌴𐌹𐌽𐌰𐌽𐌳𐌹𐌽 𐌸𐌰𐌹𐍂𐌷𐍅𐌹𐍃𐌰𐌽</string>
     <string name="pref_keep_screen_on_summ">𐍃𐌺𐌰𐌹𐍂𐌼𐌹𐍃 𐌿𐍄𐌰𐌼𐌴𐌻 𐌿𐌽𐌲𐌰𐍄𐌰𐌿𐌾𐌰𐌽</string>
-    <string name="enable_api_title" maxLength="41">𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌰𐍀𐌹 𐌲𐌰𐍅𐌰𐌿𐍂𐌺𐌾𐌰𐌽</string>
-    <string name="enable_api_summary">Let other apps connect to AnkiDroid and read / write data without your intervention</string>
     <string name="custom_buttons_setting_always_show">𐍃𐌹𐌽𐍄𐌴𐌹𐌽𐍉 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="custom_buttons_setting_menu_only">𐌼𐌰𐌹𐌽𐍅 𐌸𐌰𐍄𐌰𐌹𐌽𐌴𐌹</string>
-    <string name="reset_custom_buttons" maxLength="41">Reset to default</string>
     <string name="reset">𐌰𐍆𐍄𐍂𐌰𐌻𐌰𐌲𐌾𐌰𐌽</string>
-    <string name="thirdparty_apps_title" maxLength="41">Third-party API apps</string>
-    <string name="thirdparty_apps_summary">𐍃𐌰𐌹 𐍅𐌹𐌺𐍉𐌽 𐌰𐍀𐍀𐌻𐌴𐌹𐌺𐌰𐍄𐍃𐌾𐍉𐌽𐍉 𐌱𐍂𐌿𐌺𐌾𐌰𐌽𐌳𐌴𐌹𐌽𐍉 𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳𐍃 𐌰𐍀𐌹 𐍃𐍅𐌴 𐍅𐌰𐌿𐍂𐌳𐌰𐌱𐍉𐌺𐍉𐌼, 𐌱𐍂𐌿𐌺𐌴𐌹𐌽𐌹𐌼.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">𐌰𐍆𐍄𐍂𐌰𐍃𐌹𐌿𐌽𐌴𐌹𐍃</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">𐍆𐌰𐌿𐍂𐌰𐍃𐌹𐌿𐌽𐌴𐌹𐍃</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">𐌸𐌰𐍄𐌰𐌹𐌽𐌴𐌹 𐌷𐌹𐌽𐌳𐌰𐍂𐍆𐌴𐍂𐌰 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">𐌼𐌰𐌷𐍄𐍃 𐌳𐌿 𐌰𐍄𐌲𐌰𐌲𐌲𐌰𐌽</string>
     <string name="exit_via_double_tap_back" maxLength="41">𐌸𐍂𐌿𐌺𐌴𐌹 𐌲𐌰𐍅𐌰𐌽𐌳𐌾𐌰𐌽 𐌸𐌿𐌺 𐍄𐍅𐌰𐌹𐌼 𐍃𐌹𐌽𐌸𐌰𐌼 𐌳𐌿 𐌲𐌰𐍅𐌰𐌽𐌳𐌾𐌰𐌽 𐌸𐌿𐌺/𐌰𐍆𐌻𐌴𐌹𐌸𐌰𐌽</string>
     <string name="exit_via_double_tap_back_summ">𐌴𐌹 𐌽𐌹 𐌰𐍆𐌻𐌴𐌹𐌸𐌰𐌹𐍃 𐌰𐍆 𐍃𐌺𐌰𐌹𐍂𐌼𐌰 𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐌰𐌹𐍃 𐌸𐌰𐌿 𐌰𐍀𐍀 𐌽𐌹 𐌸𐌰𐍄𐌰 𐍅𐌹𐌻𐌾𐌰𐌽𐌳𐍃/𐍅𐌹𐌻𐌾𐌰𐌽𐌳𐌴𐌹</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">𐌰𐌻𐌻𐌰 𐍆𐌰𐌾𐌻𐌰 𐌹𐌽 𐌹𐌽𐌽𐌰𐍄𐌱𐌰𐌿𐍂𐌰𐌼 𐌼𐌰𐌹𐌳𐌾𐌴 𐌰𐌽𐌳𐌻𐌴𐍄𐌰𐌽</string>
-    <string name="media_import_allow_all_files_summ">𐌾𐌰𐌱𐌰𐌹 𐌰𐌽𐌳𐍂𐌰𐌿𐌳 𐌽𐌹 𐍅𐌰𐌹𐍄 𐍈𐌹𐌻𐌴𐌹𐌺 𐌹𐍃𐍄 𐌼𐌰𐌹𐌳𐌾𐌰𐍆𐌰𐌾𐌻</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Custom sync server</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">𐌽𐌹 𐌱𐍂𐌿𐌷𐍄</string>
-    <string name="custom_sync_server_help2"><![CDATA[
-        As an alternative to synchronizing with AnkiWeb,
-        you may use your own server for synchronization.
-        If not set, the default AnkiWeb server will be used instead.
-        <a href="%s">Learn more</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">Custom root certificate (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">𐌱𐍉𐌺𐌰𐌱𐌰𐌿𐍂𐌳</string>
-    <string name="bluetooth">𐌱𐌻𐌴𐍅𐌰𐍄𐌿𐌽𐌸𐌿𐍃</string>
     <string name="answer_buttons" maxLength="41">𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌴</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">𐌺𐌰𐍂𐍄𐌰</string>
     <string name="note" maxLength="41">𐌼𐌴𐌻𐌴𐌹𐌽𐍃</string>
-    <string name="navigation" maxLength="41">𐌽𐌰𐌱𐌹𐌲𐌰𐍄𐍃𐌾𐍉</string>
     <string name="media" maxLength="41">𐌼𐌰𐌹𐌳𐌾𐌰</string>
-    <string name="misc" maxLength="41">𐌰𐌽𐌸𐌰𐍂</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">𐌲𐌰𐌼𐌿𐌽𐌳 𐌱𐌹𐌰𐌿𐌺𐌰𐌽</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Add review reminder</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Edit review reminder</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">You have no review reminders</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">𐍃𐍉𐌺𐌽𐌹𐍅𐌰𐌿𐍂𐌳𐌰 𐍅𐌰𐌻𐌾𐌰𐌽</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">𐌽𐌹𐌿𐌾𐌰𐍃𐍄𐍂𐌹𐌺𐌰𐌽𐍃 𐌼𐌹𐌸𐍃𐌰𐍄𐌾𐌰𐌽 𐌼𐌹𐌸 𐌷𐍄𐌼𐌻</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Focus ‘type in answer’</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">𐌱𐌹</string>
-    <string name="contributors_title">𐌷𐌹𐌻𐍀𐌰𐌽𐌳𐌰𐌽𐍃</string>
-    <string name="about_contributors_description"><![CDATA[𐌸𐌰𐌹 𐍃𐌹𐌽𐌳 <a href=\"%1$s\">𐌷𐌹𐌻𐍀𐌰𐌽𐌳𐌰𐌽𐍃</a> 𐌲𐍉𐌳𐌰𐌹 𐍆𐌹𐌻𐌿 𐌿𐌽𐍃𐌰𐍂𐌰𐌹. 𐌾𐌰𐌷 𐌸𐌿 𐌼𐌰𐌲𐍄 𐌷𐌹𐌻𐍀𐌰𐌽 𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳𐌹𐍃 𐍆𐌰𐌿𐍂𐌰𐌼𐌴𐌻𐌴𐌹𐌽𐌰𐌹, 𐍃𐌺𐌴𐌹𐍂𐌴𐌹𐌽𐌰𐌹, 𐌰𐌽𐌳𐍃𐍄𐌰𐌻𐌳𐌰𐌽 𐌾𐌰𐌷 <a href=\"%2$s\">𐌼𐌰𐌹𐍃</a>! ]]></string>
-    <string name="license">𐌰𐌽𐌳𐌻𐌴𐍄</string>
-    <string name="license_description"><![CDATA[𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌿𐍃𐌼𐌴𐍂𐌹𐌸 𐌹𐍃𐍄 𐌿𐍆 <a href=\"%1$s\">GPL-3.0</a> 𐌾𐌰𐌷 <a href=\"%2$s\">AGPL-3.0</a> 𐌰𐌽𐌳𐌻𐌴𐍄𐌰𐌼, 𐌼𐌹𐌸 𐌺𐍉𐌳𐌰𐌿 𐌱𐍂𐌿𐌽𐌽𐌹𐌽𐍃 𐍅𐌹𐍃𐌰𐌽𐌳𐌹𐌽 <a href=\"%3$s\">𐌰𐍄 𐌲𐌹𐍄𐌷𐌰𐌱</a>]]></string>
-    <string name="other_licenses"><![CDATA[𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌾𐌰𐌷 𐌱𐍂𐌿𐌺𐌴𐌹𐌸 𐌱𐍉𐌺𐌰𐌷𐌿𐍃𐌴 𐌾𐌰𐌷 𐌻𐌴𐌹𐍄𐌹𐌻𐌰𐍄𐌰𐌹𐌺𐌽𐌴 𐌰𐌽𐌸𐌰𐍂𐌰𐌹𐌶𐌴, 𐍅𐌹𐍃𐌰𐌽𐌳𐍉𐌽𐌰 𐌿𐍆 
-<a href=\"%1$s\">𐌰𐌽𐌳𐌻𐌴𐍄𐌰𐌼</a> 𐌼𐌹𐍃𐍃𐌰𐌻𐌴𐌹𐌺𐌰𐌹𐌼 𐌿𐍃𐌻𐌿𐌺𐌹𐍃 𐌱𐍂𐌿𐌽𐌽𐌹𐌽𐍃]]></string>
-    <string name="donate_description"><![CDATA[𐌼𐌰𐌲𐍄 𐍃𐍄𐍉𐌳𐌾𐌰𐌽 𐍅𐌰𐌷𐍃𐍄𐌿 𐌰𐌽𐌺𐌴𐌹𐌳𐍂𐌰𐌿𐌳 𐌾𐌰𐌱𐌰𐌹 <a href=\"%1$s\">𐌰𐌽𐌳𐍃𐍄𐌰𐌻𐌳𐌹𐍃 𐌿𐌽𐍃𐌹𐍃</a>. 𐌸𐌹𐍃𐍈𐌰𐌶𐌿𐌷 𐌸𐌰𐍄𐌴𐌹 𐌲𐌹𐌱𐌹𐍃 𐌻𐌴𐌹𐌺𐌰𐌹𐌸 𐌿𐌽𐍃𐌹𐍃.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">𐍄𐌰𐌹𐌺𐌽 𐌱𐌹𐌰𐌿𐌺𐌰𐌽</string>
-    <string name="binding_add_key">𐌱𐍉𐌺𐌰 𐌱𐌹𐌰𐌿𐌺𐌰𐌽</string>
     <string name="key_picker_default_press_key">𐌱𐍉𐌺𐌰𐌹 𐌰𐍄𐍄𐌴𐌺𐌰𐌽</string>
-    <string name="binding_add_axis">𐍃𐍄𐌹𐌿𐍂𐌹 𐌳𐌰𐌿𐌹𐍃𐍄𐌹𐌺/𐍅𐌰𐌲𐌴𐌹𐌽𐌰𐌹𐍃 𐌱𐌹𐌰𐌿𐌺𐌰𐌽</string>
     <string name="axis_picker_move_joystick">Move a joystick/motion controller</string>
-    <string name="user_actions" maxLength="41">𐍄𐍉𐌾𐌰 𐌱𐍂𐌿𐌺𐌾𐌹𐌽𐍃</string>
-    <string name="user_actions_summary" maxLength="41">𐌱𐌰𐌹𐍂𐌷𐍄𐌾𐌰𐌽 𐌾𐌰𐌱𐌰𐍃𐌺𐍂𐌹𐍀𐍄 𐍃𐌺𐌰𐌹𐍂𐌼𐌹𐍃 𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐌰𐌹𐍃</string>
     <string name="user_action_1" maxLength="28">𐍄𐌰𐌿𐌹 𐌱𐍂𐌿𐌺𐌾𐌹𐌽𐍃 1</string>
     <string name="user_action_2" maxLength="28">𐍄𐌰𐌿𐌹 𐌱𐍂𐌿𐌺𐌾𐌹𐌽𐍃 2</string>
     <string name="user_action_3" maxLength="28">𐍄𐌰𐌿𐌹 𐌱𐍂𐌿𐌺𐌾𐌹𐌽𐍃 3</string>
@@ -225,8 +154,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">𐌱: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">𐌰: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">’%s’ 𐌿𐍃𐌽𐌹𐌼𐌰𐌽</string>
-    <string name="bindings_already_bound">𐌳𐌿 ’%s’ 𐌾𐌿 𐌱𐌿𐌽𐌳𐌰𐌽 𐌹𐍃𐍄</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Experimental</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Please upgrade to the new text to speech format</string>
@@ -236,16 +163,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[
-        AnkiDroid periodically backs up your collection.
-        After backups are more than two days old,
-        AnkiDroid will start removing some of them to free up disk space.
-        <br><br>
-        Note that media files are not backed up.
-        To be safe, please periodically synchronize your collection, or back up exports of it.
-        <br><br>
-        You can restore from a backup and export your collection in the deck list menu.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">𐌼𐌹𐌽𐌿𐍄𐌾𐌿𐍃 𐌼𐌹𐌸 𐍃𐌹𐌻𐌱𐌰𐍄𐍉𐌾𐌰𐌽𐌳𐌰𐌼 𐌱𐌰𐌹𐌺-𐌰𐍀𐌰𐌼</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">𐍃𐌹𐌽𐍄𐌴𐌹𐌽𐍉𐍃 𐌱𐌰𐌹𐌺𐌰𐍀𐍃 𐌳𐌿 𐌲𐌰𐍆𐌰𐍃𐍄𐌰𐌽</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">𐌱𐌰𐌹𐌺𐌰𐍀𐍃 𐌹𐌽 𐍅𐌹𐌺𐍉𐌼 𐌳𐌿 𐌲𐌰𐍆𐌰𐍃𐍄𐌰𐌽</string>
@@ -262,19 +179,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">𐌽𐌹 𐌷𐌿𐌶𐌳</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">𐌰𐌹𐍂𐌶𐌴𐌹</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">𐌽𐌹𐌼𐌰𐌳𐌰&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">𐌷𐌿𐌶𐌳 𐌽𐌹𐍃𐍄</string>
-    <string name="show_answer_buttons" maxLength="41">𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌰𐌹𐍃 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="hide_hard_and_easy" maxLength="41">\'𐌿𐌽𐌰𐌶𐌴𐍄\' 𐌾𐌰𐌷 \'𐌰𐌶𐌴𐍄\' 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌰𐍆𐍆𐌹𐌻𐌷𐌰𐌽</string>
-    <string name="toolbar" maxLength="41">𐍄𐍉𐌻𐌰-𐌰𐌽𐍃</string>
-    <string name="new_study_screen" maxLength="41">𐍃𐌺𐌰𐌹𐍂𐌼𐍃 𐌽𐌹𐌿𐌾𐌹𐍃 𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐌰𐌹𐍃</string>
-    <string name="screen" maxLength="41">𐍃𐌺𐌰𐌹𐍂𐌼𐍃</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Only answer</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Flip and answer</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">𐌻𐌰𐌲𐌴𐌹𐌽𐌹𐌽𐍃 𐌿𐍃𐌻𐌿𐌺𐌰𐌽</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Related settings</string>
 </resources>

@@ -25,47 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">Ei käytössä</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d min</item>
-        <item quantity="other">%d min</item>
-    </plurals>
     <string name="pref_milliseconds">%s ms</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">Ei tuloksia</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">Yleiset</string>
-    <string name="pref_cat_studying" maxLength="41">Opiskelu</string>
-    <string name="pref_cat_system_wide" maxLength="41">Järjestelmäasetukset</string>
     <string name="pref_cat_reviewing" maxLength="41">Läpikäynti</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Synkronointi</string>
     <string name="pref_cat_scheduling" maxLength="41">Aikataulutus</string>
     <string name="pref_cat_gestures" maxLength="41">Eleet</string>
-    <string name="pref_cat_controls" maxLength="41">Ohjauskomennot</string>
     <string name="pref_cat_advanced" maxLength="41">Lisäasetukset</string>
     <string name="pref_cat_workarounds" maxLength="41">Korjaukset</string>
-    <string name="pref_cat_plugins" maxLength="41">Lisäosat</string>
     <string name="pref_cat_editing" maxLength="41">Muokkaus</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">Kirjoita vastaus korttiin</string>
     <string name="use_input_tag_summ">Kirjoita vastaus kortin sisällä olevaan vastauskenttään</string>
-    <string name="reset_languages" maxLength="41">Palauta kielet</string>
-    <string name="reset_languages_summ">Palauta kielimääritykset (tekstissä puheeksi ja sanakirjoissa) kaikissa pakoissa</string>
-    <string name="reset_languages_question">Palauta kaikki kielivalinnat?</string>
-    <string name="reset_confirmation">Kaikki tilat palautettu</string>
     <string name="card_zoom" maxLength="41">Kortin tarkennus</string>
     <string name="image_zoom" maxLength="41">Kuvan tarkennus</string>
-    <string name="button_size" maxLength="41">Vastauspainikkeen koko</string>
-    <string name="card_browser_font_size" maxLength="41">Korttiselaimen kirjasimien skaalaus</string>
-    <string name="col_path" maxLength="41">AnkiDroid-hakemisto</string>
     <string name="gestures" maxLength="41">Ota eleet käyttöön</string>
     <string name="gestures_summ">Liitä eleitä toimintoihin, kuten vastaamiseen ja korttien muokkaamiseen.</string>
     <string name="gestures_corner_touch" maxLength="41">9 pisteen kosketus</string>
@@ -89,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">Kolmesorminen napautus</string>
     <string name="gestures_four_finger_tap" maxLength="41">Neljäsorminen napautus</string>
     <string name="gestures_shake" maxLength="41">Ravista laitetta</string>
-    <string name="double_scrolling_gap" maxLength="41">Kaksoisvieritys</string>
-    <string name="double_scrolling_gap_summ">Kaksinkertaista vieritysaskeleen koko eReaderin kanssa</string>
     <string name="swipe_sensitivity" maxLength="41">Pyyhkäisyjen herkkyys</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Hae media synkronointi</string>
@@ -104,8 +83,6 @@
     <string name="sync_status_badge_summ">Muuttaa synkronointikuvaketta, kun muutoksia voidaan lähettää</string>
     <string name="metered_sync_title" maxLength="41">Salli synkronointi käytön mukaan laskutettavilla yhteyksillä</string>
     <string name="metered_sync_summary">Jos pois käytöstä, sinua varoitetaan, jos yrität synkronoida käytön mukaan laskutettavalla yhteydellä</string>
-    <string name="backup_limits_frequency">Aikaväli</string>
-    <string name="backup_limits_lifetime">Säilytysaika</string>
     <string name="language" maxLength="41">Kieli</string>
     <string name="language_system">Järjestelmän kieli</string>
     <string name="notification_pref" maxLength="41">Ilmoitukset</string>
@@ -117,91 +94,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">Vilkkuvalo</string>
     <string name="software_render" maxLength="41">Poista korttien laitteistokiihdytetty renderöinti käytöstä</string>
     <string name="software_render_summ">Laitteistokiihdytetty renderöinti on nopeampaa, mutta siinä voi esiintyä ongelmia, erityisesti Android 8/8.1 -käyttöjärjestelmässä. Jos et näe korttien kertauskäyttöliittymää kokonaan, kokeile tätä asetusta.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Kaksoisnapautuksen aikaväli</string>
     <string name="pref_double_tap_time_interval_summary">Toista vastauspainikkeiden napauttamista ei oteta huomioon, jos näin kauan ei ole kulunut. Tämä estää vahingossa tapahtuvat kaksoisnapautukset</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">Näytä vastaus: pitkän painalluksen aika</string>
-    <string name="pref_show_answer_long_press_time_summary">Vähimmäispainallusaika, jonka jälkeen \"Näytä vastaus\" -painike rekisteröi kosketuksen.</string>
-    <string name="show_large_answer_buttons" maxLength="41">Näytä suuret vastauspainikkeet</string>
-    <string name="show_large_answer_buttons_summ">Näytä vastauspainikkeet kahdella rivillä</string>
-    <string name="use_current" maxLength="41">Pakka uusille korteille</string>
     <string name="learn_cutoff" maxLength="41">Ennalta oppimisen aikaraja</string>
     <string name="time_limit" maxLength="41">Edistymisen näyttämisen aikaväli</string>
     <string name="day_offset_with_description" maxLength="41">Seuraava päivä alkaa</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d tunti keskiyön jälkeen</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d tuntia keskiyön jälkeen</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">Pidä näyttö päällä</string>
     <string name="pref_keep_screen_on_summ">Poista näytön aikakatkaisu</string>
-    <string name="enable_api_title" maxLength="41">Ota käyttöön AnkiDroid-rajapinta</string>
-    <string name="enable_api_summary">Anna muiden sovellusten käyttää itsenäisesti AnkiDroidin tietoja</string>
     <string name="custom_buttons_setting_always_show">Näytä aina</string>
     <string name="custom_buttons_setting_menu_only">Vain valikossa</string>
-    <string name="reset_custom_buttons" maxLength="41">Palauta oletukset</string>
     <string name="reset">Palauta</string>
-    <string name="thirdparty_apps_title" maxLength="41">Kolmannen osapuolen API-sovellukset</string>
-    <string name="thirdparty_apps_summary">Listaa sovellukset jotka käyttävät AnkiDroid API:ta, kuten kansioita ja työkaluja.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Läpikäynnit</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Esikatselut</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Käytä vain käätöpuolta</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Esteettömyys</string>
     <string name="exit_via_double_tap_back" maxLength="41">Takaisin/poistu painamalla \"takaisin\" kahdesti</string>
     <string name="exit_via_double_tap_back_summ">Välttääksesi poistumasta vahingossa opiskeluruudusta tai sovelluksesta</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">Salli kaikki tiedostot mediaa tuotaessa</string>
-    <string name="media_import_allow_all_files_summ">Jos Android ei tunnista mediatiedostoja</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Oma synkronointipalvelin</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">Ei käytössä</string>
-    <string name="custom_sync_server_help2"><![CDATA[        Voit käyttää omaa palvelintasi synkronointiin
-        vaihtoehtona AnkiWebin synkronoinnille.
-        Jos tämä jätetään tyhjäksi, AnkiWebin palvelinta käytetään.
-        <a href="%s">Lue lisää</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">Oma root-sertifikaatti (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">Näppäimistö</string>
-    <string name="bluetooth">Bluetooth</string>
     <string name="answer_buttons" maxLength="41">Vastauspainikkeet</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">Kortit</string>
     <string name="note" maxLength="41">Muistiinpanot</string>
-    <string name="navigation" maxLength="41">Liikkuminen</string>
     <string name="media" maxLength="41">Media</string>
-    <string name="misc" maxLength="41">Sekalaiset</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Lisää muistutus</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Lisää läpikäyntimuistutus</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Muokkaa läpikäyntimuistutusta</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">Sinulla ei ole läpikäyntimuistutuksia</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Valitse tunnisteet</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">Korvaa rivinvaihdot HTML:llä</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Kohdista \"kirjoita vastaus\" -kenttään</string>
     <string name="type_in_answer_focus_summ">Automaattisesti kohdista ‘kirjoita vastaus’ -kenttään opiskeluruudussa</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">Tietoja</string>
-    <string name="contributors_title">Kehittäjät ja avustajat</string>
-    <string name="about_contributors_description"><![CDATA[Tässä ovat upeat  <a href=\"%1$s\">kehittäjämme ja avustajamme</a>. Sinäkin voit auttaa AnkiDroidia ohjelmoimalla, kääntämällä, lahjoittamalla ja <a href=\"%2$s\">monin muin tavoin</a>!]]></string>
-    <string name="license">Lisenssi</string>
-    <string name="license_description"><![CDATA[AnkiDroid julkaistaan <a href=\"%1$s\">GPL-3.0</a> and <a href=\"%2$s\">AGPL-3.0</a>  -lisensseillä, ja lähdekoodi on saatavilla <a href=\"%3$s\">GitHubissa</a>]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid käyttää myös kolmannen osapuolen kirjastoja ja kuvakkeita, jotka on lisensoitu useilla avoimen lähdekoodin <a href=\"%1$s\">lisensseillä</a>]]></string>
-    <string name="donate_description"><![CDATA[Voit tukea AnkiDroid\:n kehitystä <a href=\"%1$s\">lahjoittamalla</a>. Mikä tahansa summa on erittäin tervetullut.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">Lisää kosketusele</string>
-    <string name="binding_add_key">Lisää näppäin</string>
     <string name="key_picker_default_press_key">Paina näppäintä</string>
-    <string name="binding_add_axis">Lisää peliohjain tai liikeohjain</string>
     <string name="axis_picker_move_joystick">Liikuta peli- tai liikeohjainta</string>
-    <string name="user_actions" maxLength="41">Käyttäjän toimet</string>
-    <string name="user_actions_summary" maxLength="41">Käynnistä JavaScript opiskeluruudussa</string>
     <string name="user_action_1" maxLength="28">Käyttäjän toimi 1</string>
     <string name="user_action_2" maxLength="28">Käyttäjän toimi 2</string>
     <string name="user_action_3" maxLength="28">Käyttäjän toimi 3</string>
@@ -222,8 +153,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">K: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">V: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">Poista ”%s”</string>
-    <string name="bindings_already_bound">Jo käytössä kohteessa \"%s\"</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Kokeellinen</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Päivitä uuteen tekstistä puheeksi -formaattiin</string>
@@ -233,16 +162,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[
-        AnkiDroid varmuuskopioi kokoelmasi säännöllisesti.
-        Kun varmuuskopiot ovat yli kaksi päivää vanhoja,
-        AnkiDroid alkaa poistaa joitakin niistä vapauttaakseen levytilaa.
-        <br><br>
-        Huomaa, että mediatiedostoja ei varmuuskopioida.
-        Varmuuden vuoksi synkronoi kokoelmasi säännöllisesti tai varmuuskopioi ulos viedyt kopiot.
-        <br><br>
-        Voit palauttaa varmuuskopion ja viedä kokoelmasi pakkaluettelon valikosta.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">Automaattisten varmuuskopioiden aikaväli, minuutteja</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">Säilytettävien päivittäisten varmuuskopioiden määrä</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">Säilytettävien viikottaisten varmuuskopioiden määrä</string>
@@ -259,19 +178,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Ei kokoelmaa</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Virhe</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Haetaan&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Kokoelmaa ei ole olemassa</string>
-    <string name="show_answer_buttons" maxLength="41">Näytä vastauspainikkeet</string>
     <string name="hide_hard_and_easy" maxLength="41">Piilota ”Vaikea” ja ”Helppo” painikkeet</string>
-    <string name="toolbar" maxLength="41">Työkalupalkki</string>
-    <string name="new_study_screen" maxLength="41">Uusi opiskeluruutu</string>
-    <string name="screen" maxLength="41">Näyttö</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Only answer</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Flip and answer</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Avaa asetukset</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Related settings</string>
 </resources>

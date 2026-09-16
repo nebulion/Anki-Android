@@ -21,7 +21,7 @@ enum class SettingsPage(
     Root(R.string.settings),
     Reviewing(R.string.pref_cat_reviewing),
     StudyScreen(R.string.mmd_settings_study_screen),
-    Gestures(R.string.mmd_settings_gestures),
+    Gestures(R.string.pref_cat_gestures),
     Accessibility(R.string.accessibility),
     EInk(R.string.mmd_settings_eink),
     Maintenance(R.string.mmd_settings_maintenance),

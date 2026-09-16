@@ -58,9 +58,7 @@
     <string name="dialog_positive_repair">Repair</string>
     <string name="dialog_positive_replace">Replace</string>
 
-    <string name="dialog_collection_path_not_dir">The path specified wasn’t a valid directory</string>
     <string name="dialog_invalid_custom_certificate">The provided text does not resolve to a valid PEM-encoded X509 certificate</string>
-    <string name="dialog_invalid_custom_certificate_title">Error parsing certificate</string>
     <string name="dialog_updated_custom_certificate">Certificate updated</string>
 
     <!-- Media checking -->
@@ -124,7 +122,6 @@
 
     <string name="help_title_get_help">Get help</string>
 
-    <string name="help_item_support_opencollective_donate">Donate</string>
 
 
 

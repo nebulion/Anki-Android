@@ -43,7 +43,6 @@
     <string name="custom_study_loading_tags">Teglar roʻyxati qurilmoqda</string>
     <!-- Study options -->
     <!-- Card editor -->
-    <string name="cardeditor_title_edit_card" maxLength="28">Qaydni tahrirlash</string>
     <string name="discard">Bekor qilish</string>
     <string name="save" maxLength="28">Saqlash</string>
     <string name="close">Yopish</string>
@@ -56,7 +55,6 @@
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Nomini oʻzgartirish</string>
     <string name="unknown_type_field_warning">Kiritish javobi: nomaʼlum %s maydoni</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Dasta oʻchirilmoqda&#8230;</string>
-    <string name="info_rate">AnkiDroidʼga baho berish</string>
     <string name="import_title">Import qilish</string>
     <string name="import_preparing_file">Fayl import uchun tayyorlanmoqda&#8230;</string>
     <string name="import_message_add" comment="Adding a new deck to the collection (import)">Qoʻshish</string>
@@ -124,13 +122,7 @@
     <string name="note_editor_audio_too_large">Audio fayl juda katta, audio faylni qoʻlda kiriting</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android zaxiralashi amalga oshmoqda. Iltimos, qayta urinib koʻring</string>
     <!-- Dialog hints -->
-    <string name="dialog_hint_url">URL</string>
-    <string name="dialog_hint_certificate">Sertifikat</string>
     <!-- IncrementNumberRangePreference -->
-    <string name="plus_sign" comment="Label for increment button in IncrementerNumberRangePreference">+</string>
-    <string name="minus_sign" comment="Label for decrement button in IncrementerNumberRangePreference">-</string>
-    <string name="invalid_value" comment="Error message in IncrementerNumberRangePreference when input is not a valid number">Yaroqsiz qiymat</string>
-    <string name="maximum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the maximum allowed value">Maksimal qiymat %d</string>
     <string name="minimum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the minimum allowed value">Minimal qiymat %d</string>
     <!-- Used for credential empty warning message -->
     <string name="invalid_email">Yaroqli e-pochta manzilini kiriting</string>
@@ -166,7 +158,6 @@
     <string name="format_deck_description_as_markdown">Markdown sifatida formatlash</string>
     <string name="help_button_content_description">‘%s’ uchun yordamni ochish</string>
     <string name="failed_to_copy">Nusxa olib boʻlmadi</string>
-    <string name="previewer_next" comment="Name of the next button in the previewer" maxLength="28">Keyingi</string>
     <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">Orqaga</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->

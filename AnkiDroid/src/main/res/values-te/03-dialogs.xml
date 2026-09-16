@@ -66,9 +66,7 @@
     <string name="dialog_positive_overwrite">తిరిగి వ్రాయండి</string>
     <string name="dialog_positive_repair">బాగు చేయు</string>
     <string name="dialog_positive_replace">పునఃస్థాపించుము</string>
-    <string name="dialog_collection_path_not_dir">పేర్కొన్న మార్గం చెల్లుబాటు అయ్యే డైరెక్టరీ కాదు</string>
     <string name="dialog_invalid_custom_certificate">అందించిన వచనం చెల్లుబాటు అయ్యే PEM-ఎన్‌కోడ్ చేసిన X509 ప్రమాణపత్రానికి పరిష్కారం కాదు</string>
-    <string name="dialog_invalid_custom_certificate_title">సర్టిఫికెట్‌ని అన్వయించడంలో లోపం</string>
     <string name="dialog_updated_custom_certificate">సర్టిఫికేట్ నవీకరించబడింది</string>
     <!-- Media checking -->
     <string name="check_media_warning">This may take a long time with large media collections. Proceed?</string>
@@ -113,7 +111,6 @@
     <string name="locale_selection_dialog_summary">GBoard వంటి కొన్ని బహుభాషా కీబోర్డ్‌లు, వచనాన్ని సవరించేటప్పుడు భాషను మార్చడానికి మద్దతు ఇస్తాయి\n\nమీ కీబోర్డ్ భాషను మార్చకపోతే, దయచేసి మీ కీబోర్డ్ తయారీదారు నుండి “setImeHintLocales” లక్షణాన్ని అభ్యర్థించండి.</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">Get help</string>
-    <string name="help_item_support_opencollective_donate">దానం చేయండి</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d second</item>

@@ -48,20 +48,10 @@
         <item>500</item>
     </string-array>
 
-    <string-array name="add_to_cur_labels">
-        <item>@string/add_to_deck_use_current_deck</item>
-        <item>@string/add_to_deck_decide_by_note_type</item>
-    </string-array>
 
     <string name="link_forum">http://groups.google.com/group/anki-android</string>
-    <string name="licence_wiki">http://www.gnu.org/licenses/gpl.html</string>
-    <string name="dependency_license_wiki">https://github.com/ankidroid/Anki-Android/wiki/Licences</string>
-    <string name="link_agpl_wiki">https://www.gnu.org/licenses/agpl-3.0.html</string>
-    <string name="link_source">https://github.com/ankidroid/Anki-Android</string>
     <string name="link_market">market://details?id=com.ichi2.anki</string>
     <string name="link_market_kindle">http://www.amazon.com/gp/mas/dl/android?p=com.ichi2.anki</string>
-    <string name="link_contribution">https://github.com/ankidroid/Anki-Android/wiki/Contributing</string>
-    <string name="link_contributors">https://github.com/ankidroid/Anki-Android#credits</string>
     <string name="link_help">https://docs.ankidroid.org/help.html</string>
     <string name="link_manual">https://docs.ankidroid.org/manual.html</string>
     <string name="link_help_ja">https://docs.ankidroid.org/help-ja.html</string>
@@ -73,25 +63,18 @@
     <string name="link_sync_conflict_help">https://docs.ankidroid.org/#AnkiWebConflicts</string>
     <string name="link_user_actions_help">https://docs.ankidroid.org/#userActions</string>
     <string name="link_faq_missing_media" tools:ignore="Typos">https://github.com/ankidroid/Anki-Android/wiki/FAQ#why-doesnt-my-sound-or-image-work-on-ankidroid</string>
-    <string name="link_third_party_api_apps">https://github.com/ankidroid/Anki-Android/wiki/Third-Party-Apps</string>
     <string name="repair_deck">https://docs.ankiweb.net/#/files?id=corrupt-collections</string>
     <string name="link_webview_update">https://github.com/ankidroid/Anki-Android/wiki/WebView-Detection-and-Package-Updates#outdated-webview</string>
     <string name="link_legacy_webview_update">https://github.com/ankidroid/Anki-Android/wiki/WebView-Detection-and-Package-Updates#outdated-android-native-webview</string>
     <!-- Link is in the name of Glutanimate - server admin -->
-    <string name="link_opencollective_donate">https://opencollective.com/ankidroid/contribute</string>
     <string name="link_distributions">https://apps.ankiweb.net/#download</string>
     <string name="link_install_non_play_store_install">https://github.com/ankidroid/Anki-Android/wiki/Full-Storage-Access</string>
-    <string name="link_custom_sync_server_help_learn_more_en">https://docs.ankidroid.org/#_custom_sync_server</string>
     <string name="link_set_due_date_help">https://docs.ankiweb.net/browsing.html#cards</string>
     <string name="link_full_storage_access">https://github.com/ankidroid/Anki-Android/wiki/Full-Storage-Access</string>
     <string name="link_help_forget_cards">https://docs.ankiweb.net/studying.html#editing-and-more</string>
     <string name="link_scheduler_upgrade_faq">https://faqs.ankiweb.net/the-anki-2.1-scheduler.html#updating-to-v2-from-v1</string>
     <string name="link_filtered_decks_help">https://docs.ankiweb.net/filtered-decks.html</string>
 
-    <string-array name="add_to_cur_values">
-        <item>0</item>
-        <item>1</item>
-    </string-array>
 
     <!-- Themes -->
 
@@ -99,21 +82,11 @@
 
 
 
-    <string-array name="sync_media_entries">
-        <item>@string/sync_media_always</item>
-        <item>@string/sync_media_only_unmetered</item>
-        <item>@string/sync_media_never</item>
-    </string-array>
 
     <string name="sync_media_always_value">always</string>
     <string name="sync_media_only_unmetered_value">only_unmetered</string>
     <string name="sync_media_never_value">never</string>
 
-    <string-array name="sync_media_values">
-        <item>@string/sync_media_always_value</item>
-        <item>@string/sync_media_only_unmetered_value</item>
-        <item>@string/sync_media_never_value</item>
-    </string-array>
 
 
 
@@ -126,72 +99,16 @@
 
 
     <!-- Preferences headers summaries -->
-    <string-array name="general_summary_entries">
-        <item>@string/language</item>
-        <item>@string/pref_cat_studying</item>
-        <item>@string/pref_cat_system_wide</item>
-    </string-array>
-
-    <string-array name="study_screen_summary_entries">
-        <item>@string/screen</item>
-        <item>@string/toolbar</item>
-        <item>@string/answer_buttons</item>
-    </string-array>
-
-    <string-array name="reviewing_summary_entries">
-        <item>@string/pref_cat_scheduling</item>
-        <item>@string/pref_keep_screen_on</item>
-    </string-array>
-
-    <string-array name="sync_summary_entries">
-        <item>@string/automatic_sync_choice</item>
-    </string-array>
-
-    <string-array name="backup_limits_summary_entries">
-        <item>@string/backup_limits_frequency</item>
-        <item>@string/backup_limits_lifetime</item>
-    </string-array>
-
-    <string-array name="notifications_summary_entries">
-        <item>@string/notification_pref_title</item>
-        <item>@string/notification_minimum_cards_due_vibrate</item>
-        <item>@string/notification_minimum_cards_due_blink</item>
-    </string-array>
-
-    <string-array name="review_reminders_summary_entries">
-        <item>App-wide</item>
-        <item>Deck-specific</item>
-    </string-array>
 
 
-    <string-array name="accessibility_summary_entries">
-        <item>@string/card_zoom</item>
-        <item>@string/button_size</item>
-    </string-array>
 
-    <string-array name="controls_summary_entries">
-        <item>@string/pref_cat_gestures</item>
-        <item>@string/keyboard</item>
-        <item>@string/bluetooth</item>
-    </string-array>
 
-    <string-array name="advanced_summary_entries">
-        <item>@string/pref_cat_workarounds</item>
-        <item>@string/pref_cat_plugins</item>
-    </string-array>
 
-    <!-- Related settings -->
-    <string name="fragment_controls_preferences" tools:ignore="TranslationTypo">com.ichi2.anki.preferences.ControlsSettingsFragment</string>
-    <string name="fragment_accessibility_preferences" tools:ignore="TranslationTypo">com.ichi2.anki.preferences.AccessibilitySettingsFragment</string>
 
-    <string-array name="study_screen_related_titles">
-        <item>@string/pref_cat_controls</item>
-        <item>@string/accessibility</item>
-    </string-array>
-    <string-array name="study_screen_related_fragments">
-        <item>@string/fragment_controls_preferences</item>
-        <item>@string/fragment_accessibility_preferences</item>
-    </string-array>
+
+
+
+
 
     <!-- Sample deck names and for Deck Picker Widget layout in widget picker screen
        These strings are marked as `translatable=false` because translating them would defeat the purpose of the example, which relies on specific language usage.-->

@@ -70,9 +70,7 @@
     <string name="dialog_positive_overwrite">Nadpisz</string>
     <string name="dialog_positive_repair">Napraw</string>
     <string name="dialog_positive_replace">Zastąp</string>
-    <string name="dialog_collection_path_not_dir">Wybrana ścieżka nie wskazuje prawidłowo katalogu</string>
     <string name="dialog_invalid_custom_certificate">Podany tekst nie rozwiązuje poprawnego certyfikatu X509 zakodowanego PEM</string>
-    <string name="dialog_invalid_custom_certificate_title">Błąd podczas parsowania certyfikatu</string>
     <string name="dialog_updated_custom_certificate">Certyfikat zaktualizowany</string>
     <!-- Media checking -->
     <string name="check_media_warning">To może zająć dużo czasu w przypadku dużych kolekcji multimedialnych. Kontynuować?</string>
@@ -119,7 +117,6 @@
     <string name="locale_selection_dialog_summary">Niektóre wielojęzyczne klawiatury takie jak GBoard obsługują zmianę języka podczas edycji tekstu\n\nJeśli twoja klawiatura automatycznie nie zmienia języka, możesz spróbować poprosić jej twórcę o włączenie funkcji „setImeHintLocales”.</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">Uzyskaj pomoc</string>
-    <string name="help_item_support_opencollective_donate">Wesprzyj</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">Automatyczna synchronizacja może zostać uruchomiona za %d sekundę</item>

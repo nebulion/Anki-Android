@@ -66,9 +66,7 @@
     <string name="dialog_positive_overwrite">Ustiga yozish</string>
     <string name="dialog_positive_repair">Tuzatish</string>
     <string name="dialog_positive_replace">Almashtirish</string>
-    <string name="dialog_collection_path_not_dir">Koʻrsatilgan yoʻl yaroqli katalog emas</string>
     <string name="dialog_invalid_custom_certificate">Taʼminlangan matn yaroqli PEM bilan kodlangan X509 sertifikatiga mos kelmaydi</string>
-    <string name="dialog_invalid_custom_certificate_title">Sertifikatni tekshirishda xatolik</string>
     <string name="dialog_updated_custom_certificate">Sertifikat yangilandi</string>
     <!-- Media checking -->
     <string name="check_media_warning">Juda katta media kolleksiya uchun uzoq vaqt olishi mumkin. Davom etmoqchimisiz?</string>
@@ -113,7 +111,6 @@
     <string name="locale_selection_dialog_summary">GBoard kabi baʻzi koʻp tilli klaviaturalar, matnni tahrirlaganda tilni oʻzgartirishni qoʻllab-quvvatlaydi\n\nAgar klaviaturangiz tilni oʻzgartirolmasa, klaviatura ishlab chiqaruvchisidan “setImeHintLocales” funksiyasini soʻrang.</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">Yordam olish</string>
-    <string name="help_item_support_opencollective_donate">Xayriya qilish</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">Avtomatik sinxronizatsiya %d soniyadan soʻng ishga tushishi mumkin</item>

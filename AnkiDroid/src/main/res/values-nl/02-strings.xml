@@ -43,7 +43,6 @@
     <string name="custom_study_loading_tags">Lijst aanmaken van tags&#8230;</string>
     <!-- Study options -->
     <!-- Card editor -->
-    <string name="cardeditor_title_edit_card" maxLength="28">Kaart bewerken</string>
     <string name="discard">Weggooien</string>
     <string name="save" maxLength="28">Opslaan</string>
     <string name="close">Sluiten</string>
@@ -56,7 +55,6 @@
     <string name="rename" comment="Confirm that the renaming action should be processed." maxLength="28">Naam wijzigen</string>
     <string name="unknown_type_field_warning">Type antwoord: onbekend veld %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Leerset verwijderen&#8230;\nEven wachten.</string>
-    <string name="info_rate">Beoordeel AnkiDroid</string>
     <string name="import_title">Importeren</string>
     <string name="import_preparing_file">Bestand voorbereiden voor importeren&#8230;</string>
     <string name="import_message_add" comment="Adding a new deck to the collection (import)">Toevoegen</string>
@@ -124,13 +122,7 @@
     <string name="note_editor_audio_too_large">Het audiobestand is te groot, voeg de audio handmatig in</string>
     <string name="ankidroid_cannot_open_after_backup_try_again" comment="After an Android backup is restored, AnkiDroid opens and shows this message.         Opening AnkiDroid again will work correctly">Android back-up in uitvoering. Probeer opnieuw alstublieft</string>
     <!-- Dialog hints -->
-    <string name="dialog_hint_url">URL</string>
-    <string name="dialog_hint_certificate">Certificaat</string>
     <!-- IncrementNumberRangePreference -->
-    <string name="plus_sign" comment="Label for increment button in IncrementerNumberRangePreference">+</string>
-    <string name="minus_sign" comment="Label for decrement button in IncrementerNumberRangePreference">-</string>
-    <string name="invalid_value" comment="Error message in IncrementerNumberRangePreference when input is not a valid number">Ongeldige waarde</string>
-    <string name="maximum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the maximum allowed value">Maximale waarde is %d</string>
     <string name="minimum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the minimum allowed value">Minimale waarde is %d</string>
     <!-- Used for credential empty warning message -->
     <string name="invalid_email">Voer een geldig e-mailadres in</string>
@@ -166,7 +158,6 @@
     <string name="format_deck_description_as_markdown">Markeer</string>
     <string name="help_button_content_description">Open help for ‘%s’</string>
     <string name="failed_to_copy">Kopiëren mislukt</string>
-    <string name="previewer_next" comment="Name of the next button in the previewer" maxLength="28">Volgende</string>
     <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">Terug</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->

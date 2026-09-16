@@ -25,47 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">Hindi pinapagana</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d min</item>
-        <item quantity="other">%d min</item>
-    </plurals>
     <string name="pref_milliseconds">%s ms</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">Walang resulta</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">Pangkalahatan</string>
-    <string name="pref_cat_studying" maxLength="41">Pag-aaral</string>
-    <string name="pref_cat_system_wide" maxLength="41">Buong sistema</string>
     <string name="pref_cat_reviewing" maxLength="41">Pagrepaso</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Pag-sync</string>
     <string name="pref_cat_scheduling" maxLength="41">Pag-iskedyul</string>
     <string name="pref_cat_gestures" maxLength="41">Mga kilos</string>
-    <string name="pref_cat_controls" maxLength="41">Mga Kontrol</string>
     <string name="pref_cat_advanced" maxLength="41">Advanced</string>
     <string name="pref_cat_workarounds" maxLength="41">Workarounds</string>
-    <string name="pref_cat_plugins" maxLength="41">Plugins</string>
     <string name="pref_cat_editing" maxLength="41">Editing</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">I-type ang sagot sa card</string>
     <string name="use_input_tag_summ">Gumamit ng isang kahon ng pag-input ng teksto sa loob ng card upang i-type ang sagot</string>
-    <string name="reset_languages" maxLength="41">I-reset ang mga wika</string>
-    <string name="reset_languages_summ">I-reset ang mga tugmang wika (para sa teksto sa pagsasalita at mga diksyunaryo) para sa lahat ng mga deck</string>
-    <string name="reset_languages_question">I-reset ang lahat ng mga takdang wika?</string>
-    <string name="reset_confirmation">I-reset ang lahat ng mga estado</string>
     <string name="card_zoom" maxLength="41">Pag-zoom ng card</string>
     <string name="image_zoom" maxLength="41">Pag-zoom ng larawan</string>
-    <string name="button_size" maxLength="41">Sukat ng pindutan ng sagot</string>
-    <string name="card_browser_font_size" maxLength="41">Pagsusulat ng font ng browser ng card</string>
-    <string name="col_path" maxLength="41">AnkiDroid directory</string>
     <string name="gestures" maxLength="41">Paganahin ang mga galaw</string>
     <string name="gestures_summ">Magtalaga ng mga kilos sa mga pagkilos tulad ng pagsagot at pag-edit ng mga card.</string>
     <string name="gestures_corner_touch" maxLength="41">9 na puntong pagpindot</string>
@@ -89,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">Three-finger tap</string>
     <string name="gestures_four_finger_tap" maxLength="41">Four-finger tap</string>
     <string name="gestures_shake" maxLength="41">Alugin ang device</string>
-    <string name="double_scrolling_gap" maxLength="41">Double scrolling</string>
-    <string name="double_scrolling_gap_summ">I-double ang scroll gap sa eReader</string>
     <string name="swipe_sensitivity" maxLength="41">Swipe sensitivity</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Kunin ang media sa pag-sync</string>
@@ -105,8 +84,6 @@
     <string name="sync_status_badge_summ">Palitan ang icon ng pag-sync oras na may pagbabagong pwedeng i-upload</string>
     <string name="metered_sync_title" maxLength="41">Payagan ang sync sa koneksyong sinusukat</string>
     <string name="metered_sync_summary">Kung hindi paganahin, babalaan ka tuwing susubukan mo na mag-sync sa sinusukat na koneksyon</string>
-    <string name="backup_limits_frequency">Dalas</string>
-    <string name="backup_limits_lifetime">Tagal</string>
     <string name="language" maxLength="41">Wika</string>
     <string name="language_system">Wika ng system</string>
     <string name="notification_pref" maxLength="41">Mga Abiso</string>
@@ -118,91 +95,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">Blink light</string>
     <string name="software_render" maxLength="41">Hindi paganahin ang card hardware render</string>
     <string name="software_render_summ">Mas mabilis ang hardware render pero maaring magkaroon ng mga problema, lalo na sa Android 8/8.1. Kung hindi mo makita ang ibang bahagi ng user interface sa pag-repaso ng card, subukan ang setting na ito.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Pagitan ng dalawang pindot</string>
     <string name="pref_double_tap_time_interval_summary">Ang ikalawang pindot sa pindutanan ng answer ay babalewalain kung hindi lilipas ang oras na tinakda dito. Iniiwasan nito ang hindi sinasadyang dalawang pindot.</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">Oras ng mahabang-pindot sa \'Ipakita ang Sagot\'</string>
-    <string name="pref_show_answer_long_press_time_summary">Pinakamaikling oras sa pagpindot bago irehistro ang pagpindot sa \'Ipakita ang Sagot\'</string>
-    <string name="show_large_answer_buttons" maxLength="41">Gumamit ng Malaking Pindutan Pangsagot</string>
-    <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="use_current" maxLength="41">Deck para sa mga bagong card</string>
     <string name="learn_cutoff" maxLength="41">Matuto nang higit na limitasyon</string>
     <string name="time_limit" maxLength="41">Limitasyon ng oras ng Timebox</string>
     <string name="day_offset_with_description" maxLength="41">Simula ng susunod na araw</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d hour past midnight</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d hours past midnight</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">Panatilihin ang screen</string>
     <string name="pref_keep_screen_on_summ">Huwag paganahin ang timeout ng screen</string>
-    <string name="enable_api_title" maxLength="41">Enable AnkiDroid API</string>
-    <string name="enable_api_summary">Hayaan ang iba pang apps na kumonekta sa AnkiDroid at basahin / isulat ang data nang wala ang iyong interbensyon</string>
     <string name="custom_buttons_setting_always_show">Laging ipakita</string>
     <string name="custom_buttons_setting_menu_only">Menu lamang</string>
-    <string name="reset_custom_buttons" maxLength="41">I-reset sa default</string>
     <string name="reset">Reset</string>
-    <string name="thirdparty_apps_title" maxLength="41">Third-party na mga API app</string>
-    <string name="thirdparty_apps_summary">Ipakit ang listahan ng aplikasyon na gumagamit sa API ng AnkiDroid tulad ng mga diksyunaryo, utility.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Reviews</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Previews</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Aksesibilidad</string>
     <string name="exit_via_double_tap_back" maxLength="41">Pindutin ang balik kalawa para bumalik/umalis</string>
     <string name="exit_via_double_tap_back_summ">To avoid accidentally leaving the study screen or the app</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">Payagan lahat ng file sa pag-angkat ng media</string>
-    <string name="media_import_allow_all_files_summ">Kung hindi nakikilala ng Android ang isang media file</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Pasadyang pag-sync ng server</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">Hindi ginagamit</string>
-    <string name="custom_sync_server_help2"><![CDATA[        Bilang alternatibo sa pag-sync sa AnkiWeb,
-        maaari kang gumamamit ng sarili mong server pang-sync.
-        Kung hindi naka-set, gagamitin nito ang default na server ng AnkiWeb.
-        <a href="%s">Alamin pa</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">Custom root certificate (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">Keyboard</string>
-    <string name="bluetooth">Bluetooth</string>
     <string name="answer_buttons" maxLength="41">Pindutan Pangsagot</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">Card</string>
     <string name="note" maxLength="41">Tala</string>
-    <string name="navigation" maxLength="41">Nabigasyon</string>
     <string name="media" maxLength="41">Media</string>
-    <string name="misc" maxLength="41">Iba pa</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Add reminder</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Add review reminder</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Edit review reminder</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">You have no review reminders</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Piliin ang mga tag</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">Palitan ang mga newlines ng HTML</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Tampulan ang \'i-type ang sagot\'</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">Tungkol sa Amin</string>
-    <string name="contributors_title">Mga Nag-Ambag</string>
-    <string name="about_contributors_description"><![CDATA[Ito ang mga astig naming mga <a href=\"%1$s\">nag-ambag</a>. Maaari ka ring tumulong sa AnkiDroid sa pag-program, pagsalin, paghandog <a href=\"%2$s\">at iba pa</a>!]]></string>
-    <string name="license">Lisensya</string>
-    <string name="license_description"><![CDATA[Ang AnkiDroid ay inilabas sa ilalim ng <a href=\"%1$s\">GPL-3.0</a> at <a href=\"%2$s\">AGPL-3.0</a> na mga lisensya, kung saan ang mga source code nito ay mahahanap <a href=\"%3$s\">sa GitHub</a>]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid also uses third-party libraries and icons, which are licensed under various open source <a href=\"%1$s\">licenses</a>]]></string>
-    <string name="donate_description"><![CDATA[Maaari mong suportahan ang pag-develop sa AnkiDroid sa pamamagitan ng <a href=\"%1$s\">paghahandog</a>. Lubos naming ipinapasalamat ang anumang halaga.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">Magdagdag ng gesture</string>
-    <string name="binding_add_key">Magdagdag ng key</string>
     <string name="key_picker_default_press_key">Pindutin ang key</string>
-    <string name="binding_add_axis">Magdagdag ng joystick/motion controller</string>
     <string name="axis_picker_move_joystick">Igalaw ang joystick/motion controller</string>
-    <string name="user_actions" maxLength="41">Mga aksyon ng user</string>
-    <string name="user_actions_summary" maxLength="41">Trigger JavaScript from the study screen</string>
     <string name="user_action_1" maxLength="28">Aksyon ng user 1</string>
     <string name="user_action_2" maxLength="28">Aksyon ng user 2</string>
     <string name="user_action_3" maxLength="28">Aksyon ng user 3</string>
@@ -223,8 +154,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">T: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">S: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">Tanggalin ang \'%s\'</string>
-    <string name="bindings_already_bound">Nakakabit na sa \'%s\'</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Eksperimental</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Mangyaring mag-upgrade sa bagong text to speech na format</string>
@@ -234,15 +163,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[        Pana-panahong bina-backup ng AnkiDroid ang iyong koleksyon.
-        Matapos lumagpas ng dalawang araw ang ilan sa mga backup,
-        Dahan-dahang buburahin ng AnkiDroid ang mga ito para lumaki ang iyong space.
-        <br><br>
-        Tandaan na ang mga media file ay hindi binaback-up
-        Para sigurado, dalasan ang pag-sync sa iyong koleksyon, o gumawa ng mga export nito.
-        <br>
-        Maaaring ibaling ang iyong mga backup at export na koleksyon sa menu sa tala ng deck.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">Minutong pagitan ng automatic na backup</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">Arawang backup na panatilihin</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">Lingguhang backup na panatilihin</string>
@@ -259,19 +179,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Walang koleksyon</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Kamalian</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Kinukuha&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Hindi umiiral ang koleksyon</string>
-    <string name="show_answer_buttons" maxLength="41">Show answer buttons</string>
     <string name="hide_hard_and_easy" maxLength="41">Hide ‘Hard’ and ‘Easy’ buttons</string>
-    <string name="toolbar" maxLength="41">Toolbar</string>
-    <string name="new_study_screen" maxLength="41">New study screen</string>
-    <string name="screen" maxLength="41">Screen</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Only answer</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Flip and answer</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Open settings</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Related settings</string>
 </resources>

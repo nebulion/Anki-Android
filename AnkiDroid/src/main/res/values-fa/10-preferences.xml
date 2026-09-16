@@ -25,47 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">غیر فعال شده</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="one">%d دقیقه</item>
-        <item quantity="other">%d دقیقه</item>
-    </plurals>
     <string name="pref_milliseconds">%s هزارم‌ثانیه</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">بدون نتیجه</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">عمومی</string>
-    <string name="pref_cat_studying" maxLength="41">مطالعه کردن</string>
-    <string name="pref_cat_system_wide" maxLength="41">در کل سیستم</string>
     <string name="pref_cat_reviewing" maxLength="41">مرور</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">همگام سازی</string>
     <string name="pref_cat_scheduling" maxLength="41">زمان‌بندی</string>
     <string name="pref_cat_gestures" maxLength="41">حرکات دست</string>
-    <string name="pref_cat_controls" maxLength="41">کنترل ها</string>
     <string name="pref_cat_advanced" maxLength="41">پیشرفته</string>
     <string name="pref_cat_workarounds" maxLength="41">راه‌حل‌ها</string>
-    <string name="pref_cat_plugins" maxLength="41">افزونه‌ها</string>
     <string name="pref_cat_editing" maxLength="41">در حال ویرایش</string>
-    <string name="pref_cat_security" maxLength="41">امنیت</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">مجوز عمومی برای APIهای خطرناک جاوااسکریپت</string>
     <string name="allow_dangerous_js_api_summ">با فعال‌سازی این گزینه، هر کارت یا هر قالبی قادر خواهد بود کارت‌های دیگر و کل اطلاعات آرشیو انکی را مشاهده و دستکاری کند.\nتوصیه می‌شود این بخش غیرفعال بماند، مگر آنکه به تکتک کارت‌ها و قالب‌های موجود اطمینان صددرصدی داشته باشید.</string>
     <string name="dangerous_js_api_denied_snackbar">اخطار ایمنی: کد خطرناک جاوااسکریپتمسدود شد.\nچنانچه به همهٔ محتویات و قالب‌های کالکشن خود اعتماد دارید، می‌توانید این گزینه را در تنظیمات پیشرفته فعال کنید.</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">مجوز بازکردن برنامه‌های دیگر توسط کارت‌ها</string>
-    <string name="allow_card_external_launch_summ">کارت‌ها می‌توانند برنامه‌های دیگر را روی دستگاه شما باز کنند که ممکن است به اجرای اقدامات ناخواسته منجر شود.\nاین گزینه را خاموش نگه دارید، مگر اینکه به تمام کارت‌ها و قالب‌های موجود در مجموعهٔ خود اعتماد کامل داشته باشید.</string>
     <string name="card_external_launch_denied_snackbar">هشدار امنیتی: کارت از اجرای برنامهٔ دیگر مسدود شد.\nاگر به تمام کارت‌ها و قالب‌های مجموعهٔ خود اعتماد دارید، می‌توانید این محدودیت را در تنظیمات پیشرفته فعال کنید.</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">پاسخ را در کارت بنویسید</string>
     <string name="use_input_tag_summ">از یک کادر نوشتن متن درون کارت برای نوشتن پاسخ استفاده کنید</string>
-    <string name="reset_languages" maxLength="41">بازنشانی زبان‌ها</string>
-    <string name="reset_languages_summ">تنظیم مجدد زبان ( برای تبدیل متن به گفتار و فرهنگ لغت ها) برای تمامی دسته ها</string>
-    <string name="reset_languages_question">کل زبان فعلی را دوباره تنظیم می کنید؟</string>
-    <string name="reset_confirmation">تنظیم مجدد تمام وضعیت ها</string>
     <string name="card_zoom" maxLength="41">بزرگ نمایی کارت</string>
     <string name="image_zoom" maxLength="41">بزرگ نمایی عکس</string>
-    <string name="button_size" maxLength="41">اندازه دکمه پاسخ</string>
-    <string name="card_browser_font_size" maxLength="41">تغییر اندازه فونت مرورگر کارت</string>
-    <string name="col_path" maxLength="41">مسیر قرارگیری AnkiDroid</string>
     <string name="gestures" maxLength="41">فعالسازی حرکات لمسی</string>
     <string name="gestures_summ">استفاده از حرکات و ضربات لمسی برای انجام کارهایی مثل پاسخ دادن و ویرایش کارت‌ها.</string>
     <string name="gestures_corner_touch" maxLength="41">لمس صفحه 9 قسمت</string>
@@ -89,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">لمس سه انگشتی</string>
     <string name="gestures_four_finger_tap" maxLength="41">لمس چهار انگشتی</string>
     <string name="gestures_shake" maxLength="41">لرزش دستگاه</string>
-    <string name="double_scrolling_gap" maxLength="41">پیمایش دو برابری</string>
-    <string name="double_scrolling_gap_summ">فعال کنید اگر می‌خواهید فاصله پیمایش را در کتابخوان دیجیتالی دو برابر کنید</string>
     <string name="swipe_sensitivity" maxLength="41">حساسیت حرکت لمسی</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">آوردن رسانه ها در همگام سازی</string>
@@ -104,8 +83,6 @@
     <string name="sync_status_badge_summ">علامت همگام سازی را تغییر بده وقتی تغییرات در حال آپلود شدن هستند</string>
     <string name="metered_sync_title" maxLength="41">همگام سازی اجازه دارد بر روی اتصال‌های اندازه‌گیری شده انجام شود</string>
     <string name="metered_sync_summary">اگر غیرفعال شود، چنانچه شبکه شما دارای اتصال‌های اندازه گیری شده باشد، هنگام همگام کردن پیغام هشدار دریافت می‌کنید</string>
-    <string name="backup_limits_frequency">فرکانس</string>
-    <string name="backup_limits_lifetime">برای همیشه</string>
     <string name="language" maxLength="41">زبان</string>
     <string name="language_system">زبان دستگاه</string>
     <string name="notification_pref" maxLength="41">اعلان‌ها</string>
@@ -117,91 +94,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">چشمک زدن نور</string>
     <string name="software_render" maxLength="41">غیر فعال کردن رندر سخت‌افزار کارت</string>
     <string name="software_render_summ">رندر سخت افزاری سریع تر است ولی ممکن است مشکل داشته باشد، مخصوصا روی اندروید 8 یا 8.1. اگر بعضی از دکمه های مرور کارت ها را نمیبینید، این تنظیمات را امتحان کنید.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">فاصله زمانی دو بار زدن</string>
     <string name="pref_double_tap_time_interval_summary">ضربه دوم به دکمه های پاسخ صرف نظر می شود اگر این مدت زمان سپری نشده باشد. این عمل از دوبار ضربه های تصادفی جلوگیری میکند</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">زمان نگه‌داشتن طولانی برای نمایش پاسخ</string>
-    <string name="pref_show_answer_long_press_time_summary">حداقل زمان فشردن قبل از ثبت لمس دکمه نمایش پاسخ.</string>
-    <string name="show_large_answer_buttons" maxLength="41">دکمه های بزرگ جواب نشان بده</string>
-    <string name="show_large_answer_buttons_summ">نمایش دکمه پاسخ در ۲ ردیف</string>
-    <string name="use_current" maxLength="41">دسته برای کارتهای جدید</string>
     <string name="learn_cutoff" maxLength="41">محدودیت های پیش رو را یاد بگیرید</string>
     <string name="time_limit" maxLength="41">محدوده زمانی جعبه زمان</string>
     <string name="day_offset_with_description" maxLength="41">شروع روز بعد</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="one" comment="Consider keeping the unbreakable space after the digit">%d ساعت پس از نیمه‌شب</item>
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d ساعت پس از نیمه‌شب</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">روشن نگه‌داشتن صفحه</string>
     <string name="pref_keep_screen_on_summ">غیرفعال کردن زمان خاموش شدن صفحه نمایش</string>
-    <string name="enable_api_title" maxLength="41">فعال کردن API این برنامه</string>
-    <string name="enable_api_summary">به دیگر برنامه ها اجازه دهید تا با AnkiDroid ارتباط داشته و اطلاعات را بدون دخالت شما بخوانند و بنویسند</string>
     <string name="custom_buttons_setting_always_show">همیشه نمایش بده</string>
     <string name="custom_buttons_setting_menu_only">فقط در فهرست</string>
-    <string name="reset_custom_buttons" maxLength="41">بازگشت به حالت پیش فرض</string>
     <string name="reset">تنظیم مجدد</string>
-    <string name="thirdparty_apps_title" maxLength="41">ای پی آی سایر نرم‌افزارها</string>
-    <string name="thirdparty_apps_summary">لیستی از برنامه‌هایی که از API انکی‌دروید استفاده می‌کنند، مانند دیکشنری‌ها و ابزارها را ببینید.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">نظرات</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">پیش نمایش</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">فقط پشت کارت را تغییر بده</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">قابلیت دسترسی</string>
     <string name="exit_via_double_tap_back" maxLength="41">دوبار عقب را بزنید که به عقب/خروج بروید</string>
     <string name="exit_via_double_tap_back_summ">جلوگیری از لمس اشتباهی دکمهٔ ترک صفحهٔ درسی یا اپ</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">وجود همه فایل ها در ورودی مدیا را مجاز کن</string>
-    <string name="media_import_allow_all_files_summ">اگر Android یک فایل مدیا ای را نمی شناسد</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">سرور همگام سازی سفارشی</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">استفاده نشده</string>
-    <string name="custom_sync_server_help2"><![CDATA[        به عنوان جایگزین برای سینک کردن با انکی‌وب،
-        شما می‌توانید از سرور خودتان برا سینک استفاده کنید.
-        اگر سرور شما تعریف نشده باشد سرور پیشفرض انکی‌وب، استفاده خواهد شد.
-        <a href="%s">مطالعه بیشتر</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">آدرس همگام‌سازی</string>
     <string name="custom_sync_certificate_title" maxLength="41">گواهی ریشه سفارشی (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">کیبورد</string>
-    <string name="bluetooth">بلوتوث</string>
     <string name="answer_buttons" maxLength="41">دکمه های پاسخ</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">کارت</string>
     <string name="note" maxLength="41">یادداشت</string>
-    <string name="navigation" maxLength="41">هدایت</string>
     <string name="media" maxLength="41">رسانه</string>
-    <string name="misc" maxLength="41">سایر</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">افزودن یادآوری</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">ایجاد یادآوری برای مرور</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">ویرایش یادآور مرور</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">شما هیچ یادآوری برای مرور ندارید</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">انتخاب برچسبها</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">خط های جدید را با HTML جایگذین کن</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">روی ‘تایپ کردن در جای جواب’ تمرکز کن</string>
     <string name="type_in_answer_focus_summ">قرارگیری خودکار نشانگر روی فیلد «پاسخ را تایپ کنید» در صفحهٔ مطالعه</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">درباره ما</string>
-    <string name="contributors_title">مشارکت کنندگان</string>
-    <string name="about_contributors_description"><![CDATA[این ها <a href=\"%1$s\">مشارکت کنندگان</a> عزیزمان هستند. شما هم می توانید با برنامه ریزی، ترجمه، کمک مالی و <a href=\"%2$s\">کارهای دیگر</a> به ما کمک کنید!]]></string>
-    <string name="license">مجوّز</string>
-    <string name="license_description"><![CDATA[AnkiDroid زیر مجوز های <a href=\"%1$s\">GPL-3.0</a> و <a href=\"%2$s\">AGPL-3.0</a> منتشر شده است و منبع کد های آن در <a href=\"%3$s\">GitHub</a> قابل دسترسی است]]></string>
-    <string name="other_licenses"><![CDATA[انکی‌دروید همچنین از کتابخانه‌ها و آیکون‌های شخص ثالث استفاده می‌کند که تحت <a href=\"%1$s\">مجوزهای</a> متن‌باز متنوعی منتشر شده‌اند.]]></string>
-    <string name="donate_description"><![CDATA[شما میتوانید توسعه AnkiDroid را همایت کنید با <a href=\"%1$s\">اهدای پول</a>. هر مقداری ما را بی نهایت خوشحال میکند.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">حرکت لمس اضافه کن</string>
-    <string name="binding_add_key">کلید اضافه کن</string>
     <string name="key_picker_default_press_key">یک کلید را انتخاب کنید</string>
-    <string name="binding_add_axis">اضافه کردن اهرمک/تنظیم کننده حرکات</string>
     <string name="axis_picker_move_joystick">یک اهرمک/تنظیم کننده حرکات را حرکت دهید</string>
-    <string name="user_actions" maxLength="41">اقدامات کاربر</string>
-    <string name="user_actions_summary" maxLength="41">فعال‌سازی کد جاوااسکریپت از صفحهٔ مطالعه</string>
     <string name="user_action_1" maxLength="28">اقدام کاربر 1</string>
     <string name="user_action_2" maxLength="28">اقدام کاربر 2</string>
     <string name="user_action_3" maxLength="28">اقدام کاربر 3</string>
@@ -222,8 +153,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">سؤال: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">جواب: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">\'%s\' را حذف کن</string>
-    <string name="bindings_already_bound">قبلا به ‘%s’ وابسته بود</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">آزمایشی</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">لطفاً به فرمت جدید تبدیل متن به گفتار ارتقا دهید</string>
@@ -233,14 +162,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[        انکی‌دروید به صورت دوره‌ای از مجموعه شما پشتیبان تهیه می‌کند.
-        بعد از تهیه پشتیبان، نسخه‌هایی که بیشتر از دو روز از آنها گذشته باشد
-        به تدریج توسط انکی‌دروید پاک می‌شوند تا فضای حافظه خالی بماند.
-        <br><br>
-        توجه کنید که فایل‌های مدیا، شامل پشتیبان‌گیری نمی‌شود.
-        برای اطمینان، به صورت دوره‌ای عملیات سینک را انجام دهید یا به کمک خروجی گرفتن، پشتیبان تهیه کنید.
-        <br><br>
-        شما می‌توانید یک پشتیبان را برگردانید و یا از لیست مجموعه‌های خود، خروجی بگیرید]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">دقایق بین پشتیبان‌گیری اتوماتیک</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">پشتیبان‌های روزانه‌ قابل نگهداری</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">پشتیبان‌های هفتگی قابل نگهداری</string>
@@ -257,19 +178,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">بدون مجموعه</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">خطا</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">دریافت کردن&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">مجموعه وجود ندارد</string>
-    <string name="show_answer_buttons" maxLength="41">نمایش دکمه‌های پاسخدهی</string>
     <string name="hide_hard_and_easy" maxLength="41">دکمه \"دشوار\" و \"آسان\" را پنهان کن</string>
-    <string name="toolbar" maxLength="41">نوار ابزار</string>
-    <string name="new_study_screen" maxLength="41">صفحهٔ جدید مطالعهٔ</string>
-    <string name="screen" maxLength="41">صفحه‌نمایش</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">منحصراً جواب</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">برگرداندن و جواب</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">تنظیمات را باز کنید</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">تنظیمات مرتبط</string>
 </resources>

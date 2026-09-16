@@ -537,7 +537,6 @@ dependencies {
     implementation libs.skydoves.colorpickerview
     implementation libs.kotlin.reflect
     implementation libs.kotlin.test
-    implementation libs.search.preference
 
     // Cannot use debugImplementation since classes need to be imported in AnkiDroidApp
     // and there's no no-op version for release build. Usage has been disabled for release

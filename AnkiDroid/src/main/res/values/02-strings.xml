@@ -37,7 +37,6 @@
     <!-- Study options -->
 
     <!-- Card editor -->
-    <string name="cardeditor_title_edit_card" maxLength="28">Edit note</string>
     <string name="discard">Discard</string>
     <string name="save" maxLength="28">Save</string>
     <string name="close">Close</string>
@@ -56,7 +55,6 @@
     <string name="unknown_type_field_warning">Type answer: unknown field %s</string>
     <string name="delete_deck" comment="Message on a progress bar starting a deck is being deleted.">Deleting deck…</string>
 
-    <string name="info_rate">Rate AnkiDroid</string>
     <string name="import_title">Importing</string>
     <string name="import_preparing_file">Preparing file for import&#8230;</string>
     <string name="import_message_add" comment="Adding a new deck to the collection (import)">Add</string>
@@ -147,14 +145,8 @@
 
 
     <!-- Dialog hints -->
-    <string name="dialog_hint_url">URL</string>
-    <string name="dialog_hint_certificate">Certificate</string>
 
     <!-- IncrementNumberRangePreference -->
-    <string name="plus_sign" comment="Label for increment button in IncrementerNumberRangePreference">+</string>
-    <string name="minus_sign" comment="Label for decrement button in IncrementerNumberRangePreference">-</string>
-    <string name="invalid_value" comment="Error message in IncrementerNumberRangePreference when input is not a valid number">Invalid value</string>
-    <string name="maximum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the maximum allowed value">Maximum value is %d</string>
     <string name="minimum_value_is" comment="Error message in IncrementerNumberRangePreference. %d is the minimum allowed value">Minimum value is %d</string>
 
     <!-- Used for credential empty warning message -->
@@ -219,7 +211,6 @@
     <string name="failed_to_copy">Failed to copy</string>
 
 
-    <string name="previewer_next" comment="Name of the next button in the previewer" maxLength="28">Next</string>
     <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">Back</string>
 
 

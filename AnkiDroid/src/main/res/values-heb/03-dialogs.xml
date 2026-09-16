@@ -69,9 +69,7 @@
     <string name="dialog_positive_overwrite">שכתוב</string>
     <string name="dialog_positive_repair">תיקון</string>
     <string name="dialog_positive_replace">החלפה</string>
-    <string name="dialog_collection_path_not_dir">הנתיב שצוין אינו תיקייה תקנית</string>
     <string name="dialog_invalid_custom_certificate">הטקסט שסופק אינו מתאים לאישור X509 תקין מקודד ב-PEM</string>
-    <string name="dialog_invalid_custom_certificate_title">שגיאה בניתוח האישור</string>
     <string name="dialog_updated_custom_certificate">התעודה עודכנה</string>
     <!-- Media checking -->
     <string name="check_media_warning">This may take a long time with large media collections. Proceed?</string>
@@ -117,7 +115,6 @@
     <string name="locale_selection_dialog_summary">חלק מהמקלדות הרב-לשוניות, כגון GBoard תומכות בשינוי שפה בעת עריכת טקסט\n\nאנא בקש את התכונה \"setImeHintLocales\" מיצרן המקלדת שלך אם המקלדת שלך לא משנה שפה.</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">קבלת עזרה</string>
-    <string name="help_item_support_opencollective_donate">תרומה</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">ייתכן שסנכרון אוטומטי יופעל בעוד %d שניה</item>

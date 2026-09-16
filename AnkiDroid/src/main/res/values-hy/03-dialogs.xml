@@ -66,9 +66,7 @@
     <string name="dialog_positive_overwrite">Վերագրանցել</string>
     <string name="dialog_positive_repair">Վերականգնել</string>
     <string name="dialog_positive_replace">Փոխարինել</string>
-    <string name="dialog_collection_path_not_dir">Նշված ուղին վավեր թղթապանակ չէ</string>
     <string name="dialog_invalid_custom_certificate">The provided text does not resolve to a valid PEM-encoded X509 certificate</string>
-    <string name="dialog_invalid_custom_certificate_title">Error parsing certificate</string>
     <string name="dialog_updated_custom_certificate">Certificate updated</string>
     <!-- Media checking -->
     <string name="check_media_warning">This may take a long time with large media collections. Proceed?</string>
@@ -113,7 +111,6 @@
     <string name="locale_selection_dialog_summary">Մի շարք բազմալեզու ստեղնաշար, որոնցից է Gboard-ը, կարող են տեքստը խմբագրելուց փոխել լեզուն։\n\nԵթե ձեր ստեղնաշարի լեզուն չի փոխվում, ապա այն մշակողից խնդրեք «setImeHintLocales» գործառույթը։</string>
     <!-- Help Dialog -->
     <string name="help_title_get_help">Ստանալ օգնություն</string>
-    <string name="help_item_support_opencollective_donate">Նվիրաբերել</string>
     <!--Sync-->
     <plurals name="sync_automatic_sync_needs_more_time">
         <item quantity="one" comment="Consider keeping the unbreakable space after the digit">An automatic sync may be triggered in %d second</item>

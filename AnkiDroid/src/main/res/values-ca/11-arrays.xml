@@ -22,26 +22,9 @@
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
     <!-- add_to_cur_labels -->
-    <string name="add_to_deck_use_current_deck">Utilitza aquest paquet</string>
-    <string name="add_to_deck_decide_by_note_type">Dedueix pel tipus de nota</string>
     <!-- theme labels -->
     <!-- day_theme_labels -->
     <!-- night_theme_labels -->
     <!-- html_size_code_labels -->
     <!-- gestures_labels -->
-    <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">Resposta fàcil</string>
-    <string name="gesture_abort_learning" maxLength="41">Close study screen</string>
-    <string name="gesture_flag_red" maxLength="41">Canviar bandera vermella</string>
-    <string name="gesture_flag_orange" maxLength="41">Canviar bandera taronja</string>
-    <string name="gesture_flag_green" maxLength="41">Canviar bandera verda</string>
-    <string name="gesture_flag_blue" maxLength="41">Canviar bandera blava</string>
-    <string name="gesture_flag_pink" maxLength="41">Canviar bandera rosa</string>
-    <string name="gesture_flag_turquoise" maxLength="41">Canviar bandera turquesa</string>
-    <string name="gesture_flag_purple" maxLength="41">Canviar bandera porpra</string>
-    <string name="gesture_flag_remove" maxLength="41">Suprimir bandera</string>
-    <string name="gesture_page_up" maxLength="41">Pàgina amunt</string>
-    <string name="gesture_page_down" maxLength="41">Pàgina avall</string>
-    <string name="gesture_toggle_whiteboard" maxLength="41">Activar/desactivar pissarra</string>
-    <string name="gesture_show_hint" maxLength="41">Mostra un suggeriment</string>
-    <string name="gesture_show_all_hints" maxLength="41">Mostra tots els suggeriments</string>
 </resources>

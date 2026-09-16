@@ -22,26 +22,9 @@
     <!-- 11-arrays.xml used to contain arrays. This caused problems when changing the ordering.
     Now arrays are defined in constants.xml, and the strings are here -->
     <!-- add_to_cur_labels -->
-    <string name="add_to_deck_use_current_deck">𐌰𐌽𐌳𐍅𐌰𐌹𐍂𐌸𐌹𐍃 𐌷𐌰𐍂𐍄𐌰𐌷𐌿𐌶𐌳𐌹𐍃 𐌱𐍂𐌿𐌺𐌾𐌰𐌽</string>
-    <string name="add_to_deck_decide_by_note_type">Decide by note type</string>
     <!-- theme labels -->
     <!-- day_theme_labels -->
     <!-- night_theme_labels -->
     <!-- html_size_code_labels -->
     <!-- gestures_labels -->
-    <string name="answer_easy" comment="Match Anki\'s translations: deckConfigAnswerAgain" maxLength="41">𐌰𐌶𐌴𐍄𐌰𐌱𐌰 𐌰𐌽𐌳𐌷𐌰𐍆𐌾𐌰𐌽</string>
-    <string name="gesture_abort_learning" maxLength="41">𐍃𐌺𐌰𐌹𐍂𐌼 𐌻𐌰𐌹𐍃𐌴𐌹𐌽𐌰𐌹𐍃 𐌻𐌿𐌺𐌰𐌽</string>
-    <string name="gesture_flag_red" maxLength="41">𐍂𐌰𐌿𐌳𐌰𐌽𐌰 𐍆𐌰𐌽𐌰𐌽 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
-    <string name="gesture_flag_orange" maxLength="41">𐌲𐌹𐌻𐍅𐌰𐍂𐌰𐌿𐌳𐌰𐌽𐌰 𐍆𐌰𐌽𐌰𐌽 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
-    <string name="gesture_flag_green" maxLength="41">𐌲𐍂𐍉𐌽𐌾𐌰𐌽𐌰 𐍆𐌰𐌽𐌰𐌽 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
-    <string name="gesture_flag_blue" maxLength="41">𐌱𐌻𐌴𐍅𐌰𐌽𐌰 𐍆𐌰𐌽𐌰𐌽 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
-    <string name="gesture_flag_pink" maxLength="41">𐌱𐌻𐌰𐌹𐌺𐌰𐍂𐌰𐌿𐌳𐌰𐌽𐌰 𐍆𐌰𐌽𐌰𐌽 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
-    <string name="gesture_flag_turquoise" maxLength="41">𐌱𐌻𐌴𐍅𐌰𐌲𐍂𐍉𐌽𐌾𐌰𐌽𐌰 𐍆𐌰𐌽𐌰𐌽 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
-    <string name="gesture_flag_purple" maxLength="41">𐍀𐌰𐌿𐍂𐍀𐌿𐍂𐍉𐌳𐌹𐍃 𐍆𐌰𐌽𐌰𐌽 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
-    <string name="gesture_flag_remove" maxLength="41">𐍆𐌰𐌽𐌰𐌽 𐌿𐍃𐌽𐌹𐌼𐌰𐌽</string>
-    <string name="gesture_page_up" maxLength="41">𐌻𐌰𐌿𐍆𐍃 𐌹𐌿𐍀</string>
-    <string name="gesture_page_down" maxLength="41">𐌻𐌰𐌿𐍆𐍃 𐌳𐌰𐌻𐌰𐌸</string>
-    <string name="gesture_toggle_whiteboard" maxLength="41">𐍈𐌴𐌹𐍄𐌰𐌱𐌰𐌿𐍂𐌳 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽</string>
-    <string name="gesture_show_hint" maxLength="41">𐌷𐌹𐌻𐍀𐌰𐍅𐌰𐌿𐍂𐌳 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
-    <string name="gesture_show_all_hints" maxLength="41">𐌰𐌻𐌻𐌰 𐌷𐌹𐌻𐍀𐌰𐍅𐌰𐌿𐍂𐌳𐌰 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
 </resources>

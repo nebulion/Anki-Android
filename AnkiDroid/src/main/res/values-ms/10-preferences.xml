@@ -25,46 +25,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generic strings -->
     <string name="disabled">Dilumpuhkan</string>
-    <plurals name="pref_summ_minutes">
-        <item quantity="other">%d mins</item>
-    </plurals>
     <string name="pref_milliseconds">%s ms</string>
     <!-- TODO: move to 20-search-preference so we can contribute upstream (searchpreference_no_results)-->
-    <string name="pref_search_no_results">Tiada hasil</string>
     <!-- preferences.xml categories-->
     <string name="pref_cat_general" comment="name of the general preference category" maxLength="41">Umum</string>
-    <string name="pref_cat_studying" maxLength="41">Belajar</string>
-    <string name="pref_cat_system_wide" maxLength="41">Seluruh sistem</string>
     <string name="pref_cat_reviewing" maxLength="41">Semakan</string>
     <string name="pref_cat_sync" comment="title of the sync preferences category" maxLength="41">Segerak</string>
     <string name="pref_cat_scheduling" maxLength="41">Penjadualan</string>
     <string name="pref_cat_gestures" maxLength="41">Gerak isyarat</string>
-    <string name="pref_cat_controls" maxLength="41">Kawalan</string>
     <string name="pref_cat_advanced" maxLength="41">Lanjutan</string>
     <string name="pref_cat_workarounds" maxLength="41">Penyelesaian sementara</string>
-    <string name="pref_cat_plugins" maxLength="41">Plugin</string>
     <string name="pref_cat_editing" maxLength="41">Editing</string>
-    <string name="pref_cat_security" maxLength="41">Security</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="dangerous_js_api_denied_snackbar">Security: Unsafe JavaScript call blocked.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- External-app launching from card content (intent: / android-app: URLs) -->
-    <string name="allow_card_external_launch_title" maxLength="41">Allow cards to launch other apps</string>
-    <string name="allow_card_external_launch_summ">Cards can open other apps on your device, triggering potentially unwanted actions.\nLeave off unless you trust all cards and templates in your collection.</string>
     <string name="card_external_launch_denied_snackbar">Security: Card blocked from launching another app.\nIf you trust all cards and templates in your collection, this can be unblocked in the advanced settings</string>
     <!-- preferences.xml entries-->
     <string name="use_input_tag" maxLength="41">Taipkan jawapan ke dalam kad</string>
     <string name="use_input_tag_summ">Guna kotak input dalam kad untuk taipkan jawapan</string>
-    <string name="reset_languages" maxLength="41">Tetap semula bahasa</string>
-    <string name="reset_languages_summ">Tetap semula petaan bahasa (untuk teks-ke-ucapan dan kamus) bagi semua dek</string>
-    <string name="reset_languages_question">Tetap semula semua petaan bahasa?</string>
-    <string name="reset_confirmation">Semua delegasi ditetap semula</string>
     <string name="card_zoom" maxLength="41">Zum Kad</string>
     <string name="image_zoom" maxLength="41">Zum gambar</string>
-    <string name="button_size" maxLength="41">Saiz butang jawapan</string>
-    <string name="card_browser_font_size" maxLength="41">Skala fon pencari kad</string>
-    <string name="col_path" maxLength="41">Direktori AnkiDroid</string>
     <string name="gestures" maxLength="41">Dayakan gerak isyarat</string>
     <string name="gestures_summ">Tetapkan gerak isyarat kepada tindakan seperti jawab dan sunting kad.</string>
     <string name="gestures_corner_touch" maxLength="41">Sentuhan 9 titik</string>
@@ -88,8 +70,6 @@
     <string name="gestures_three_finger_tap" maxLength="41">Three-finger tap</string>
     <string name="gestures_four_finger_tap" maxLength="41">Four-finger tap</string>
     <string name="gestures_shake" maxLength="41">Shake device</string>
-    <string name="double_scrolling_gap" maxLength="41">Tatal dua kali</string>
-    <string name="double_scrolling_gap_summ">Jarak tatal ganda dua untuk e-pembaca</string>
     <string name="swipe_sensitivity" maxLength="41">Sensitiviti leretan</string>
     <!-- Sync -->
     <string name="sync_fetch_missing_media" maxLength="41">Peroleh media bila segerak</string>
@@ -104,8 +84,6 @@
     <string name="sync_status_badge_summ">Tukar ikon segerkan apabila perubahan boleh dimuat naik</string>
     <string name="metered_sync_title" maxLength="41">Benarkan penyegerakan pada sambungan bermeter</string>
     <string name="metered_sync_summary">Jika dilumpuhkan, anda akan diberi amaran jika anda cuba segerak pada sambungan bermeter</string>
-    <string name="backup_limits_frequency">Frequency</string>
-    <string name="backup_limits_lifetime">Lifetime</string>
     <string name="language" maxLength="41">Bahasa</string>
     <string name="language_system">Bahasa sistem</string>
     <string name="notification_pref" maxLength="41">Pemberitahuan</string>
@@ -117,91 +95,45 @@
     <string name="notification_minimum_cards_due_blink" maxLength="41">Kelip lampu</string>
     <string name="software_render" maxLength="41">Lumpuhkan pemapar perkakasan kad</string>
     <string name="software_render_summ">Pemapar perkakasan lebih pantas namun mungkin terdapat kesulitan, khususnya pada Android 8/8.1. Jika anda tidak dapat melihat sebahagian daripada antara muka semakan kad, cuba tetapan ini.</string>
-    <string name="disable_extended_text_ui" maxLength="41">Disable single-field edit mode</string>
     <!--See: multimedia_editor_popup_cloze. We can\'t use format strings as this is auto-generated-->
-    <string name="disable_extended_text_ui_summ">Allows \'Cloze deletion\' context menu when in landscape mode.</string>
     <string name="pref_double_tap_time_interval" maxLength="41">Double tap time interval</string>
     <string name="pref_double_tap_time_interval_summary">Sentuhan kedua butang jawapan akan diabaikan jika masa ini belum berlalu. Elakkan sentuh dua kali tanpa sengaja</string>
-    <string name="pref_show_answer_long_press_time" maxLength="41">Show answer long-press time</string>
-    <string name="pref_show_answer_long_press_time_summary">Minimum pressing time before the show answer button registers a touch.</string>
-    <string name="show_large_answer_buttons" maxLength="41">Tunjuk butang jawapan besar</string>
-    <string name="show_large_answer_buttons_summ">Show answer button in 2 rows</string>
-    <string name="use_current" maxLength="41">Dek untuk kad baru</string>
     <string name="learn_cutoff" maxLength="41">Had belajar awal</string>
     <string name="time_limit" maxLength="41">Had kotak masa</string>
     <string name="day_offset_with_description" maxLength="41">Mula hari esok</string>
-    <plurals name="day_offset_summ" comment="%d is going to be replaced with the number of hours past midnight. It can be replaced if something else suits better the translation">
-        <item quantity="other" comment="Consider keeping the unbreakable space after the digit">%d hours past midnight</item>
-    </plurals>
     <string name="pref_keep_screen_on" maxLength="41">Terus hidupkan skrin</string>
     <string name="pref_keep_screen_on_summ">Lumpuhkan skrin tamat masa</string>
-    <string name="enable_api_title" maxLength="41">Dayakan API AnkiDroid</string>
-    <string name="enable_api_summary">Benarkan aplikasi lain sambung ke AnkiDroid dan baca / tulis data tanpa pengawasan anda</string>
     <string name="custom_buttons_setting_always_show">Sentiasa tunjuk</string>
     <string name="custom_buttons_setting_menu_only">Menu sahaja</string>
-    <string name="reset_custom_buttons" maxLength="41">Tetap semula kepada lalai</string>
     <string name="reset">Tetap semula</string>
-    <string name="thirdparty_apps_title" maxLength="41">API aplikasi pihak ketiga</string>
-    <string name="thirdparty_apps_summary">Lihat senarai aplikasi yang menggunakan API AnkiDroid seperti kamus, utiliti.</string>
     <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Reviews</string>
-    <string name="pref_controls_previews_tab" maxLength="41" comment="Name of the tab to configure controls for the previews screen">Previews</string>
-    <string name="toggle_backside_only" maxLength="41" comment="Control setting that toggles \'Backside only\' in the previews screen">Toggle backside only</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Kebolehcapaian</string>
     <string name="exit_via_double_tap_back" maxLength="41">Tekan kembali dua kali untuk kembali/keluar</string>
     <string name="exit_via_double_tap_back_summ">To avoid accidentally leaving the study screen or the app</string>
     <!-- Allow all files in media imports -->
-    <string name="media_import_allow_all_files" maxLength="41">Benarkan semua fail dalam import media</string>
-    <string name="media_import_allow_all_files_summ">Jika Android tidak kenal pasti fail media</string>
     <!-- Custom sync server settings -->
     <string name="custom_sync_server_title" maxLength="41">Pelayan penyegerakan sendiri</string>
     <string name="custom_sync_server_summary_none_of_the_two_servers_used" comment="This summary is shown when neither of the two custom sync servers are used,         which is the default.">Tidak digunakan</string>
-    <string name="custom_sync_server_help2"><![CDATA[
-        Sebagai alternatif penyegerakan ke AnkiWeb,
-        Anda boleh gunakan pelayan sendiri untuk penyegerakan.
-        Jika belum ditetapkan, pelayan AnkiWeb lalai akan digunakan.
-        <a href="%s">Ketahui lebih lanjut</a>
-        ]]></string>
     <string name="custom_sync_server_base_url_title" maxLength="41">Sync URL</string>
     <string name="custom_sync_certificate_title" maxLength="41">Custom root certificate (PEM)</string>
     <!-- Key Bindings -->
-    <string name="keyboard">Papan kekunci</string>
-    <string name="bluetooth">Bluetooth</string>
     <string name="answer_buttons" maxLength="41">Butang jawapan</string>
     <string name="card" maxLength="41" comment="Generic term to refer to a card">Kad</string>
     <string name="note" maxLength="41">Nota</string>
-    <string name="navigation" maxLength="41">Navigasi</string>
     <string name="media" maxLength="41">Media</string>
-    <string name="misc" maxLength="41">Lain-lain</string>
     <!-- Review reminders -->
-    <string name="add_reminder" comment="Label for the add reminder button in the screen for adding and editing review reminders">Add reminder</string>
-    <string name="add_review_reminder" comment="Title of the screen for creating a new review reminder">Add review reminder</string>
-    <string name="edit_review_reminder" comment="Title of the screen for editing an existing review reminder">Edit review reminder</string>
-    <string name="you_have_no_review_reminders" comment="Text that appears in the review reminder editing screen when there are no reminders set">You have no review reminders</string>
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Pilih tag</string>
     <!-- Deck configurations -->
     <!-- analytics options -->
-    <string name="note_editor_replace_newlines" maxLength="41">Ganti baris baru dengan HTML</string>
-    <string name="note_editor_replace_newlines_summ">In the note editor, convert any instances of &lt;br&gt; to newlines when editing a card.</string>
     <string name="type_in_answer_focus" maxLength="41">Fokus ‘taip dalam jawapan’</string>
     <string name="type_in_answer_focus_summ">Automatically focus the ‘type in answer’ field in the study screen</string>
     <!-- About -->
-    <string name="pref_cat_about_title" maxLength="41">Perihal</string>
-    <string name="contributors_title">Para Penyumbang</string>
-    <string name="about_contributors_description"><![CDATA[Mereka merupakan <a href=\"%1$s\">para penyumbang</a> hebat. Anda juga boleh bantu AnkiDroid melalui pengaturcaraan, penterjemahan, pendermaan dan <a href=\"%2$s\">banyak lagi</a>!]]></string>
-    <string name="license">Lesen</string>
-    <string name="license_description"><![CDATA[AnkiDroid dikeluarkan di bawah lesen <a href=\"%1$s\">GPL-3.0</a> dan <a href=\"%2$s\">AGPL-3.0</a>, dengan kod sumber tersedia <a href=\"%3$s\">di GitHub</a>]]></string>
-    <string name="other_licenses"><![CDATA[AnkiDroid also uses third-party libraries and icons, which are licensed under various open source <a href=\"%1$s\">licenses</a>]]></string>
-    <string name="donate_description"><![CDATA[Anda boleh menyokong pembangunan AnkiDroid dengan <a href=\"%1$s\">menderma</a>. Apa-apa jumlah sangat dihargai.]]></string>
     <!-- Controls -->
     <string name="binding_add_gesture">Tambah gerak isyarat</string>
-    <string name="binding_add_key">Tambah kekunci</string>
     <string name="key_picker_default_press_key">Tekan kekunci</string>
-    <string name="binding_add_axis">Add joystick/motion controller</string>
     <string name="axis_picker_move_joystick">Move a joystick/motion controller</string>
-    <string name="user_actions" maxLength="41">User actions</string>
-    <string name="user_actions_summary" maxLength="41">Trigger JavaScript from the study screen</string>
     <string name="user_action_1" maxLength="28">User action 1</string>
     <string name="user_action_2" maxLength="28">User action 2</string>
     <string name="user_action_3" maxLength="28">User action 3</string>
@@ -222,8 +154,6 @@
     <string name="display_binding_card_side_question" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the question">S: %s</string>
     <string name="display_binding_card_side_answer" comment="When displaying a key bind on a preference this formatter is used if the bind only applies to the answer">J: %s</string>
     <!-- Binding Preference -->
-    <string name="binding_remove_binding" comment="The parameter is the name of the key/gesture.     Keys cannot be translated yet.">Buang ‘%s’</string>
-    <string name="bindings_already_bound">Telah dipetakan ke ‘%s’</string>
     <!-- Advanced -->
     <string name="pref_cat_experimental" maxLength="41" tools:ignore="UnusedResources">Percubaan</string>
     <string name="readtext_reviewer_warn" tools:ignore="UnusedResources">Please upgrade to the new text to speech format</string>
@@ -233,16 +163,6 @@
     <!-- #######################################################################################
          #################################### Backup options ###################################
          ####################################################################################### -->
-    <string name="pref__backups_help__summary"><![CDATA[
-        AnkiDroid sandarkan koleksi anda secara berkala
-        Setelah sandaran usianya lebih dua hari,
-        AnkiDroid akan mula membuang sebahagian daripada mereka untuk mengosongkan ruang cakera.
-        <br><br>
-        Ambil perhatian bahawa fail media tidak disandarkan.
-        Agar selamat, sila segerakkan koleksi anda secara berkala atau sandarkan yang dieksport.
-        <br><br>
-        Anda boleh pulih dari sandaran dan eksport koleksi anda dalam menu senarai dek.
-    ]]></string>
     <string name="pref__minutes_between_automatic_backups__title" maxLength="41">Minit antara sandaran automatik</string>
     <string name="pref__daily_backups_to_keep__title" maxLength="41">Sandaran harian untuk simpan</string>
     <string name="pref__weekly_backups_to_keep__title" maxLength="41">Sandaran mingguan untuk simpan</string>
@@ -259,19 +179,8 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__fetching" comment="Generic preference summary to be shown when the value is being fetched">&#8230;</string>
-    <string name="pref__etc__summary__no_collection" comment="Generic preference summary to be shown when a preference is not usable         because the collection does not exist">Tiada koleksi</string>
     <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Ralat</string>
-    <string name="pref__etc__snackbar__fetching" comment="Generic snackbar message to be shown when user taps on a preference,         the value of which is being fetched">Memperoleh&#8230;</string>
-    <string name="pref__etc__snackbar__no_collection" comment="Generic snackbar message to be shown when user taps on a preference         that is not usable because the collection does not exist">Koleksi tidak wujud</string>
-    <string name="show_answer_buttons" maxLength="41">Show answer buttons</string>
     <string name="hide_hard_and_easy" maxLength="41">Hide ‘Hard’ and ‘Easy’ buttons</string>
-    <string name="toolbar" maxLength="41">Toolbar</string>
-    <string name="new_study_screen" maxLength="41">New study screen</string>
-    <string name="screen" maxLength="41">Screen</string>
-    <string name="only_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to only answer the card">Only answer</string>
-    <string name="flip_and_answer" maxLength="41" comment="Configuration of the \'Answer\' commands to answer the card if on the answer side, and flip it if on the question side">Flip and answer</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Open settings</string>
-    <string name="related_settings_title" comment="Title of the section for related settings">Related settings</string>
 </resources>

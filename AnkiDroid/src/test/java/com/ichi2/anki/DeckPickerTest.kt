@@ -7,7 +7,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.database.sqlite.SQLiteDatabaseCorruptException
-import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.test.core.app.ActivityScenario
 import anki.collection.opChanges
@@ -409,11 +408,11 @@ class DeckPickerTest : RobolectricTest() {
         }
 
     @Test
-    fun `snackbars rest above the message strip`() =
+    fun `snackbars show in the home screen's message strip`() =
         deckPicker {
-            val snackbar = showSnackbar("test")
+            showSnackbar("test")
 
-            assertThat(snackbar?.anchorView, equalTo(findViewById<View>(R.id.message_bar)))
+            assertThat("no sliding snackbar: the MMD message strip shows it", messages.current?.text, equalTo("test"))
         }
 
     /**

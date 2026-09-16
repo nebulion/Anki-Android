@@ -227,6 +227,8 @@ fun View.showSnackbar(
         snackbar.anchorView = null
     }
 
+    // E Ink: the MMD message bar rather than a snackbar sliding in and out
+    if (showInMessageBar(snackbar.toMessage(text))) return snackbar
     snackbar.show()
     return snackbar
 }

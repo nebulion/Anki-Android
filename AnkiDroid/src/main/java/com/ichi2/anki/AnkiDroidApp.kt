@@ -36,6 +36,7 @@ import com.ichi2.anki.common.preferences.sharedPrefs
 import com.ichi2.anki.common.storage.CollectionHelper
 import com.ichi2.anki.common.utils.android.SdCard
 import com.ichi2.anki.common.utils.android.showThemedToast
+import com.ichi2.anki.common.utils.android.themedToastRouter
 import com.ichi2.anki.common.utils.annotation.KotlinCleanup
 import com.ichi2.anki.compat.CompatHelper
 import com.ichi2.anki.exception.StorageAccessException
@@ -51,6 +52,7 @@ import com.ichi2.anki.servicelayer.DebugInfoService
 import com.ichi2.anki.servicelayer.ThrowableFilterService
 import com.ichi2.anki.services.NotificationService
 import com.ichi2.anki.settings.Prefs
+import com.ichi2.anki.snackbar.routeToastToMessageBar
 import com.ichi2.anki.startup.ensureCollectionPathSet
 import com.ichi2.anki.startup.getDefaultAnkiDroidDirectory
 import com.ichi2.anki.ui.dialogs.ActivityAgnosticDialogs
@@ -119,6 +121,8 @@ open class AnkiDroidApp : Application() {
         ApplicationContextInitializer.setInstance(this)
 
         initializeNavigator()
+        // toasts from a screen appear in its MMD message bar instead of a fading system window
+        themedToastRouter = ::routeToastToMessageBar
         initializeWidgetRepository()
         WidgetNotificationScheduler.register { scheduleNotification() }
         val logType = LogType.value

@@ -114,6 +114,7 @@ import com.ichi2.anki.settings.Prefs
 import com.ichi2.anki.settings.SettingsPage
 import com.ichi2.anki.settings.SettingsPageFragment
 import com.ichi2.anki.snackbar.BaseSnackbarBuilderProvider
+import com.ichi2.anki.snackbar.MessageHostProvider
 import com.ichi2.anki.snackbar.SnackbarBuilder
 import com.ichi2.anki.sync.MeteredSyncPolicy
 import com.ichi2.anki.sync.launchCatchingRequiringOneWaySyncDiscardUndo
@@ -170,6 +171,7 @@ open class DeckPicker :
     ChangeManager.Subscriber,
     ImportColpkgListener,
     BaseSnackbarBuilderProvider,
+    MessageHostProvider,
     ApkgImportResultLauncherProvider,
     CsvImportResultLauncherProvider {
     val viewModel: DeckPickerViewModel by viewModels()
@@ -179,7 +181,7 @@ open class DeckPicker :
     private lateinit var binding: ActivityHomescreenBinding
 
     /** Short messages ("3 cards deleted", "Updated to…") shown at the bottom of the home screen. */
-    val messages = MessageHostState()
+    override val messages = MessageHostState()
 
     override val baseSnackbarBuilder: SnackbarBuilder = {
         anchorView = binding.messageBar

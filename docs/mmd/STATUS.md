@@ -244,6 +244,18 @@ whole collection, card info from the reviewer, `.apkg` import.
 **Device check (pending):** toggle a few settings and confirm the effect in the study screen; the
 E Ink flash interval; log in with a **throwaway** AnkiWeb account only.
 
+## Phase 6 — Remaining dialogs, messages, polish (in progress)
+
+| Step | State |
+| --- | --- |
+| 1. Deck tools | Done: custom study (menu panel, amount panel, tag sheet; logic and tests in `CustomStudyViewModel`), filtered deck options (Compose form), export page + "export ready" panel (Save via the system picker; Share removed), import as two panels |
+| 2. Error and recovery | Done: every platform `AlertDialog` takes the MMD panel look from the E Ink dialog theme (3dp border, bold title, solid/outlined buttons, no dim, no animation) — covers database error, sync error and backup restore. Media check is a Compose page |
+| 3. Messages | Done: all progress goes through `ProgressPanelDialog` (text, at most one update a second, no spinner); snackbars and screen toasts show in the MMD message bar (`MessageBars.kt`), the home screen's own strip on home |
+| 4. Launcher icon | Not started |
+| 5. Final sweep | Not started: popup menus, long-press handlers, `R.anim`, remaining indeterminate progress |
+
+Also this phase: white splash screen, E Ink flash after a sync, pointing-hand Gestures icon.
+
 ## Pre-existing issues (not caused by the fork)
 
 - **Lint** also reports `ThreadConstraint` (23), `WrongThread` (14) and

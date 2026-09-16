@@ -7,7 +7,6 @@ import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.content.ContextWrapper
-import android.content.DialogInterface
 import android.database.sqlite.SQLiteDatabaseCorruptException
 import android.net.Uri
 import android.text.format.Formatter
@@ -42,6 +41,7 @@ import com.ichi2.anki.snackbar.showSnackbar
 import com.ichi2.anki.startup.redirectToMainEntryPoint
 import com.ichi2.anki.ui.internationalization.sentenceCase
 import com.ichi2.anki.utils.openUrl
+import com.ichi2.compose.mmd.ProgressPanelDialog
 import com.ichi2.utils.create
 import com.ichi2.utils.message
 import com.ichi2.utils.neutralButton
@@ -396,7 +396,6 @@ suspend fun <T> Activity.withProgress(
         context = this@withProgress,
         onCancel = null,
     ) { dialog ->
-        @Suppress("Deprecation") // ProgressDialog deprecation
         dialog.setMessage(message)
         op()
     }
@@ -419,26 +418,36 @@ suspend fun <T> Fragment.withProgress(
     block: suspend () -> T,
 ): T = requireActivity().withProgress(messageId, block)
 
-@Suppress("Deprecation") // ProgressDialog deprecation
+/**
+ * Runs [op] behind a [ProgressPanelDialog], shown only if [op] takes longer than [delayMillis].
+ *
+ * The window was an `android.app.ProgressDialog`; its spinner repainted the E Ink panel for as long
+ * as the operation ran.
+ */
 suspend fun <T> withProgressDialog(
     context: Activity,
     onCancel: (() -> Unit)?,
     delayMillis: Long = 600,
     @StringRes manualCancelButton: Int? = null,
-    op: suspend (android.app.ProgressDialog) -> T,
+    op: suspend (ProgressPanelDialog) -> T,
 ): T =
     coroutineScope {
         val dialog =
-            android.app.ProgressDialog(context, R.style.AppCompatProgressDialogStyle).apply {
-                setCancelable(onCancel != null)
-                if (manualCancelButton != null) {
-                    setCancelable(false)
-                    setCanceledOnTouchOutside(false)
-                    setButton(DialogInterface.BUTTON_NEGATIVE, context.getString(manualCancelButton)) { _, _ ->
-                        Timber.i("Progress dialog cancelled via cancel button")
-                        onCancel?.let { it() }
-                    }
-                } else {
+            ProgressPanelDialog(
+                activity = context,
+                cancelLabel = manualCancelButton?.let { context.getString(it) },
+                onCancelClick =
+                    manualCancelButton?.let {
+                        {
+                            Timber.i("Progress dialog cancelled via cancel button")
+                            onCancel?.invoke()
+                            Unit
+                        }
+                    },
+            ).apply {
+                setCancelable(onCancel != null && manualCancelButton == null)
+                setCanceledOnTouchOutside(false)
+                if (manualCancelButton == null) {
                     onCancel?.let {
                         setOnCancelListener {
                             Timber.i("Progress dialog cancelled via cancel listener")
@@ -539,7 +548,7 @@ data class ProgressContext(
     val separator: String = " ",
 ) {
     @Suppress("Deprecation") // ProgressDialog deprecation
-    fun updateDialog(dialog: android.app.ProgressDialog) {
+    fun updateDialog(dialog: ProgressPanelDialog) {
         val message =
             listOfNotNull(
                 text,

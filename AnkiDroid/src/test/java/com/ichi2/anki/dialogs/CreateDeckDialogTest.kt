@@ -6,7 +6,6 @@ package com.ichi2.anki.dialogs
 import android.app.Activity
 import android.content.ContextWrapper
 import android.os.Looper
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
@@ -17,6 +16,7 @@ import com.ichi2.anki.RobolectricTest
 import com.ichi2.anki.dialogs.CreateDeckDialog.DeckDialogType
 import com.ichi2.anki.dialogs.utils.input
 import com.ichi2.anki.libanki.DeckId
+import com.ichi2.anki.snackbar.messageBarState
 import com.ichi2.utils.getInputTextLayout
 import com.ichi2.utils.positiveButton
 import okhttp3.internal.closeQuietly
@@ -28,7 +28,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.Shadows
-import org.robolectric.shadows.ShadowToast
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicReference
 import kotlin.coroutines.resume
@@ -399,7 +398,7 @@ class CreateDeckDialogTest : RobolectricTest() {
     }
 
     @Test
-    fun `createDeck with non-activity context shows toast for valid name`() {
+    fun `createDeck with non-activity context shows a message for valid name`() {
         activityScenario.onActivity { activity ->
             val dialog =
                 CreateDeckDialog(ContextWrapper(activity), "Create deck", DeckDialogType.DECK, null)
@@ -407,15 +406,15 @@ class CreateDeckDialogTest : RobolectricTest() {
             dialog.createDeck("Create Deck")
 
             assertThat(
-                "Toast should confirm deck creation for valid name",
-                ShadowToast.getTextOfLatestToast(),
+                "The message bar (a toast before E Ink) should confirm deck creation for valid name",
+                activity.latestSnackbarText(),
                 equalTo(getResourceString(R.string.deck_created)),
             )
         }
     }
 
     @Test
-    fun `createDeck with non-activity context shows toast for invalid name`() {
+    fun `createDeck with non-activity context shows a message for invalid name`() {
         activityScenario.onActivity { activity ->
             val dialog =
                 CreateDeckDialog(ContextWrapper(activity), "Create deck", DeckDialogType.DECK, null)
@@ -423,8 +422,8 @@ class CreateDeckDialogTest : RobolectricTest() {
             dialog.createDeck("   ")
 
             assertThat(
-                "Toast should show invalid name error for blank name",
-                ShadowToast.getTextOfLatestToast(),
+                "The message bar (a toast before E Ink) should show invalid name error for blank name",
+                activity.latestSnackbarText(),
                 equalTo(getResourceString(R.string.invalid_deck_name)),
             )
         }
@@ -466,7 +465,7 @@ class CreateDeckDialogTest : RobolectricTest() {
     }
 
     @Test
-    fun `renameDeck with non-activity context shows toast for valid name`() {
+    fun `renameDeck with non-activity context shows a message for valid name`() {
         activityScenario.onActivity { activity ->
             val dialog =
                 CreateDeckDialog(
@@ -481,15 +480,15 @@ class CreateDeckDialogTest : RobolectricTest() {
             dialog.renameDeck("Rename Deck")
 
             assertThat(
-                "Toast should confirm rename for valid name",
-                ShadowToast.getTextOfLatestToast(),
+                "The message bar (a toast before E Ink) should confirm rename for valid name",
+                activity.latestSnackbarText(),
                 equalTo(getResourceString(R.string.deck_renamed)),
             )
         }
     }
 
     @Test
-    fun `renameDeck with non-activity context shows toast for invalid name`() {
+    fun `renameDeck with non-activity context shows a message for invalid name`() {
         activityScenario.onActivity { activity ->
             val dialog =
                 CreateDeckDialog(
@@ -504,8 +503,8 @@ class CreateDeckDialogTest : RobolectricTest() {
             dialog.renameDeck("   ")
 
             assertThat(
-                "Toast should show invalid name error for blank name",
-                ShadowToast.getTextOfLatestToast(),
+                "The message bar (a toast before E Ink) should show invalid name error for blank name",
+                activity.latestSnackbarText(),
                 equalTo(getResourceString(R.string.invalid_deck_name)),
             )
         }
@@ -562,6 +561,5 @@ class CreateDeckDialogNonAndroidTest {
     }
 }
 
-// Returns latest snackbar text
-private fun Activity.latestSnackbarText(): String? =
-    findViewById<TextView>(com.google.android.material.R.id.snackbar_text)?.text?.toString()
+// Returns the latest message shown in place of a snackbar: the screen's MMD message bar
+private fun Activity.latestSnackbarText(): String? = messageBarState(this)?.current?.text

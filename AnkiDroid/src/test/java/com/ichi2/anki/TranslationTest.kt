@@ -186,12 +186,10 @@ class TranslationTest : RobolectricTest() {
                 // TR.preferencesAlways()
                 // TR.importingUpdateAlways()
                 "Answer", // R.string.card_side_answer | TR.browsingAnswer()
-                "Back", // R.string.back_field_name, R.string.previewer_back
                 // TR.notetypesBackField()
                 "Cancel", // R.string.dialog_cancel
                 // TR.actionsCancel()
                 // TR.syncCancelButton()
-                "Card", // R.string.card, R.string.reviewer_frame_style_card
                 // TR.browsingCard()
                 "Close", // R.string.close | TR.actionsClose()
                 "Collapse", // R.string.collapse
@@ -216,16 +214,14 @@ class TranslationTest : RobolectricTest() {
                 // TR.statisticsDueDate()
                 // TR.browsingSidebarDueToday()
                 "Easy", // R.string.ease_button_easy | TR.studyingEasy()
-                "Editing", // R.string.pref_cat_editing | TR.preferencesEditing()
                 "Empty", // R.string.empty_cram_label | TR.studyingEmpty()
-                "Error", // R.string.import_title_error, R.string.pref__etc__summary__error
+                "Error", // R.string.import_title_error
                 // R.string.pref__widget_text__error, R.string.vague_error
                 // TR.qtMiscError()
                 "Expand", // R.string.expand
                 // TR.editingExpand()
                 // TR.browsingSidebarExpand()
                 // TR.changeNotetypeExpand()
-                "Flags", // R.string.filter_by_flags | TR.browsingSidebarFlags()
                 "General", // R.string.deck_conf_general, R.string.pref_cat_general
                 // TR.preferencesGeneral()
                 // TR.schedulingGeneral()
@@ -236,7 +232,6 @@ class TranslationTest : RobolectricTest() {
                 "Later", // R.string.button_backup_later | TR.schedulingUpdateLaterButton()
                 "Learn More", // R.string.scoped_storage_learn_more | TR.schedulingUpdateMoreInfoButton()
                 "Learn ahead limit", // R.string.learn_cutoff | TR.preferencesLearnAheadLimit()
-                "Media", // R.string.media
                 // TR.editingMedia()
                 // TR.preferencesMedia()
                 "Never", // R.string.sync_media_never | TR.importingUpdateNever()
@@ -244,7 +239,6 @@ class TranslationTest : RobolectricTest() {
                 // TR.actionsNew()
                 // TR.changeNotetypeNew()
                 // TR.statisticsCountsNewCards()
-                "Note", // R.string.note
                 // TR.browsingNote()
                 // TR.preferencesNote()
                 // TR.notetypesOcclusionNote()
@@ -258,7 +252,6 @@ class TranslationTest : RobolectricTest() {
                 "Question", // R.string.card_side_question | TR.browsingQuestion()
                 "Redo", // R.string.redo | TR.undoRedo()
                 "Rename", // R.string.rename | TR.actionsRename()
-                "Reviews", // R.string.pref_controls_reviews_tab
                 // TR.schedulingReviews()
                 // TR.cardStatsReviewCount()
                 // TR.deckConfigFsrsSimulatorRadioCount()

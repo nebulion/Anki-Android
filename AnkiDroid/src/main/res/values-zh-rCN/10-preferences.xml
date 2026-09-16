@@ -35,7 +35,6 @@
     <string name="pref_cat_gestures" maxLength="41">手势操作</string>
     <string name="pref_cat_advanced" maxLength="41">高级设置</string>
     <string name="pref_cat_workarounds" maxLength="41">调试选项</string>
-    <string name="pref_cat_editing" maxLength="41">编辑</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">全局允许危险的 JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">允许任何卡片或模板读取和修改其他卡片或您的Anki卡片组数据。\n除非您信任卡片组中的所有卡片和模板，否则请关闭。</string>
@@ -105,7 +104,6 @@
     <string name="custom_buttons_setting_always_show">总是显示</string>
     <string name="custom_buttons_setting_menu_only">仅限菜单</string>
     <string name="reset">重置</string>
-    <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">复习</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">无障碍功能</string>
     <string name="exit_via_double_tap_back" maxLength="41">按两次返回键返回/退出</string>
@@ -118,9 +116,6 @@
     <string name="custom_sync_certificate_title" maxLength="41">自定义根证书 (PEM)</string>
     <!-- Key Bindings -->
     <string name="answer_buttons" maxLength="41">回答按钮</string>
-    <string name="card" maxLength="41" comment="Generic term to refer to a card">卡片</string>
-    <string name="note" maxLength="41">备注</string>
-    <string name="media" maxLength="41">多媒体</string>
     <!-- Review reminders -->
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">选择标签</string>
@@ -178,7 +173,6 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">错误</string>
     <string name="hide_hard_and_easy" maxLength="41">隐藏“困难”和“简单”按钮</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">打开设置</string>

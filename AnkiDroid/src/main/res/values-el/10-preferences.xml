@@ -35,7 +35,6 @@
     <string name="pref_cat_gestures" maxLength="41">Χειρονομίες</string>
     <string name="pref_cat_advanced" maxLength="41">Σύνθετα</string>
     <string name="pref_cat_workarounds" maxLength="41">Λύσεις</string>
-    <string name="pref_cat_editing" maxLength="41">Επεξεργασία</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
@@ -106,7 +105,6 @@
     <string name="custom_buttons_setting_always_show">Εμφάνιση πάντα</string>
     <string name="custom_buttons_setting_menu_only">Μόνο μενού</string>
     <string name="reset">Επαναφορά</string>
-    <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Κριτικές</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Προσβασιμότητα</string>
     <string name="exit_via_double_tap_back" maxLength="41">Πατήστε πίσω δύο φορές για επιστροφή/έξοδο</string>
@@ -119,9 +117,6 @@
     <string name="custom_sync_certificate_title" maxLength="41">Προσαρμοσμένο πιστοποιητικό ρίζας (PEM)</string>
     <!-- Key Bindings -->
     <string name="answer_buttons" maxLength="41">Κουμπιά απάντησης</string>
-    <string name="card" maxLength="41" comment="Generic term to refer to a card">Κάρτα</string>
-    <string name="note" maxLength="41">Σημείωση</string>
-    <string name="media" maxLength="41">Πολυμέσα</string>
     <!-- Review reminders -->
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Επιλογή Ετικετών</string>
@@ -179,7 +174,6 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Σφάλμα</string>
     <string name="hide_hard_and_easy" maxLength="41">Απόκρυψη κουμπιών «Hard» και «Easy»</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Άνοιγμα ρυθμίσεων</string>

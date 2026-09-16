@@ -34,7 +34,6 @@
     <!-- Reviewer.kt (Study Screen) -->
     <string name="replay_media" maxLength="28">بازپخش رسانه</string>
     <string name="webview_crash_unknown">خطای ناشناخته</string>
-    <string name="filter_by_flags" maxLength="41">پرچم ها</string>
     <!-- filtered deck options -->
     <string name="filtered_option_delay_again">زمان تأخیر برای بازبینی</string>
     <string name="filtered_option_delay_hard">مکث برای گزینهٔ سخت</string>
@@ -159,7 +158,6 @@
     <string name="format_deck_description_as_markdown">قالب‌بندی به فرمت مارک‌داون</string>
     <string name="help_button_content_description">راهنمای «%s» را باز کن</string>
     <string name="failed_to_copy">کپی کردن ناموفق بود</string>
-    <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">بازگشت</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">ابزار انتخاب بسته کارت</string>

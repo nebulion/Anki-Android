@@ -35,7 +35,6 @@
     <string name="pref_cat_gestures" maxLength="41">Jestler</string>
     <string name="pref_cat_advanced" maxLength="41">İleri Düzey</string>
     <string name="pref_cat_workarounds" maxLength="41">Geçici çözümler</string>
-    <string name="pref_cat_editing" maxLength="41">Düzenleme</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Tehlikeli JavaScript API\'larına izin ver</string>
     <string name="allow_dangerous_js_api_summ">Herhangi bir kartın veya şablonun diğer kartları veya Anki koleksiyon verilerinizi okumasına ve değiştirmesine izin verir.\nKoleksiyonunuzdaki bütün kartlara ve şablonlara güvenmediğiniz sürece kapalı bırakın.</string>
@@ -105,7 +104,6 @@
     <string name="custom_buttons_setting_always_show">Hep göster</string>
     <string name="custom_buttons_setting_menu_only">Sadece menüde</string>
     <string name="reset">Sıfırla</string>
-    <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Çalışmalar</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Erişilebilirlik</string>
     <string name="exit_via_double_tap_back" maxLength="41">Geri gitmek/çıkmak için iki kez basın</string>
@@ -118,9 +116,6 @@
     <string name="custom_sync_certificate_title" maxLength="41">Özel root sertifikası (PEM)</string>
     <!-- Key Bindings -->
     <string name="answer_buttons" maxLength="41">Cevap düğmeleri</string>
-    <string name="card" maxLength="41" comment="Generic term to refer to a card">Kart</string>
-    <string name="note" maxLength="41">Not</string>
-    <string name="media" maxLength="41">Medya</string>
     <!-- Review reminders -->
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Etiketleri Seçin</string>
@@ -178,7 +173,6 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Hata</string>
     <string name="hide_hard_and_easy" maxLength="41">\"Zor\" ve \"Kolay\" düğmelerini gizle</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Ayarları aç</string>

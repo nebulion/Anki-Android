@@ -34,7 +34,6 @@
     <!-- Reviewer.kt (Study Screen) -->
     <string name="replay_media" maxLength="28">Chơi lại media</string>
     <string name="webview_crash_unknown">Lỗi không xác định</string>
-    <string name="filter_by_flags" maxLength="41">Cờ</string>
     <!-- filtered deck options -->
     <string name="filtered_option_delay_again">Delay for again</string>
     <string name="filtered_option_delay_hard">Delay for hard</string>
@@ -157,7 +156,6 @@
     <string name="format_deck_description_as_markdown">Định dạng dưới dạng Markdown</string>
     <string name="help_button_content_description">Mở trợ giúp cho ‘%s’</string>
     <string name="failed_to_copy">Không sao chép được</string>
-    <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">Trở lại</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deck picker</string>

@@ -35,7 +35,6 @@
     <string name="pref_cat_gestures" maxLength="41">ジェスチャー</string>
     <string name="pref_cat_advanced" maxLength="41">高度な設定</string>
     <string name="pref_cat_workarounds" maxLength="41">不具合回避策</string>
-    <string name="pref_cat_editing" maxLength="41">編集</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
@@ -105,7 +104,6 @@
     <string name="custom_buttons_setting_always_show">常に表示</string>
     <string name="custom_buttons_setting_menu_only">メニューでのみ表示</string>
     <string name="reset">リセット</string>
-    <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">学習画面</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">アクセシビリティ</string>
     <string name="exit_via_double_tap_back" maxLength="41">学習終了・アプリ終了には「戻る」操作２回</string>
@@ -118,9 +116,6 @@
     <string name="custom_sync_certificate_title" maxLength="41">カスタムルート証明書 (PEM)</string>
     <!-- Key Bindings -->
     <string name="answer_buttons" maxLength="41">解答表示ボタン・回答ボタン</string>
-    <string name="card" maxLength="41" comment="Generic term to refer to a card">カード</string>
-    <string name="note" maxLength="41">ノート</string>
-    <string name="media" maxLength="41">音声・動画</string>
     <!-- Review reminders -->
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">タグを選択</string>
@@ -178,7 +173,6 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">エラー</string>
     <string name="hide_hard_and_easy" maxLength="41">「難しい」ボタンと「簡単」ボタンを隠す</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">設定画面を開く</string>

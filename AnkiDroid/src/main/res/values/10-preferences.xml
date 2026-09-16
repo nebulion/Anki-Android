@@ -22,7 +22,6 @@
     <string name="pref_cat_gestures" maxLength="41">Gestures</string>
     <string name="pref_cat_advanced" maxLength="41">Advanced</string>
     <string name="pref_cat_workarounds" maxLength="41">Workarounds</string>
-    <string name="pref_cat_editing" maxLength="41">Editing</string>
 
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
@@ -96,8 +95,6 @@
     <string name="custom_buttons_setting_always_show">Always show</string>
     <string name="custom_buttons_setting_menu_only">Menu only</string>
     <string name="reset">Reset</string>
-    <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen"
-        >Reviews</string>
 
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Accessibility</string>
@@ -113,9 +110,6 @@
     <string name="custom_sync_certificate_title" maxLength="41">Custom root certificate (PEM)</string>
     <!-- Key Bindings -->
     <string name="answer_buttons" maxLength="41">Answer buttons</string>
-    <string name="card" maxLength="41" comment="Generic term to refer to a card">Card</string>
-    <string name="note" maxLength="41">Note</string>
-    <string name="media" maxLength="41">Media</string>
 
     <!-- Review reminders -->
 
@@ -199,9 +193,6 @@ this formatter is used if the bind only applies to the answer">A: %s</string>
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
 
-    <string name="pref__etc__summary__error"
-        comment="Generic preference summary to be shown when there was an error fetching the value.
-        For example, this is shown when the permission to access collection is lacking">Error</string>
 
 
     <string name="hide_hard_and_easy" maxLength="41">Hide ‘Hard’ and ‘Easy’ buttons</string>

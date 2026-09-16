@@ -35,7 +35,6 @@
     <string name="pref_cat_gestures" maxLength="41">𐍄𐌰𐌹𐌺𐌽𐌴𐌹𐍃</string>
     <string name="pref_cat_advanced" maxLength="41">𐍆𐍂𐌰𐌼𐌲𐌰𐌷𐍄</string>
     <string name="pref_cat_workarounds" maxLength="41">Workarounds</string>
-    <string name="pref_cat_editing" maxLength="41">𐌹𐌽𐌼𐌰𐌹𐌳𐌴𐌹𐌽𐍃</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
@@ -106,7 +105,6 @@
     <string name="custom_buttons_setting_always_show">𐍃𐌹𐌽𐍄𐌴𐌹𐌽𐍉 𐌱𐌰𐌽𐌳𐍅𐌾𐌰𐌽</string>
     <string name="custom_buttons_setting_menu_only">𐌼𐌰𐌹𐌽𐍅 𐌸𐌰𐍄𐌰𐌹𐌽𐌴𐌹</string>
     <string name="reset">𐌰𐍆𐍄𐍂𐌰𐌻𐌰𐌲𐌾𐌰𐌽</string>
-    <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">𐌰𐍆𐍄𐍂𐌰𐍃𐌹𐌿𐌽𐌴𐌹𐍃</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">𐌼𐌰𐌷𐍄𐍃 𐌳𐌿 𐌰𐍄𐌲𐌰𐌲𐌲𐌰𐌽</string>
     <string name="exit_via_double_tap_back" maxLength="41">𐌸𐍂𐌿𐌺𐌴𐌹 𐌲𐌰𐍅𐌰𐌽𐌳𐌾𐌰𐌽 𐌸𐌿𐌺 𐍄𐍅𐌰𐌹𐌼 𐍃𐌹𐌽𐌸𐌰𐌼 𐌳𐌿 𐌲𐌰𐍅𐌰𐌽𐌳𐌾𐌰𐌽 𐌸𐌿𐌺/𐌰𐍆𐌻𐌴𐌹𐌸𐌰𐌽</string>
@@ -119,9 +117,6 @@
     <string name="custom_sync_certificate_title" maxLength="41">Custom root certificate (PEM)</string>
     <!-- Key Bindings -->
     <string name="answer_buttons" maxLength="41">𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌰𐌽𐌳𐌰𐌷𐌰𐍆𐍄𐌴</string>
-    <string name="card" maxLength="41" comment="Generic term to refer to a card">𐌺𐌰𐍂𐍄𐌰</string>
-    <string name="note" maxLength="41">𐌼𐌴𐌻𐌴𐌹𐌽𐍃</string>
-    <string name="media" maxLength="41">𐌼𐌰𐌹𐌳𐌾𐌰</string>
     <!-- Review reminders -->
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">𐍃𐍉𐌺𐌽𐌹𐍅𐌰𐌿𐍂𐌳𐌰 𐍅𐌰𐌻𐌾𐌰𐌽</string>
@@ -179,7 +174,6 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">𐌰𐌹𐍂𐌶𐌴𐌹</string>
     <string name="hide_hard_and_easy" maxLength="41">\'𐌿𐌽𐌰𐌶𐌴𐍄\' 𐌾𐌰𐌷 \'𐌰𐌶𐌴𐍄\' 𐌷𐌰𐌿𐌱𐌹𐌳𐌹𐌻𐍉𐌽𐍃 𐌰𐍆𐍆𐌹𐌻𐌷𐌰𐌽</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">𐌻𐌰𐌲𐌴𐌹𐌽𐌹𐌽𐍃 𐌿𐍃𐌻𐌿𐌺𐌰𐌽</string>

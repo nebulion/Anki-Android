@@ -34,7 +34,6 @@
     <!-- Reviewer.kt (Study Screen) -->
     <string name="replay_media" maxLength="28">Паўтарыць медыя</string>
     <string name="webview_crash_unknown">Невядомая памылка</string>
-    <string name="filter_by_flags" maxLength="41">Пазнакі</string>
     <!-- filtered deck options -->
     <string name="filtered_option_delay_again">Затрымка для «Зноў»</string>
     <string name="filtered_option_delay_hard">Затрымка для «Цяжка»</string>
@@ -155,7 +154,6 @@
     <string name="format_deck_description_as_markdown">Фармат як Markdown</string>
     <string name="help_button_content_description">Адкрыць даведку для «%s»</string>
     <string name="failed_to_copy">Не ўдалося скапіяваць</string>
-    <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">Назад</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Выбар калоды</string>

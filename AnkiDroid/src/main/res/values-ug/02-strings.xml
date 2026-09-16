@@ -34,7 +34,6 @@
     <!-- Reviewer.kt (Study Screen) -->
     <string name="replay_media" maxLength="28">ۋاسىتىنى قايتا قوي</string>
     <string name="webview_crash_unknown">يوچۇن خاتالىق</string>
-    <string name="filter_by_flags" maxLength="41">بايراق</string>
     <!-- filtered deck options -->
     <string name="filtered_option_delay_again">يەنە كېچىكتۈر</string>
     <string name="filtered_option_delay_hard">تەسلىكتىن كېچىكتۈر</string>
@@ -157,7 +156,6 @@
     <string name="format_deck_description_as_markdown">Markdown سۈپىتىدە پىچىملاندۇرىدۇ</string>
     <string name="help_button_content_description">«%s» نىڭ ياردىمىنى ئاچىدۇ</string>
     <string name="failed_to_copy">كۆچۈرەلمىدى</string>
-    <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">قايت</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">دەستە تاللىغۇچ</string>

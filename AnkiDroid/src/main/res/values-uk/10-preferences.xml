@@ -35,7 +35,6 @@
     <string name="pref_cat_gestures" maxLength="41">Жести</string>
     <string name="pref_cat_advanced" maxLength="41">Розширені налаштування</string>
     <string name="pref_cat_workarounds" maxLength="41">Спеціальні функції</string>
-    <string name="pref_cat_editing" maxLength="41">Редагування</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Глобально дозволяти небезпечні JavaScript API</string>
     <string name="allow_dangerous_js_api_summ">Дозволяє будь-якій картці або шаблонові читати та змінювати дані інших карток або дані вашої Anki колекції.\nЗалиште вимкненим, якщо ви не довіряєте всім карткам і шаблонам своєї колекції.</string>
@@ -106,7 +105,6 @@
     <string name="custom_buttons_setting_always_show">Завжди показувати</string>
     <string name="custom_buttons_setting_menu_only">Тільки меню</string>
     <string name="reset">Скинути</string>
-    <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Повторення</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">Доступність</string>
     <string name="exit_via_double_tap_back" maxLength="41">Натиснeння \"Назад\" двічі, щоб повернутися/вийти</string>
@@ -119,9 +117,6 @@
     <string name="custom_sync_certificate_title" maxLength="41">Власний кореневий сертифікат (PEM)</string>
     <!-- Key Bindings -->
     <string name="answer_buttons" maxLength="41">Кнопки відповідей</string>
-    <string name="card" maxLength="41" comment="Generic term to refer to a card">Картка</string>
-    <string name="note" maxLength="41">Запис</string>
-    <string name="media" maxLength="41">Медіафайли</string>
     <!-- Review reminders -->
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">Оберіть теги</string>
@@ -179,7 +174,6 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">Помилка</string>
     <string name="hide_hard_and_easy" maxLength="41">Сховати кнопки \'Важко\' і \'Легко\'</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Відкрити налаштування</string>

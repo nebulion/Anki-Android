@@ -35,7 +35,6 @@
     <string name="pref_cat_gestures" maxLength="41">હાવભાવ</string>
     <string name="pref_cat_advanced" maxLength="41">અદ્યતન</string>
     <string name="pref_cat_workarounds" maxLength="41">વર્કઅરાઉન્ડ</string>
-    <string name="pref_cat_editing" maxLength="41">Editing</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
@@ -105,7 +104,6 @@
     <string name="custom_buttons_setting_always_show">હંમેશા બતાવો</string>
     <string name="custom_buttons_setting_menu_only">માત્ર મેનુ</string>
     <string name="reset">રીસેટ કરો</string>
-    <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Reviews</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">સુલભતા</string>
     <string name="exit_via_double_tap_back" maxLength="41">પાછા જવા/બહાર જવા માટે બે વાર પાછા દબાવો</string>
@@ -118,9 +116,6 @@
     <string name="custom_sync_certificate_title" maxLength="41">કસ્ટમ રૂટ સર્ટિફિકેટ (PEM)</string>
     <!-- Key Bindings -->
     <string name="answer_buttons" maxLength="41">જવાબ બટનો</string>
-    <string name="card" maxLength="41" comment="Generic term to refer to a card">કાર્ડ</string>
-    <string name="note" maxLength="41">નૉૅધ</string>
-    <string name="media" maxLength="41">મીડિયા</string>
     <!-- Review reminders -->
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">ટૅગ્સ પસંદ કરો</string>
@@ -178,7 +173,6 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">ભૂલ</string>
     <string name="hide_hard_and_easy" maxLength="41">\'હાર્ડ\' અને \'ઇઝી\' બટનો છુપાવો</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">Open settings</string>

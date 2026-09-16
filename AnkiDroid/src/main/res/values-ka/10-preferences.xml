@@ -35,7 +35,6 @@
     <string name="pref_cat_gestures" maxLength="41">ჟესტები</string>
     <string name="pref_cat_advanced" maxLength="41">დამატებითი</string>
     <string name="pref_cat_workarounds" maxLength="41">გამოსავლები</string>
-    <string name="pref_cat_editing" maxLength="41">Editing</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
@@ -105,7 +104,6 @@
     <string name="custom_buttons_setting_always_show">ყოველთვის ჩვენება</string>
     <string name="custom_buttons_setting_menu_only">მხოლოდ მენიუ</string>
     <string name="reset">საწყისი პარამეტრების აღდგენა</string>
-    <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">გადახედვები</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">მარტივი წვდომა</string>
     <string name="exit_via_double_tap_back" maxLength="41">სწავლის რეჟიმიდან/აპლიკაციიდან გამოსასვლელად უკან წასასვლელ ღილაკზე ორჯერ დაჭერა</string>
@@ -118,9 +116,6 @@
     <string name="custom_sync_certificate_title" maxLength="41">ინდივიდუალური ძირეული სერტიფიკატი (PEM)</string>
     <!-- Key Bindings -->
     <string name="answer_buttons" maxLength="41">პასუხის ღილაკები</string>
-    <string name="card" maxLength="41" comment="Generic term to refer to a card">ბარათი</string>
-    <string name="note" maxLength="41">შენიშვნა</string>
-    <string name="media" maxLength="41">მედიაფაილები</string>
     <!-- Review reminders -->
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">იარლიყების მონიშვნა</string>
@@ -178,7 +173,6 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">შეცდომა</string>
     <string name="hide_hard_and_easy" maxLength="41">„მარტივი“ და „რთული“ ღილაკების დამალვა</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">პარამეტრების გახსნა</string>

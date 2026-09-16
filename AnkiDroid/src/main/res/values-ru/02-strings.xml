@@ -34,7 +34,6 @@
     <!-- Reviewer.kt (Study Screen) -->
     <string name="replay_media" maxLength="28">Повторить медиа</string>
     <string name="webview_crash_unknown">Неизвестная ошибка</string>
-    <string name="filter_by_flags" maxLength="41">Флажки</string>
     <!-- filtered deck options -->
     <string name="filtered_option_delay_again">Задержка для «Снова»</string>
     <string name="filtered_option_delay_hard">Задержка для «Трудно»</string>
@@ -157,7 +156,6 @@
     <string name="format_deck_description_as_markdown">Форматировать в Markdown</string>
     <string name="help_button_content_description">Открыть справку для ‘%s’</string>
     <string name="failed_to_copy">Не удалось скопировать</string>
-    <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">Назад</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Выбранные колоды</string>

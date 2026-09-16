@@ -35,7 +35,6 @@
     <string name="pref_cat_gestures" maxLength="41">சைகைகள்</string>
     <string name="pref_cat_advanced" maxLength="41">மேம்பட்டது</string>
     <string name="pref_cat_workarounds" maxLength="41">தீர்வுகள்</string>
-    <string name="pref_cat_editing" maxLength="41">Editing</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">Globally allow dangerous JavaScript APIs</string>
     <string name="allow_dangerous_js_api_summ">Allows any card or template to read and modify other cards, or your Anki collection data.\nLeave off unless you trust all cards and templates in your collection.</string>
@@ -105,7 +104,6 @@
     <string name="custom_buttons_setting_always_show">எப்போதும் காட்டு</string>
     <string name="custom_buttons_setting_menu_only">மெனு மட்டும்</string>
     <string name="reset">மீட்டமை</string>
-    <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">Reviews</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">அணுகல்தன்மை</string>
     <string name="exit_via_double_tap_back" maxLength="41">திரும்பிச் செல்ல/வெளியேற மீண்டும் இருமுறை அழுத்தவும்</string>
@@ -118,9 +116,6 @@
     <string name="custom_sync_certificate_title" maxLength="41">தனிப்பயன் ரூட் சான்றிதழ் (PEM)</string>
     <!-- Key Bindings -->
     <string name="answer_buttons" maxLength="41">பதில் பொத்தான்கள்</string>
-    <string name="card" maxLength="41" comment="Generic term to refer to a card">அட்டை</string>
-    <string name="note" maxLength="41">குறிப்பு</string>
-    <string name="media" maxLength="41">ஊடகம்</string>
     <!-- Review reminders -->
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">குறிச்சொற்களைத் தேர்ந்தெடுக்கவும்</string>
@@ -178,7 +173,6 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">பிழை</string>
     <string name="hide_hard_and_easy" maxLength="41">\'ஹார்ட்\' மற்றும் \'ஈஸி\' பொத்தான்களை மறைக்கவும்</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">அமைப்புகளைத் திறக்கவும்</string>

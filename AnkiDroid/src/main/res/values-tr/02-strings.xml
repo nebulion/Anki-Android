@@ -34,7 +34,6 @@
     <!-- Reviewer.kt (Study Screen) -->
     <string name="replay_media" maxLength="28">Medyayı yeniden oynat</string>
     <string name="webview_crash_unknown">Bilinmeyen hata</string>
-    <string name="filter_by_flags" maxLength="41">Bayraklar</string>
     <!-- filtered deck options -->
     <string name="filtered_option_delay_again">Tekrar için ertele</string>
     <string name="filtered_option_delay_hard">Zor için ertele</string>
@@ -157,7 +156,6 @@
     <string name="format_deck_description_as_markdown">Markdown olarak formatla</string>
     <string name="help_button_content_description">\"%s\" için yardımı aç</string>
     <string name="failed_to_copy">Kopyalanamadı</string>
-    <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">Önceki</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">Deste seçici</string>

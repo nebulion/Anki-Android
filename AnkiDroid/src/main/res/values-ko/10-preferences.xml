@@ -35,7 +35,6 @@
     <string name="pref_cat_gestures" maxLength="41">제스쳐</string>
     <string name="pref_cat_advanced" maxLength="41">고급 설정</string>
     <string name="pref_cat_workarounds" maxLength="41">차선책</string>
-    <string name="pref_cat_editing" maxLength="41">편집</string>
     <!-- Card template JavaScript API permissions -->
     <string name="allow_dangerous_js_api_title" maxLength="41">잠재적 위험이 있는 JavaScript API 허용</string>
     <string name="allow_dangerous_js_api_summ">카드나 템플릿에서 다른 카드를 읽거나 수정하고, Anki 컬렉션 데이터 접근을 허용합니다.\n컬렉션의 모든 카드와 템플릿을 신뢰하지 않는 경우 비활성화하세요.</string>
@@ -105,7 +104,6 @@
     <string name="custom_buttons_setting_always_show">항상 표시하기</string>
     <string name="custom_buttons_setting_menu_only">메뉴만 표시하기</string>
     <string name="reset">초기화하기</string>
-    <string name="pref_controls_reviews_tab" maxLength="41" comment="Name of the tab to configure controls for the reviews screen">복습</string>
     <!-- Appearance settings -->
     <string name="accessibility" maxLength="41">접근성</string>
     <string name="exit_via_double_tap_back" maxLength="41">뒤로가기 버튼 두번 눌러 돌아가기/나가기</string>
@@ -118,9 +116,6 @@
     <string name="custom_sync_certificate_title" maxLength="41">사용자 지정 루트 인증서 (PEM)</string>
     <!-- Key Bindings -->
     <string name="answer_buttons" maxLength="41">답변 버튼</string>
-    <string name="card" maxLength="41" comment="Generic term to refer to a card">카드</string>
-    <string name="note" maxLength="41">노트</string>
-    <string name="media" maxLength="41">미디어</string>
     <!-- Review reminders -->
     <!-- studyoptions -->
     <string name="studyoptions_limit_select_tags">태그 선택하기</string>
@@ -178,7 +173,6 @@
     <!-- #######################################################################################
          ##### Generic preference summaries & snackbars that are shown on preference click #####
          ####################################################################################### -->
-    <string name="pref__etc__summary__error" comment="Generic preference summary to be shown when there was an error fetching the value.         For example, this is shown when the permission to access collection is lacking">오류</string>
     <string name="hide_hard_and_easy" maxLength="41">\'어려움\', \'쉬움\' 버튼 숨기기</string>
     <!--Keyboard shortcuts dialog-->
     <string name="open_settings" comment="Description of the shortcut that opens the app settings">설정 열기</string>

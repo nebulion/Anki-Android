@@ -34,7 +34,6 @@
     <!-- Reviewer.kt (Study Screen) -->
     <string name="replay_media" maxLength="28">미디어 다시 재생</string>
     <string name="webview_crash_unknown">알 수 없는 오류</string>
-    <string name="filter_by_flags" maxLength="41">플래그</string>
     <!-- filtered deck options -->
     <string name="filtered_option_delay_again">Delay for again</string>
     <string name="filtered_option_delay_hard">Delay for hard</string>
@@ -157,7 +156,6 @@
     <string name="format_deck_description_as_markdown">마크다운 형식</string>
     <string name="help_button_content_description">%s 도움말 열기</string>
     <string name="failed_to_copy">복사 실패</string>
-    <string name="previewer_back" comment="Name of the back button in the previewer" maxLength="28">뒤로가기</string>
     <!--  AlertDialog in the deleteCardTemplate  -->
     <!--Keyboard shortcuts dialog-->
     <string name="deck_picker_group" comment="Label for the group of shortcuts related to the deck picker">덱 선택기</string>

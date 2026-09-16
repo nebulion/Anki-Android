@@ -68,11 +68,15 @@ def report_lint() -> None:
         emit("warning", "lint", ["lint-results-playDebug.txt is missing: lint did not run (see the build report)"])
         return
     lines = report.read_text(encoding="utf-8", errors="replace").splitlines()
-    issue = re.compile(r":\d+: (Error|Warning|Information): .*\[(\w+)\]$|: (Error|Warning|Information): .*\[(\w+)\]$")
+    # the id may name where the check comes from: "[LocalContextResourcesRead from androidx.compose.ui]"
+    issue = re.compile(r": (Error|Warning|Information): .*\[(\w+)( from [\w.]+)?\]$")
     issues = [line for line in lines if issue.search(line)]
-    counts = Counter(re.search(r"\[(\w+)\]$", line).group(1) for line in issues)
+    counts = Counter(issue.search(line).group(2) for line in issues)
     summary = [lines[-1] if lines else "empty report"] + [f"{count} {issue_id}" for issue_id, count in counts.most_common()]
-    emit("warning", "lint", summary + [""] + issues)
+    # an issue whose line doesn't match (e.g. lint's own errors) would otherwise be reported as a
+    # bare count, with nothing to act on: fall back to the end of the report
+    body = issues if issues else lines[-40:]
+    emit("warning", "lint", summary + [""] + body)
 
 
 def report_tests() -> None:

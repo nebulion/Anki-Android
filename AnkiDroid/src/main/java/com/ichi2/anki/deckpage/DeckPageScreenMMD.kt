@@ -15,7 +15,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -147,12 +147,7 @@ private fun StudyBody(
     }
     if (state.buriedCount > 0) {
         TextMMD(
-            text =
-                LocalContext.current.resources.getQuantityString(
-                    R.plurals.studyoptions_buried_count,
-                    state.buriedCount,
-                    state.buriedCount,
-                ),
+            text = pluralStringResource(R.plurals.studyoptions_buried_count, state.buriedCount, state.buriedCount),
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth(),

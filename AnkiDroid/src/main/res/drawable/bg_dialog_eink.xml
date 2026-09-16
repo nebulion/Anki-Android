@@ -6,9 +6,10 @@
     android:insetBottom="16dp">
 
     <shape android:shape="rectangle">
-        <corners android:radius="@dimen/m3_alert_dialog_corner_size"/>
+        <corners android:radius="8dp"/>
         <solid android:color="@color/white"/>
-        <stroke android:width="2dp" android:color="@color/black"/>
+        <!-- the MMD panel border, `MmdTokens.panelBorder` -->
+        <stroke android:width="3dp" android:color="@color/black"/>
     </shape>
 
 </inset>

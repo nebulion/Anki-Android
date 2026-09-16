@@ -99,6 +99,7 @@
         <item name="dialogBackground">@color/white</item>
         <item name="navDrawerItemColor">@color/black</item>
         <item name="alertDialogTheme">@style/ThemeOverlay.AnkiDroid.AlertDialog.Eink</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.AnkiDroid.AlertDialog.Eink</item>
 
 
         <item name="badgeErrorColor">@color/black</item>
@@ -113,11 +114,51 @@
         <item name="whiteboardToolbarCardStyle">@style/Widget.AnkiDroid.WhiteboardToolbarCard.Eink</item>
     </style>
 
+    <!-- Every platform dialog left in the app, drawn as the MMD panel (`compose/mmd/Panel.kt`): a
+         white panel with a 3dp black border and 8dp corners, a bold title, the committing button
+         solid black and the others outlined. No grey dim behind it and no window animation: both
+         are full-screen repaints on E Ink. -->
     <style name="ThemeOverlay.AnkiDroid.AlertDialog.Eink" parent="ThemeOverlay.AnkiDroid.AlertDialog">
         <item name="android:windowBackground">@drawable/bg_dialog_eink</item>
         <item name="android:windowElevation">0dp</item>
         <item name="android:elevation">0dp</item>
         <item name="elevation">0dp</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorOnSurface">@color/black</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/AnkiDroid.AlertDialog.Title.Eink</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AnkiDroid.AlertDialog.Button.Primary.Eink</item>
+        <item name="buttonBarNegativeButtonStyle">@style/AnkiDroid.AlertDialog.Button.Secondary.Eink</item>
+        <item name="buttonBarNeutralButtonStyle">@style/AnkiDroid.AlertDialog.Button.Secondary.Eink</item>
+    </style>
+
+    <style name="AnkiDroid.AlertDialog.Title.Eink" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- `PanelPrimaryAction`: solid black, bold white label -->
+    <style name="AnkiDroid.AlertDialog.Button.Primary.Eink" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/black</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="rippleColor">@android:color/transparent</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <!-- `PanelSecondaryAction`: black outline, no fill, bold black label -->
+    <style name="AnkiDroid.AlertDialog.Button.Secondary.Eink" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/black</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="rippleColor">@android:color/transparent</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:layout_marginStart">8dp</item>
     </style>
 
     <style name="SnackbarStyle.Eink" parent="Widget.Material3.Snackbar">

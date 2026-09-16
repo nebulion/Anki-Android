@@ -9,6 +9,7 @@ import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.StudyOptionsViewModel.RenameResult
 import com.ichi2.anki.deckpage.DeckPageUiState
 import com.ichi2.anki.deckpage.deckNameOrEmpty
+import com.ichi2.anki.deckpicker.PendingDeckDeletion
 import com.ichi2.testutils.ensureOpsExecuted
 import kotlinx.coroutines.joinAll
 import org.junit.Test
@@ -243,6 +244,7 @@ class StudyOptionsViewModelTest : RobolectricTest() {
             viewModel.deleteDeck()
 
             assertEquals(null, withCol { decks.getLegacy(deckId) })
+            assertEquals("Doomed", PendingDeckDeletion.take()?.deckName, "the home screen is told, to offer Undo")
         }
 
     @Test

@@ -13,6 +13,8 @@ import com.ichi2.anki.common.time.SECONDS_PER_DAY
 import com.ichi2.anki.common.time.TIME_HOUR
 import com.ichi2.anki.common.time.TIME_MINUTE
 import com.ichi2.anki.deckpage.DeckPageUiState
+import com.ichi2.anki.deckpicker.DeckDeletionResult
+import com.ichi2.anki.deckpicker.PendingDeckDeletion
 import com.ichi2.anki.libanki.Collection
 import com.ichi2.anki.libanki.DeckId
 import com.ichi2.anki.libanki.Decks
@@ -71,11 +73,16 @@ class StudyOptionsViewModel : ViewModel() {
             refreshData().join()
         }
 
-    /** Deletes the selected deck, its subdecks and their cards. */
+    /**
+     * Deletes the selected deck, its subdecks and their cards. The home screen reports it with Undo
+     * when it next shows, since the deck page closes.
+     */
     suspend fun deleteDeck() {
         val deckId = selectedDeckId
         Timber.i("DeckPage: deleting deck %d", deckId)
-        undoableOp { decks.remove(listOf(deckId)) }
+        val deckName = withCol { decks.name(deckId) }
+        val changes = undoableOp { decks.remove(listOf(deckId)) }
+        PendingDeckDeletion.post(DeckDeletionResult(deckName = deckName, cardsDeleted = changes.count))
     }
 
     /** The confirmation text for [deleteDeck]. */

@@ -407,6 +407,29 @@ class DeckPickerTest : RobolectricTest() {
             assertThat(undoLabel(), containsString("Add Note"))
         }
 
+    /**
+     * Regression: deleting a deck from its deck page closed the page and returned home, where no
+     * message and no Undo appeared. On the owner's Kompakt ("Don't keep activities") the home screen
+     * is rebuilt on return, as here.
+     */
+    @Test
+    fun `a deck deleted on its deck page offers Undo on the home screen`() =
+        runTest {
+            val deckId = addDeck("Doomed")
+            col.decks.select(deckId)
+            StudyOptionsViewModel().run {
+                refreshData().join()
+                deleteDeck()
+            }
+
+            val deckPicker = startActivityNormallyOpenCollectionWithIntent(DeckPicker::class.java, Intent())
+            advanceRobolectricLooper()
+
+            val message = deckPicker.messages.current
+            assertThat(message?.text, containsString("Doomed"))
+            assertThat(message?.actionLabel, equalTo(deckPicker.getString(R.string.undo)))
+        }
+
     @Test
     fun `snackbars show in the home screen's message strip`() =
         deckPicker {

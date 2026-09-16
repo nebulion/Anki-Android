@@ -83,6 +83,7 @@ import com.ichi2.anki.deckpicker.DeckPickerViewModel
 import com.ichi2.anki.deckpicker.DeckPickerViewModel.AnkiDroidEnvironment
 import com.ichi2.anki.deckpicker.DeckPickerViewModel.StartupResponse
 import com.ichi2.anki.deckpicker.EmptyCardsResult
+import com.ichi2.anki.deckpicker.PendingDeckDeletion
 import com.ichi2.anki.dialogs.AsyncDialogFragment
 import com.ichi2.anki.dialogs.BackupPromptDialog
 import com.ichi2.anki.dialogs.CreateDeckDialog
@@ -711,6 +712,8 @@ open class DeckPicker :
             refreshState()
         }
         message?.let { dialogHandler.sendStoredMessage(it) }
+        // a deck deleted on its deck page, which closed before it could offer Undo
+        PendingDeckDeletion.take()?.let { messages.show(it.toHumanReadableString(), getString(R.string.undo), ::undo) }
     }
 
     fun refreshState() {

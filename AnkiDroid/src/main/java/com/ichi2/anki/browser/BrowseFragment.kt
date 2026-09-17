@@ -48,6 +48,7 @@ import com.ichi2.compose.mmd.MenuItem
 import com.ichi2.compose.mmd.MenuPanel
 import com.ichi2.compose.mmd.MessageHost
 import com.ichi2.compose.mmd.MessageHostState
+import com.ichi2.compose.mmd.MultiChoicePage
 import com.ichi2.compose.mmd.MultiChoiceSheet
 import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.PanelPrimaryAction
@@ -170,10 +171,17 @@ class BrowseFragment : ComposeHostFragment() {
                     },
                     onDismiss = close,
                 )
+            // long lists: a page of their own, which a swipe can't dismiss (owner, 2026-09-17)
             Editing.Deck ->
-                FilterSheet(TR.decksDeck(), options?.decks.orEmpty(), filters.decks, { it }, close) {
-                    viewModel.setFilters(viewModel.filters.copy(decks = it))
-                }
+                MultiChoicePage(
+                    title = TR.decksDeck(),
+                    options = options?.decks.orEmpty(),
+                    checked = filters.decks,
+                    label = { it.substringAfterLast("::") },
+                    depth = { it.split("::").size - 1 },
+                    onDone = { viewModel.setFilters(viewModel.filters.copy(decks = it)) },
+                    onClose = close,
+                )
             Editing.State ->
                 FilterSheet(stateTitle, StateFilter.entries, filters.states, { stateLabels.getValue(it) }, close) {
                     viewModel.setFilters(viewModel.filters.copy(states = it))
@@ -183,9 +191,14 @@ class BrowseFragment : ComposeHostFragment() {
                     viewModel.setFilters(viewModel.filters.copy(flags = it))
                 }
             Editing.Tag ->
-                FilterSheet(TR.editingTags(), options?.tags.orEmpty(), filters.tags, { it }, close) {
-                    viewModel.setFilters(viewModel.filters.copy(tags = it))
-                }
+                MultiChoicePage(
+                    title = TR.editingTags(),
+                    options = options?.tags.orEmpty(),
+                    checked = filters.tags,
+                    label = { it },
+                    onDone = { viewModel.setFilters(viewModel.filters.copy(tags = it)) },
+                    onClose = close,
+                )
             Editing.NoteType ->
                 FilterSheet(TR.notetypesNotetype(), options?.noteTypes.orEmpty(), filters.noteTypes, { it }, close) {
                     viewModel.setFilters(viewModel.filters.copy(noteTypes = it))

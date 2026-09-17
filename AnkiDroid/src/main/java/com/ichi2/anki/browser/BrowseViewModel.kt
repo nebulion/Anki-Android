@@ -260,7 +260,8 @@ private fun Collection.filterOptions(filters: BrowseFilters): FilterOptions {
     val flags = FlagFilter.entries.filter { it.value.toLong() in flagValues || it in filters.flags }
 
     return FilterOptions(
-        decks = decks.allNamesAndIds(skipEmptyDefault = true).map { it.name }.sortedWith(String.CASE_INSENSITIVE_ORDER),
+        // in deck list order, so subdecks follow their deck
+        decks = decks.allNamesAndIds(skipEmptyDefault = true).map { it.name },
         tags = tags.sortedWith(String.CASE_INSENSITIVE_ORDER),
         noteTypes = noteTypes.sortedWith(String.CASE_INSENSITIVE_ORDER),
         flags = flags,

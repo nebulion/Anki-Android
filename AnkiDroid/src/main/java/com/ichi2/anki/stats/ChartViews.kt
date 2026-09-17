@@ -303,7 +303,7 @@ fun CalendarView(
 private const val CALENDAR_WEEKS = 54
 private const val CALENDAR_LABEL_COLUMNS = 2
 
-private val ChartHeight = 200.dp
+private val ChartHeight = 180.dp
 private val DottedGuide = PathEffect.dashPathEffect(floatArrayOf(2f, 6f))
 private val SelectionDash = PathEffect.dashPathEffect(floatArrayOf(8f, 6f))
 

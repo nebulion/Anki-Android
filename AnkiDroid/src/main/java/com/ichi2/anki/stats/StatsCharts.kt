@@ -65,6 +65,8 @@ data class StatRow(
     val value: String,
     /** The pattern of the series this row describes, drawn as a swatch; null for none. */
     val fill: Fill? = null,
+    /** This row's share of the whole, drawn as a solid bar under it; null for none. */
+    val fraction: Double? = null,
 )
 
 data class ChartAndTable(

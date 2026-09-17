@@ -602,7 +602,7 @@ private data class CountRow(
     val fill: Fill,
 )
 
-/** The card counts: one horizontal bar split by kind, then a row per kind with its share. */
+/** The card counts: a row per kind with its count, its share, and a bar as long as the share. */
 fun cardCounts(
     data: GraphsResponse,
     fmt: StatsFormat,
@@ -624,22 +624,10 @@ fun cardCounts(
     val xMax = maxOf(1, sum).toDouble()
     val table =
         rows.filter { it.show }.map {
-            StatRow(it.label, "${fmt.number(it.count)} · ${fmt.number(it.count / xMax * 100, 2)}%", it.fill)
+            // a solid bar per kind, as long as its share: the page's coloured pie does not read on E Ink
+            StatRow(it.label, "${fmt.number(it.count)} · ${fmt.number(it.count / xMax * 100, 2)}%", fraction = it.count / xMax)
         } + StatRow(tr.statisticsCountsTotalCards(), fmt.number(sum))
-    val chart =
-        if (sum == 0) {
-            null
-        } else {
-            BarChart(
-                xDomain = 0.0 to 1.0,
-                bars = listOf(Bar(0.0, 1.0, rows.map { it.count.toDouble() }, emptyList())),
-                xTicks = emptyList(),
-                yMax = sum.toDouble(),
-                yTicks = emptyList(),
-                fills = rows.map { it.fill },
-            )
-        }
-    return ChartAndTable(chart, table)
+    return ChartAndTable(null, table)
 }
 
 // ---------------------------------------------------------------------------------------------

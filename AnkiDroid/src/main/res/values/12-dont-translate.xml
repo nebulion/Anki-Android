@@ -96,6 +96,12 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="mmd_bury_note_explained">Hide this card and the note’s other cards until tomorrow</string>
     <string name="mmd_suspend_card_explained">Hide this card until you unsuspend it in the browser</string>
     <string name="mmd_suspend_note_explained">Hide all of this note’s cards until you unsuspend them in the browser</string>
+    <string name="mmd_sync_sent">Sent ↑</string>
+    <string name="mmd_sync_received">Received ↓</string>
+    <string name="mmd_sync_changed">Added or changed</string>
+    <string name="mmd_sync_deleted">Deleted</string>
+    <string name="mmd_loading">Loading</string>
+    <string name="mmd_building_deck">Building the deck</string>
     <string name="mmd_loading_statistics">Loading statistics</string>
     <string name="mmd_day_no_reviews">No reviews on this day</string>
     <string name="mmd_day_decks">Decks studied</string>

@@ -5,10 +5,7 @@ package com.ichi2.anki.settings
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -17,14 +14,13 @@ import com.ichi2.compose.mmd.ActionRow
 import com.ichi2.compose.mmd.GroupDivider
 import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.NavRow
+import com.ichi2.compose.mmd.PageLoading
 import com.ichi2.compose.mmd.PagedList
-import com.ichi2.compose.mmd.RowDefaults
 import com.ichi2.compose.mmd.RowDivider
 import com.ichi2.compose.mmd.ScreenHeader
 import com.ichi2.compose.mmd.SectionTitle
 import com.ichi2.compose.mmd.SwitchRow
 import com.ichi2.compose.mmd.ValueRow
-import com.mudita.mmd.components.text.TextMMD
 
 /** A row of a settings page. */
 sealed interface SettingsEntry {
@@ -110,11 +106,7 @@ fun SettingsScreenMMD(
             },
         )
         if (entries == null) {
-            TextMMD(
-                text = stringResource(R.string.dialog_processing),
-                style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.fillMaxWidth().padding(RowDefaults.EdgePadding),
-            )
+            PageLoading(Modifier.weight(1f))
             return@Column
         }
         PagedList(Modifier.weight(1f)) {

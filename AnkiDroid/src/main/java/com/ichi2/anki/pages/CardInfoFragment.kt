@@ -41,6 +41,7 @@ import com.ichi2.compose.mmd.ComposeHostFragment
 import com.ichi2.compose.mmd.GroupDivider
 import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.InfoRow
+import com.ichi2.compose.mmd.PageLoading
 import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.RowDefaults
 import com.ichi2.compose.mmd.RowDivider
@@ -93,7 +94,7 @@ class CardInfoFragment : ComposeHostFragment() {
                 },
             )
             when (val current = loaded) {
-                null -> Message(stringResource(R.string.dialog_processing))
+                null -> PageLoading(Modifier.weight(1f))
                 Loaded.Missing -> Message(TR.cardStatsNoCard())
                 is Loaded.Info -> CardInfoList(current.info, Modifier.weight(1f))
             }

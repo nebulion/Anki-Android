@@ -1141,9 +1141,9 @@ open class DeckPicker :
      */
     @VisibleForTesting(otherwise = VisibleForTesting.PACKAGE_PRIVATE)
     fun updateDeckList() {
-        launchCatchingTask {
-            withProgress { viewModel.updateDeckList().join() }
-        }
+        // in place, not behind a "Processing…" panel: the list already on screen stays usable while it
+        // updates, and after a sync the panel showed on top of the sync result (owner, 2026-09-17)
+        launchCatchingTask { viewModel.updateDeckList().join() }
     }
 
     override fun onAttachedToWindow() {

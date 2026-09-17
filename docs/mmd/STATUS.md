@@ -295,6 +295,17 @@ kind (`662368a`, owner: they crowded it; the counts stay on the amount panel).
   question and detail per row, a Sort row (column, then lowest/highest first), tap to edit, select
   mode to tick; the menu acts on all shown cards or the ticked ones, with Undo. Home uses a card-stack
   Browse icon.
+- Deck and tag filters open full pages with an X and a tick, not sheets a swipe dismisses.
+- E Ink: the flash now counts taps and swipes anywhere in the app (Settings → E Ink, default every
+  30), not only answers.
+- Study screen: audio is a speaker icon left of Undo.
+- Statistics: a section appears only once all of it is ready; the calendar is just the month
+  (days-studied, total and first-day-of-week rows gone), and tapping a day opens its reviews,
+  time, Again, kinds of card and decks.
+- "Processing…" is gone: pages that load show nothing for half a second, then the MMD loading
+  indicator; the deck list reloads in place after a sync instead of behind a panel.
+- Sync screen: title, bar and Cancel keep their places; a normal sync's changes show as a table,
+  sent and received, added-or-changed and deleted.
 
 **Device check (pending):** card info from the study screen; statistics for a deck and for all
 decks (tap a bar, change a range); deck options: change a limit for this deck only and save, add

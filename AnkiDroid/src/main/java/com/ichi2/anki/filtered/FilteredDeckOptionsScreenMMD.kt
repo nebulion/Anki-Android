@@ -26,6 +26,7 @@ import com.ichi2.anki.ui.internationalization.sentenceCase
 import com.ichi2.compose.mmd.ChoiceSheet
 import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.NumberPanel
+import com.ichi2.compose.mmd.PageLoading
 import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.PanelPrimaryAction
 import com.ichi2.compose.mmd.RowDefaults
@@ -127,11 +128,7 @@ fun FilteredDeckOptionsScreenMMD(
             },
         )
         if (state == null) {
-            TextMMD(
-                text = stringResource(R.string.dialog_processing),
-                style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.padding(RowDefaults.EdgePadding),
-            )
+            PageLoading(Modifier.weight(1f))
             return@Column
         }
         var edit by remember { mutableStateOf<Edit?>(null) }
@@ -195,7 +192,7 @@ fun FilteredDeckOptionsScreenMMD(
         ) {
             if (state.isBuildingBrowserSearch) {
                 // building can take a moment; a line of text rather than a spinner
-                TextMMD(text = stringResource(R.string.dialog_processing), style = MaterialTheme.typography.bodyLarge)
+                TextMMD(text = stringResource(R.string.mmd_building_deck), style = MaterialTheme.typography.bodyLarge)
             } else if (state.isBuildingAllowed) {
                 // while a value has an error the button waits; the error is shown under it
                 PanelPrimaryAction(

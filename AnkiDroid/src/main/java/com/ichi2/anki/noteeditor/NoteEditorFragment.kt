@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -37,6 +36,7 @@ import com.ichi2.compose.mmd.ConfirmPanel
 import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.MessageHost
 import com.ichi2.compose.mmd.MessageHostState
+import com.ichi2.compose.mmd.PageLoading
 import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.PanelActions
 import com.ichi2.compose.mmd.PanelBody
@@ -108,11 +108,7 @@ class NoteEditorFragment : ComposeHostFragment() {
             )
             val current = state
             if (current == null) {
-                TextMMD(
-                    text = stringResource(R.string.dialog_processing),
-                    style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.fillMaxWidth().padding(RowDefaults.EdgePadding),
-                )
+                PageLoading(Modifier.weight(1f))
                 return@Column
             }
             // one item per row, turned a page at a time rather than scrolled

@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -200,8 +201,10 @@ private fun DeckRow(
 }
 
 /**
- * The sync in progress, in place of the deck list: a title, a bar that fills as work completes
- * (or keeps moving while the amount is unknown), the backend's latest report and Cancel.
+ * The sync screen. Everything keeps its place while the sync runs (owner, 2026-09-17: the bar moved
+ * whenever the counts below it appeared): the title and bar near the top, a fixed area under them,
+ * and Cancel at the bottom. A normal sync's changes fill that area as a small table, sent to AnkiWeb
+ * and received from it; a download's size fills it as a line.
  */
 @Composable
 private fun Syncing(
@@ -209,11 +212,11 @@ private fun Syncing(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding),
-        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
+        modifier = modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        TextMMD(text = stringResource(R.string.sync_title), style = MaterialTheme.typography.titleMedium)
+        TextMMD(text = stringResource(R.string.sync_title), style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+        Spacer(Modifier.height(24.dp))
         if (progress.fraction != null) {
             LinearProgressIndicatorMMD(progress = { progress.fraction }, modifier = Modifier.fillMaxWidth())
         } else {
@@ -226,9 +229,15 @@ private fun Syncing(
             )
             LinearProgressIndicatorMMD(progress = { moving }, modifier = Modifier.fillMaxWidth())
         }
-        if (progress.detail != null) {
-            TextMMD(text = progress.detail, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
+        Spacer(Modifier.height(24.dp))
+        Box(Modifier.fillMaxWidth().height(SyncDetailHeight), contentAlignment = Alignment.TopCenter) {
+            when {
+                progress.changes != null -> SyncChangesTable(progress.changes)
+                progress.detail != null ->
+                    TextMMD(text = progress.detail, style = MaterialTheme.typography.bodyLarge, textAlign = TextAlign.Center)
+            }
         }
+        Spacer(Modifier.weight(1f))
         if (progress.cancel != null) {
             PanelSecondaryAction(
                 label = stringResource(progress.cancelLabel),
@@ -238,6 +247,67 @@ private fun Syncing(
         }
     }
 }
+
+/** Sent and received, as columns; changed and deleted, as rows; the numbers large. */
+@Composable
+private fun SyncChangesTable(changes: SyncChanges) {
+    @Composable
+    fun Cell(
+        text: String,
+        isNumber: Boolean,
+        modifier: Modifier,
+    ) = TextMMD(
+        text = text,
+        style = if (isNumber) MaterialTheme.typography.headlineLarge else MaterialTheme.typography.bodyMedium,
+        fontWeight = if (isNumber) FontWeight.Black else FontWeight.Normal,
+        textAlign = if (isNumber) TextAlign.Center else TextAlign.Start,
+        maxLines = 2,
+        modifier = modifier,
+    )
+
+    @Composable
+    fun TableRow(
+        label: String,
+        first: String,
+        second: String,
+        isNumber: Boolean,
+    ) = Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Cell(label, isNumber = false, Modifier.weight(1.2f))
+        Cell(first, isNumber, Modifier.weight(1f))
+        Cell(second, isNumber, Modifier.weight(1f))
+    }
+
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Row(Modifier.fillMaxWidth()) {
+            Spacer(Modifier.weight(1.2f))
+            listOf(R.string.mmd_sync_sent, R.string.mmd_sync_received).forEach {
+                TextMMD(
+                    text = stringResource(it),
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.weight(1f),
+                )
+            }
+        }
+        DashedDividerMMD()
+        TableRow(
+            stringResource(R.string.mmd_sync_changed),
+            changes.sentChanged.toString(),
+            changes.receivedChanged.toString(),
+            isNumber = true,
+        )
+        TableRow(
+            stringResource(R.string.mmd_sync_deleted),
+            changes.sentDeleted.toString(),
+            changes.receivedDeleted.toString(),
+            isNumber = true,
+        )
+    }
+}
+
+/** Room for the changes table, so nothing above or below it moves when it appears. */
+private val SyncDetailHeight = 160.dp
 
 /** The first screen of a new install: sign in to download an AnkiWeb collection, or import a file. */
 @Composable

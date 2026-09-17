@@ -36,6 +36,7 @@ import com.ichi2.compose.mmd.ChoiceSheet
 import com.ichi2.compose.mmd.GroupDivider
 import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.NumberPanel
+import com.ichi2.compose.mmd.PageLoading
 import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.PanelActions
 import com.ichi2.compose.mmd.PanelDialog
@@ -96,11 +97,7 @@ fun DeckOptionsScreenMMD(
             },
         )
         if (state == null) {
-            TextMMD(
-                text = stringResource(R.string.dialog_processing),
-                style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.fillMaxWidth().padding(RowDefaults.EdgePadding),
-            )
+            PageLoading(Modifier.weight(1f))
             return@Column
         }
 

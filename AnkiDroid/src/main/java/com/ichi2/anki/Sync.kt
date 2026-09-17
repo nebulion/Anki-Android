@@ -161,9 +161,19 @@ suspend fun <T> DeckPicker.withSyncProgress(
                 val now = android.os.SystemClock.elapsedRealtime()
                 if (now - lastShownAt >= SYNC_PROGRESS_MIN_INTERVAL_MS) {
                     lastShownAt = now
+                    val changes =
+                        progress.takeIf { it.hasNormalSync() }?.normalSync?.let {
+                            com.ichi2.anki.deckpicker.SyncChanges
+                                .parse(it.added, it.removed)
+                        }
                     viewModel.flowOfSyncProgress.value =
                         com.ichi2.anki.deckpicker.SyncProgress(
-                            detail = listOfNotNull(text, amount?.let(formatAmount)).joinToString(separator).ifBlank { null },
+                            detail =
+                                listOfNotNull(text, amount?.let(formatAmount))
+                                    .joinToString(separator)
+                                    .ifBlank { null }
+                                    .takeIf { changes == null },
+                            changes = changes,
                             fraction = amount?.takeIf { it.max > 0 }?.let { it.current.toFloat() / it.max },
                             cancelLabel = cancelLabel,
                             cancel = cancel,

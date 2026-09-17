@@ -251,7 +251,7 @@ class DeckPageFragment :
             skipCrashReport = { it is BackendException },
         ) {
             val action =
-                withProgress {
+                withProgress(R.string.mmd_building_deck) {
                     withCol { decks.select(customStudyViewModel.deckId) }
                     customStudyViewModel.customStudy(option, amount, tagsToInclude = tags)
                 }

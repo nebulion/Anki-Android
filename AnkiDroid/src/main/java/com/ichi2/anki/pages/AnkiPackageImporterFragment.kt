@@ -37,6 +37,7 @@ import com.ichi2.compose.mmd.ComposeHostFragment
 import com.ichi2.compose.mmd.GroupDivider
 import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.InfoRow
+import com.ichi2.compose.mmd.PageLoading
 import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.PanelPrimaryAction
 import com.ichi2.compose.mmd.RowDefaults
@@ -98,7 +99,7 @@ class AnkiPackageImporterFragment : ComposeHostFragment() {
             when {
                 error != null -> Line(error.orEmpty())
                 done != null -> ResultList(done, Modifier.weight(1f))
-                current == null -> Line(stringResource(R.string.dialog_processing))
+                current == null -> PageLoading(Modifier.weight(1f))
                 else -> {
                     PagedList(Modifier.weight(1f)) {
                         item { InfoRow(title = TR.importingFile(), value = File(path).name) }

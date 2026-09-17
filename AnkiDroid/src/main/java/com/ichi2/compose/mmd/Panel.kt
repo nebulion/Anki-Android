@@ -181,9 +181,11 @@ fun PanelPrimaryAction(
     label: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
 ) {
     ButtonMMD(
         onClick = onClick,
+        enabled = enabled,
         modifier = modifier.heightIn(min = PanelDefaults.ButtonHeight),
         shape = PanelDefaults.ButtonShape,
     ) {

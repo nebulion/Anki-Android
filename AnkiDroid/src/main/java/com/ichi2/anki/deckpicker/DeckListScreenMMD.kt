@@ -89,7 +89,7 @@ fun DeckListScreenMMD(
                     SyncAction(state.syncState, enabled = !isSyncing, onSync)
                 }
                 HeaderAction(
-                    icon = R.drawable.ic_search_white,
+                    icon = R.drawable.ic_browse_cards,
                     contentDescription = stringResource(R.string.bottom_nav_browse),
                     onClick = onBrowse,
                     enabled = !isSyncing,

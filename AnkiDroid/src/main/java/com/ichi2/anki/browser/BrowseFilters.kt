@@ -102,14 +102,29 @@ data class BrowseFilters(
             anyOf(FilterPart.NoteType, noteTypes.map { node { setNote(it) } })
             added.days?.let { days -> anyOf(FilterPart.Added, listOf(node { setAddedInDays(days) })) }
             // each word must appear somewhere in the card, as in Anki's own search
-            anyOf(FilterPart.Text, text.split(WHITESPACE).filter { it.isNotEmpty() }.map { node { setLiteralText(it) } }.and())
+            anyOf(
+                FilterPart.Text,
+                text
+                    .split(WHITESPACE)
+                    .filter { it.isNotEmpty() }
+                    .map { node { setLiteralText(it) } }
+                    .and(),
+            )
         }
 
     private fun List<SearchNode>.and(): List<SearchNode> = if (size <= 1) this else listOf(group(Joiner.AND))
 
     private fun List<SearchNode>.or(): SearchNode = group(Joiner.OR)
 
-    private fun List<SearchNode>.group(joiner: Joiner) = node { setGroup(SearchNode.Group.newBuilder().addAllNodes(this@group).setJoiner(joiner)) }
+    private fun List<SearchNode>.group(joiner: Joiner) =
+        node {
+            setGroup(
+                SearchNode.Group
+                    .newBuilder()
+                    .addAllNodes(this@group)
+                    .setJoiner(joiner),
+            )
+        }
 
     private fun node(build: SearchNode.Builder.() -> Unit): SearchNode = SearchNode.newBuilder().apply(build).build()
 

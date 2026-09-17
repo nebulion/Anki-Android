@@ -288,6 +288,13 @@ kind (`662368a`, owner: they crowded it; the counts stay on the amount panel).
   deck page's menu (that deck). A stand-in: restoring the deleted browser as it was needed about 60
   deleted layouts and the old drawer, editor and previewer, so the owner chose this instead. The
   redesign follows once the owner picks a proposal.
+- Browser redesign (owner picked layout A plus combined filters, 2026-09-17): a filters page (text,
+  deck, kind of card, flag, tags, note type, added) where choices in one filter widen it and
+  different filters narrow each other; tag, note type and flag choices only list what the other
+  filters' cards have. Text search is literal (card content only). "Show N cards" opens the list:
+  question and detail per row, a Sort row (column, then lowest/highest first), tap to edit, select
+  mode to tick; the menu acts on all shown cards or the ticked ones, with Undo. Home uses a card-stack
+  Browse icon.
 
 **Device check (pending):** card info from the study screen; statistics for a deck and for all
 decks (tap a bar, change a range); deck options: change a limit for this deck only and save, add

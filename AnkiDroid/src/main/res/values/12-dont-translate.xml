@@ -47,8 +47,31 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="mmd_settings_number_range">Enter a number between %1$d and %2$d</string>
     <!-- MMD fork: the native statistics page -->
     <string name="mmd_stats_history">History</string>
-    <string name="mmd_stats_year">Year</string>
     <string name="mmd_loading_statistics">Loading statistics</string>
+    <string name="mmd_stats_first_weekday">First day of the week</string>
+    <string name="mmd_today_cards">cards</string>
+    <string name="mmd_today_minutes">minutes</string>
+    <string name="mmd_today_per_card">per card</string>
+    <string name="mmd_today_mature">Correct on mature cards</string>
+    <string name="mmd_today_of">%1$s of %2$s · %3$s%%</string>
+    <string name="mmd_today_by_kind">By kind of card</string>
+    <string name="mmd_calendar_fewer">Fewer</string>
+    <string name="mmd_calendar_more">More reviews</string>
+    <string name="mmd_about_what">What this shows</string>
+    <string name="mmd_about_today">What you have studied since today began, at the hour set in Settings as when the next day starts.\n\nAgain is how many of your answers were Again. Correct on mature cards counts answers to cards whose interval is 21 days or more that were not Again.\n\nBy kind of card splits your answers into learning, review, relearning and filtered (cramming) cards.</string>
+    <string name="mmd_about_future_due">How many reviews come due on each of the next days, if you answer every card on the day it is due.\n\nCards already overdue count as due today. Turn on the backlog to see them on the days they became due instead.\n\nDaily load is about how many reviews a day your cards will need on average.</string>
+    <string name="mmd_about_calendar">Each square is a day. The darker the square, the more reviews you did that day; a white square had none. The number at the bottom of a square is its reviews.\n\nThe busiest day of your history is black, and other days are shaded by how close they came to it.</string>
+    <string name="mmd_about_reviews">How many answers you gave on each day, or how long you spent, with Time turned on.\n\nEach bar is split by kind of card, from the bottom: mature, young, relearning, learning and filtered. The line is the running total over the range.</string>
+    <string name="mmd_about_card_counts">How the cards divide up. New cards have never been studied. Learning and relearning cards are going through their steps. Young cards have an interval under 21 days, mature cards 21 days or more.\n\nWith suspended and buried separated, those cards are counted on their own instead of by their kind.</string>
+    <string name="mmd_about_intervals">How long each review card waits until it is next due, after its last review. Longer intervals mean cards you know better.\n\nThe line is the running share of cards up to each interval.</string>
+    <string name="mmd_about_stability">How many days until your chance of remembering each card falls to 90%, as FSRS estimates it. Higher stability means a card is held more firmly.</string>
+    <string name="mmd_about_ease">The ease of each review card: how much its interval grows when you answer Good. Cards you often forget have lower ease.</string>
+    <string name="mmd_about_difficulty">How hard each card is to remember, from 0% (easiest) to 100% (hardest), as FSRS estimates it from your answers.</string>
+    <string name="mmd_about_retrievability">Your estimated chance of remembering each card right now.\n\nEstimated total knowledge adds those chances up: about how many cards, and notes, you would remember if tested today.</string>
+    <string name="mmd_about_true_retention">How often you remembered cards when they came up for review: the share of review answers that were not Again. Learning steps are not counted.\n\nYoung cards have an interval under 21 days, mature cards 21 days or more. Compare it with the desired retention in deck options, which is often 90%.</string>
+    <string name="mmd_about_hours">Which hours of the day you review in. The bars are how many reviews you did in each hour; the line is the share of them you got right, meaning not Again.</string>
+    <string name="mmd_about_buttons">How often you pressed each answer button, 1 Again, 2 Hard, 3 Good and 4 Easy, for learning, young and mature cards.\n\nCorrect counts every answer that was not Again.</string>
+    <string name="mmd_about_added">How many new cards were added on each day. The line is the running total over the range.</string>
     <string name="mmd_stats_previous">Previous</string>
     <string name="mmd_stats_next">Next</string>
     <!-- MMD fork: the native deck options page -->

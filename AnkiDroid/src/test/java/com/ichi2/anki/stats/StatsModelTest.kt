@@ -10,6 +10,7 @@ import anki.stats.GraphsResponse
 import com.ichi2.anki.RobolectricTest
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.time.YearMonth
 import java.time.ZonedDateTime
 import java.util.Locale
 import kotlin.test.assertEquals
@@ -28,7 +29,7 @@ class StatsModelTest : RobolectricTest() {
     @Test
     fun `an empty collection has no data in any graph`() {
         val data = graphs()
-        assertEquals(listOf(col.tr.statisticsTodayNoCards()), todayLines(data, fmt))
+        assertNull(todaySummary(data))
         assertNull(futureDue(data, fmt, GraphRange.Month, includeBacklog = true).chart)
         assertNull(reviews(data, fmt, GraphRange.Month, showTime = false).chart)
         assertNull(cardCounts(data, fmt, separateInactive = true).chart)
@@ -37,7 +38,7 @@ class StatsModelTest : RobolectricTest() {
         assertNull(hours(data, fmt, GraphRange.Year))
         assertNull(buttons(data, fmt, GraphRange.Year).chart)
         assertNull(added(data, fmt, GraphRange.Month).chart)
-        assertNull(calendar(data, fmt, 2026, Weekday.SUNDAY, RevlogRange.Year, ZonedDateTime.now(), Locale.US).days)
+        assertEquals(0, calendarMonth(data, YearMonth.now(), Weekday.SUNDAY, RevlogRange.Year, ZonedDateTime.now(), Locale.US).reviews)
         assertEquals(5, trueRetention(data, fmt, RetentionMode.Summary, RevlogRange.Year).size)
     }
 
@@ -54,7 +55,7 @@ class StatsModelTest : RobolectricTest() {
 
         for (revlogRange in RevlogRange.entries) {
             val data = graphs(revlogRange.days)
-            todayLines(data, fmt)
+            todaySummary(data)
             for (range in GraphRange.entries) {
                 assertNotNull(futureDue(data, fmt, range, includeBacklog = true).chart, "future due $range")
                 assertEquals(3.0, added(data, fmt, range).chart!!.bars.sumOf { it.total }, "added $range")
@@ -70,7 +71,7 @@ class StatsModelTest : RobolectricTest() {
                 difficulty(data, fmt, range)
                 retrievability(data, fmt, range)
             }
-            calendar(data, fmt, ZonedDateTime.now().year, Weekday.MONDAY, revlogRange, ZonedDateTime.now(), Locale.US)
+            calendarMonth(data, YearMonth.now(), Weekday.MONDAY, revlogRange, ZonedDateTime.now(), Locale.US)
             for (mode in RetentionMode.entries) trueRetention(data, fmt, mode, revlogRange)
         }
     }

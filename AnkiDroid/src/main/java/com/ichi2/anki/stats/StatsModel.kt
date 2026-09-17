@@ -2,20 +2,9 @@
 
 package com.ichi2.anki.stats
 
-import anki.stats.GraphPreferences.Weekday
 import anki.stats.GraphsResponse
-import java.time.DayOfWeek
-import java.time.LocalDate
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
-import java.time.format.TextStyle
-import java.time.temporal.ChronoUnit
-import java.util.Locale
 import kotlin.math.abs
-import kotlin.math.ceil
 import kotlin.math.roundToInt
-import kotlin.math.sqrt
 
 /*
  * The statistics page's content, worked out from `GraphsResponse` the way the backend's graphs
@@ -53,42 +42,6 @@ enum class RetentionMode { Young, Mature, Summary }
 private const val Y_TICKS = 5.0
 private const val X_TICKS = 7.0
 private const val MAX_BARS = 70
-
-// ---------------------------------------------------------------------------------------------
-// Today
-
-fun todayLines(
-    data: GraphsResponse,
-    fmt: StatsFormat,
-): List<String> {
-    val tr = fmt.tr
-    val today = data.today
-    if (today.answerCount == 0) return listOf(tr.statisticsTodayNoCards())
-    val secs = today.answerMillis / 1000.0
-    val unit = minOf(StatsFormat.naturalUnit(secs), StatsFormat.TimeUnit.Minutes)
-    val studied =
-        tr.statisticsStudiedToday(
-            // the translation's selector, not text: "seconds" or "minutes"
-            if (unit == StatsFormat.TimeUnit.Seconds) "seconds" else "minutes",
-            (secs / today.answerCount).roundToInt(),
-            (secs / unit.seconds).roundToInt(),
-            today.answerCount,
-        )
-    val again = today.answerCount - today.correctCount
-    val againText = "${tr.statisticsTodayAgainCount()} $again (${fmt.number(again.toDouble() / today.answerCount * 100)}%)"
-    val types = tr.statisticsTodayTypeCounts(today.learnCount, today.reviewCount, today.relearnCount, today.earlyReviewCount)
-    val mature =
-        if (today.matureCount != 0) {
-            tr.statisticsTodayCorrectMature(
-                today.matureCorrect,
-                today.matureCount,
-                today.matureCorrect.toDouble() / today.matureCount * 100,
-            )
-        } else {
-            tr.statisticsTodayNoMatureCards()
-        }
-    return listOf(studied, againText, types, mature)
-}
 
 // ---------------------------------------------------------------------------------------------
 // Histograms: future due, added, intervals, stability, ease, difficulty, retrievability
@@ -772,88 +725,6 @@ fun buttons(
         )
     return ChartAndTable(chart, table)
 }
-
-// ---------------------------------------------------------------------------------------------
-// Calendar
-
-/**
- * `calendar.ts`: a year of days, one column per week. The page shades a day by the square root of
- * its count against the busiest day; here that becomes one of four square sizes.
- */
-fun calendar(
-    data: GraphsResponse,
-    fmt: StatsFormat,
-    year: Int,
-    firstDayOfWeek: Weekday,
-    revlogRange: RevlogRange,
-    now: ZonedDateTime,
-    locale: Locale,
-): Calendar {
-    val maxYear = now.year
-    val minYear =
-        when (revlogRange) {
-            RevlogRange.Year -> maxYear - 1
-            RevlogRange.All -> 2000
-        }
-    val targetYear = year.coerceIn(minYear, maxYear)
-    val first = firstDayOfWeek.toDayOfWeek()
-    val weekdayLabels = (0 until 7).map { first.plus(it.toLong()).getDisplayName(TextStyle.NARROW, locale) }
-
-    val counts =
-        data.reviews.countMap.mapValues { (_, r) -> r.learn + r.relearn + r.mature + r.filtered + r.young }
-    val maxCount = counts.values.maxOrNull() ?: 0
-    if (maxCount == 0) return Calendar(targetYear, minYear, maxYear, weekdayLabels, null)
-
-    val yearStart = LocalDate.of(targetYear, 1, 1)
-    val byDate = mutableMapOf<LocalDate, Pair<Int, Int>>() // date -> (day offset, count)
-    for ((day, count) in counts) {
-        val date = now.plusDays(day.toLong()).minusHours(data.rolloverHour.toLong()).toLocalDate()
-        if (date.year == targetYear) byDate[date] = day to count
-    }
-    val today = now.toLocalDate()
-    val oneYearAgo = now.minusYears(1).toLocalDate()
-    val days =
-        (0 until 365).mapNotNull { i ->
-            val date = yearStart.plusDays(i.toLong())
-            val reviewed = byDate[date]
-            if (reviewed == null && (date.isAfter(today) || (revlogRange == RevlogRange.Year && date.isBefore(oneYearAgo)))) {
-                return@mapNotNull null
-            }
-            val count = reviewed?.second ?: 0
-            val weekday = ((date.dayOfWeek.value - first.value) + 7) % 7
-            // d3's `timeSunday.count(yearStart, date)`: week starts after the first of January, up to the date
-            val week = weekStartsAfter(yearStart, date, first)
-            CalendarDay(
-                week = week,
-                weekday = weekday,
-                level = if (count == 0) 0 else ceil(sqrt(count.toDouble() / maxCount) * 4).toInt().coerceIn(1, 4),
-                detail = "${date.format(
-                    DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(locale),
-                )}: ${fmt.tr.statisticsReviews(count)}",
-            )
-        }
-    return Calendar(targetYear, minYear, maxYear, weekdayLabels, days)
-}
-
-/** d3's `timeSunday.count(start, date)`: how many days after [start], up to [date], begin a week. */
-internal fun weekStartsAfter(
-    start: LocalDate,
-    date: LocalDate,
-    first: DayOfWeek,
-): Int {
-    val days = ChronoUnit.DAYS.between(start, date)
-    // the first day after the start that begins a week
-    val firstStart = ((first.value - start.dayOfWeek.value + 7) % 7).let { if (it == 0) 7 else it }
-    return if (days < firstStart) 0 else (1 + (days - firstStart) / 7).toInt()
-}
-
-private fun Weekday.toDayOfWeek(): DayOfWeek =
-    when (this) {
-        Weekday.MONDAY -> DayOfWeek.MONDAY
-        Weekday.FRIDAY -> DayOfWeek.FRIDAY
-        Weekday.SATURDAY -> DayOfWeek.SATURDAY
-        else -> DayOfWeek.SUNDAY
-    }
 
 // ---------------------------------------------------------------------------------------------
 // True retention

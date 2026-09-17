@@ -264,6 +264,21 @@ kind (`662368a`, owner: they crowded it; the counts stay on the amount panel).
   strip.
 - Import is native; `PageFragment` and the rest of the web page plumbing are deleted.
 
+**Owner feedback round 2 (2026-09-16), done:**
+- Statistics load off the main thread with the MMD loading indicator, and back works while
+  loading; the deck is picked on its own page.
+- Today (owner's layout A): cards, minutes and seconds per card large, then Again, correct on
+  mature cards and by kind as rows.
+- Calendar (layout A): one month at a time, ◀ ▶ between months; a square per day, grey from white
+  (none) to black (busiest day, shaded as the backend's page does), numbers white on dark squares,
+  the day's reviews bold at the bottom; a key, days studied and reviews for the month, and a "First
+  day of the week" row. Grey breaks MMD's "Avoid grey" guideline on purpose (owner's choice; the
+  page is static, which the guideline allows). Tap-to-search in the browser is not carried over.
+- Each section has a help action that opens an About page in plain words.
+- Typography (owner rule): only MMD's type scale anywhere. Compose falls back to the nearest MMD
+  size for the roles MMD lacks; XML screens get the scale from `Base.Theme.Light.Eink`. Help pages:
+  24sp Black headings over 18sp text.
+
 **Device check (pending):** card info from the study screen; statistics for a deck and for all
 decks (tap a bar, change a range); deck options: change a limit for this deck only and save, add
 and remove a preset, press back with a change (should ask); card editor: add a note from a deck

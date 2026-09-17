@@ -129,7 +129,7 @@ private fun TextInputDialogCard(
         Column(modifier = Modifier.padding(24.dp)) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.titleLarge,
                 color = AlertDialogDefaults.titleContentColor,
                 modifier = Modifier.padding(bottom = 16.dp),
             )

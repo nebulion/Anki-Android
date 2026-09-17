@@ -244,65 +244,6 @@ fun StackedBarView(
     }
 }
 
-/**
- * The review calendar: a column per week and a row per weekday. A day with reviews is a black
- * square, larger for more reviews; a day without is a dot. [onSelect] receives the tapped day.
- */
-@Composable
-fun CalendarView(
-    calendar: Calendar,
-    selected: CalendarDay?,
-    onSelect: (CalendarDay) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    val days = calendar.days ?: return
-    val measurer = rememberTextMeasurer()
-    val style = MaterialTheme.typography.bodySmall.copy(color = Black)
-    val columns = CALENDAR_WEEKS + CALENDAR_LABEL_COLUMNS
-    Canvas(
-        modifier
-            .fillMaxWidth()
-            .height(ChartHeight * 0.6f)
-            .pointerInput(calendar) {
-                detectTapGestures { tap ->
-                    val cell = size.width / columns.toFloat()
-                    val week = ((tap.x / cell) - CALENDAR_LABEL_COLUMNS).toInt()
-                    val weekday = (tap.y / (size.height / 7f)).toInt()
-                    days.firstOrNull { it.week == week && it.weekday == weekday }?.let(onSelect)
-                }
-            },
-    ) {
-        val cellWidth = size.width / columns
-        val cellHeight = size.height / 7
-        val cell = min(cellWidth, cellHeight)
-        calendar.weekdayLabels.forEachIndexed { row, label ->
-            drawLabel(
-                measurer,
-                label,
-                style,
-                Offset(CALENDAR_LABEL_COLUMNS * cellWidth - 2.dp.toPx(), (row + 0.5f) * cellHeight),
-                alignEnd = true,
-            )
-        }
-        for (day in days) {
-            val centre = Offset((CALENDAR_LABEL_COLUMNS + day.week + 0.5f) * cellWidth, (day.weekday + 0.5f) * cellHeight)
-            val side = if (day.level == 0) 1.5.dp.toPx() else (cell - 1f) * (day.level + 1) / 5f
-            drawRect(Black, Offset(centre.x - side / 2, centre.y - side / 2), Size(side, side))
-            if (day == selected) {
-                drawRect(
-                    Black,
-                    Offset(centre.x - cellWidth / 2 - 1f, centre.y - cellHeight / 2 - 1f),
-                    Size(cellWidth + 2f, cellHeight + 2f),
-                    style = Stroke(1.dp.toPx()),
-                )
-            }
-        }
-    }
-}
-
-private const val CALENDAR_WEEKS = 54
-private const val CALENDAR_LABEL_COLUMNS = 2
-
 private val ChartHeight = 180.dp
 private val DottedGuide = PathEffect.dashPathEffect(floatArrayOf(2f, 6f))
 private val SelectionDash = PathEffect.dashPathEffect(floatArrayOf(8f, 6f))

@@ -203,7 +203,7 @@ private fun CountTile(
     Column(modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         TextMMD(
             text = NumberFormat.getIntegerInstance().format(count),
-            style = MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             maxLines = 1,
         )

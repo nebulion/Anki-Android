@@ -52,7 +52,7 @@
         android:paddingTop="16dp"
         android:layout_marginHorizontal="24dp"
         android:visibility="gone"
-        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
         tools:text="Cards to delete: 123" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

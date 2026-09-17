@@ -112,6 +112,84 @@
         <item name="snackbarTextViewStyle">@style/SnackbarTextStyle.Eink</item>
         <item name="snackbarButtonStyle">@style/SnackbarButtonStyle.Eink</item>
         <item name="whiteboardToolbarCardStyle">@style/Widget.AnkiDroid.WhiteboardToolbarCard.Eink</item>
+
+        <!-- MMD's type scale (`mmd-core` TypographyMMD, `compose/mmd/MmdTheme.kt`) for the XML screens:
+             every Material text role at the MMD size, the roles MMD has no size for at the nearest one -->
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.Mmd.HeadlineLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.Mmd.HeadlineLarge</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.Mmd.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.Mmd.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.Mmd.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Mmd.TitleLarge</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.Mmd.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.Mmd.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.Mmd.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.Mmd.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Mmd.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Mmd.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.Mmd.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.Mmd.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.Mmd.LabelSmall</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Mmd.BodyLarge</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Mmd.BodyMedium</item>
+        <item name="textAppearanceListItem">@style/TextAppearance.Mmd.BodyLarge</item>
+        <item name="textAppearanceListItemSecondary">@style/TextAppearance.Mmd.BodyMedium</item>
+        <item name="textAppearanceListItemSmall">@style/TextAppearance.Mmd.BodyLarge</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.Mmd.TitleLarge</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.Mmd.BodyMedium</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.Mmd.BodySmall</item>
+    </style>
+
+    <!-- MMD's sizes in the Material type roles; MMD sets every one in Medium weight -->
+    <style name="TextAppearance.Mmd.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textSize">28sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.Mmd.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.Mmd.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.Mmd.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.Mmd.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.Mmd.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.Mmd.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.Mmd.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.Mmd.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.Mmd.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
     <!-- Every platform dialog left in the app, drawn as the MMD panel (`compose/mmd/Panel.kt`): a

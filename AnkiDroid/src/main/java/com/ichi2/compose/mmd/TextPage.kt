@@ -61,14 +61,15 @@ fun TextPage(
                         is TextBlock.Heading ->
                             TextMMD(
                                 text = block.text,
-                                style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.Bold,
-                                modifier = Modifier.fillMaxWidth().padding(start = RowDefaults.EdgePadding, top = 16.dp, end = 8.dp),
+                                // MMD's 24sp title in Black against 18sp Medium text: headings stand apart by size and weight
+                                style = MaterialTheme.typography.titleLarge,
+                                fontWeight = FontWeight.Black,
+                                modifier = Modifier.fillMaxWidth().padding(start = RowDefaults.EdgePadding, top = 20.dp, end = 8.dp),
                             )
                         is TextBlock.Paragraph ->
                             TextMMD(
                                 text = block.text,
-                                style = MaterialTheme.typography.bodyLarge,
+                                style = MaterialTheme.typography.bodyMedium,
                                 modifier =
                                     Modifier.fillMaxWidth().padding(
                                         start = RowDefaults.EdgePadding,

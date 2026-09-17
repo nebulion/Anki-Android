@@ -24,7 +24,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
@@ -33,13 +32,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import anki.stats.GraphPreferences
+import anki.stats.GraphPreferences.Weekday
 import anki.stats.GraphsResponse
 import com.ichi2.anki.R
 import com.ichi2.compose.mmd.ChoiceSheet
@@ -53,12 +56,17 @@ import com.ichi2.compose.mmd.RowDefaults
 import com.ichi2.compose.mmd.RowDivider
 import com.ichi2.compose.mmd.ScreenHeader
 import com.ichi2.compose.mmd.SwitchRow
+import com.ichi2.compose.mmd.TextBlock
+import com.ichi2.compose.mmd.TextPage
 import com.ichi2.compose.mmd.ValueRow
+import com.ichi2.compose.mmd.paragraphs
 import com.mudita.mmd.components.radio_button.RadioButtonMMD
 import com.mudita.mmd.components.text.TextMMD
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.ankiweb.rsdroid.Translations
+import java.time.DayOfWeek
+import java.time.YearMonth
 import java.time.ZonedDateTime
 import java.util.Locale
 
@@ -119,6 +127,7 @@ fun StatisticsScreenMMD(
     val tr = fmt.tr
     var section by rememberSaveable { mutableStateOf<StatsSection?>(null) }
     var isChoosingDeck by rememberSaveable { mutableStateOf(false) }
+    var isAboutShown by rememberSaveable { mutableStateOf(false) }
     BackHandler(enabled = section != null) { section = null }
 
     Column(Modifier.fillMaxSize()) {
@@ -130,6 +139,13 @@ fun StatisticsScreenMMD(
                     contentDescription = stringResource(androidx.appcompat.R.string.abc_action_bar_up_description),
                     onClick = { if (section != null) section = null else onBack() },
                 )
+            },
+            actions = {
+                if (section != null) {
+                    HeaderAction(icon = R.drawable.ic_help_black_24dp, contentDescription = stringResource(R.string.help), onClick = {
+                        isAboutShown = true
+                    })
+                }
             },
         )
         val loadingLabel = stringResource(R.string.mmd_loading_statistics)
@@ -154,7 +170,7 @@ fun StatisticsScreenMMD(
         var hoursRange by rememberSaveable { mutableStateOf(GraphRange.Year) }
         var buttonsRange by rememberSaveable { mutableStateOf(GraphRange.Year) }
         var addedRange by rememberSaveable { mutableStateOf(GraphRange.Month) }
-        var calendarYear by rememberSaveable { mutableIntStateOf(ZonedDateTime.now().year) }
+        var calendarMonthShown by rememberSaveable { mutableStateOf(YearMonth.now()) }
         // the graphs that follow the history range, as the page's `followRevlog`: all time with all
         // history; back to a year when the history is cut to one
         LaunchedEffect(revlogRange) {
@@ -170,7 +186,7 @@ fun StatisticsScreenMMD(
         }
         val revlogRanges = if (revlogRange == RevlogRange.All) GraphRange.entries else GraphRange.entries - GraphRange.AllTime
 
-        val yearTitle = stringResource(R.string.mmd_stats_year)
+        val firstDayTitle = stringResource(R.string.mmd_stats_first_weekday)
         val rangeTitle = tr.statisticsTrueRetentionRange()
         val noData = tr.statisticsNoData()
         val historyTitle = stringResource(R.string.mmd_stats_history)
@@ -179,14 +195,14 @@ fun StatisticsScreenMMD(
         // A section's numbers are worked out off the main thread, and only while its page is open.
         // Worked out on the main thread for every section at once, a large collection froze the
         // page, back button included.
-        val today = inBackground(section == StatsSection.Today, data) { todayLines(data, fmt) }
+        val today = inBackground(section == StatsSection.Today, data) { Optional(todaySummary(data)) }
         val future =
             inBackground(section == StatsSection.FutureDue, data, futureRange, prefs.futureDueShowBacklog) {
                 futureDue(data, fmt, futureRange, prefs.futureDueShowBacklog)
             }
         val calendar =
-            inBackground(section == StatsSection.Calendar, data, calendarYear, prefs.calendarFirstDayOfWeek, revlogRange) {
-                calendar(data, fmt, calendarYear, prefs.calendarFirstDayOfWeek, revlogRange, ZonedDateTime.now(), locale)
+            inBackground(section == StatsSection.Calendar, data, calendarMonthShown, prefs.calendarFirstDayOfWeek, revlogRange) {
+                calendarMonth(data, calendarMonthShown, prefs.calendarFirstDayOfWeek, revlogRange, ZonedDateTime.now(), locale)
             }
         val reviewsModel =
             inBackground(section == StatsSection.Reviews, data, reviewsRange, reviewsTime) { reviews(data, fmt, reviewsRange, reviewsTime) }
@@ -257,7 +273,12 @@ fun StatisticsScreenMMD(
                         }
                     }
                 }
-                StatsSection.Today -> today?.forEach { line -> item { BodyLine(line) } } ?: loading(loadingLabel)
+                StatsSection.Today ->
+                    when {
+                        today == null -> loading(loadingLabel)
+                        today.value == null -> item { BodyLine(tr.statisticsTodayNoCards()) }
+                        else -> todayRows(today.value, tr, fmt)
+                    }
                 StatsSection.FutureDue -> {
                     subtitle(tr.statisticsFutureDueSubtitle())
                     if (data.futureDue.haveBacklog) {
@@ -273,11 +294,41 @@ fun StatisticsScreenMMD(
                     future?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                 }
                 StatsSection.Calendar -> {
-                    rangeRow("calendar", yearTitle, calendarYear.toString()) { openChooser = it }
-                    when {
-                        calendar == null -> loading(loadingLabel)
-                        calendar.days == null -> item { BodyLine(noData) }
-                        else -> item { CalendarWithDetail(calendar) }
+                    if (calendar == null) {
+                        loading(loadingLabel)
+                    } else {
+                        item { MonthCalendar(calendar, locale) { calendarMonthShown = it } }
+                        item {
+                            Column {
+                                GroupDivider()
+                                InfoRow(
+                                    title = tr.statisticsDaysStudied(),
+                                    value =
+                                        tr.statisticsAmountOfTotalWithPercentage(
+                                            calendar.daysStudied,
+                                            calendar.daysSoFar,
+                                            fmt.number(
+                                                if (calendar.daysSoFar ==
+                                                    0
+                                                ) {
+                                                    0.0
+                                                } else {
+                                                    calendar.daysStudied * 100.0 / calendar.daysSoFar
+                                                },
+                                                0,
+                                            ),
+                                        ),
+                                )
+                                RowDivider()
+                            }
+                        }
+                        item {
+                            Column {
+                                InfoRow(title = tr.statisticsTotal(), value = tr.statisticsReviews(calendar.reviews))
+                                RowDivider()
+                            }
+                        }
+                        rangeRow("weekday", firstDayTitle, weekdayLabel(prefs.calendarFirstDayOfWeek, locale)) { openChooser = it }
                     }
                 }
                 StatsSection.Reviews -> {
@@ -367,7 +418,7 @@ fun StatisticsScreenMMD(
         ) {
             if (openChooser == key) {
                 ChoiceSheet(
-                    title = if (key == "calendar") yearTitle else rangeTitle,
+                    title = rangeTitle,
                     options = options,
                     selected = selected,
                     label = label,
@@ -376,10 +427,19 @@ fun StatisticsScreenMMD(
                 )
             }
         }
-        calendar?.let {
-            chooser("calendar", (it.maxYear downTo it.minYear).toList(), it.year, { year -> year.toString() }) { year ->
-                calendarYear =
-                    year
+        if (openChooser == "weekday") {
+            ChoiceSheet(
+                title = firstDayTitle,
+                options = FIRST_WEEKDAYS,
+                selected = prefs.calendarFirstDayOfWeek,
+                label = { weekdayLabel(it, locale) },
+                onSelect = { onPrefsChange(prefs.toBuilder().setCalendarFirstDayOfWeek(it).build()) },
+                onDismissRequest = { openChooser = null },
+            )
+        }
+        if (isAboutShown) {
+            section?.let { shown ->
+                TextPage(title = sectionTitle(shown, tr), blocks = aboutBlocks(shown, tr), onClose = { isAboutShown = false })
             }
         }
         chooser("future", GraphRange.entries, futureRange, labels::getValue) { futureRange = it }
@@ -547,26 +607,6 @@ private fun ChartWithDetail(chart: BarChart) {
     }
 }
 
-@Composable
-private fun CalendarWithDetail(calendar: Calendar) {
-    val reviewed =
-        calendar.days
-            .orEmpty()
-            .filter { it.level > 0 }
-            .sortedWith(compareBy({ it.week }, { it.weekday }))
-    var selected by remember(calendar) { mutableStateOf(reviewed.lastOrNull()) }
-    Column(Modifier.padding(horizontal = RowDefaults.EdgePadding, vertical = 8.dp)) {
-        CalendarView(calendar, selected, onSelect = { selected = it })
-        val index = reviewed.indexOf(selected)
-        StepRow(
-            text = selected?.detail.orEmpty(),
-            previous = if (index > 0) index - 1 else null,
-            next = if (index >= 0 && index < reviewed.lastIndex) index + 1 else null,
-            onStep = { selected = reviewed[it] },
-        )
-    }
-}
-
 /** The selected bar's or day's numbers, with arrows to the previous and next one that has data. */
 @Composable
 private fun StepRow(
@@ -693,3 +733,231 @@ private fun retentionLabel(
         RetentionMode.Mature -> tr.statisticsTrueRetentionMature()
         RetentionMode.Summary -> tr.statisticsTrueRetentionAll()
     }
+
+/** `Optional` for a background result that can itself be null: null means still being worked out. */
+private data class Optional<T>(
+    val value: T?,
+)
+
+private val FIRST_WEEKDAYS =
+    listOf(Weekday.SUNDAY, Weekday.MONDAY, Weekday.FRIDAY, Weekday.SATURDAY)
+
+private fun weekdayLabel(
+    weekday: Weekday,
+    locale: Locale,
+): String =
+    when (weekday) {
+        Weekday.MONDAY -> DayOfWeek.MONDAY
+        Weekday.FRIDAY -> DayOfWeek.FRIDAY
+        Weekday.SATURDAY -> DayOfWeek.SATURDAY
+        else -> DayOfWeek.SUNDAY
+    }.getDisplayName(java.time.format.TextStyle.FULL, locale)
+
+/** Today (owner's layout A): cards, minutes and seconds per card large, then the rest as rows. */
+private fun LazyListScope.todayRows(
+    today: TodaySummary,
+    tr: Translations,
+    fmt: StatsFormat,
+) {
+    item {
+        Row(Modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 16.dp)) {
+            BigNumber(fmt.number(today.cards), stringResource(R.string.mmd_today_cards), Modifier.weight(1f))
+            BigNumber(fmt.number(today.minutes), stringResource(R.string.mmd_today_minutes), Modifier.weight(1f))
+            BigNumber("${today.secondsPerCard}s", stringResource(R.string.mmd_today_per_card), Modifier.weight(1f))
+        }
+    }
+    item {
+        Column {
+            GroupDivider()
+            InfoRow(title = tr.studyingAgain(), value = "${fmt.number(today.again)} · ${fmt.number(today.againPercent, 0)}%")
+            RowDivider()
+        }
+    }
+    item {
+        Column {
+            InfoRow(
+                title = stringResource(R.string.mmd_today_mature),
+                value =
+                    if (today.matureTotal == 0) {
+                        tr.statisticsTodayNoMatureCards()
+                    } else {
+                        stringResource(
+                            R.string.mmd_today_of,
+                            fmt.number(today.matureCorrect),
+                            fmt.number(today.matureTotal),
+                            fmt.number(today.matureCorrect * 100.0 / today.matureTotal, 0),
+                        )
+                    },
+            )
+            RowDivider()
+        }
+    }
+    item {
+        InfoRow(
+            title = stringResource(R.string.mmd_today_by_kind),
+            value = tr.statisticsTodayTypeCounts(today.learn, today.review, today.relearn, today.filtered),
+        )
+    }
+}
+
+/** A number large and bold over its label, as the deck page's counts. */
+@Composable
+private fun BigNumber(
+    number: String,
+    label: String,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+        TextMMD(text = number, style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.Black, maxLines = 1)
+        TextMMD(text = label, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
+    }
+}
+
+/**
+ * A month of the calendar (owner's layout A): a square per day, darker the more reviews it had,
+ * as the backend's page shades it; each square shows the day and, when there were any, its reviews,
+ * in white on the darker squares. Arrows change the month; a key underneath explains the shades.
+ */
+@Composable
+private fun MonthCalendar(
+    month: CalendarMonth,
+    locale: Locale,
+    onMonth: (YearMonth) -> Unit,
+) {
+    val ink = MaterialTheme.colorScheme.onSurface
+    Column(Modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 8.dp)) {
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+            MonthArrow(pointsLeft = true, enabled = month.month.isAfter(month.first)) { onMonth(month.month.minusMonths(1)) }
+            TextMMD(
+                text =
+                    month.month.format(
+                        java.time.format.DateTimeFormatter
+                            .ofPattern("LLLL yyyy", locale),
+                    ),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Black,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.weight(1f),
+            )
+            MonthArrow(pointsLeft = false, enabled = month.month.isBefore(month.last)) { onMonth(month.month.plusMonths(1)) }
+        }
+        Row(Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
+            month.weekdayLabels.forEach {
+                TextMMD(text = it, style = MaterialTheme.typography.bodySmall, textAlign = TextAlign.Center, modifier = Modifier.weight(1f))
+            }
+        }
+        month.weeks.forEach { week ->
+            Row(Modifier.fillMaxWidth()) {
+                week.forEach { day ->
+                    Box(Modifier.weight(1f).height(52.dp).padding(2.dp)) {
+                        if (day != null) DaySquare(day, ink)
+                    }
+                }
+            }
+        }
+        // the key: what the shades mean
+        Row(Modifier.fillMaxWidth().padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+            TextMMD(text = stringResource(R.string.mmd_calendar_fewer), style = MaterialTheme.typography.bodySmall)
+            listOf(0f, 0.2f, 0.5f, 0.75f, 1f).forEach { shade ->
+                Box(
+                    Modifier
+                        .padding(horizontal = 3.dp)
+                        .size(20.dp)
+                        .background(shadeColor(shade))
+                        .border(1.dp, ink),
+                )
+            }
+            TextMMD(text = stringResource(R.string.mmd_calendar_more), style = MaterialTheme.typography.bodySmall)
+        }
+    }
+}
+
+@Composable
+private fun DaySquare(
+    day: MonthDay,
+    ink: Color,
+) {
+    val onShade = if (day.shade > 0.55f) Color.White else Color.Black
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(shadeColor(day.shade))
+            .then(if (day.isFuture) Modifier else Modifier.border(1.dp, ink)),
+    ) {
+        TextMMD(
+            text = day.day.toString(),
+            style = MaterialTheme.typography.labelSmall,
+            color = onShade,
+            modifier = Modifier.align(Alignment.TopStart).padding(start = 3.dp, top = 1.dp),
+        )
+        if (day.reviews > 0) {
+            TextMMD(
+                text = day.reviews.toString(),
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.Black,
+                color = onShade,
+                maxLines = 1,
+                modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 2.dp),
+            )
+        }
+    }
+}
+
+/** White for no reviews, then greys to black for the busiest day. */
+private fun shadeColor(shade: Float): Color {
+    val level = 1f - shade.coerceIn(0f, 1f)
+    return Color(level, level, level)
+}
+
+@Composable
+private fun MonthArrow(
+    pointsLeft: Boolean,
+    enabled: Boolean,
+    onClick: () -> Unit,
+) {
+    IconButton(onClick = onClick, enabled = enabled, modifier = Modifier.size(48.dp)) {
+        if (enabled) {
+            Icon(
+                painter = painterResource(R.drawable.ic_baseline_chevron_right_24),
+                contentDescription = stringResource(if (pointsLeft) R.string.mmd_stats_previous else R.string.mmd_stats_next),
+                modifier = Modifier.size(28.dp).rotate(if (pointsLeft) 180f else 0f),
+                tint = MaterialTheme.colorScheme.onSurface,
+            )
+        }
+    }
+}
+
+/** A section's About page: what it shows, in plain words, and Anki's own help where it has some. */
+@Composable
+private fun aboutBlocks(
+    section: StatsSection,
+    tr: Translations,
+): List<TextBlock> {
+    val about =
+        stringResource(
+            when (section) {
+                StatsSection.Today -> R.string.mmd_about_today
+                StatsSection.FutureDue -> R.string.mmd_about_future_due
+                StatsSection.Calendar -> R.string.mmd_about_calendar
+                StatsSection.Reviews -> R.string.mmd_about_reviews
+                StatsSection.CardCounts -> R.string.mmd_about_card_counts
+                StatsSection.Intervals -> R.string.mmd_about_intervals
+                StatsSection.Stability -> R.string.mmd_about_stability
+                StatsSection.Ease -> R.string.mmd_about_ease
+                StatsSection.Difficulty -> R.string.mmd_about_difficulty
+                StatsSection.Retrievability -> R.string.mmd_about_retrievability
+                StatsSection.TrueRetention -> R.string.mmd_about_true_retention
+                StatsSection.Hours -> R.string.mmd_about_hours
+                StatsSection.Buttons -> R.string.mmd_about_buttons
+                StatsSection.Added -> R.string.mmd_about_added
+            },
+        )
+    return buildList {
+        add(TextBlock.Heading(stringResource(R.string.mmd_about_what)))
+        addAll(paragraphs(about))
+        if (section == StatsSection.TrueRetention) {
+            add(TextBlock.Heading(tr.statisticsTrueRetentionTitle()))
+            addAll(paragraphs(tr.statisticsTrueRetentionTooltip().replace(Regex("<[^>]+>"), "")))
+        }
+    }
+}

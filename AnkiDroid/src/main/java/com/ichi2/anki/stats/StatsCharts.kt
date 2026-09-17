@@ -74,22 +74,3 @@ data class ChartAndTable(
     val chart: BarChart?,
     val table: List<StatRow>,
 )
-
-/** One day of the calendar: its column (week) and row (weekday) and how much was reviewed. */
-data class CalendarDay(
-    val week: Int,
-    val weekday: Int,
-    /** 0 for no reviews, else 1–4, from the square root of the count as the page shades it. */
-    val level: Int,
-    val detail: String,
-)
-
-data class Calendar(
-    val year: Int,
-    val minYear: Int,
-    val maxYear: Int,
-    /** Narrow names of the seven weekdays, starting from the first day of the week. */
-    val weekdayLabels: List<String>,
-    /** null when there are no reviews at all. */
-    val days: List<CalendarDay>?,
-)

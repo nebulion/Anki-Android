@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/loading_indicator"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        android:textAppearance="?attr/textAppearanceTitleMedium"
         tools:text="Processing..."
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

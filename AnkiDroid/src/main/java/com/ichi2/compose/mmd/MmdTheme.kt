@@ -42,17 +42,24 @@ fun MmdTheme(
 /**
  * [eInkTypography]'s sizes, weights and line heights in the system font instead of the Lato that
  * MMD bundles: the owner wants the phone's own font wherever there is a choice.
+ *
+ * The owner's rule: every text size in the app comes from MMD. Use only the styles MMD defines —
+ * headlineLarge 28, titleLarge 24, titleMedium 20, titleSmall 16, bodyLarge 20, bodyMedium 18,
+ * bodySmall 15, labelLarge 18, labelMedium 15, labelSmall 14 — never display*, headlineMedium or
+ * headlineSmall (MMD leaves those at Material's defaults, so here they fall back to the nearest MMD size) and never a bare `sp`. The only
+ * exceptions are the sizes a zeroheight MMD component page gives (dialog, snackbar, list rows).
+ * XML screens get the same scale from `Base.Theme.Light.Eink`.
  */
 val mmdTypography: Typography =
     with(eInkTypography) {
         fun TextStyle.inSystemFont() = copy(fontFamily = FontFamily.Default)
         Typography(
-            displayLarge = displayLarge.inSystemFont(),
-            displayMedium = displayMedium.inSystemFont(),
-            displaySmall = displaySmall.inSystemFont(),
+            displayLarge = headlineLarge.inSystemFont(),
+            displayMedium = headlineLarge.inSystemFont(),
+            displaySmall = headlineLarge.inSystemFont(),
             headlineLarge = headlineLarge.inSystemFont(),
-            headlineMedium = headlineMedium.inSystemFont(),
-            headlineSmall = headlineSmall.inSystemFont(),
+            headlineMedium = headlineLarge.inSystemFont(),
+            headlineSmall = titleLarge.inSystemFont(),
             titleLarge = titleLarge.inSystemFont(),
             titleMedium = titleMedium.inSystemFont(),
             titleSmall = titleSmall.inSystemFont(),

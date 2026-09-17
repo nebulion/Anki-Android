@@ -106,19 +106,20 @@ fun ReviewerScreenMMD(
                 )
             },
             actions = {
+                // owner, 2026-09-17: a speaker, left of Undo, instead of a replay arrow that read as Redo
+                if (state.hasMedia) {
+                    HeaderAction(
+                        icon = R.drawable.ic_audio,
+                        contentDescription = stringResource(R.string.replay_media),
+                        onClick = onReplay,
+                    )
+                }
                 HeaderAction(
                     icon = R.drawable.ic_undo_white,
                     contentDescription = state.undoLabel ?: TR.undoUndo(),
                     onClick = onUndo,
                     enabled = state.undoLabel != null,
                 )
-                if (state.hasMedia) {
-                    HeaderAction(
-                        icon = R.drawable.ic_replay,
-                        contentDescription = stringResource(R.string.replay_media),
-                        onClick = onReplay,
-                    )
-                }
                 HeaderAction(
                     icon = R.drawable.ic_more_vertical,
                     contentDescription = stringResource(androidx.appcompat.R.string.abc_action_menu_overflow_description),

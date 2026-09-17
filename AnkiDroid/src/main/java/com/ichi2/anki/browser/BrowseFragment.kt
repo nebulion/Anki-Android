@@ -153,7 +153,7 @@ class BrowseFragment : ComposeHostFragment() {
             Confirm.Reset ->
                 ConfirmPanel(
                     title = getString(R.string.reset_card_dialog_title),
-                    body = getString(R.string.reset_body, selected.size),
+                    body = getString(R.string.mmd_browse_reset_body, selected.size),
                     confirmLabel = getString(R.string.reset),
                     dismissLabel = getString(R.string.dialog_cancel),
                     onConfirm = {

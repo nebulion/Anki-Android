@@ -4,6 +4,7 @@ package com.ichi2.compose.mmd
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +28,7 @@ import com.mudita.mmd.components.text.TextMMD
  * A [DialogFragment] drawn as an MMD [Panel]: for the dialogs a View-based activity shows, which
  * cannot host a Compose [PanelDialog] of their own.
  *
- * Like [PanelDialog], the window has no grey dim and no animation. Dialogs that must extend another
+ * Like [PanelDialog], the window sits at the bottom of the screen with no grey dim and no animation. Dialogs that must extend another
  * base class use [panelView] and [applyPanelWindow] directly.
  */
 abstract class PanelDialogFragment : DialogFragment() {
@@ -61,6 +62,7 @@ fun DialogFragment.applyPanelWindow() {
         setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
         setDimAmount(0f)
         setWindowAnimations(0)
+        setGravity(Gravity.BOTTOM)
     }
 }
 

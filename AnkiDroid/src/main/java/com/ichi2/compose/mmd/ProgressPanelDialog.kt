@@ -5,6 +5,7 @@ package com.ichi2.compose.mmd
 import android.app.Activity
 import android.graphics.Color
 import android.os.SystemClock
+import android.view.Gravity
 import android.view.WindowManager
 import androidx.activity.ComponentDialog
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -59,6 +60,7 @@ class ProgressPanelDialog(
             setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
             setDimAmount(0f)
             setWindowAnimations(0)
+            setGravity(Gravity.BOTTOM)
         }
     }
 

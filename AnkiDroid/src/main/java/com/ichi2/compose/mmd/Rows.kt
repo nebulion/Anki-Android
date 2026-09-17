@@ -27,6 +27,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ichi2.anki.R
 import com.mudita.mmd.components.switcher.SwitchMMD
 import com.mudita.mmd.components.text.TextMMD
@@ -183,17 +184,12 @@ fun GroupDivider() {
 private val GroupDividerThickness = 2.dp
 
 /**
- * The dotted row divider, inset to where the label starts, as in Kompakt Settings.
+ * The dotted row divider, from where the label starts to the right edge (zeroheight List).
  * Pass whether the rows above use a leading icon.
  */
 @Composable
 fun RowDivider(hasLeadingIcon: Boolean = false) {
-    DashedDividerMMD(
-        Modifier.padding(
-            start = if (hasLeadingIcon) RowDefaults.LabelInsetWithIcon else RowDefaults.EdgePadding,
-            end = RowDefaults.EdgePadding,
-        ),
-    )
+    DashedDividerMMD(Modifier.padding(start = if (hasLeadingIcon) RowDefaults.LabelInsetWithIcon else RowDefaults.EdgePadding))
 }
 
 /** Subtitles exist, but in regular weight and black — never small grey text. */
@@ -210,7 +206,7 @@ private fun RowScaffold(
             modifier
                 .fillMaxWidth()
                 .heightIn(min = RowDefaults.MinHeight)
-                .padding(horizontal = RowDefaults.EdgePadding, vertical = 8.dp),
+                .padding(horizontal = RowDefaults.EdgePadding, vertical = 15.5.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         if (leadingIcon != null) {
@@ -224,13 +220,20 @@ private fun RowScaffold(
             }
         }
         Column(Modifier.weight(1f).padding(end = 16.dp)) {
+            // zeroheight List: the label Black 21sp on 23sp lines above a supporting line, regular
+            // when alone; the supporting text Medium 18sp on 18sp lines, 4dp below
             TextMMD(
                 text = title,
-                style = MaterialTheme.typography.bodyLarge,
-                fontWeight = if (subtitle != null) FontWeight.Bold else FontWeight.Normal,
+                style = MaterialTheme.typography.bodyLarge.copy(fontSize = 21.sp, lineHeight = 23.sp),
+                fontWeight = if (subtitle != null) FontWeight.Black else FontWeight.Normal,
             )
             if (subtitle != null) {
-                TextMMD(text = subtitle, style = MaterialTheme.typography.bodyMedium)
+                TextMMD(
+                    text = subtitle,
+                    style = MaterialTheme.typography.bodyMedium.copy(fontSize = 18.sp, lineHeight = 18.sp),
+                    fontWeight = FontWeight.Medium,
+                    modifier = Modifier.padding(top = 4.dp),
+                )
             }
         }
         trailing()

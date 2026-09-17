@@ -114,7 +114,7 @@ fun DeckListScreenMMD(
                             if (next == null || next.depth <= TOP_LEVEL_DEPTH) {
                                 GroupDivider()
                             } else {
-                                DashedDividerMMD(Modifier.padding(horizontal = RowDefaults.EdgePadding))
+                                DashedDividerMMD(Modifier.padding(start = RowDefaults.EdgePadding))
                             }
                         }
                     }

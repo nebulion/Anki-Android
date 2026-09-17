@@ -2,24 +2,45 @@
 
 package com.ichi2.compose.mmd
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.paneTitle
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Popup
+import androidx.compose.ui.window.PopupProperties
+import com.ichi2.anki.R
 import com.mudita.mmd.components.bottom_sheet.ModalBottomSheetMMD
 import com.mudita.mmd.components.bottom_sheet.rememberModalBottomSheetMMDState
 import com.mudita.mmd.components.checkbox.CheckboxMMD
@@ -47,7 +68,8 @@ fun MmdSheet(
         sheetState = rememberModalBottomSheetMMDState(skipPartiallyExpanded = true),
         dragHandle = null,
     ) {
-        HorizontalDividerMMD()
+        HorizontalDividerMMD(thickness = PanelDefaults.RuleThickness, color = MaterialTheme.colorScheme.onSurface)
+        Spacer(Modifier.height(PanelDefaults.RuleGap))
         content()
     }
 }
@@ -60,8 +82,12 @@ data class MenuItem(
 )
 
 /**
- * An in-screen menu (pattern P3): a centred bold title and rows separated by dashed hairlines.
- * Opened from a header action. Tapping a row dismisses the menu, then runs the row's action.
+ * An in-screen menu (pattern P3, zeroheight "Menus"): a white box with a 2dp black outline and
+ * rounded corners that drops down from the header's right-hand actions, its items separated by
+ * dotted lines. No title, no animation, no shadow. Tapping an item dismisses the menu, then runs the
+ * item's action; tapping outside dismisses it.
+ *
+ * @param title the menu's name for accessibility; menus show no title
  */
 @Composable
 fun MenuPanel(
@@ -69,32 +95,73 @@ fun MenuPanel(
     items: List<MenuItem>,
     onDismissRequest: () -> Unit,
 ) {
-    MmdSheet(onDismissRequest = onDismissRequest) {
-        SheetTitle(title)
-        items.forEachIndexed { index, item ->
-            if (index > 0) DashedDividerMMD(Modifier.padding(horizontal = SheetDefaults.RowPadding))
-            Row(
+    Popup(
+        alignment = Alignment.TopStart,
+        onDismissRequest = onDismissRequest,
+        properties = PopupProperties(focusable = true),
+    ) {
+        Box(
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .clickable(interactionSource = null, indication = null, onClick = onDismissRequest)
+                    .statusBarsPadding()
+                    .padding(top = MenuDefaults.TopOffset, end = MenuDefaults.EndMargin),
+            contentAlignment = Alignment.TopEnd,
+        ) {
+            Column(
                 modifier =
                     Modifier
-                        .fillMaxWidth()
-                        .heightIn(min = SheetDefaults.RowHeight)
-                        .clickable {
-                            onDismissRequest()
-                            item.onClick()
-                        }.padding(horizontal = SheetDefaults.RowPadding),
-                verticalAlignment = Alignment.CenterVertically,
+                        .widthIn(min = MenuDefaults.MinWidth, max = MenuDefaults.MaxWidth)
+                        .width(IntrinsicSize.Max)
+                        .semantics { paneTitle = title }
+                        .clip(MenuDefaults.Shape)
+                        .background(MaterialTheme.colorScheme.surface)
+                        .border(MenuDefaults.Border, MaterialTheme.colorScheme.onSurface, MenuDefaults.Shape)
+                        // swallows taps between items, which would otherwise reach the dismissing box
+                        .clickable(interactionSource = null, indication = null) {}
+                        .padding(vertical = 8.dp),
             ) {
-                TextMMD(
-                    text = item.label,
-                    style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.weight(1f),
-                )
-                if (item.value != null) {
-                    TextMMD(text = item.value, style = MaterialTheme.typography.bodyMedium)
+                items.forEachIndexed { index, item ->
+                    if (index > 0) DashedDividerMMD()
+                    Row(
+                        modifier =
+                            Modifier
+                                .fillMaxWidth()
+                                .heightIn(min = SheetDefaults.RowHeight)
+                                .clickable {
+                                    onDismissRequest()
+                                    item.onClick()
+                                }.padding(horizontal = 20.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        TextMMD(
+                            text = item.label,
+                            style = MaterialTheme.typography.bodyLarge,
+                            modifier = Modifier.weight(1f, fill = false),
+                        )
+                        if (item.value != null) {
+                            TextMMD(
+                                text = item.value,
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.padding(start = 16.dp),
+                            )
+                        }
+                    }
                 }
             }
         }
     }
+}
+
+object MenuDefaults {
+    /** Below the header: its bar and 3dp rule. */
+    val TopOffset: Dp = 60.dp
+    val EndMargin: Dp = 8.dp
+    val MinWidth: Dp = 200.dp
+    val MaxWidth: Dp = 300.dp
+    val Border: Dp = 2.dp
+    val Shape = RoundedCornerShape(20.dp)
 }
 
 /**
@@ -113,9 +180,8 @@ fun <T> ChoiceSheet(
     onDismissRequest: () -> Unit,
 ) {
     MmdSheet(onDismissRequest = onDismissRequest) {
-        SheetTitle(title)
-        SheetRows(options) { index, option ->
-            if (index > 0) DashedDividerMMD(Modifier.padding(horizontal = SheetDefaults.RowPadding))
+        SheetTitle(title, onDismissRequest)
+        SheetRows(options) { _, option ->
             Row(
                 modifier =
                     Modifier
@@ -153,9 +219,8 @@ fun <T> MultiChoiceSheet(
     onDismissRequest: () -> Unit,
 ) {
     MmdSheet(onDismissRequest = onDismissRequest) {
-        SheetTitle(title)
-        SheetRows(options) { index, option ->
-            if (index > 0) DashedDividerMMD(Modifier.padding(horizontal = SheetDefaults.RowPadding))
+        SheetTitle(title, onDismissRequest)
+        SheetRows(options) { _, option ->
             Row(
                 modifier =
                     Modifier
@@ -205,15 +270,31 @@ private fun <T> SheetRows(
     }
 }
 
+/** A sheet's title, bold on the left, and the X that closes the sheet on the right. */
 @Composable
-private fun SheetTitle(text: String) {
-    TextMMD(
-        text = text,
-        style = MaterialTheme.typography.titleMedium,
-        fontWeight = FontWeight.Bold,
-        textAlign = TextAlign.Center,
-        modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp),
-    )
+private fun SheetTitle(
+    text: String,
+    onClose: () -> Unit,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(start = SheetDefaults.RowPadding, end = 4.dp, top = 12.dp, bottom = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        TextMMD(
+            text = text,
+            style = MaterialTheme.typography.titleLarge,
+            fontWeight = FontWeight.Black,
+            modifier = Modifier.weight(1f),
+        )
+        IconButton(onClick = onClose, modifier = Modifier.size(48.dp)) {
+            Icon(
+                painter = painterResource(R.drawable.close_icon),
+                contentDescription = stringResource(R.string.close),
+                modifier = Modifier.size(28.dp),
+                tint = MaterialTheme.colorScheme.onSurface,
+            )
+        }
+    }
 }
 
 object SheetDefaults {

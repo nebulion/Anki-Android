@@ -135,7 +135,7 @@ fun DeckPageScreenMMD(
         MessageHost(messages)
         if (isDescriptionShown && state is DeckPageUiState.Study) {
             TextPage(
-                title = stringResource(R.string.mmd_deck_description),
+                title = stringResource(R.string.deck_description_field_hint),
                 blocks = paragraphs(state.descriptionText()),
                 onClose = { isDescriptionShown = false },
             )
@@ -186,7 +186,7 @@ private fun StudyBody(
     // the description is on its own page (owner, 2026-09-16: inline it read too heavily)
     if (state.descriptionText().isNotBlank()) {
         PanelSecondaryAction(
-            label = stringResource(R.string.mmd_deck_description),
+            label = stringResource(R.string.deck_description_field_hint),
             onClick = onDescription,
             modifier = Modifier.fillMaxWidth(),
         )

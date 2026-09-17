@@ -55,7 +55,6 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="mmd_options_invalid_date">Enter a date like 2024-01-31, or leave it empty</string>
     <string name="mmd_options_invalid_params">Enter numbers separated by commas</string>
     <string name="mmd_options_decimal_range">Enter a number between %1$s and %2$s</string>
-    <string name="mmd_deck_description">Description</string>
     <!-- MMD fork: filtered deck filters -->
     <string name="mmd_filter_cards">Cards</string>
     <string name="mmd_filter_custom">Custom search</string>

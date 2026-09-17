@@ -29,6 +29,7 @@ import com.ichi2.anki.libanki.stats.cardStatsRaw
 import com.ichi2.anki.libanki.stats.getGraphPreferencesRaw
 import com.ichi2.anki.libanki.stats.graphsRaw
 import com.ichi2.anki.libanki.stats.setGraphPreferencesRaw
+import com.ichi2.anki.libanki.updateDeckConfigsRaw
 import com.ichi2.anki.observability.undoableOp
 import com.ichi2.anki.searchInBrowser
 import kotlinx.coroutines.Deferred
@@ -130,7 +131,12 @@ typealias UIBackendInterface = FragmentActivity.(bytes: ByteArray) -> Deferred<B
 val uiMethods =
     hashMapOf<String, UIBackendInterface>(
         "searchInBrowser" to { bytes -> lifecycleScope.async { searchInBrowser(bytes) } },
-        "updateDeckConfigs" to { bytes -> lifecycleScope.async { updateDeckConfigsRaw(bytes) } },
+        // the deck options web page is replaced by a native one (DeckOptions). Its calls stay mapped
+        // because the backend's bundle still lists them: the first writes the options it is given,
+        // the other two do nothing
+        "updateDeckConfigs" to { bytes -> lifecycleScope.async { withCol { updateDeckConfigsRaw(bytes) } } },
+        "deckOptionsReady" to { bytes -> lifecycleScope.async { bytes } },
+        "deckOptionsRequireClose" to { bytes -> lifecycleScope.async { bytes } },
         "latestProgress" to { bytes ->
             lifecycleScope.async {
                 withContext(Dispatchers.IO) {
@@ -157,8 +163,6 @@ val uiMethods =
                 withCol { updateImageOcclusionNoteRaw(bytes) }
             }
         },
-        "deckOptionsReady" to { bytes -> lifecycleScope.async { deckOptionsReady(bytes) } },
-        "deckOptionsRequireClose" to { bytes -> lifecycleScope.async { deckOptionsRequireClose(bytes) } },
     )
 
 sealed class UiPostRequestResponse {

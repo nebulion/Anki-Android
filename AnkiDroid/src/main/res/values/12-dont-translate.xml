@@ -50,6 +50,11 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="mmd_stats_history">History</string>
     <string name="mmd_stats_year">Year</string>
     <string name="mmd_stats_tap_hint">Tap the graph to see its numbers</string>
+    <!-- MMD fork: the native deck options page -->
+    <string name="mmd_options_invalid_steps">Enter steps like 1m 10m 1d</string>
+    <string name="mmd_options_invalid_date">Enter a date like 2024-01-31, or leave it empty</string>
+    <string name="mmd_options_invalid_params">Enter numbers separated by commas</string>
+    <string name="mmd_options_decimal_range">Enter a number between %1$s and %2$s</string>
     <plurals name="mmd_settings_minutes">
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>

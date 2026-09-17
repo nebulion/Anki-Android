@@ -7,271 +7,278 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.webkit.JavascriptInterface
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
 import androidx.activity.OnBackPressedCallback
-import androidx.core.view.isVisible
-import androidx.fragment.app.FragmentActivity
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
 import anki.collection.ComputeParamsProgress
 import anki.collection.OpChanges
+import anki.deck_config.UpdateDeckConfigsMode
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.ProgressContext
 import com.ichi2.anki.R
 import com.ichi2.anki.SingleFragmentActivity
-import com.ichi2.anki.common.annotations.NeedsTest
-import com.ichi2.anki.common.crashreporting.CrashReportService
+import com.ichi2.anki.deckoptions.DeckOptionsScreenMMD
+import com.ichi2.anki.deckoptions.DeckOptionsState
+import com.ichi2.anki.deckoptions.FsrsActions
 import com.ichi2.anki.launchCatchingTask
 import com.ichi2.anki.libanki.DeckId
 import com.ichi2.anki.libanki.updateDeckConfigsRaw
 import com.ichi2.anki.observability.undoableOp
-import com.ichi2.anki.settings.Prefs
-import com.ichi2.anki.utils.openUrl
+import com.ichi2.anki.ui.internationalization.sentenceCase
 import com.ichi2.anki.withProgress
+import com.ichi2.compose.mmd.ComposeHostFragment
+import com.ichi2.compose.mmd.ConfirmPanel
+import com.ichi2.compose.mmd.MenuItem
+import com.ichi2.compose.mmd.MenuPanel
+import com.ichi2.compose.mmd.PanelActions
+import com.ichi2.compose.mmd.PanelBody
+import com.ichi2.compose.mmd.PanelDialog
+import com.ichi2.compose.mmd.PanelPrimaryAction
+import com.ichi2.compose.mmd.TextPanel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import timber.log.Timber
+import java.time.LocalDate
+import java.time.ZoneOffset
 
-@NeedsTest("15130: pressing back: icon + button should return to options if the manual is open")
-@NeedsTest("17905: pressing back before the webpage is ready closes the screen")
-class DeckOptions : PageFragment() {
+/**
+ * Deck options as a native page: the backend's options for the deck, edited as settings rows and
+ * written with Save. See `DeckOptionsScreenMMD` for the page and `DeckOptionsState` for the rules.
+ *
+ * It was the backend's web page, restyled. The FSRS simulator and the "help me decide" workload
+ * graph are not rebuilt; everything else is here.
+ */
+class DeckOptions : ComposeHostFragment() {
     private val deckId: DeckId by lazy { requireArguments().getLong(KEY_DECK_ID) }
 
-    override val pagePath: String by lazy {
-        val deckId = requireArguments().getLong(KEY_DECK_ID)
-        "deck-options/$deckId"
-    }
-    private var webViewIsReady = false
+    private var state: DeckOptionsState? by mutableStateOf(null)
+    private var isMenuShown by mutableStateOf(false)
+    private var isConfirmingDiscard by mutableStateOf(false)
 
-    /**
-     * Callback enabled when the manual is opened in the deck options.
-     * It requests the webview to go back to the Deck Options.
-     */
-    private val onBackFromManual =
-        object : OnBackPressedCallback(false) {
-            override fun handleOnBackPressed() {
-                Timber.v("webView: navigating back")
-                webViewLayout.goBack()
-            }
-        }
+    /** Asking for a preset's name: the menu item that asked, and the name to start from. */
+    private var namePrompt: Pair<String, String>? by mutableStateOf(null)
+    private var onNameEntered: (String) -> Unit = {}
+    private var isConfirmingRemove by mutableStateOf(false)
 
-    /**
-     * Callback used when nothing is on top of the deck options, neither manual nor modal.
-     * It sends the webview a request to deal with the closing request, requesting confirmation if
-     * that would lose the local changes and otherwise close the webview.
-     */
-    private val onBackFromDeckOptions =
+    /** A result or a refusal, shown in a panel. */
+    private var message: String? by mutableStateOf(null)
+
+    private val onBack =
         object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                Timber.v("DeckOptions: requesting the webview to handle the user close request.")
-                if (webViewIsReady) {
-                    webViewLayout.evaluateJavascript("anki.deckOptionsPendingChanges()") {
-                        // Callback is handled in the WebView:
-                        //  * A 'discard changes' dialog may be shown, using confirm()
-                        //  * if no changes, or changes discarded, `deckOptionsRequireClose` is called
-                        //    which PostRequestHandler handles and calls on this fragment
-
-                        // Used to handle an edge-case when the page could not be fully loaded and therefore the anki-call is unavailable
-                        value ->
-                        if (value == "null") {
-                            actuallyClose()
-                        }
-                    }
+                if (state?.isModified() == true) {
+                    isConfirmingDiscard = true
                 } else {
-                    // The webview is not yet loaded, no change could have occurred, we can safely close it.
-                    actuallyClose()
+                    close()
                 }
             }
         }
 
-    /**
-     * Close the view, discarding change if needed.
-     */
-    fun actuallyClose() {
-        onBackFromDeckOptions.isEnabled = false
-        Timber.v("webView: navigating back")
-        launchCatchingTask {
-            // Required to be in a task to ensure the callback is disabled.
-            requireActivity().onBackPressedDispatcher.onBackPressed()
-        }
-    }
-
-    /**
-     * Callback used when a modal is opened in the webview. It requests the webview to close it.
-     */
-    @NeedsTest("disabled by default")
-    @NeedsTest("enabled if a modal is displayed")
-    @NeedsTest("disabled if a modal is hidden")
-    @NeedsTest("disabled if back button is pressed: no error")
-    @NeedsTest("disabled if back button is pressed: with error closing modal")
-    private val onBackFromModal =
-        object : OnBackPressedCallback(false) {
-            override fun handleOnBackPressed() {
-                Timber.i("back button: closing displayed modal")
-                try {
-                    webViewLayout.evaluateJavascript(
-                        """
-                        document.getElementsByClassName("modal show")[0]
-                        .getElementsByClassName("btn-close")[0].click()
-                        """.trimIndent(),
-                    ) {}
-                } catch (e: Exception) {
-                    CrashReportService.sendExceptionReport(e, "DeckOptions:onCloseBootstrapModalCallback")
-                } finally {
-                    // Even if we fail, disable the callback so the next call succeeds
-                    this.isEnabled = false
-                }
-            }
-        }
-
-    /**
-     * Listens to bootstrap open and close events
-     */
-    inner class ModalJavaScriptInterfaceListener {
-        @JavascriptInterface
-        fun onEvent(request: String) {
-            when (request) {
-                "open" -> {
-                    Timber.d("WebVew modal opened")
-                    onBackFromModal.isEnabled = true
-                }
-                "close" -> {
-                    Timber.d("WebView modal closed")
-                    onBackFromModal.isEnabled = false
-                }
-                else -> Timber.w("Unknown command: $request")
-            }
-        }
-    }
-
-    /** @see onWebViewReady */
     override fun onViewCreated(
         view: View,
         savedInstanceState: Bundle?,
     ) {
-        isLoading = true
         super.onViewCreated(view, savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBack)
         launchCatchingTask {
-            title = withCol { decks.name(deckId, default = true) }
+            state = withCol { DeckOptionsState(deckId, backend.getDeckConfigsForUpdate(deckId)) }
         }
     }
 
-    override fun onWebViewCreated() {
-        // addJavascriptInterface needs to happen before loadUrl
-        webViewLayout.addJavascriptInterface(ModalJavaScriptInterfaceListener(), "ankidroid")
-        Timber.d("Added JS Interface: 'ankidroid")
+    @Composable
+    override fun ScreenContent() {
+        val current = state
+        DeckOptionsScreenMMD(
+            state = current,
+            tr = TR,
+            fsrsActions = fsrsActions,
+            onSave = { save(UpdateDeckConfigsMode.UPDATE_DECK_CONFIGS_MODE_NORMAL) },
+            onMenu = { isMenuShown = true },
+            onBack = { requireActivity().onBackPressedDispatcher.onBackPressed() },
+        )
+        if (current == null) return
+
+        if (isMenuShown) {
+            MenuPanel(
+                title = TR.cardStatsPreset(),
+                items =
+                    listOf(
+                        MenuItem(TR.deckConfigAddGroup()) { promptForName(TR.deckConfigAddGroup(), "") { current.addConfig(it) } },
+                        MenuItem(TR.deckConfigCloneGroup()) {
+                            promptForName(TR.deckConfigCloneGroup(), current.currentName) { current.cloneConfig(it) }
+                        },
+                        MenuItem(TR.deckConfigRenameGroup()) {
+                            promptForName(TR.deckConfigRenameGroup(), current.currentName) { current.setCurrentName(it) }
+                        },
+                        MenuItem(TR.deckConfigRemoveGroup()) {
+                            if (current.defaultConfigSelected()) {
+                                message = TR.schedulingTheDefaultConfigurationCantBeRemoved()
+                            } else {
+                                isConfirmingRemove = true
+                            }
+                        },
+                        MenuItem(
+                            TR.deckConfigSaveToAllSubdecks(),
+                        ) { save(UpdateDeckConfigsMode.UPDATE_DECK_CONFIGS_MODE_APPLY_TO_CHILDREN) },
+                    ),
+                onDismissRequest = { isMenuShown = false },
+            )
+        }
+        namePrompt?.let { (title, initial) ->
+            TextPanel(
+                title = title,
+                body = TR.deckConfigNamePrompt(),
+                value = initial,
+                confirmLabel = stringResource(R.string.dialog_ok),
+                dismissLabel = stringResource(R.string.dialog_cancel),
+                validate = { null },
+                onConfirm = { text ->
+                    namePrompt = null
+                    text.trim().takeIf { it.isNotEmpty() }?.let(onNameEntered)
+                },
+                onDismiss = { namePrompt = null },
+            )
+        }
+        if (isConfirmingRemove) {
+            val fullSync = if (current.removalWillForceFullSync()) TR.deckConfigWillRequireFullSync() + " " else ""
+            ConfirmPanel(
+                title = TR.deckConfigRemoveGroup(),
+                body = (fullSync + TR.deckConfigConfirmRemoveName(current.currentName)).replace(Regex("\\s+"), " "),
+                confirmLabel = stringResource(R.string.dialog_positive_delete),
+                dismissLabel = stringResource(R.string.dialog_cancel),
+                onConfirm = {
+                    isConfirmingRemove = false
+                    current.removeCurrentConfig()
+                },
+                onDismiss = { isConfirmingRemove = false },
+            )
+        }
+        if (isConfirmingDiscard) {
+            ConfirmPanel(
+                title = TR.cardTemplatesDiscardChanges(),
+                body = null,
+                confirmLabel = stringResource(R.string.discard),
+                dismissLabel = with(requireContext()) { TR.sentenceCase.keepEditing },
+                onConfirm = {
+                    isConfirmingDiscard = false
+                    close()
+                },
+                onDismiss = { isConfirmingDiscard = false },
+            )
+        }
+        message?.let { text ->
+            PanelDialog(onDismissRequest = { message = null }) {
+                PanelBody(text)
+                PanelActions { PanelPrimaryAction(label = stringResource(R.string.dialog_ok), onClick = { message = null }) }
+            }
+        }
     }
 
-    @NeedsTest("going back on a manual page takes priority over closing a modal")
-    override fun onCreateWebViewClient(savedInstanceState: Bundle?): PageWebViewClient {
-        activity?.onBackPressedDispatcher?.addCallback(this, onBackFromDeckOptions)
-        activity?.onBackPressedDispatcher?.addCallback(this, onBackFromModal)
-        // going back on a manual page takes priority over closing a modal
-        activity?.onBackPressedDispatcher?.addCallback(this, onBackFromManual)
+    private fun promptForName(
+        title: String,
+        initial: String,
+        onName: (String) -> Unit,
+    ) {
+        onNameEntered = onName
+        namePrompt = title to initial
+    }
 
-        return object : PageWebViewClient() {
-            private val ankiManualHostRegex = Regex("^docs\\.ankiweb\\.net$")
+    private fun close() {
+        onBack.isEnabled = false
+        requireActivity().finish()
+    }
 
-            /** @see onWebViewReady */
-            override fun onShowWebView(webView: WebView) {
-                // no-op: handled in onVebViewReady
-            }
+    /** Writes the options, then closes the page, as the web page's Save did. */
+    private fun save(mode: UpdateDeckConfigsMode) {
+        val request = state?.dataForSaving(mode) ?: return
+        launchCatchingTask {
+            val output =
+                requireActivity().withProgress(
+                    extractProgress = { text = toProgressText() ?: getString(R.string.dialog_processing) },
+                ) {
+                    withContext(Dispatchers.IO) { withCol { updateDeckConfigsRaw(request.toByteArray()) } }
+                }
+            undoableOp { OpChanges.parseFrom(output) }
+            close()
+        }
+    }
 
-            override fun shouldOverrideUrlLoading(
-                view: WebView?,
-                request: WebResourceRequest?,
-            ): Boolean {
-                // #16715: ensure that the fragment can't be used for general web browsing
-                val host = request?.url?.host ?: return shouldOverrideUrlLoading(view, request)
-                return if (ankiManualHostRegex.matches(host)) {
-                    super.shouldOverrideUrlLoading(view, request)
-                } else {
-                    openUrl(request.url)
-                    true
+    private val fsrsActions =
+        object : FsrsActions {
+            override fun optimize() {
+                val current = state ?: return
+                if (current.presetAssignmentsChanged) {
+                    message = TR.deckConfigPleaseSaveYourChangesFirst()
+                    return
+                }
+                val config = current.current
+                val params = current.fsrsParams()
+                launchCatchingTask {
+                    val response =
+                        requireActivity().withProgress(extractProgress = { toProgressText()?.let { text = it } }) {
+                            withCol {
+                                backend.computeFsrsParams(
+                                    search = paramSearch(current),
+                                    currentParams = params,
+                                    ignoreRevlogsBeforeMs = ignoreRevlogsBeforeMs(config.ignoreRevlogsBeforeDate),
+                                    numOfRelearningSteps = relearningStepsInDay(config.relearnStepsList),
+                                    healthCheck = current.fsrsHealthCheck,
+                                )
+                            }
+                        }
+                    val alreadyOptimal =
+                        (
+                            params.isNotEmpty() &&
+                                params.indices.all { i -> "%.4f".format(params[i]) == "%.4f".format(response.paramsList.getOrNull(i)) }
+                        ) ||
+                            response.paramsCount == 0
+                    val lines =
+                        listOfNotNull(
+                            if (alreadyOptimal) {
+                                if (response.fsrsItems != 0) TR.deckConfigFsrsParamsOptimal() else TR.deckConfigFsrsParamsNoReviews()
+                            } else {
+                                null
+                            },
+                            if (response.hasHealthCheckPassed()) {
+                                if (response.healthCheckPassed) TR.deckConfigFsrsGoodFit() else TR.deckConfigFsrsBadFitWarning()
+                            } else {
+                                null
+                            },
+                        )
+                    if (!alreadyOptimal) current.updateConfig { clearFsrsParams6().addAllFsrsParams6(response.paramsList) }
+                    if (lines.isNotEmpty()) message = lines.joinToString("\n\n")
                 }
             }
-        }.apply {
-            onPageFinishedCallbacks.add { view ->
-                Timber.v("canGoBack: %b", view.canGoBack())
-                onBackFromManual.isEnabled = view.canGoBack()
-                // reset the modal state on page load
-                // clicking a link to the online manual closes the modal and reloads the page
-                onBackFromModal.isEnabled = false
-                listenToModalShowHideEvents()
+
+            override fun evaluate() {
+                val current = state ?: return
+                if (current.presetAssignmentsChanged) {
+                    message = TR.deckConfigPleaseSaveYourChangesFirst()
+                    return
+                }
+                val config = current.current
+                launchCatchingTask {
+                    val response =
+                        requireActivity().withProgress(extractProgress = { toProgressText()?.let { text = it } }) {
+                            withCol {
+                                backend.evaluateParamsLegacy(
+                                    params = current.fsrsParams(),
+                                    search = paramSearch(current),
+                                    ignoreRevlogsBeforeMs = ignoreRevlogsBeforeMs(config.ignoreRevlogsBeforeDate),
+                                )
+                            }
+                        }
+                    message =
+                        "Log loss: ${"%.4f".format(response.logLoss)}, RMSE(bins): ${"%.2f".format(response.rmseBins * 100)}%. " +
+                        TR.deckConfigSmallerIsBetter()
+                }
             }
+
+            override fun saveAndOptimizeAll() = save(UpdateDeckConfigsMode.UPDATE_DECK_CONFIGS_MODE_COMPUTE_ALL_PARAMS)
         }
-    }
-
-    /**
-     * Passes bootstrap modal show/hide events to [ModalJavaScriptInterfaceListener]
-     */
-    private fun listenToModalShowHideEvents() {
-        // this function is called multiple times on one document, only register the listener once
-        // we use the command name as this is a valid identifier
-        fun getListenerJs(
-            event: String,
-            command: String,
-        ): String =
-            """
-            if (!document.added$command) {
-                console.log("listening to '$command'");
-                document.added$command = true
-                document.addEventListener("$event", () => { ankidroid.onEvent("$command"); })
-            }"""
-
-        // event names:
-        // https://github.com/ankitects/anki/blob/85f034b144ea17f90319b76d2c7d0feaa491eaa5/ts/lib/components/HelpModal.svelte
-        val openJs = getListenerJs("shown.bs.modal", "open")
-        val closeJs = getListenerJs("hidden.bs.modal", "close")
-
-        webViewLayout.evaluateJavascript(openJs) {}
-        webViewLayout.evaluateJavascript(closeJs) {}
-    }
-
-    fun onWebViewReady() {
-        Timber.d("WebView ready to receive input")
-        webViewIsReady = true
-        webViewLayout.isVisible = true
-        isLoading = false
-        setParameterUnlockClickTimeout()
-    }
-
-    /**
-     * The FSRS parameters are locked until they are tapped three times in quick succession.
-     *
-     * Use [Prefs.doubleTapInterval] for this.
-     *
-     * See: https://github.com/ankitects/anki/blob/d036c2ade428b65d47c677bf3887a7402312c5c5/ts/routes/deck-options/ParamsInput.svelte
-     */
-    private fun setParameterUnlockClickTimeout() {
-        val minimumTimeoutMs = Prefs.doubleTapInterval
-        // The setter and default are only defined while `ParamsInput` is mounted, which requires
-        // FSRS to be enabled, and are reassigned each time it mounts.
-        // Intercept the assignments so this functionality works the first time someone enables
-        // FSRS.
-        webViewLayout.evaluateJavascript(
-            """
-            (() => {
-                globalThis.anki ||= {};
-                let setter = globalThis.anki.setParameterUnlockClickTimeoutMs;
-                const apply = () => {
-                    const defaultMs = globalThis.anki.defaultParameterUnlockClickTimeoutMs;
-                    if (setter === undefined || defaultMs === undefined) return;
-                    setter(Math.max(defaultMs, $minimumTimeoutMs));
-                };
-                Object.defineProperty(globalThis.anki, "setParameterUnlockClickTimeoutMs", {
-                    configurable: true,
-                    enumerable: true,
-                    get: () => setter,
-                    // the default is assigned after the setter: defer until both are defined
-                    set: (value) => { setter = value; queueMicrotask(apply); },
-                });
-                apply();
-            })();
-            """.trimIndent(),
-        )
-    }
 
     companion object {
         private const val KEY_DECK_ID = "deckId"
@@ -288,24 +295,30 @@ class DeckOptions : PageFragment() {
     }
 }
 
-suspend fun FragmentActivity.updateDeckConfigsRaw(input: ByteArray): ByteArray {
-    val output =
-        withContext(Dispatchers.Main) {
-            withProgress(
-                extractProgress = {
-                    // TODO: Don't use the amount yet, unused as a progress indicator, and
-                    //  duplicates computeMemory's label
-                    text = this.toProgressText() ?: getString(R.string.dialog_processing)
-                },
-            ) {
-                withContext(Dispatchers.IO) {
-                    withCol { updateDeckConfigsRaw(input) }
-                }
-            }
-        }
-    undoableOp { OpChanges.parseFrom(output) }
-    withContext(Dispatchers.Main) { finish() }
-    return output
+/** The search the parameters are optimised on: the preset's own, or its cards not suspended. */
+private fun paramSearch(state: DeckOptionsState): String =
+    state.current.paramSearch.ifEmpty { "preset:\"${state.currentNameForSearch}\" -is:suspended" }
+
+/** "2024-01-31" as milliseconds since the epoch at UTC midnight, as `new Date()` reads it; 0 if unset. */
+internal fun ignoreRevlogsBeforeMs(date: String): Long =
+    runCatching {
+        LocalDate
+            .parse(date)
+            .atStartOfDay()
+            .toInstant(ZoneOffset.UTC)
+            .toEpochMilli()
+    }.getOrDefault(0L)
+
+/** How many relearning steps fit in the first day: the steps before their total reaches a day. */
+internal fun relearningStepsInDay(steps: List<Float>): Int {
+    var accumulated = 0f
+    var count = 0
+    for (step in steps) {
+        accumulated += step
+        if (accumulated >= 1440) break
+        count++
+    }
+    return count
 }
 
 /**
@@ -325,12 +338,6 @@ private fun ProgressContext.toProgressText(): String? =
         else -> null
     }
 
-/**
- * ```
- * Optimizing preset 1/20
- * 5.2% of 1000 reviews
- * ```
- */
 private fun ComputeParamsProgress.toProgressText(): String {
     val label =
         TR.deckConfigOptimizingPreset(
@@ -344,27 +351,4 @@ private fun ComputeParamsProgress.toProgressText(): String {
             reviews = reviews,
         )
     return label + "\n" + reviewsLabel
-}
-
-private fun FragmentActivity.requireDeckOptionsFragment(): DeckOptions {
-    require(this is SingleFragmentActivity) { "activity must be SingleFragmentActivity" }
-    return requireNotNull(this.fragment as? DeckOptions?) { "fragment must be DeckOptions" }
-}
-
-/**
- * Called when Deck Options WebView is ready to receive requests.
- */
-fun FragmentActivity.deckOptionsReady(input: ByteArray): ByteArray {
-    requireDeckOptionsFragment().onWebViewReady()
-    return input
-}
-
-/**
- * Force closing the deck options
- *
- * This is called after a 'discard changes?' dialog is accepted
- */
-fun FragmentActivity.deckOptionsRequireClose(input: ByteArray): ByteArray {
-    requireDeckOptionsFragment().actuallyClose()
-    return input
 }

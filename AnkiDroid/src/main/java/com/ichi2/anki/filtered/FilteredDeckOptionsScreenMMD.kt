@@ -137,7 +137,7 @@ fun FilteredDeckOptionsScreenMMD(
         var edit by remember { mutableStateOf<Edit?>(null) }
         val labels = FilterLabels.current()
 
-        PagedList(Modifier.weight(1f)) {
+        PagedList(Modifier.weight(1f), canGrow = true) {
             item { ValueRow(title = TR.deckConfigNamePrompt(), value = state.name, onClick = { edit = Edit.Name }) }
             state.nameInputError?.let { error ->
                 warning(

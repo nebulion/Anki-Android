@@ -118,7 +118,7 @@ fun DeckOptionsScreenMMD(
         var help by remember { mutableStateOf<OptionEntry.Heading?>(null) }
         var isChoosingPreset by rememberSaveable { mutableStateOf(false) }
 
-        PagedList(Modifier.weight(1f)) {
+        PagedList(Modifier.weight(1f), canGrow = true) {
             item {
                 val current = state.configList.first { it.isCurrent }
                 ValueRow(

@@ -35,9 +35,11 @@ import com.mudita.mmd.components.lazy.LazyDefaultsMMD
  * - `LazyColumnMMD` pages **by item** (`scrollToItem` in steps of [scrollStep]). Emit one item per
  *   row; a single tall item cannot be scrolled at all, and hidden items still count.
  * - The list is drawn at `alpha = 0` until its items are counted.
- * - MMD composes the scrollbar only while the list can scroll. While it cannot, an inactive one is
- *   drawn in its place, so the bar is always there and rows never shift when the list grows. This
- *   departs from zeroheight's List (scrollbar only on overflow) at the owner's request (2026-09-16).
+ * - MMD composes the scrollbar only while the list can scroll. On a list whose rows can come and go
+ *   while it is open ([canGrow]: the deck list, deck options), an inactive one is drawn in its
+ *   place, so rows never shift when the list grows (owner, 2026-09-16). A list that is the same
+ *   length for as long as it is open shows no bar until it overflows, as zeroheight's List does
+ *   (owner, 2026-09-17: not on help and info pages).
  */
 @Composable
 fun PagedList(
@@ -45,6 +47,7 @@ fun PagedList(
     state: LazyListState = rememberLazyListState(),
     scrollStep: Int = PagedListDefaults.SCROLL_STEP,
     isScrollbarVisible: Boolean = true,
+    canGrow: Boolean = false,
     content: LazyListScope.() -> Unit,
 ) {
     val canScroll by remember(state) { derivedStateOf { state.canScrollForward || state.canScrollBackward } }
@@ -56,7 +59,7 @@ fun PagedList(
             isScrollbarVisible = isScrollbarVisible,
             content = content,
         )
-        if (isScrollbarVisible && !canScroll) {
+        if (isScrollbarVisible && canGrow && !canScroll) {
             InactiveScrollbar()
         }
     }

@@ -106,7 +106,7 @@ fun DeckListScreenMMD(
             state.isEmptyCollection == null -> Spacer(Modifier.weight(1f))
             state.isEmptyCollection -> FirstRun(state.isLoggedIn, onSignIn, onImport, Modifier.weight(1f))
             else ->
-                PagedList(Modifier.weight(1f)) {
+                PagedList(Modifier.weight(1f), canGrow = true) {
                     itemsIndexed(state.decks, key = { _, deck -> deck.did }) { index, deck ->
                         Column {
                             DeckRow(deck, onDeckClick, onDeckLongPress, onToggleExpand)

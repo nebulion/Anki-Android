@@ -82,7 +82,7 @@ class ExportFragment : ComposeHostFragment() {
                     )
                 },
             )
-            PagedList(Modifier.weight(1f)) {
+            PagedList(Modifier.weight(1f), canGrow = true) {
                 item {
                     Column {
                         ValueRow(

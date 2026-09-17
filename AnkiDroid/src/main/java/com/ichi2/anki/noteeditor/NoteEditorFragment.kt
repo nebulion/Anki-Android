@@ -116,7 +116,7 @@ class NoteEditorFragment : ComposeHostFragment() {
                 return@Column
             }
             // one item per row, turned a page at a time rather than scrolled
-            PagedList(Modifier.weight(1f).fillMaxWidth().imePadding()) {
+            PagedList(Modifier.weight(1f).fillMaxWidth().imePadding(), canGrow = true) {
                 if (current.isAdding) {
                     item {
                         Column {

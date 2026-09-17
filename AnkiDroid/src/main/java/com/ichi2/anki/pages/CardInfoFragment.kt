@@ -23,12 +23,20 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.R
+import com.ichi2.anki.common.time.TimeManager
+import com.ichi2.compose.mmd.ChoiceSheet
 import com.ichi2.compose.mmd.ComposeHostFragment
 import com.ichi2.compose.mmd.GroupDivider
 import com.ichi2.compose.mmd.HeaderAction
@@ -38,6 +46,7 @@ import com.ichi2.compose.mmd.RowDefaults
 import com.ichi2.compose.mmd.RowDivider
 import com.ichi2.compose.mmd.ScreenHeader
 import com.ichi2.compose.mmd.SectionTitle
+import com.ichi2.compose.mmd.ValueRow
 import com.mudita.mmd.components.text.TextMMD
 import timber.log.Timber
 
@@ -113,6 +122,15 @@ class CardInfoFragment : ComposeHostFragment() {
                     if (index != info.facts.lastIndex) RowDivider()
                 }
             }
+            if (info.curveRevlog.isNotEmpty()) {
+                item {
+                    Column {
+                        GroupDivider()
+                        SectionTitle(TR.cardStatsFsrsForgettingCurveTitle())
+                    }
+                }
+                item { ForgettingCurve(info) }
+            }
             if (info.reviews.isNotEmpty()) {
                 item {
                     Column {
@@ -133,6 +151,65 @@ class CardInfoFragment : ComposeHostFragment() {
                     }
                 }
             }
+        }
+    }
+
+    /** The curve, with a choice of how much history it covers once there is more than a week. */
+    @Composable
+    private fun ForgettingCurve(info: CardInfo) {
+        val now = remember { TimeManager.time.intTimeMS() / 1000.0 }
+        val allDays = remember(info) { curveMaxDays(info.curveRevlog, CurveRange.AllTime, now) }
+        val default =
+            when {
+                allDays > 365 -> CurveRange.AllTime
+                allDays > 30 -> CurveRange.Year
+                allDays > 7 -> CurveRange.Month
+                else -> CurveRange.Week
+            }
+        var range by rememberSaveable { mutableStateOf(default) }
+        var isChoosing by rememberSaveable { mutableStateOf(false) }
+        val points =
+            remember(info, range) {
+                curvePoints(info.curveRevlog, curveMaxDays(info.curveRevlog, range, now), info.decay, now)
+            }
+        val labels =
+            mapOf(
+                CurveRange.Week to TR.cardStatsFsrsForgettingCurveFirstWeek(),
+                CurveRange.Month to TR.cardStatsFsrsForgettingCurveFirstMonth(),
+                CurveRange.Year to TR.cardStatsFsrsForgettingCurveFirstYear(),
+                CurveRange.AllTime to TR.cardStatsFsrsForgettingCurveAllTime(),
+            )
+        val choices =
+            CurveRange.entries.filter {
+                it == CurveRange.Week || it == CurveRange.Month || (it == CurveRange.Year && allDays > 30) ||
+                    (it == CurveRange.AllTime && allDays > 365)
+            }
+        Column {
+            if (allDays > 7) {
+                ValueRow(title = TR.statisticsTrueRetentionRange(), value = labels.getValue(range), onClick = { isChoosing = true })
+            }
+            ForgettingCurveView(
+                points = points,
+                desiredRetention = info.desiredRetention,
+                now = now,
+                locale = LocalConfiguration.current.locales[0],
+                modifier = Modifier.padding(horizontal = RowDefaults.EdgePadding, vertical = 8.dp),
+            )
+            TextMMD(
+                text = TR.cardStatsFsrsForgettingCurveDesiredRetention() + " " + "${(info.desiredRetention * 100).toInt()}%",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(horizontal = RowDefaults.EdgePadding),
+            )
+        }
+        if (isChoosing) {
+            ChoiceSheet(
+                title = TR.statisticsTrueRetentionRange(),
+                options = choices,
+                selected = range,
+                label = labels::getValue,
+                onSelect = { range = it },
+                onDismissRequest = { isChoosing = false },
+            )
         }
     }
 

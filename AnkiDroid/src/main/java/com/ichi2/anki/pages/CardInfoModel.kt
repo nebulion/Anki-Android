@@ -38,6 +38,10 @@ data class CardReview(
 data class CardInfo(
     val facts: List<CardFact>,
     val reviews: List<CardReview>,
+    /** With FSRS: the reviews the forgetting curve is drawn from, newest first; empty without FSRS. */
+    val curveRevlog: List<CardStatsResponse.StatsRevlogEntry> = emptyList(),
+    val desiredRetention: Double = 0.9,
+    val decay: Double = 0.1542,
 )
 
 /**
@@ -55,6 +59,9 @@ fun Collection.cardInfo(
     return CardInfo(
         facts = cardFacts(stats, tr, zone) { seconds, precise -> timeSpan(seconds, precise) },
         reviews = stats.revlogList.map { cardReview(it, tr, zone) { seconds, precise -> timeSpan(seconds, precise) } },
+        curveRevlog = if (stats.hasMemoryState()) curveRevlog(stats.revlogList) else emptyList(),
+        desiredRetention = if (stats.hasDesiredRetention()) stats.desiredRetention.toDouble() else 0.9,
+        decay = curveDecay(stats.fsrsParamsList),
     )
 }
 

@@ -68,7 +68,8 @@ fun todayLines(
     val unit = minOf(StatsFormat.naturalUnit(secs), StatsFormat.TimeUnit.Minutes)
     val studied =
         tr.statisticsStudiedToday(
-            unit.name.lowercase(Locale.ROOT),
+            // the translation's selector, not text: "seconds" or "minutes"
+            if (unit == StatsFormat.TimeUnit.Seconds) "seconds" else "minutes",
             (secs / today.answerCount).roundToInt(),
             (secs / unit.seconds).roundToInt(),
             today.answerCount,

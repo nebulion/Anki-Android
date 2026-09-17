@@ -12,6 +12,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -98,7 +99,7 @@ fun StatisticsScreenMMD(
         var hoursRange by rememberSaveable { mutableStateOf(GraphRange.Year) }
         var buttonsRange by rememberSaveable { mutableStateOf(GraphRange.Year) }
         var addedRange by rememberSaveable { mutableStateOf(GraphRange.Month) }
-        var calendarYear by rememberSaveable { mutableStateOf(ZonedDateTime.now().year) }
+        var calendarYear by rememberSaveable { mutableIntStateOf(ZonedDateTime.now().year) }
         // the graphs that follow the history range, as the page's `followRevlog`: all time with all
         // history; back to a year when the history is cut to one
         LaunchedEffect(revlogRange) {

@@ -763,7 +763,7 @@ private fun LazyListScope.todayRows(
 ) {
     item {
         Row(Modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 16.dp)) {
-            BigNumber(fmt.number(today.cards), stringResource(R.string.mmd_today_cards), Modifier.weight(1f))
+            BigNumber(fmt.number(today.cards), stringResource(R.string.mmd_filter_cards), Modifier.weight(1f))
             BigNumber(fmt.number(today.minutes), stringResource(R.string.mmd_today_minutes), Modifier.weight(1f))
             BigNumber("${today.secondsPerCard}s", stringResource(R.string.mmd_today_per_card), Modifier.weight(1f))
         }

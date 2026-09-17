@@ -49,7 +49,6 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="mmd_stats_history">History</string>
     <string name="mmd_loading_statistics">Loading statistics</string>
     <string name="mmd_stats_first_weekday">First day of the week</string>
-    <string name="mmd_today_cards">cards</string>
     <string name="mmd_today_minutes">minutes</string>
     <string name="mmd_today_per_card">per card</string>
     <string name="mmd_today_mature">Correct on mature cards</string>
@@ -66,7 +65,7 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="mmd_about_intervals">How long each review card waits until it is next due, after its last review. Longer intervals mean cards you know better.\n\nThe line is the running share of cards up to each interval.</string>
     <string name="mmd_about_stability" formatted="false">How many days until your chance of remembering each card falls to 90%, as FSRS estimates it. Higher stability means a card is held more firmly.</string>
     <string name="mmd_about_ease">The ease of each review card: how much its interval grows when you answer Good. Cards you often forget have lower ease.</string>
-    <string name="mmd_about_difficulty" formatted="false">How hard each card is to remember, from 0% (easiest) to 100% (hardest), as FSRS estimates it from your answers.</string>
+    <string name="mmd_about_difficulty" formatted="false">How hard each card is to remember, on a scale from 0 (easiest) to 100 (hardest), as FSRS estimates it from your answers.</string>
     <string name="mmd_about_retrievability">Your estimated chance of remembering each card right now.\n\nEstimated total knowledge adds those chances up: about how many cards, and notes, you would remember if tested today.</string>
     <string name="mmd_about_true_retention" formatted="false">How often you remembered cards when they came up for review: the share of review answers that were not Again. Learning steps are not counted.\n\nYoung cards have an interval under 21 days, mature cards 21 days or more. Compare it with the desired retention in deck options, which is often 90%.</string>
     <string name="mmd_about_hours">Which hours of the day you review in. The bars are how many reviews you did in each hour; the line is the share of them you got right, meaning not Again.</string>

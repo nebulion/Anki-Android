@@ -12,8 +12,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -36,6 +35,7 @@ import com.ichi2.compose.mmd.ConfirmPanel
 import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.MenuItem
 import com.ichi2.compose.mmd.MenuPanel
+import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.PanelActions
 import com.ichi2.compose.mmd.PanelBody
 import com.ichi2.compose.mmd.PanelDialog
@@ -94,16 +94,22 @@ class MediaCheckFragment : ComposeHostFragment() {
                     }
                 },
             )
-            TextMMD(
-                text = response?.report.orEmpty(),
-                style = MaterialTheme.typography.bodyMedium,
-                modifier =
-                    Modifier
-                        .weight(1f)
-                        .fillMaxWidth()
-                        .verticalScroll(rememberScrollState())
-                        .padding(RowDefaults.EdgePadding),
-            )
+            // the report a line per item, turned a page at a time rather than scrolled
+            val lines =
+                response
+                    ?.report
+                    .orEmpty()
+                    .lines()
+                    .filter { it.isNotBlank() }
+            PagedList(Modifier.weight(1f).fillMaxWidth()) {
+                items(lines) { line ->
+                    TextMMD(
+                        text = line,
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 4.dp),
+                    )
+                }
+            }
             val current = response
             if (current != null && (current.missingCount != 0 || current.unusedCount != 0)) {
                 Column(

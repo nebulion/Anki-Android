@@ -12,9 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -39,6 +37,7 @@ import com.ichi2.compose.mmd.ConfirmPanel
 import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.MessageHost
 import com.ichi2.compose.mmd.MessageHostState
+import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.PanelActions
 import com.ichi2.compose.mmd.PanelBody
 import com.ichi2.compose.mmd.PanelDialog
@@ -116,45 +115,48 @@ class NoteEditorFragment : ComposeHostFragment() {
                 )
                 return@Column
             }
-            Column(
-                Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                    .verticalScroll(rememberScrollState())
-                    .imePadding(),
-            ) {
+            // one item per row, turned a page at a time rather than scrolled
+            PagedList(Modifier.weight(1f).fillMaxWidth().imePadding()) {
                 if (current.isAdding) {
-                    ValueRow(title = TR.notetypesNotetype(), value = current.noteTypeName, onClick = { chooser = Chooser.NoteType })
-                    RowDivider()
+                    item {
+                        Column {
+                            ValueRow(title = TR.notetypesNotetype(), value = current.noteTypeName, onClick = { chooser = Chooser.NoteType })
+                            RowDivider()
+                        }
+                    }
                 }
-                ValueRow(title = TR.decksDeck(), value = current.deckName, onClick = { chooser = Chooser.Deck })
+                item { ValueRow(title = TR.decksDeck(), value = current.deckName, onClick = { chooser = Chooser.Deck }) }
                 current.fieldNames.forEachIndexed { index, name ->
+                    item {
+                        TextFieldMMD(
+                            value = current.fields.getOrElse(index) { "" },
+                            onValueChange = { viewModel.setField(index, it) },
+                            modifier = Modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 4.dp),
+                            label = { TextMMD(text = name) },
+                            singleLine = false,
+                            minLines = 2,
+                            supportingText =
+                                if (index == 0 && current.isDuplicate) {
+                                    { TextMMD(text = stringResource(R.string.mmd_editor_duplicate)) }
+                                } else {
+                                    null
+                                },
+                            keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
+                            colors = panelTextFieldColors(),
+                        )
+                    }
+                }
+                item {
                     TextFieldMMD(
-                        value = current.fields.getOrElse(index) { "" },
-                        onValueChange = { viewModel.setField(index, it) },
+                        value = current.tags,
+                        onValueChange = viewModel::setTags,
                         modifier = Modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 4.dp),
-                        label = { TextMMD(text = name) },
-                        singleLine = false,
-                        minLines = 2,
-                        supportingText =
-                            if (index == 0 && current.isDuplicate) {
-                                { TextMMD(text = stringResource(R.string.mmd_editor_duplicate)) }
-                            } else {
-                                null
-                            },
-                        keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
+                        label = { TextMMD(text = TR.editingTags()) },
+                        singleLine = true,
+                        supportingText = { TextMMD(text = stringResource(R.string.mmd_editor_tags_hint)) },
                         colors = panelTextFieldColors(),
                     )
                 }
-                TextFieldMMD(
-                    value = current.tags,
-                    onValueChange = viewModel::setTags,
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 4.dp),
-                    label = { TextMMD(text = TR.editingTags()) },
-                    singleLine = true,
-                    supportingText = { TextMMD(text = stringResource(R.string.mmd_editor_tags_hint)) },
-                    colors = panelTextFieldColors(),
-                )
             }
             MessageHost(messages)
         }

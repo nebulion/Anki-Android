@@ -19,6 +19,7 @@ import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.R
 import com.ichi2.anki.StudyOptionsViewModel
+import com.ichi2.anki.browser.BrowseFragment
 import com.ichi2.anki.common.destinations.NoteEditorDestination
 import com.ichi2.anki.common.destinations.ReviewDeckDestination
 import com.ichi2.anki.common.destinations.navigate
@@ -170,6 +171,11 @@ class DeckPageFragment :
             if (!isFiltered) {
                 add(MenuItem(getString(R.string.mmd_editor_add_note)) { addNote() })
             }
+            add(
+                MenuItem(getString(R.string.mmd_browse_cards)) {
+                    startActivity(BrowseFragment.getIntent(requireContext(), viewModel.selectedDeckId))
+                },
+            )
             add(MenuItem(with(context) { TR.sentenceCase.renameDeck }, onClick = onRename))
             add(MenuItem(getString(R.string.export_deck)) { exportDeck() })
             if (viewModel.haveBuried) {

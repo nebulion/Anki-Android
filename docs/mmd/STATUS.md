@@ -279,6 +279,16 @@ kind (`662368a`, owner: they crowded it; the counts stay on the amount panel).
   size for the roles MMD lacks; XML screens get the scale from `Base.Theme.Light.Eink`. Help pages:
   24sp Black headings over 18sp text.
 
+**Owner feedback round 3 (2026-09-17):**
+- Study screen menu: bury card / bury note / suspend card / suspend note move into one "Hide from
+  study" entry, a sheet that says what each does. The menu drops from 10 entries to at most 7.
+- A plain card browser is back (`browser/BrowseFragment`, `BrowseViewModel`): search, tick cards or
+  all of them, then reset progress, suspend, unsuspend, delete notes, or edit one note; every change
+  offers Undo. Opened from the search icon on the home screen (all cards) and "Browse cards" in a
+  deck page's menu (that deck). A stand-in: restoring the deleted browser as it was needed about 60
+  deleted layouts and the old drawer, editor and previewer, so the owner chose this instead. The
+  redesign follows once the owner picks a proposal.
+
 **Device check (pending):** card info from the study screen; statistics for a deck and for all
 decks (tap a bar, change a range); deck options: change a limit for this deck only and save, add
 and remove a preset, press back with a change (should ask); card editor: add a note from a deck

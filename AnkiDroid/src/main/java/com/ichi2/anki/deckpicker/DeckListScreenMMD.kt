@@ -73,6 +73,7 @@ fun DeckListScreenMMD(
     onSync: () -> Unit,
     onStatistics: () -> Unit,
     onSettings: () -> Unit,
+    onBrowse: () -> Unit,
     onDeckClick: (DeckId) -> Unit,
     onDeckLongPress: (DeckId) -> Unit,
     onToggleExpand: (DeckId) -> Unit,
@@ -87,6 +88,12 @@ fun DeckListScreenMMD(
                 if (state.isLoggedIn) {
                     SyncAction(state.syncState, enabled = !isSyncing, onSync)
                 }
+                HeaderAction(
+                    icon = R.drawable.ic_search_white,
+                    contentDescription = stringResource(R.string.mmd_browse),
+                    onClick = onBrowse,
+                    enabled = !isSyncing,
+                )
                 HeaderAction(
                     icon = R.drawable.ic_bar_chart_black,
                     contentDescription = TR.statisticsTitle(),

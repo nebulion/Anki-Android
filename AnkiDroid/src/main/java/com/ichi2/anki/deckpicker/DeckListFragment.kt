@@ -7,6 +7,7 @@ import androidx.compose.runtime.getValue
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ichi2.anki.DeckPicker
+import com.ichi2.anki.browser.BrowseFragment
 import com.ichi2.anki.isLoggedIn
 import com.ichi2.anki.showImportDialog
 import com.ichi2.compose.mmd.ComposeHostFragment
@@ -38,6 +39,7 @@ class DeckListFragment : ComposeHostFragment() {
             onSync = { home.onSyncPressed() },
             onStatistics = { home.openStatistics() },
             onSettings = { home.openSettings() },
+            onBrowse = { startActivity(BrowseFragment.getIntent(requireContext())) },
             // owner's call (2026-09-15): tap studies, long press opens the deck page
             onDeckClick = { home.studyDeck(it) },
             onDeckLongPress = { home.openDeck(it) },

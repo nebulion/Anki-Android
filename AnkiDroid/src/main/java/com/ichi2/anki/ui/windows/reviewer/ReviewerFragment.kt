@@ -58,6 +58,7 @@ import com.ichi2.anki.utils.ext.sharedPrefs
 import com.ichi2.anki.utils.ext.showDialogFragment
 import com.ichi2.anki.utils.ext.window
 import com.ichi2.anki.workarounds.SafeWebViewLayout
+import com.ichi2.compose.mmd.ActionSheet
 import com.ichi2.compose.mmd.ChoiceSheet
 import com.ichi2.compose.mmd.MenuItem
 import com.ichi2.compose.mmd.MenuPanel
@@ -69,6 +70,7 @@ import com.ichi2.compose.mmd.PanelDialog
 import com.ichi2.compose.mmd.PanelPrimaryAction
 import com.ichi2.compose.mmd.PanelSecondaryAction
 import com.ichi2.compose.mmd.PanelTitle
+import com.ichi2.compose.mmd.SheetAction
 import com.ichi2.compose.mmd.WebContent
 import com.squareup.seismic.ShakeDetector
 import kotlinx.coroutines.Job
@@ -232,6 +234,7 @@ class ReviewerFragment :
         var showCounts by remember { mutableStateOf(true) }
         var isMenuShown by rememberSaveable { mutableStateOf(false) }
         var isFlagSheetShown by rememberSaveable { mutableStateOf(false) }
+        var isHideSheetShown by rememberSaveable { mutableStateOf(false) }
 
         LaunchedEffect(Unit) {
             showCounts = CollectionPreferences.getShowRemainingDueCounts()
@@ -279,14 +282,8 @@ class ReviewerFragment :
                         )
                         val markLabel = if (isMarked) getString(R.string.menu_unmark_note) else ViewerAction.MARK.title(context)
                         add(MenuItem(markLabel) { viewModel.executeAction(ViewerAction.MARK) })
-                        add(MenuItem(ViewerAction.BURY_CARD.title(context)) { viewModel.executeAction(ViewerAction.BURY_CARD) })
-                        if (canBuryNote) {
-                            add(MenuItem(ViewerAction.BURY_NOTE.title(context)) { viewModel.executeAction(ViewerAction.BURY_NOTE) })
-                        }
-                        add(MenuItem(ViewerAction.SUSPEND_CARD.title(context)) { viewModel.executeAction(ViewerAction.SUSPEND_CARD) })
-                        if (canSuspendNote) {
-                            add(MenuItem(ViewerAction.SUSPEND_NOTE.title(context)) { viewModel.executeAction(ViewerAction.SUSPEND_NOTE) })
-                        }
+                        // bury and suspend, four actions that need explaining, share one entry
+                        add(MenuItem(getString(R.string.mmd_hide_from_study)) { isHideSheetShown = true })
                         add(MenuItem(getString(R.string.mmd_editor_edit_note)) { viewModel.editNote() })
                         add(MenuItem(ViewerAction.CARD_INFO.title(context)) { viewModel.executeAction(ViewerAction.CARD_INFO) })
                         add(MenuItem(ViewerAction.DECK_OPTIONS.title(context)) { viewModel.executeAction(ViewerAction.DECK_OPTIONS) })
@@ -294,6 +291,41 @@ class ReviewerFragment :
                         add(MenuItem(getString(autoAdvanceLabel)) { viewModel.executeAction(ViewerAction.TOGGLE_AUTO_ADVANCE) })
                     },
                 onDismissRequest = { isMenuShown = false },
+            )
+        }
+
+        if (isHideSheetShown) {
+            val context = requireContext()
+            ActionSheet(
+                title = getString(R.string.mmd_hide_from_study),
+                actions =
+                    buildList {
+                        add(
+                            SheetAction(ViewerAction.BURY_CARD.title(context), getString(R.string.mmd_bury_card_explained)) {
+                                viewModel.executeAction(ViewerAction.BURY_CARD)
+                            },
+                        )
+                        if (canBuryNote) {
+                            add(
+                                SheetAction(ViewerAction.BURY_NOTE.title(context), getString(R.string.mmd_bury_note_explained)) {
+                                    viewModel.executeAction(ViewerAction.BURY_NOTE)
+                                },
+                            )
+                        }
+                        add(
+                            SheetAction(ViewerAction.SUSPEND_CARD.title(context), getString(R.string.mmd_suspend_card_explained)) {
+                                viewModel.executeAction(ViewerAction.SUSPEND_CARD)
+                            },
+                        )
+                        if (canSuspendNote) {
+                            add(
+                                SheetAction(ViewerAction.SUSPEND_NOTE.title(context), getString(R.string.mmd_suspend_note_explained)) {
+                                    viewModel.executeAction(ViewerAction.SUSPEND_NOTE)
+                                },
+                            )
+                        }
+                    },
+                onDismissRequest = { isHideSheetShown = false },
             )
         }
 

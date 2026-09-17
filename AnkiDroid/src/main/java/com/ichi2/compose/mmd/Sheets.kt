@@ -204,6 +204,38 @@ fun <T> ChoiceSheet(
     }
 }
 
+/** One row of an [ActionSheet]: what it does, and a line saying what that means. */
+data class SheetAction(
+    val label: String,
+    val subtitle: String? = null,
+    val onClick: () -> Unit,
+)
+
+/**
+ * Actions that each need a word of explanation, e.g. bury and suspend: list rows with a bold label
+ * and a subtitle under it. Tapping one dismisses the sheet, then runs it.
+ */
+@Composable
+fun ActionSheet(
+    title: String,
+    actions: List<SheetAction>,
+    onDismissRequest: () -> Unit,
+) {
+    MmdSheet(onDismissRequest = onDismissRequest) {
+        SheetTitle(title, onDismissRequest)
+        SheetRows(actions) { _, action ->
+            ActionRow(
+                title = action.label,
+                subtitle = action.subtitle,
+                onClick = {
+                    onDismissRequest()
+                    action.onClick()
+                },
+            )
+        }
+    }
+}
+
 /**
  * Several choices from a list: checkbox rows, committed with a solid Done button.
  */

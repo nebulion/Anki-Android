@@ -56,6 +56,7 @@ import com.ichi2.anki.snackbar.routeToastToMessageBar
 import com.ichi2.anki.startup.ensureCollectionPathSet
 import com.ichi2.anki.startup.getDefaultAnkiDroidDirectory
 import com.ichi2.anki.ui.dialogs.ActivityAgnosticDialogs
+import com.ichi2.anki.ui.eink.EinkRefresh
 import com.ichi2.utils.AlarmManagement
 import com.ichi2.utils.ExceptionUtil
 import com.ichi2.utils.LanguageUtil
@@ -169,6 +170,8 @@ open class AnkiDroidApp : Application() {
         with(anki) { setupDayRollover() }
 
         setupLifecycleLogging()
+        // E Ink: flash the screen every so many taps and swipes, anywhere in the app
+        EinkRefresh.install(this)
         activityAgnosticDialogs = ActivityAgnosticDialogs.register(this)
     }
 

@@ -235,9 +235,9 @@ open class PrefsRepository(
 
     // ****************************************** E Ink ****************************************** //
 
-    /** Flash the window black every [einkRefreshInterval] answers to clear ghosting. See `EinkRefresh`. */
+    /** Flash the window black every [einkRefreshActions] taps and swipes to clear ghosting. See `EinkRefresh`. */
     var isEinkRefreshEnabled by booleanPref(R.string.eink_refresh_enabled_key, defaultValue = true)
-    var einkRefreshInterval by intPref(R.string.eink_refresh_interval_key, defaultValue = 12)
+    var einkRefreshActions by intPref(R.string.eink_refresh_actions_key, defaultValue = 30)
 
     // ****************************************** Sync ****************************************** //
 

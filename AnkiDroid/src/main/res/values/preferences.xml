@@ -4,7 +4,7 @@
     <string name="pref_language_key">language</string>
     <!-- E Ink (MMD fork) -->
     <string name="eink_refresh_enabled_key">einkRefreshEnabled</string>
-    <string name="eink_refresh_interval_key">einkRefreshInterval</string>
+    <string name="eink_refresh_actions_key">einkRefreshActions</string>
     <!-- Reviewing -->
     <string name="keep_screen_on_preference">keepScreenOn</string>
     <string name="double_tap_timeout_pref_key">doubleTapTimeout</string>

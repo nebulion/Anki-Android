@@ -51,7 +51,6 @@ import com.ichi2.anki.scheduling.ForgetCardsDialog
 import com.ichi2.anki.scheduling.SetDueDateDialog
 import com.ichi2.anki.scheduling.registerOnForgetHandler
 import com.ichi2.anki.settings.Prefs
-import com.ichi2.anki.ui.eink.EinkRefresh
 import com.ichi2.anki.utils.CollectionPreferences
 import com.ichi2.anki.utils.ext.collectIn
 import com.ichi2.anki.utils.ext.sharedPrefs
@@ -197,11 +196,6 @@ class ReviewerFragment :
                 return@collectIn
             }
             navigate(destination)
-        }
-
-        // E Ink: every few answers, flash the panel to clear ghosting
-        viewModel.answerFeedbackFlow.collectIn(lifecycleScope) {
-            EinkRefresh.onChange(activity)
         }
 
         lifecycleScope.launch {

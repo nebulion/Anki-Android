@@ -265,11 +265,11 @@ internal fun SettingsPageFragment.einkEntries(): List<SettingsEntry> =
         ),
         numberEntry(
             title = getString(R.string.mmd_eink_interval_title),
-            value = Prefs.einkRefreshInterval,
+            value = Prefs.einkRefreshActions,
             min = 1,
             max = 100,
-            display = { answers -> resources.getQuantityString(R.plurals.mmd_settings_every_answers, answers, answers) },
-        ) { answers -> Prefs.einkRefreshInterval = answers },
+            display = { actions -> resources.getQuantityString(R.plurals.mmd_settings_every_actions, actions, actions) },
+        ) { actions -> Prefs.einkRefreshActions = actions },
     )
 
 // ************************************** Collection ***************************************** //

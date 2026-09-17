@@ -517,7 +517,7 @@ collection, card info from the reviewer, `.apkg` import.
    `settings-audit.md`: tap zones, reminders, E Ink flash).
 5. **You** uninstall 2.24.1. `/sdcard/AnkiDroid` stays until you delete it yourself.
 
-### Phase 8 — Card editor (late; owner's call, 2026-09-15)
+### Phase 8 — Card editor (moved into Phase 4b on 2026-09-16; see STATUS.md)
 
 At the Phase 3 device check the owner tried to add cards. The fork is review-only
 ([eink-design.md](eink-design.md)), and they said: "the card editor coulddd return, but it should

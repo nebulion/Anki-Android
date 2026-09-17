@@ -194,7 +194,7 @@ next install needs a final uninstall.
   restored with their 82 translations.
 - **Side margins on the deck page:** the owner judged them fine after comparing with the Kompakt's own
   12dp; no change.
-- **Card editor:** planned as a late Phase 8 (`PLAN.md`).
+- **Card editor:** moved into Phase 4b at the owner's request (2026-09-16).
 
 Still open from the owner's thoughts: automatic syncs (app start, app exit, after studying) could run
 in the background with only tapped syncs showing the in-page bar. Not decided.
@@ -229,6 +229,28 @@ deck page → rename → delete round trip on a throwaway deck, sync badge).
 
 **Device check (pending):** deck options (edit and save a limit), statistics for one deck and for the
 whole collection, card info from the reviewer, `.apkg` import.
+
+## Phase 4b — Native pages and the card editor (owner, 2026-09-16; in progress)
+
+The Phase 4 web pages felt separate from the app ("kinda just feeling so disjoint"), so they are
+rebuilt as Compose pages over the same backend calls the web pages made, ported from Anki 26.05's
+own TypeScript so the numbers and rules match. The card editor (planned as Phase 8) joins this batch
+at the owner's request.
+
+| Step | State |
+| --- | --- |
+| 1. Card info | Done (`a023ec04`): `CardInfoModel.kt` works out the page's rows from `cardStats`; facts as rows with the value under a bold label, then one row per review (date, kind, rating, interval, ease, time) instead of a six-column table. The FSRS forgetting curve is not drawn |
+| 2. Statistics | Done (`071865a`, lint fix `12f86be`): all 14 sections from `graphs`, bucketed as the page does (`stats/D3.kt` ports the d3 functions it uses). Series are patterns, not colours; the calendar marks busier days with larger squares; a tap on a chart shows what hovering showed. The header picks a deck or "All decks" (the collection); history is 1 year or all. PDF export stays gone; the halftone script is deleted |
+| 3. Deck options | Done (`7894a4b`): `DeckOptionsState` ports the page's state (presets, change detection, the save request). Every section is kept, each with its help text; limits keep the preset / this deck / today scopes; FSRS keeps optimise, evaluate and "save and optimise all". Save and "Save to all subdecks" close the page; back asks before discarding. **Not rebuilt:** the FSRS simulator and the "help me decide" workload graph |
+| 4. Card editor | In progress: add and edit notes |
+
+Also in this batch: deleting a deck from its deck page now offers Undo on the home screen
+(`3079d0d`, regression test first); the custom study menu no longer lists card counts under each
+kind (`662368a`, owner: they crowded it; the counts stay on the amount panel).
+
+**Device check (pending):** card info from the study screen; statistics for a deck and for all
+decks (tap a bar, change a range); deck options: change a limit for this deck only and save, add
+and remove a preset, press back with a change (should ask).
 
 ## Phase 5 — Settings, account, reminders (done; device check pending)
 

@@ -76,3 +76,31 @@ class StatsModelTest : RobolectricTest() {
         }
     }
 }
+
+/** A calendar day's page counts that day's answers, by deck, for the whole collection or one deck. */
+@RunWith(AndroidJUnit4::class)
+class DayDetailsTest : RobolectricTest() {
+    @Test
+    fun `today's answers are counted by kind and by deck`() {
+        val italian = addDeck("Italian")
+        repeat(2) { addBasicNote("front $it", "back").cards().single().update { did = italian } }
+        addBasicNote("english", "back")
+        col.decks.select(italian)
+        col.sched.answerCard(col.sched.card!!, Rating.AGAIN)
+        col.sched.answerCard(col.sched.card!!, Rating.GOOD)
+
+        // the tests fix the app's clock in 2020 while the backend logs answers at the real time:
+        // find the day the answers were logged on, counted back from the collection's day cutoff
+        val answeredAt = col.db.queryLongScalar("select max(id) from revlog")
+        val daysAgo = ((col.sched.dayCutoff * 1000 - answeredAt - 1) / 86_400_000L).toInt()
+
+        val all = col.dayDetails(daysAgo, search = "")
+        assertEquals(2, all.reviews)
+        assertEquals(1, all.again)
+        assertEquals(2, all.learn)
+        assertEquals(listOf("Italian" to 2), all.decks)
+
+        assertEquals(0, col.dayDetails(daysAgo, search = "deck:Default").reviews, "another deck's answers are left out")
+        assertEquals(0, col.dayDetails(daysAgo + 1, search = "").reviews, "the day before had none")
+    }
+}

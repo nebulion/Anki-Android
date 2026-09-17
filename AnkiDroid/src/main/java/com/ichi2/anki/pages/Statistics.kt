@@ -28,6 +28,7 @@ import com.ichi2.anki.stats.RevlogRange
 import com.ichi2.anki.stats.StatisticsScreenMMD
 import com.ichi2.anki.stats.StatsDeck
 import com.ichi2.anki.stats.StatsFormat
+import com.ichi2.anki.stats.dayDetails
 import com.ichi2.compose.mmd.ComposeHostFragment
 
 /**
@@ -104,6 +105,7 @@ class Statistics : ComposeHostFragment() {
             },
             onRevlogRangeChange = { revlogRange = it },
             onPrefsChange = ::savePrefs,
+            dayDetails = { daysAgo -> withCol { dayDetails(daysAgo, search.orEmpty()) } },
             onBack = { requireActivity().onBackPressedDispatcher.onBackPressed() },
         )
     }

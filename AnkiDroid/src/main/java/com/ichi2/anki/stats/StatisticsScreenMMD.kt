@@ -5,6 +5,7 @@ package com.ichi2.anki.stats
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,7 +44,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import anki.stats.GraphPreferences
-import anki.stats.GraphPreferences.Weekday
 import anki.stats.GraphsResponse
 import com.ichi2.anki.R
 import com.ichi2.compose.mmd.ChoiceSheet
@@ -56,6 +56,7 @@ import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.RowDefaults
 import com.ichi2.compose.mmd.RowDivider
 import com.ichi2.compose.mmd.ScreenHeader
+import com.ichi2.compose.mmd.SectionTitle
 import com.ichi2.compose.mmd.SwitchRow
 import com.ichi2.compose.mmd.TextBlock
 import com.ichi2.compose.mmd.TextPage
@@ -66,7 +67,7 @@ import com.mudita.mmd.components.text.TextMMD
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.ankiweb.rsdroid.Translations
-import java.time.DayOfWeek
+import java.time.LocalDate
 import java.time.YearMonth
 import java.time.ZonedDateTime
 import java.util.Locale
@@ -123,6 +124,7 @@ fun StatisticsScreenMMD(
     onDeckSelected: (StatsDeck) -> Unit,
     onRevlogRangeChange: (RevlogRange) -> Unit,
     onPrefsChange: (GraphPreferences) -> Unit,
+    dayDetails: suspend (daysAgo: Int) -> DayDetails,
     onBack: () -> Unit,
 ) {
     val tr = fmt.tr
@@ -172,6 +174,7 @@ fun StatisticsScreenMMD(
         var buttonsRange by rememberSaveable { mutableStateOf(GraphRange.Year) }
         var addedRange by rememberSaveable { mutableStateOf(GraphRange.Month) }
         var calendarMonthShown by rememberSaveable { mutableStateOf(YearMonth.now()) }
+        var shownDay by rememberSaveable { mutableStateOf<LocalDate?>(null) }
         // the graphs that follow the history range, as the page's `followRevlog`: all time with all
         // history; back to a year when the history is cut to one
         LaunchedEffect(revlogRange) {
@@ -187,7 +190,6 @@ fun StatisticsScreenMMD(
         }
         val revlogRanges = if (revlogRange == RevlogRange.All) GraphRange.entries else GraphRange.entries - GraphRange.AllTime
 
-        val firstDayTitle = stringResource(R.string.mmd_stats_first_weekday)
         val rangeTitle = tr.statisticsTrueRetentionRange()
         val noData = tr.statisticsNoData()
         val historyTitle = stringResource(R.string.mmd_stats_history)
@@ -250,149 +252,151 @@ fun StatisticsScreenMMD(
                 }
             }
 
-        PagedList(Modifier.weight(1f)) {
+        // owner, 2026-09-17: pages drew their options first and their chart and scrollbar later
+        val isPending =
             when (section) {
-                null -> {
-                    item {
-                        Column {
-                            ValueRow(title = tr.decksDeck(), value = title, onClick = { isChoosingDeck = true })
-                            RowDivider()
-                        }
-                    }
-                    item {
-                        Column {
-                            ValueRow(title = historyTitle, value = historyLabel, onClick = { historySheet = true })
-                            GroupDivider()
-                        }
-                    }
-                    available.forEachIndexed { index, entry ->
+                null -> false
+                StatsSection.Today -> today == null
+                StatsSection.FutureDue -> future == null
+                StatsSection.Calendar -> calendar == null
+                StatsSection.Reviews -> reviewsModel == null
+                StatsSection.CardCounts -> counts == null
+                StatsSection.Intervals -> intervalsModel == null
+                StatsSection.Stability -> stabilityModel == null
+                StatsSection.Ease -> easeModel == null
+                StatsSection.Difficulty -> difficultyModel == null
+                StatsSection.Retrievability -> retrievabilityModel == null
+                StatsSection.TrueRetention -> retention == null
+                StatsSection.Hours -> hoursModel == null
+                StatsSection.Buttons -> buttonsModel == null
+                StatsSection.Added -> addedModel == null
+            }
+        if (isPending) {
+            LoadingIndicator(loadingLabel, Modifier.weight(1f))
+        } else {
+            PagedList(Modifier.weight(1f)) {
+                when (section) {
+                    null -> {
                         item {
                             Column {
-                                NavRow(title = sectionTitle(entry, tr), onClick = { section = entry })
-                                if (index != available.lastIndex) RowDivider()
+                                ValueRow(title = tr.decksDeck(), value = title, onClick = { isChoosingDeck = true })
+                                RowDivider()
+                            }
+                        }
+                        item {
+                            Column {
+                                ValueRow(title = historyTitle, value = historyLabel, onClick = { historySheet = true })
+                                GroupDivider()
+                            }
+                        }
+                        available.forEachIndexed { index, entry ->
+                            item {
+                                Column {
+                                    NavRow(title = sectionTitle(entry, tr), onClick = { section = entry })
+                                    if (index != available.lastIndex) RowDivider()
+                                }
                             }
                         }
                     }
-                }
-                StatsSection.Today ->
-                    when {
-                        today == null -> loading(loadingLabel)
-                        today.value == null -> item { BodyLine(tr.statisticsTodayNoCards()) }
-                        else -> todayRows(today.value, tr, fmt)
+                    StatsSection.Today ->
+                        when {
+                            today == null -> loading(loadingLabel)
+                            today.value == null -> item { BodyLine(tr.statisticsTodayNoCards()) }
+                            else -> todayRows(today.value, tr, fmt)
+                        }
+                    StatsSection.FutureDue -> {
+                        subtitle(tr.statisticsFutureDueSubtitle())
+                        if (data.futureDue.haveBacklog) {
+                            item {
+                                SwitchRow(
+                                    title = tr.statisticsBacklogCheckbox(),
+                                    checked = prefs.futureDueShowBacklog,
+                                    onCheckedChange = { onPrefsChange(prefs.toBuilder().setFutureDueShowBacklog(it).build()) },
+                                )
+                            }
+                        }
+                        rangeRow("future", rangeTitle, labels.getValue(futureRange)) { openChooser = it }
+                        future?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                     }
-                StatsSection.FutureDue -> {
-                    subtitle(tr.statisticsFutureDueSubtitle())
-                    if (data.futureDue.haveBacklog) {
+                    StatsSection.Calendar -> {
+                        if (calendar == null) {
+                            loading(loadingLabel)
+                        } else {
+                            item {
+                                MonthCalendar(
+                                    month = calendar,
+                                    locale = locale,
+                                    onMonth = { calendarMonthShown = it },
+                                    onDay = { shownDay = calendar.month.atDay(it.day) },
+                                )
+                            }
+                        }
+                    }
+                    StatsSection.Reviews -> {
+                        subtitle(if (reviewsTime) tr.statisticsReviewsTimeSubtitle() else tr.statisticsReviewsCountSubtitle())
+                        item {
+                            SwitchRow(title = tr.statisticsReviewsTimeCheckbox(), checked = reviewsTime, onCheckedChange = {
+                                reviewsTime =
+                                    it
+                            })
+                        }
+                        rangeRow("reviews", rangeTitle, labels.getValue(reviewsRange)) { openChooser = it }
+                        reviewsModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
+                    }
+                    StatsSection.CardCounts -> {
                         item {
                             SwitchRow(
-                                title = tr.statisticsBacklogCheckbox(),
-                                checked = prefs.futureDueShowBacklog,
-                                onCheckedChange = { onPrefsChange(prefs.toBuilder().setFutureDueShowBacklog(it).build()) },
+                                title = tr.statisticsCountsSeparateSuspendedBuriedCards(),
+                                checked = prefs.cardCountsSeparateInactive,
+                                onCheckedChange = { onPrefsChange(prefs.toBuilder().setCardCountsSeparateInactive(it).build()) },
                             )
                         }
+                        counts?.let { table(it.table) } ?: loading(loadingLabel)
                     }
-                    rangeRow("future", rangeTitle, labels.getValue(futureRange)) { openChooser = it }
-                    future?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
-                }
-                StatsSection.Calendar -> {
-                    if (calendar == null) {
-                        loading(loadingLabel)
-                    } else {
-                        item { MonthCalendar(calendar, locale) { calendarMonthShown = it } }
-                        item {
-                            Column {
-                                GroupDivider()
-                                InfoRow(
-                                    title = tr.statisticsDaysStudied(),
-                                    value =
-                                        tr.statisticsAmountOfTotalWithPercentage(
-                                            calendar.daysStudied,
-                                            calendar.daysSoFar,
-                                            fmt.number(
-                                                if (calendar.daysSoFar ==
-                                                    0
-                                                ) {
-                                                    0.0
-                                                } else {
-                                                    calendar.daysStudied * 100.0 / calendar.daysSoFar
-                                                },
-                                                0,
-                                            ),
-                                        ),
-                                )
-                                RowDivider()
-                            }
-                        }
-                        item {
-                            Column {
-                                InfoRow(title = tr.statisticsTotal(), value = tr.statisticsReviews(calendar.reviews))
-                                RowDivider()
-                            }
-                        }
-                        rangeRow("weekday", firstDayTitle, weekdayLabel(prefs.calendarFirstDayOfWeek, locale)) { openChooser = it }
+                    StatsSection.Intervals -> {
+                        subtitle(tr.statisticsIntervalsSubtitle())
+                        rangeRow("intervals", rangeTitle, intervalLabel(intervalRange, labels, tr)) { openChooser = it }
+                        intervalsModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                     }
-                }
-                StatsSection.Reviews -> {
-                    subtitle(if (reviewsTime) tr.statisticsReviewsTimeSubtitle() else tr.statisticsReviewsCountSubtitle())
-                    item {
-                        SwitchRow(title = tr.statisticsReviewsTimeCheckbox(), checked = reviewsTime, onCheckedChange = { reviewsTime = it })
+                    StatsSection.Stability -> {
+                        subtitle(tr.statisticsCardStabilitySubtitle())
+                        rangeRow("stability", rangeTitle, intervalLabel(stabilityRange, labels, tr)) { openChooser = it }
+                        stabilityModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                     }
-                    rangeRow("reviews", rangeTitle, labels.getValue(reviewsRange)) { openChooser = it }
-                    reviewsModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
-                }
-                StatsSection.CardCounts -> {
-                    item {
-                        SwitchRow(
-                            title = tr.statisticsCountsSeparateSuspendedBuriedCards(),
-                            checked = prefs.cardCountsSeparateInactive,
-                            onCheckedChange = { onPrefsChange(prefs.toBuilder().setCardCountsSeparateInactive(it).build()) },
-                        )
+                    StatsSection.Ease -> {
+                        subtitle(tr.statisticsCardEaseSubtitle())
+                        easeModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                     }
-                    counts?.let { table(it.table) } ?: loading(loadingLabel)
-                }
-                StatsSection.Intervals -> {
-                    subtitle(tr.statisticsIntervalsSubtitle())
-                    rangeRow("intervals", rangeTitle, intervalLabel(intervalRange, labels, tr)) { openChooser = it }
-                    intervalsModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
-                }
-                StatsSection.Stability -> {
-                    subtitle(tr.statisticsCardStabilitySubtitle())
-                    rangeRow("stability", rangeTitle, intervalLabel(stabilityRange, labels, tr)) { openChooser = it }
-                    stabilityModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
-                }
-                StatsSection.Ease -> {
-                    subtitle(tr.statisticsCardEaseSubtitle())
-                    easeModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
-                }
-                StatsSection.Difficulty -> {
-                    subtitle(tr.statisticsCardDifficultySubtitle2())
-                    rangeRow("difficulty", rangeTitle, percentLabel(difficultyRange, tr)) { openChooser = it }
-                    difficultyModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
-                }
-                StatsSection.Retrievability -> {
-                    subtitle(tr.statisticsRetrievabilitySubtitle())
-                    rangeRow("retrievability", rangeTitle, percentLabel(retrievabilityRange, tr)) { openChooser = it }
-                    retrievabilityModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
-                }
-                StatsSection.TrueRetention -> {
-                    subtitle(tr.statisticsTrueRetentionSubtitle())
-                    rangeRow("retention", rangeTitle, retentionLabel(retentionMode, tr)) { openChooser = it }
-                    retention?.let { table(it) } ?: loading(loadingLabel)
-                }
-                StatsSection.Hours -> {
-                    subtitle(tr.statisticsHoursSubtitle())
-                    rangeRow("hours", rangeTitle, labels.getValue(hoursRange)) { openChooser = it }
-                    hoursModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
-                }
-                StatsSection.Buttons -> {
-                    subtitle(tr.statisticsAnswerButtonsSubtitle())
-                    rangeRow("buttons", rangeTitle, labels.getValue(buttonsRange)) { openChooser = it }
-                    buttonsModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
-                }
-                StatsSection.Added -> {
-                    subtitle(tr.statisticsAddedSubtitle())
-                    rangeRow("added", rangeTitle, labels.getValue(addedRange)) { openChooser = it }
-                    addedModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
+                    StatsSection.Difficulty -> {
+                        subtitle(tr.statisticsCardDifficultySubtitle2())
+                        rangeRow("difficulty", rangeTitle, percentLabel(difficultyRange, tr)) { openChooser = it }
+                        difficultyModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
+                    }
+                    StatsSection.Retrievability -> {
+                        subtitle(tr.statisticsRetrievabilitySubtitle())
+                        rangeRow("retrievability", rangeTitle, percentLabel(retrievabilityRange, tr)) { openChooser = it }
+                        retrievabilityModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
+                    }
+                    StatsSection.TrueRetention -> {
+                        subtitle(tr.statisticsTrueRetentionSubtitle())
+                        rangeRow("retention", rangeTitle, retentionLabel(retentionMode, tr)) { openChooser = it }
+                        retention?.let { table(it) } ?: loading(loadingLabel)
+                    }
+                    StatsSection.Hours -> {
+                        subtitle(tr.statisticsHoursSubtitle())
+                        rangeRow("hours", rangeTitle, labels.getValue(hoursRange)) { openChooser = it }
+                        hoursModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
+                    }
+                    StatsSection.Buttons -> {
+                        subtitle(tr.statisticsAnswerButtonsSubtitle())
+                        rangeRow("buttons", rangeTitle, labels.getValue(buttonsRange)) { openChooser = it }
+                        buttonsModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
+                    }
+                    StatsSection.Added -> {
+                        subtitle(tr.statisticsAddedSubtitle())
+                        rangeRow("added", rangeTitle, labels.getValue(addedRange)) { openChooser = it }
+                        addedModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
+                    }
                 }
             }
         }
@@ -428,15 +432,21 @@ fun StatisticsScreenMMD(
                 )
             }
         }
-        if (openChooser == "weekday") {
-            ChoiceSheet(
-                title = firstDayTitle,
-                options = FIRST_WEEKDAYS,
-                selected = prefs.calendarFirstDayOfWeek,
-                label = { weekdayLabel(it, locale) },
-                onSelect = { onPrefsChange(prefs.toBuilder().setCalendarFirstDayOfWeek(it).build()) },
-                onDismissRequest = { openChooser = null },
-            )
+        shownDay?.let { date ->
+            // a review's day counts from the day the collection's day starts, as the calendar does
+            val today = ZonedDateTime.now().minusHours(data.rolloverHour.toLong()).toLocalDate()
+            DayPage(
+                date,
+                java.time.temporal.ChronoUnit.DAYS
+                    .between(date, today)
+                    .toInt(),
+                dayDetails,
+                fmt,
+                locale,
+                tr,
+            ) {
+                shownDay = null
+            }
         }
         if (isAboutShown) {
             section?.let { shown ->
@@ -457,8 +467,9 @@ fun StatisticsScreenMMD(
 }
 
 /**
- * [compute]'s result, worked out on a background thread while [active]; null while it is being
- * worked out, and while not [active]. Worked out again when a key changes.
+ * [compute]'s result, worked out on a background thread while [active]; null until first worked
+ * out, and while not [active]. Worked out again when a key changes, keeping the last result on screen
+ * meanwhile, so an option change repaints the page once rather than blanking it first.
  */
 @Composable
 private fun <T> inBackground(
@@ -467,8 +478,7 @@ private fun <T> inBackground(
     compute: () -> T,
 ): T? {
     val result by produceState<T?>(null, active, *keys) {
-        value = null
-        if (active) value = withContext(Dispatchers.Default) { compute() }
+        value = if (active) withContext(Dispatchers.Default) { compute() } else null
     }
     return result
 }
@@ -741,20 +751,6 @@ private data class Optional<T>(
     val value: T?,
 )
 
-private val FIRST_WEEKDAYS =
-    listOf(Weekday.SUNDAY, Weekday.MONDAY, Weekday.FRIDAY, Weekday.SATURDAY)
-
-private fun weekdayLabel(
-    weekday: Weekday,
-    locale: Locale,
-): String =
-    when (weekday) {
-        Weekday.MONDAY -> DayOfWeek.MONDAY
-        Weekday.FRIDAY -> DayOfWeek.FRIDAY
-        Weekday.SATURDAY -> DayOfWeek.SATURDAY
-        else -> DayOfWeek.SUNDAY
-    }.getDisplayName(java.time.format.TextStyle.FULL, locale)
-
 /** Today (owner's layout A): cards, minutes and seconds per card large, then the rest as rows. */
 private fun LazyListScope.todayRows(
     today: TodaySummary,
@@ -819,12 +815,14 @@ private fun BigNumber(
  * A month of the calendar (owner's layout A): a square per day, darker the more reviews it had,
  * as the backend's page shades it; each square shows the day and, when there were any, its reviews,
  * in white on the darker squares. Arrows change the month; a key underneath explains the shades.
+ * Tapping a day opens what was studied on it.
  */
 @Composable
 private fun MonthCalendar(
     month: CalendarMonth,
     locale: Locale,
     onMonth: (YearMonth) -> Unit,
+    onDay: (MonthDay) -> Unit,
 ) {
     val ink = MaterialTheme.colorScheme.onSurface
     Column(Modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 8.dp)) {
@@ -851,8 +849,8 @@ private fun MonthCalendar(
         month.weeks.forEach { week ->
             Row(Modifier.fillMaxWidth()) {
                 week.forEach { day ->
-                    Box(Modifier.weight(1f).height(52.dp).padding(2.dp)) {
-                        if (day != null) DaySquare(day, ink)
+                    Box(Modifier.weight(1f).height(46.dp).padding(2.dp)) {
+                        if (day != null) DaySquare(day, ink, onClick = { onDay(day) })
                     }
                 }
             }
@@ -878,13 +876,14 @@ private fun MonthCalendar(
 private fun DaySquare(
     day: MonthDay,
     ink: Color,
+    onClick: () -> Unit,
 ) {
     val onShade = if (day.shade > 0.55f) Color.White else Color.Black
     Box(
         Modifier
             .fillMaxSize()
             .background(shadeColor(day.shade))
-            .then(if (day.isFuture) Modifier else Modifier.border(1.dp, ink)),
+            .then(if (day.isFuture) Modifier else Modifier.border(1.dp, ink).clickable(onClick = onClick)),
     ) {
         TextMMD(
             text = day.day.toString(),
@@ -960,6 +959,77 @@ private fun aboutBlocks(
         if (section == StatsSection.TrueRetention) {
             add(TextBlock.Heading(tr.statisticsTrueRetentionTitle()))
             addAll(paragraphs(tr.statisticsTrueRetentionTooltip().replace(Regex("<[^>]+>"), "")))
+        }
+    }
+}
+
+/**
+ * What was studied on one day, on a page of its own (owner, 2026-09-17): how many reviews and how
+ * long, how many were Again, the kinds of card, and the decks studied, busiest first.
+ */
+@Composable
+private fun DayPage(
+    date: LocalDate,
+    daysAgo: Int,
+    load: suspend (daysAgo: Int) -> DayDetails,
+    fmt: StatsFormat,
+    locale: Locale,
+    tr: Translations,
+    onClose: () -> Unit,
+) {
+    val details by produceState<DayDetails?>(null, daysAgo) { value = load(daysAgo) }
+    Dialog(onDismissRequest = onClose, properties = DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
+        // the window runs under the status bar: pad the page below it, keeping the white behind it
+        Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).systemBarsPadding()) {
+            ScreenHeader(
+                title =
+                    date.format(
+                        java.time.format.DateTimeFormatter
+                            .ofLocalizedDate(java.time.format.FormatStyle.MEDIUM)
+                            .withLocale(locale),
+                    ),
+                navigationIcon = {
+                    HeaderAction(icon = R.drawable.close_icon, contentDescription = stringResource(R.string.close), onClick = onClose)
+                },
+            )
+            val current = details
+            when {
+                current == null -> LoadingIndicator(stringResource(R.string.mmd_loading_statistics), Modifier.weight(1f))
+                current.reviews == 0 -> BodyLine(stringResource(R.string.mmd_day_no_reviews))
+                else ->
+                    PagedList(Modifier.weight(1f)) {
+                        item {
+                            Column {
+                                InfoRow(title = tr.statisticsReviews(current.reviews), value = fmt.timeSpan(current.seconds.toDouble()))
+                                RowDivider()
+                            }
+                        }
+                        item {
+                            Column {
+                                InfoRow(
+                                    title = tr.studyingAgain(),
+                                    value = "${fmt.number(current.again)} · ${fmt.number(current.again * 100.0 / current.reviews, 0)}%",
+                                )
+                                RowDivider()
+                            }
+                        }
+                        item {
+                            InfoRow(
+                                title = stringResource(R.string.mmd_today_by_kind),
+                                value = tr.statisticsTodayTypeCounts(current.learn, current.review, current.relearn, current.filtered),
+                            )
+                        }
+                        item { SectionTitle(stringResource(R.string.mmd_day_decks)) }
+                        current.decks.forEachIndexed { index, (name, count) ->
+                            item {
+                                Column {
+                                    InfoRow(title = name, value = fmt.number(count))
+                                    if (index != current.decks.lastIndex) RowDivider()
+                                }
+                            }
+                        }
+                    }
+            }
         }
     }
 }

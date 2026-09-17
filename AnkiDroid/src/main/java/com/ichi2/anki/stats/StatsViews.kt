@@ -4,6 +4,7 @@ package com.ichi2.anki.stats
 
 import anki.stats.GraphPreferences.Weekday
 import anki.stats.GraphsResponse
+import com.ichi2.anki.libanki.Collection
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.YearMonth
@@ -149,3 +150,63 @@ private fun Weekday.toDayOfWeekOrSunday(): DayOfWeek =
         Weekday.SATURDAY -> DayOfWeek.SATURDAY
         else -> DayOfWeek.SUNDAY
     }
+
+/** What was studied on one day: every answer that day, whatever deck its card is in now. */
+data class DayDetails(
+    val reviews: Int,
+    val seconds: Int,
+    val again: Int,
+    val learn: Int,
+    val review: Int,
+    val relearn: Int,
+    val filtered: Int,
+    /** Deck names with their reviews, busiest first. */
+    val decks: List<Pair<String, Int>>,
+)
+
+/**
+ * The answers given [daysAgo] days before today, a day starting when the collection's day does,
+ * for the cards [search] finds ("" for the whole collection). A card in a filtered deck counts
+ * towards its home deck. Rescheduling and manual changes are not answers and are left out.
+ */
+fun Collection.dayDetails(
+    daysAgo: Int,
+    search: String,
+): DayDetails {
+    val end = (sched.dayCutoff - daysAgo * SECONDS_PER_DAY) * 1000
+    val start = end - SECONDS_PER_DAY * 1000
+    val cards = if (search.isBlank()) null else findCards(search).toHashSet()
+    var reviews = 0
+    var millis = 0L
+    var again = 0
+    val kinds = IntArray(4)
+    val byDeck = mutableMapOf<Long, Int>()
+    db
+        .query(
+            "select r.cid, r.ease, r.type, r.time, case when c.odid != 0 then c.odid else c.did end " +
+                "from revlog r join cards c on c.id = r.cid where r.id >= ? and r.id < ? and r.ease > 0 and r.type < 4",
+            start,
+            end,
+        ).use { cursor ->
+            while (cursor.moveToNext()) {
+                if (cards != null && cursor.getLong(0) !in cards) continue
+                reviews++
+                if (cursor.getInt(1) == 1) again++
+                kinds[cursor.getInt(2)]++
+                millis += cursor.getLong(3)
+                byDeck.merge(cursor.getLong(4), 1, Int::plus)
+            }
+        }
+    return DayDetails(
+        reviews = reviews,
+        seconds = (millis / 1000).toInt(),
+        again = again,
+        learn = kinds[0],
+        review = kinds[1],
+        relearn = kinds[2],
+        filtered = kinds[3],
+        decks = byDeck.entries.sortedByDescending { it.value }.map { decks.name(it.key) to it.value },
+    )
+}
+
+private const val SECONDS_PER_DAY = 86_400L

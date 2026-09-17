@@ -248,6 +248,22 @@ Also in this batch: deleting a deck from its deck page now offers Undo on the ho
 (`3079d0d`, regression test first); the custom study menu no longer lists card counts under each
 kind (`662368a`, owner: they crowded it; the counts stay on the amount panel).
 
+**Owner feedback round (2026-09-16), done:**
+- Kit follows the MMD zeroheight pages (Dialog, Snackbar, Menus, Bottom sheets, List, Separators),
+  read with their images: dialogs bottom-anchored with a 3dp top rule, centred Black 25sp heading,
+  Medium 21sp text and stacked buttons (solid on top); snackbars a 64dp strip with an outlined
+  action or X; menus a rounded 2dp-outlined dropdown under the header; choice sheets with a bold
+  title and X, sized to their rows; list rows 15.5dp padding, Black 21 / Medium 18 text, 28dp icons,
+  dotted dividers from the label to the edge; the scrollbar only when a list overflows.
+- Nothing scrolls continuously: filtered deck options, the card editor, media check and help all
+  page. Help and the deck description open as their own page with an X at the top left.
+- Statistics: a section list like Settings, a page per section, step arrows through a chart's bars;
+  card counts as share bars. Card info: the FSRS forgetting curve.
+- Filtered decks: the filter is a deck plus a picked kind of cards (due, new, forgotten today …) or a
+  custom search. Deck page: a Description button. Settings: no version footer. Home: no one-way sync
+  strip.
+- Import is native; `PageFragment` and the rest of the web page plumbing are deleted.
+
 **Device check (pending):** card info from the study screen; statistics for a deck and for all
 decks (tap a bar, change a range); deck options: change a limit for this deck only and save, add
 and remove a preset, press back with a change (should ask); card editor: add a note from a deck

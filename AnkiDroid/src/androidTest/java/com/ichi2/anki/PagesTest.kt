@@ -14,7 +14,6 @@ import com.ichi2.anki.common.destinations.CardInfoDestination.EntryPoint
 import com.ichi2.anki.common.destinations.StatisticsDestination
 import com.ichi2.anki.libanki.Card
 import com.ichi2.anki.pages.DeckOptions
-import com.ichi2.anki.pages.PageFragment
 import com.ichi2.anki.pages.toIntent
 import com.ichi2.anki.tests.InstrumentedTest
 import org.hamcrest.MatcherAssert.assertThat
@@ -53,7 +52,7 @@ class PagesTest : InstrumentedTest() {
         @Parameterized.Parameters(name = "{1}")
         @JvmStatic // required for initParameters
         fun initParameters(): Collection<Array<out Any>> {
-            /** See [PageFragment] */
+            // the pages that were web pages, now native
             val intents =
                 listOf<Pair<PagesTest.(Context) -> Intent, String>>(
                     Pair(PagesTest::getStatistics, "Statistics"),

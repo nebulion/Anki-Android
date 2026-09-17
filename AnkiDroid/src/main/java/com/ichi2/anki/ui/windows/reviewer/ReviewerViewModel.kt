@@ -165,8 +165,19 @@ class ReviewerViewModel(
         Timber.v("ReviewerViewModel::onPageFinished %b", isAfterRecreation)
         if (isAfterRecreation) {
             launchCatchingIO {
-                // TODO handle "Don't keep activities"
-                if (showingAnswer.value) showAnswer() else showQuestion()
+                if (showingAnswer.value) {
+                    // Android closed the screen in the background while the answer showed (leaving the
+                    // app, sleeping the phone, opening card info). The question side, which signals the
+                    // next card states, is not shown again: signal them here, or answering and Undo
+                    // wait for the signal forever
+                    runStateMutationHook()
+                    updateNextTimes()
+                    updateMarkIcon()
+                    updateFlagIcon()
+                    showAnswer()
+                } else {
+                    showQuestion()
+                }
             }
         } else {
             launchCatchingIO {

@@ -42,4 +42,25 @@ class ReviewerViewModelTest : JvmTest() {
             advanceUntilIdle()
             assertEquals(1, col.getCard(card.id).reps)
         }
+
+    /**
+     * Regression: Android may close the study screen while it is in the background (leaving the app,
+     * sleeping the phone, opening card info). Coming back with the answer showing, the rebuilt screen
+     * never signalled that the next card's states were ready, so answering and Undo waited forever.
+     */
+    @Test
+    fun `after the screen is rebuilt with the answer showing, answering still works`() =
+        runTest {
+            val card = addBasicNote().firstCard()
+            // the saved state of a screen that was showing the answer
+            val viewModel =
+                ReviewerViewModel(SavedStateHandle(mapOf("showingAnswer" to true))).also { viewModelStore.put("reviewer", it) }
+
+            viewModel.onPageFinished(isAfterRecreation = true)
+            advanceUntilIdle()
+            viewModel.answerCard(Rating.GOOD)
+            advanceUntilIdle()
+
+            assertEquals(1, col.getCard(card.id).reps)
+        }
 }

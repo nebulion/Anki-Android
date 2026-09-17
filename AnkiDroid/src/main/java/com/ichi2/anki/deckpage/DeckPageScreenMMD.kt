@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
@@ -30,6 +32,8 @@ import com.ichi2.compose.mmd.PanelDefaults
 import com.ichi2.compose.mmd.PanelPrimaryAction
 import com.ichi2.compose.mmd.PanelSecondaryAction
 import com.ichi2.compose.mmd.ScreenHeader
+import com.ichi2.compose.mmd.TextPage
+import com.ichi2.compose.mmd.paragraphs
 import com.mudita.mmd.components.text.TextMMD
 import java.text.NumberFormat
 
@@ -111,25 +115,37 @@ fun DeckPageScreenMMD(
                 )
             },
         )
+        var isDescriptionShown by rememberSaveable { mutableStateOf(false) }
+        // the page fits the screen, so it does not scroll (nothing in the app scrolls continuously)
         Column(
             Modifier
                 .weight(1f)
                 .fillMaxWidth()
-                .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp, vertical = 16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             when (state) {
                 DeckPageUiState.Loading -> Unit
-                is DeckPageUiState.Study -> StudyBody(state, onStudy)
+                is DeckPageUiState.Study -> StudyBody(state, onStudy) { isDescriptionShown = true }
                 is DeckPageUiState.Congrats -> CongratsBody(state, customStudyLabel, onUnbury, onCustomStudy)
                 is DeckPageUiState.Empty ->
                     TextMMD(text = stringResource(R.string.empty_deck), style = MaterialTheme.typography.bodyLarge)
             }
         }
         MessageHost(messages)
+        if (isDescriptionShown && state is DeckPageUiState.Study) {
+            TextPage(
+                title = stringResource(R.string.mmd_deck_description),
+                blocks = paragraphs(state.descriptionText()),
+                onClose = { isDescriptionShown = false },
+            )
+        }
     }
 }
+
+@Composable
+private fun DeckPageUiState.Study.descriptionText(): String =
+    if (isFiltered) stringResource(R.string.dyn_deck_desc) else description.orEmpty()
 
 /**
  * Owner's layout "A" (2026-09-15): today's three counts as large tiles, Study, then the deck's
@@ -139,6 +155,7 @@ fun DeckPageScreenMMD(
 private fun StudyBody(
     state: DeckPageUiState.Study,
     onStudy: () -> Unit,
+    onDescription: () -> Unit,
 ) {
     Row(Modifier.fillMaxWidth()) {
         CountTile(state.newCount, TR.actionsNew(), Modifier.weight(1f))
@@ -166,9 +183,13 @@ private fun StudyBody(
     if (state.nextLearnDue != null) {
         TextMMD(text = state.nextLearnDue, style = MaterialTheme.typography.bodyMedium)
     }
-    val description = if (state.isFiltered) stringResource(R.string.dyn_deck_desc) else state.description
-    if (!description.isNullOrBlank()) {
-        TextMMD(text = description, style = MaterialTheme.typography.bodyMedium)
+    // the description is on its own page (owner, 2026-09-16: inline it read too heavily)
+    if (state.descriptionText().isNotBlank()) {
+        PanelSecondaryAction(
+            label = stringResource(R.string.mmd_deck_description),
+            onClick = onDescription,
+            modifier = Modifier.fillMaxWidth(),
+        )
     }
 }
 

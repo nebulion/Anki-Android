@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">વન-વે સિંકની વિનંતી કરી</string>
     <string name="full_sync_confirmation">જ્યારે તમે તમારા સંગ્રહને આગળ સિંક્રનાઇઝ કરશો ત્યારે વિનંતી કરેલ ફેરફારને ડેટાબેઝના સંપૂર્ણ અપલોડની જરૂર પડશે. જો તમારી પાસે અન્ય ઉપકરણ પર સમીક્ષાઓ અથવા અન્ય ફેરફારો રાહ જોઈ રહ્યાં છે જે હજી સુધી અહીં સમન્વયિત થયા નથી, તો તે ખોવાઈ જશે. ચાલુ રાખીએ?</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">સમન્વયન (એક-માર્ગી)</string>
 </resources>

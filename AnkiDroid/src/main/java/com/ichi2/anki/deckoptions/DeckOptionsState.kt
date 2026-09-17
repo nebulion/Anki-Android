@@ -12,6 +12,7 @@ import anki.deck_config.DeckConfigsForUpdate
 import anki.deck_config.DeckConfigsForUpdate.CurrentDeck.Limits
 import anki.deck_config.UpdateDeckConfigsMode
 import anki.deck_config.UpdateDeckConfigsRequest
+import com.ichi2.anki.common.time.TimeManager
 import java.text.Collator
 import java.util.Locale
 
@@ -269,8 +270,7 @@ class DeckOptionsState(
         if (index != -1) original.configs[index] = config
     }
 
-    private fun uniqueName(name: String): String =
-        if (configs.any { it.config.name == name }) name + System.currentTimeMillis() / 1000 else name
+    private fun uniqueName(name: String): String = if (configs.any { it.config.name == name }) name + TimeManager.time.intTime() else name
 
     private fun sortConfigs() {
         val currentName = configs[selectedIndex].config.name

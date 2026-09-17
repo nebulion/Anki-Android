@@ -114,29 +114,25 @@ fun <T> ChoiceSheet(
 ) {
     MmdSheet(onDismissRequest = onDismissRequest) {
         SheetTitle(title)
-        LazyColumnMMD(modifier = Modifier.heightIn(max = SheetDefaults.MaxListHeight)) {
-            itemsIndexed(options) { index, option ->
-                Column {
-                    if (index > 0) DashedDividerMMD(Modifier.padding(horizontal = SheetDefaults.RowPadding))
-                    Row(
-                        modifier =
-                            Modifier
-                                .fillMaxWidth()
-                                .heightIn(min = SheetDefaults.RowHeight)
-                                .clickable {
-                                    onSelect(option)
-                                    onDismissRequest()
-                                }.padding(horizontal = SheetDefaults.RowPadding),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        RadioButtonMMD(selected = option == selected, onClick = null)
-                        TextMMD(
-                            text = label(option),
-                            style = MaterialTheme.typography.bodyLarge,
-                            modifier = Modifier.padding(start = 16.dp),
-                        )
-                    }
-                }
+        SheetRows(options) { index, option ->
+            if (index > 0) DashedDividerMMD(Modifier.padding(horizontal = SheetDefaults.RowPadding))
+            Row(
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = SheetDefaults.RowHeight)
+                        .clickable {
+                            onSelect(option)
+                            onDismissRequest()
+                        }.padding(horizontal = SheetDefaults.RowPadding),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                RadioButtonMMD(selected = option == selected, onClick = null)
+                TextMMD(
+                    text = label(option),
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.padding(start = 16.dp),
+                )
             }
         }
     }
@@ -158,27 +154,23 @@ fun <T> MultiChoiceSheet(
 ) {
     MmdSheet(onDismissRequest = onDismissRequest) {
         SheetTitle(title)
-        LazyColumnMMD(modifier = Modifier.heightIn(max = SheetDefaults.MaxListHeight)) {
-            itemsIndexed(options) { index, option ->
-                Column {
-                    if (index > 0) DashedDividerMMD(Modifier.padding(horizontal = SheetDefaults.RowPadding))
-                    Row(
-                        modifier =
-                            Modifier
-                                .fillMaxWidth()
-                                .heightIn(min = SheetDefaults.RowHeight)
-                                .clickable { onToggle(option) }
-                                .padding(horizontal = SheetDefaults.RowPadding),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        CheckboxMMD(checked = option in checked, onCheckedChange = null)
-                        TextMMD(
-                            text = label(option),
-                            style = MaterialTheme.typography.bodyLarge,
-                            modifier = Modifier.padding(start = 16.dp),
-                        )
-                    }
-                }
+        SheetRows(options) { index, option ->
+            if (index > 0) DashedDividerMMD(Modifier.padding(horizontal = SheetDefaults.RowPadding))
+            Row(
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = SheetDefaults.RowHeight)
+                        .clickable { onToggle(option) }
+                        .padding(horizontal = SheetDefaults.RowPadding),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                CheckboxMMD(checked = option in checked, onCheckedChange = null)
+                TextMMD(
+                    text = label(option),
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.padding(start = 16.dp),
+                )
             }
         }
         PanelActions {
@@ -190,6 +182,25 @@ fun <T> MultiChoiceSheet(
                 },
                 modifier = Modifier.weight(1f).padding(SheetDefaults.RowPadding),
             )
+        }
+    }
+}
+
+/**
+ * A sheet's rows. A short list is laid out as plain rows, so the sheet is only as tall as its
+ * choices; a lazy list takes its whole maximum height even for two rows. A long list pages inside
+ * a bounded height with MMD's scrollbar.
+ */
+@Composable
+private fun <T> SheetRows(
+    options: List<T>,
+    row: @Composable (index: Int, option: T) -> Unit,
+) {
+    if (options.size <= SheetDefaults.MAX_UNPAGED_ROWS) {
+        Column { options.forEachIndexed { index, option -> row(index, option) } }
+    } else {
+        LazyColumnMMD(modifier = Modifier.heightIn(max = SheetDefaults.MaxListHeight)) {
+            itemsIndexed(options) { index, option -> Column { row(index, option) } }
         }
     }
 }
@@ -214,6 +225,9 @@ object SheetDefaults {
     val RowPadding: Dp
         @Composable @ReadOnlyComposable
         get() = LocalMmdTokens.current.edgePadding
+
+    /** Up to this many rows a sheet sizes to its rows; more page inside [MaxListHeight]. */
+    const val MAX_UNPAGED_ROWS = 6
 
     /** Bounds the paged list inside a sheet; a lazy list cannot measure in unbounded height. */
     val MaxListHeight: Dp = 420.dp

@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">Sincronización unidireccional solicitada</string>
     <string name="full_sync_confirmation">El cambio solicitado requiere una subida completa de la base de datos en la próxima sincronización de su colección. Si tiene repasos u otros cambios aguardando en otro dispositivo que no hayan sido aún sincronizados, se perderán. ¿Continuar?</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">Sincronización (unidireccional)</string>
 </resources>

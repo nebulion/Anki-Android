@@ -8,20 +8,23 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
@@ -35,7 +38,6 @@ import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.NumberPanel
 import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.PanelActions
-import com.ichi2.compose.mmd.PanelBody
 import com.ichi2.compose.mmd.PanelDialog
 import com.ichi2.compose.mmd.PanelPrimaryAction
 import com.ichi2.compose.mmd.PanelSecondaryAction
@@ -45,9 +47,12 @@ import com.ichi2.compose.mmd.RowDivider
 import com.ichi2.compose.mmd.ScreenHeader
 import com.ichi2.compose.mmd.SectionTitle
 import com.ichi2.compose.mmd.SwitchRow
+import com.ichi2.compose.mmd.TextBlock
+import com.ichi2.compose.mmd.TextPage
 import com.ichi2.compose.mmd.TextPanel
 import com.ichi2.compose.mmd.ValueRow
 import com.ichi2.compose.mmd.panelTextFieldColors
+import com.ichi2.compose.mmd.paragraphs
 import com.mudita.mmd.components.radio_button.RadioButtonMMD
 import com.mudita.mmd.components.text.TextMMD
 import com.mudita.mmd.components.text_field.TextFieldMMD
@@ -55,8 +60,8 @@ import net.ankiweb.rsdroid.Translations
 
 /**
  * The deck options as a settings page: the preset in use, then each section of the backend's deck
- * options page as a heading and rows. A value opens a panel or sheet to change it, with that
- * setting's help; a heading's help button lists the whole section's.
+ * options page as a heading and rows. A value opens a panel or sheet to change it; a heading's
+ * help button opens the section's help on a page of its own.
  *
  * Nothing is written until Save, as on the web page. [state] is null while the options load.
  */
@@ -155,7 +160,7 @@ fun DeckOptionsScreenMMD(
                 onDismissRequest = { isChoosingPreset = false },
             )
         }
-        help?.let { heading -> HelpPanel(heading, tr) { help = null } }
+        help?.let { heading -> HelpPage(heading) { help = null } }
         editor?.let { current -> EditorPanel(current, state, tr) { editor = null } }
     }
 }
@@ -170,35 +175,31 @@ private fun HeadingRow(
         Row(verticalAlignment = Alignment.CenterVertically) {
             SectionTitle(heading.title, Modifier.weight(1f))
             if (heading.help.isNotEmpty()) {
-                HeaderAction(icon = R.drawable.ic_help_black_24dp, contentDescription = stringResource(R.string.help), onClick = onHelp)
+                // a small glyph beside the heading text, in a full-size touch target
+                IconButton(onClick = onHelp, modifier = Modifier.size(48.dp)) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_help_black_24dp),
+                        contentDescription = stringResource(R.string.help),
+                        modifier = Modifier.size(20.dp),
+                        tint = MaterialTheme.colorScheme.onSurface,
+                    )
+                }
             }
         }
     }
 }
 
-/** A section's help: each setting's name and what it does, scrolling inside the panel. */
+/** A section's help on a page of its own: each setting's name, then what it does. */
 @Composable
-private fun HelpPanel(
+private fun HelpPage(
     heading: OptionEntry.Heading,
-    tr: Translations,
-    onDismiss: () -> Unit,
+    onClose: () -> Unit,
 ) {
-    PanelDialog(onDismissRequest = onDismiss) {
-        PanelTitle(heading.title)
-        Column(Modifier.heightIn(max = 420.dp).verticalScroll(rememberScrollState())) {
-            heading.help.forEach { item ->
-                TextMMD(text = item.title, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Bold)
-                TextMMD(
-                    text = plainHelp(item.text),
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(bottom = 12.dp),
-                )
-            }
-        }
-        PanelActions {
-            PanelPrimaryAction(label = tr.actionsClose(), onClick = onDismiss, modifier = Modifier.fillMaxWidth())
-        }
-    }
+    TextPage(
+        title = heading.title,
+        blocks = heading.help.flatMap { listOf(TextBlock.Heading(it.title)) + paragraphs(plainHelp(it.text)) },
+        onClose = onClose,
+    )
 }
 
 @Composable
@@ -210,12 +211,11 @@ private fun EditorPanel(
 ) {
     val ok = stringResource(R.string.dialog_ok)
     val cancel = stringResource(R.string.dialog_cancel)
-    val help = editor.help?.let(::plainHelp)
     when (editor) {
         is Editor.Integer ->
             NumberPanel(
                 title = editor.title,
-                body = help,
+                body = null,
                 value = editor.value,
                 min = editor.min,
                 max = editor.max,
@@ -237,7 +237,7 @@ private fun EditorPanel(
                 )
             TextPanel(
                 title = editor.title,
-                body = help,
+                body = null,
                 value = formatDecimal(editor.value, editor.percent).removeSuffix("%"),
                 confirmLabel = ok,
                 dismissLabel = cancel,
@@ -252,7 +252,7 @@ private fun EditorPanel(
         is Editor.Text ->
             TextPanel(
                 title = editor.title,
-                body = help,
+                body = null,
                 value = editor.value,
                 confirmLabel = ok,
                 dismissLabel = cancel,
@@ -275,7 +275,6 @@ private fun EditorPanel(
         is Editor.Limit ->
             ScopedNumberPanel(
                 title = editor.title,
-                help = help,
                 scopes = LimitScope.entries.map { it to scopeLabel(tr, it) },
                 initialScope = state.limits.scope(editor.kind),
                 initialValue = state.limitValue(editor.kind).toString(),
@@ -291,7 +290,6 @@ private fun EditorPanel(
             val range = Editor.Decimal(editor.title, null, 0f, 0.7f, 0.99f, percent = true) {}
             ScopedNumberPanel(
                 title = editor.title,
-                help = help,
                 scopes = listOf(false to tr.deckConfigSharedPreset(), true to tr.deckConfigDeckOnly()),
                 initialScope = state.limits.hasDesiredRetention(),
                 initialValue = formatDecimal(state.effectiveDesiredRetention, percent = true).removeSuffix("%"),
@@ -311,7 +309,6 @@ private fun EditorPanel(
 @Composable
 private fun <S, V> ScopedNumberPanel(
     title: String,
-    help: String?,
     scopes: List<Pair<S, String>>,
     initialScope: S,
     initialValue: String,
@@ -320,14 +317,11 @@ private fun <S, V> ScopedNumberPanel(
     onConfirm: (S, V) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    var scopeIndex by rememberSaveable { mutableStateOf(scopes.indexOfFirst { it.first == initialScope }.coerceAtLeast(0)) }
+    var scopeIndex by rememberSaveable { mutableIntStateOf(scopes.indexOfFirst { it.first == initialScope }.coerceAtLeast(0)) }
     var text by rememberSaveable { mutableStateOf(initialValue) }
     val parsed = parse(text)
     PanelDialog(onDismissRequest = onDismiss) {
         PanelTitle(title)
-        help?.let {
-            Column(Modifier.heightIn(max = 160.dp).verticalScroll(rememberScrollState())) { PanelBody(it) }
-        }
         scopes.forEachIndexed { index, (_, label) ->
             Row(
                 modifier =

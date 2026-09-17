@@ -8,7 +8,6 @@ import androidx.core.os.bundleOf
 import com.ichi2.anki.DeckPicker
 import com.ichi2.anki.R
 import com.ichi2.compose.mmd.ComposeHostFragment
-import com.ichi2.utils.VersionUtils
 
 /**
  * One page of the settings. The root page also carries what used to be the More page: the owner's
@@ -51,7 +50,6 @@ class SettingsPageFragment : ComposeHostFragment() {
             title = getString(page.titleRes),
             entries = entries(),
             onBack = { requireActivity().onBackPressedDispatcher.onBackPressed() },
-            footer = if (page == SettingsPage.Root) getString(R.string.mmd_version, VersionUtils.pkgVersionName) else null,
         )
     }
 

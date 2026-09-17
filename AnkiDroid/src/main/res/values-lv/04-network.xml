@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">Pieprasīta vienvirziena vienādošana</string>
     <string name="full_sync_confirmation">Pieprasītajai izmaiņai nākamajā krājuma vienādošanas reizē būs nepieciešama pilna datubāzes augšupielāde. Ja kādā citā ierīcē ir veikta izskatīšana vai citas izmaiņas, kuras nav vēl nav vienādotas, tās tiks zaudētas. Turpināt?</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">Vienādot (vienā virzinā)</string>
 </resources>

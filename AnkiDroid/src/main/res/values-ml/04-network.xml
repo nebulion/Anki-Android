@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">വൺ-വേ സിൻക്രൊണൈസേഷൻ</string>
     <string name="full_sync_confirmation">The requested change will require a full upload of the database when you next synchronize your collection. If you have reviews or other changes waiting on another device that haven’t been synchronized here yet, they will be lost. Continue?</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">സമന്വയം (വൺ-വേ)</string>
 </resources>

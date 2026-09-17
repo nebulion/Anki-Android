@@ -101,14 +101,6 @@ fun DeckListScreenMMD(
                 )
             },
         )
-        if (state.isLoggedIn && state.syncState == SyncIconState.OneWay && !isSyncing) {
-            TextMMD(
-                text = stringResource(R.string.sync_menu_title_one_way_sync),
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 8.dp),
-            )
-            DashedDividerMMD()
-        }
         when {
             state.syncProgress != null -> Syncing(state.syncProgress, Modifier.weight(1f))
             state.isEmptyCollection == null -> Spacer(Modifier.weight(1f))

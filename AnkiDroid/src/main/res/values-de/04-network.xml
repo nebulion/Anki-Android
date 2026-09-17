@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">Einweg-Synchronisierung angefordert</string>
     <string name="full_sync_confirmation">Diese Änderungen erfordern eine Einweg-Synchronisierung. Änderungen, die auf einem anderen Gerät vorgenommen, aber noch nicht synchronisiert wurden, gehen dabei verloren. Möchten Sie fortfahren?</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">Synchronisierung (Einweg)</string>
 </resources>

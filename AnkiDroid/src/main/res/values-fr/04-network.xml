@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">Synchronisation à sens unique initiée</string>
     <string name="full_sync_confirmation">Une telle modification suppose de ré-envoyer la totalité de la base de données lors de la prochaine synchronisation de la collection. S’il y de plus récentes modifications à partir d’un appareil tiers, qui n’ont pu être synchronisées, celles-ci seront perdues. Continuer ?</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">Synchroniser (à sens unique)</string>
 </resources>

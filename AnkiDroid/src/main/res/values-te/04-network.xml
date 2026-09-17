@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">వన్ వే సింక్రొనైజేషన్ అభ్యర్థించబడింది</string>
     <string name="full_sync_confirmation">మీ సేకరణ సమకాలీకరించినప్పుడు అభ్యర్థించిన మార్పుకు మీ డేటాబేస్ యొక్క పూర్తి అప్లోడ్ అవసరం అవుతుంది. ఇప్పటికీ సమీక్షలు లేదా ఇతర మార్పులు ఇప్పటికీ ఇక్కడ సమకాలీకరించబడకపోతే, అవి పోతాయి. కొనసాగించు?</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">సమకాలీకరణ (వన్-వే)</string>
 </resources>

@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">One way sync requested</string>
     <string name="full_sync_confirmation">İstənilən dəyişiklik sonradan kolleksiyanı sinxronlaşdırdığınız zaman bazanın tam yüklənməsini tələb edəcək.Hal hazirda buradakı sinxronizasiya edilməmiş başqa bir cihazda gözdən keçirmə və ya digər dəyişiklikləriniz varsa, onlar itirilmiş olacaq.Davam?</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">Sinxronizasiya (bir tərəfli)</string>
 </resources>

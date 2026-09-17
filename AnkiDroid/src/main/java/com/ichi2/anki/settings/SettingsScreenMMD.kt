@@ -12,8 +12,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import com.ichi2.anki.R
 import com.ichi2.compose.mmd.ActionRow
 import com.ichi2.compose.mmd.GroupDivider
@@ -99,7 +97,6 @@ fun SettingsScreenMMD(
     title: String,
     entries: List<SettingsEntry>?,
     onBack: () -> Unit,
-    footer: String? = null,
 ) {
     Column(Modifier.fillMaxSize()) {
         ScreenHeader(
@@ -155,16 +152,6 @@ fun SettingsScreenMMD(
                     if (entry.isRow && !isLastInGroup) {
                         RowDivider(hasLeadingIcon = entry.leadingIcon != null)
                     }
-                }
-            }
-            if (footer != null) {
-                item {
-                    TextMMD(
-                        text = footer,
-                        style = MaterialTheme.typography.bodyMedium,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.fillMaxWidth().padding(horizontal = RowDefaults.EdgePadding, vertical = 16.dp),
-                    )
                 }
             }
         }

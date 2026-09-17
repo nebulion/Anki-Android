@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">一方向同期がリクエストされました</string>
     <string name="full_sync_confirmation">要求した変更を行うには、次回のコレクションの同期の際にデータベースの完全なアップロードが必要です。他の端末で学習やその他の変更を行ってまだ同期が済んでいない場合、それらの変更は失われます。処理を続けますか？</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">同期（一方向）</string>
 </resources>

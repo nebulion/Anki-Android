@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">Запрошена односторонняя синхронизация</string>
     <string name="full_sync_confirmation">Последние изменения требуют полную выгрузку базы данных при следующей синхронизации. Если на другом вашем устройстве есть изменения, они будут утеряны. Продолжить?</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">Синхронизировать в одну сторону</string>
 </resources>

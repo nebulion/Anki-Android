@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">One way sync requested</string>
     <string name="full_sync_confirmation">Измена, коју сте затражили, захтеваће учитавање целе базе података приликом следеће синхронизације ваше колекције. Ако на другом уређају имате измене које још нису синхронизоване, изгубићете их. Да ли желите да наставите?</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">Sync (one-way)</string>
 </resources>

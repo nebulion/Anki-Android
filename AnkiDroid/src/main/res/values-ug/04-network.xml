@@ -48,5 +48,4 @@
     <string name="one_way_sync_confirmation">تاق يۆنىلىشلىك قەدەمداش زۆرۈر</string>
     <string name="full_sync_confirmation">ئىلتىماس قىلىنغان ئۆزگەرتىش كېيىنكى قەدەمدە توپلىمىڭىزنى قەدەمداشلىغاندا سانداننى تولۇق يۈكلەشنى تەلەپ قىلىدۇ. ئەگەر باشقا ئۈسكۈنىدە تېخى قەدەمداشلانمىغان كۈتۈۋاتقان تەكرارلاش ياكى باشقا ئۆزگىرىشلەر بولسا ، ئۇلار يوقاپ كېتىدۇ. داۋاملاشتۇرامدۇ؟</string>
     <!-- Deck Picker Sync Icon -->
-    <string name="sync_menu_title_one_way_sync">قەدەمداش (تاق يۆنىلىشلىك)</string>
 </resources>

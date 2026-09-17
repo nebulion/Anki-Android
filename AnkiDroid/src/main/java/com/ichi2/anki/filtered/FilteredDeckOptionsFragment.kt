@@ -12,11 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.setValue
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.ichi2.anki.CollectionManager.TR
+import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.R
 import com.ichi2.anki.libanki.DeckId
 import com.ichi2.anki.ui.internationalization.sentenceCase
@@ -65,6 +67,9 @@ class FilteredDeckOptionsFragment :
     @Composable
     override fun ScreenContent() {
         val state by viewModel.state.collectAsStateWithLifecycle()
+        val deckNames by produceState(emptyList<String>()) {
+            value = withCol { decks.allNamesAndIds(includeFiltered = false).map { it.name } }
+        }
 
         when (val current = state) {
             is Initializing -> {
@@ -83,7 +88,7 @@ class FilteredDeckOptionsFragment :
             // built: the deck page behind this screen shows the deck
             DeckBuilt -> LaunchedEffect(Unit) { requireActivity().finish() }
             is FilteredDeckOptions -> {
-                FilteredDeckOptionsScreenMMD(state = current, actions = this)
+                FilteredDeckOptionsScreenMMD(state = current, actions = this, deckNames = deckNames)
                 current.throwable?.let { error ->
                     PanelDialog(onDismissRequest = viewModel::clearError) {
                         PanelTitle(getString(R.string.import_title_error))

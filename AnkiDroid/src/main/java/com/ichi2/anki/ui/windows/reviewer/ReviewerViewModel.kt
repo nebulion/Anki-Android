@@ -389,7 +389,8 @@ class ReviewerViewModel(
 
     private suspend fun undo() {
         Timber.v("ReviewerViewModel::undo")
-        actionFeedbackFlow.emit(tryUndo())
+        // owner, 2026-09-17: no snackbar; the card coming back shows the undo happened
+        Timber.i("ReviewerViewModel::undo: %s", tryUndo())
     }
 
     private suspend fun redo() {

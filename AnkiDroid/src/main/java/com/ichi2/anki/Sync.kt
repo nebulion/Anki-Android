@@ -427,7 +427,8 @@ fun DeckPicker.showSyncLogMessage(
         )
     } else {
         if (syncMessage.isNullOrEmpty()) {
-            showSnackbar(messageResource)
+            // owner, 2026-09-17: no snackbar for a sync that went through; the sync screen closing says so
+            Timber.i("Sync: %s", AnkiDroidApp.appResources.getString(messageResource))
         } else {
             val res = AnkiDroidApp.appResources
             showSimpleMessageDialog(title = res.getString(messageResource), message = syncMessage)

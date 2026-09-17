@@ -306,6 +306,12 @@ kind (`662368a`, owner: they crowded it; the counts stay on the amount panel).
   indicator; the deck list reloads in place after a sync instead of behind a panel.
 - Sync screen: title, bar and Cancel keep their places; a normal sync's changes show as a table,
   sent and received, added-or-changed and deleted.
+- Study screen: answering and Undo no longer stop working when Android rebuilds the screen with
+  the answer showing (after leaving the app, sleeping the phone or opening card info); regression
+  test in `ReviewerViewModelTest`.
+- Sync badge sits on the icon's corner. No snackbar after a sync that went through (a server message
+  still shows) or after Undo on the study screen.
+- Startup screen: Anki's card and star logo in black on white (`ic_splash_logo`).
 
 **Device check (pending):** card info from the study screen; statistics for a deck and for all
 decks (tap a bar, change a range); deck options: change a limit for this deck only and save, add

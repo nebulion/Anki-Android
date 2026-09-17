@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -139,7 +140,8 @@ private fun SyncAction(
 ) {
     val description = stringResource(R.string.button_sync)
     if (syncState == SyncIconState.PendingChanges && enabled) {
-        BadgedBoxMMD(badge = { BadgeMMD() }) {
+        // the badge sits on the glyph's corner, not the 48dp touch target's (owner, 2026-09-17)
+        BadgedBoxMMD(badge = { BadgeMMD(Modifier.offset(x = -SyncBadgeInset, y = SyncBadgeInset)) }) {
             HeaderAction(icon = R.drawable.ic_sync, contentDescription = description, onClick = onSync)
         }
     } else {
@@ -305,6 +307,9 @@ private fun SyncChangesTable(changes: SyncChanges) {
         )
     }
 }
+
+/** How far the header's 28dp glyph sits inside its 48dp touch target. */
+private val SyncBadgeInset = 10.dp
 
 /** Room for the changes table, so nothing above or below it moves when it appears. */
 private val SyncDetailHeight = 160.dp

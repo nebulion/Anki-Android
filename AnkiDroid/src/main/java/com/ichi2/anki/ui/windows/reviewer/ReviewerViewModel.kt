@@ -20,6 +20,7 @@ import com.ichi2.anki.common.destinations.CardInfoDestination
 import com.ichi2.anki.common.destinations.CardInfoDestination.EntryPoint
 import com.ichi2.anki.common.destinations.DeckOptionsDestination
 import com.ichi2.anki.common.destinations.DeckOptionsEntry
+import com.ichi2.anki.common.destinations.NoteEditorDestination
 import com.ichi2.anki.common.destinations.StatisticsDestination
 import com.ichi2.anki.launchCatchingIO
 import com.ichi2.anki.libanki.Card
@@ -256,6 +257,14 @@ class ReviewerViewModel(
     fun onStateMutationCallback() {
         mutationSignal.complete(Unit)
     }
+
+    /** Opens the card editor on the current card's note; the study screen reloads it on save. */
+    fun editNote() =
+        launchCatchingIO {
+            val cardId = currentCard.await().id
+            Timber.i("Launching the card editor for card %d", cardId)
+            navigateFlow.emit(NoteEditorDestination(cardId = cardId))
+        }
 
     private suspend fun emitCardInfoDestination() {
         val cardId = currentCard.await().id

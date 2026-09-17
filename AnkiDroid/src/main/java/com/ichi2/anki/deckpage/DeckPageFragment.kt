@@ -19,6 +19,7 @@ import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.CollectionManager.withCol
 import com.ichi2.anki.R
 import com.ichi2.anki.StudyOptionsViewModel
+import com.ichi2.anki.common.destinations.NoteEditorDestination
 import com.ichi2.anki.common.destinations.ReviewDeckDestination
 import com.ichi2.anki.common.destinations.navigate
 import com.ichi2.anki.dialogs.customstudy.ContextMenuOption
@@ -28,6 +29,7 @@ import com.ichi2.anki.dialogs.customstudy.CustomStudyViewModel
 import com.ichi2.anki.export.ExportFragment
 import com.ichi2.anki.filtered.FilteredDeckOptionsFragment
 import com.ichi2.anki.launchCatchingTask
+import com.ichi2.anki.noteeditor.toIntent
 import com.ichi2.anki.observability.ChangeManager
 import com.ichi2.anki.pages.DeckOptions
 import com.ichi2.anki.ui.internationalization.sentenceCase
@@ -165,6 +167,9 @@ class DeckPageFragment :
             } else {
                 add(MenuItem(TR.sentenceCase.customStudy, onClick = onCustomStudy))
             }
+            if (!isFiltered) {
+                add(MenuItem(getString(R.string.mmd_editor_add_note)) { addNote() })
+            }
             add(MenuItem(with(context) { TR.sentenceCase.renameDeck }, onClick = onRename))
             add(MenuItem(getString(R.string.export_deck)) { exportDeck() })
             if (viewModel.haveBuried) {
@@ -253,6 +258,10 @@ class DeckPageFragment :
 
     private fun exportDeck() {
         startActivity(ExportFragment.getIntent(requireContext(), viewModel.selectedDeckId))
+    }
+
+    private fun addNote() {
+        startActivity(NoteEditorDestination(deckId = viewModel.selectedDeckId).toIntent(requireContext()))
     }
 
     private fun rebuildFiltered() =

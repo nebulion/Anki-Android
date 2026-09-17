@@ -9,9 +9,11 @@ import com.ichi2.anki.common.destinations.DeckOptionsDestination
 import com.ichi2.anki.common.destinations.Destination
 import com.ichi2.anki.common.destinations.LauncherDestination
 import com.ichi2.anki.common.destinations.Navigator
+import com.ichi2.anki.common.destinations.NoteEditorDestination
 import com.ichi2.anki.common.destinations.ReviewDeckDestination
 import com.ichi2.anki.common.destinations.StatisticsDestination
 import com.ichi2.anki.common.destinations.StudyOptionsDestination
+import com.ichi2.anki.noteeditor.toIntent
 import com.ichi2.anki.pages.toIntent
 import com.ichi2.anki.toIntent
 
@@ -28,6 +30,7 @@ object AnkiDroidNavigator : Navigator {
             is CardInfoDestination -> destination.toIntent(navContext)
             is DeckOptionsDestination -> destination.toIntent(navContext)
             is LauncherDestination -> destination.toIntent(navContext)
+            is NoteEditorDestination -> destination.toIntent(navContext)
             is ReviewDeckDestination -> destination.toIntent(navContext)
             is StatisticsDestination -> destination.toIntent(navContext)
             is StudyOptionsDestination -> destination.toIntent(navContext)

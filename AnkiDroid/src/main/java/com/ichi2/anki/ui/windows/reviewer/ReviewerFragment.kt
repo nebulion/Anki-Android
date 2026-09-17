@@ -287,6 +287,7 @@ class ReviewerFragment :
                         if (canSuspendNote) {
                             add(MenuItem(ViewerAction.SUSPEND_NOTE.title(context)) { viewModel.executeAction(ViewerAction.SUSPEND_NOTE) })
                         }
+                        add(MenuItem(getString(R.string.mmd_editor_edit_note)) { viewModel.editNote() })
                         add(MenuItem(ViewerAction.CARD_INFO.title(context)) { viewModel.executeAction(ViewerAction.CARD_INFO) })
                         add(MenuItem(ViewerAction.DECK_OPTIONS.title(context)) { viewModel.executeAction(ViewerAction.DECK_OPTIONS) })
                         val autoAdvanceLabel = if (isAutoAdvanceEnabled) R.string.disable_auto_advance else R.string.enable_auto_advance

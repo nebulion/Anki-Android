@@ -75,7 +75,7 @@ class BrowseFragment : ComposeHostFragment() {
 
         Column(Modifier.fillMaxSize()) {
             ScreenHeader(
-                title = stringResource(R.string.mmd_browse),
+                title = stringResource(R.string.bottom_nav_browse),
                 navigationIcon = {
                     HeaderAction(
                         icon = R.drawable.ic_baseline_arrow_back_24,
@@ -153,8 +153,8 @@ class BrowseFragment : ComposeHostFragment() {
             Confirm.Reset ->
                 ConfirmPanel(
                     title = getString(R.string.reset_card_dialog_title),
-                    body = getString(R.string.mmd_browse_reset_body, selected.size),
-                    confirmLabel = getString(R.string.mmd_browse_reset),
+                    body = getString(R.string.reset_body, selected.size),
+                    confirmLabel = getString(R.string.reset),
                     dismissLabel = getString(R.string.dialog_cancel),
                     onConfirm = {
                         confirming = null
@@ -204,7 +204,7 @@ class BrowseFragment : ComposeHostFragment() {
                         text =
                             row
                                 ?.let {
-                                    if (it.isSuspended) "${it.detail} · ${getString(R.string.mmd_browse_is_suspended)}" else it.detail
+                                    if (it.isSuspended) "${it.detail} · ${getString(R.string.mmd_filter_suspended)}" else it.detail
                                 }.orEmpty(),
                         style = MaterialTheme.typography.bodySmall,
                         maxLines = 1,

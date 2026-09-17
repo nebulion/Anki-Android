@@ -90,7 +90,7 @@ fun DeckListScreenMMD(
                 }
                 HeaderAction(
                     icon = R.drawable.ic_search_white,
-                    contentDescription = stringResource(R.string.mmd_browse),
+                    contentDescription = stringResource(R.string.bottom_nav_browse),
                     onClick = onBrowse,
                     enabled = !isSyncing,
                 )

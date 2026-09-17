@@ -47,7 +47,6 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="mmd_settings_number_range">Enter a number between %1$d and %2$d</string>
     <!-- MMD fork: the native statistics page -->
     <string name="mmd_stats_history">History</string>
-    <string name="mmd_browse">Browse</string>
     <string name="mmd_browse_cards">Browse cards</string>
     <string name="mmd_browse_search">Search</string>
     <string name="mmd_browse_searching">Searching</string>
@@ -55,9 +54,7 @@ If you want to use a string in your code that can't be translated, please use:
     <string name="mmd_browse_count">%1$d cards · %2$d selected</string>
     <string name="mmd_browse_suspend">Suspend</string>
     <string name="mmd_browse_unsuspend">Unsuspend</string>
-    <string name="mmd_browse_is_suspended">suspended</string>
     <string name="mmd_browse_delete">Delete notes</string>
-    <string name="mmd_browse_reset">Reset</string>
     <string name="mmd_browse_reset_body">%d cards become new cards, as if never studied.</string>
     <string name="mmd_browse_delete_body">The notes of %d cards are deleted, with all their cards.</string>
     <string name="mmd_browse_was_reset">%d cards reset</string>

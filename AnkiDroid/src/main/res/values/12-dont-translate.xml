@@ -48,6 +48,7 @@ If you want to use a string in your code that can't be translated, please use:
     <!-- MMD fork: the native statistics page -->
     <string name="mmd_stats_history">History</string>
     <string name="mmd_stats_year">Year</string>
+    <string name="mmd_loading_statistics">Loading statistics</string>
     <string name="mmd_stats_previous">Previous</string>
     <string name="mmd_stats_next">Next</string>
     <!-- MMD fork: the native deck options page -->

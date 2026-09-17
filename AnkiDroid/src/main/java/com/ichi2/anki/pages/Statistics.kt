@@ -26,12 +26,13 @@ import com.ichi2.anki.launchCatchingTask
 import com.ichi2.anki.model.SelectableDeck
 import com.ichi2.anki.stats.RevlogRange
 import com.ichi2.anki.stats.StatisticsScreenMMD
+import com.ichi2.anki.stats.StatsDeck
 import com.ichi2.anki.stats.StatsFormat
 import com.ichi2.compose.mmd.ComposeHostFragment
 
 /**
  * Statistics as a native page: the backend's graphs data drawn with MMD rows and E Ink charts.
- * The header names the deck being shown and its action picks another deck or the whole collection.
+ * The header names the deck being shown; a row on the page picks another deck or the whole collection.
  *
  * It was the backend's web page, restyled; see `StatisticsScreenMMD`. Saving the graphs as a PDF
  * stays gone: printing has no place on the Kompakt.
@@ -48,6 +49,9 @@ class Statistics : ComposeHostFragment() {
     private var data: GraphsResponse? by mutableStateOf(null)
     private var prefs: GraphPreferences? by mutableStateOf(null)
 
+    /** "All decks" (the collection), then every deck but filtered ones, in deck list order. */
+    private var decks: List<StatsDeck> by mutableStateOf(emptyList())
+
     override fun onViewCreated(
         view: View,
         savedInstanceState: Bundle?,
@@ -56,6 +60,9 @@ class Statistics : ComposeHostFragment() {
         registerDeckSelectedHandler(action = ::onDeckSelected)
         savedInstanceState?.getString(KEY_REVLOG_RANGE)?.let { revlogRange = RevlogRange.valueOf(it) }
         launchCatchingTask {
+            decks =
+                listOf(StatsDeck(null, TR.statisticsRangeCollection())) +
+                withCol { decks.allNamesAndIds(skipEmptyDefault = true, includeFiltered = false).map { StatsDeck(it.id, it.name) } }
             prefs = withCol { backend.getGraphPreferences() }
             val saved = savedInstanceState?.getLong(KEY_DECK_ID, NO_DECK) ?: withCol { decks.current().id }
             if (saved == COLLECTION) {
@@ -78,7 +85,9 @@ class Statistics : ComposeHostFragment() {
         val search = searchFor(deckId)
         LaunchedEffect(search, revlogRange) {
             if (search == null) return@LaunchedEffect
-            // the old graphs stay on screen until the new ones arrive
+            // the loading indicator shows while a deck or history range loads, rather than numbers
+            // that no longer match the header
+            data = null
             data = withCol { backend.graphs(search, revlogRange.days) }
         }
         StatisticsScreenMMD(
@@ -88,9 +97,13 @@ class Statistics : ComposeHostFragment() {
             revlogRange = revlogRange,
             fmt = fmt,
             locale = locale,
+            decks = decks,
+            selectedDeckId = if (deckId == COLLECTION) null else deckId,
+            onDeckSelected = { deck ->
+                launchCatchingTask { if (deck.id == null) showCollection() else showDeck(deck.id, deck.name) }
+            },
             onRevlogRangeChange = { revlogRange = it },
             onPrefsChange = ::savePrefs,
-            onPickDeck = ::showDeckPicker,
             onBack = { requireActivity().onBackPressedDispatcher.onBackPressed() },
         )
     }

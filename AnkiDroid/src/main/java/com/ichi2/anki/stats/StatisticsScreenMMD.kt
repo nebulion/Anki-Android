@@ -12,9 +12,12 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -23,6 +26,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -31,13 +35,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import anki.stats.GraphPreferences
 import anki.stats.GraphsResponse
 import com.ichi2.anki.R
 import com.ichi2.compose.mmd.ChoiceSheet
+import com.ichi2.compose.mmd.GroupDivider
 import com.ichi2.compose.mmd.HeaderAction
 import com.ichi2.compose.mmd.InfoRow
+import com.ichi2.compose.mmd.LoadingIndicator
 import com.ichi2.compose.mmd.NavRow
 import com.ichi2.compose.mmd.PagedList
 import com.ichi2.compose.mmd.RowDefaults
@@ -45,7 +54,10 @@ import com.ichi2.compose.mmd.RowDivider
 import com.ichi2.compose.mmd.ScreenHeader
 import com.ichi2.compose.mmd.SwitchRow
 import com.ichi2.compose.mmd.ValueRow
+import com.mudita.mmd.components.radio_button.RadioButtonMMD
 import com.mudita.mmd.components.text.TextMMD
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import net.ankiweb.rsdroid.Translations
 import java.time.ZonedDateTime
 import java.util.Locale
@@ -68,18 +80,26 @@ enum class StatsSection {
     Added,
 }
 
+/** A deck statistics can be shown for; a null id is the whole collection. */
+data class StatsDeck(
+    val id: Long?,
+    /** The full name, e.g. `Italian::Verbs`. */
+    val name: String,
+)
+
 /**
  * The statistics, drawn natively from the backend's `graphs` data, laid out as Settings is
  * (owner, 2026-09-16): a list of the backend page's sections, each with a one-line summary, each
  * opening a page of its own with its options, its chart and its summary rows.
+ *
+ * The deck is a row at the top that opens a page of decks to choose from.
  *
  * A chart's numbers are read a bar at a time: the page opens on the latest bar with data, and the
  * arrows either side of its numbers step to the previous or next bar with data. Tapping a bar also
  * selects it, but bars can be a few pixels wide, so the arrows are the dependable way on a small
  * E Ink screen.
  *
- * [data] is null until the first load; a reload keeps the old graphs on screen until the new ones
- * arrive, as the web page did.
+ * [data] is null while the graphs load, shown as the MMD loading indicator.
  */
 @Composable
 fun StatisticsScreenMMD(
@@ -89,13 +109,16 @@ fun StatisticsScreenMMD(
     revlogRange: RevlogRange,
     fmt: StatsFormat,
     locale: Locale,
+    decks: List<StatsDeck>,
+    selectedDeckId: Long?,
+    onDeckSelected: (StatsDeck) -> Unit,
     onRevlogRangeChange: (RevlogRange) -> Unit,
     onPrefsChange: (GraphPreferences) -> Unit,
-    onPickDeck: () -> Unit,
     onBack: () -> Unit,
 ) {
     val tr = fmt.tr
     var section by rememberSaveable { mutableStateOf<StatsSection?>(null) }
+    var isChoosingDeck by rememberSaveable { mutableStateOf(false) }
     BackHandler(enabled = section != null) { section = null }
 
     Column(Modifier.fillMaxSize()) {
@@ -108,14 +131,11 @@ fun StatisticsScreenMMD(
                     onClick = { if (section != null) section = null else onBack() },
                 )
             },
-            actions = {
-                if (section == null) {
-                    HeaderAction(icon = R.drawable.id_arrow_drop_down, contentDescription = tr.actionsDecks(), onClick = onPickDeck)
-                }
-            },
         )
+        val loadingLabel = stringResource(R.string.mmd_loading_statistics)
         if (data == null) {
-            BodyLine(stringResource(R.string.dialog_processing))
+            LoadingIndicator(loadingLabel, Modifier.weight(1f))
+            if (isChoosingDeck) DeckPage(decks, selectedDeckId, tr, onDeckSelected) { isChoosingDeck = false }
             return@Column
         }
 
@@ -153,34 +173,56 @@ fun StatisticsScreenMMD(
         val yearTitle = stringResource(R.string.mmd_stats_year)
         val rangeTitle = tr.statisticsTrueRetentionRange()
         val noData = tr.statisticsNoData()
-        // the bucketing only re-runs when its inputs change, not on every redraw
-        val today = remember(data) { todayLines(data, fmt) }
-        val future =
-            remember(data, futureRange, prefs.futureDueShowBacklog) {
-                futureDue(data, fmt, futureRange, prefs.futureDueShowBacklog)
-            }
-        val calendar =
-            remember(data, calendarYear, prefs.calendarFirstDayOfWeek, revlogRange) {
-                calendar(data, fmt, calendarYear, prefs.calendarFirstDayOfWeek, revlogRange, ZonedDateTime.now(), locale)
-            }
-        val reviewsModel = remember(data, reviewsRange, reviewsTime) { reviews(data, fmt, reviewsRange, reviewsTime) }
-        val counts = remember(data, prefs.cardCountsSeparateInactive) { cardCounts(data, fmt, prefs.cardCountsSeparateInactive) }
-        val intervalsModel = remember(data, intervalRange) { intervals(data.intervals, fmt, intervalRange, fsrs = false) }
-        val stabilityModel =
-            remember(data, stabilityRange) { if (data.fsrs) intervals(data.stability, fmt, stabilityRange, fsrs = true) else null }
-        val easeModel = remember(data) { if (data.fsrs) null else ease(data, fmt) }
-        val difficultyModel = remember(data, difficultyRange) { if (data.fsrs) difficulty(data, fmt, difficultyRange) else null }
-        val retrievabilityModel =
-            remember(data, retrievabilityRange) { if (data.fsrs) retrievability(data, fmt, retrievabilityRange) else null }
-        val retention = remember(data, retentionMode, revlogRange) { trueRetention(data, fmt, retentionMode, revlogRange) }
-        val hoursModel = remember(data, hoursRange) { ChartAndTable(hours(data, fmt, hoursRange), emptyList()) }
-        val buttonsModel = remember(data, buttonsRange) { buttons(data, fmt, buttonsRange) }
-        val addedModel = remember(data, addedRange) { added(data, fmt, addedRange) }
         val historyTitle = stringResource(R.string.mmd_stats_history)
         val historyLabel = if (revlogRange == RevlogRange.Year) tr.statisticsRange1YearHistory() else tr.statisticsRangeAllHistory()
 
-        fun summary(model: ChartAndTable?): String? =
-            model?.table?.firstOrNull { it.value.isNotEmpty() }?.let { "${it.label}: ${it.value}" }
+        // A section's numbers are worked out off the main thread, and only while its page is open.
+        // Worked out on the main thread for every section at once, a large collection froze the
+        // page, back button included.
+        val today = inBackground(section == StatsSection.Today, data) { todayLines(data, fmt) }
+        val future =
+            inBackground(section == StatsSection.FutureDue, data, futureRange, prefs.futureDueShowBacklog) {
+                futureDue(data, fmt, futureRange, prefs.futureDueShowBacklog)
+            }
+        val calendar =
+            inBackground(section == StatsSection.Calendar, data, calendarYear, prefs.calendarFirstDayOfWeek, revlogRange) {
+                calendar(data, fmt, calendarYear, prefs.calendarFirstDayOfWeek, revlogRange, ZonedDateTime.now(), locale)
+            }
+        val reviewsModel =
+            inBackground(section == StatsSection.Reviews, data, reviewsRange, reviewsTime) { reviews(data, fmt, reviewsRange, reviewsTime) }
+        val counts =
+            inBackground(section == StatsSection.CardCounts, data, prefs.cardCountsSeparateInactive) {
+                cardCounts(data, fmt, prefs.cardCountsSeparateInactive)
+            }
+        val intervalsModel =
+            inBackground(
+                section == StatsSection.Intervals,
+                data,
+                intervalRange,
+            ) { intervals(data.intervals, fmt, intervalRange, fsrs = false) }
+        val stabilityModel =
+            inBackground(
+                section == StatsSection.Stability,
+                data,
+                stabilityRange,
+            ) { intervals(data.stability, fmt, stabilityRange, fsrs = true) }
+        val easeModel = inBackground(section == StatsSection.Ease, data) { ease(data, fmt) }
+        val difficultyModel =
+            inBackground(section == StatsSection.Difficulty, data, difficultyRange) { difficulty(data, fmt, difficultyRange) }
+        val retrievabilityModel =
+            inBackground(
+                section == StatsSection.Retrievability,
+                data,
+                retrievabilityRange,
+            ) { retrievability(data, fmt, retrievabilityRange) }
+        val retention =
+            inBackground(section == StatsSection.TrueRetention, data, retentionMode, revlogRange) {
+                trueRetention(data, fmt, retentionMode, revlogRange)
+            }
+        val hoursModel =
+            inBackground(section == StatsSection.Hours, data, hoursRange) { ChartAndTable(hours(data, fmt, hoursRange), emptyList()) }
+        val buttonsModel = inBackground(section == StatsSection.Buttons, data, buttonsRange) { buttons(data, fmt, buttonsRange) }
+        val addedModel = inBackground(section == StatsSection.Added, data, addedRange) { added(data, fmt, addedRange) }
 
         val available =
             StatsSection.entries.filter {
@@ -196,38 +238,26 @@ fun StatisticsScreenMMD(
                 null -> {
                     item {
                         Column {
-                            ValueRow(title = historyTitle, value = historyLabel, onClick = { historySheet = true })
+                            ValueRow(title = tr.decksDeck(), value = title, onClick = { isChoosingDeck = true })
                             RowDivider()
+                        }
+                    }
+                    item {
+                        Column {
+                            ValueRow(title = historyTitle, value = historyLabel, onClick = { historySheet = true })
+                            GroupDivider()
                         }
                     }
                     available.forEachIndexed { index, entry ->
                         item {
                             Column {
-                                NavRow(
-                                    title = sectionTitle(entry, tr),
-                                    subtitle =
-                                        when (entry) {
-                                            StatsSection.Today -> today.firstOrNull()
-                                            StatsSection.FutureDue -> summary(future)
-                                            StatsSection.Calendar -> calendar.year.toString()
-                                            StatsSection.Reviews -> summary(reviewsModel)
-                                            StatsSection.CardCounts -> counts.table.lastOrNull()?.let { "${it.label}: ${it.value}" }
-                                            StatsSection.Intervals -> summary(intervalsModel)
-                                            StatsSection.Stability -> summary(stabilityModel)
-                                            StatsSection.Ease -> summary(easeModel)
-                                            StatsSection.Difficulty -> summary(difficultyModel)
-                                            StatsSection.Retrievability -> summary(retrievabilityModel)
-                                            StatsSection.TrueRetention, StatsSection.Hours, StatsSection.Buttons -> null
-                                            StatsSection.Added -> summary(addedModel)
-                                        },
-                                    onClick = { section = entry },
-                                )
+                                NavRow(title = sectionTitle(entry, tr), onClick = { section = entry })
                                 if (index != available.lastIndex) RowDivider()
                             }
                         }
                     }
                 }
-                StatsSection.Today -> today.forEach { line -> item { BodyLine(line) } }
+                StatsSection.Today -> today?.forEach { line -> item { BodyLine(line) } } ?: loading(loadingLabel)
                 StatsSection.FutureDue -> {
                     subtitle(tr.statisticsFutureDueSubtitle())
                     if (data.futureDue.haveBacklog) {
@@ -240,14 +270,14 @@ fun StatisticsScreenMMD(
                         }
                     }
                     rangeRow("future", rangeTitle, labels.getValue(futureRange)) { openChooser = it }
-                    chartAndTable(future, noData)
+                    future?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                 }
                 StatsSection.Calendar -> {
-                    rangeRow("calendar", yearTitle, calendar.year.toString()) { openChooser = it }
-                    if (calendar.days == null) {
-                        item { BodyLine(noData) }
-                    } else {
-                        item { CalendarWithDetail(calendar) }
+                    rangeRow("calendar", yearTitle, calendarYear.toString()) { openChooser = it }
+                    when {
+                        calendar == null -> loading(loadingLabel)
+                        calendar.days == null -> item { BodyLine(noData) }
+                        else -> item { CalendarWithDetail(calendar) }
                     }
                 }
                 StatsSection.Reviews -> {
@@ -256,7 +286,7 @@ fun StatisticsScreenMMD(
                         SwitchRow(title = tr.statisticsReviewsTimeCheckbox(), checked = reviewsTime, onCheckedChange = { reviewsTime = it })
                     }
                     rangeRow("reviews", rangeTitle, labels.getValue(reviewsRange)) { openChooser = it }
-                    chartAndTable(reviewsModel, noData)
+                    reviewsModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                 }
                 StatsSection.CardCounts -> {
                     item {
@@ -266,51 +296,51 @@ fun StatisticsScreenMMD(
                             onCheckedChange = { onPrefsChange(prefs.toBuilder().setCardCountsSeparateInactive(it).build()) },
                         )
                     }
-                    table(counts.table)
+                    counts?.let { table(it.table) } ?: loading(loadingLabel)
                 }
                 StatsSection.Intervals -> {
                     subtitle(tr.statisticsIntervalsSubtitle())
                     rangeRow("intervals", rangeTitle, intervalLabel(intervalRange, labels, tr)) { openChooser = it }
-                    chartAndTable(intervalsModel, noData)
+                    intervalsModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                 }
                 StatsSection.Stability -> {
                     subtitle(tr.statisticsCardStabilitySubtitle())
                     rangeRow("stability", rangeTitle, intervalLabel(stabilityRange, labels, tr)) { openChooser = it }
-                    stabilityModel?.let { chartAndTable(it, noData) }
+                    stabilityModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                 }
                 StatsSection.Ease -> {
                     subtitle(tr.statisticsCardEaseSubtitle())
-                    easeModel?.let { chartAndTable(it, noData) }
+                    easeModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                 }
                 StatsSection.Difficulty -> {
                     subtitle(tr.statisticsCardDifficultySubtitle2())
                     rangeRow("difficulty", rangeTitle, percentLabel(difficultyRange, tr)) { openChooser = it }
-                    difficultyModel?.let { chartAndTable(it, noData) }
+                    difficultyModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                 }
                 StatsSection.Retrievability -> {
                     subtitle(tr.statisticsRetrievabilitySubtitle())
                     rangeRow("retrievability", rangeTitle, percentLabel(retrievabilityRange, tr)) { openChooser = it }
-                    retrievabilityModel?.let { chartAndTable(it, noData) }
+                    retrievabilityModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                 }
                 StatsSection.TrueRetention -> {
                     subtitle(tr.statisticsTrueRetentionSubtitle())
                     rangeRow("retention", rangeTitle, retentionLabel(retentionMode, tr)) { openChooser = it }
-                    table(retention)
+                    retention?.let { table(it) } ?: loading(loadingLabel)
                 }
                 StatsSection.Hours -> {
                     subtitle(tr.statisticsHoursSubtitle())
                     rangeRow("hours", rangeTitle, labels.getValue(hoursRange)) { openChooser = it }
-                    chartAndTable(hoursModel, noData)
+                    hoursModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                 }
                 StatsSection.Buttons -> {
                     subtitle(tr.statisticsAnswerButtonsSubtitle())
                     rangeRow("buttons", rangeTitle, labels.getValue(buttonsRange)) { openChooser = it }
-                    chartAndTable(buttonsModel, noData)
+                    buttonsModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                 }
                 StatsSection.Added -> {
                     subtitle(tr.statisticsAddedSubtitle())
                     rangeRow("added", rangeTitle, labels.getValue(addedRange)) { openChooser = it }
-                    chartAndTable(addedModel, noData)
+                    addedModel?.let { chartAndTable(it, noData) } ?: loading(loadingLabel)
                 }
             }
         }
@@ -325,6 +355,7 @@ fun StatisticsScreenMMD(
                 onDismissRequest = { historySheet = false },
             )
         }
+        if (isChoosingDeck) DeckPage(decks, selectedDeckId, tr, onDeckSelected) { isChoosingDeck = false }
 
         @Composable
         fun <T> chooser(
@@ -345,7 +376,12 @@ fun StatisticsScreenMMD(
                 )
             }
         }
-        chooser("calendar", (calendar.maxYear downTo calendar.minYear).toList(), calendar.year, { it.toString() }) { calendarYear = it }
+        calendar?.let {
+            chooser("calendar", (it.maxYear downTo it.minYear).toList(), it.year, { year -> year.toString() }) { year ->
+                calendarYear =
+                    year
+            }
+        }
         chooser("future", GraphRange.entries, futureRange, labels::getValue) { futureRange = it }
         chooser("reviews", revlogRanges, reviewsRange, labels::getValue) { reviewsRange = it }
         chooser("intervals", IntervalRange.entries, intervalRange, { intervalLabel(it, labels, tr) }) { intervalRange = it }
@@ -356,6 +392,82 @@ fun StatisticsScreenMMD(
         chooser("hours", revlogRanges, hoursRange, labels::getValue) { hoursRange = it }
         chooser("buttons", revlogRanges, buttonsRange, labels::getValue) { buttonsRange = it }
         chooser("added", GraphRange.entries, addedRange, labels::getValue) { addedRange = it }
+    }
+}
+
+/**
+ * [compute]'s result, worked out on a background thread while [active]; null while it is being
+ * worked out, and while not [active]. Worked out again when a key changes.
+ */
+@Composable
+private fun <T> inBackground(
+    active: Boolean,
+    vararg keys: Any?,
+    compute: () -> T,
+): T? {
+    val result by produceState<T?>(null, active, *keys) {
+        value = null
+        if (active) value = withContext(Dispatchers.Default) { compute() }
+    }
+    return result
+}
+
+private fun LazyListScope.loading(label: String) {
+    item { LoadingIndicator(label, Modifier.height(240.dp)) }
+}
+
+/**
+ * Choosing the deck the statistics are for, on a page of its own: all decks first, then every
+ * deck by its place in the deck list, subdecks indented. Choosing one closes the page.
+ */
+@Composable
+private fun DeckPage(
+    decks: List<StatsDeck>,
+    selectedId: Long?,
+    tr: Translations,
+    onSelect: (StatsDeck) -> Unit,
+    onClose: () -> Unit,
+) {
+    Dialog(onDismissRequest = onClose, properties = DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
+        Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+            ScreenHeader(
+                title = tr.decksDeck(),
+                navigationIcon = {
+                    HeaderAction(icon = R.drawable.close_icon, contentDescription = stringResource(R.string.close), onClick = onClose)
+                },
+            )
+            PagedList(Modifier.weight(1f)) {
+                items(decks.size) { index ->
+                    val deck = decks[index]
+                    val depth = if (deck.id == null) 0 else deck.name.split("::").size - 1
+                    Column {
+                        Row(
+                            modifier =
+                                Modifier
+                                    .fillMaxWidth()
+                                    .heightIn(min = RowDefaults.MinHeight)
+                                    .selectable(selected = deck.id == selectedId, role = Role.RadioButton) {
+                                        onSelect(deck)
+                                        onClose()
+                                    }.padding(start = RowDefaults.EdgePadding + (depth * 20).dp, end = RowDefaults.EdgePadding),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            RadioButtonMMD(selected = deck.id == selectedId, onClick = null)
+                            TextMMD(
+                                text = deck.name.substringAfterLast("::"),
+                                style = MaterialTheme.typography.bodyLarge,
+                                modifier = Modifier.padding(start = 16.dp),
+                            )
+                        }
+                        if (index == 0) {
+                            GroupDivider()
+                        } else if (index != decks.lastIndex) {
+                            RowDivider()
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

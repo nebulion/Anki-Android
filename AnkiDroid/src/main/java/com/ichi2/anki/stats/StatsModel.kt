@@ -222,6 +222,39 @@ fun added(
     )
 }
 
+/** Values with how many times each occurs, ascending: a sorted list without the list. */
+private class WeightedSorted(
+    counts: Map<Int, Int>,
+) {
+    val entries = counts.entries.filter { it.value > 0 }.sortedBy { it.key }
+    private val size = entries.sumOf { it.value.toLong() }
+
+    fun isEmpty() = size == 0L
+
+    fun last() = entries.last().key
+
+    /** The value at [index] of the sorted, expanded list. */
+    private fun at(index: Long): Double {
+        var seen = 0L
+        for ((value, count) in entries) {
+            seen += count
+            if (index < seen) return value.toDouble()
+        }
+        return entries.last().key.toDouble()
+    }
+
+    /** `quantileSorted` over the expanded list. */
+    fun quantile(p: Double): Double? {
+        if (size == 0L) return null
+        if (p <= 0 || size < 2) return at(0)
+        if (p >= 1) return at(size - 1)
+        val i = (size - 1) * p
+        val i0 = kotlin.math.floor(i).toLong()
+        val value0 = at(i0)
+        return value0 + (at(i0 + 1) - value0) * (i - i0)
+    }
+}
+
 /** `intervals.ts`, for the review intervals or, with [fsrs], the stability. */
 fun intervals(
     intervals: GraphsResponse.Intervals,
@@ -230,10 +263,9 @@ fun intervals(
     fsrs: Boolean,
 ): ChartAndTable {
     val tr = fmt.tr
-    val all =
-        buildList {
-            for ((interval, count) in intervals.intervalsMap) repeat(count) { add(interval) }
-        }.sorted()
+    // counted per interval rather than expanded to one item per card: a large collection has
+    // tens of thousands of cards
+    val all = WeightedSorted(intervals.intervalsMap)
     if (all.isEmpty()) return ChartAndTable(null, emptyList())
 
     var xMax: Double = all.last().toDouble()
@@ -241,11 +273,11 @@ fun intervals(
     when (range) {
         IntervalRange.Month -> xMax = minOf(xMax, 30.0)
         IntervalRange.Percentile50 -> {
-            xMax = quantileSorted(all, 0.5)!!
+            xMax = all.quantile(0.5)!!
             niceNecessary = true
         }
         IntervalRange.Percentile95 -> {
-            xMax = quantileSorted(all, 0.95)!!
+            xMax = all.quantile(0.95)!!
             niceNecessary = true
         }
         IntervalRange.All -> niceNecessary = true
@@ -261,8 +293,8 @@ fun intervals(
             val shifted = x - (baseTicks[0] - 1)
             if (idx == baseTicks.lastIndex) listOf(shifted, x + 1) else listOf(shifted)
         }
-    val bins = bin(all, domain, thresholds) { it.toDouble() }
-    val values = bins.map { it.items.size.toDouble() }
+    val bins = bin(all.entries, domain, thresholds) { it.key.toDouble() }
+    val values = bins.map { it.items.binSum() }
     if (values.sum() == 0.0) return ChartAndTable(null, emptyList())
 
     val chart =
@@ -272,7 +304,7 @@ fun intervals(
                 "${tr.statisticsRunningTotal()}: ‎${fmt.number(percent, 1)}%",
             )
         }
-    val median = (quantileSorted(all, 0.5) ?: 0.0).roundToInt()
+    val median = (all.quantile(0.5) ?: 0.0).roundToInt()
     return ChartAndTable(
         chart,
         listOf(
@@ -790,8 +822,7 @@ fun calendar(
             val count = reviewed?.second ?: 0
             val weekday = ((date.dayOfWeek.value - first.value) + 7) % 7
             // d3's `timeSunday.count(yearStart, date)`: week starts after the first of January, up to the date
-            val week =
-                (1..ChronoUnit.DAYS.between(yearStart, date)).count { yearStart.plusDays(it).dayOfWeek == first }
+            val week = weekStartsAfter(yearStart, date, first)
             CalendarDay(
                 week = week,
                 weekday = weekday,
@@ -802,6 +833,18 @@ fun calendar(
             )
         }
     return Calendar(targetYear, minYear, maxYear, weekdayLabels, days)
+}
+
+/** d3's `timeSunday.count(start, date)`: how many days after [start], up to [date], begin a week. */
+internal fun weekStartsAfter(
+    start: LocalDate,
+    date: LocalDate,
+    first: DayOfWeek,
+): Int {
+    val days = ChronoUnit.DAYS.between(start, date)
+    // the first day after the start that begins a week
+    val firstStart = ((first.value - start.dayOfWeek.value + 7) % 7).let { if (it == 0) 7 else it }
+    return if (days < firstStart) 0 else (1 + (days - firstStart) / 7).toInt()
 }
 
 private fun Weekday.toDayOfWeek(): DayOfWeek =

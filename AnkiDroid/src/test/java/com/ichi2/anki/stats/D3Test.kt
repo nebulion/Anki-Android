@@ -44,3 +44,20 @@ class D3Test {
         assertEquals(null, quantileSorted(emptyList(), 0.5))
     }
 }
+
+/** The calendar's week count matches counting week starts day by day, as d3 does. */
+class WeekStartsAfterTest {
+    @Test
+    fun `matches counting day by day for every start weekday`() {
+        for (year in listOf(2023, 2024, 2026)) {
+            val start = java.time.LocalDate.of(year, 1, 1)
+            for (first in java.time.DayOfWeek.entries) {
+                for (offset in 0L..400L) {
+                    val date = start.plusDays(offset)
+                    val slow = (1..offset).count { start.plusDays(it).dayOfWeek == first }
+                    assertEquals(slow, weekStartsAfter(start, date, first), "$year $first +$offset")
+                }
+            }
+        }
+    }
+}
